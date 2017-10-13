@@ -10,14 +10,16 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-        <!-- 导入数据库配置文件 -->
- 		<context:property-placeholder location="classpath:com/brick/squad/config/db.properties"/>
-        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >  
-        <property name="driverClassName" value="${jdbc.driverClass}" />  
-        <property name="url" value="${jdbc.jdbcUrl}" />  
-        <property name="username" value="${jdbc.user}" />  
-        <property name="password" value="${jdbc.password}" />  
-        </bean>
+	<!-- 导入数据库配置文件 -->
+	<context:property-placeholder
+		location="classpath:com/brick/squad/config/db.properties" />
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
 	<!-- 2. mybatis的SqlSession的工厂: SqlSessionFactoryBean dataSource:引用数据源 MyBatis定义数据源,同意加载配置 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />

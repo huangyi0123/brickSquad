@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.ActivityRegistrationMapper">
+	<select id="findActivityRegistrationById" resultType="ActivityRegistration"
+		parameterType="String">
+		select id,per_id perId,activities_id activitiesId,registration_date
+		registrationDate,appointment from activity_registration where
+		id=#{id};
+	</select>
+
+	<insert id="insert" parameterType="ActivityRegistration">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO
+		activity_registration(id,per_id,activities_id,registration_date,appointment)
+		VALUES(#{id},#{perId},#{activitiesId],#{registrationDate},#{appointment})
+	</insert>
+
+	<update id="update" parameterType="ActivityRegistration">
+		UPDATE activity_registration
+		SET per_id=#{perId},
+		activities_id=#{activitiesId},
+		registration_date=#{registrationdate},
+		appointment=#{appointment}
+		where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+	   DELETE activity_registration WHERE id=#{id}
+	</delete>
+</mapper>
