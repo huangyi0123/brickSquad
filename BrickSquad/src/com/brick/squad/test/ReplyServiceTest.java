@@ -21,7 +21,7 @@ public class ReplyServiceTest {
 
 	@Test
 	public void findReplyById() {
-	Reply reply =  replyService.findReplyById("1");
+	Reply reply =  replyService.findReplyById("b7a32865b00c11e7ae5d8cdcd49043a9");
 	System.out.println(reply.getCentent());
 	}
 
