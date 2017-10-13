@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.ReplyMapper">
+	<select id="findReplyById" parameterType="String" resultType="reply">
+		select id id,reply_date replydDate,centent centent
+		from reply where id = #{id}
+	</select>
+	<insert id="insertReply" parameterType="reply">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into reply(id,rated_id,reply_date,centent)
+		values(#{id},#{ratedId},#{replyDate},#{centent})
+	</insert>
+	<delete id="deleteReplyById" parameterType="String">
+		delete from reply where id=#{id}
+	</delete>
+	<update id="updateReplyCententById" parameterType="reply">
+	UPDATE reply set centent=#{centent}  where id =#{id}
+	</update>
+</mapper>
