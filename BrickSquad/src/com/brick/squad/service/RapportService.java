@@ -1,0 +1,26 @@
+package com.brick.squad.service;
+
+
+import com.brick.squad.pojo.Rapport;
+/**
+ * 业务层：老人客户沟通
+ * */
+public interface RapportService {
+	/**
+	 * 根据ID查询老人客户沟通信息
+	 * */
+	public Rapport findRapportById(String id)throws Exception;
+	
+	/**
+	 * 插入老人客户沟通信息
+	 * */
+	public void insertRapport(Rapport rapport)throws Exception;
+	/**
+	 * 根据ID修改老人客户沟通信息
+	 * */
+	public void updateRapportByID(Rapport rapport)throws Exception;
+	/**
+	 * 根据ID删除老人客户沟通信息
+	 * */
+	public void deleteRapportById(String id)throws Exception;
+}
