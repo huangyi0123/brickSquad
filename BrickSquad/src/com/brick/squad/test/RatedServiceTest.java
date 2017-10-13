@@ -25,7 +25,7 @@ public class RatedServiceTest {
 	public void testfindRatedById() {
 		System.out.println("**");
 		Rated rated = new Rated();
-		rated = ratedService.findRatedById("0");
+		rated = ratedService.findRatedById("11");
 		System.out.println("**" + rated.getCentent() + rated.getRatedDate());
 	}
 
