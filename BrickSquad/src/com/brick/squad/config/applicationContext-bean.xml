@@ -9,11 +9,19 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-	<bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
-	<bean name="activityRegistrationService"
-		class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl" />
 
-<!-- wwx -->
+
 	<bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
 	<bean name="replyService" class="com.brick.squad.service.impl.ReplyServiceImpl" />
+        <bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
+        <bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl">
+        
+        </bean>
+        <bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
+        <bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl"/>
+        
+        
+        <bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
+        <bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl"/>
+        
 </beans>
