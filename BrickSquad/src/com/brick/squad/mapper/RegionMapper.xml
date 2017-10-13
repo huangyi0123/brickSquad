@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.RegionMapper">
+	<select id="findRegionByLevel" resultType="region" parameterType="int">
+		select id,isleaf,name,parent_id perantId  from region where level=#{level}
+	</select>
+	<select id="findRegionByPerantId" resultType="region" parameterType="String" >
+		select id,isleaf,name,parent_id perantId  from region where parent_id=#{perantId}
+	</select>
+</mapper>
