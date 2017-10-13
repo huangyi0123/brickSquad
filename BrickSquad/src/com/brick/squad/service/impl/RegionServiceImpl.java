@@ -19,8 +19,14 @@ public class RegionServiceImpl implements RegionService {
 		return regionMapper.findRegionByLevel(level);
 	}
 	@Override
-	public List<Region> findRegionByPerantId(String perantId) {
-		return regionMapper.findRegionByPerantId(perantId);
+	public Region findRegionById(String id) {
+		return regionMapper.findRegionById(id);
 	}
-
+	@Override
+	public void insertRegionById(Region region){
+		regionMapper.insertRegionById(region);
+	}
+	public void updateRegion(Region region){
+		regionMapper.updateRegion(region);
+	}
 }
