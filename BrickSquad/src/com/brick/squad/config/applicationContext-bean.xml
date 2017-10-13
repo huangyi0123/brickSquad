@@ -10,4 +10,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
         <bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
+        <bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl">
+        
+        </bean>
 </beans>
