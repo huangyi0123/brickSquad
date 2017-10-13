@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.ShopActivities">
+
+
+<select id="findShopActivitiesById" resultType="shopActivities" parameterType="String" >
+	select id,type_id typeId,start_time startTime,end_time endTime,business_id businessId,articleId from ShopActivities where id=#{id}
+</select>
+
+</mapper>
