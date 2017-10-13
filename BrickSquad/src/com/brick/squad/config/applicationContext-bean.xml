@@ -15,4 +15,9 @@
         </bean>
         <bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
         <bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl"/>
+        
+        
+        <bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
+        <bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl"/>
+        
 </beans>
