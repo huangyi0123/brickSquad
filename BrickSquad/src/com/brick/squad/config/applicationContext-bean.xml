@@ -10,17 +10,19 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-
+	<bean name="medicalService" class="com.brick.squad.service.impl.MedicalServiceImpl" />
 	<bean name="replyService" class="com.brick.squad.service.impl.ReplyServiceImpl" />
-        <bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
-        <bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl">
-        
-        </bean>
-        <bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
-        <bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl"/>
-        
-        
-        <bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
-        <bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl"/>
-        
+	<bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
+	<bean name="activityRegistrationService"
+		class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl">
+
+	</bean>
+	<bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
+	<bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl" />
+
+
+	<bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
+	<bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl" />
+
+
 </beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.MedicalMapper">
+
+	<insert id="insertMedical" parameterType="medical">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into
+		medical(id,per_id,inspection_date,type_id,hospital,content,attending_surgeon)
+		values(#{id},#{perId},#{inspectionDate},#{typeId},#{hospital},#{content},#{attendingSurgeon})
+	</insert>
+
+
+	<!-- <select id="findRatedById" parameterType="String" resultType="rated"> 
+		select id id,order_id orderId,rated_date ratedDate,centent centent from rated 
+		where id = #{id} </select> <delete id="deleteRatedById" parameterType="String"> 
+		delete from rated where id=#{id} </delete> <update id="updateRatedCententById" 
+		parameterType="rated"> UPDATE rated set centent=#{centent} where id =#{id} 
+		</update> -->
+</mapper>
