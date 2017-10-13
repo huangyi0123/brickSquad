@@ -15,9 +15,9 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://123.207.32.178:3306/PracticalTraining" />
+		<property name="url" value="jdbc:mysql://localhost:3306/PracticalTraining?characterEncoding=utf-8" />
 		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="password" value="wwx123123" />
 	</bean>
 	<!-- 2. mybatis的SqlSession的工厂: SqlSessionFactoryBean dataSource:引用数据源 MyBatis定义数据源,同意加载配置 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

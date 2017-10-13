@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.RatedMapper">
+	<select id="findRatedById" resultType="rated" parameterType="String">
+		select id id,order_id orderId,rated_date ratedDate,centent centent
+		from rated where id = #{id}
+	</select>
+	<insert id="insertRated" parameterType="rated">
+	insert into rated(id,order_id,rated_date,centent) 
+	value(#{id},#{orderId},#{ratedDate},#{centent},)
+	</insert>
+</mapper>
