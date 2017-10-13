@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.ArticleMapper">
+
+    <!-- 查询 -->
+    <select id="findArticleById" resultType="article" parameterType="String" >
+	 	select id,name,type_id typeId,business_id businessId,price,stock,describe,image from Arcticle where id=#{id}
+	</select>
+	
+	
+</mapper>
