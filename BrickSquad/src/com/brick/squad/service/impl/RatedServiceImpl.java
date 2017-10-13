@@ -21,5 +21,15 @@ private RatedMapper ratedMapper;
 		ratedMapper.insertRated(rated);
 		
 	}
+	@Override
+	public void deleteRatedById(String id) {
+		ratedMapper.deleteRatedById(id);
+		
+	}
+	@Override
+	public void updateRatedCententById(Rated rated) {
+		ratedMapper.updateRatedCententById(rated);
+		
+	}
 
 }
