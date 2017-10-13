@@ -11,7 +11,6 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 
-	<bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
 	<bean name="replyService" class="com.brick.squad.service.impl.ReplyServiceImpl" />
         <bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
         <bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl">

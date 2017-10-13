@@ -1,4 +1,4 @@
-package com.brick.squad.service.impl;
+package com.brick.squad.service;
 
 import com.brick.squad.pojo.Reply;
 

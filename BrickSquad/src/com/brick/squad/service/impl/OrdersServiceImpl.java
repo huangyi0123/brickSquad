@@ -3,6 +3,7 @@ package com.brick.squad.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.OrdersMapper;
 import com.brick.squad.pojo.Orders;
@@ -10,6 +11,7 @@ import com.brick.squad.service.OrdersService;
 /*
  * 订单业务层接口实现接口
  * */
+@Transactional
 public class OrdersServiceImpl implements OrdersService{
 	@Autowired
 	@Qualifier("ordersMapper")

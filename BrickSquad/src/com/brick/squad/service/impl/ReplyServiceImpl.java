@@ -2,10 +2,12 @@ package com.brick.squad.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.ReplyMapper;
 import com.brick.squad.pojo.Reply;
-
+import com.brick.squad.service.ReplyService;
+@Transactional
 public class ReplyServiceImpl implements ReplyService {
 	@Autowired
 	@Qualifier("replyMapper")

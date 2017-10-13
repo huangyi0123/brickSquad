@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.brick.squad.mapper.ActivitiesMapper">
+<mapper namespace="com.brick.squad.mapper.ArticleMapper">
 
     <!-- 查询 -->
-    <select id="findActivitiesById" resultType="activities" parameterType="String" >
-	 	select id,name,content,type_id typeId,start_time startTime,end_time endTime from Activities where id=#{id}
+    <select id="findArticleById" resultType="article" parameterType="String" >
+	 	select id,name,type_id typeId,business_id businessId,price,stock,describe,image from Arcticle where id=#{id}
 	</select>
 	
 	
