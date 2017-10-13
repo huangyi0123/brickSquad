@@ -1,12 +1,14 @@
 package com.brick.squad.mapper;
 
-public interface ShopActivities {
+import com.brick.squad.pojo.ShopActivities;
+
+public interface ShopActivitiesMapper {
 	/**
 	 * 
 	 * @param id
 	 * 根据id查询shopActivies商品活动表
 	 */
-	public ShopActivities shopActivities(String id);
+	public ShopActivities findShopActivitiesById(String id);
 	
 	
 	/**

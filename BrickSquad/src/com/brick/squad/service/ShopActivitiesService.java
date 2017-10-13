@@ -1,6 +1,8 @@
 package com.brick.squad.service;
 
-public interface ShopActivities {
+import com.brick.squad.pojo.ShopActivities;
+
+public interface ShopActivitiesService {
 	/**
 	 * 
 	 * 根据id查询

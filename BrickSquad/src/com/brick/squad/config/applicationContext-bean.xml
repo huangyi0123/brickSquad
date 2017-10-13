@@ -13,9 +13,8 @@
 
 	<bean name="replyService" class="com.brick.squad.service.impl.ReplyServiceImpl" />
         <bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
-        <bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl">
+        <bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl"/>
         
-        </bean>
         <bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
         <bean name="personalInformationService" class="com.brick.squad.service.impl.PersonalInformationServiceImpl"/>
 
@@ -24,6 +23,6 @@
         
         <bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
         <bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl"/>
-        <bean name="shopActivities" class="com.brick.squad.service.impl.ShopActivitiesImpl"/>
+        <bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl"/>
 
 </beans>
