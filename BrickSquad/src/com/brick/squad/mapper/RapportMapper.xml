@@ -11,6 +11,12 @@
 		FROM rapport
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</select>
+	<select id="findRapport" resultType="Rapport">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM rapport
+	</select>
+	
 	<insert id="insertRapport" parameterType="Rapport">
 		INSERT INTO rapport
 		(id, per_id, user_id,

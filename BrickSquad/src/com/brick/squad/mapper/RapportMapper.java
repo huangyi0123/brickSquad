@@ -1,5 +1,7 @@
 package com.brick.squad.mapper;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Rapport;
 
 /**
@@ -10,7 +12,10 @@ public interface RapportMapper {
 	 * 根据ID查询老人客户沟通信息
 	 * */
 	public Rapport findRapportById(String id);
-	
+	/**
+	 * 查询老人客户沟通信息
+	 * */
+	public List<Rapport> findRapport();
 	/**
 	 * 插入老人客户沟通信息
 	 * */

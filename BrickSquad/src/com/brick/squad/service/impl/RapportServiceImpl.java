@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -34,6 +36,12 @@ public class RapportServiceImpl implements RapportService{
 	/**根据ID删除老人客户沟通信息*/
 	public void deleteRapportById(String id) throws Exception {
 		rapportMapper.deleteRapportById(id);
+	}
+	@Override
+	/**查询老人客户沟通信息*/
+	public List<Rapport> findRapport() throws Exception {
+		List<Rapport> rapport=rapportMapper.findRapport();
+		return rapport;
 	}
 	
 
