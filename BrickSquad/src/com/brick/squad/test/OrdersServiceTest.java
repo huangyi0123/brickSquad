@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,5 +46,12 @@ public class OrdersServiceTest {
 	@Test
 	public void deleteOrdersById() throws Exception{
 		ordersService.deleteOrdersById("2");
+	}
+	@Test
+	public void findOrders() throws Exception{
+		List<Orders> orders=ordersService.findOrders();
+		for(Orders order:orders){
+			System.out.println(order);
+		}
 	}
 }

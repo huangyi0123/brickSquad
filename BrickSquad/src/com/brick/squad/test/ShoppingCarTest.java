@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,14 +19,16 @@ public class ShoppingCarTest {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
+
 	@Test
-	public void findShoppingCarById() throws Exception{
-		ShoppingCar shoppingCar=shoppingCarService.findShoppingCarById("1");
+	public void findShoppingCarById() throws Exception {
+		ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById("1");
 		System.out.println(shoppingCar.getNumber());
 	}
+
 	@Test
-	public void insertShoppingCar() throws Exception{
-		ShoppingCar shoppingCar=new ShoppingCar();
+	public void insertShoppingCar() throws Exception {
+		ShoppingCar shoppingCar = new ShoppingCar();
 		shoppingCar.setArticleId("2");
 		shoppingCar.setDate(new Date());
 		shoppingCar.setId("2");
@@ -33,16 +36,26 @@ public class ShoppingCarTest {
 		shoppingCar.setPerId("2");
 		shoppingCarService.insertShoppingCar(shoppingCar);
 	}
+
 	@Test
-	public void deleteShoppingCarById() throws Exception{
-	    ShoppingCar shoppingCar=shoppingCarService.findShoppingCarById("2");
-	    shoppingCarService.deleteShoppingCarById(shoppingCar.getId());
+	public void deleteShoppingCarById() throws Exception {
+		ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById("2");
+		shoppingCarService.deleteShoppingCarById(shoppingCar.getId());
 	}
+
 	@Test
-	public void updateShoppingCarById() throws Exception{
-	    ShoppingCar shoppingCar=shoppingCarService.findShoppingCarById("1");
-	    shoppingCar.setNumber(666);
-	    shoppingCarService.updateShoppingCarById(shoppingCar);
+	public void updateShoppingCarById() throws Exception {
+		ShoppingCar shoppingCar = shoppingCarService.findShoppingCarById("1");
+		shoppingCar.setNumber(666);
+		shoppingCarService.updateShoppingCarById(shoppingCar);
 	}
-	
+
+	@Test
+	public void findShoppingCar() throws Exception {
+		List<ShoppingCar> shoppingCars = shoppingCarService.findShoppingCar();
+		for (ShoppingCar shoppingCar : shoppingCars) {
+			System.out.println(shoppingCar.getDate());
+		}
+	}
+
 }

@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ShoppingCarMapper">
-<sql id="Base_Column_List">
-    id, article_id articleId, per_id perId, number, date
-  </sql>
-	<select id="findShoppingCarById" parameterType="java.lang.String" resultType="ShoppingCar">
-	SELECT 
-	<include refid="Base_Column_List"/>
-	FROM shopping_car
-	WHERE id=#{id,jdbcType=VARCHAR}
+	<sql id="Base_Column_List">
+		id, article_id articleId, per_id perId, number, date
+	</sql>
+	<select id="findShoppingCarById" parameterType="java.lang.String"
+		resultType="ShoppingCar">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM shopping_car
+		WHERE id=#{id,jdbcType=VARCHAR}
+	</select>
+	<select id="findShoppingCar" resultType="ShoppingCar">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM shopping_car
 	</select>
 	<insert id="insertShoppingCar" parameterType="ShoppingCar">
-    INSERT INTO shopping_car (id, article_id, per_id, 
-      number, date)
-    VALUES (#{id,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR}, #{perId,jdbcType=VARCHAR}, 
-      #{number,jdbcType=INTEGER}, #{date,jdbcType=TIMESTAMP})
-  </insert>
-   <delete id="deleteShoppingCarById" parameterType="java.lang.String">
-    DELETE FROM shopping_car
-    WHERE id = #{id,jdbcType=VARCHAR}
-  </delete>
-  	<update id="updateShoppingCarById" parameterType="ShoppingCar">
-    UPDATE shopping_car
-    SET article_id = #{articleId,jdbcType=VARCHAR},
-      per_id = #{perId,jdbcType=VARCHAR},
-      number = #{number,jdbcType=INTEGER},
-      date = #{date,jdbcType=TIMESTAMP}
-    WHERE id = #{id,jdbcType=VARCHAR}
-  </update>
+		INSERT INTO
+		shopping_car (id, article_id, per_id,
+		number, date)
+		VALUES
+		(#{id,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR},
+		#{perId,jdbcType=VARCHAR},
+		#{number,jdbcType=INTEGER},
+		#{date,jdbcType=TIMESTAMP})
+	</insert>
+	<delete id="deleteShoppingCarById" parameterType="java.lang.String">
+		DELETE FROM
+		shopping_car
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<update id="updateShoppingCarById" parameterType="ShoppingCar">
+		UPDATE
+		shopping_car
+		SET article_id = #{articleId,jdbcType=VARCHAR},
+		per_id =
+		#{perId,jdbcType=VARCHAR},
+		number = #{number,jdbcType=INTEGER},
+		date =
+		#{date,jdbcType=TIMESTAMP}
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</update>
 </mapper>
