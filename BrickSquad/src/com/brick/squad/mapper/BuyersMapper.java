@@ -1,5 +1,10 @@
 package com.brick.squad.mapper;
 
-public interface BuyersMapper {
+import com.brick.squad.pojo.Buyers;
 
+public interface BuyersMapper {
+	public void insertBuyers(Buyers buyers) throws Exception;
+
+	
+	
 }
