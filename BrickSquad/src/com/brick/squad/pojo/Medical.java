@@ -1,4 +1,7 @@
 package com.brick.squad.pojo;
+
+import java.util.Date;
+
 /**
  * 
  * @author 吴文鑫
@@ -7,11 +10,23 @@ package com.brick.squad.pojo;
 public class Medical {
 	
 private String id;
+/**
+ * 主治医师
+ */
 private String perId;
-private String inspectionDate;
+private Date inspectionDate;
+/**
+ * 检查类型
+ */
 private String typeId; 
 private String hospital;
+/**
+ * 病历详情
+ */
 private String content;
+/**
+ * 主治医师
+ */
 private String attendingSurgeon;
 /**
  * @return the id
@@ -40,20 +55,24 @@ public void setPerId(String perId) {
 /**
  * @return the inspectionDate
  */
-public String getInspectionDate() {
-	return inspectionDate;
-}
-/**
- * @param inspectionDate the inspectionDate to set
- */
-public void setInspectionDate(String inspectionDate) {
-	this.inspectionDate = inspectionDate;
-}
+
 /**
  * @return the typeId
  */
 public String getTypeId() {
 	return typeId;
+}
+/**
+ * @return the inspectionDate
+ */
+public Date getInspectionDate() {
+	return inspectionDate;
+}
+/**
+ * @param inspectionDate the inspectionDate to set
+ */
+public void setInspectionDate(Date inspectionDate) {
+	this.inspectionDate = inspectionDate;
 }
 /**
  * @param typeId the typeId to set

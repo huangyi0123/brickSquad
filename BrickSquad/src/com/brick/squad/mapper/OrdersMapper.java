@@ -1,5 +1,7 @@
 package com.brick.squad.mapper;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Orders;
 
 public interface OrdersMapper {
@@ -7,6 +9,10 @@ public interface OrdersMapper {
 	 * 根据id查询Orders订单
 	 * */
 	public Orders findOrdersById(String id);
+	/**
+	 * 查询订单所有信息
+	 * */
+	public List<Orders> findOrders();
 	/*
 	 * 订单的添加
 	 * */

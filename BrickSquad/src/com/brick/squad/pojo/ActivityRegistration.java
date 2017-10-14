@@ -13,7 +13,6 @@ public class ActivityRegistration {
 	private String activitiesId;
 	private Date registrationDate;
 	private int appointment;
-	
 	public String getId() {
 		return id;
 	}
@@ -44,5 +43,7 @@ public class ActivityRegistration {
 	public void setAppointment(int appointment) {
 		this.appointment = appointment;
 	}
+	
+	
 
 }

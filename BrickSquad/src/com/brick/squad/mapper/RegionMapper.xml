@@ -5,7 +5,17 @@
 	<select id="findRegionByLevel" resultType="region" parameterType="int">
 		select id,isleaf,name,parent_id perantId  from region where level=#{level}
 	</select>
-	<select id="findRegionByPerantId" resultType="region" parameterType="String" >
-		select id,isleaf,name,parent_id perantId  from region where parent_id=#{perantId}
+	<select id="findRegionById" resultType="region" parameterType="String" >
+		select id,isleaf,name,parent_id perantId  from region where id=#{id}
 	</select>
+	<insert id="insertRegionById" parameterType="region">
+		insert into region (id,isleaf,name,parent_id)  values (#{id},#{isleaf},#{name}
+		,#{perantId})
+	</insert>
+	<delete id="deleteRegionById" parameterType="String">
+		delete from region where id=#{id}
+	</delete>
+	<update id="updateRegion"  parameterType="region" >
+		update region set name=#{name}	where id=#{id} 
+	</update>
 </mapper>

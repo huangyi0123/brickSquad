@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.RapportMapper">
+	<sql id="Base_Column_List">
+		id, per_id perId, user_id userId, rapport_date rapportDate
+	</sql>
+	<select id="findRapportById" parameterType="java.lang.String"
+		resultType="Rapport">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM rapport
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</select>
+	<select id="findRapport" resultType="Rapport">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM rapport
+	</select>
+	
+	<insert id="insertRapport" parameterType="Rapport">
+		INSERT INTO rapport
+		(id, per_id, user_id,
+		rapport_date, content)
+		VALUES
+		(#{id,jdbcType=VARCHAR}, #{perId,jdbcType=VARCHAR},
+		#{userId,jdbcType=VARCHAR},
+		#{rapportDate,jdbcType=TIMESTAMP},
+		#{content,jdbcType=LONGVARCHAR})
+	</insert>
+	<update id="updateRapportByID" parameterType="Rapport">
+		UPDATE rapport
+		SET
+		per_id = #{perId,jdbcType=VARCHAR},
+		user_id =
+		#{userId,jdbcType=VARCHAR},
+		rapport_date =
+		#{rapportDate,jdbcType=TIMESTAMP},
+		content =
+		#{content,jdbcType=LONGVARCHAR}
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</update>
+	<delete id="deleteRapportById" parameterType="java.lang.String">
+		DELETE FROM rapport
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</delete>
+</mapper>

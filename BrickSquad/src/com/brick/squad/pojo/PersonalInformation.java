@@ -13,7 +13,7 @@ public class PersonalInformation {
 	private Date birthday;
 	private String gender;
 	private String idCard;
-	private String address_id;
+	private String addressId;
 	public String getId() {
 		return id;
 	}
@@ -44,11 +44,11 @@ public class PersonalInformation {
 	public void setIdCard(String idCard) {
 		this.idCard = idCard;
 	}
-	public String getAddress_id() {
-		return address_id;
+	public String getAddressId() {
+		return addressId;
 	}
-	public void setAddress_id(String address_id) {
-		this.address_id = address_id;
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
 	}
 	
 }

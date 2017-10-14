@@ -15,5 +15,7 @@ public interface ShopActivitiesMapper {
 	public void deleteShopActivities(String id);
 	
 	public void updateShopActivities(String id);
+	
+
 
 }

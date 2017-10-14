@@ -15,35 +15,39 @@ import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.service.ActivityRegistrationService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
-public class ActivityRegistrationServiceImplTest {
+public class ActivityRegistrationServiceTest {
 
 	@Autowired
 	@Qualifier("activityRegistrationService")
 	private ActivityRegistrationService activityRegistrationService;
+	
 	@Test
 	public void testFindActivityRegistrationById() {
-		fail("Not yet implemented");
+		activityRegistrationService.findActivityRegistrationById("123");
 	}
 
 	@Test
-	public void testInsert() {
+	public void testInsertActivityRegistration() {
 		ActivityRegistration activityRegistration=new ActivityRegistration();
 		activityRegistration.setPerId("1");
 		activityRegistration.setActivitiesId("2");
 		activityRegistration.setRegistrationDate(new Date());
 		activityRegistration.setAppointment(4);
-		activityRegistrationService.insert(activityRegistration);
+		activityRegistrationService.insertActivityRegistration(activityRegistration);
 		
 	}
 
 	@Test
-	public void testUpdate() {
-		fail("Not yet implemented");
+	public void testUpdateActivityRegistrationById() {
+		ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById("123");
+		activityRegistration.setActivitiesId("3");
+		activityRegistrationService.updateActivityRegistrationById(activityRegistration);
+		
 	}
 
 	@Test
-	public void testDelete() {
-		fail("Not yet implemented");
+	public void testDeleteActivityRegistrationById() {
+		activityRegistrationService.deleteActivityRegistrationById("123");
 	}
 
 }

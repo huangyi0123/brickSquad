@@ -29,8 +29,4 @@ public interface ShopActivitiesService {
 	
 	public void updateShopActivitiesById(String id) throws Exception;
 	
-	
-	
-	
-
 }

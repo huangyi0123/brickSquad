@@ -14,6 +14,7 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
     @Autowired
     @Qualifier("activityRegistrationMapper")
 	private ActivityRegistrationMapper activityRegistrationMapper;
+    
 	@Override
 	public ActivityRegistration findActivityRegistrationById(String id) {
 		
@@ -21,21 +22,18 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
 	}
 
 	@Override
-	public void insert(ActivityRegistration activityRegistration) {
-		// TODO Auto-generated method stub
-		activityRegistrationMapper.insert(activityRegistration);
+	public void insertActivityRegistration(ActivityRegistration activityRegistration) {
+		activityRegistrationMapper.insertActivityRegistration(activityRegistration);
 	}
 
 	@Override
-	public void update(ActivityRegistration activityRegistration) {
-		// TODO Auto-generated method stub
-		activityRegistrationMapper.update(activityRegistration);
+	public void updateActivityRegistrationById(ActivityRegistration activityRegistration) {
+		activityRegistrationMapper.updateActivityRegistrationById(activityRegistration);
 	}
 
 	@Override
-	public void delete(String id) {
-		// TODO Auto-generated method stub
-		activityRegistrationMapper.delete(id);
+	public void deleteActivityRegistrationById(String id) {
+		activityRegistrationMapper.deleteActivityRegistrationById(id);
 	}
 
 }

@@ -15,18 +15,18 @@ public interface ActivityRegistrationService {
 	 * 插入活动信息
 	 * @param activityRegistration
 	 */
-	public void insert(ActivityRegistration activityRegistration);
+	public void insertActivityRegistration(ActivityRegistration activityRegistration);
 	
 	/**
 	 * 更新活动信息
 	 * @param activityRegistration
 	 */
-	public void update(ActivityRegistration activityRegistration);
+	public void updateActivityRegistrationById(ActivityRegistration activityRegistration);
 	
 	/**
 	 * 删除活动信息
 	 * @param id
 	 */
-	public void delete(String id);
+	public void deleteActivityRegistrationById(String id);
 	
 }
