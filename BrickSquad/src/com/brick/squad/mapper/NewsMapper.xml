@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.NewsMapper">
+	<!-- Luyujing News表 增删改查-->
+	<insert id="addNews"  parameterType="java.lang.Long">
+		INSERT INTO news(id,user_id,content,imgs_path,post_time)
+			 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
+	</insert>
+	<delete id="deleteNews">
+		delete from News where id=#{id}
+	</delete>
+	<update id="updateNews">
+		UPDATE news SET content=#{content} WHERE user_id=#{userId}
+	</update>
+	<select id="findNews" resultType="news" parameterType="java.lang.Long">
+		select*from news where content=#{content};
+	</select>
+</mapper>
