@@ -1,5 +1,7 @@
 package com.brick.squad.pojo;
 
+import java.util.Date;
+
 /**
  * 
  * @author hy
@@ -8,8 +10,8 @@ package com.brick.squad.pojo;
 public class Collection {
 	private String id;
 	private String perId;
-	private String acticleId;
-	private String colDate;
+	private String articleId;
+	private Date colDate;
 	public String getId() {
 		return id;
 	}
@@ -22,19 +24,18 @@ public class Collection {
 	public void setPerId(String perId) {
 		this.perId = perId;
 	}
-	public String getActicleId() {
-		return acticleId;
+	public String getArticleId() {
+		return articleId;
 	}
-	public void setActicleId(String acticleId) {
-		this.acticleId = acticleId;
+	public void setArticleId(String articleId) {
+		this.articleId = articleId;
 	}
-	public String getColDate() {
+	public Date getColDate() {
 		return colDate;
 	}
-	public void setColDate(String colDate) {
+	public void setColDate(Date colDate) {
 		this.colDate = colDate;
 	}
-	
-	
+
 
 }

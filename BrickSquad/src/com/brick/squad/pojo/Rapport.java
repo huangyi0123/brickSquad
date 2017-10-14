@@ -12,8 +12,19 @@ public class Rapport {
     private Date rapportDate;
 
     private String content;
+    /**Rapport客户老人沟通与User用户的关系：多对多*/
+    /**Rapport客户老人沟通与老人的关系：一对多*/
+    private PersonalInformation personalInformation;
 
-    public String getId() {
+	public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
+
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
+
+	public String getId() {
         return id;
     }
 

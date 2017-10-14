@@ -14,6 +14,7 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
     @Autowired
     @Qualifier("activityRegistrationMapper")
 	private ActivityRegistrationMapper activityRegistrationMapper;
+    
 	@Override
 	public ActivityRegistration findActivityRegistrationById(String id) {
 		

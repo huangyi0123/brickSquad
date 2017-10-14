@@ -29,6 +29,6 @@
 	</update>
 
 	<delete id="deleteBusinessById" parameterType="String">
-		DELETE business WHERE id=#{id}
+		DELETE FROM business WHERE id=#{id}
 	</delete>
 </mapper>
