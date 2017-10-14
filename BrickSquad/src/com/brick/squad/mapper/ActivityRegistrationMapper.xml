@@ -9,7 +9,7 @@
 		id=#{id};
 	</select>
 
-	<insert id="insert" parameterType="activityRegistration">
+	<insert id="insertActivityRegistration" parameterType="ActivityRegistration">
 		<selectKey keyProperty="id" resultType="String" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
@@ -18,7 +18,7 @@
         VALUES (#{id},#{perId},#{activitiesId},#{registrationDate},#{appointment})
 	</insert>
 
-	<update id="update" parameterType="ActivityRegistration">
+	<update id="updateActivityRegistrationById" parameterType="ActivityRegistration">
 		UPDATE activity_registration
 		SET per_id=#{perId},
 		activities_id=#{activitiesId},
@@ -27,7 +27,7 @@
 		where id=#{id}
 	</update>
 	
-	<delete id="delete" parameterType="String">
+	<delete id="deleteActivityRegistrationById" parameterType="String">
 	   DELETE activity_registration WHERE id=#{id}
 	</delete>
 </mapper>
