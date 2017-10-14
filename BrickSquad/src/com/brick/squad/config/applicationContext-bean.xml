@@ -26,4 +26,5 @@
 	<bean name="shoppingCarService" 
 	class="com.brick.squad.service.impl.ShoppingCarServiceImpl"/>
 	<bean id="rapportService" class="com.brick.squad.service.impl.RapportServiceImpl"/>
+	<bean name="limitsService" class="com.brick.squad.service.impl.LimitsServiceImpl"/>
 </beans>

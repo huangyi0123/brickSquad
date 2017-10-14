@@ -19,20 +19,20 @@ public class PersonalInformationServiceImpl implements PersonalInformationServic
 	}
 
 	@Override
-	public void insert(PersonalInformation personalInformation) {
-		personalInformationMapper.insert(personalInformation);
+	public void insertPersonalInformation(PersonalInformation personalInformation) {
+		personalInformationMapper.insertPersonalInformation(personalInformation);
 		
 	}
 
 	@Override
-	public void update(PersonalInformation personalInformation) {
-		personalInformationMapper.update(personalInformation);
+	public void updatePersonalInformationById(PersonalInformation personalInformation) {
+		personalInformationMapper.updatePersonalInformationById(personalInformation);
 		
 	}
 
 	@Override
-	public void delete(String id) {
-		personalInformationMapper.delete(id);
+	public void deletePersonalInformationById(String id) {
+		personalInformationMapper.deletePersonalInformationById(id);
 		
 	}
 
