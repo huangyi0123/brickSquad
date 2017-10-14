@@ -15,38 +15,39 @@ import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.service.ActivityRegistrationService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
-public class ActivityRegistrationServiceImplTest {
+public class ActivityRegistrationServiceTest {
 
 	@Autowired
 	@Qualifier("activityRegistrationService")
 	private ActivityRegistrationService activityRegistrationService;
+	
 	@Test
 	public void testFindActivityRegistrationById() {
 		activityRegistrationService.findActivityRegistrationById("123");
 	}
 
 	@Test
-	public void testInsert() {
+	public void testInsertActivityRegistration() {
 		ActivityRegistration activityRegistration=new ActivityRegistration();
 		activityRegistration.setPerId("1");
 		activityRegistration.setActivitiesId("2");
 		activityRegistration.setRegistrationDate(new Date());
 		activityRegistration.setAppointment(4);
-		activityRegistrationService.insert(activityRegistration);
+		activityRegistrationService.insertActivityRegistration(activityRegistration);
 		
 	}
 
 	@Test
-	public void testUpdate() {
+	public void testUpdateActivityRegistrationById() {
 		ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById("123");
 		activityRegistration.setActivitiesId("3");
-		activityRegistrationService.update(activityRegistration);
+		activityRegistrationService.updateActivityRegistrationById(activityRegistration);
 		
 	}
 
 	@Test
-	public void testDelete() {
-		activityRegistrationService.delete("123");
+	public void testDeleteActivityRegistrationById() {
+		activityRegistrationService.deleteActivityRegistrationById("123");
 	}
 
 }
