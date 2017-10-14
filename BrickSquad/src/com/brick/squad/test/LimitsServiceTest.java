@@ -11,7 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.mapper.LimitsMapper;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
-@RunWith(SpringJUnit4ClassRunner.class)
+import com.brick.squad.util.JUnit4ClassRunner;
+@RunWith(JUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class LimitsServiceTest {
 	@Autowired
