@@ -5,12 +5,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
+import com.brick.squad.util.JunitClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class LimitsServiceTest {
 	@Autowired
@@ -25,14 +25,19 @@ public class LimitsServiceTest {
 	@Test
 	public void testInsertLimits() {
 
-		Limits limits=new Limits();
-		limits.setRoleId("001");
-		limits.setTablename("user");
-		limits.setAd(true);
-		limits.setDl(false);
-		limits.setQuery(true);
-		limits.setUp(false);
-		limitsService.insertLimits(limits);
+		try {
+			Limits limits=new Limits();
+			limits.setRoleId("001");
+			limits.setTablename("user");
+			limits.setAd(true);
+			limits.setDl(false);
+			limits.setQuery(true);
+			limits.setUp(false);
+			limitsService.insertLimits(limits);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
