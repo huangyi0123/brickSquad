@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,13 @@ public class RapportTest {
 	public void findRapportById() throws Exception{
 		Rapport rapport= rapportService.findRapportById("1");
 		System.out.println(rapport);
+	}
+	@Test
+	public void findRapport() throws Exception{
+		List<Rapport> rapports= rapportService.findRapport();
+		for(Rapport rapport:rapports){
+		System.out.println(rapport.getRapportDate());
+		}
 	}
 	@Test
 	public void insertRapport() throws Exception{

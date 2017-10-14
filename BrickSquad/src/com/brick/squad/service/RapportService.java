@@ -1,6 +1,8 @@
 package com.brick.squad.service;
 
 
+import java.util.List;
+
 import com.brick.squad.pojo.Rapport;
 /**
  * 业务层：老人客户沟通
@@ -10,7 +12,10 @@ public interface RapportService {
 	 * 根据ID查询老人客户沟通信息
 	 * */
 	public Rapport findRapportById(String id)throws Exception;
-	
+	/**
+	 * 查询老人客户沟通信息
+	 * */
+	public List<Rapport> findRapport()throws Exception;
 	/**
 	 * 插入老人客户沟通信息
 	 * */
