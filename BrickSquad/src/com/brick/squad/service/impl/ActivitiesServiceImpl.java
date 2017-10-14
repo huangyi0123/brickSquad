@@ -19,6 +19,22 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 		// TODO Auto-generated method stub
 		return activitiesMapper.findActivitiesById(id);
 	}
+	@Override
+	public void insertActivitiesById(String id) {
+		// TODO Auto-generated method stub
+		activitiesMapper.insertActivitiesById(id);
+
+	}
+	@Override
+	public void deleteActivitiesById(String id) {
+		// TODO Auto-generated method stub
+		activitiesMapper.deleteActivitiesById(id);
+	}
+	@Override
+	public void updateActivitiesById(String id) {
+		// TODO Auto-generated method stub
+		activitiesMapper.updateActivitiesById(id);
+	}
 	
 
 }

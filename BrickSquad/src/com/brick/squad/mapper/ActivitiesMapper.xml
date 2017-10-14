@@ -8,5 +8,26 @@
 	 	select id,name,content,type_id typeId,start_time startTime,end_time endTime from Activities where id=#{id}
 	</select>
 	
+	<insert id="insertActivities" parameterType="activities">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into Activities(id,name,centent,type_id,start_time,end_time)
+		values(#{id},#{name},#{centent},#{typeId},#{startTime},#{endTime})
+	</insert>
+	
+	<delete id="deleteActivitiesById" parameterType="String">
+		delete from Activities where id=#{id}
+	</delete>
+	
+	<update id="updateActivitiesById" parameterType="String">
+	UPDATE ShopActivities set id=#{id} ,
+			name=#{name},
+			centent=#{centent},
+			typeId=#{type_id},
+			startTime=#{start_time},
+			endTime=#{end_time},
+	 		where id =#{id}
+	</update>
 	
 </mapper>

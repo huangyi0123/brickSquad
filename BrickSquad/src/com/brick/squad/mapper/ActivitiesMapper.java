@@ -12,7 +12,11 @@ public interface ActivitiesMapper {
 	 * @return 返回活动列表 
 	 */
 	public List<Activities> findActivitiesById(String id);
-/*	public List<Activities> findActivitiesByName(String name);
-	public List<Activiti es> findActivitiesByCentent(String centent);*/
+
+
+	public void insertActivitiesById(String id);
 	
+	public void deleteActivitiesById(String id);
+	
+	public void updateActivitiesById(String id);
 }

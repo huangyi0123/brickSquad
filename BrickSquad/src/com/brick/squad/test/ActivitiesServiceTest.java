@@ -14,7 +14,7 @@ public class ActivitiesServiceTest {
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
-	public void testfindActivitiesById(){
+	public void testfindActivitiesById() throws Exception{
 		activitiesService.findActivitiesById("1");
 		
 	}

@@ -19,6 +19,21 @@ public class ArticleServiceImpl implements ArticalService{
 		// TODO Auto-generated method stub
 		return articleMapper.findArticleById(id);
 	}
+	@Override
+	public void insertArticleById(String id) {
+		// TODO Auto-generated method stub
+		articleMapper.insertArticleById(id);
+	}
+	@Override
+	public void deleteArticleById(String id) {
+		// TODO Auto-generated method stub
+		articleMapper.deleteArticleById(id);
+	}
+	@Override
+	public void updateArticleById(String id) {
+		// TODO Auto-generated method stub
+		articleMapper.updateArticleById(id);
+	}
 	
 	
 

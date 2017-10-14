@@ -8,5 +8,29 @@
 	 	select id,name,type_id typeId,business_id businessId,price,stock,describe,image from Arcticle where id=#{id}
 	</select>
 	
+	<insert id="insertArticle" parameterType="article">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into Article(id,name,type_id,business_id,price,stock,describe,image)
+		values(#{id},#{name},#{typeId},#{businessId},#{price},#{stock},#{describe},#{image})
+	</insert>
+	
+	<delete id="deleteArticleById" parameterType="String">
+		delete from Article where id=#{id}
+	</delete>
+	
+	<update id="updateArticle" parameterType="String">
+		update Article set id=#{id},
+				name=#{name},
+				typeId=#{type_id},
+				businessId=#{business_id},
+				price=#{price},
+				stock=#{stock},
+				describe=#{describe},
+				image=#{image}
+				where id = #{id}
+	</update>
+	
 	
 </mapper>
