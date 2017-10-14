@@ -14,4 +14,11 @@
 		insert into address(id,province_id,city_id,county_id,country_id,detailed)
 		 value(#{id},#{provinceId},#{cityId},#{countyId},#{countryId},#{detailed})
 	</insert>
+	<delete id="deleteAddressById" parameterType="String">
+		delete from address where id=#{id}
+	</delete>
+	<update id="updateAddressById" parameterType="com.brick.squad.pojo.Address">
+		update address set province_id=#{provinceId},city_id=#{cityId},county_id=#{countyId}
+		,country_id=#{countryId},detailed=#{detailed} where id=#{id}
+	</update>
 </mapper>

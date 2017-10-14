@@ -8,6 +8,7 @@ public interface RegionService {
 	public List<Region> findRegionByLevel(int level);
 	public Region findRegionById(String id);
 	public void insertRegionById(Region region);
+	public void deleteRegionById(String id);
 	public void updateRegion(Region region);
 
 }

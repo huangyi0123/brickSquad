@@ -35,7 +35,7 @@ public class MedicalServiceImplTest {
 	@Test
 	public void findMedicalById() {
 		Medical medical = medicalService
-				.findMedicalById("a5c5e354b07e11e7ae5d8cdcd49043a9");
+				.findMedicalById("a1ab3daab07e11e7ae5d8cdcd49043a9");
 		System.out.println(medical.getAttendingSurgeon() + "***");
 	}
 
