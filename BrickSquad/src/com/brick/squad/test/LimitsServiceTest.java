@@ -1,7 +1,5 @@
 package com.brick.squad.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +9,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class LimitsServiceTest {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@Test
 	public void testFindLimitsById() {
 		System.out.println("asssd");
@@ -25,7 +25,7 @@ public class LimitsServiceTest {
 	@Test
 	public void testInsertLimits() {
 		try {
-			Limits limits=new Limits();
+			Limits limits = new Limits();
 			limits.setTablename("user");
 			limits.setRoleId("管理员");
 			limits.setAd(true);
@@ -41,12 +41,12 @@ public class LimitsServiceTest {
 
 	@Test
 	public void testUpdateLimitsById() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testDeleteLimitsById() {
-		fail("Not yet implemented");
+
 	}
 
 }
