@@ -22,14 +22,14 @@ public class BusinessServiceTest {
 
 	@Test
 	public void testFindBusinessById() {
-		fail("Not yet implemented");
+		businessService.findBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
 	}
 
 	@Test
 	public void testInsertBusiness() {
 		Business business=new Business();
 		business.setName("夏木");
-		business.setIdcard("68365");
+		business.setIdcard("1");
 		business.setShopname("夏木小屋");
 		business.setShopMaterialPath("淘宝");
 		businessService.insertBusiness(business);
@@ -37,12 +37,14 @@ public class BusinessServiceTest {
 
 	@Test
 	public void testUpdateBusinessById() {
-		fail("Not yet implemented");
+		Business business=businessService.findBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
+		business.setName("夏目");
+		businessService.updateBusinessById(business);
 	}
 
 	@Test
 	public void testDeleteBusinessById() {
-		fail("Not yet implemented");
+		businessService.deleteBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
 	}
 
 }
