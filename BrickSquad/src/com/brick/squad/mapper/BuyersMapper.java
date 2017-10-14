@@ -1,5 +1,5 @@
 package com.brick.squad.mapper;
 
-public class BuyersMapper {
+public interface BuyersMapper {
 
 }

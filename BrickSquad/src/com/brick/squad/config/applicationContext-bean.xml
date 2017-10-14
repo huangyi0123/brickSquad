@@ -24,7 +24,7 @@
 		class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
 
 	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl"/>
-	<bean name="buyersService" class="com.brick.squad.service.impl.BuyersServiceImpl"/>
+
 
 
 	<bean name="relativesService" class="com.brick.squad.service.impl.RelativesServiceImpl"/>

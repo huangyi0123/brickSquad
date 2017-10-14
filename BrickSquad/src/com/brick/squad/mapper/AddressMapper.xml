@@ -2,12 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.AddressMapper">
-
+	<select id="findAddressById" parameterType="String" resultType="Address">
+		select 
+		id,province_id provinceId,city_id cityId,county_id countyId,country_id countryId,detailed 
+		from address where id=#{id}
+	</select>
 	<insert id="insertAddress" parameterType="com.brick.squad.pojo.Address">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into address(id,province_id,city_id,county_id,country_id,datailed)
+		insert into address(id,province_id,city_id,county_id,country_id,detailed)
 		 value(#{id},#{provinceId},#{cityId},#{countyId},#{countryId},#{detailed})
 	</insert>
 </mapper>

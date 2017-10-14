@@ -18,13 +18,20 @@ public class AddressServiceTest {
 	@Qualifier("addressService")
 	private AddressService addressService;
 	@Test
-	public void testAddressService() throws Exception{
+	public void testAddressInsert() throws Exception{
 		Address address = new Address();
 		address.setCityId("1");
 		address.setCountryId("2");
 		address.setCountyId("4");
 		address.setDetailed("asd");
 		address.setProvinceId("qwe");
+		addressService.insertAddress(address);
 		System.out.print(address);
+		
+	}
+	@Test
+	public void testAddressFindAddress() throws Exception{
+		addressService.findAddressById("bbd38c90b08c11e78d4f5254002ec43c");
+		
 	}
 }
