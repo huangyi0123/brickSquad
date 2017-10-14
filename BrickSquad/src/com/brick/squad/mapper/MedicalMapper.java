@@ -7,7 +7,7 @@ public interface MedicalMapper {
 
 	public void deleteMedicalById(String id);
 
-	public void updateMedicalById(Medical medical);
+	public void updateMedicalCententById(Medical medical);
 
 	public Medical findMedicalById(String id);
 }

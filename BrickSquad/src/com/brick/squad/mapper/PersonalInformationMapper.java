@@ -17,15 +17,15 @@ public interface PersonalInformationMapper {
 	 * 插入老人信息
 	 * @param personalInformation 老人信息
 	 */
-	public void insert(PersonalInformation personalInformation);
+	public void insertPersonalInformation(PersonalInformation personalInformation);
 	/**
 	 * 根据id删除老人信息
 	 * @param personalInformation 老人信息
 	 */
-	public void update(PersonalInformation personalInformation);
+	public void updatePersonalInformationById(PersonalInformation personalInformation);
 	/**
 	 * 根据id删除老人信息
 	 * @param id 老人id
 	 */
-	public void delete(String id);
+	public void deletePersonalInformationById(String id);
 }

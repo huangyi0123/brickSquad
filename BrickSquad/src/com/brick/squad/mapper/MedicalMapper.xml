@@ -13,10 +13,19 @@
 	</insert>
 
 
-	<!-- <select id="findRatedById" parameterType="String" resultType="rated"> 
-		select id id,order_id orderId,rated_date ratedDate,centent centent from rated 
-		where id = #{id} </select> <delete id="deleteRatedById" parameterType="String"> 
-		delete from rated where id=#{id} </delete> <update id="updateRatedCententById" 
-		parameterType="rated"> UPDATE rated set centent=#{centent} where id =#{id} 
-		</update> -->
+	<select id="findMedicalById" parameterType="String" resultType="medical">
+		select id id ,per_id perId ,inspection_date inspectionDate ,type_id
+		typeId,hospital hospital,
+		content content,attending_surgeon
+		attendingSurgeon
+		from medical
+		where id = #{id}
+	</select>
+	<delete id="deleteMedicalById" parameterType="String"> delete from
+		medical where id=#{id}
+	</delete>
+	<update id="updateMedicalCententById" parameterType="medical">
+		UPDATE
+		medical set content=#{content} where id =#{id}
+	</update>
 </mapper>

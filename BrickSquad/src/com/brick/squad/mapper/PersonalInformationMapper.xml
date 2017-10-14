@@ -7,7 +7,7 @@
 		SELECT id,`name`,birthday,gender,idcard, address_id
 		addressId from personal_information WHERE id=#{id}
 	</select>
-	 <insert id="insert" parameterType="personalInformation">
+	 <insert id="insertPersonalInformation" parameterType="personalInformation">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey> 
@@ -15,7 +15,7 @@
 		(id,name,birthday,gender,idcard,address_id)
 		VALUES(#{id},#{name},#{birthday},#{gender},#{idCard},#{addressId})
 	</insert> 
-	<update id="update" parameterType="PersonalInformation">
+	<update id="updatePersonalInformationById" parameterType="PersonalInformation">
 		UPDATE personal_information
 		set `name`=#{name},
 		birthday=#{birthday},
@@ -24,7 +24,7 @@
 		address_id=#{addressId}
 		WHERE id=#{id}
 	</update>
-	<delete id="delete" parameterType="String">
+	<delete id="deletePersonalInformationById" parameterType="String">
 	DELETE FROM personal_information WHERE id=#{id}
 	</delete>
 </mapper>
