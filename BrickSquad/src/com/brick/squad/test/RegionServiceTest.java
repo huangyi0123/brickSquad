@@ -1,19 +1,53 @@
 package com.brick.squad.test;
 
-import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.brick.squad.pojo.Region;
+import com.brick.squad.service.RegionService;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class RegionServiceTest {
-
+	@Autowired
+	@Qualifier("regionService")
+	private RegionService regionService;
 	@Test
-	public void testFindRegionByLevel() {
-		fail("Not yet implemented");
+	public void testFindRegionById() throws Exception{
+		Region region = regionService.findRegionById("4");
+		System.out.print(region);
 	}
-
 	@Test
-	public void testFindRegionByPerantId() {
-		fail("Not yet implemented");
+	//根据Level字段查询
+	public void testFindRegionByLevel() {
+		
+		regionService.findRegionByLevel(2);
+		System.out.print(regionService);
+	}
+	//插入字段的测试方法
+	@Test
+	public void testInsertRegionById() throws Exception{
+		Region region = new Region();
+		region.setId("4");
+		region.setName("坤哥哥");
+		region.setIsleaf(5);
+		region.setPerantId("100");
+		regionService.insertRegionById(region);
+	}
+	//根据id查找修改
+	@Test
+	public void testupdateRegion() throws Exception{
+		Region region = regionService.findRegionById("4");		
+		region.setName("007");
+		regionService.updateRegion(region);
+	}
+	@Test
+	public void testdeleteRegionById() throws Exception{
+		regionService.deleteRegionById("4");
 	}
 
 }

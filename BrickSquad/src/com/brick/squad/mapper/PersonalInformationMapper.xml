@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.PersonalInformationMapper">
+	<select id="findPersonalInformationById" resultType="PersonalInformation"
+		parameterType="String">
+		SELECT id,`name`,birthday,gender,idcard, address_id
+		addressId from personal_information WHERE id=#{id}
+	</select>
+	 <insert id="insertPersonalInformation" parameterType="personalInformation">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey> 
+		INSERT INTO personal_information
+		(id,name,birthday,gender,idcard,address_id)
+		VALUES(#{id},#{name},#{birthday},#{gender},#{idCard},#{addressId})
+	</insert> 
+	<update id="updatePersonalInformationById" parameterType="PersonalInformation">
+		UPDATE personal_information
+		set `name`=#{name},
+		birthday=#{birthday},
+		gender=#{gender},
+		idcard=#{idCard},
+		address_id=#{addressId}
+		WHERE id=#{id}
+	</update>
+	<delete id="deletePersonalInformationById" parameterType="String">
+	DELETE FROM personal_information WHERE id=#{id}
+	</delete>
+</mapper>

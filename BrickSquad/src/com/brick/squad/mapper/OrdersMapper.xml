@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.OrdersMapper">
+	<sql id="Base_Column_List">
+		id, no, state_id stateId, production_date productionDate,
+		buy_id buyId,
+		article_id articleId, number, money
+	</sql>
+	<select id="findOrdersById" parameterType="java.lang.String"
+		resultType="Orders">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM orders WHERE id=#{id,jdbcType=VARCHAR}
+	</select>
+	<select id="findOrders" resultType="Orders">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM orders
+	</select>
+
+	<insert id="insertOrders" parameterType="Orders">
+		INSERT INTO orders (id,
+		no, state_id,
+		production_date, buy_id, article_id,
+		number, money)
+		values
+		(#{id,jdbcType=VARCHAR}, #{no,jdbcType=VARCHAR},
+		#{stateId,jdbcType=VARCHAR},
+		#{productionDate,jdbcType=TIMESTAMP},
+		#{buyId,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR},
+		#{number,jdbcType=INTEGER}, #{money,jdbcType=REAL})
+	</insert>
+
+	<update id="updateOrdersById" parameterType="Orders">
+		UPDATE orders
+		SET no
+		= #{no,jdbcType=VARCHAR},
+		state_id = #{stateId,jdbcType=VARCHAR},
+		production_date = #{productionDate,jdbcType=TIMESTAMP},
+		buy_id =
+		#{buyId,jdbcType=VARCHAR},
+		article_id = #{articleId,jdbcType=VARCHAR},
+		number = #{number,jdbcType=INTEGER},
+		money = #{money,jdbcType=REAL}
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</update>
+
+	<delete id="deleteOrdersById" parameterType="java.lang.String">
+		DELETE FROM orders
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</delete>
+
+</mapper>
