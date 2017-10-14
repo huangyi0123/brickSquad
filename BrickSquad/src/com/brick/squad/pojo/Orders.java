@@ -1,6 +1,7 @@
 package com.brick.squad.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class Orders {
     private String id;
@@ -18,8 +19,48 @@ public class Orders {
     private Integer number;
 
     private Float money;
+    /**订单与Rate评论的关系：一对多*/
+    private List<Rated> rateds;
+    /**订单与Type类型的关系：多对多*/
+    private List<Type> types;
+    /**订单与商品的关系：多对多*/
+    private List<Article> article;
+    /**订单与老人信息的关系：一对多*/
+    private PersonalInformation personalInformation;
 
-    public String getId() {
+    public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
+
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
+
+	public List<Article> getArticle() {
+		return article;
+	}
+
+	public void setArticle(List<Article> article) {
+		this.article = article;
+	}
+
+	public List<Type> getTypes() {
+		return types;
+	}
+
+	public void setTypes(List<Type> types) {
+		this.types = types;
+	}
+
+	public List<Rated> getRateds() {
+		return rateds;
+	}
+
+	public void setRateds(List<Rated> rateds) {
+		this.rateds = rateds;
+	}
+
+	public String getId() {
         return id;
     }
 
