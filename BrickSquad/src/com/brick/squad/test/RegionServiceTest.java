@@ -38,11 +38,16 @@ public class RegionServiceTest {
 		region.setPerantId("100");
 		regionService.insertRegionById(region);
 	}
+	//根据id查找修改
 	@Test
 	public void testupdateRegion() throws Exception{
-		Region region = regionService.findRegionById("4");
-		region.setName("灵梦");
+		Region region = regionService.findRegionById("4");		
+		region.setName("007");
 		regionService.updateRegion(region);
+	}
+	@Test
+	public void testdeleteRegionById() throws Exception{
+		regionService.deleteRegionById("4");
 	}
 
 }

@@ -26,7 +26,13 @@ public class RegionServiceImpl implements RegionService {
 	public void insertRegionById(Region region){
 		regionMapper.insertRegionById(region);
 	}
+	@Override
 	public void updateRegion(Region region){
 		regionMapper.updateRegion(region);
+	}
+	@Override
+	public void deleteRegionById(String id) {
+		// TODO Auto-generated method stub
+		regionMapper.deleteRegionById(id);
 	}
 }

@@ -12,7 +12,7 @@
 		insert into region (id,isleaf,name,parent_id)  values (#{id},#{isleaf},#{name}
 		,#{perantId})
 	</insert>
-	<delete id="deleteRegionById" parameterType="int">
+	<delete id="deleteRegionById" parameterType="String">
 		delete from region where id=#{id}
 	</delete>
 	<update id="updateRegion"  parameterType="region" >
