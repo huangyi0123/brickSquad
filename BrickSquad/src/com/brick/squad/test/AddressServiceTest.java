@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Address;
+import com.brick.squad.pojo.Region;
 import com.brick.squad.service.AddressService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,8 +31,23 @@ public class AddressServiceTest {
 		
 	}
 	@Test
-	public void testAddressFindAddress() throws Exception{
-		addressService.findAddressById("bbd38c90b08c11e78d4f5254002ec43c");
+	public void testFindAddressById() throws Exception{
+		addressService.findAddressById("ef0505e8b08d11e78d4f5254002ec43c");
 		
+	}
+	@Test
+	public void testDeleteAddressById() throws Exception{
+		addressService.deleteAddressById("ef0505e8b08d11e78d4f5254002ec43c");
+	}
+	@Test
+	public void testUpdateAddressById() throws Exception{
+		Address address = new Address();
+		address.setId("ef0505e8b08d11e78d4f5254002ec43c");
+		address.setCityId("5");
+		address.setCountryId("4");
+		address.setCountyId("3");
+		address.setDetailed("啊撒大苏打");
+		address.setProvinceId("1");
+		addressService.updateAddressById(address);
 	}
 }

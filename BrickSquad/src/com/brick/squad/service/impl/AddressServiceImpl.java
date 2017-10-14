@@ -25,6 +25,20 @@ public class AddressServiceImpl implements AddressService{
 		return addressMapper.findAddressById(id);
 		
 	}
+
+	@Override
+	public void deleteAddressById(String id) throws Exception {
+		// TODO Auto-generated method stub
+		addressMapper.deleteAddressById(id);
+	}
+
+	@Override
+	public void updateAddressById(Address address) throws Exception {
+		// TODO Auto-generated method stub
+		addressMapper.updateAddressById(address);
+	}
+
+
 	
 
 }
