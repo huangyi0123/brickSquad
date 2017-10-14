@@ -23,8 +23,8 @@ public class AddressServiceTest {
 		address.setCityId("1");
 		address.setCountryId("2");
 		address.setCountyId("4");
-		address.setDetailed("asd");
-		address.setProvinceId("qwe");
+		address.setDetailed("123");
+		address.setProvinceId("qw的归属感e");
 		addressService.insertAddress(address);
 		System.out.print(address);
 		

@@ -1,9 +1,10 @@
 package com.brick.squad.service.impl;
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.pojo.Business;
