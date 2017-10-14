@@ -10,11 +10,23 @@ import java.util.Date;
 public class Medical {
 	
 private String id;
+/**
+ * 主治医师
+ */
 private String perId;
 private Date inspectionDate;
+/**
+ * 检查类型
+ */
 private String typeId; 
 private String hospital;
+/**
+ * 病历详情
+ */
 private String content;
+/**
+ * 主治医师
+ */
 private String attendingSurgeon;
 /**
  * @return the id

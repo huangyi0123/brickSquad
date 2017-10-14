@@ -22,6 +22,11 @@
 	<bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl" />
 	<bean name="shopActivitiesService"
 		class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
+
+	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl"/>
+	<bean name="buyersService" class="com.brick.squad.service.impl.BuyersServiceImpl"/>
+
+
 	<bean name="relativesService" class="com.brick.squad.service.impl.RelativesServiceImpl"/>
 	<bean name="shoppingCarService" 
 	class="com.brick.squad.service.impl.ShoppingCarServiceImpl"/>

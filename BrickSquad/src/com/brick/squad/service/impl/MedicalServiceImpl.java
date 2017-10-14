@@ -8,6 +8,11 @@ import com.brick.squad.mapper.MedicalMapper;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.service.MedicalService;
 @Transactional
+/**
+ * 
+ * @author 吴文鑫
+ *
+ */
 public class MedicalServiceImpl implements MedicalService {
 @Autowired
 @Qualifier("medicalMapper")
@@ -26,7 +31,7 @@ private MedicalMapper medicalMapper;
 
 	@Override
 	public void updateMedicalById(Medical medical) {
-		medicalMapper.updateMedicalById(medical);
+		medicalMapper.updateMedicalCententById(medical);
 
 	}
 
