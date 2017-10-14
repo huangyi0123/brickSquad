@@ -22,7 +22,7 @@ public class ActivityRegistrationServiceImplTest {
 	private ActivityRegistrationService activityRegistrationService;
 	@Test
 	public void testFindActivityRegistrationById() {
-		fail("Not yet implemented");
+		activityRegistrationService.findActivityRegistrationById("123");
 	}
 
 	@Test
@@ -38,12 +38,15 @@ public class ActivityRegistrationServiceImplTest {
 
 	@Test
 	public void testUpdate() {
-		fail("Not yet implemented");
+		ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById("123");
+		activityRegistration.setActivitiesId("3");
+		activityRegistrationService.update(activityRegistration);
+		
 	}
 
 	@Test
 	public void testDelete() {
-		fail("Not yet implemented");
+		activityRegistrationService.delete("123");
 	}
 
 }

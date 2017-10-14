@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.RelativesMapper">
+	<select id="findRelativesById" parameterType="String"
+		resultType="Relatives">
+		SELECT id,per_id perId, name,telephone,address_id
+		addressId,relationship_id relationshipId FROM relatives WHERE id=#{id}
+	</select>
+	<insert id="insertRelatives" parameterType="Relatives">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO relatives
+		(id,per_id,name,telephone,address_id,relationship_id) VALUES
+		(#{id},#{perId},#{name},#{telephone},#{addressId},#{relationshipId})
+	</insert>
+	<update id="updateRelativesById" parameterType="Relatives">
+		UPDATE relatives
+		SET
+		id=#{id},
+		per_id=#{perId},
+		`name`=#{name},
+		telephone=#{telephone},
+		address_id=#{addressId},
+		relationship_id=#{relationshipId}
+		WHERE
+		id=#{id}
+	</update>
+	<delete id="deleteRelativesById" parameterType="String">
+		DELETE FROM
+		relatives WHERE id=#{id}
+	</delete>
+</mapper>
