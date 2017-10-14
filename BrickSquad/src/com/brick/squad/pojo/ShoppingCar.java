@@ -1,6 +1,7 @@
 package com.brick.squad.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class ShoppingCar {
     private String id;
@@ -12,8 +13,27 @@ public class ShoppingCar {
     private Integer number;
 
     private Date date;
+    /**购物车与商品的关系*/
+    private List<Article>articles;
+    /**购物车与老人的关系*/
+    private PersonalInformation personalInformation;
+    public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
 
-    public String getId() {
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
+	}
+
+	public String getId() {
         return id;
     }
 

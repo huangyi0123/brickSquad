@@ -7,6 +7,9 @@
 		id=#{id}
 	</select>
 	<insert id="insertLimits" parameterType="Limits">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 		INSERT INTO
 		limits(id,role_id,tablename,ad,dl,up,query) VALUES
 		(#{id},#{roleId},#{tablename},#{ad},#{dl},#{up},#{query})
@@ -22,6 +25,7 @@
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteLimitsById" parameterType="String">
-		DELETE FROM limits WHERE id=#{id}
+		DELETE FROM limits
+		WHERE id=#{id}
 	</delete>
 </mapper>
