@@ -1,7 +1,11 @@
 package com.brick.squad.pojo;
 
 import java.util.List;
-
+/**
+ * 
+ * @author 赵荣坤	
+ *地区表
+ */
 public class Region {
 	private String id;
 	private String perantId;

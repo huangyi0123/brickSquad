@@ -6,5 +6,11 @@ import com.brick.squad.pojo.Region;
 
 public interface RegionMapper {
 	public List<Region> findRegionByLevel(int level);
-	public List<Region> findRegionByPerantId(String perantId);
+	public Region findRegionById(String id);
+	public void insertRegionById(Region region);
+	public void deleteRegionById(Region region);
+	public void updateRegion(Region region);
+
+
+
 }
