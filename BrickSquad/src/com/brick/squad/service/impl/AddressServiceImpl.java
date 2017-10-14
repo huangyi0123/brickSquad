@@ -18,6 +18,13 @@ public class AddressServiceImpl implements AddressService{
 		addressMapper.insertAddress(address);
 		
 	}
+
+	@Override
+	public Address findAddressById(String id) throws Exception {
+		
+		return addressMapper.findAddressById(id);
+		
+	}
 	
 
 }
