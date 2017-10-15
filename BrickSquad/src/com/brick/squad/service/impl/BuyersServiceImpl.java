@@ -1,5 +1,7 @@
 package com.brick.squad.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -15,6 +17,21 @@ public class BuyersServiceImpl implements BuyersService {
 	public void insertBuyers(Buyers buyers) throws Exception {
 		// TODO Auto-generated method stub
 		buyersMapper.insertBuyers(buyers);
+	}
+	@Override
+	public List<Buyers> findBuyersByUUID(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return buyersMapper.findBuyersByUUID(id);
+	}
+	@Override
+	public void updateBuyersById(Buyers buyers) throws Exception {
+		// TODO Auto-generated method stub
+		buyersMapper.updateBuyersById(buyers);
+	}
+	@Override
+	public void deleteBuyersById(Buyers buyers) throws Exception {
+		// TODO Auto-generated method stub
+		buyersMapper.deleteBuyersById(buyers);
 	}
 
 }
