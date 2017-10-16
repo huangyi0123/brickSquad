@@ -39,6 +39,8 @@ public class RapportTest {
 		rapport.setPerId("3");
 		rapport.setRapportDate(new Date());
 		rapport.setUserId("3");
+		rapport.setGoal("健康信息采集");
+		rapport.setPeriod(324f);
 		rapportService.insertRapport(rapport);
 	}
 	@Test

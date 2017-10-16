@@ -1,7 +1,6 @@
 package com.brick.squad.pojo;
 
 import java.util.Date;
-import java.util.List;
 
 public class Rapport {
     private String id;
@@ -11,6 +10,10 @@ public class Rapport {
     private String userId;
 
     private Date rapportDate;
+    
+    private String goal;
+    
+    private Float period;
 
     private String content;
     /**Rapport客户老人沟通与User用户的关系：一对多*/
@@ -74,4 +77,21 @@ public class Rapport {
     public void setContent(String content) {
         this.content = content;
     }
+
+	public String getGoal() {
+		return goal;
+	}
+
+	public void setGoal(String goal) {
+		this.goal = goal;
+	}
+
+	public Float getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(Float period) {
+		this.period = period;
+	}
+    
 }
