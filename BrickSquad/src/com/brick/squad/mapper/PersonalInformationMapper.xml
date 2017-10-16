@@ -5,26 +5,51 @@
 	<select id="findPersonalInformationById" resultType="PersonalInformation"
 		parameterType="String">
 		SELECT id,`name`,birthday,gender,idcard, address_id
-		addressId from personal_information WHERE id=#{id}
+		addressId,retirement_unit retirementUnit,
+		retirement_date
+		retirementDate, engaged_industry engagedIndustry,
+		weight,height,income,family_history familyHistory,is_purchasing
+		isPurchasing,is_supremacy isSupremacy,is_pureq isPureq,pureq_type_id
+		pureqTypeId,nation_id nationId,culture_id cultureId,marriage_id
+		marriageId,zip
+		from personal_information WHERE id=#{id}
 	</select>
-	 <insert id="insertPersonalInformation" parameterType="personalInformation">
+	<insert id="insertPersonalInformation" parameterType="personalInformation">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
-		</selectKey> 
+		</selectKey>
 		INSERT INTO personal_information
-		(id,name,birthday,gender,idcard,address_id)
-		VALUES(#{id},#{name},#{birthday},#{gender},#{idCard},#{addressId})
-	</insert> 
+		(id,name,birthday,gender,idcard,address_id,retirement_unit,retirement_date,engaged_industry,weight,height,income,family_history,is_purchasing,is_supremacy,is_pureq,pureq_type_id,nation_id,culture_id,marriage_id,zip)
+		VALUES(#{id},#{name},#{birthday},#{gender},#{idCard},#{addressId},#{retirementUnit},#{retirementDate},#{engagedIndustry},#{weight},#{height},#{income},#{familyHistory},#{isPurchasing},#{isSupremacy},#{isPureq},#{pureqTypeId},#{nationId},#{cultureId},#{marriageId},#{zip})
+	</insert>
 	<update id="updatePersonalInformationById" parameterType="PersonalInformation">
-		UPDATE personal_information
+		UPDATE
+		personal_information
 		set `name`=#{name},
 		birthday=#{birthday},
 		gender=#{gender},
 		idcard=#{idCard},
-		address_id=#{addressId}
-		WHERE id=#{id}
+		address_id=#{addressId},
+		retirement_unit=#{retirementUnit},
+		retirement_date=#{retirementDate},
+		engaged_industry=#{engagedIndustry},
+		weight=#{weight},
+		height=#{height},
+		income=#{income},
+		family_history=#{familyHistory},
+		is_purchasing=#{isPurchasing},
+		is_supremacy=#{isSupremacy},
+		is_pureq=#{isPureq},
+		pureq_type_id=#{pureqTypeId},
+		nation_id=#{nationId},
+		culture_id=#{cultureId},
+		marriage_id=#{marriageId},
+		zip=#{zip}
+		WHERE
+		id=#{id}
 	</update>
 	<delete id="deletePersonalInformationById" parameterType="String">
-	DELETE FROM personal_information WHERE id=#{id}
+		DELETE
+		FROM personal_information WHERE id=#{id}
 	</delete>
 </mapper>

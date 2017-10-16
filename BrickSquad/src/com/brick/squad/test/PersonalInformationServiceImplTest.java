@@ -1,7 +1,5 @@
 package com.brick.squad.test;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
 
 import org.junit.Test;
@@ -9,11 +7,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.PersonalInformationService;
-@RunWith(SpringJUnit4ClassRunner.class)
+import com.brick.squad.util.JunitClassRunner;
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class PersonalInformationServiceImplTest {
 	@Autowired
@@ -33,19 +31,20 @@ public class PersonalInformationServiceImplTest {
 			personalInformation.setAddressId("123");
 			personalInformation.setIdCard("1212");
 			personalInformationService.insertPersonalInformation(personalInformation);
+			System.out.println(personalInformation.getId());
 		
 	}
 
 	@Test
 	public void testUpdatePersonalInformationById() {
 		PersonalInformation personalInformation =personalInformationService.findPersonalInformationById("1");
-		personalInformation.setName("的是");
+		personalInformation.setName("12");
 		personalInformationService.updatePersonalInformationById(personalInformation);
 	}
 
 	@Test
 	public void testDeletePersonalInformationById() {
-			personalInformationService.deletePersonalInformationById("e176a684b00b11e78d4f5254002ec43c");
+			personalInformationService.deletePersonalInformationById("765c3378b08811e78d4f5254002ec43c");
 	
 	}
 }

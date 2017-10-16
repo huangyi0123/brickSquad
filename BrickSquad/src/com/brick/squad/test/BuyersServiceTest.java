@@ -35,7 +35,6 @@ public class BuyersServiceTest {
 		buyers.setId("1");*/
 		List<Buyers> buyersList = new ArrayList<Buyers>();
 		buyersList = buyersService.findBuyersByUUID("1");
-		
 		System.out.print(buyersList.get(0).getDeliveryAddressId()+"---------------");
 	}
 	@Test
