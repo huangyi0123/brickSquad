@@ -21,20 +21,20 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	}
 
 	@Override
-	public void insertShopActivitiesById(String id) throws Exception {
+	public void insertShopActivitiesById(ShopActivities shopActivities) throws Exception {
 		// TODO Auto-generated method stub
-		
+		shopActivitiesMapper.insertShopActivitiesById(shopActivities);
 	}
 
 	@Override
 	public void delectShopActivitiesById(String id) throws Exception {
-		// TODO Auto-generated method stub
+		shopActivitiesMapper.deleteShopActivities(id);
 		
 	}
 
 	@Override
-	public void updateShopActivitiesById(String id) throws Exception {
-		// TODO Auto-generated method stub
+	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception {
+		shopActivitiesMapper.updateShopActivitiesById(shopActivities);
 		
 	}
 

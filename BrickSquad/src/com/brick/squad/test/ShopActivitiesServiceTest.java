@@ -9,18 +9,23 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
+import com.brick.squad.util.JunitClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class ShopActivitiesServiceTest {
 	@Autowired
-	@Qualifier("shopActivities")
+	@Qualifier("shopActivitiesService")
 	
-	private ShopActivitiesService shopActivities;
+	private ShopActivitiesService shopActivitiesService;
+	/**
+	 * 测试查询方法
+	 * @throws Exception
+	 */
 	@Test
-	public void test() throws Exception{
+	public void findShopActivitiesById() throws Exception{
 		
-		System.out.println(shopActivities.findShopActivitiesById("1").getTypeId());
+		System.out.println(shopActivitiesService.findShopActivitiesById("2").getTypeId());
 	}
 	
 	/**
@@ -28,17 +33,29 @@ public class ShopActivitiesServiceTest {
 	 * @throws Exception 
 	 */
 	@Test
-	public void testUpdate() throws Exception{
-		ShopActivities s = new ShopActivities();
-		s.setId("1");
-		shopActivities.updateShopActivitiesById("s");
+	public void UpdateShopActivitiesById() throws Exception{
+		/**
+		 * 如果要修改，先查询再修改。
+		 */
+		ShopActivities s = shopActivitiesService.findShopActivitiesById("2");
+		s.setArticleId("1213");
+		shopActivitiesService.updateShopActivitiesById(s);
 		
 	}
 	@Test
-	public void testDelete() throws Exception{
+	public void DeleteShopActivitiesById() throws Exception{
 		 
-		shopActivities.delectShopActivitiesById("2");
+		shopActivitiesService.delectShopActivitiesById("1");
 	}
 	
+	@Test
+	public void InsertShopActivitiesById() throws Exception{
+			ShopActivities s = new ShopActivities();
+			s.setTypeId("美术");
+			s.setStartTime("2017-10-20 13:00:00");
+			s.setEndTime("2017-10-20 15:00:00");
+			
+			shopActivitiesService.insertShopActivitiesById(s);
+	} 
 	
 }

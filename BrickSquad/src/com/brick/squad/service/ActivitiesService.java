@@ -10,11 +10,16 @@ public interface ActivitiesService {
 	 * @param id
 	 * @return 返回活动列表 
 	 */
-	public List<Activities> findActivitiesById(String id) throws Exception;
+	public Activities  findActivitiesById(String id) throws Exception;
 
-	public void insertActivitiesById(String id) throws Exception;
+	public void insertActivitiesById(Activities activities) throws Exception;
 	
 	public void deleteActivitiesById(String id)throws Exception;
 	
-	public void updateActivitiesById(String id)throws Exception;
+	public void updateActivitiesById(Activities activities)throws Exception;
+
+
+
+
+
 }

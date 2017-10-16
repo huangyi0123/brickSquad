@@ -15,7 +15,7 @@ public interface ShopActivitiesService {
 	 * 通过id增加信息
 	 * @param id
 	 */
-	public void insertShopActivitiesById(String id) throws Exception;
+	public void insertShopActivitiesById(ShopActivities shopActivities) throws Exception;
 	
 	
   /**
@@ -27,6 +27,6 @@ public interface ShopActivitiesService {
 	
 	
 	
-	public void updateShopActivitiesById(String id) throws Exception;
+	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception;
 	
 }

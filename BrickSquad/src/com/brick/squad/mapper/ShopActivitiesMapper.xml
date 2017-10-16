@@ -8,25 +8,25 @@
 	select id,type_id typeId,start_time startTime,end_time endTime,business_id businessId,article_id articleId from shop_activities where id=#{id}
 </select>
 
-<insert id="insertShopActivities" parameterType="shopActivities">
+<insert id="insertShopActivitiesById" parameterType="ShopActivities">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into ShopActivities(id,type_id,start_time,end_time,business_id,article_id)
-		values(#{id},#{typeId},#{StartTime},#{endTime},#{businessId},#{articleId})
+		insert into shop_activities(id,type_id,start_time,end_time,business_id,article_id)
+		values(#{id},#{typeId},#{startTime},#{endTime},#{businessId},#{articleId})
 	</insert>
 	
-	<delete id="deleteShopActivitiesById" parameterType="String">
-		delete from ShopActivities where id=#{id}
+	<delete id="deleteShopActivities" parameterType="String">
+		delete from shop_activities where id=#{id}
 	</delete>
 	
 	<update id="updateShopActivitiesById" parameterType="String">
-	UPDATE ShopActivities set id=#{id} ,
-			typeId=#{type_id},
-			startTime=#{start_time},
-			endTime=#{end_time},
-			businessId=#{business_id},
-			articleId=#{article_id}
+	UPDATE shop_activities set id=#{id} ,
+			type_id=#{typeId},
+			start_time=#{startTime},
+			end_time=#{endTime},
+			business_id=#{businessId},
+			article_id=#{articleId}
 	 		where id =#{id}
 	</update>
 

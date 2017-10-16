@@ -10,11 +10,11 @@ public interface ShopActivitiesMapper {
 	 */
 	public ShopActivities findShopActivitiesById(String id);
 	
-	public void insertShopActivities(String id);
+	public void insertShopActivitiesById(ShopActivities shopActivities);
 	
 	public void deleteShopActivities(String id);
 	
-	public void updateShopActivities(String id);
+	public void updateShopActivitiesById(ShopActivities shopActivities);
 	
 
 

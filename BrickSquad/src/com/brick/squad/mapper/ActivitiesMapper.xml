@@ -5,28 +5,28 @@
 
     <!-- 查询 -->
     <select id="findActivitiesById" resultType="activities" parameterType="String" >
-	 	select id,name,content,type_id typeId,start_time startTime,end_time endTime from Activities where id=#{id}
+	 	select id,name,centent,type_id typeId,start_time startTime,end_time endTime from activities where id=#{id}
 	</select>
 	
 	<insert id="insertActivities" parameterType="activities">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into Activities(id,name,centent,type_id,start_time,end_time)
+		insert into activities(id,name,centent,type_id,start_time,end_time)
 		values(#{id},#{name},#{centent},#{typeId},#{startTime},#{endTime})
 	</insert>
 	
 	<delete id="deleteActivitiesById" parameterType="String">
-		delete from Activities where id=#{id}
+		delete from activities where id=#{id}
 	</delete>
 	
-	<update id="updateActivitiesById" parameterType="String">
-	UPDATE ShopActivities set id=#{id} ,
-			name=#{name},
+	<update id="updateActivitiesById" parameterType="activities">
+	UPDATE activities set 
+				name=#{name},
 			centent=#{centent},
-			typeId=#{type_id},
-			startTime=#{start_time},
-			endTime=#{end_time},
+			type_id=#{typeId},
+			start_time=#{startTime},
+			end_time=#{endTime}
 	 		where id =#{id}
 	</update>
 	
