@@ -17,9 +17,7 @@ import com.brick.squad.util.JunitClassRunner;
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class ActivitiesServiceTest {
-	/**
-	 * woshinige
-	 */
+	
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
