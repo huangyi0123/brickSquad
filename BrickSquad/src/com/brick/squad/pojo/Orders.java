@@ -21,8 +21,8 @@ public class Orders {
     private Float money;
     /**订单与Rate评论的关系：一对多*/
     private List<Rated> rateds;
-    /**订单与Type类型的关系：多对多*/
-    private List<Type> types;
+    /**订单与Type类型的关系：一对多*/
+    private Type types;
     /**订单与商品的关系：多对多*/
     private List<Article> article;
     /**订单与老人信息的关系：一对多*/
@@ -44,11 +44,13 @@ public class Orders {
 		this.article = article;
 	}
 
-	public List<Type> getTypes() {
+
+
+	public Type getTypes() {
 		return types;
 	}
 
-	public void setTypes(List<Type> types) {
+	public void setTypes(Type types) {
 		this.types = types;
 	}
 

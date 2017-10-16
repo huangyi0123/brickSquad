@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.RoleMapper">
+	<!-- Luyujing Role表 增删改查-->
+	<insert id="addRole" parameterType="String">
+	INSERT INTO role (id,name) VALUES(#{id},#{name})
+	</insert>
+	<delete id="deleteRole" parameterType="String">
+	delete from role where id=#{id};
+	</delete>
+	<update id="updateRole" parameterType="String">
+		UPDATE role SET name=#{name} WHERE id=#{id}
+	</update>
+	<select id="findRole" resultType="role" parameterType="String">
+		select name,id from role where id=#{id};
+	</select>
+</mapper>
