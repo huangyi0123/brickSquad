@@ -10,8 +10,28 @@ public class OrderDetails {
     private Integer number;
 
     private Float subtotal;
+    /**order_details订单项与orders订单关系：一对多*/
+    private Orders orders;
+    /**order_details订单项与article商品信息关系：一对多*/
+    private Article article;
+    
+    public Orders getOrders() {
+		return orders;
+	}
 
-    public String getId() {
+	public void setOrders(Orders orders) {
+		this.orders = orders;
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
+	public String getId() {
         return id;
     }
 
