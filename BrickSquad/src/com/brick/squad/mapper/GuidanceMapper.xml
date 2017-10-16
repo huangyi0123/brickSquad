@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.GuidanceMapper">
+	<insert id="insertGuidanceById" parameterType="com.brick.squad.pojo.Guidance">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into guidance (id,per_id,guidance_date,disease,assessment,suggest)
+		 values (#{id},#{perId},#{guidanceDate},#{disease},#{assessment},#{suggest})
+	</insert>
+	<select id="queryGuidanceById" parameterType="String" resultType="com.brick.squad.pojo.Guidance">
+		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest 
+		from  guidance where id=#{id}
+	</select>
+	<delete id="deleteGuidanceById" parameterType="String">
+		delete from guidance where id=#{id}
+	</delete>
+	<update id="updateGuidanceById" parameterType="com.brick.squad.pojo.Guidance">
+		update guidance set
+		 per_id=#{perId},disease=#{disease},assessment=#{assessment},suggest=#{suggest} where id=#{id}
+	</update>
+</mapper>
