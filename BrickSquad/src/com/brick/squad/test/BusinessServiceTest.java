@@ -11,8 +11,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Business;
 import com.brick.squad.service.BusinessService;
+import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath*:com/brick/squad/config/applicationContext.xml")
 public class BusinessServiceTest {
 	
@@ -45,6 +47,14 @@ public class BusinessServiceTest {
 	@Test
 	public void testDeleteBusinessById() {
 		businessService.deleteBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
+	}
+	
+	@Test
+	public void testbusinessPagination(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		System.out.println(businessService.businessPagination(pagination));
 	}
 
 }

@@ -13,7 +13,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.service.ActivityRegistrationService;
-@RunWith(SpringJUnit4ClassRunner.class)
+import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class ActivityRegistrationServiceTest {
 
@@ -48,6 +50,14 @@ public class ActivityRegistrationServiceTest {
 	@Test
 	public void testDeleteActivityRegistrationById() {
 		activityRegistrationService.deleteActivityRegistrationById("123");
+	}
+	
+	@Test
+	public void testActivityRegistrationPagination(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		System.out.println(activityRegistrationService.activityRegistrationPagination(pagination));
 	}
 
 }

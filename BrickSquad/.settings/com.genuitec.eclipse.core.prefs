@@ -1,7 +1,6 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/huangyi0123/brickSquad.git
 eclipse.preferences.version=1
-<<<<<<< HEAD
-validator.Checked=WebRoot/ui/backstage_managed/plugins/jquery/jquery.min.js
-=======
 validator.Checked=WebRoot/ui/backstage_managed/plugins/jquery/jquery.min.js,WebRoot/ui/backstage_managed/plugins/grid_manager/GridManager.min.js
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 validator.Unchecked=

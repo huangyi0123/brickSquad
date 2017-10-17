@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.ActivityRegistrationMapper;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.service.ActivityRegistrationService;
+import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 
 @Transactional
 public class ActivityRegistrationServiceImpl implements ActivityRegistrationService{
@@ -34,6 +38,16 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
 	@Override
 	public void deleteActivityRegistrationById(String id) {
 		activityRegistrationMapper.deleteActivityRegistrationById(id);
+	}
+
+	@Override
+	public String activityRegistrationPagination(
+			Pagination pagination) {
+		List<ActivityRegistration> datas=activityRegistrationMapper.activityRegistrationPagination(pagination);
+		int n=activityRegistrationMapper.activityRegistrationCount();
+		Util<ActivityRegistration> util=new Util<ActivityRegistration>();
+		String data=util.SplitPage(datas, n);
+		return data;
 	}
 
 }
