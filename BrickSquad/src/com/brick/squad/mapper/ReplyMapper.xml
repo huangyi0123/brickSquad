@@ -4,7 +4,8 @@
 <mapper namespace="com.brick.squad.mapper.ReplyMapper">
 	<select id="findReplyById" parameterType="String" resultType="reply">
 		select id id,reply_date replydDate,centent centent
-		from reply where id = #{id}
+		from reply where id
+		= #{id}
 	</select>
 	<insert id="insertReply" parameterType="reply">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -14,9 +15,21 @@
 		values(#{id},#{ratedId},#{replyDate},#{centent})
 	</insert>
 	<delete id="deleteReplyById" parameterType="String">
-		delete from reply where id=#{id}
+		delete from reply
+		where id=#{id}
 	</delete>
 	<update id="updateReplyCententById" parameterType="reply">
-	UPDATE reply set centent=#{centent}  where id =#{id}
+		UPDATE reply set centent=#{centent} where id =#{id}
 	</update>
+
+	<select id="replyPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="reply">
+		select id id,reply_date replydDate,centent centent
+		from reply
+		limit #{skipNum},#{takeNum}
+	</select>
+
+	<select id="findReplyAllCount" resultType="int">
+		select COUNT(*) from reply
+	</select>
 </mapper>

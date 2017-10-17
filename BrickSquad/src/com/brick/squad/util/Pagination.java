@@ -8,6 +8,8 @@ public class Pagination {
 	public int getSkipNum() {
 		return (curentPage-1)*pageSize;
 	}
+	 
+	
 	
 	public int getTakeNum() {
 		return pageSize;

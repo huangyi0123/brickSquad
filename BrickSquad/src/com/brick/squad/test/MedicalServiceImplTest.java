@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +11,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Medical;
+import com.brick.squad.pojo.Rated;
 import com.brick.squad.service.MedicalService;
+import com.brick.squad.util.Pagination;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -18,7 +21,24 @@ public class MedicalServiceImplTest {
 	@Autowired
 	@Qualifier("medicalService")
 	private MedicalService medicalService;
-
+	@Test
+	public void findMedicalAllCount(){
+		System.out.println(medicalService.findMedicalAllCount());
+	}
+	@Test
+	public void medicalPagination(){
+		Pagination pagination =new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(5);
+		List<Medical> listMedical =medicalService.medicalPagination(pagination);
+		for (Medical medical : listMedical) {
+			System.out.println(medical.toString());
+		}
+		
+	}
+	
+	
+	
 	@Test
 	public void insertMedicalTest() {
 		Medical medical = new Medical();

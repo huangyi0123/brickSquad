@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.brick.squad.mapper.RoleMapper;
 import com.brick.squad.pojo.Role;
 import com.brick.squad.service.RoleService;
+import com.brick.squad.util.Pagination;
 /**
  * 
  * @author Luyujing
@@ -39,5 +40,8 @@ public class RoleServiceImpl implements RoleService{
 		
 	}
 	
-	
+	public  List<Role> rolePagination(Pagination pagination){
+		return roleMapper.rolePagination(pagination);
+		
+	}
 }
