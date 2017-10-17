@@ -15,10 +15,26 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 	@Qualifier("activitiesMapper")
 	private ActivitiesMapper activitiesMapper;
 	@Override
-	public List<Activities> findActivitiesById(String id) {
-		// TODO Auto-generated method stub
+	public Activities findActivitiesById(String id) {
 		return activitiesMapper.findActivitiesById(id);
 	}
+	@Override
+	public void insertActivitiesById(Activities activities) {
+		// TODO Auto-generated method stub
+		activitiesMapper.insertActivities(activities);
+
+	}
+	@Override
+	public void deleteActivitiesById(String id) {
+		// TODO Auto-generated method stub
+		activitiesMapper.deleteActivitiesById(id);
+	}
+	@Override
+	public void updateActivitiesById(Activities activities) {
+		// TODO Auto-generated method stub
+		activitiesMapper.updateActivitiesById(activities);
+	}
+	
 	
 
 }

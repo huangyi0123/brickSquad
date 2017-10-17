@@ -10,11 +10,12 @@ public interface ShopActivitiesMapper {
 	 */
 	public ShopActivities findShopActivitiesById(String id);
 	
+	public void insertShopActivitiesById(ShopActivities shopActivities);
 	
-	/**
-	 * 添加信息
-	 * @param id
-	 */
-	public void updateshopActivities(String id);
+	public void deleteShopActivities(String id);
+	
+	public void updateShopActivitiesById(ShopActivities shopActivities);
+	
+
 
 }

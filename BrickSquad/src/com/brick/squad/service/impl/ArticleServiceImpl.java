@@ -15,11 +15,25 @@ public class ArticleServiceImpl implements ArticalService{
 	@Qualifier("articleMapper")
 	private ArticleMapper articleMapper;
 	@Override
-	public List<Article> findArticleById(String id) {
+	public Article findArticleById(String id) {
 		// TODO Auto-generated method stub
-		return articleMapper.findArticleById(id);
+	    	
+			return articleMapper.findArticleById(id);
+	}
+	@Override
+	public void insertArticleById(Article article) {
+		// TODO Auto-generated method stub
+		articleMapper.insertArticle(article);
+	}
+	@Override
+	public void deleteArticleById(String id) {
+		// TODO Auto-generated method stub
+		articleMapper.deleteArticleById(id);
+	}
+	@Override
+	public void updateArticleById(Article article) {
+		// TODO Auto-generated method stub
+		articleMapper.updateArticleById(article);
 	}
 	
-	
-
 }

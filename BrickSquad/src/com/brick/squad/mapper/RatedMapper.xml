@@ -2,10 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RatedMapper">
+
 	<select id="findRatedById" parameterType="String" resultType="rated">
 		select id id,order_id orderId,rated_date ratedDate,centent centent
 		from rated where id = #{id}
 	</select>
+	
 	<insert id="insertRated" parameterType="rated">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
@@ -13,9 +15,12 @@
 		insert into rated(id,order_id,rated_date,centent)
 		values(#{id},#{orderId},#{ratedDate},#{centent})
 	</insert>
+
+	
 	<delete id="deleteRatedById" parameterType="String">
 		delete from rated where id=#{id}
 	</delete>
+	
 	<update id="updateRatedCententById" parameterType="rated">
 	UPDATE rated set centent=#{centent}  where id =#{id}
 	</update>

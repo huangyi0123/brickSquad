@@ -5,8 +5,31 @@
 
     <!-- 查询 -->
     <select id="findArticleById" resultType="article" parameterType="String" >
-	 	select id,name,type_id typeId,business_id businessId,price,stock,describe,image from Arcticle where id=#{id}
+	 	select id,name,type_id typeId,business_id businessId,price,stock,image from article where id=#{id}
 	</select>
+	
+	<insert id="insertArticle" parameterType="article">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into article(id,name,type_id,business_id,price,stock,describes,image)
+		values(#{id},#{name},#{typeId},#{businessId},#{price},#{stock},#{describe},#{image})
+	</insert>
+	
+	<delete id="deleteArticleById" parameterType="String">
+		delete from article where id=#{id}
+	</delete>
+	
+	<update id="updateArticleById" parameterType="article">
+		update article set name=#{name},
+				type_id=#{typeId},
+				business_id=#{businessId},
+				price=#{price},
+				stock=#{stock},
+				describes=#{describe},
+				image=#{image}
+				where id = #{id}
+	</update>
 	
 	
 </mapper>

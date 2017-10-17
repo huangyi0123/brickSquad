@@ -7,6 +7,13 @@ import com.brick.squad.pojo.Article;
 public interface ArticleMapper {
 	/**
 	 * 返回商品表
+	 * @return 
 	 */
-	public List<Article> findArticleById(String id);
+	public Article findArticleById(String id);
+	
+	public void insertArticle(Article article);
+	
+	public void deleteArticleById(String id);
+	
+	public void updateArticleById(Article article);
 }

@@ -20,5 +20,23 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 		return shopActivitiesMapper.findShopActivitiesById(id);
 	}
 
+	@Override
+	public void insertShopActivitiesById(ShopActivities shopActivities) throws Exception {
+		// TODO Auto-generated method stub
+		shopActivitiesMapper.insertShopActivitiesById(shopActivities);
+	}
+
+	@Override
+	public void delectShopActivitiesById(String id) throws Exception {
+		shopActivitiesMapper.deleteShopActivities(id);
+		
+	}
+
+	@Override
+	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception {
+		shopActivitiesMapper.updateShopActivitiesById(shopActivities);
+		
+	}
+
 	
 }

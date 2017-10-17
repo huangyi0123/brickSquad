@@ -11,5 +11,13 @@ public interface ArticalService {
 	 * @return 返回商品列表
 	 */
 	
-	public List<Article> findArticleById(String id);
+	public Article findArticleById(String id) throws Exception;
+	
+	public void insertArticleById(Article article)throws Exception;
+	
+	public void deleteArticleById(String id)throws Exception;
+	
+	public void updateArticleById(Article article)throws Exception;
+
+
 }

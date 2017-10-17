@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RapportMapper">
 	<sql id="Base_Column_List">
-		id, per_id perId, user_id userId, rapport_date rapportDate
+		id, per_id perId, user_id userId, rapport_date rapportDate,goal,period
 	</sql>
 	<select id="findRapportById" parameterType="java.lang.String"
 		resultType="Rapport">
@@ -20,12 +20,15 @@
 	<insert id="insertRapport" parameterType="Rapport">
 		INSERT INTO rapport
 		(id, per_id, user_id,
-		rapport_date, content)
+		rapport_date, content,
+		goal,period)
 		VALUES
 		(#{id,jdbcType=VARCHAR}, #{perId,jdbcType=VARCHAR},
 		#{userId,jdbcType=VARCHAR},
 		#{rapportDate,jdbcType=TIMESTAMP},
-		#{content,jdbcType=LONGVARCHAR})
+		#{content,jdbcType=LONGVARCHAR},
+		#{goal,jdbcType=VARCHAR},
+		#{period,jdbcType=FLOAT})
 	</insert>
 	<update id="updateRapportByID" parameterType="Rapport">
 		UPDATE rapport
@@ -36,7 +39,11 @@
 		rapport_date =
 		#{rapportDate,jdbcType=TIMESTAMP},
 		content =
-		#{content,jdbcType=LONGVARCHAR}
+		#{content,jdbcType=LONGVARCHAR},
+			goal =
+		#{goal,jdbcType=VARCHAR},
+			period =
+		#{period,jdbcType=FLOAT}
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
 	<delete id="deleteRapportById" parameterType="java.lang.String">
