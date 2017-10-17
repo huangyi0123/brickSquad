@@ -15,6 +15,7 @@ import com.brick.squad.pojo.Region;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 /**
  * 订单业务层接口实现接口
  * */
@@ -60,14 +61,10 @@ public class OrdersServiceImpl implements OrdersService{
 	/**订单分页查询*/
 	public String ordersPagination(Pagination pagination)
 			throws Exception {
-		GridManagerList<Orders> gridManagerList=new GridManagerList<Orders>();
-		List<Orders> orders=ordersMapper.ordersPagination(pagination);
-		gridManagerList.setStatus("success");
-		gridManagerList.setData(orders);
-		gridManagerList.setTotals(ordersMapper.findOrdersCount());
-		JSONArray jsonArray=JSONArray.fromObject(gridManagerList);
-		String data=jsonArray.toString();
-		data=data.substring(1,data.length()-1);
+		List<Orders> regions=ordersMapper.ordersPagination(pagination);
+		int row=ordersMapper.findOrdersCount();
+		Util<Orders> util=new Util<Orders>();
+		String data=util.SplitPage(regions, row);
 		return data;
 	}
 	
