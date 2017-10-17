@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.HealthRecordsMapper">
+
+	<!-- 查询 -->
+	<select id="findHealthRecordsById" resultType="healthRecords"
+		parameterType="String">
+		select id, per_id perId, registr_date registrDate,
+		user_id userId,
+		disease_id diseaseId, shape, diet_situation
+		dietSituation,
+		sports_situation sportsSituation,
+		emotion_control
+		emotionControl,
+		thrombus, blood_pressure bloodPressure,
+		health_assessment
+		healthAssessment, dangerous_tips dangerousTips,
+		conclusion_suggestion
+		conclusionSuggestion, evaluate
+		from health_records
+		where id=#{id}
+	</select>
+	<insert id="insertHealthRecords" parameterType="healthRecords">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO health_records (id, per_id, registr_date, user_id,
+		disease_id, shape, diet_situation, sports_situation,
+		emotion_control,
+		thrombus, blood_pressure, health_assessment, dangerous_tips,
+		conclusion_suggestion, evaluate) VALUES (#{id}, #{perId},
+		#{registrDate}, #{userId}, #{diseaseId},
+		#{shape}, #{dietSituation},
+		#{sportsSituation}, #{emotionControl}, #{thrombus},
+		#{bloodPressure},
+		#{healthAssessment}, #{dangerousTips}, #{conclusionSuggestion},
+		#{evaluate});
+	</insert>
+	<delete id="deleteHealthRecordsById" parameterType="String">
+		delete from
+		health_records where id=#{id}
+	</delete>
+	<update id="updateHealthRecordsById" parameterType="healthRecords"> UPDATE
+		health_records set
+
+		per_id=#{perId}, registr_date=#{registrDate},
+		user_id=#{userId},
+		disease_id=#{diseaseId}, shape=#{shape},
+		diet_situation=#{dietSituation},
+		sports_situation=#{sportsSituation},
+		emotion_control=#{emotionControl},thrombus=#{thrombus},
+		blood_pressure=#{bloodPressure},
+		health_assessment=#{healthAssessment},
+		dangerous_tips=#{dangerousTips},
+		conclusion_suggestion=#{conclusionSuggestion}, evaluate=#{evaluate}
+
+		where id =#{id}
+	</update>
+
+	<select id="healthRecordsPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="healthRecords">
+		select id, per_id perId, registr_date registrDate,
+		user_id userId,
+		disease_id diseaseId, shape, diet_situation
+		dietSituation,
+		sports_situation sportsSituation,
+		emotion_control
+		emotionControl,
+		thrombus, blood_pressure bloodPressure,
+		health_assessment
+		healthAssessment, dangerous_tips dangerousTips,
+		conclusion_suggestion
+		conclusionSuggestion, evaluate
+		from health_records
+		limit #{skipNum},#{takeNum}
+		</select>
+		<select id="findHealthRecordsAllCount" resultType="int">
+		select COUNT(*) from health_records
+	</select>
+</mapper>

@@ -11,7 +11,7 @@ public interface RegionMapper {
 	public void insertRegionById(Region region);
 	public void deleteRegionById(String id);
 	public void updateRegion(Region region);
-	public List<Region> RegionPagination(Pagination pagination);
+	public List<Region> regionPagination(Pagination pagination);
 
 
 }

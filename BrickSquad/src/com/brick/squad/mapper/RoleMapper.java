@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.brick.squad.pojo.Role;
+import com.brick.squad.util.Pagination;
 
 public interface RoleMapper {
 	
@@ -17,4 +18,5 @@ public interface RoleMapper {
 	//查询用户
 	public List<Role> findRole(String id);
 	
+	public List<Role> rolePagination(Pagination pagination);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
+import com.brick.squad.util.Pagination;
 
 
 /**
@@ -40,7 +42,7 @@ public class UserServiceTest {
 	//User表插入数据
 	//@Test
 	public void addUserTest(){
-		userService.addUser("6","lyj","123213","1528353406","6");
+		userService.addUser("4","lyj","123213","1528353406","4");
 	}
 	//User表删除数据
 	//@Test
@@ -48,9 +50,17 @@ public class UserServiceTest {
 		userService.deleteUser("luyujing");
 	}
 	//User表修改密码
-	@Test
+	//@Test
 	public void updateUserTest(){
 		userService.updateUser("lyj","222222");
 	}
-	
+	//用户分页查询
+	@Test
+	public void userPaginationTest(){
+		Pagination pagination =new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		List<User> list=userService.userPagination(pagination);
+		System.out.println(list.size());
+	}
 	}

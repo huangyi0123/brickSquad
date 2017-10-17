@@ -21,4 +21,12 @@
 	<delete id="deleteBuyersById" parameterType="com.brick.squad.pojo.Buyers">
 		delete from buyers where id=#{id}
 	</delete>
+	<!--分页查询  -->
+	<select id="buyersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.Buyers">
+		select 
+		id,current_integral currentIntegral,
+		historical_integral historicalIntegral,
+		grade grade,delivery_address_id deliveryAddressId 
+		from buyers limit #{skipNum},#{takeNum}
+	</select>
 </mapper>
