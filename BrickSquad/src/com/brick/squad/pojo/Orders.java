@@ -21,28 +21,26 @@ public class Orders {
     private List<Rated> rateds;
     /**订单与Type类型的关系：一对多*/
     private Type types;
-    /**订单与商品的关系：多对多*/
-    private List<Article> article;
-    /**订单与老人信息的关系：一对多*/
-    private PersonalInformation personalInformation;
+    /**订单与订单项的关系：一对多*/
+    private List<OrderDetails> orderDetails;
+    /**订单与买家的关系：一对多*/
+    private Buyers buyers;
 
-    public PersonalInformation getPersonalInformation() {
-		return personalInformation;
+	public List<OrderDetails> getOrderDetails() {
+		return orderDetails;
 	}
 
-	public void setPersonalInformation(PersonalInformation personalInformation) {
-		this.personalInformation = personalInformation;
+	public void setOrderDetails(List<OrderDetails> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 
-	public List<Article> getArticle() {
-		return article;
+	public Buyers getBuyers() {
+		return buyers;
 	}
 
-	public void setArticle(List<Article> article) {
-		this.article = article;
+	public void setBuyers(Buyers buyers) {
+		this.buyers = buyers;
 	}
-
-
 
 	public Type getTypes() {
 		return types;
