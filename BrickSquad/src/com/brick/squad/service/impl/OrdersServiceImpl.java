@@ -3,13 +3,19 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.OrdersMapper;
 import com.brick.squad.pojo.Orders;
+import com.brick.squad.pojo.Region;
 import com.brick.squad.service.OrdersService;
+import com.brick.squad.util.GridManagerList;
+import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 /**
  * 订单业务层接口实现接口
  * */
@@ -50,6 +56,16 @@ public class OrdersServiceImpl implements OrdersService{
 	public Integer findOrdersCount() throws Exception {
 		Integer ordersCount=ordersMapper.findOrdersCount();
 		return ordersCount;
+	}
+	@Override
+	/**订单分页查询*/
+	public String ordersPagination(Pagination pagination)
+			throws Exception {
+		List<Orders> regions=ordersMapper.ordersPagination(pagination);
+		int row=ordersMapper.findOrdersCount();
+		Util<Orders> util=new Util<Orders>();
+		String data=util.SplitPage(regions, row);
+		return data;
 	}
 	
 }

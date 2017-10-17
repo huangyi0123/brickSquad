@@ -3,6 +3,7 @@ package com.brick.squad.service;
 import java.util.List;
 
 import com.brick.squad.pojo.Orders;
+import com.brick.squad.util.Pagination;
 
 /**
  * 订单业务层接口
@@ -30,5 +31,8 @@ public interface OrdersService {
 	 * 查询订单总数
 	 * */
 	public Integer findOrdersCount()throws Exception;
-	
+	/**
+	 * 订单分页查询
+	 * */
+	public String ordersPagination(Pagination pagination)throws Exception;
 }
