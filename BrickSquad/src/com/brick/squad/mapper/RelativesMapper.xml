@@ -31,4 +31,18 @@
 		DELETE FROM
 		relatives WHERE id=#{id}
 	</delete>
+	<select id="relativesPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="relatives">
+		select
+		id,per_id perId, name,telephone,address_id
+		addressId,relationship_id relationshipId
+		from relatives
+		limit
+		#{skipNum},#{takeNum}
+
+	</select>
+	<select id="findRelativesAllCount" resultType="int">
+		select count(*)
+		from relatives
+	</select>
 </mapper>

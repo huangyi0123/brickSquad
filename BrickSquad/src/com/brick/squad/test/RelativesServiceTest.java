@@ -25,13 +25,16 @@ public class RelativesServiceTest {
 
 	@Test
 	public void testInsertRelatives() {
-		Relatives relatives =new Relatives();
-		relatives.setPerId("123");
-		relatives.setName("wee");
-		relatives.setRelationshipId("123");
-		relatives.setTelephone("12334");
-		relatives.setAddressId("12");
-		relativesService.insertRelatives(relatives);
+		for (int i = 0; i < 20; i++) {
+			Relatives relatives =new Relatives();
+			relatives.setPerId("PerId"+i);
+			relatives.setName("Name"+i);
+			relatives.setRelationshipId("RelationshipId"+i);
+			relatives.setTelephone("Telephone"+i);
+			relatives.setAddressId("AddressId"+i);
+			relativesService.insertRelatives(relatives);
+		}
+		
 	}
 
 	@Test
