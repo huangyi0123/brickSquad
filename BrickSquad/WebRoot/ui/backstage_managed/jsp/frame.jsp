@@ -72,7 +72,7 @@
 						class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 								<li>
-                                <a class="J_menuItem" href="index_v2.html">区域列表</a>
+                                <a class="J_menuItem" href="region/toRegionList">区域列表</a>
                             </li>
 						</ul>
 						</li>

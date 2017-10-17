@@ -3,8 +3,8 @@ package com.brick.squad.util;
 public class Pagination {
 	private int skipNum;
 	private int takeNum;
-	private int curentPage;
-	private int pageSize;
+	private int curentPage=1;
+	private int pageSize=10;
 	public int getSkipNum() {
 		return (curentPage-1)*pageSize;
 	}
