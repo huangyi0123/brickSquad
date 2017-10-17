@@ -52,17 +52,11 @@ public class RatedServiceImpl implements RatedService {
  */
 	@Override
 	public String ratedPagination(Pagination pagination) {
-		GridManagerList<Rated> gridManagerList = new GridManagerList<Rated>();
-		List<Rated> rateds = ratedMapper.ratedPagination(pagination);
-		System.out.println(rateds.toString());
-		gridManagerList.setStatus("success");
-		gridManagerList.setData(rateds);
-		gridManagerList.setTotals(ratedMapper.findRatedAllCount());
-		JSONArray jsonArray = JSONArray.fromObject(gridManagerList);
-		String data = jsonArray.toString();
-		data = data.substring(1, data.length() - 1);
+		String data = SplitPage(pagination);
 		return data;
 	}
+
+
 
 	@Override
 	public int findReplyAllCount() {
