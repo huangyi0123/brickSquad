@@ -89,8 +89,7 @@
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
 						</li>
-						<li><a class="J_menuItem"
-							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
+						
 						<li><a class="J_menuItem"
 							href="activityRegistration/toActivityRegistration">活动登记信息管理列表</a></li>
 						<li><a class="J_menuItem" href="business/toBusiness">商家信息管理列表</a></li>
@@ -109,7 +108,11 @@
 					
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人健康管理<span
 						class="fa arrow"></span></a>
-					<ul class="nav nav-second-level"></ul></li>
+					<ul class="nav nav-second-level">
+					<li><a class="J_menuItem"
+							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
+					
+					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>电子商务<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
