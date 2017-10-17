@@ -2,6 +2,8 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.RegionMapper;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RegionService;
+import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
 @Transactional
 public class RegionServiceImpl implements RegionService {
@@ -37,13 +40,15 @@ public class RegionServiceImpl implements RegionService {
 		regionMapper.deleteRegionById(id);
 	}
 	@Override
-	public List<Region> regionPagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return regionMapper.regionPagination(pagination);
-	}
-	@Override
-	public int regionCount() {
-		
-		return regionMapper.regionCount();
+	public String regionPagination(Pagination pagination) {
+		GridManagerList<Region> gridManagerList=new GridManagerList<Region>();
+		List<Region> regions=regionMapper.regionPagination(pagination);
+		gridManagerList.setStatus("success");
+		gridManagerList.setData(regions);
+		gridManagerList.setTotals(regionMapper.regionCount());
+		JSONArray jsonArray=JSONArray.fromObject(gridManagerList);
+		String data=jsonArray.toString();
+		data=data.substring(1,data.length()-1);
+		return data;
 	}
 }

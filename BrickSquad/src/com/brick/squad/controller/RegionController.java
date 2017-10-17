@@ -1,19 +1,12 @@
 package com.brick.squad.controller;
 
-import java.util.List;
-
-import net.sf.json.JSONArray;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RegionService;
-import com.brick.squad.service.RelativesService;
-import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
 
 @Controller
@@ -28,16 +21,10 @@ public class RegionController {
 	}
 	@RequestMapping("/getRegionList")
 	@ResponseBody
-	public String getRegionList(Pagination pagination) {
-		
-		List<Region> regions=regionService.regionPagination(pagination);
-		GridManagerList<Region> gridManagerList=new GridManagerList<Region>();
-		gridManagerList.setStatus("success");
-		gridManagerList.setData(regions);
-		gridManagerList.setTotals(regionService.regionCount());
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(gridManagerList).toString();
-		data=data.substring(1,data.length()-1);
-		return data;
+	public String getRegionList(int pSize,int cPage,String keyword) {
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(cPage);
+		pagination.setPageSize(pSize);
+		return regionService.regionPagination(pagination);
 	}
 }
