@@ -1,6 +1,9 @@
 package com.brick.squad.test;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +14,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.service.AddressService;
+import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class AddressServiceTest {
 	@Autowired
@@ -49,5 +54,13 @@ public class AddressServiceTest {
 		address.setDetailed("啊撒大苏打");
 		address.setProvinceId("1");
 		addressService.updateAddressById(address);
+	}
+	@Test
+	public void testAddressPagination() throws Exception{
+		List<Address> lAddresses = new ArrayList<Address>();
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(7);
+		lAddresses=addressService.addressPagination(pagination);
 	}
 }

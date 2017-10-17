@@ -19,4 +19,8 @@
 		update guidance set
 		 per_id=#{perId},disease=#{disease},assessment=#{assessment},suggest=#{suggest} where id=#{id}
 	</update>
+	<select id="guidancePagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.Guidance">
+		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest 
+		from  guidance limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

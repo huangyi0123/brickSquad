@@ -18,7 +18,7 @@
 	<update id="updateRegion"  parameterType="region" >
 		update region set name=#{name}	where id=#{id} 
 	</update>
-	<select id="RegionPagination" parameterType="com.brick.squad.util.Pagination" resultType="region">
-		select * from region  limit #{skipNum},#{takeNum}
+	<select id="regionPagination" parameterType="com.brick.squad.util.Pagination" resultType="region">
+		select id,isleaf,name,parent_id perantId from region  limit #{skipNum},#{takeNum}
 	</select>
 </mapper>
