@@ -34,8 +34,16 @@
 		where id=#{id}
 	</update> 
 	
+	  <!-- 分页查询 -->
 	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination" resultType="memberShipApplication">
 			select * from  membership_application  #{skipNum},#{takeNum}
 	</select>
+
+     
+     <select id="findMemberShipApplicationAllCount" resultType="int">
+     			 
+     select count(*) from  membership_application
+     
+     </select>
 
 </mapper>

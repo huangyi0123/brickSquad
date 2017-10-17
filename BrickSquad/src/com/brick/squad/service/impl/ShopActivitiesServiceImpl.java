@@ -47,5 +47,11 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 		return shopActivitiesMapper.shopActivitiesPagination(pagination);
 	}
 
+	@Override
+	public int findShopActivitiesAllCount() {
+		// TODO Auto-generated method stub
+		return shopActivitiesMapper.findShopActivitiesAllCount();
+	}
+
 	
 }

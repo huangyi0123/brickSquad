@@ -20,6 +20,7 @@ public interface ArticleMapper {
 	
 	public List<Article> ArticlePagination(Pagination pagination);
 	
+	public int findArticleAllCount();
 
 }
 

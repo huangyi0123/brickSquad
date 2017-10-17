@@ -71,4 +71,11 @@ public class ActivitiesServiceTest {
 		pagination.setPageSize(4);
 		activitiesService.ArticlePagination(pagination);
 	}
+	
+	@Test
+	public void findActivitiesAllCount(){
+		
+		
+		System.out.println(activitiesService.findActivitiesAllCount());
+	}
 }

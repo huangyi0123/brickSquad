@@ -50,6 +50,11 @@ public class MemberShipApplicationServiceImpl implements MemberShipApplicationSe
 		return memberShipApplicationMapper.MemberShipApplicationPagination(pagination);
 	}
 
+	@Override
+	public int findMemberShipApplicationAllCount() {
+		// TODO Auto-generated method stub
+		return memberShipApplicationMapper.findMemberShipApplicationAllCount() ;
+	}
 
 
 

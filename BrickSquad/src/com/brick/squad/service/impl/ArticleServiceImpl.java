@@ -44,5 +44,10 @@ public class ArticleServiceImpl implements ArticalService{
 		// TODO Auto-generated method stub
 		return articleMapper.ArticlePagination(pagination);
 	}
+	@Override
+	public int findArticleAllCount() {
+		// TODO Auto-generated method stub
+		return articleMapper.findArticleAllCount();
+	}
 	
 }

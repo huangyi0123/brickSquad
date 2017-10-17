@@ -22,7 +22,7 @@ public interface ActivitiesService {
 
 	public List<Activities> ArticlePagination(Pagination pagination);
 
-
+	public int findActivitiesAllCount();
 
 
 }

@@ -37,4 +37,9 @@
 	
 	</select>
 	
+	
+	<select id="findArticleAllCount" resultType="int" >
+		select count(*) from article
+	
+	</select>
 </mapper>

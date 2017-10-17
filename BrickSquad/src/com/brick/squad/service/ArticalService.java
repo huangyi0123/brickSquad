@@ -22,5 +22,5 @@ public interface ArticalService {
 	
 	public List<Article> ArticlePagination(Pagination pagination);
 
-
+	public int findArticleAllCount();
 }

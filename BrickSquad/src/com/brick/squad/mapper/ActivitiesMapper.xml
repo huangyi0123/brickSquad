@@ -33,4 +33,9 @@
 	<select id="ActivitiesPagination" parameterType="com.brick.squad.util.Pagination" resultType="activities">
 		select * from activities limit  #{skipNum},#{takeNum}
 		</select>
+		
+		
+		<select id="findActivitiesAllCount" resultType="int">
+			select count(*) from activities
+		</select>
 </mapper>

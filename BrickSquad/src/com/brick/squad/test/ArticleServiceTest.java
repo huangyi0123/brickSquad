@@ -67,4 +67,10 @@ public class ArticleServiceTest {
 		articleService.ArticlePagination(pagination);
 	}
 	
+	@Test
+	public void findArticleAllCount(){
+		
+		
+		System.out.println(articleService.findArticleAllCount());
+	}
 }
