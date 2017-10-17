@@ -1,5 +1,6 @@
 package com.brick.squad.test;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
@@ -57,5 +59,16 @@ public class ActivitiesServiceTest {
 		activities.setEndTime(new Date());
 		
 		activitiesService.insertActivitiesById(activities);
+	}
+	
+	
+	//分页测试
+	@Test
+	public void testActivitiesPagination(){
+		List<Activities> activities = new ArrayList<>();
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		activitiesService.ArticlePagination(pagination);
 	}
 }

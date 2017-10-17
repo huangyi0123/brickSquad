@@ -32,4 +32,9 @@
 	</update>
 	
 	
+	<select  id="ArticlePagination" parameterType="com.brick.squad.util.Pagination" resultType="article">
+	  select * from article limit #{skipNum},#{takeNum}
+	
+	</select>
+	
 </mapper>

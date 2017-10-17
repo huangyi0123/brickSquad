@@ -3,21 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.MemberShipApplicationMapper">
 
-
 	<select id="findMemberShipApplicationById" parameterType="String"
-		resultType="MemberShipApplication">
-		select id,menbership_type_id menbershipTypeId,user_id
-		userId,per_id perId,deposit from membership_application where id=#{id}
+		resultType="memberShipApplication">
+		select id,membership_type_id memberShipTypeId,user_id userId,per_id
+		perId,deposit from membership_application where id=#{id}
 	</select>
-
+	
+	
 	<insert id="insertMemberShipApplicationById" parameterType="memberShipApplication">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into membership_application(id,menbership_type_id
-		menbershipTypeId,user_id userId,per_id perId,deposit)
+		insert into membership_application(id,membership_type_id,user_id ,per_id ,deposit)
 		values
-		(#{id},#(menbershipTypeId),#{userId},#{perId},#{deposit})
+		(#{id},#{memberShipTypeId},#{userId},#{perId},#{deposit})
 	</insert>
 
 	<delete id="deleteMemberShipApplicationById" parameterType="String">
@@ -25,14 +24,18 @@
 	</delete>
 
 
-	<update id="updateMemberShipApplicationById" parameterType="String">
+	<update id="updateMemberShipApplicationById" parameterType="memberShipApplication">
 		update membership_application
-		set id=#{id}
-		menbership_type_id=#{menbershipTypeId}
-		user_id=#{userId}
-		per_id=#{perId}
+		set 
+		membership_type_id=#{memberShipTypeId},
+		user_id=#{userId},
+		per_id=#{perId},
 		deposit=#{deposit}
 		where id=#{id}
 	</update> 
+	
+	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination" resultType="memberShipApplication">
+			select * from  membership_application  #{skipNum},#{takeNum}
+	</select>
 
 </mapper>

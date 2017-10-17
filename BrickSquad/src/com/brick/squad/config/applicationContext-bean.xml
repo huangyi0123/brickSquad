@@ -23,7 +23,7 @@
 	<bean name="personalInformationService" class="com.brick.squad.service.impl.PersonalInformationServiceImpl" />
 	<bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl" />
 	
-	
+	<!-- tanchao -->
 	<bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
 	<bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl" />
     <bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
@@ -46,8 +46,6 @@
 
     <bean name="typeService" class="com.brick.squad.service.impl.TypeServiceImpl"/>
 
-
-    <bean name="typeService" class="com.brick.squad.service.impl.TypeServiceImpl"/>
     <bean name="orderDetailsService" class="com.brick.squad.service.impl.OrderDetailsServiceImpl"/>
 
 	

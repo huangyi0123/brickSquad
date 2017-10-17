@@ -1,5 +1,8 @@
 package com.brick.squad.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.Spring;
 
 import org.junit.Test;
@@ -12,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 
@@ -51,6 +55,16 @@ public class ArticleServiceTest {
 		article.setPrice("200");
 		
 		articleService.updateArticleById(article);
+	}
+	
+	@Test
+	public void testArticlePagination(){
+		
+		List<Article> article = new ArrayList<>();
+		Pagination pagination = new  Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		articleService.ArticlePagination(pagination);
 	}
 	
 }

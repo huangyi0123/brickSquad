@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Region;
+import com.brick.squad.util.Pagination;
 
 public interface ActivitiesMapper {
 	/**
@@ -19,4 +20,6 @@ public interface ActivitiesMapper {
 	public void deleteActivitiesById(String id);
 	
 	public void updateActivitiesById(Activities activities);
+	
+	public List<Activities> ActivitiesPagination(Pagination pagination) ;
 }
