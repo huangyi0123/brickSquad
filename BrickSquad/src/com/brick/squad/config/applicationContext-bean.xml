@@ -34,9 +34,6 @@
     <bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
 	<bean name="memberShipApplicationService" class="com.brick.squad.service.impl.MemberShipApplicationServiceImpl"/>
 
-	<bean name="shopActivitiesService"
-		class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
-
 
 	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl" />
 	<bean name="relativesService" class="com.brick.squad.service.impl.RelativesServiceImpl" />
