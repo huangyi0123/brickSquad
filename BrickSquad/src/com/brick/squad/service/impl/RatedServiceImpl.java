@@ -15,6 +15,7 @@ import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 
 @Transactional
 public class RatedServiceImpl implements RatedService {
@@ -29,7 +30,6 @@ public class RatedServiceImpl implements RatedService {
 
 	@Override
 	public void insertRated(Rated rated) {
-		System.err.println(rated.getCentent() + "**");
 		ratedMapper.insertRated(rated);
 
 	}
@@ -52,11 +52,12 @@ public class RatedServiceImpl implements RatedService {
  */
 	@Override
 	public String ratedPagination(Pagination pagination) {
-		String data = SplitPage(pagination);
+		List<Rated> rateds = ratedMapper.ratedPagination(pagination);
+		int row=ratedMapper.findRatedAllCount();
+		Util<Rated> util=new Util<Rated>();
+		String data =util.SplitPage(rateds, row);
 		return data;
 	}
-
-
 
 	@Override
 	public int findReplyAllCount() {
