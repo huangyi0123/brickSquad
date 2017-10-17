@@ -3,6 +3,7 @@ package com.brick.squad.service;
 import java.util.List;
 
 import com.brick.squad.pojo.Article;
+import com.brick.squad.util.Pagination;
 
 public interface ArticalService {
 	/**
@@ -18,6 +19,8 @@ public interface ArticalService {
 	public void deleteArticleById(String id)throws Exception;
 	
 	public void updateArticleById(Article article)throws Exception;
+	
+	public List<Article> ArticlePagination(Pagination pagination);
 
 
 }

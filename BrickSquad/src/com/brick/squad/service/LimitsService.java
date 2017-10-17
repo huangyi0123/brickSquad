@@ -1,6 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Limits;
+import com.brick.squad.util.Pagination;
 
 public interface LimitsService {
 	/**
@@ -24,4 +27,10 @@ public interface LimitsService {
 	 * @param id 权限id
 	 */
 	public void deleteLimitsById(String id);
+	/**
+	 * 根据分页条件查询数据
+	 * @param pagination 分页条件
+	 * @return 权限数据json数据
+	 */
+	public String limitsPagination(Pagination pagination);
 }

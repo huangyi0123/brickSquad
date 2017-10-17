@@ -1,5 +1,8 @@
 package com.brick.squad.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +13,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class ShopActivitiesServiceTest {
+	private static final String ShopActivities = null;
 	@Autowired
 	@Qualifier("shopActivitiesService")
 	
@@ -58,4 +63,20 @@ public class ShopActivitiesServiceTest {
 			shopActivitiesService.insertShopActivitiesById(s);
 	} 
 	
+	
+	/**
+	 * 测试分页
+	 */
+	
+	@Test
+	public void testshopActivitiesPagination(){
+		List<ShopActivities> shopActivities = new ArrayList<>();
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		shopActivities=	shopActivitiesService.shopActivitiesPagination(pagination); 
+		for (ShopActivities shopActivities2 : shopActivities) {
+			System.out.println(shopActivities2.toString());
+		}
+	}
 }

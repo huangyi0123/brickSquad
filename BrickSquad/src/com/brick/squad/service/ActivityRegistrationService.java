@@ -1,6 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.ActivityRegistration;
+import com.brick.squad.util.Pagination;
 
 public interface ActivityRegistrationService {
 
@@ -28,5 +31,13 @@ public interface ActivityRegistrationService {
 	 * @param id
 	 */
 	public void deleteActivityRegistrationById(String id);
+	
+	/**
+	 * 根据分页条件查询活动信息
+	 * @param pagination 分页信息
+	 * @return 活动信息
+	 */
+	public String activityRegistrationPagination(Pagination pagination);
+	
 	
 }

@@ -2,6 +2,8 @@ package com.brick.squad.service.impl;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.LimitsMapper;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
+import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 
 @Transactional
 public class LimitsServiceImpl implements LimitsService {
@@ -36,6 +40,15 @@ public class LimitsServiceImpl implements LimitsService {
 	public void deleteLimitsById(String id) {
 		limitsMapper.deleteLimitsById(id);
 		
+	}
+
+	@Override
+	public String limitsPagination(Pagination pagination) {
+		List<Limits> datas=limitsMapper.limitsPagination(pagination);
+		int n=limitsMapper.limitsCount();
+		Util<Limits> util=new Util<Limits>();
+		String data=util.SplitPage(datas, n);
+		return data;
 	}
 	
 }

@@ -48,6 +48,12 @@ public class AddressServiceImpl implements AddressService{
 		return addressMapper.addressPagination(pagination);
 	}
 
+	@Override
+	public int findAddressAllCount() throws Exception {
+		// TODO Auto-generated method stub
+		return addressMapper.findAddressAllCount();
+	}
+
 
 	
 

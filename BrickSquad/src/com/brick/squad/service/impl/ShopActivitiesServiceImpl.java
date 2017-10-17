@@ -1,5 +1,7 @@
 package com.brick.squad.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
+import com.brick.squad.util.Pagination;
 @Transactional
 public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 
@@ -36,6 +39,12 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception {
 		shopActivitiesMapper.updateShopActivitiesById(shopActivities);
 		
+	}
+
+	@Override
+	public List<ShopActivities> shopActivitiesPagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return shopActivitiesMapper.shopActivitiesPagination(pagination);
 	}
 
 	

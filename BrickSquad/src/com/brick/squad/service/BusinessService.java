@@ -1,6 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Business;
+import com.brick.squad.util.Pagination;
 
 public interface BusinessService {
 
@@ -29,4 +32,11 @@ public interface BusinessService {
 	 * @param id
 	 */
 	public void deleteBusinessById(String id);
+	
+	/**
+	 * 根据分页条件查询商家信息
+	 * @param pagination
+	 * @return 商家信息
+	 */
+	public String businessPagination(Pagination pagination);
 }

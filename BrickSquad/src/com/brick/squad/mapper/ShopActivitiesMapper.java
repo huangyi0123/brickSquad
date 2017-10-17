@@ -1,6 +1,9 @@
 package com.brick.squad.mapper;
 
+import java.util.List;
+
 import com.brick.squad.pojo.ShopActivities;
+import com.brick.squad.util.Pagination;
 
 public interface ShopActivitiesMapper {
 	/**
@@ -16,6 +19,7 @@ public interface ShopActivitiesMapper {
 	
 	public void updateShopActivitiesById(ShopActivities shopActivities);
 	
+	public List<ShopActivities> shopActivitiesPagination(Pagination pagination);
 
 
 }

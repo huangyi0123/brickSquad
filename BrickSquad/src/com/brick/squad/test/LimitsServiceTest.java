@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -51,5 +52,11 @@ public class LimitsServiceTest {
 	public void testDeleteLimitsById() {
 		limitsService.deleteLimitsById("b97a0794b0aa11e78d4f5254002ec43c");
 	}
-
+	@Test
+	public void testLimitsPagination() {
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(5);
+		System.out.println(limitsService.limitsPagination(pagination));
+	}
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
+import com.brick.squad.util.Pagination;
 @Transactional
 public class ArticleServiceImpl implements ArticalService{
 	@Autowired
@@ -34,6 +35,14 @@ public class ArticleServiceImpl implements ArticalService{
 	public void updateArticleById(Article article) {
 		// TODO Auto-generated method stub
 		articleMapper.updateArticleById(article);
+	}
+	
+	
+	//分页查询
+	@Override
+	public List<Article> ArticlePagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return articleMapper.ArticlePagination(pagination);
 	}
 	
 }
