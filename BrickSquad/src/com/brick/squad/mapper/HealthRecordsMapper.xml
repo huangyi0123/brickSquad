@@ -75,4 +75,7 @@
 		from health_records
 		limit #{skipNum},#{takeNum}
 		</select>
+		<select id="findHealthRecordsAllCount" resultType="int">
+		select COUNT(*) from health_records
+	</select>
 </mapper>

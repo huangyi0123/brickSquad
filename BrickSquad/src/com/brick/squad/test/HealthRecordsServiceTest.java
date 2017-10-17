@@ -22,7 +22,10 @@ public class HealthRecordsServiceTest {
 	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
-
+	@Test
+	public void findHealthRecordsAllCount(){
+		System.out.println(healthRecordsService.findHealthRecordsAllCount());
+	}
 	@Test
 	public void healthRecordsratedPaginationTest(){
 		Pagination pagination =new Pagination();

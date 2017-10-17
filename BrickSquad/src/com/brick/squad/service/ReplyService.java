@@ -11,4 +11,5 @@ public interface ReplyService {
 	public void deleteReplyById(String id);
 	public void updateReplyCententById(Reply reply);
 	public List<Reply> replyPagination(Pagination pagination);
+	public int findReplyAllCount();
 }

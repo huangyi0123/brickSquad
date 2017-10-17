@@ -29,7 +29,11 @@ public class RatedServiceTest {
 	@Autowired
 	@Qualifier("ratedService")
 	private RatedService ratedService;
-
+	@Test
+	public void findRatedAllCount(){
+		System.out.println(ratedService.findReplyAllCount());
+	}
+		
 	@Test
 	public void ratedPagination(){
 		Pagination pagination =new Pagination();

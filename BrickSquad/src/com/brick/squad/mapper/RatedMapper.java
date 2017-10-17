@@ -21,4 +21,5 @@ public void insertRated(Rated rated);
 public void deleteRatedById(String id);
 public void updateRatedCententById(Rated rated);
 public List<Rated> ratedPagination(Pagination pagination);
+public int findRatedAllCount();
 }

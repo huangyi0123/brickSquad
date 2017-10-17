@@ -15,4 +15,5 @@ public interface MedicalService {
 
 	public Medical findMedicalById(String id);
 	public List<Medical> medicalPagination(Pagination pagination);
+	public int findMedicalAllCount();
 }
