@@ -3,8 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.OrdersMapper">
 	<sql id="Base_Column_List">
-		id, no, state_id stateId, production_date productionDate,
-		buy_id buyId,
+		id, no, state_id stateId, production_date productionDate,buy_id buyId,
 		 number, money
 	</sql>
 	<select id="findOrdersById" parameterType="java.lang.String"

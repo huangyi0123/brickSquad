@@ -44,5 +44,12 @@ public class ShopActivities {
 	public void setArticleId(String articleId) {
 		this.articleId = articleId;
 	}
+	@Override
+	public String toString() {
+		return "ShopActivities [id=" + id + ", typeId=" + typeId
+				+ ", startTime=" + startTime + ", endTime=" + endTime
+				+ ", businessId=" + businessId + ", articleId=" + articleId
+				+ "]";
+	}
 
 }

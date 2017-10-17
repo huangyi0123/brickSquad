@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class PersonalInformationServiceImplTest {
@@ -46,5 +47,13 @@ public class PersonalInformationServiceImplTest {
 	public void testDeletePersonalInformationById() {
 			personalInformationService.deletePersonalInformationById("765c3378b08811e78d4f5254002ec43c");
 	
+	}
+	@Test
+	public void testPersonalInformationPagination() {
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		System.out.println(personalInformationService.personalInformationPagination(pagination));
+		
 	}
 }

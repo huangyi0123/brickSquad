@@ -1,6 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
 	/**
@@ -24,4 +27,10 @@ public interface PersonalInformationService {
 	 * @param id 老人id
 	 */
 	public void deletePersonalInformationById(String id);
+	/**
+	 * 根据分页条件查询老人信息
+	 * @param pagination 分页信息
+	 * @return Json数据
+	 */
+	public String personalInformationPagination(Pagination pagination);
 }

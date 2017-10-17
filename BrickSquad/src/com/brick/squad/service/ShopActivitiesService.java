@@ -1,7 +1,10 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.pojo.ShopActivities;
+import com.brick.squad.util.Pagination;
 
 public interface ShopActivitiesService {
 	/**
@@ -29,4 +32,6 @@ public interface ShopActivitiesService {
 	
 	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception;
 	
+	
+	public List<ShopActivities> shopActivitiesPagination(Pagination pagination);
 }

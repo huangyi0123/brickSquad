@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.ActivitiesMapper;
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ActivitiesService;
+import com.brick.squad.util.Pagination;
 @Transactional
 public class ActivitiesServiceImpl implements ActivitiesService{
 	@Autowired
@@ -33,6 +35,11 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 	public void updateActivitiesById(Activities activities) {
 		// TODO Auto-generated method stub
 		activitiesMapper.updateActivitiesById(activities);
+	}
+	@Override
+	public List<Activities> ArticlePagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return activitiesMapper.ActivitiesPagination(pagination);
 	}
 	
 	

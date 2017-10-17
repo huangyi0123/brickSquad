@@ -30,4 +30,7 @@
 	 		where id =#{id}
 	</update>
 	
+	<select id="ActivitiesPagination" parameterType="com.brick.squad.util.Pagination" resultType="activities">
+		select * from activities limit  #{skipNum},#{takeNum}
+		</select>
 </mapper>
