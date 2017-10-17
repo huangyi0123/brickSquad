@@ -68,38 +68,52 @@
 						</ul>
 					</div>
 				</li>
-				<li><a class="J_menuItem"><i class="fa fa-table"></i>表单管理<span
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人信息管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="region/toRegionList">区域列表</a>
-
-							<a class="J_menuItem" href="medical/toMedicalList">病历列表</a> <a
-							class="J_menuItem" href="rated/toRatedList">订单评论列表</a> <a
-							class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a> <a
-							class="J_menuItem" href="healRecords/toHealRecordsList">老人健康档案列表</a>
 						</li>
 						<li><a class="J_menuItem"
+							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
+						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
+						</li>
+						<li><a class="J_menuItem" href="rated/toRatedList">订单评论列表</a>
+						</li>
+						<li><a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a>
+						</li>
+						<li><a class="J_menuItem"
+							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
+						<li><a class="J_menuItem"
 							href="activityRegistration/toActivityRegistration">活动登记信息管理列表</a></li>
-							<li><a class="J_menuItem"
-							href="business/toBusiness">商家信息管理列表</a></li></li>
+						<li><a class="J_menuItem" href="business/toBusiness">商家信息管理列表</a></li>
+						<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
+						</li>
 					</ul></li>
-			</ul>
-
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人客户关系管理<span
 						class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-								<li>
-                                <a class="J_menuItem" href="region/toRegionList">区域列表</a>
-                                 <a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
-                                 <a class="J_menuItem" href="rated/toRatedList">订单评论列表</a>
-                                 <a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a>
-                                 <a class="J_menuItem" href="healthRecords/toHealRecordsList">老人健康档案列表</a>
-                            </li>
-						</ul>
-							<ul class="nav nav-second-level">
-								<li>
-                                <a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
-                            </li>
-						</ul>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人健康管理<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>电子商务<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>老年教育<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>信息发布<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>数据统计<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>分店管理<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+				<li><a class="J_menuItem"><i class="fa fa-table"></i>权限管理<span
+						class="fa arrow"></span></a>
+					<ul class="nav nav-second-level"></ul></li>
+			</ul>
 		</div>
 		</nav>
 		<!--左侧导航结束-->
