@@ -10,6 +10,8 @@ import com.brick.squad.mapper.ReplyMapper;
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.service.ReplyService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
+
 @Transactional
 public class ReplyServiceImpl implements ReplyService {
 	@Autowired
@@ -40,9 +42,12 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<Reply> replyPagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return replyMapper.replyPagination(pagination);
+	public String replyPagination(Pagination pagination) {
+		List<Reply> replies = replyMapper.replyPagination(pagination);
+		int row = replyMapper.findReplyAllCount();
+		Util<Reply> util = new Util<Reply>();
+		String data = util.SplitPage(replies, row);
+		return data;
 	}
 
 	@Override

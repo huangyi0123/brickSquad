@@ -76,7 +76,7 @@
                                  <a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
                                  <a class="J_menuItem" href="rated/toRatedList">订单评论列表</a>
                                  <a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a>
-                                 <a class="J_menuItem" href="healRecords/toHealRecordsList">老人健康档案列表</a>
+                                 <a class="J_menuItem" href="healthRecords/toHealRecordsList">老人健康档案列表</a>
                             </li>
 						</ul>
 							<ul class="nav nav-second-level">
