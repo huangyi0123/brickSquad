@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Role;
 import com.brick.squad.service.RoleService;
+import com.brick.squad.util.Pagination;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:com/brick/squad/config/applicationContext.xml"})
@@ -23,7 +24,7 @@ public class RoleServiceTest {
 	//增加角色
 	//@Test
 	public void addRoleTest(){
-		roleService.addRole("3","编辑");
+		roleService.addRole("5","分店管理员");
 	}
 	//根据ID删除角色
 	//@Test
@@ -37,11 +38,19 @@ public class RoleServiceTest {
 	}
 	
 	//根据ID查询角色
-	@Test
+	//@Test
 	public void findRoleTest(){
 		List<Role> list=roleService.findRole("1");
 		System.out.println(list.size());
 	}
-	
+	//新闻分页查询
+	@Test
+	public void rolePaginationTest(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		List<Role> list=roleService.rolePagination(pagination);
+		System.out.println(list.size());
+	}
 	
 }

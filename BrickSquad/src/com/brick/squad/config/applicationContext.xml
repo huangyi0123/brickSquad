@@ -11,3 +11,4 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
         <import resource="classpath:com/brick/squad/config/applicationContext-*.xml"/>
 </beans>
+ 

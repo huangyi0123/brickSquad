@@ -15,4 +15,7 @@
 	<update id="updateUser" parameterType="String">
 		UPDATE user SET password=#{password} WHERE username=#{username}
 	</update>
+	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
+		select*from user limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

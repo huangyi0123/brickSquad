@@ -14,6 +14,9 @@
 		UPDATE news SET content=#{content} WHERE user_id=#{userId}
 	</update>
 	<select id="findNews" resultType="news" parameterType="java.lang.Long">
-		select*from news where content=#{content};
+		select*from news where content=#{content}
+	</select>
+	<select id="newsPagination" resultType="news" parameterType="com.brick.squad.util.Pagination">
+		select*from news limit #{skipNum},#{takeNum}
 	</select>
 </mapper>

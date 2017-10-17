@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommonController {
 	@RequestMapping("/toFrame")
 	public String toFrame() {
-		return "backstage_managed/jsp/frame";
+		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
 	}
 }
