@@ -3,6 +3,8 @@ package com.brick.squad.test;
 import java.util.Calendar;
 import java.util.List;
 
+ 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.News;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.Pagination;
 
 
 
@@ -30,7 +33,7 @@ public class NewsServiceTest {
 	//添加新闻
 	//@Test
 	public void addNews(){
-		newsService.addNews("3","3","黑夜头条","/image/3.png",Calendar.getInstance().getTime());
+		newsService.addNews("4","4","Nike","/image/4.png",Calendar.getInstance().getTime());
 	}
 	//删除新闻
 	//@Test
@@ -42,10 +45,18 @@ public class NewsServiceTest {
 		newsService.updateNews("2","白天头条");
 	}
 	//查询新闻
-	@Test
+	//@Test
 	public void findNews(){
 		
 		List<News> list=newsService.findNews("黑夜头条");
 		System.out.println(list.size());
+	}
+	//新闻分页查询
+	@Test
+	public void newsPagination(){
+		Pagination pagination =new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		List<News> list=newsService.newsPagination(pagination);
 	}
 }

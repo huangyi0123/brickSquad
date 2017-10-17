@@ -1,6 +1,5 @@
 package com.brick.squad.service.impl;
 
-import java.io.File;
 import java.util.Date;
 
 
@@ -13,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.Pagination;
 /**
  * 新闻表 增删改查
  * @author Luyujing
@@ -63,5 +63,9 @@ public class NewsServiceImpl implements NewsService {
 	public List<News> findNews(String content){
 		return newsMapper.findNews(content);
 		
+	}
+	//新闻分页查询
+	public List<News> newsPagination(Pagination pagination){
+		return newsMapper.newsPagination(pagination);
 	}
 }
