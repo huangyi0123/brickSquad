@@ -10,6 +10,13 @@ public interface AddressService {
 	public Address findAddressById(String id) throws Exception;
 	public void deleteAddressById(String id ) throws Exception;
 	public void updateAddressById(Address address) throws Exception;
-	public List<Address> addressPagination(Pagination pagination) throws Exception;
+	
 	public int findAddressAllCount() throws Exception;
+	/**
+	 * 分页查询
+	 * @param pagination
+	 * @return
+	 * @throws Exception
+	 */
+	public String addressPagination(Pagination pagination) throws Exception;
 }

@@ -73,6 +73,8 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="region/toRegionList">区域列表</a>
 						</li>
+						<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
+						</li>
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>

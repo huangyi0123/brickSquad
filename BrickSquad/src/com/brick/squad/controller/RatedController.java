@@ -37,16 +37,6 @@ public class RatedController {
 
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping("/findRatedById")
 	@ResponseBody
 	public String findRatedById(String id) {
