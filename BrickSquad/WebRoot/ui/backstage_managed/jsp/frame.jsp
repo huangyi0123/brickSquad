@@ -84,8 +84,6 @@
                                 <a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
                             </li>
 						</ul>
-						</li>
-			</ul>
 		</div>
 		</nav>
 		<!--左侧导航结束-->
