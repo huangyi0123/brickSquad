@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.mapper.ShoppingCarMapper;
+import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
+import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 
 /**
  * 业务层：实现购物车接口类
@@ -46,6 +49,24 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	public List<ShoppingCar> findShoppingCar() throws Exception {
 		List<ShoppingCar> shoppingCars = shoppingCarMapper.findShoppingCar();
 		return shoppingCars;
+	}
+
+	@Override
+	/**查询购物车总数*/
+	public Integer findShoppingCarCount() throws Exception {
+		Integer countShoppingCar=shoppingCarMapper.findShoppingCarCount();
+		return countShoppingCar;
+	}
+
+	@Override
+	/**分页查询购物车*/
+	public String shoppingCarPagination(Pagination pagination)
+			throws Exception {
+		List<ShoppingCar> regions=shoppingCarMapper.shoppingCarPagination(pagination);
+		int row=shoppingCarMapper.findShoppingCarCount();
+		Util<ShoppingCar> util=new Util<ShoppingCar>();
+		String data=util.SplitPage(regions, row);
+		return data;
 	}
 
 }

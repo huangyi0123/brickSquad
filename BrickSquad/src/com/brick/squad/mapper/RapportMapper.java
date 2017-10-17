@@ -3,6 +3,7 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 import com.brick.squad.pojo.Rapport;
+import com.brick.squad.util.Pagination;
 
 /**
  * 老人客户沟通的mapper操作
@@ -28,5 +29,11 @@ public interface RapportMapper {
 	 * 根据ID删除老人客户沟通信息
 	 * */
 	public void deleteRapportById(String id);
+	/**查询老人客户总数*/
+	public Integer findRapportCount();
+	/**
+	 * 老人客户分页查询
+	 * */
+	public List<Rapport> rapportCarPagination(Pagination pagination);
 	
 }

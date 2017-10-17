@@ -30,4 +30,12 @@
  	 DELETE FROM order_details
  	 WHERE id = #{id,jdbcType=VARCHAR}
  	 </delete>
+ 	 <select id="countOrderDetails" resultType="Integer">
+ 	 SELECT COUNT(*) FROM order_details
+ 	 </select>
+ 	 <select id="orderDetailsPagination" parameterType="com.brick.squad.util.Pagination" resultType="OrderDetails">
+	SELECT 
+	<include refid="Base_Column_List" />
+	 FROM order_details limit #{skipNum},#{takeNum}
+	</select>
 </mapper>
