@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.pojo.Buyers;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath*:com/brick/squad/config/applicationContext.xml")
@@ -53,4 +54,13 @@ public class BuyersServiceTest {
 		buyers.setId("ab1595b6b0bd11e78d4f5254002ec43c");
 		buyersService.deleteBuyersById(buyers);
 	}
+	@Test
+	public void testBuyersPagination() throws Exception{
+		List<Buyers> lBuyers = new ArrayList<Buyers>();
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(6);
+		lBuyers = buyersService.buyersPagination(pagination);
+	}
+	
 }

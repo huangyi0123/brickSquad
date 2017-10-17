@@ -1,6 +1,8 @@
 package com.brick.squad.test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.brick.squad.pojo.Guidance;
 import com.brick.squad.service.GuidanceService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -45,5 +48,13 @@ public class GuidanceServiceTest {
 		guidance.setPerId("562400");
 		guidance.setSuggest("wqnmmp");
 		guidanceService.updateGuidanceById(guidance);
+	}
+	@Test
+	public void testGuidancePagination() throws Exception{
+		List<Guidance> lGuidances = new ArrayList<Guidance>();
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(5);
+		lGuidances = guidanceService.guidancePagination(pagination);
 	}
 }
