@@ -32,8 +32,8 @@
 	</update>
 	
 	
-	<select  id="ArticlePagination" parameterType="com.brick.squad.util.Pagination" resultType="article">
-	  select * from article limit #{skipNum},#{takeNum}
+	<select  id="articlePagination" parameterType="com.brick.squad.util.Pagination" resultType="article">
+	  select id,name name,type_id typeId,business_id businessId,price,stock,describes,image from article limit #{skipNum},#{takeNum}
 	
 	</select>
 	

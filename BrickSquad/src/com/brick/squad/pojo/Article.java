@@ -14,7 +14,7 @@ public class Article {
 	private String businessId;
 	private String price;
 	private int stock;
-	private String describe;
+	private String describes;
 	private String image;
 	
 	public String getId() {
@@ -31,6 +31,12 @@ public class Article {
 	}
 	public String getTypeId() {
 		return typeId;
+	}
+	public String getDescribes() {
+		return describes;
+	}
+	public void setDescribes(String describes) {
+		this.describes = describes;
 	}
 	public void setTypeId(String typeId) {
 		this.typeId = typeId;
@@ -53,12 +59,7 @@ public class Article {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public String getDescribe() {
-		return describe;
-	}
-	public void setDescribe(String describe) {
-		this.describe = describe;
-	}
+	
 	public String getImage() {
 		return image;
 	}

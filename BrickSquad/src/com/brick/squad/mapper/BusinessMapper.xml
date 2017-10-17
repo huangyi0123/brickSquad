@@ -2,10 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.BusinessMapper">
+	<sql id="prop">
+		id,name,idcard,shopname,shop_material_path
+		shopMaterialPath
+	</sql>
 	<select id="findBusinessById" resultType="Business"
 		parameterType="String">
-		SELECT id,name,idcard,shopname,shop_material_path
-		shopMaterialPath
+		SELECT
+		<include refid="prop" />
 		FROM business
 		WHERE id=#{id}
 	</select>
@@ -29,6 +33,18 @@
 	</update>
 
 	<delete id="deleteBusinessById" parameterType="String">
-		DELETE FROM business WHERE id=#{id}
+		DELETE FROM
+		business WHERE id=#{id}
 	</delete>
+
+	<select id="businessPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="Business">
+		SELECT
+		<include refid="prop" />
+		FROM business LIMIT #{skipNum},#{takeNum}
+	</select>
+	<select id="businessCount" resultType="int">
+		SELECT
+		COUNT(*) FROM business
+	</select>
 </mapper>

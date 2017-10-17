@@ -64,7 +64,7 @@ public class ArticleServiceTest {
 		Pagination pagination = new  Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
-		articleService.ArticlePagination(pagination);
+		articleService.articlePagination(pagination);
 	}
 	
 	@Test

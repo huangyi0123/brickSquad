@@ -2,10 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ActivityRegistrationMapper">
+	<sql id="prop">
+		id,per_id perId,activities_id
+		activitiesId,registration_date
+		registrationDate,appointment
+	</sql>
 	<select id="findActivityRegistrationById" resultType="ActivityRegistration"
 		parameterType="String">
-		select id,per_id perId,activities_id activitiesId,registration_date
-		registrationDate,appointment from activity_registration where
+		select
+		<include refid="prop" />
+		from activity_registration where
 		id=#{id};
 	</select>
 
@@ -15,7 +21,8 @@
 		</selectKey>
 		INSERT INTO
 		activity_registration(id,per_id,activities_id,registration_date,appointment)
-        VALUES (#{id},#{perId},#{activitiesId},#{registrationDate},#{appointment})
+		VALUES
+		(#{id},#{perId},#{activitiesId},#{registrationDate},#{appointment})
 	</insert>
 
 	<update id="updateActivityRegistrationById" parameterType="ActivityRegistration">
@@ -26,8 +33,18 @@
 		appointment=#{appointment}
 		where id=#{id}
 	</update>
-	
+
 	<delete id="deleteActivityRegistrationById" parameterType="String">
-	   DELETE activity_registration WHERE id=#{id}
+		DELETE activity_registration WHERE id=#{id}
 	</delete>
+	<select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="ActivityRegistration">
+		SELECT
+		<include refid="prop" />
+		FROM activity_registration LIMIT #{skipNum},#{takeNum}
+	</select>
+	<select id="activityRegistrationCount" resultType="int">
+		SELECT
+		COUNT(*) FROM activity_registration
+	</select>
 </mapper>

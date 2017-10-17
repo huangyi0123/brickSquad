@@ -3,6 +3,7 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.util.Pagination;
 
 public interface ShoppingCarMapper {
 	/**
@@ -26,4 +27,12 @@ public interface ShoppingCarMapper {
 	 * 查询购物车所有信息
 	 * */
 	public List<ShoppingCar> findShoppingCar();
+	/**
+	 * 查询购物车总数
+	 * */
+	public Integer findShoppingCarCount();
+	/**
+	 * 购物车分页查询
+	 * */
+	public List<ShoppingCar> shoppingCarPagination(Pagination pagination);
 }

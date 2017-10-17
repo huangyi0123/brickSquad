@@ -1,7 +1,7 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'rated/getRatedList',
+        ajax_url: 'article/getArticleList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
@@ -17,7 +17,7 @@ function init(keyword) {
             },
             {
                 key: 'describes',
-                text: '描述	内容'
+                text: '描述内容'
             },
             {
                 key: "image",

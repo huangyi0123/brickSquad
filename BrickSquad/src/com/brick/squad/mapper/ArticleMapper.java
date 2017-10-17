@@ -18,7 +18,7 @@ public interface ArticleMapper {
 	
 	public void updateArticleById(Article article);
 	
-	public List<Article> ArticlePagination(Pagination pagination);
+	public List<Article> articlePagination(Pagination pagination);
 	
 	public int findArticleAllCount();
 

@@ -1,5 +1,6 @@
 package com.brick.squad.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Reply;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 @Transactional
 public class ArticleServiceImpl implements ArticalService{
 	@Autowired
@@ -40,9 +43,14 @@ public class ArticleServiceImpl implements ArticalService{
 	
 	//分页查询
 	@Override
-	public List<Article> ArticlePagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return articleMapper.ArticlePagination(pagination);
+	public String articlePagination(Pagination pagination) {
+
+		List<Article> articles = articleMapper.articlePagination(pagination);
+		int row = articleMapper.findArticleAllCount();
+		Util<Article> util = new Util<Article>();
+		String data = util.SplitPage(articles, row);
+		return data;
+		
 	}
 	@Override
 	public int findArticleAllCount() {

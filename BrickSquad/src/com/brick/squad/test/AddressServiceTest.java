@@ -63,4 +63,8 @@ public class AddressServiceTest {
 		pagination.setPageSize(7);
 		lAddresses=addressService.addressPagination(pagination);
 	}
+	@Test
+	public void testfindAddressAllCount() throws Exception{
+		addressService.findAddressAllCount();
+	}
 }
