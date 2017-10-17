@@ -1,21 +1,29 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'region/getRegionList',
+        ajax_url: 'rated/getRatedList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+                     {
+                         key: 'orderId',
+                         text: '订单ID'
+                     },
             {
-                key: 'name',
-                text: '名称'
+                key: 'ratedDate',
+                text: '评论时间'
+            },
+            {
+                key: 'centent',
+                text: '评论内容'
             },
             {
                 key: "operation",
                 text: "操作",
                 template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+					return '<a href="'+rowData.id+'">修改</a>';
 				}
             }
         ]

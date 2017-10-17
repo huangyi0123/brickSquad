@@ -18,7 +18,7 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<title>H+ 后台主题UI框架 - 主页</title>
+<title>H+ li主题UI框架 - 主页</title>
 <link rel="shortcut icon" href="favicon.ico">
 <link href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" />
@@ -73,6 +73,10 @@
 						<ul class="nav nav-second-level">
 								<li>
                                 <a class="J_menuItem" href="region/toRegionList">区域列表</a>
+                                 <a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
+                                 <a class="J_menuItem" href="rated/toRatedList">订单评论列表</a>
+                                 <a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a>
+                                 <a class="J_menuItem" href="healRecords/toHealRecordsList">老人健康档案列表</a>
                             </li>
 						</ul>
 							<ul class="nav nav-second-level">

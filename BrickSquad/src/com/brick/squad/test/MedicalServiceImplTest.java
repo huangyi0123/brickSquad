@@ -30,10 +30,8 @@ public class MedicalServiceImplTest {
 		Pagination pagination =new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		List<Medical> listMedical =medicalService.medicalPagination(pagination);
-		for (Medical medical : listMedical) {
-			System.out.println(medical.toString());
-		}
+		String listMedical =medicalService.medicalPagination(pagination);
+		
 		
 	}
 	

@@ -14,11 +14,17 @@ private String id;
  * 主治医师
  */
 private String perId;
+/**
+ * 检查日期
+ */
 private Date inspectionDate;
 /**
  * 检查类型
  */
 private String typeId; 
+/**
+ * 检查医院
+ */
 private String hospital;
 /**
  * 病历详情

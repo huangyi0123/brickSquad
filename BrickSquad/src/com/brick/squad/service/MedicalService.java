@@ -14,6 +14,11 @@ public interface MedicalService {
 	public void updateMedicalById(Medical medical);
 
 	public Medical findMedicalById(String id);
-	public List<Medical> medicalPagination(Pagination pagination);
+	/**
+	 * 通过分页条件返回json数据
+	 * @param pagination 分页条件
+	 * @return json数据
+	 */
+	public String medicalPagination(Pagination pagination);
 	public int findMedicalAllCount();
 }

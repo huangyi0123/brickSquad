@@ -39,10 +39,7 @@ public class RatedServiceTest {
 		Pagination pagination =new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		List<Rated> listRateds =ratedService.ratedPagination(pagination);
-		for (Rated rated : listRateds) {
-			System.out.println(rated.toString());
-		}
+		String listRateds =ratedService.ratedPagination(pagination);
 		
 	}
 	
