@@ -33,11 +33,8 @@ public void findReplyAllCount(){
 		Pagination pagination =new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		List<Reply> listReply = replyService.replyPagination(pagination);
+		String listReply = replyService.replyPagination(pagination);
 		
-		for (Reply reply : listReply) {
-			System.out.println(reply.toString());
-		}
 		
 	}
 	

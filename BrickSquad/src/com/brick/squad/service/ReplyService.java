@@ -10,6 +10,6 @@ public interface ReplyService {
 	public void insertReply(Reply reply);
 	public void deleteReplyById(String id);
 	public void updateReplyCententById(Reply reply);
-	public List<Reply> replyPagination(Pagination pagination);
+	public String replyPagination(Pagination pagination);
 	public int findReplyAllCount();
 }
