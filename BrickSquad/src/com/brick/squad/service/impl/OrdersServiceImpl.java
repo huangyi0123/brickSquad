@@ -45,5 +45,11 @@ public class OrdersServiceImpl implements OrdersService{
 		List<Orders> orders=ordersMapper.findOrders();
 		return orders;
 	}
+	@Override
+	/**查询订单总数*/
+	public Integer findOrdersCount() throws Exception {
+		Integer ordersCount=ordersMapper.findOrdersCount();
+		return ordersCount;
+	}
 	
 }
