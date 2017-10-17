@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.RegionMapper;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RegionService;
+import com.brick.squad.util.Pagination;
 @Transactional
 public class RegionServiceImpl implements RegionService {
 	@Autowired
@@ -34,5 +35,10 @@ public class RegionServiceImpl implements RegionService {
 	public void deleteRegionById(String id) {
 		// TODO Auto-generated method stub
 		regionMapper.deleteRegionById(id);
+	}
+	@Override
+	public List<Region> regionPagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return regionMapper.regionPagination(pagination);
 	}
 }

@@ -18,9 +18,11 @@
 
 	<bean name="medicalService" class="com.brick.squad.service.impl.MedicalServiceImpl" />
 	<bean name="replyService" class="com.brick.squad.service.impl.ReplyServiceImpl" />
+
 	<bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
 	<bean name="activityRegistrationService"
 		class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl" />
+
 	<bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
 	<bean name="personalInformationService"
 		class="com.brick.squad.service.impl.PersonalInformationServiceImpl" />

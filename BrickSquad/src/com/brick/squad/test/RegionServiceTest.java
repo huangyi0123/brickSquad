@@ -1,6 +1,9 @@
 package com.brick.squad.test;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +13,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RegionService;
-@RunWith(SpringJUnit4ClassRunner.class)
+import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 public class RegionServiceTest {
 	@Autowired
@@ -49,5 +54,13 @@ public class RegionServiceTest {
 	public void testdeleteRegionById() throws Exception{
 		regionService.deleteRegionById("4");
 	}
-
+	//分页查询
+	@Test
+	public void testRegionPagination() throws Exception{
+		List<Region> listRegions = new ArrayList<Region>();
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(8);
+		listRegions = regionService.regionPagination(pagination);
+	}
 }
