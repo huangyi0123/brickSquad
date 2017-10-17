@@ -75,6 +75,11 @@
                                 <a class="J_menuItem" href="region/toRegionList">区域列表</a>
                             </li>
 						</ul>
+							<ul class="nav nav-second-level">
+								<li>
+                                <a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
+                            </li>
+						</ul>
 						</li>
 			</ul>
 		</div>

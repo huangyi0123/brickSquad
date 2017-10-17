@@ -1,5 +1,6 @@
 package com.brick.squad.test;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,10 +12,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Orders;
+import com.brick.squad.pojo.Region;
 import com.brick.squad.service.OrdersService;
+import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class OrdersServiceTest {
 	@Autowired
@@ -58,6 +61,13 @@ public class OrdersServiceTest {
 	public void findOrdersCount() throws Exception{
 		Integer ordersCount=ordersService.findOrdersCount();
 		System.out.println(ordersCount);
+	}
+	@Test
+	public void ordersPagination() throws Exception{
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		System.out.println(ordersService.ordersPagination(pagination));
 	}
 	
 }

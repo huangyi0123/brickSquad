@@ -57,7 +57,6 @@ public class RegionServiceTest {
 	//分页查询
 	@Test
 	public void testRegionPagination() throws Exception{
-		List<Region> listRegions = new ArrayList<Region>();
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(8);
