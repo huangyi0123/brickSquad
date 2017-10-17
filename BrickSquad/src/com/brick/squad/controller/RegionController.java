@@ -28,11 +28,16 @@ public class RegionController {
 	}
 	@RequestMapping("/getRegionList")
 	@ResponseBody
-	public void getRegionList(Pagination pagination) {
+	public String getRegionList(Pagination pagination) {
 		
 		List<Region> regions=regionService.regionPagination(pagination);
 		GridManagerList<Region> gridManagerList=new GridManagerList<Region>();
 		gridManagerList.setStatus("success");
 		gridManagerList.setData(regions);
+		gridManagerList.setTotals(regionService.regionCount());
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(gridManagerList).toString();
+		data=data.substring(1,data.length()-1);
+		return data;
 	}
 }

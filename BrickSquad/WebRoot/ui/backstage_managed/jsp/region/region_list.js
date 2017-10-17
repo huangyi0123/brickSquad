@@ -1,7 +1,7 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'getUserList',
+        ajax_url: 'region/getRegionList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
@@ -9,11 +9,7 @@ function init(keyword) {
         columnData: [
             {
                 key: 'name',
-                text: '姓名'
-            },
-            {
-                key: 'age',
-                text: '年龄'
+                text: '名称'
             },
             {
                 key: "operation",

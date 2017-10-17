@@ -63,4 +63,8 @@ public class RegionServiceTest {
 		pagination.setPageSize(8);
 		listRegions = regionService.regionPagination(pagination);
 	}
+	@Test
+	public void testRegionCount() {
+		System.out.println(regionService.regionCount());
+	}
 }
