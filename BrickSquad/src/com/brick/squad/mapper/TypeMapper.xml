@@ -9,9 +9,6 @@
 	</select>
 
 	<insert id="insertType" parameterType="Type">
-		<selectKey keyProperty="id" resultType="String" order="BEFORE">
-			select replace(uuid(),'-','') from dual
-		</selectKey>
 		INSERT INTO
 		type(id,parent_id,name)
 		VALUES(#{id},#{parentId},#{name})
