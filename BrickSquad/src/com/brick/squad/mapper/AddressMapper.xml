@@ -26,4 +26,7 @@
 		city_id cityId,county_id countyId,
 		country_id countryId,detailed from address  limit #{skipNum},#{takeNum}
 	</select>
+	<select id="findAddressAllCount" resultType="int">
+		select count(*) from address
+	</select>
 </mapper>
