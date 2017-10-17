@@ -11,6 +11,7 @@ import com.brick.squad.mapper.HealthRecordsMapper;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 
 @Transactional
 public class HealthRecordsServiceImpl implements HealthRecordsService {
@@ -44,9 +45,13 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 	}
 
 	@Override
-	public List<HealthRecords> healthRecordsPagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return healthRecordsMapper.healthRecordsPagination(pagination);
+	public String healthRecordsPagination(Pagination pagination) {
+		List<HealthRecords> healthRecords = healthRecordsMapper
+				.healthRecordsPagination(pagination);
+		int row = healthRecordsMapper.findHealthRecordsAllCount();
+		Util<HealthRecords> util = new Util<>();
+		String data = util.SplitPage(healthRecords, row);
+		return data;
 	}
 
 	@Override

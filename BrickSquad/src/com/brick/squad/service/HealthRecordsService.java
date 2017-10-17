@@ -13,6 +13,6 @@ public interface HealthRecordsService {
 	public void deleteHealthRecordsById(String id);
 
 	public void updateHealthRecordsById(HealthRecords healthRecords);
-	public List<HealthRecords> healthRecordsPagination(Pagination pagination);
+	public String healthRecordsPagination(Pagination pagination);
 	public int findHealthRecordsAllCount();
 }

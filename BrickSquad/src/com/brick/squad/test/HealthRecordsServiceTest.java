@@ -31,10 +31,8 @@ public class HealthRecordsServiceTest {
 		Pagination pagination =new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		List<HealthRecords> healthRecordslist =healthRecordsService.healthRecordsPagination(pagination); 
-		for (HealthRecords HealthRecords : healthRecordslist) {
-			System.out.println(HealthRecords.toString());
-		}
+		String healthRecordslist =healthRecordsService.healthRecordsPagination(pagination); 
+		
 		
 	}
 	
