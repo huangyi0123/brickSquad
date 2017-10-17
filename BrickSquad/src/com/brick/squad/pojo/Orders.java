@@ -14,8 +14,6 @@ public class Orders {
 
     private String buyId;
 
-    private String articleId;
-
     private Integer number;
 
     private Float money;
@@ -101,15 +99,6 @@ public class Orders {
     public void setBuyId(String buyId) {
         this.buyId = buyId;
     }
-
-    public String getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(String articleId) {
-        this.articleId = articleId;
-    }
-
     public Integer getNumber() {
         return number;
     }

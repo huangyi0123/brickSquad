@@ -42,11 +42,12 @@
 	<bean name="collectionService" class="com.brick.squad.service.impl.CollectionServiceImpl" />
 
 	<bean name="limitsService" class="com.brick.squad.service.impl.LimitsServiceImpl" />
-
 	<bean name="buyersService" class="com.brick.squad.service.impl.BuyersServiceImpl" />
 
-	<bean name="typeService" class="com.brick.squad.service.impl.TypeServiceImpl" />
 	<bean name="healthRecordsService" class="com.brick.squad.service.impl.HealthRecordsServiceImpl" />
+    <bean name="typeService" class="com.brick.squad.service.impl.TypeServiceImpl"/>
+    <bean name="orderDetailsService" class="com.brick.squad.service.impl.OrderDetailsServiceImpl"/>
+	<bean name="guidanceService" class="com.brick.squad.service.impl.GuidanceServiceImpl"/>
 
 </beans>
 

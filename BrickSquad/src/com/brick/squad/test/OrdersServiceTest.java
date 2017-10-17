@@ -30,7 +30,6 @@ public class OrdersServiceTest {
 		orders.setId("2");
 		orders.setNo("2");
 		orders.setNumber(32);
-		orders.setArticleId("3");
 		orders.setProductionDate(new Date());
 		orders.setStateId("2");
 		orders.setMoney(2212f);
