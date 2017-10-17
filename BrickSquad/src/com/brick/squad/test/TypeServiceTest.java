@@ -1,25 +1,23 @@
 package com.brick.squad.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.JunitClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
+@RunWith(JunitClassRunner.class)
+@ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class TypeServiceTest {
 
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
-	
+
 	@Test
 	public void testFindTypeById() {
 		typeService.findTypeById("c6158d3cb0b611e78d4f5254002ec43c");
@@ -27,15 +25,16 @@ public class TypeServiceTest {
 
 	@Test
 	public void testInsertType() {
-		Type type=new Type();
-		type.setParentId("2");
-		type.setName("衣服");
+		Type type = new Type();
+		type.setId("mz");
+		type.setName("民族");
 		typeService.insertType(type);
 	}
 
 	@Test
 	public void testUpdateTypeById() {
-		Type type=typeService.findTypeById("c6158d3cb0b611e78d4f5254002ec43c");
+		Type type = typeService
+				.findTypeById("c6158d3cb0b611e78d4f5254002ec43c");
 		type.setName("食品");
 		typeService.updateTypeById(type);
 	}
