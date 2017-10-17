@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.MemberShipApplicationMapper">
+
+
+	<select id="findMemberShipApplicationById" parameterType="String"
+		resultType="MemberShipApplication">
+		select id,menbership_type_id menbershipTypeId,user_id
+		userId,per_id perId,deposit from membership_application where id=#{id}
+	</select>
+
+	<insert id="insertMemberShipApplicationById" parameterType="memberShipApplication">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into membership_application(id,menbership_type_id
+		menbershipTypeId,user_id userId,per_id perId,deposit)
+		values
+		(#{id},#(menbershipTypeId),#{userId},#{perId},#{deposit})
+	</insert>
+
+	<delete id="deleteMemberShipApplicationById" parameterType="String">
+		delete from membership_application where id=#{id}
+	</delete>
+
+
+	<update id="updateMemberShipApplicationById" parameterType="String">
+		update membership_application
+		set id=#{id}
+		menbership_type_id=#{menbershipTypeId}
+		user_id=#{userId}
+		per_id=#{perId}
+		deposit=#{deposit}
+		where id=#{id}
+	</update> 
+
+</mapper>

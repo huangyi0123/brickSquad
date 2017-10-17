@@ -23,10 +23,13 @@
 	<bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
 	<bean name="personalInformationService" class="com.brick.squad.service.impl.PersonalInformationServiceImpl" />
 	<bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl" />
+	
+	
 	<bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
 	<bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl" />
+    <bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
+	<bean name="memberShipApplicationService" class="com.brick.squad.service.impl.MemberShipApplicationServiceImpl"/>
 
-	<bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
 
 	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl"/>
 	<bean name="relativesService" class="com.brick.squad.service.impl.RelativesServiceImpl"/>
