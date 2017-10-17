@@ -37,5 +37,7 @@
 		from medical 
 		limit  #{skipNum},#{takeNum}
 		</select>
-	
+	<select id="findMedicalAllCount" resultType="int">
+		select COUNT(*) from medical
+	</select>
 </mapper>

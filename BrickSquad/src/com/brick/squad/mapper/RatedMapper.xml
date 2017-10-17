@@ -30,4 +30,7 @@
 		select id id,order_id orderId,rated_date ratedDate,centent centent
 		from rated limit #{skipNum},#{takeNum}
 		</select>
+		<select id="findRatedAllCount" resultType="int">
+		select COUNT(*) from rated
+	</select>
 </mapper>

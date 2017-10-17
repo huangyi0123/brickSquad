@@ -21,5 +21,6 @@ public interface HealthRecordsMapper {
 	public void updateHealthRecordsById(HealthRecords healthRecords);
 
 	public List<HealthRecords> healthRecordsPagination(Pagination pagination);
+	public int findHealthRecordsAllCount();
 
 }

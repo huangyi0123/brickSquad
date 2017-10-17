@@ -45,4 +45,10 @@ public class ReplyServiceImpl implements ReplyService {
 		return replyMapper.replyPagination(pagination);
 	}
 
+	@Override
+	public int findReplyAllCount() {
+		// TODO Auto-generated method stub
+		return replyMapper.findReplyAllCount();
+	}
+
 }

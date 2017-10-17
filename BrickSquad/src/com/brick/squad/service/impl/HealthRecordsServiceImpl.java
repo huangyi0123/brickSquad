@@ -49,4 +49,10 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 		return healthRecordsMapper.healthRecordsPagination(pagination);
 	}
 
+	@Override
+	public int findHealthRecordsAllCount() {
+		// TODO Auto-generated method stub
+		return healthRecordsMapper.findHealthRecordsAllCount();
+	}
+
 }

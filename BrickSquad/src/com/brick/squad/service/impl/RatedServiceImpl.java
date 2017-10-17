@@ -41,5 +41,10 @@ private RatedMapper ratedMapper;
 		// TODO Auto-generated method stub
 		return ratedMapper.ratedPagination(pagination);
 	}
+	@Override
+	public int findReplyAllCount() {
+		// TODO Auto-generated method stub
+		return ratedMapper.findRatedAllCount();
+	}
 
 }

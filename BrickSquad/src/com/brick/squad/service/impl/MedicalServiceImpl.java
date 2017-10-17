@@ -49,4 +49,10 @@ private MedicalMapper medicalMapper;
 		return medicalMapper.medicalPagination(pagination);
 	}
 
+	@Override
+	public int findMedicalAllCount() {
+		// TODO Auto-generated method stub
+		return medicalMapper.findMedicalAllCount();
+	}
+
 }

@@ -23,7 +23,10 @@ public class ReplyServiceTest {
 	@Autowired
 	@Qualifier("replyService")
 	private ReplyService replyService;
-
+@Test
+public void findReplyAllCount(){
+	System.out.println(replyService.findReplyAllCount());
+}
 	
 	@Test
 	public void replyPaginationTest(){
