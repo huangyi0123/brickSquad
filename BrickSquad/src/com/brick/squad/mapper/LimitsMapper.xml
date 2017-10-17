@@ -2,8 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.LimitsMapper">
+	<sql id="prop">
+		id,role_id roleId,tablename,ad,dl,up,`query`
+	</sql>
 	<select id="findLimitsById" parameterType="String" resultType="Limits">
-		SELECT id,role_id roleId,tablename,ad,dl,up,`query` FROM limits WHERE
+		SELECT
+		<include refid="prop" />
+		FROM limits WHERE
 		id=#{id}
 	</select>
 	<insert id="insertLimits" parameterType="Limits">
@@ -28,4 +33,14 @@
 		DELETE FROM limits
 		WHERE id=#{id}
 	</delete>
+	<select id="limitsPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="limits">
+		SELECT
+		<include refid="prop" />
+		FROM limits LIMIT
+		#{skipNum},#{takeNum}
+	</select>
+	<select id="limitsCount" resultType="int">
+		select count(1) from limits
+	</select>
 </mapper>

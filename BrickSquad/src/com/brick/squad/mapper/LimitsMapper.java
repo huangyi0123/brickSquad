@@ -1,6 +1,9 @@
 package com.brick.squad.mapper;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Limits;
+import com.brick.squad.util.Pagination;
 
 public interface LimitsMapper {
 	/**
@@ -24,4 +27,15 @@ public interface LimitsMapper {
 	 * @param id 权限id
 	 */
 	public void deleteLimitsById(String id);
+	/**
+	 * 根据分页条件查询数据
+	 * @param pagination 分页条件
+	 * @return 权限数据
+	 */
+	public List<Limits> limitsPagination(Pagination pagination);
+	/**
+	 * 查询权限记录数
+	 * @return 记录数
+	 */
+	public int limitsCount();
 }

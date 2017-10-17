@@ -112,7 +112,10 @@
 					<ul class="nav nav-second-level"></ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>权限管理<span
 						class="fa arrow"></span></a>
-					<ul class="nav nav-second-level"></ul></li>
+					<ul class="nav nav-second-level">
+					<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
+						</li>
+					</ul></li>
 			</ul>
 		</div>
 		</nav>
