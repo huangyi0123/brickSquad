@@ -49,5 +49,12 @@
 		DELETE FROM orders
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
-
+	<select id="findOrdersCount" resultType="Integer">
+	SELECT COUNT(*) FROM orders
+	</select>
+	<select id="ordersPagination" parameterType="com.brick.squad.util.Pagination" resultType="Orders">
+	SELECT 
+	<include refid="Base_Column_List" />
+	 FROM orders limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

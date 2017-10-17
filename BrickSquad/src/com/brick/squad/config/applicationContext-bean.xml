@@ -7,20 +7,25 @@
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.0.xsd
-
+    
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-        <!-- Luyujing -->
-        <bean name="userService" class="com.brick.squad.service.impl.UserServiceImpl" />
-        <bean name="roleService" class="com.brick.squad.service.impl.RoleServiceImpl" />
-        <bean name="newsService" class="com.brick.squad.service.impl.NewsServiceImpl" />
+	<!-- Luyujing -->
+	<bean name="userService" class="com.brick.squad.service.impl.UserServiceImpl" />
+	<bean name="roleService" class="com.brick.squad.service.impl.RoleServiceImpl" />
+	<bean name="newsService" class="com.brick.squad.service.impl.NewsServiceImpl" />
 
 	<bean name="medicalService" class="com.brick.squad.service.impl.MedicalServiceImpl" />
 	<bean name="replyService" class="com.brick.squad.service.impl.ReplyServiceImpl" />
-	<bean name="activityRegistrationService" class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl" />
+
+	<bean name="regionService" class="com.brick.squad.service.impl.RegionServiceImpl" />
+	<bean name="activityRegistrationService"
+		class="com.brick.squad.service.impl.ActivityRegistrationServiceImpl" />
+
 	<bean name="ratedService" class="com.brick.squad.service.impl.RatedServiceImpl" />
-	<bean name="personalInformationService" class="com.brick.squad.service.impl.PersonalInformationServiceImpl" />
+	<bean name="personalInformationService"
+	           class="com.brick.squad.service.impl.PersonalInformationServiceImpl" />
 	<bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl" />
 	
 	<!-- tanchao -->
@@ -29,26 +34,31 @@
     <bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
 	<bean name="memberShipApplicationService" class="com.brick.squad.service.impl.MemberShipApplicationServiceImpl"/>
 
+	<bean name="shopActivitiesService"
+		class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
 
-	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl"/>
-	<bean name="relativesService" class="com.brick.squad.service.impl.RelativesServiceImpl"/>
-	<bean name="shoppingCarService" class="com.brick.squad.service.impl.ShoppingCarServiceImpl"/>
-	<bean name="rapportService" class="com.brick.squad.service.impl.RapportServiceImpl"/>
-	<bean name="businessService" class="com.brick.squad.service.impl.BusinessServiceImpl"/>
 
-    
+	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl" />
+	<bean name="relativesService" class="com.brick.squad.service.impl.RelativesServiceImpl" />
+	<bean name="shoppingCarService" class="com.brick.squad.service.impl.ShoppingCarServiceImpl" />
+	<bean name="rapportService" class="com.brick.squad.service.impl.RapportServiceImpl" />
+	<bean name="businessService" class="com.brick.squad.service.impl.BusinessServiceImpl" />
 
-    <bean name="collectionService" class="com.brick.squad.service.impl.CollectionServiceImpl"/>
 
-	<bean name="limitsService" class="com.brick.squad.service.impl.LimitsServiceImpl"/>
+	<bean name="collectionService" class="com.brick.squad.service.impl.CollectionServiceImpl" />
 
-	<bean name="buyersService" class="com.brick.squad.service.impl.BuyersServiceImpl"/> 
+	<bean name="limitsService" class="com.brick.squad.service.impl.LimitsServiceImpl" />
+	<bean name="buyersService" class="com.brick.squad.service.impl.BuyersServiceImpl" />
+
+	<bean name="healthRecordsService" class="com.brick.squad.service.impl.HealthRecordsServiceImpl" />
 
     <bean name="typeService" class="com.brick.squad.service.impl.TypeServiceImpl"/>
 
     <bean name="orderDetailsService" class="com.brick.squad.service.impl.OrderDetailsServiceImpl"/>
 
 	
+
+
 	<bean name="guidanceService" class="com.brick.squad.service.impl.GuidanceServiceImpl"/>
 
 </beans>

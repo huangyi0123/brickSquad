@@ -59,5 +59,13 @@ public String getCentent() {
 public void setCentent(String centent) {
 	this.centent = centent;
 }
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString() {
+	return "Reply [id=" + id + ", ratedId=" + ratedId + ", replyDate="
+			+ replyDate + ", centent=" + centent + "]";
+}
 
 }

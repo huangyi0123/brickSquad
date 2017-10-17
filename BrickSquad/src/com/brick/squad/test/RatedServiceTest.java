@@ -3,7 +3,9 @@ package com.brick.squad.test;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.enterprise.inject.New;
@@ -17,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Rated;
 import com.brick.squad.service.RatedService;
+import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
 import com.brick.squad.util.Util;
 
@@ -26,7 +29,21 @@ public class RatedServiceTest {
 	@Autowired
 	@Qualifier("ratedService")
 	private RatedService ratedService;
-
+	@Test
+	public void findRatedAllCount(){
+		System.out.println(ratedService.findReplyAllCount());
+	}
+		
+	@Test
+	public void ratedPagination(){
+		Pagination pagination =new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(5);
+		String listRateds =ratedService.ratedPagination(pagination);
+		
+	}
+	
+	
 	/**
 	 * 测试Rated的根据ID查询方法
 	 */

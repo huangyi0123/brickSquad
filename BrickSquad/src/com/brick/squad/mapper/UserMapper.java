@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.brick.squad.pojo.User;
+import com.brick.squad.util.Pagination;
 
 public interface UserMapper {
 	//根据用户名查询
@@ -20,5 +21,6 @@ public interface UserMapper {
 	public void deleteUser(String username);
 	//根据用户名修改密码
 	public void updateUser(@Param("username")String username,@Param("password")String password);
-	
+	//用户分页查询
+	public List<User> userPagination(Pagination pagination);
 }

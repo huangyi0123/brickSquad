@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.brick.squad.mapper.BuyersMapper;
 import com.brick.squad.pojo.Buyers;
 import com.brick.squad.service.BuyersService;
+import com.brick.squad.util.Pagination;
 
 public class BuyersServiceImpl implements BuyersService {
 	@Autowired
@@ -32,6 +33,12 @@ public class BuyersServiceImpl implements BuyersService {
 	public void deleteBuyersById(Buyers buyers) throws Exception {
 		// TODO Auto-generated method stub
 		buyersMapper.deleteBuyersById(buyers);
+	}
+	@Override
+	public List<Buyers> buyersPagination(Pagination pagination)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return buyersMapper.buyersPagination(pagination);
 	}
 
 }

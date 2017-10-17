@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
+import com.brick.squad.util.Pagination;
 /**
  * 
  * @author Luyujing
@@ -34,7 +35,10 @@ public class UserServiceImpl implements UserService {
 	public void updateUser(String username,String password) {
 		userMapper.updateUser(username,password);
 	}
-
+	
+	public List<User> userPagination(Pagination pagination){
+		return userMapper.userPagination(pagination);
+	}
 	
 	
 }

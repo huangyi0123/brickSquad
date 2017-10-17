@@ -1,11 +1,14 @@
 package com.brick.squad.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.mapper.GuidanceMapper;
 import com.brick.squad.pojo.Guidance;
 import com.brick.squad.service.GuidanceService;
+import com.brick.squad.util.Pagination;
 
 public class GuidanceServiceImpl implements GuidanceService {
 	@Autowired
@@ -30,6 +33,12 @@ public class GuidanceServiceImpl implements GuidanceService {
 	public void updateGuidanceById(Guidance guidance) throws Exception {
 		// TODO Auto-generated method stub
 		guidanceMapper.updateGuidanceById(guidance);
+	}
+	@Override
+	public List<Guidance> guidancePagination(Pagination pagination)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return guidanceMapper.guidancePagination(pagination);
 	}
 
 }

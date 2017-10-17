@@ -14,11 +14,17 @@ private String id;
  * 主治医师
  */
 private String perId;
+/**
+ * 检查日期
+ */
 private Date inspectionDate;
 /**
  * 检查类型
  */
 private String typeId; 
+/**
+ * 检查医院
+ */
 private String hospital;
 /**
  * 病历详情
@@ -115,6 +121,16 @@ public String getAttendingSurgeon() {
  */
 public void setAttendingSurgeon(String attendingSurgeon) {
 	this.attendingSurgeon = attendingSurgeon;
+}
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString() {
+	return "Medical [id=" + id + ", perId=" + perId + ", inspectionDate="
+			+ inspectionDate + ", typeId=" + typeId + ", hospital=" + hospital
+			+ ", content=" + content + ", attendingSurgeon=" + attendingSurgeon
+			+ "]";
 }
 
 }

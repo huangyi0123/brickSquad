@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.brick.squad.pojo.News;
+import com.brick.squad.util.Pagination;
 
 public interface NewsService {
 
@@ -14,5 +15,7 @@ public interface NewsService {
 	public void updateNews(String userId,String content);
 
 	public List<News> findNews(String content);
+	
+	public List<News> newsPagination(Pagination pagination);
 
 }
