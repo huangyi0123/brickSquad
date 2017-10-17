@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.service.OrdersService;
+import com.brick.squad.util.Pagination;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -53,4 +54,10 @@ public class OrdersServiceTest {
 			System.out.println(order);
 		}
 	}
+	@Test
+	public void findOrdersCount() throws Exception{
+		Integer ordersCount=ordersService.findOrdersCount();
+		System.out.println(ordersCount);
+	}
+	
 }

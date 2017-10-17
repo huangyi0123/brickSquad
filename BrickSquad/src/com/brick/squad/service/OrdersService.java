@@ -26,5 +26,9 @@ public interface OrdersService {
 	 * 查询订单所有信息
 	 * */
 	public List<Orders> findOrders()throws Exception;
+	/**
+	 * 查询订单总数
+	 * */
+	public Integer findOrdersCount()throws Exception;
 	
 }

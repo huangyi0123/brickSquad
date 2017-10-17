@@ -21,4 +21,7 @@
 	<select id="regionPagination" parameterType="com.brick.squad.util.Pagination" resultType="region">
 		select id,isleaf,name,parent_id perantId from region  limit #{skipNum},#{takeNum}
 	</select>
+	<select id="regionCount" resultType="int">
+		select count(1) from region
+	</select>
 </mapper>

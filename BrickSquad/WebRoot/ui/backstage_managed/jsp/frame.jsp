@@ -72,7 +72,7 @@
 						class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 								<li>
-                                <a class="J_menuItem" href="index_v2.html">区域列表</a>
+                                <a class="J_menuItem" href="region/toRegionList">区域列表</a>
                             </li>
 						</ul>
 						</li>
@@ -154,7 +154,7 @@
 					class="fa fa fa-sign-out"></i> 退出</a>
 			</div>
 			<div class="row J_mainContent" id="content-main">
-				<iframe class="J_iframe" name="iframe0" width="100%" height="100%"
+				<iframe class="J_iframe" name="iframe0" width="100%" height="98%"
 					src="main.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
 			</div>
 			<div class="footer">

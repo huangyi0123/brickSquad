@@ -41,4 +41,9 @@ public class RegionServiceImpl implements RegionService {
 		// TODO Auto-generated method stub
 		return regionMapper.regionPagination(pagination);
 	}
+	@Override
+	public int regionCount() {
+		
+		return regionMapper.regionCount();
+	}
 }
