@@ -12,8 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
+import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class ShoppingCarTest {
 	@Autowired
@@ -56,6 +58,18 @@ public class ShoppingCarTest {
 		for (ShoppingCar shoppingCar : shoppingCars) {
 			System.out.println(shoppingCar.getDate());
 		}
+	}
+	@Test
+	public void findCount() throws Exception{
+		Integer count=shoppingCarService.findShoppingCarCount();
+		System.out.println(count);
+	}
+	@Test
+	public void shoppingCarPagination() throws Exception{
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		System.out.println(shoppingCarService.shoppingCarPagination(pagination));
 	}
 
 }

@@ -82,6 +82,9 @@
 							<ul class="nav nav-second-level">
 								<li>
                                 <a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
+                                <a class="J_menuItem" href="shoppingCar/toShoppingCarList">购物车列表</a>
+                                <a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a>
+                                <a class="J_menuItem" href="orderDetails/toOrderDetailsList">订单项列表</a>
                             </li>
 						</ul>
 		</div>

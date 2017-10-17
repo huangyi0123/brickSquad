@@ -3,6 +3,7 @@ package com.brick.squad.service;
 import java.util.List;
 
 import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.util.Pagination;
 
 /**
  * 业务层:购物车
@@ -32,4 +33,12 @@ public interface ShoppingCarService {
 	 * 查询购物车所有信息
 	 * */
 	public List<ShoppingCar> findShoppingCar() throws Exception;
+	/**
+	 * 查询购物车总数
+	 * */
+	public Integer findShoppingCarCount()throws Exception;
+	/**
+	 * 购物车分页查询
+	 * */
+	public String shoppingCarPagination(Pagination pagination)throws Exception;
 }
