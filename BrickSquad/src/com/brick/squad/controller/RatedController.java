@@ -13,14 +13,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Rated;
 import com.brick.squad.service.RatedService;
+import com.brick.squad.util.Pagination;
 
 @Controller
-@RequestMapping("/ratedController")
+@RequestMapping("/rated")
 public class RatedController {
 	@Autowired
 	@Qualifier("ratedService")
 	private RatedService ratedService;
 
+	@RequestMapping("/toRatedList")
+	public String toRatedList() {
+		return "backstage_managed/jsp/rated/rated_list";
+	}
+
+	@RequestMapping("/getRatedList")
+	@ResponseBody
+	public String getRatedList(int pSize,int cPage,String keyword) {
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(cPage);
+		pagination.setPageSize(pSize);
+		return ratedService.ratedPagination(pagination);
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping("/findRatedById")
 	@ResponseBody
 	public String findRatedById(String id) {
