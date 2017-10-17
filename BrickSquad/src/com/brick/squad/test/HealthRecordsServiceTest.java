@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +10,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.brick.squad.pojo.HealthRecords;
+import com.brick.squad.pojo.Rated;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -20,6 +23,19 @@ public class HealthRecordsServiceTest {
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
 
+	@Test
+	public void healthRecordsratedPaginationTest(){
+		Pagination pagination =new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(5);
+		List<HealthRecords> healthRecordslist =healthRecordsService.healthRecordsPagination(pagination); 
+		for (HealthRecords HealthRecords : healthRecordslist) {
+			System.out.println(HealthRecords.toString());
+		}
+		
+	}
+	
+	
 	@Test
 	public void findHealthRecordsByIdTest() {
 		HealthRecords healthRecords = healthRecordsService

@@ -57,4 +57,22 @@
 
 		where id =#{id}
 	</update>
+
+	<select id="healthRecordsPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="healthRecords">
+		select id, per_id perId, registr_date registrDate,
+		user_id userId,
+		disease_id diseaseId, shape, diet_situation
+		dietSituation,
+		sports_situation sportsSituation,
+		emotion_control
+		emotionControl,
+		thrombus, blood_pressure bloodPressure,
+		health_assessment
+		healthAssessment, dangerous_tips dangerousTips,
+		conclusion_suggestion
+		conclusionSuggestion, evaluate
+		from health_records
+		limit #{skipNum},#{takeNum}
+		</select>
 </mapper>

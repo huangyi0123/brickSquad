@@ -1,5 +1,7 @@
 package com.brick.squad.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.ReplyMapper;
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.service.ReplyService;
+import com.brick.squad.util.Pagination;
 @Transactional
 public class ReplyServiceImpl implements ReplyService {
 	@Autowired
@@ -34,6 +37,12 @@ public class ReplyServiceImpl implements ReplyService {
 	public void updateReplyCententById(Reply reply) {
 		replyMapper.updateReplyCententById(reply);
 
+	}
+
+	@Override
+	public List<Reply> replyPagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return replyMapper.replyPagination(pagination);
 	}
 
 }

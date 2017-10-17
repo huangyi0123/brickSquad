@@ -116,5 +116,15 @@ public String getAttendingSurgeon() {
 public void setAttendingSurgeon(String attendingSurgeon) {
 	this.attendingSurgeon = attendingSurgeon;
 }
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString() {
+	return "Medical [id=" + id + ", perId=" + perId + ", inspectionDate="
+			+ inspectionDate + ", typeId=" + typeId + ", hospital=" + hospital
+			+ ", content=" + content + ", attendingSurgeon=" + attendingSurgeon
+			+ "]";
+}
 
 }

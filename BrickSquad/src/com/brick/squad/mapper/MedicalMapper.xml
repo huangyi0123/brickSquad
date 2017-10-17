@@ -28,4 +28,14 @@
 		UPDATE
 		medical set content=#{content} where id =#{id}
 	</update>
+	<select id="medicalPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="medical">
+		select id id ,per_id perId ,inspection_date inspectionDate ,type_id
+		typeId,hospital hospital,
+		content content,attending_surgeon
+		attendingSurgeon
+		from medical 
+		limit  #{skipNum},#{takeNum}
+		</select>
+	
 </mapper>

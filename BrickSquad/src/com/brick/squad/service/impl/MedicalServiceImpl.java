@@ -1,5 +1,7 @@
 package com.brick.squad.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.MedicalMapper;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.service.MedicalService;
+import com.brick.squad.util.Pagination;
 @Transactional
 /**
  * 
@@ -38,6 +41,12 @@ private MedicalMapper medicalMapper;
 	@Override
 	public Medical findMedicalById(String id) {		
 		return medicalMapper.findMedicalById(id);
+	}
+
+	@Override
+	public List<Medical> medicalPagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return medicalMapper.medicalPagination(pagination);
 	}
 
 }

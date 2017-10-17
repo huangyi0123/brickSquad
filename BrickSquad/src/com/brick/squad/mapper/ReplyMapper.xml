@@ -19,4 +19,11 @@
 	<update id="updateReplyCententById" parameterType="reply">
 	UPDATE reply set centent=#{centent}  where id =#{id}
 	</update>
+	
+	<select id="replyPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="reply">
+		select id id,reply_date replydDate,centent centent 
+		from reply
+		limit #{skipNum},#{takeNum}
+		</select>
 </mapper>
