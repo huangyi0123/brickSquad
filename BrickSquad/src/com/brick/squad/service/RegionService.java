@@ -11,6 +11,10 @@ public interface RegionService {
 	public void insertRegionById(Region region);
 	public void deleteRegionById(String id);
 	public void updateRegion(Region region);
-	public List<Region> regionPagination(Pagination pagination);
-	public int regionCount();
+	/**
+	 * 通过分页条件返回json数据
+	 * @param pagination 分页条件
+	 * @return json数据
+	 */
+	public String regionPagination(Pagination pagination);
 }
