@@ -23,6 +23,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <mvc:resources location="/ui/" mapping="/ui/**"/>
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/ui/" />
