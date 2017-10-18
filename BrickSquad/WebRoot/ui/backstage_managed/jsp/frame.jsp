@@ -87,8 +87,9 @@
 
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
-							<li><a class="J_menuItem"
-							href="user/toUserList">用户信息列表</a>
+							<li>
+							<a class="J_menuItem" href="user/toUserList">用户信息列表</a>
+							<a href="user/toUserList">用户信息列表</a>
 							</li>
 					</ul></li>
 
@@ -235,7 +236,7 @@
 			</div>
 			<div class="row J_mainContent" id="content-main">
 				<iframe class="J_iframe" name="iframe0" width="100%" height="98%"
-					src="main.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
+					src="business/toBusiness" frameborder="0" data-id="index_v1.html" seamless></iframe>
 			</div>
 			<div class="footer">
 				<div class="pull-right">

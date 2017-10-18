@@ -34,17 +34,21 @@
 			</div>
 			<h3>欢迎注册 老人管理系统</h3>
 			<p>创建一个新账户</p>
-			<form class="m-t" role="form" action="login.html">
+			<form class="m-t" role="form" action="${pageContext.request.contextPath }/user/register" method="post">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="请输入用户名"
+					<input type="text" name="username" class="form-control" placeholder="请输入用户名"
 						required="">
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="请输入密码"
+					<input type="password" name="password" class="form-control" placeholder="请输入密码"
 						required="">
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="请再次输入密码"
+					<input type="password"  class="form-control" placeholder="请再次输入密码"
+						required="">
+				</div>
+				<div class="form-group">
+					<input type="text"  name="telephone" class="form-control" placeholder="请输入电话号码"
 						required="">
 				</div>
 				<div class="form-group text-left">

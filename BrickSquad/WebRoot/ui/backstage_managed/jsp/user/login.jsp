@@ -35,8 +35,8 @@
 
 			<form class="m-t" role="form" action="user/toLogin"   method="post">
 				<div class="form-group">
-					<input name="username" type="text" class="form-control" placeholder="用户名"
-						required="">
+
+					<input name="username" type="text" class="form-control" placeholder="用户名" required="">
 				</div>
 				<div class="form-group">
 					<input name="password" type="password" class="form-control" placeholder="密码"
@@ -46,7 +46,7 @@
 					录</button>
 				<p class="text-muted text-center">
 					<a href="login.html#"><small>忘记密码了？</small></a> | <a
-						href="register.html">注册一个新账号</a>
+						href="/BrickSquad/ui/backstage_managed/jsp/user/register.jsp">注册一个新账号</a>
 				</p>
 
 			</form>
