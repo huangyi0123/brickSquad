@@ -34,4 +34,6 @@ public interface ShopActivitiesService {
 	
 	
 	public List<ShopActivities> shopActivitiesPagination(Pagination pagination);
+	
+	public int findShopActivitiesAllCount();
 }

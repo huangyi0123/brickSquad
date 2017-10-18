@@ -71,4 +71,10 @@ public class MemberShipApplicationServiceTest {
 		memberShipApplicationService.MemberShipApplicationPagination(pagination);
 	}
 
+	@Test
+	public void findMemberShipApplicationAllCount(){
+		
+		
+		System.out.println(memberShipApplicationService.findMemberShipApplicationAllCount());
+	}
 }

@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.OrderDetailsMapper;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.service.OrderDetailsService;
+import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 /**
  * 业务层：订单项Service接口的实现类
  * */
@@ -39,6 +41,21 @@ public class OrderDetailsServiceImpl implements OrderDetailsService{
 	/**根据ID删除订单项*/
 	public void deleteOrderDetails(String id) throws Exception {
 		orderDetailsMapper.deleteOrderDetails(id);
+	}
+	@Override
+	/**查询订单项总数*/
+	public Integer countOrderDetails() throws Exception {
+		Integer countOrderDetails=orderDetailsMapper.countOrderDetails();
+		return countOrderDetails;
+	}
+	@Override
+	/**分页查询订单项*/
+	public String orderDetailsPagination(Pagination pagination) {
+		List<OrderDetails> regions=orderDetailsMapper.orderDetailsPagination(pagination);
+		int row=orderDetailsMapper.countOrderDetails();
+		Util<OrderDetails> util=new Util<OrderDetails>();
+		String data=util.SplitPage(regions, row);
+		return data;
 	}
 
 }

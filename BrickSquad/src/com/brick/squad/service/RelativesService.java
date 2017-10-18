@@ -1,6 +1,7 @@
 package com.brick.squad.service;
 
 import com.brick.squad.pojo.Relatives;
+import com.brick.squad.util.Pagination;
 
 public interface RelativesService {
 	/**
@@ -35,4 +36,6 @@ public interface RelativesService {
 	 *            老人亲属关系id
 	 */
 	public void deleteRelativesById(String id);
+
+	public String relativesPagination(Pagination pagination);
 }

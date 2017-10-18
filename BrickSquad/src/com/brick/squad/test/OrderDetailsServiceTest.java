@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.service.OrderDetailsService;
+import com.brick.squad.util.Pagination;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -42,5 +43,16 @@ public class OrderDetailsServiceTest {
 	@Test
 	public void deleteOrderDetails() throws Exception{
 		orderDetailsService.deleteOrderDetails("2");
+	}
+	@Test
+	public void countOrderDetails() throws Exception{
+		System.out.println(orderDetailsService.countOrderDetails());
+	}
+	@Test
+	public void orderDetailsPagination(){
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		System.out.println(orderDetailsService.orderDetailsPagination(pagination));
 	}
 }

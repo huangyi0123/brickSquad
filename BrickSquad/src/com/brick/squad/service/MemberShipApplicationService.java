@@ -18,5 +18,6 @@ public interface MemberShipApplicationService {
 	public void insertMemberShipApplicationById(MemberShipApplication memberShipApplication);
 
 	public List<MemberShipApplication> MemberShipApplicationPagination(Pagination pagination);
-	
+		
+	public int findMemberShipApplicationAllCount();
 }

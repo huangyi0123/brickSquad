@@ -41,6 +41,11 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 		// TODO Auto-generated method stub
 		return activitiesMapper.ActivitiesPagination(pagination);
 	}
+	@Override
+	public int findActivitiesAllCount() {
+		// TODO Auto-generated method stub
+		return activitiesMapper.findActivitiesAllCount();
+	}
 	
 	
 

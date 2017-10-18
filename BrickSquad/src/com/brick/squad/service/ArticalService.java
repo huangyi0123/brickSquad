@@ -20,7 +20,7 @@ public interface ArticalService {
 	
 	public void updateArticleById(Article article)throws Exception;
 	
-	public List<Article> ArticlePagination(Pagination pagination);
+	public String articlePagination(Pagination pagination);
 
-
+	public int findArticleAllCount();
 }

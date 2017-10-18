@@ -21,5 +21,5 @@ public interface ShopActivitiesMapper {
 	
 	public List<ShopActivities> shopActivitiesPagination(Pagination pagination);
 
-
+	public int findShopActivitiesAllCount();
 }

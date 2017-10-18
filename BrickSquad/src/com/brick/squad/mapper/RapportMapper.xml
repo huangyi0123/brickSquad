@@ -50,4 +50,12 @@
 		DELETE FROM rapport
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
+	<select id="findRapportCount" resultType="Integer">
+	SELECT COUNT(*) FROM rapport
+	</select>
+	<select id="rapportCarPagination" parameterType="com.brick.squad.util.Pagination" resultType="Rapport">
+	SELECT 
+	<include refid="Base_Column_List" />
+	FROM rapport limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

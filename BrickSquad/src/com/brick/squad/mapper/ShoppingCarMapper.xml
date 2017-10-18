@@ -42,4 +42,13 @@
 		#{date,jdbcType=TIMESTAMP}
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
+	<select id="findShoppingCarCount" resultType="Integer">
+		SELECT COUNT(*) FROM shopping_car
+	</select>
+	<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="Orders">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM shopping_car limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

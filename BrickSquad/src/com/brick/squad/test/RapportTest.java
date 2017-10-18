@@ -8,12 +8,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Rapport;
 import com.brick.squad.service.RapportService;
+import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class RapportTest {
 	@Autowired
@@ -56,5 +57,17 @@ public class RapportTest {
 	@Test
 	public void deleteRapportById() throws Exception{
 		rapportService.deleteRapportById("3");
+	}
+	@Test
+	public void findRapportCount() throws Exception{
+		Integer count=rapportService.findRapportCount();
+		System.out.println(count);
+	}
+	@Test
+	public void rapportCarPagination() throws Exception{
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(3);
+		System.out.println(rapportService.rapportCarPagination(pagination));
 	}
 }

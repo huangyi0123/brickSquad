@@ -35,4 +35,10 @@
 
 </select>
 
+
+<select id="findShopActivitiesAllCount" resultType="int">
+	select count(*) from shop_activities
+
+</select>
+
 </mapper>
