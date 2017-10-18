@@ -1,7 +1,6 @@
 package com.brick.squad.expand;
 
 import com.brick.squad.pojo.Rapport;
-
 public class RapportExpand extends Rapport{
 	private String username;
 	private String name;
