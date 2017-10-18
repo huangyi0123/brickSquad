@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.service.CollectionService;
+import com.brick.squad.util.Pagination;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
@@ -47,6 +48,14 @@ public class CollectionServiceTest {
 	@Test
 	public void testDeleteCollectionById() {
 		collectionService.deleteCollectionById("5799c9c4b0af11e78d4f5254002ec43c");
+	}
+	
+	@Test
+	public void testCollectionPagination(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		System.out.println(collectionService.collectionPagination(pagination));
 	}
 
 }
