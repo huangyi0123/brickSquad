@@ -1,19 +1,31 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'address/getAddressList',
+        ajax_url: 'guidance/getGuidanceList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
             {
-                key: 'name',
-                text: '名称'
+                key: 'guidanceDate',
+                text: '指导日期'
             },
             {
-                key: "operation",
-                text: "操作",
+                key: 'disease',
+                text: '主要疾病'
+            },
+            {
+                key: 'assessment',
+                text: '评估意见'
+            },
+            {
+            	key: 'suggest',
+                text: '专家建议'
+            },
+            {
+            	key: 'perId',
+                text: '老人id',
                 template: function(noteData,rowData) {
 					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
 				}

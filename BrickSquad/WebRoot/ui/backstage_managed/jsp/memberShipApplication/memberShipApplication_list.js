@@ -1,21 +1,33 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'address/getAddressList',
+        ajax_url: 'memberShipApplication/getMemberShipApplicationList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+                     {
+                         key: 'memberShipTypeId',
+                         text: '会员类型ID'
+                     },
             {
-                key: 'name',
-                text: '名称'
+                key: 'userId',
+                text: '工作人员ID'
+            },
+            {
+                key: 'perId',
+                text: '申请人ID'
+            },
+            {
+                key: 'deposit',
+                text: '定金'
             },
             {
                 key: "operation",
                 text: "操作",
                 template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+					return '<a href="'+rowData.id+'">修改</a>';
 				}
             }
         ]

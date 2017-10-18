@@ -1,5 +1,6 @@
 package com.brick.squad.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import com.brick.squad.mapper.BuyersMapper;
 import com.brick.squad.pojo.Buyers;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 
 public class BuyersServiceImpl implements BuyersService {
 	@Autowired
@@ -35,10 +37,20 @@ public class BuyersServiceImpl implements BuyersService {
 		buyersMapper.deleteBuyersById(buyers);
 	}
 	@Override
-	public List<Buyers> buyersPagination(Pagination pagination)
+	public String buyersPagination(Pagination pagination)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return buyersMapper.buyersPagination(pagination);
+		List<Buyers> buyers =new ArrayList<Buyers>();
+		Util<Buyers> util = new Util<Buyers>();
+		buyers = buyersMapper.buyersPagination(pagination);
+		int row = buyersMapper.findBuyersAllCount();
+		String data = util.SplitPage(buyers, row);
+		return data;
+	}
+	@Override
+	public int findBuyersAllCount() throws Exception {
+		// TODO Auto-generated method stub
+		return buyersMapper.findBuyersAllCount();
 	}
 
 }
