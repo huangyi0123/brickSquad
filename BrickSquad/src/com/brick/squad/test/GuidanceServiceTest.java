@@ -51,10 +51,15 @@ public class GuidanceServiceTest {
 	}
 	@Test
 	public void testGuidancePagination() throws Exception{
-		List<Guidance> lGuidances = new ArrayList<Guidance>();
+		/*List<Guidance> lGuidances = new ArrayList<Guidance>();*/
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		lGuidances = guidanceService.guidancePagination(pagination);
+		/*lGuidances = guidanceService.guidancePagination(pagination);*/
+		guidanceService.guidancePagination(pagination);
+	}
+	@Test
+	public void testFindGuidanceAllCount() throws Exception{
+		guidanceService.findGuidanceAllCount();
 	}
 }

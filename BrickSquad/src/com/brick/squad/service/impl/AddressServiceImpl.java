@@ -52,6 +52,7 @@ public class AddressServiceImpl implements AddressService{
 		// TODO Auto-generated method stub
 		List<Address> list = new ArrayList<Address>();
 		Util<Address> util = new Util<Address>();
+		list=addressMapper.addressPagination(pagination);
 		int row = addressMapper.findAddressAllCount();
 		String data =util.SplitPage(list, row);
 		return data;

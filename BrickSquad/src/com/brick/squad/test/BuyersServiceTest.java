@@ -56,11 +56,15 @@ public class BuyersServiceTest {
 	}
 	@Test
 	public void testBuyersPagination() throws Exception{
-		List<Buyers> lBuyers = new ArrayList<Buyers>();
+		/*List<Buyers> lBuyers = new ArrayList<Buyers>();*/
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(6);
-		lBuyers = buyersService.buyersPagination(pagination);
+		/*lBuyers = buyersService.buyersPagination(pagination);*/
+		buyersService.buyersPagination(pagination);
 	}
-	
+	@Test
+	public void testFindBuyersAllCount() throws Exception{
+		buyersService.findBuyersAllCount();
+	}
 }

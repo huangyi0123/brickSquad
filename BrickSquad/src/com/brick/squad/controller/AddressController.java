@@ -31,12 +31,13 @@ public class AddressController {
 		pagination.setKeyword(keyword);
 		return addressService.addressPagination(pagination);
 	}
-	@RequestMapping(value="findAddressByID")
+/*	@RequestMapping(value="findAddressById")
 	@ResponseBody
-	public String findAddressById(String id) throws Exception{
+	public String getfindAddressById(String id) throws Exception{
 		Address address = addressService.findAddressById("2a98dcf4b35b11e78d4f5254002ec43c");
 		JSONObject jsonObject = JSONObject.fromObject(address);
 		String data = jsonObject.toString();
+		System.out.print(data);
 		return data;
-	}
+	}*/
 }
