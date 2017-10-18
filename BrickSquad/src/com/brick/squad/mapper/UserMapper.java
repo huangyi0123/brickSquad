@@ -25,4 +25,6 @@ public interface UserMapper {
 	public List<User> userPagination(Pagination pagination);
 	//用户分页条数
 	public int userCount(); 
+	//用户登录
+	public List<User> userLogin(String username, String password);
 }

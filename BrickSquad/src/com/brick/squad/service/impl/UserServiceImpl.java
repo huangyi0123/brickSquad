@@ -53,6 +53,12 @@ public class UserServiceImpl implements UserService {
 		return count;
 	}
 	
+	public List<User> userLogin(String username,String password){
+		
+		return userMapper.userLogin(username,password);
+		 
+	}
+	
 	
 	
 }

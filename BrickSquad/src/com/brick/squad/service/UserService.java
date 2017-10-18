@@ -1,6 +1,7 @@
 package com.brick.squad.service;
 
 import java.util.List;
+
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 
@@ -11,7 +12,10 @@ public interface UserService {
 	public void updateUser(String username,String password);
 	public String userPagination(Pagination pagination);
 	//用户分页显示
-		public int userCount(); 
+	public int userCount(); 
+	
+	public List<User> userLogin(String username, String password);
+	
 }
 	
 

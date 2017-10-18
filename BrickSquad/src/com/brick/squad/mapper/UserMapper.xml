@@ -22,4 +22,8 @@
 	<select id="userCount" resultType="int">
 		select count(*) from user
 	</select>
+	<select id="userLogin" resultType="Sting">
+		select * FROM user WHERE  username=#{username} AND password=#{password}
+	</select>
+	
 </mapper>

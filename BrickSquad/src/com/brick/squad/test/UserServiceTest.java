@@ -22,7 +22,7 @@ import com.brick.squad.util.Pagination;
  *	用户表测试方法
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:com/brick/squad/config/applicationContext.xml"})
+@ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 
 public class UserServiceTest {
 	
@@ -38,7 +38,7 @@ public class UserServiceTest {
 		System.out.println(list.size());
 	}		
 	//User表插入数据
-	//@Test
+	@Test
 	public void addUserTest(){
 		userService.addUser("4","lyj","123213","1528353406","4");
 	}
@@ -66,11 +66,16 @@ public class UserServiceTest {
 		
 		System.out.println(userService.userCount());
 	}
-	@Test
+	//@Test
 	public void testUserPagination() throws Exception{
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(8);
 		System.out.println(userService.userPagination(pagination));
+	}
+	//@Test
+	public void userLoginTest(){
+		List<User> list=userService.userLogin("admin","admin");
+		System.out.println(list.size());
 	}
 	}
