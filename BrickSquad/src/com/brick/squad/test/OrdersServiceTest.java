@@ -1,6 +1,5 @@
 package com.brick.squad.test;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,10 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Orders;
-import com.brick.squad.pojo.Region;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
@@ -43,7 +40,7 @@ public class OrdersServiceTest {
 	@Test
 	public void updateOrdersById() throws Exception{
 		Orders orders=ordersService.findOrdersById("1");
-		orders.setStateId("3");
+		orders.setStateId("66");
 		ordersService.updateOrdersById(orders);
 	}
 	@Test

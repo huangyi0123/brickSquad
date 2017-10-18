@@ -30,9 +30,9 @@ function init(keyword) {
             {
                 key: "operation",
                 text: "操作",
-                template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
-				}
+				template: function(noteData,rowData) {
+					return '<a href="orders/findOrdersById?id='+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+				},
             }
         ]
     });

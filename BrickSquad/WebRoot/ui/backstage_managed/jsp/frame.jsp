@@ -87,8 +87,9 @@
 
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
-							<li><a class="J_menuItem"
-							href="user/toUserList">用户信息列表</a>
+							<li>
+							<a class="J_menuItem" href="user/toUserList">用户信息列表</a>
+							<a href="user/toUserList">用户信息列表</a>
 							</li>
 					</ul></li>
 

@@ -40,6 +40,7 @@ public class UserServiceTest {
 	//User表插入数据
 	@Test
 	public void addUserTest(){
+
 		User user = new User();
 		user.setPassword("admin");
 		user.setRoleId("4");
