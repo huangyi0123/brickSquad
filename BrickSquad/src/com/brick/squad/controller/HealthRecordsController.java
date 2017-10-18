@@ -24,12 +24,16 @@ public class HealthRecordsController {
 	@RequestMapping("/getHealthRecordsList")
 	@ResponseBody
 	public String getHealthRecordsList(int pSize, int cPage, String keyword) {
-		System.out.println("///////");
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return healthRecordsService.healthRecordsPagination(pagination);
 
 	}
-
+	
+	
+	@RequestMapping("/toAddHealthRecords")
+	public String toHealthRecords() {
+		return "backstage_managed/jsp/healthRecords/add_healthRecords";
+	}
 }

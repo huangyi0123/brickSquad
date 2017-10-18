@@ -28,9 +28,11 @@ public class RelativesController {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		System.out.println("***");
 		return relativesService.relativesPagination(pagination);
 
 	}
-
+	@RequestMapping("/toAddRelatives")
+	public String toAddRelatives() {
+		return "backstage_managed/jsp/relatives/add_relatives";
+	}
 }

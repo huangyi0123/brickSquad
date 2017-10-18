@@ -26,7 +26,10 @@ public class RatedController {
 	public String toRatedList() {
 		return "backstage_managed/jsp/rated/rated_list";
 	}
-
+	@RequestMapping("/toAddRated")
+	public String toAddRated() {
+		return "backstage_managed/jsp/rated/add_rated";
+	}
 	@RequestMapping("/getRatedList")
 	@ResponseBody
 	public String getRatedList(int pSize,int cPage,String keyword) {

@@ -1,18 +1,12 @@
 package com.brick.squad.controller;
 
-import java.util.List;
-
-import net.sf.json.JSONArray;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.brick.squad.pojo.Medical;
 import com.brick.squad.service.MedicalService;
-import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/medical")
@@ -36,6 +30,10 @@ public class MedicalController {
 		
 		return medicalService.medicalPagination(pagination);
 
+	}
+	@RequestMapping("/toAddMedical")
+	public String toAddMedical() {
+		return "backstage_managed/jsp/medical/add_medical";
 	}
 
 }
