@@ -40,9 +40,9 @@ public class UserServiceTest {
 		System.out.println(list.size());
 	}		
 	//User表插入数据
-	//@Test
+	@Test
 	public void addUserTest(){
-		userService.addUser("4","lyj","123213","1528353406","4");
+		userService.addUser("4","admin","admin","1528353406","4");
 	}
 	//User表删除数据
 	//@Test

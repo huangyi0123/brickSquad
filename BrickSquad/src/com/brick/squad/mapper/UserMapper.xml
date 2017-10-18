@@ -7,6 +7,9 @@
 		select username,telephone,role_id roleId from user where username=#{username};
 	</select>
 	<insert id="addUser"  parameterType="String">
+	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 		INSERT INTO user(id,username,password,telephone,role_id) VALUES(#{id},#{username},#{password},#{telephone},#{roleId})
 	</insert>
 	<delete id="deleteUser"  parameterType="String">
