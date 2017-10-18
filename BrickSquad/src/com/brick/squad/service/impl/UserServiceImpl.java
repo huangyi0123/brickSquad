@@ -2,12 +2,12 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.mapper.UserMapper;
-import com.brick.squad.pojo.Region;
+
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -17,20 +17,16 @@ import com.brick.squad.util.Util;
  * @author Luyujing
  *	
  *	User表调用增删改查方法
- */
+ */ 
 public class UserServiceImpl implements UserService {
 	@Autowired
 	@Qualifier("userMapper")
 	
 	private UserMapper userMapper;
-	@Override
-	public List<User> findUsername(String username) {
-		return userMapper.findUsername(username);
-	}
 	
-	public void  addUser(String id,String username,String password,String telephone,String roleId){
+	public void  addUser(User user){
 		
-		userMapper.addUser(id, username, password, telephone, roleId);
+		userMapper.addUser(user);
 	}
 	public void deleteUser(String username){
 		userMapper.deleteUser(username);
@@ -52,13 +48,25 @@ public class UserServiceImpl implements UserService {
 		int count= userMapper.userCount();
 		return count;
 	}
+
+	//验证用户名密码
+	public User checkLogin(String username,String password){
 	
-	public List<User> userLogin(String username,String password){
+		User user=userMapper.checkLogin(username);
+		if(user!=null&&user.getPassword().equals(password)){
+			return user;
+		}
+			return null;
 		
-		return userMapper.userLogin(username,password);
 		 
 	}
+
 	
+
+	
+
+	
+
 	
 	
 }

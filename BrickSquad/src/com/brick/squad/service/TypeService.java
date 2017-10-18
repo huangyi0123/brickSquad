@@ -1,6 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Type;
+import com.brick.squad.util.Pagination;
 
 public interface TypeService {
 
@@ -28,4 +31,11 @@ public interface TypeService {
 	 * @param id
 	 */
 	public void deleteTypeById(String id);
+	
+	/**
+	 * 根据分页条件查询物品类别信息
+	 * @param pagination 分页信息
+	 * @return 物品所属类别信息
+	 */
+	public String typePagination(Pagination pagination);
 }

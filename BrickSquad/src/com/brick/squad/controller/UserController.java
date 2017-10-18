@@ -3,10 +3,11 @@ package com.brick.squad.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
- 
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 @Controller
@@ -28,9 +29,17 @@ public class UserController {
 		return userService.userPagination(pagination);
 	}
 	@RequestMapping("/toLogin")
-	public String toLogin() {
-		return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
-	}
+	public String toLogin(User user,Model model) {
+		System.out.println("11111111111111");
+		 user=userService.checkLogin(user.getUsername(), user.getPassword());
+		 if(user!=null){
+	            model.addAttribute(user);
+	            return "redirect:/ui/backstage_managed/jsp/frame.jsp";// 路径 WEB-INF/pages/welcome.jsp            
+	        }
+	        return "fail";
+	    }
+		//return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
+	
 	
 	@RequestMapping("/toRegister")
 	public String toRegister() {

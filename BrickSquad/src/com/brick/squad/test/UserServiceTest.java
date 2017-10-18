@@ -31,16 +31,15 @@ public class UserServiceTest {
 	@Qualifier("userService")
 	private UserService userService;
 	
-	// 根据用户名查询
-	//@Test
-	public void findUsernameTest(){
-		List<User> list =userService.findUsername("luyujin");
-		System.out.println(list.size());
-	}		
 	//User表插入数据
 	@Test
 	public void addUserTest(){
-		userService.addUser("4","lyj","123213","1528353406","4");
+		User user = new User();
+		user.setPassword("admin");
+		user.setRoleId("4");
+		user.setTelephone("8808628");
+		user.setUsername("吴老狗");
+		userService.addUser(user);
 	}
 	//User表删除数据
 	//@Test
@@ -73,9 +72,9 @@ public class UserServiceTest {
 		pagination.setPageSize(8);
 		System.out.println(userService.userPagination(pagination));
 	}
-	//@Test
+	/*//@Test
 	public void userLoginTest(){
 		List<User> list=userService.userLogin("admin","admin");
 		System.out.println(list.size());
-	}
+	}*/
 	}

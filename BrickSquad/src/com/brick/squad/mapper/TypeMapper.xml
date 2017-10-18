@@ -2,8 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.TypeMapper">
+	<sql id="prop">
+		id,parent_id parentId,name
+	</sql>
 	<select id="findTypeById" resultType="Type" parameterType="String">
-		SELECT id,parent_id parentId,name
+		SELECT
 		FROM type
 		WHERE id=#{id};
 	</select>
@@ -16,12 +19,25 @@
 
 	<update id="updateTypeById" parameterType="Type">
 		UPDATE type
-		SET parent_id=#{parentId},
+		SET
+		parent_id=#{parentId},
 		name=#{name}
 		WHERE id=#{id}
 	</update>
 
 	<delete id="deleteTypeById" parameterType="String">
-		DELETE FROM type WHERE id=#{id}
+		DELETE FROM type WHERE
+		id=#{id}
 	</delete>
+	
+	<select id="typePagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="Type">
+		SELECT
+		<include refid="prop" />
+		FROM type LIMIT #{skipNum},#{takeNum}
+	</select>
+	<select id="typeCount" resultType="int">
+		SELECT
+		COUNT(*) FROM type
+	</select>
 </mapper>
