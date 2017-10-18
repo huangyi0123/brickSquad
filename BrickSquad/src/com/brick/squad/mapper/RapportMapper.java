@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.RapportExpand;
 import com.brick.squad.pojo.Rapport;
 import com.brick.squad.util.Pagination;
 
@@ -32,8 +33,8 @@ public interface RapportMapper {
 	/**查询老人客户总数*/
 	public Integer findRapportCount();
 	/**
-	 * 老人客户分页查询
+	 * 老人客户沟通分页查询
 	 * */
-	public List<Rapport> rapportCarPagination(Pagination pagination);
+	public List<RapportExpand> rapportPagination(Pagination pagination);
 	
 }

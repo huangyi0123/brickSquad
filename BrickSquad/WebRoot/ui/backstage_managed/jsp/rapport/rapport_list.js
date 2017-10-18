@@ -8,29 +8,31 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'perId',
-                text: '老人ID'
+                key: 'name',
+                text: '老人姓名'
             },
             {
-                key: 'userId',
-                text: '客户ID'
+                key: 'username',
+                text: '客户姓名'
+            },
+           
+            {
+                key: 'goal',
+                text: '沟通目标'
+            },
+            {
+                key: 'content',
+                text: '沟通内容'
             },
             {
                 key: 'rapportDate',
                 text: '沟通日期'
             },
             {
-                key: 'goal',
-                text: '沟通目标'
-            },
-            {
                 key: 'period',
                 text: '沟通时长'
             },
-            {
-                key: 'content',
-                text: '沟通内容'
-            },
+           
             {
                 key: "operation",
                 text: "操作",

@@ -68,6 +68,6 @@ public class RapportTest {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
-		System.out.println(rapportService.rapportCarPagination(pagination));
+		System.out.println(rapportService.rapportPagination(pagination));
 	}
 }
