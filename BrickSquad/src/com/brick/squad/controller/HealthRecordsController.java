@@ -30,7 +30,8 @@ public class HealthRecordsController {
 		return healthRecordsService.healthRecordsPagination(pagination);
 
 	}
-
+	
+	
 	@RequestMapping("/toAddHealthRecords")
 	public String toHealthRecords() {
 		return "backstage_managed/jsp/healthRecords/add_healthRecords";
