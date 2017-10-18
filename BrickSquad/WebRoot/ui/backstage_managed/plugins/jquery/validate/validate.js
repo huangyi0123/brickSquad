@@ -1,0 +1,1 @@
+$(document).ready(function(){jQuery("#checkInfoForm").validationEngine();jQuery("#applyForm").validationEngine({'custom_error_messages':{'#txtKeyNum':{'min':{'message':"请至少输入一把电子钥匙数量"}},'#fileSeal':{'required':{'message':"请上传一个印章图片文件"}},'#fileSign':{'required':{'message':"请上传一个签名图片文件"}}}})});
