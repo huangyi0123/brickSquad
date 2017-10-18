@@ -9,7 +9,7 @@ public class Article {
  */
 	
 	private String id;
-	private String name;
+	private String aname;
 	private String typeId;
 	private String businessId;
 	private String price;
@@ -23,11 +23,12 @@ public class Article {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	
+	public String getAname() {
+		return aname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 	public String getTypeId() {
 		return typeId;

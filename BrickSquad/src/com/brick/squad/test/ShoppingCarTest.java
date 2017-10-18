@@ -68,7 +68,8 @@ public class ShoppingCarTest {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
-		System.out.println(shoppingCarService.shoppingCarPagination(pagination));
+		String shoppings=shoppingCarService.shoppingCarPagination(pagination);
+		System.out.println(shoppings);
 	}
 
 }
