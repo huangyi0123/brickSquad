@@ -34,7 +34,7 @@ public interface RapportService {
 	 * */
 	public Integer findRapportCount()throws Exception;
 	/**
-	 * 老人客户分页查询
+	 * 老人客户沟通分页查询
 	 * */
-	public String rapportCarPagination(Pagination pagination)throws Exception;
+	public String rapportPagination(Pagination pagination)throws Exception;
 }
