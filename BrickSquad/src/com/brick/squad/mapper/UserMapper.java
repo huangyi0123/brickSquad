@@ -9,8 +9,7 @@ import com.brick.squad.util.Pagination;
 
 public interface UserMapper {
 	//根据用户名查询
-	public List<User> findUsername(String username);
-	//增加用户
+
 /*	public void addUser
 	(@Param("id")String id,
 	@Param("username")String username,
@@ -26,4 +25,7 @@ public interface UserMapper {
 	public List<User> userPagination(Pagination pagination);
 	//用户分页条数
 	public int userCount(); 
+	//用户登录
+	//public User findUserByName(String username);
+	public User checkLogin(String username);
 }

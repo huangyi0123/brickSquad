@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	rel="stylesheet" />
 	<script type="text/javascript" src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="ui/backstage_managed/plugins/grid_manager/GridManager.min.js"></script>
-	<script type="text/javascript" src="ui/backstage_managed/jsp/role/role_list.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/jsp/user/user_list.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		init("");
