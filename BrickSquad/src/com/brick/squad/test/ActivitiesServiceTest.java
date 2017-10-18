@@ -69,7 +69,7 @@ public class ActivitiesServiceTest {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
-		activitiesService.ArticlePagination(pagination);
+		activitiesService.activitiesPagination(pagination);
 	}
 	
 	@Test

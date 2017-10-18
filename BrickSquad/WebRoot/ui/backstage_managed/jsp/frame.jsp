@@ -73,23 +73,21 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="region/toRegionList">区域列表</a>
 						</li>
-							<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
+						<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
 						</li>
-						
+						<li><a class="J_menuItem" href="type/toType">商品类型列表</a>
+						</li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人信息管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="relatives/toRelativesList">老人亲属关系列表</a>
 						</li>
-			
-					
+
+
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 							<li><a class="J_menuItem"
-							href="collection/toCollection">收藏商品信息列表</a></li>
-							href="personalInformation/toPersonalInformation">老人信息列表</a>
-							<a class="J_menuItem"
 							href="user/toUserList">用户信息列表</a>
 							</li>
 					</ul></li>
@@ -108,12 +106,13 @@
 							href="healthRecords/toHealthRecordsList">老人健康档案列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
 						</li>
-						<li><a class="J_menuItem"
-							href="guidance/toGuidanceList">老人健康指导列表</a></li>
+						<li><a class="J_menuItem" href="guidance/toGuidanceList">老人健康指导列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>电子商务<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
+						<li><a class="J_menuItem"
+							href="shopActivities/toShopActivitiesList">商品活动</a>
 						<li><a class="J_menuItem" href="article/toArticleList">商品列表</a></li>
 						<li><a class="J_menuItem" href="collection/toCollection">收藏商品信息列表</a></li>
 						<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
@@ -125,7 +124,7 @@
 							class="J_menuItem" href="rated/toRatedList">订单评论列表</a></li>
 						<li><a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a></li>
 						<li><a class="J_menuItem" href="business/toBusiness">商家信息管理列表</a></li>
-						
+
 						<li><a class="J_menuItem" href="buyers/toBuyersList">买家信息列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老年教育<span
@@ -133,13 +132,13 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem"
 							href="activityRegistration/toActivityRegistration">活动登记信息管理列表</a></li>
+						<li><a class="J_menuItem" href="activities/toActivitiesList">活动列表</a>
+						</li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>信息发布<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
-					<li>
-					 <a class="J_menuItem" href="news/toNewsList">新闻列表</a>
-					</li>
+						<li><a class="J_menuItem" href="news/toNewsList">新闻列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>数据统计<span
 						class="fa arrow"></span></a>
@@ -147,17 +146,16 @@
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>分店管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
-					<li><a class="J_menuItem" href="memberShipApplication/toMemberShipApplicationList">会员申请列表</a>
+						<li><a class="J_menuItem"
+							href="memberShipApplication/toMemberShipApplicationList">会员申请列表</a>
 						</li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>权限管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
-						<a class="J_menuItem" href="role/toRoleList">角色名称</a></li>
-					</ul>
-					
-				</li>
+						<li><a class="J_menuItem" href="limits/toLimitsList">权限</a> <a
+							class="J_menuItem" href="role/toRoleList">角色名称</a></li>
+					</ul></li>
 			</ul>
 		</div>
 		</nav>
@@ -237,7 +235,7 @@
 			</div>
 			<div class="row J_mainContent" id="content-main">
 				<iframe class="J_iframe" name="iframe0" width="100%" height="98%"
-					src="main.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
+					src="business/toBusiness" frameborder="0" data-id="index_v1.html" seamless></iframe>
 			</div>
 			<div class="footer">
 				<div class="pull-right">

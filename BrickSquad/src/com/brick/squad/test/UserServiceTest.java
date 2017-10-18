@@ -40,7 +40,13 @@ public class UserServiceTest {
 	//User表插入数据
 	@Test
 	public void addUserTest(){
-		userService.addUser("4","admin","admin","1528353406","4");
+
+		User user = new User();
+		user.setPassword("admin");
+		user.setRoleId("4");
+		user.setTelephone("8808628");
+		user.setUsername("吴老狗");
+		userService.addUser(user);
 	}
 	//User表删除数据
 	//@Test

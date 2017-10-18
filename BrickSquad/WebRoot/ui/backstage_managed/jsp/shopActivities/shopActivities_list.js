@@ -1,21 +1,33 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'region/getRegionList',
+        ajax_url: 'shopActivities/getShopActivitiesList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+					{
+					    key: 'id',
+					    text: '序号'
+					},
+                     {
+                         key: 'typeId',
+                         text: '活动类型'
+                     },
             {
-                key: 'name',
-                text: '名称'
+                key: 'startTime',
+                text: '开始时间'
+            },
+            {
+                key: 'endTime',
+                text: '结束时间'
             },
             {
                 key: "operation",
                 text: "操作",
                 template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+					return '<a href="'+rowData.id+'">修改</a>';
 				}
             }
         ]

@@ -1,8 +1,10 @@
 package com.brick.squad.util;
 
+import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JsonConfig;
 /**
  * 通用方法
  * @author 梁城月
@@ -21,7 +23,9 @@ public class Util<T> {
 		gridManagerList.setStatus("success");
 		gridManagerList.setData(datas);
 		gridManagerList.setTotals(row);
-		JSONArray jsonArray = JSONArray.fromObject(gridManagerList);
+		JsonConfig jsonConfig = new JsonConfig();
+        jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
+		JSONArray jsonArray = JSONArray.fromObject(gridManagerList,jsonConfig);
 		String data = jsonArray.toString();
 		data = data.substring(1,data.length() - 1);
 		return data;
