@@ -1,14 +1,27 @@
 package com.brick.squad.controller;
 
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
  
+
+
+
+
+
+import org.springframework.web.servlet.ModelAndView;
+
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.SecurityUtil;
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -35,5 +48,13 @@ public class UserController {
 	@RequestMapping("/toRegister")
 	public String toRegister() {
 		return "redirect:/ui/backstage_managed/jsp/user/register.jsp";
+	}
+	@RequestMapping("/register")
+	public String register(User user,HttpServletRequest httpServletRequest){
+		String passwordMD5 =  SecurityUtil.strToMD5(user.getPassword());
+		user.setPassword(passwordMD5);
+		user.setRoleId("1");
+		userService.addUser(user);
+		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
 	}
 }
