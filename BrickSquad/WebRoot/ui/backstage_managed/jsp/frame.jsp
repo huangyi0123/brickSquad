@@ -47,27 +47,9 @@
 			<i class="fa fa-times-circle"></i>
 		</div>
 		<div class="sidebar-collapse">
-			<ul class="nav" id="side-menu">
-				<li class="nav-header">
-					<div class="dropdown profile-element">
-						<span><img alt="image" class="img-circle"
-							src="ui/backstage_managed/image/logo.png" /></span> <a
-							data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
-							class="clear"> <span class="block m-t-xs"><strong
-									class="font-bold">Beaut-zihan</strong></span> <span
-								class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
-						</span>
-						</a>
-						<ul class="dropdown-menu animated fadeInRight m-t-xs">
-							<li><a class="J_menuItem" href="form_avatar.html">修改头像</a></li>
-							<li><a class="J_menuItem" href="profile.html">个人资料</a></li>
-							<li><a class="J_menuItem" href="contacts.html">联系我们</a></li>
-							<li><a class="J_menuItem" href="mailbox.html">信箱</a></li>
-							<li class="divider"></li>
-							<li><a href="login.html">安全退出</a></li>
-						</ul>
-					</div>
-				</li>
+			<ul style="margin-top: 10px;" class="nav" id="side-menu">
+				<span><img style="margin-bottom: 10px;" alt="image" class="img-circle"
+					src="ui/backstage_managed/image/logo.png" /></span>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>基本表单<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
@@ -75,8 +57,7 @@
 						</li>
 						<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
 						</li>
-						<li><a class="J_menuItem" href="type/toType">商品类型列表</a>
-						</li>
+						<li><a class="J_menuItem" href="type/toType">商品类型列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人信息管理<span
 						class="fa arrow"></span></a>
@@ -87,9 +68,7 @@
 
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
-							<li><a class="J_menuItem"
-							href="user/toUserList">用户信息列表</a>
-							</li>
+						<li><a class="J_menuItem" href="user/toUserList">用户信息列表</a></li>
 					</ul></li>
 
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人客户关系管理<span
@@ -163,48 +142,9 @@
 		<!--右侧部分开始-->
 		<div id="page-wrapper" class="gray-bg dashbard-1">
 			<div class="row border-bottom">
-				<nav class="navbar navbar-static-top" role="navigation"
-					style="margin-bottom: 0">
-				<div class="navbar-header">
-					<form role="search" class="navbar-form-custom" method="post"
-						action="search_results.html">
-						<div class="form-group">
-							<input type="text" placeholder="请输入您需要查找的内容 …"
-								class="form-control" name="top-search" id="top-search">
-						</div>
-					</form>
-				</div>
-				<ul class="nav navbar-top-links navbar-right">
-
-					<li class="dropdown"><a class="dropdown-toggle count-info"
-						data-toggle="dropdown" href="#"> <i class="fa fa-bell"></i> <span
-							class="label label-primary">8</span>
-					</a>
-						<ul class="dropdown-menu dropdown-alerts">
-							<li><a href="mailbox.html">
-									<div>
-										<i class="fa fa-envelope fa-fw"></i> 您有16条未读消息 <span
-											class="pull-right text-muted small">4分钟前</span>
-									</div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="profile.html">
-									<div>
-										<i class="fa fa-qq fa-fw"></i> 3条新回复 <span
-											class="pull-right text-muted small">12分钟钱</span>
-									</div>
-							</a></li>
-							<li class="divider"></li>
-							<li>
-								<div class="text-center link-block">
-									<a class="J_menuItem" href="notifications.html"> <strong>查看所有
-									</strong> <i class="fa fa-angle-right"></i>
-									</a>
-								</div>
-							</li>
-						</ul></li>
-				</ul>
-				</nav>
+				<nav style="height:10px; margin-bottom: 0"
+					class="navbar navbar-static-top" role="navigation"> 
+					 </nav>
 			</div>
 			<div class="row content-tabs">
 				<button class="roll-nav roll-left J_tabLeft">
@@ -216,10 +156,12 @@
 						data-id="index_v1.html">首页</a>
 				</div>
 				</nav>
-				<button class="roll-nav roll-right J_tabRight">
+				<button style="margin-right: 100px;"
+					class="roll-nav roll-right J_tabRight">
 					<i class="fa fa-forward"></i>
 				</button>
-				<div class="btn-group roll-nav roll-right">
+				<div style="margin-right: 100px;"
+					class="btn-group roll-nav roll-right">
 					<button class="dropdown J_tabClose" data-toggle="dropdown">
 						关闭操作<span class="caret"></span>
 					</button>
@@ -230,12 +172,63 @@
 						<li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
 					</ul>
 				</div>
-				<a href="login.html" class="roll-nav roll-right J_tabExit"><i
-					class="fa fa fa-sign-out"></i> 退出</a>
+				<div
+					style="height:30px;width:160px; text-align:center;  float:right; margin-right: 10px;margin-top: -54px;"
+					class="dropdown profile-element">
+					<a style="text-align: center;" data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <span class="clear">
+							<span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+							<span style="margin-top: -20px;text-align:center;"
+							class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+					</span>
+					</a>
+					<ul style="margin-top: 25px; "
+						class="dropdown-menu animated fadeInRight m-t-xs">
+						<li><a style="text-align: center;" class="J_menuItem"
+							href="form_avatar.html">修改头像</a></li>
+						<li><a style="text-align: center;" class="J_menuItem"
+							href="profile.html">个人资料</a></li>
+						<li><a style="text-align: center;" class="J_menuItem"
+							href="contacts.html">联系我们</a></li>
+						<li><a style="text-align: center;" class="J_menuItem"
+							href="mailbox.html">信箱</a></li>
+						<li class="dropdown"><a style="text-align: center;"
+							class="dropdown-toggle count-info" data-toggle="dropdown"
+							href="#"> 信息 <span style="margin-top: -5px;"
+								class="label label-primary">8</span>
+						</a>
+							<ul class="dropdown-menu dropdown-alerts">
+								<li><a href="mailbox.html">
+										<div>
+											<i class="fa fa-envelope fa-fw"></i> 您有16条未读消息 <span
+												class="pull-right text-muted small">4分钟前</span>
+										</div>
+								</a></li>
+								<li class="divider"></li>
+								<li><a href="profile.html">
+										<div>
+											<i class="fa fa-qq fa-fw"></i> 3条新回复 <span
+												class="pull-right text-muted small">12分钟钱</span>
+										</div>
+								</a></li>
+								<li class="divider"></li>
+								<li>
+									<div class="text-center link-block">
+										<a class="J_menuItem" href="notifications.html"> <strong>查看所有
+										</strong> <i class="fa fa-angle-right"></i>
+										</a>
+									</div>
+								</li>
+							</ul></li>
+						<li class="divider"></li>
+						<li><a style="text-align: center;" href="login.html">安全退出</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="row J_mainContent" id="content-main">
 				<iframe class="J_iframe" name="iframe0" width="100%" height="98%"
-					src="business/toBusiness" frameborder="0" data-id="index_v1.html" seamless></iframe>
+					src="business/toBusiness" frameborder="0" data-id="index_v1.html"
+					seamless></iframe>
 			</div>
 			<div class="footer">
 				<div class="pull-right">
