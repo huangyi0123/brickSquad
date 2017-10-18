@@ -15,7 +15,11 @@ public interface NewsService {
 	public void updateNews(String userId,String content);
 
 	public List<News> findNews(String content);
-	
-	public List<News> newsPagination(Pagination pagination);
+	/**
+	 * 查询新闻信息总数
+	 * */
+	public Integer findNewsCount()throws Exception;
+	//新闻分页查询
+	public String newsPagination(Pagination pagination);
 
 }

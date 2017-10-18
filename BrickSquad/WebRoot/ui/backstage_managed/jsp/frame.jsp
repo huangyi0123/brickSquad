@@ -132,7 +132,11 @@
 					<ul class="nav nav-second-level"></ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>信息发布<span
 						class="fa arrow"></span></a>
-					<ul class="nav nav-second-level"></ul></li>
+					<ul class="nav nav-second-level">
+					<li>
+					 <a class="J_menuItem" href="news/toNewsList">新闻列表</a>
+					</li>
+					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>数据统计<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level"></ul></li>
