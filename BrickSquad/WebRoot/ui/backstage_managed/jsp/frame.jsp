@@ -73,6 +73,8 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="region/toRegionList">区域列表</a>
 						</li>
+						<li><a class="J_menuItem" href="memberShipApplication/toMemberShipApplicationList">会员申请列表</a>
+						</li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人信息管理<span
 						class="fa arrow"></span></a>
@@ -98,7 +100,7 @@
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem"
-							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
+							href="healthRecords/toHealthRecordsList">老人健康档案列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
 						</li>
 					</ul></li>
