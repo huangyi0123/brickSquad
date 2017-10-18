@@ -20,9 +20,10 @@ public interface ActivitiesService {
 	
 	public void updateActivitiesById(Activities activities)throws Exception;
 
-	public List<Activities> ArticlePagination(Pagination pagination);
-
 	public int findActivitiesAllCount();
+
+	public String activitiesPagination(Pagination pagination);
+
 
 
 }

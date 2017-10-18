@@ -11,6 +11,7 @@ import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 @Transactional
 public class ActivitiesServiceImpl implements ActivitiesService{
 	@Autowired
@@ -36,15 +37,25 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 		// TODO Auto-generated method stub
 		activitiesMapper.updateActivitiesById(activities);
 	}
+	
+	//分页查询
 	@Override
-	public List<Activities> ArticlePagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return activitiesMapper.ActivitiesPagination(pagination);
+	public String activitiesPagination(Pagination pagination) {
+		List<Activities> activities = activitiesMapper.activitiesPagination(pagination);
+		int row = activitiesMapper.findActivitiesAllCount();
+		Util<Activities> util = new Util<Activities>();
+		String data = util.SplitPage(activities, row);
+		return data;
 	}
 	@Override
 	public int findActivitiesAllCount() {
 		// TODO Auto-generated method stub
 		return activitiesMapper.findActivitiesAllCount();
+	}
+	@Override
+	public String articlePagination(Pagination pagination) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

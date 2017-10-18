@@ -115,6 +115,7 @@
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>电子商务<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
+					<li><a class="J_menuItem" href="shopActivities/toShopActivitiesList">商品活动</a>
 						<li><a class="J_menuItem" href="article/toArticleList">商品列表</a></li>
 						<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
 						</li>
@@ -132,6 +133,7 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem"
 							href="activityRegistration/toActivityRegistration">活动登记信息管理列表</a></li>
+							<li><a class="J_menuItem" href="activities/toActivitiesList">活动列表</a>	</li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>信息发布<span
 						class="fa arrow"></span></a>

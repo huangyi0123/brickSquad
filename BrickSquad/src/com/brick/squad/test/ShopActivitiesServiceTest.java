@@ -68,7 +68,7 @@ public class ShopActivitiesServiceTest {
 	 * 测试分页
 	 */
 	
-	@Test
+	/*@Test
 	public void testshopActivitiesPagination(){
 		List<ShopActivities> shopActivities = new ArrayList<>();
 		Pagination pagination = new Pagination();
@@ -78,7 +78,7 @@ public class ShopActivitiesServiceTest {
 		for (ShopActivities shopActivities2 : shopActivities) {
 			System.out.println(shopActivities2.toString());
 		}
-	}
+	}*/
 	
 	
 	//测试统计
