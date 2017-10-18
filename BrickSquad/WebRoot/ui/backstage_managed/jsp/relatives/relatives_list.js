@@ -43,24 +43,25 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addRelatives(id) {
+	$("#addRelatives").click(function() {
+		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
+				url : "relatives/toAddRelatives",
 				data : {
 					"id" : id
 				},
 				success : function(data) {
 					layer.open({
 						btn : [ '添加' ],
-						title : '添加用户',
+						title : '添加亲属',
 						content : data,
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addRelatives',
 								data : $("form").serialize(),
 								success : function() {
 									layer.close(index);

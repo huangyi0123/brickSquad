@@ -18,7 +18,7 @@ public class MemberShipApplicationController {
 
 	@RequestMapping("/toMemberShipApplicationList")
 	public String toMemberShipApplicationList() {
-		
+
 		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
 	}
 
@@ -29,10 +29,13 @@ public class MemberShipApplicationController {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-
 		return memberShipApplicationService
 				.MemberShipApplicationPagination(pagination);
 
 	}
 
+	@RequestMapping("/toAddMemberShipApplication")
+	public String toAddMemberShipApplication() {
+		return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
+	}
 }
