@@ -18,7 +18,6 @@ public class HealthRecordsController {
 
 	@RequestMapping("/toHealthRecordsList")
 	public String toHealthRecordsList() {
-		System.out.println("/////*****//");
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 	}
 
