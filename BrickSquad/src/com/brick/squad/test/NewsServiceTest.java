@@ -5,6 +5,8 @@ import java.util.List;
 
  
 
+
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,12 +53,16 @@ public class NewsServiceTest {
 		List<News> list=newsService.findNews("黑夜头条");
 		System.out.println(list.size());
 	}
+	@Test
+	public void findNewsCount() throws Exception{
+		System.out.println(newsService.findNewsCount());
+	}
 	//新闻分页查询
 	@Test
-	public void newsPagination(){
-		Pagination pagination =new Pagination();
+	public void ordersPagination() throws Exception{
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
-		List<News> list=newsService.newsPagination(pagination);
+		System.out.println(newsService.newsPagination(pagination));
 	}
 }

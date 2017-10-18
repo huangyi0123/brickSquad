@@ -61,10 +61,10 @@ public class OrdersServiceImpl implements OrdersService{
 	/**订单分页查询*/
 	public String ordersPagination(Pagination pagination)
 			throws Exception {
-		List<Orders> regions=ordersMapper.ordersPagination(pagination);
+		List<Orders> orders=ordersMapper.ordersPagination(pagination);
 		int row=ordersMapper.findOrdersCount();
 		Util<Orders> util=new Util<Orders>();
-		String data=util.SplitPage(regions, row);
+		String data=util.SplitPage(orders, row);
 		return data;
 	}
 	
