@@ -20,17 +20,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="ui/backstage_managed/plugins/grid_manager/GridManager.min.css">
-	<link href="ui/backstage_managed/plugins/fonts/font-awesome.min.css"
-	rel="stylesheet" />
 	<script type="text/javascript" src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="ui/backstage_managed/plugins/grid_manager/GridManager.min.js"></script>
-	<script type="text/javascript" src="ui/backstage_managed/jsp/orders/orders_list.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/jsp/collection/collection_list.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		init("");
 	});
 	</script>
   </head>
+  
   <body>
     <table grid-manager="demo-ajaxPageCode"></table>
   </body>

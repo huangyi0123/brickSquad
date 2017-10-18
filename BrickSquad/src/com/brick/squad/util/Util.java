@@ -23,7 +23,7 @@ public class Util<T> {
 		gridManagerList.setTotals(row);
 		JSONArray jsonArray = JSONArray.fromObject(gridManagerList);
 		String data = jsonArray.toString();
-		data = data.substring(1, data.length() - 1);
+		data = data.substring(1,data.length() - 1);
 		return data;
 	}
 

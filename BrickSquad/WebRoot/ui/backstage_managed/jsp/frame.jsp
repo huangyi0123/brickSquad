@@ -73,6 +73,8 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="region/toRegionList">区域列表</a>
 						</li>
+							<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
+						</li>
 						
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人信息管理<span
@@ -81,14 +83,15 @@
 						<li><a class="J_menuItem" href="relatives/toRelativesList">老人亲属关系列表</a>
 						</li>
 			
-						<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
-						</li>
+					
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
-
-
-
-
+							<li><a class="J_menuItem"
+							href="collection/toCollection">收藏商品信息列表</a></li>
+							href="personalInformation/toPersonalInformation">老人信息列表</a>
+							<a class="J_menuItem"
+							href="user/toUserList">用户信息列表</a>
+							</li>
 					</ul></li>
 
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人客户关系管理<span
@@ -102,7 +105,7 @@
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem"
-							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
+							href="healthRecords/toHealthRecordsList">老人健康档案列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
 						</li>
 						<li><a class="J_menuItem"
@@ -112,6 +115,7 @@
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="article/toArticleList">商品列表</a></li>
+						<li><a class="J_menuItem" href="collection/toCollection">收藏商品信息列表</a></li>
 						<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
 						</li>
 						<li><a class="J_menuItem"
@@ -121,6 +125,7 @@
 							class="J_menuItem" href="rated/toRatedList">订单评论列表</a></li>
 						<li><a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a></li>
 						<li><a class="J_menuItem" href="business/toBusiness">商家信息管理列表</a></li>
+						
 						<li><a class="J_menuItem" href="buyers/toBuyersList">买家信息列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老年教育<span
@@ -148,8 +153,11 @@
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>权限管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="limits/toLimitsList">权限</a></li>
-					</ul></li>
+						<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
+						<a class="J_menuItem" href="role/toRoleList">角色名称</a></li>
+					</ul>
+					
+				</li>
 			</ul>
 		</div>
 		</nav>

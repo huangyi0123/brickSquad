@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'region.jsp' starting page</title>
+    <title>My JSP 'user.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,13 +24,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	rel="stylesheet" />
 	<script type="text/javascript" src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="ui/backstage_managed/plugins/grid_manager/GridManager.min.js"></script>
-	<script type="text/javascript" src="ui/backstage_managed/jsp/orders/orders_list.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/jsp/role/role_list.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		init("");
 	});
 	</script>
   </head>
+  
   <body>
     <table grid-manager="demo-ajaxPageCode"></table>
   </body>

@@ -21,4 +21,8 @@
 	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
 		select*from user limit #{skipNum},#{takeNum}
 	</select>
+	
+	<select id="userCount" resultType="int">
+		select count(*) from user
+	</select>
 </mapper>

@@ -11,6 +11,7 @@ public interface RoleService {
 	public void deleteRole(String id);
 	public void updateRole(String id, String name);
 	public List<Role> findRole(String id);
-	public List<Role> rolePagination(Pagination pagination);
+	public String rolePagination(Pagination pagination);
+	public int roleCount();
 	
 }

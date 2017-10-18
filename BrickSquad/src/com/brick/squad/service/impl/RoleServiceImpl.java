@@ -9,6 +9,7 @@ import com.brick.squad.mapper.RoleMapper;
 import com.brick.squad.pojo.Role;
 import com.brick.squad.service.RoleService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 /**
  * 
  * @author Luyujing
@@ -40,8 +41,18 @@ public class RoleServiceImpl implements RoleService{
 		
 	}
 	
-	public  List<Role> rolePagination(Pagination pagination){
-		return roleMapper.rolePagination(pagination);
+	public  String rolePagination(Pagination pagination){
+		List<Role> roles= roleMapper.rolePagination(pagination);
+		int row=roleMapper.roleCount();
+		Util<Role> util=new Util<Role>();
+		String data=util.SplitPage(roles,row);
+		return data;
 		
 	}
+	public int roleCount(){
+		int count=roleMapper.roleCount();
+		return count;
+	}
+	
+	
 }

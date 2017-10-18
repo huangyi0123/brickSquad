@@ -18,5 +18,9 @@ public interface RoleMapper {
 	//查询用户
 	public List<Role> findRole(String id);
 	
+	//新闻分页查询
 	public List<Role> rolePagination(Pagination pagination);
+	
+	//新闻条数统计
+	public int roleCount();
 }
