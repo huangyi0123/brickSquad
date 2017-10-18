@@ -75,6 +75,8 @@
 						</li>
 							<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
 						</li>
+						<li><a class="J_menuItem" href="type/toType">商品类型列表</a>
+						</li>
 						
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人信息管理<span
@@ -87,9 +89,6 @@
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 							<li><a class="J_menuItem"
-							href="collection/toCollection">收藏商品信息列表</a></li>
-							href="personalInformation/toPersonalInformation">老人信息列表</a>
-							<a class="J_menuItem"
 							href="user/toUserList">用户信息列表</a>
 							</li>
 					</ul></li>

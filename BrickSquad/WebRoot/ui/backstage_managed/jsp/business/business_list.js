@@ -2,7 +2,7 @@ function init(keyword) {
 	var table = document
 			.querySelector('table[grid-manager="demo-ajaxPageCode"]');
 	table.GM({
-		ajax_url : 'business/getbusinessList',
+		ajax_url : 'business/getBusinessList',
 		ajax_type : 'POST',
 		query : {
 			pluginId : 1,
