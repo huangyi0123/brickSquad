@@ -34,9 +34,9 @@ function init(keyword) {
 							template : function(noteData, rowData) {
 								return '<a href="'
 										+ rowData.id
-										+ '"><i class="fa fa-pencil-square-o" style="margin-right:5px;margin-left:10px"></i>修改</a> &nbsp;|&nbsp; <a href="'
+										+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
 										+ rowData.id
-										+ '"><i class="fa fa-trash-o" style="margin-right:5px;"></i>删除</a>';
+										+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 							}
 						} ]
 			});
@@ -47,26 +47,26 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addBusiness(id) {
+	
+	$("#addBusiness").click(function() {
+		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
-				data : {
-					"id" : id
-				},
+				url : "business/toAddBusiness",
+				data:{"id":id},
 				success : function(data) {
 					layer.open({
-						btn : [ '添加' ],
-						title : '添加用户',
+						btn : [ '添加'],
+						title : '添加商家',
 						content : data,
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addBusiness',
 								data : $("form").serialize(),
-								success : function() {
+								success:function(){
 									layer.close(index);
 									RefreshGridManagerList("");
 								}
