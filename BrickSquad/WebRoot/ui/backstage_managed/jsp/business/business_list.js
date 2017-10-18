@@ -34,7 +34,7 @@ function init(keyword) {
 							template : function(noteData, rowData) {
 								return '<a href="'
 										+ rowData.id
-										+ '"><i class="fa fa-pencil-square-o" style="margin-right:5px;margin-left:10px"></i>修改</a> &nbsp;|&nbsp; <a href="'
+										+ '"><i  class="fa fa-pencil-square-o" style="margin-right:5px;margin-left:10px"></i>修改</a> &nbsp;|&nbsp; <a href="'
 										+ rowData.id
 										+ '"><i class="fa fa-trash-o" style="margin-right:5px;"></i>删除</a>';
 							}
