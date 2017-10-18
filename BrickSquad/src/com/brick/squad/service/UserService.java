@@ -1,9 +1,6 @@
 package com.brick.squad.service;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 
@@ -12,7 +9,9 @@ public interface UserService {
 	public void addUser(String id,String username,String password,String telephone,String roleId);
 	public void deleteUser(String username);
 	public void updateUser(String username,String password);
-	public List<User> userPagination(Pagination pagination);
+	public String userPagination(Pagination pagination);
+	//用户分页显示
+		public int userCount(); 
 }
 	
 
