@@ -100,7 +100,7 @@
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem"
-							href="healthRecords/toHealthRecordsList">老人健康档案列表</a></li>
+							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
 						</li>
 					</ul></li>
