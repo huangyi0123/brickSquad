@@ -47,26 +47,26 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addBusiness(id) {
+	
+	$("#addBusiness").click(function() {
+		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
-				data : {
-					"id" : id
-				},
+				url : "business/toAddBusiness",
+				data:{"id":id},
 				success : function(data) {
 					layer.open({
-						btn : [ '添加' ],
-						title : '添加用户',
+						btn : [ '添加'],
+						title : '添加商家',
 						content : data,
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addBusiness',
 								data : $("form").serialize(),
-								success : function() {
+								success:function(){
 									layer.close(index);
 									RefreshGridManagerList("");
 								}

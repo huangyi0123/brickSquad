@@ -43,7 +43,7 @@ public class JsonDateValueProcessor implements JsonValueProcessor {
             return str;  
         }  
         if (null != value) {  
-            return value.toString();  
+            return value.toString();
         }  
         return "";
 	}
