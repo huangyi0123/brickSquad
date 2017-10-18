@@ -32,6 +32,6 @@ public class BusinessController {
 	}
 	@RequestMapping("/toAddBusiness")
 	public String toAddBusiness() {
-		return "ui/backstage_managed/jsp/business/add_business";
+		return "backstage_managed/jsp/business/add_business";
 	}
 }

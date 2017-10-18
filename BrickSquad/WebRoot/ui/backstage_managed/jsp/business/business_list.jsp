@@ -24,7 +24,7 @@
 <link rel="stylesheet" type="text/css"
 	href="ui/backstage_managed/plugins/grid_manager/GridManager.min.css">
 <link rel="stylesheet" type="text/css"
-	href="ui/backstage_managed/plugins/layui/layui.css">
+	href="ui/backstage_managed/plugins/layui/css/layui.css">
 <link rel="stylesheet" type="text/css"
 	href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
@@ -38,7 +38,7 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript"
-	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+	src="ui/backstage_managed/plugins/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
 	$(function() {
 		init("");

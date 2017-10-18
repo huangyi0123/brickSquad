@@ -53,10 +53,28 @@ function addBusiness(id) {
 		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
-			layer.open({
-				  title: '在线调试'
-				  ,content: '可以填写任意的layer代码'
-				});
+			$.ajax({
+				url : "business/toAddBusiness",
+				data:{"id":id},
+				success : function(data) {
+					layer.open({
+						btn : [ '添加'],
+						title : '添加商家',
+						content : data,
+						yes : function(index) {
+							$.ajax({
+								type : 'post',
+								url : 'addBusiness',
+								data : $("form").serialize(),
+								success:function(){
+									layer.close(index);
+									RefreshGridManagerList("");
+								}
+							});
+						}
+					});
+				}
+			});
 		});
 	});
 }
