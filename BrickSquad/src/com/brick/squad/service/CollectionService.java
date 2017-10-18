@@ -1,6 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Collection;
+import com.brick.squad.util.Pagination;
 
 public interface CollectionService {
 
@@ -28,4 +31,12 @@ public interface CollectionService {
 	 * @param id
 	 */
 	public void deleteCollectionById(String id);
+	
+	/**
+	 * 根据分页条件查询收藏物品信息
+	 * @param pagination 分页信息
+	 * @return 收藏物品信息
+	 */
+	public String collectionPagination(Pagination pagination);
+	
 }
