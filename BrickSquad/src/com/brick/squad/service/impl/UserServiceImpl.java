@@ -3,14 +3,15 @@ package com.brick.squad.service.impl;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.mapper.UserMapper;
-
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.SecurityUtil;
 import com.brick.squad.util.Util;
 /**
  * 
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService {
 	public User checkLogin(String username,String password){
 	
 		User user=userMapper.checkLogin(username);
-		if(user!=null&&user.getPassword().equals(password)){
+		if(user!=null&&user.getPassword().equals(SecurityUtil.strToMD5(password))){
 			return user;
 		}
 			return null;
