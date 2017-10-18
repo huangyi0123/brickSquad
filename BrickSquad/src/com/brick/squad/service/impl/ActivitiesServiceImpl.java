@@ -52,12 +52,7 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 		// TODO Auto-generated method stub
 		return activitiesMapper.findActivitiesAllCount();
 	}
-	@Override
-	public String articlePagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 	
 
 }
