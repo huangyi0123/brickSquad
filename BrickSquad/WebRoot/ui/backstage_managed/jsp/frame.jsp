@@ -87,10 +87,10 @@
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 							<li><a class="J_menuItem"
-							href="collection/toCollection">收藏商品信息列表</a></li>
-							href="personalInformation/toPersonalInformation">老人信息列表</a>
-							<a class="J_menuItem"
-							href="user/toUserList">用户信息列表</a>
+							href="collection/toCollection">收藏商品信息列表</a>
+							</li>
+							<li>
+							<a class="J_menuItem" href="user/toUserList">用户信息列表</a>
 							</li>
 					</ul></li>
 
