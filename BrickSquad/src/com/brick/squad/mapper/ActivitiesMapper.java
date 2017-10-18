@@ -21,7 +21,7 @@ public interface ActivitiesMapper {
 	
 	public void updateActivitiesById(Activities activities);
 	
-	public List<Activities> ActivitiesPagination(Pagination pagination) ;
+	public List<Activities> activitiesPagination(Pagination pagination) ;
 	
 	public int findActivitiesAllCount();
 }

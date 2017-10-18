@@ -57,9 +57,9 @@ public class ShopActivitiesServiceTest {
 	public void InsertShopActivitiesById() throws Exception{
 			ShopActivities s = new ShopActivities();
 			s.setTypeId("美术");
-			s.setStartTime("2017-10-20 13:00:00");
+	/*		s.setStartTime("2017-10-20 13:00:00");
 			s.setEndTime("2017-10-20 15:00:00");
-			
+			*/
 			shopActivitiesService.insertShopActivitiesById(s);
 	} 
 	
@@ -68,7 +68,7 @@ public class ShopActivitiesServiceTest {
 	 * 测试分页
 	 */
 	
-	@Test
+	/*@Test
 	public void testshopActivitiesPagination(){
 		List<ShopActivities> shopActivities = new ArrayList<>();
 		Pagination pagination = new Pagination();
@@ -78,7 +78,7 @@ public class ShopActivitiesServiceTest {
 		for (ShopActivities shopActivities2 : shopActivities) {
 			System.out.println(shopActivities2.toString());
 		}
-	}
+	}*/
 	
 	
 	//测试统计

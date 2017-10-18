@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="ui/backstage_managed/plugins/grid_manager/GridManager.min.css">
 	<script type="text/javascript" src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="ui/backstage_managed/plugins/grid_manager/GridManager.min.js"></script>
-	<script type="text/javascript" src="ui/backstage_managed/jsp/business/business_list.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/jsp/activities/activities_list.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		init("");

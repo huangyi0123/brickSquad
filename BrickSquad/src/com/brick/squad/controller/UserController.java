@@ -27,4 +27,13 @@ public class UserController {
 		pagination.setPageSize(pSize);
 		return userService.userPagination(pagination);
 	}
+	@RequestMapping("/toLogin")
+	public String toLogin() {
+		return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
+	}
+	
+	@RequestMapping("/toRegister")
+	public String toRegister() {
+		return "redirect:/ui/backstage_managed/jsp/user/register.jsp";
+	}
 }
