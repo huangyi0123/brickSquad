@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.NewsMapper">
+
+<sql id="Base_Column_List">
+		id, user_id userId, content , imgs_path imagePath,post_time postTime
+	</sql>
 	<!-- Luyujing News表 增删改查-->
 	<insert id="addNews"  parameterType="java.lang.Long">
 		INSERT INTO news(id,user_id,content,imgs_path,post_time)
@@ -17,6 +21,11 @@
 		select*from news where content=#{content}
 	</select>
 	<select id="newsPagination" resultType="news" parameterType="com.brick.squad.util.Pagination">
-		select*from news limit #{skipNum},#{takeNum}
+		SELECT  
+		<include refid="Base_Column_List"/>
+		 FROM news limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findNewsCount" resultType="Integer">
+	SELECT COUNT(*) FROM news
 	</select>
 </mapper>

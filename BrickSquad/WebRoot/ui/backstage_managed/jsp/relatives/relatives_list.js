@@ -26,7 +26,8 @@ function init(keyword) {
 			key : "operation",
 			text : "操作",
 			template : function(noteData, rowData) {
-				return '<a href="' + rowData.id + '">修改</a>';
+				return '<a href="' + rowData.id + '">修改</a>'
+				;
 			}
 		} ]
 	});

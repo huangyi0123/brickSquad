@@ -13,6 +13,7 @@ import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
 import com.brick.squad.service.NewsService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 /**
  * 新闻表 增删改查
  * @author Luyujing
@@ -65,7 +66,16 @@ public class NewsServiceImpl implements NewsService {
 		
 	}
 	//新闻分页查询
-	public List<News> newsPagination(Pagination pagination){
-		return newsMapper.newsPagination(pagination);
+	public String newsPagination(Pagination pagination){
+		List<News> news=newsMapper.newsPagination(pagination);
+		int row=newsMapper.findNewsCount();
+		Util<News> util=new Util<News>();
+		String data=util.SplitPage(news, row);
+		return data;
+	}
+	@Override
+	public Integer findNewsCount() throws Exception {
+		Integer countNews=newsMapper.findNewsCount();
+		return countNews;
 	}
 }

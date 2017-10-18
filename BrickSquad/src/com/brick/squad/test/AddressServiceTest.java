@@ -26,11 +26,11 @@ public class AddressServiceTest {
 	@Test
 	public void testAddressInsert() throws Exception{
 		Address address = new Address();
-		address.setCityId("1");
-		address.setCountryId("2");
+		address.setCityId("2");
+		address.setCountryId("3");
 		address.setCountyId("4");
-		address.setDetailed("123");
-		address.setProvinceId("qw的归属感e");
+		address.setDetailed("5");
+		address.setProvinceId("贵州贵阳市");
 		addressService.insertAddress(address);
 		System.out.print(address);
 		
@@ -57,11 +57,11 @@ public class AddressServiceTest {
 	}
 	@Test
 	public void testAddressPagination() throws Exception{
-		List<Address> lAddresses = new ArrayList<Address>();
+		/*List<Address> lAddresses = new ArrayList<Address>();*/
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(7);
-		lAddresses=addressService.addressPagination(pagination);
+		addressService.addressPagination(pagination);
 	}
 	@Test
 	public void testfindAddressAllCount() throws Exception{

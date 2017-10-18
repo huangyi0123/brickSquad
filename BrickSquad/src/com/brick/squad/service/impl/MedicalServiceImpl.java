@@ -14,6 +14,8 @@ import com.brick.squad.pojo.Region;
 import com.brick.squad.service.MedicalService;
 import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
+
 @Transactional
 /**
  * 
@@ -21,9 +23,10 @@ import com.brick.squad.util.Pagination;
  *
  */
 public class MedicalServiceImpl implements MedicalService {
-@Autowired
-@Qualifier("medicalMapper")
-private MedicalMapper medicalMapper;
+	@Autowired
+	@Qualifier("medicalMapper")
+	private MedicalMapper medicalMapper;
+
 	@Override
 	public void insertMedical(Medical medical) {
 		medicalMapper.insertMedical(medical);
@@ -43,21 +46,16 @@ private MedicalMapper medicalMapper;
 	}
 
 	@Override
-	public Medical findMedicalById(String id) {		
+	public Medical findMedicalById(String id) {
 		return medicalMapper.findMedicalById(id);
 	}
 
 	@Override
 	public String medicalPagination(Pagination pagination) {
-		GridManagerList<Medical> gridManagerList=new GridManagerList<Medical>();
-		List<Medical> medicals=medicalMapper.medicalPagination(pagination);
-		System.out.println(medicals.toString());
-		gridManagerList.setStatus("success");
-		gridManagerList.setData(medicals);
-		gridManagerList.setTotals(medicalMapper.findMedicalAllCount());
-		JSONArray jsonArray=JSONArray.fromObject(gridManagerList);
-		String data=jsonArray.toString();
-		data=data.substring(1,data.length()-1);
+		List<Medical> medicals = medicalMapper.medicalPagination(pagination);
+		int row = medicalMapper.findMedicalAllCount();
+		Util<Medical> util = new Util<>();
+		String data = util.SplitPage(medicals, row);
 		return data;
 	}
 

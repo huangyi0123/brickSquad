@@ -1,37 +1,37 @@
 function init(keyword) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
-        ajax_url: 'orders/getOrdersList',
+        ajax_url: 'news/getNewsList',
          ajax_type: 'POST',
         query: { pluginId: 1,'keyword':keyword },
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
             {
-                key: 'no',
-                text: '运单号'
+                key: 'id',
+                text: '新闻ID'
             },
             {
-                key: 'stateId',
-                text: '状态'
+                key: 'userId',
+                text: '编辑用户ID'
             },
             {
-                key: 'productionDate',
-                text: '订单生产日期'
+                key: 'content',
+                text: '编辑内容'
             },
             {
-                key: 'number',
-                text: '数量'
+                key: 'imagePath',
+                text: '图片路径'
             },
             {
-                key: 'money',
-                text: '总额'
+                key: 'postTime',
+                text: '提交时间'
             },
             {
                 key: "operation",
                 text: "操作",
                 template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+					return '<a href="'+rowData.id+'">修改</a>';
 				}
             }
         ]

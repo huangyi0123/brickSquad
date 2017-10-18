@@ -16,9 +16,8 @@ public class HealthRecordsController {
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
 
-	@RequestMapping("/toHealRecordsList")
+	@RequestMapping("/toHealthRecordsList")
 	public String toHealthRecordsList() {
-		System.out.println("/////*****//");
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 	}
 

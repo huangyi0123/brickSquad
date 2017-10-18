@@ -24,6 +24,10 @@ public interface NewsMapper {
 							@Param("content")String content);
 	//查询新闻
 	public List<News> findNews(String content);
+	/**
+	 * 查询新闻信息总数
+	 * */
+	public Integer findNewsCount();
 	//新闻分页查询
 	public List<News> newsPagination(Pagination pagination);
 }

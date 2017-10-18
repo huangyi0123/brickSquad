@@ -23,4 +23,7 @@
 		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest 
 		from  guidance limit #{skipNum},#{takeNum}
 	</select>
+	<select id="findGuidanceAllCount" resultType="int">
+		select count(*) from guidance
+	</select>
 </mapper>

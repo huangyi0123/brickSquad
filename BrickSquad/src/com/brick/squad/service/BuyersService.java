@@ -11,5 +11,6 @@ public interface BuyersService {
 	public List<Buyers> findBuyersByUUID (String id) throws Exception;
 	public void updateBuyersById(Buyers buyers) throws Exception;
 	public void deleteBuyersById(Buyers buyers) throws Exception;
-	public List<Buyers> buyersPagination(Pagination pagination) throws Exception;
+	public String buyersPagination(Pagination pagination) throws Exception;
+	public int findBuyersAllCount() throws Exception;
 }
