@@ -33,7 +33,7 @@ public interface ShopActivitiesService {
 	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception;
 	
 	
-	public List<ShopActivities> shopActivitiesPagination(Pagination pagination);
+	public String shopActivitiesPagination(Pagination pagination);
 	
 	public int findShopActivitiesAllCount();
 }

@@ -11,12 +11,13 @@ public interface UserMapper {
 	//根据用户名查询
 	public List<User> findUsername(String username);
 	//增加用户
-	public void addUser
+/*	public void addUser
 	(@Param("id")String id,
 	@Param("username")String username,
 	@Param("password")String password,
 	@Param("telephone")String telephone,
-	@Param("roleId")String roleId);
+	@Param("roleId")String roleId);*/
+	public void addUser(User user);
 	//根据用户名删除
 	public void deleteUser(String username);
 	//根据用户名修改密码

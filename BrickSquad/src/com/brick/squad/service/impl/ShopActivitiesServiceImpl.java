@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.ShopActivitiesMapper;
+import com.brick.squad.pojo.Reply;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Util;
 @Transactional
 public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 
@@ -42,9 +44,12 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	}
 
 	@Override
-	public List<ShopActivities> shopActivitiesPagination(Pagination pagination) {
-		// TODO Auto-generated method stub
-		return shopActivitiesMapper.shopActivitiesPagination(pagination);
+	public String shopActivitiesPagination(Pagination pagination) {
+		List<ShopActivities> shopActivities = shopActivitiesMapper.shopActivitiesPagination(pagination);
+		int row = shopActivitiesMapper.findShopActivitiesAllCount();
+		Util<ShopActivities> util = new Util<ShopActivities>();
+		String data = util.SplitPage(shopActivities, row);
+		return data;
 	}
 
 	@Override

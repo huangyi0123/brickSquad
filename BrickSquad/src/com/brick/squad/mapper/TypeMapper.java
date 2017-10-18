@@ -1,6 +1,10 @@
 package com.brick.squad.mapper;
 
+import java.util.List;
+
+import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.util.Pagination;
 
 /**
  * 类型表
@@ -33,5 +37,18 @@ public interface TypeMapper {
 	 * @param id
 	 */
 	public void deleteTypeById(String id);
+	
+	/**
+	 * 根据分页条件查询物品类别信息
+	 * @param pagination 分页信息
+	 * @return 物品所属类别信息
+	 */
+	public List<Type> typePagination(Pagination pagination);
+	
+	/**
+	 * 查询记录数
+	 * @return 记录数
+	 */
+	public int typeCount();
 	
 }

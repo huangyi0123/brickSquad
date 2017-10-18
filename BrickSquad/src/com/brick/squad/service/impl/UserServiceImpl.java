@@ -28,9 +28,9 @@ public class UserServiceImpl implements UserService {
 		return userMapper.findUsername(username);
 	}
 	
-	public void  addUser(String id,String username,String password,String telephone,String roleId){
+	public void  addUser(User user){
 		
-		userMapper.addUser(id, username, password, telephone, roleId);
+		userMapper.addUser(user);
 	}
 	public void deleteUser(String username){
 		userMapper.deleteUser(username);
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 		int count= userMapper.userCount();
 		return count;
 	}
-	
+
 	
 	
 }

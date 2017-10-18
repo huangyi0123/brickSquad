@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -44,4 +45,11 @@ public class TypeServiceTest {
 		typeService.deleteTypeById("c6158d3cb0b611e78d4f5254002ec43c");
 	}
 
+	@Test
+	public void testTypePagination(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		System.out.println(typeService.typePagination(pagination));
+	}
 }

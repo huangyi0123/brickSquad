@@ -18,12 +18,12 @@ public class BusinessController {
    
    @RequestMapping("/toBusiness")
    public String toBusiness(){
-	   return "backstage_managed/jsp/Business/business_list";
+	   return "backstage_managed/jsp/business/business_list";
    }
    
-   @RequestMapping("/getbusinessList")
+   @RequestMapping("/getBusinessList")
    @ResponseBody
-   public String getbusinessList(int pSize,int cPage,String keyword) {
+   public String getBusinessList(int pSize,int cPage,String keyword) {
 	Pagination pagination=new Pagination();
 	pagination.setCurentPage(cPage);
 	pagination.setPageSize(pSize);
