@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
-import com.brick.squad.pojo.Orders;
 import com.brick.squad.service.NewsService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
