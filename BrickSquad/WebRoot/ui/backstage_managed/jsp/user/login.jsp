@@ -33,13 +33,13 @@
 			</div>
 			<h3>欢迎使用 老人管理系统</h3>
 
-			<form class="m-t" role="form" action="index.html">
+			<form class="m-t" role="form" action="user/toLogin"   method="post">
 				<div class="form-group">
-					<input type="email"  class="form-control" placeholder="用户名"
-						required="">
+
+					<input name="username" type="text" class="form-control" placeholder="用户名" required="">
 				</div>
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="密码"
+					<input name="password" type="password" class="form-control" placeholder="密码"
 						required="">
 				</div>
 				<button type="submit" class="btn btn-primary block full-width m-b">登

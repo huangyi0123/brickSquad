@@ -24,8 +24,12 @@ function init(keyword) {
                 text: '联系方式'
             },
             {
-                key: "roleId",
-                text: "角色",
+                key: 'roleId',
+                text: '角色'
+            },
+            {
+                key: "operation",
+                text: "操作",
                 template: function(noteData,rowData) {
 					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
 				}
