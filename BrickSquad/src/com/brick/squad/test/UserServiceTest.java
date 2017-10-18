@@ -2,9 +2,6 @@ package com.brick.squad.test;
 
 import java.util.List;
 
-
-
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
+
 
 
 /**
@@ -55,12 +53,24 @@ public class UserServiceTest {
 		userService.updateUser("lyj","222222");
 	}
 	//用户分页查询
-	@Test
+	/*@Test
 	public void userPaginationTest(){
 		Pagination pagination =new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		List<User> list=userService.userPagination(pagination);
 		System.out.println(list.size());
+	}*/
+	//@Test
+	public void userCount(){
+		
+		System.out.println(userService.userCount());
+	}
+	@Test
+	public void testUserPagination() throws Exception{
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(8);
+		System.out.println(userService.userPagination(pagination));
 	}
 	}

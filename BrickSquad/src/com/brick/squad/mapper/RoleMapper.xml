@@ -17,6 +17,8 @@
 	</select>
 	<select id="rolePagination" resultType="role" parameterType="com.brick.squad.util.Pagination">
 		select*from role limit #{skipNum},#{takeNum}
-		
+	</select>
+	<select id="roleCount" resultType="int" >
+		select count(*) from role 
 	</select>
 </mapper>

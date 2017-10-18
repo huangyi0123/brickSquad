@@ -80,7 +80,10 @@
 						<li><a class="J_menuItem" href="relatives/toRelativesList">老人亲属关系列表</a>
 						</li>
 						<li><a class="J_menuItem"
-							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
+							href="personalInformation/toPersonalInformation">老人信息列表</a>
+							<a class="J_menuItem"
+							href="user/toUserList">用户信息列表</a>
+							</li>
 
 
 
@@ -134,8 +137,11 @@
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>权限管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
-						<li><a class="J_menuItem" href="limits/toLimitsList">权限</a></li>
-					</ul></li>
+						<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
+						<a class="J_menuItem" href="role/toRoleList">角色名称</a></li>
+					</ul>
+					
+				</li>
 			</ul>
 		</div>
 		</nav>

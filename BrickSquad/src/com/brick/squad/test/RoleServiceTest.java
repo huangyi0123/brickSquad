@@ -22,10 +22,15 @@ public class RoleServiceTest {
 	private RoleService roleService;
 	
 	//增加角色
-	//@Test
+	/*@Test
 	public void addRoleTest(){
-		roleService.addRole("5","分店管理员");
-	}
+		roleService.addRole("1","超级管理员");
+		roleService.addRole("2","CEO");
+		roleService.addRole("3","分店管理员");
+		roleService.addRole("4","编辑");
+		roleService.addRole("5","商家");
+		roleService.addRole("6","老人");
+	}*/
 	//根据ID删除角色
 	//@Test
 	public void deleteRoleTest(){
@@ -43,14 +48,33 @@ public class RoleServiceTest {
 		List<Role> list=roleService.findRole("1");
 		System.out.println(list.size());
 	}
-	//新闻分页查询
-	@Test
+	
+	/*@Test
 	public void rolePaginationTest(){
 		Pagination pagination=new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		List<Role> list=roleService.rolePagination(pagination);
-		System.out.println(list.size());
-	}
+		
+		for(int i = 0; i < list.size(); i++){
+			System.out.print(list.get(i).getId()+" ");
+			System.out.println(list.get(i).getName());
+		}
+		
+	}*/
+		/*@Test
+		public void roleCountTest(){
+			
+			System.out.println(roleService.roleCount());
+		}*/
+		@Test
+		public void RolePaginationTest() throws Exception{
+			Pagination pagination = new Pagination();
+			pagination.setCurentPage(1);
+			pagination.setPageSize(8);
+			System.out.println(roleService.rolePagination(pagination));
+		}
+		}
 	
-}
+
+

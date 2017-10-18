@@ -23,4 +23,6 @@ public interface UserMapper {
 	public void updateUser(@Param("username")String username,@Param("password")String password);
 	//用户分页查询
 	public List<User> userPagination(Pagination pagination);
+	//用户分页条数
+	public int userCount(); 
 }
