@@ -48,8 +48,8 @@
 		</div>
 		<div class="sidebar-collapse">
 			<ul style="margin-top: 10px;" class="nav" id="side-menu">
-				<span><img style="margin-bottom: 10px;" alt="image" class="img-circle"
-					src="ui/backstage_managed/image/logo.png" /></span>
+				<span><img style="margin-bottom: 10px;" alt="image"
+					class="img-circle" src="ui/backstage_managed/image/logo.png" /></span>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>基本表单<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
@@ -67,8 +67,8 @@
 
 
 						<li><a class="J_menuItem" href="user/toUserList">用户信息列表</a></li>
-							<li><a href="personalInformation/toPersonalInformation">老人信息列表</a></li>
-							
+						<li><a href="personalInformation/toPersonalInformation">老人信息列表</a></li>
+
 					</ul></li>
 
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人客户关系管理<span
@@ -143,8 +143,7 @@
 		<div id="page-wrapper" class="gray-bg dashbard-1">
 			<div class="row border-bottom">
 				<nav style="height:10px; margin-bottom: 0"
-					class="navbar navbar-static-top" role="navigation"> 
-					 </nav>
+					class="navbar navbar-static-top" role="navigation"> </nav>
 			</div>
 			<div class="row content-tabs">
 				<button class="roll-nav roll-left J_tabLeft">
