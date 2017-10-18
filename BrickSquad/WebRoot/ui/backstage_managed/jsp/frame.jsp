@@ -81,6 +81,9 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="relatives/toRelativesList">老人亲属关系列表</a>
 						</li>
+			
+						<li><a class="J_menuItem" href="address/toAddressList">地址列表</a>
+						</li>
 						<li><a class="J_menuItem"
 							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 
@@ -103,6 +106,8 @@
 							href="healthRecords/toHealRecordsList">老人健康档案列表</a></li>
 						<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
 						</li>
+						<li><a class="J_menuItem"
+							href="guidance/toGuidanceList">老人健康指导列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>电子商务<span
 						class="fa arrow"></span></a>
@@ -117,6 +122,7 @@
 							class="J_menuItem" href="rated/toRatedList">订单评论列表</a></li>
 						<li><a class="J_menuItem" href="reply/toReplyList">订单评论回复列表</a></li>
 						<li><a class="J_menuItem" href="business/toBusiness">商家信息管理列表</a></li>
+						<li><a class="J_menuItem" href="buyers/toBuyersList">买家信息列表</a></li>
 					</ul></li>
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老年教育<span
 						class="fa arrow"></span></a>

@@ -29,4 +29,7 @@
 		grade grade,delivery_address_id deliveryAddressId 
 		from buyers limit #{skipNum},#{takeNum}
 	</select>
+	<select id="findBuyersAllCount" resultType="int">
+		select count(*) from buyers
+	</select>
 </mapper>

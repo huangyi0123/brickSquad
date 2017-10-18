@@ -8,12 +8,24 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'name',
-                text: '名称'
+                key: 'provinceId',
+                text: '省份id'
             },
             {
-                key: "operation",
-                text: "操作",
+                key: 'cityId',
+                text: '市id'
+            },
+            {
+                key: 'countyId',
+                text: '区县id'
+            },
+            {
+                key: 'countryId',
+                text: '乡镇id'
+            },
+            {
+            	key: 'detailed',
+                text: '详细地址',
                 template: function(noteData,rowData) {
 					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
 				}
