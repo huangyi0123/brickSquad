@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.ActivityRegistration;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.service.BusinessService;
 import com.brick.squad.util.Pagination;
 
@@ -33,5 +35,12 @@ public class BusinessController {
 	@RequestMapping("/toAddBusiness")
 	public String toAddBusiness() {
 		return "backstage_managed/jsp/business/add_business";
+	}
+	
+	@RequestMapping("/insertBusiness")
+	  public String insertBusiness(Business business ) {
+		  businessService.insertBusiness(business);
+		  return "backstage_managed/jsp/business/business_list";
+		
 	}
 }
