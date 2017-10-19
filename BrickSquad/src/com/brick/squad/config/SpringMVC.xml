@@ -23,6 +23,13 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="formattingConversionServiceFactoryBean">
+    <property name="converters">
+    <list>
+    <bean class="com.brick.squad.util.DateConverter"/>
+    </list>
+    </property>
+    </bean>
     <mvc:resources location="/ui/" mapping="/ui/**"/>
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
