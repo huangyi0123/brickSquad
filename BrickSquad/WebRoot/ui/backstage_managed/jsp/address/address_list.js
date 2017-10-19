@@ -26,9 +26,9 @@ function init(keyword) {
             {
             	key: 'detailed',
                 text: '详细地址',
-                template: function(noteData,rowData) {
+                /*template: function(noteData,rowData) {
 					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
-				}
+				}*/
             }
         ]
     });
@@ -39,12 +39,13 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addAddress(id) {
+	alert("cctv");
+	$("#addAddress").click(function() {
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
+				url : "address/toAddAddress",
 				data:{"id":id},
 				success : function(data) {
 					layer.open({
@@ -54,7 +55,7 @@ function addUser(id) {
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addAddress',
 								data : $("form").serialize(),
 								success:function(){
 									layer.close(index);

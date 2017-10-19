@@ -34,21 +34,34 @@
 </head>
 
 <body>
-	<form class="layui-form" action="#" id="form1">
+	<form class="layui-form" style="margin-right: 30px" action="#"
+		id="form1">
 		<div class="layui-form-item">
-			<label class="layui-form-label">名称</label>
+			<label class="layui-form-label">商家名称</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input">
+				<input type="text" name="name" required lay-verify="required"
+					placeholder="商家名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">单行选择框</label>
-			<div class="layui-input-block">
-				<select name="interest" lay-filter="aihao">
-					<option value=""></option>
-					<option value="0">1作</option>
-				</select>
+			<label class="layui-form-label">身份证号</label>
+			<div class="layui-input-inline">
+				<input type="text" name="idcard" required lay-verify="required"
+					placeholder="身份证号" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">店铺名称</label>
+			<div class="layui-input-inline">
+				<input type="text" name="shopname" required lay-verify="required"
+					placeholder="店铺名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">店铺名称</label>
+			<div class="layui-input-inline">
+				<input type="text" name="shopname" required lay-verify="required"
+					placeholder="店铺名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 	</form>

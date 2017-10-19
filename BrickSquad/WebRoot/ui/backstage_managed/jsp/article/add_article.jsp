@@ -34,7 +34,7 @@
 </head>
 
 <body>
-	<form class="layui-form" action="#" id="form1">
+	<form class="layui-form" action="article/addArticle" id="form1">
 	
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品序号</label>
@@ -48,7 +48,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
-				<input type="text" name="name" required lay-verify="required"
+				<input type="text" name="aname" required lay-verify="required"
 					placeholder="商品名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品描述</label>
 			<div class="layui-input-inline">
-				<input type="text" name="name" required lay-verify="required"
+				<input type="text" name="describes" required lay-verify="required"
 					placeholder="商品描述" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -96,10 +96,10 @@
 			
 			
 			<div class="layui-form-item">
-			<label class="layui-form-label">活动类型代码</label>
+			<label class="layui-form-label">商品图片</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="活动类型代码" autocomplete="off" class="layui-input">
+				<input type="text" name="image" required lay-verify="required"
+					placeholder="商品图片" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		

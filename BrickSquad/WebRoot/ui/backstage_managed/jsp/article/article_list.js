@@ -17,7 +17,7 @@ function init(keyword) {
 							text : '编号'
 						},
 						{
-							key : 'name',
+							key : 'aname',
 							text : '商品名称'
 						},
 						{
