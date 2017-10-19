@@ -23,7 +23,7 @@ public class AddressController {
 		return "backstage_managed/jsp/address/address_list";
 	}
 	@RequestMapping(value="/getAddressList")
-	@ResponseBody//返回jeson
+	@ResponseBody//返回json
 	public String getAddressList(int pSize,int cPage,String keyword) throws Exception{
 		Pagination pagination = new Pagination();
 		pagination.setPageSize(pSize);

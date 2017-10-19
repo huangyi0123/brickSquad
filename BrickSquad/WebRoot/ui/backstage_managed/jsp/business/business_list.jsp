@@ -24,6 +24,8 @@
 <link rel="stylesheet" type="text/css"
 	href="ui/backstage_managed/plugins/grid_manager/GridManager.min.css">
 <link rel="stylesheet" type="text/css"
+	href="ui/backstage_managed/plugins/layui/css/layui.css">
+<link rel="stylesheet" type="text/css"
 	href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
 	href="ui/backstage_managed/plugins/fonts/font-awesome.min.css">
@@ -35,9 +37,15 @@
 	src="ui/backstage_managed/jsp/business/business_list.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
 		init("");
+		addBusiness("");
+	});
+	layui.use('form', function() {
+		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 	});
 </script>
 <style type="text/css">
@@ -46,8 +54,9 @@
 	margin-bottom: 5px;
 	float: left;
 }
-a:HOVER{
- text-decoration: none;
+
+a:HOVER {
+	text-decoration: none;
 }
 </style>
 </head>
@@ -57,7 +66,9 @@ a:HOVER{
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
 			<input type="text" class="form-control" placeholder="Search for...">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button"><i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下</button>
+				<button class="btn btn-default" type="button">
+					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
+				</button>
 			</span>
 		</div>
 		<!-- /input-group -->
@@ -71,8 +82,9 @@ a:HOVER{
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="#" style="margin-left: 10px;"><i
-						class="fa fa-plus"></i><font style="margin-left: 10px;">添加</font></a></li>
+				<li><a href="javascript:;" id="addBusiness"
+					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
+						style="margin-left: 10px;">添加</font></a></li>
 				<li><a href="#">导出</a></li>
 				<li><a href="#">Something else here</a></li>
 				<li role="separator" class="divider"></li>

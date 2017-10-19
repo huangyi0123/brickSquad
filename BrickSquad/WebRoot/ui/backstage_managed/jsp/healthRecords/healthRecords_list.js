@@ -54,9 +54,15 @@ function init(keyword) {
 		{
 			key : "operation",
 			text : "操作",
-			template : function(noteData, rowData) {
-				return '<a href="' + rowData.id + '">修改</a>';
-			}
+			template : function(noteData, rowData)  {
+				return '<a href="'
+				+ rowData.id
+
+				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+
+				+ rowData.id
+				+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+	}
 		} ]
 	});
 }
@@ -66,24 +72,26 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addHealthRecords(id) {
+
+	$("#addHealthRecords").click(function() {
+		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
+				url : "healthRecords/toAddHealthRecords",
 				data : {
 					"id" : id
 				},
 				success : function(data) {
 					layer.open({
 						btn : [ '添加' ],
-						title : '添加用户',
+						title : '添加老人健康档案',
 						content : data,
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addHealthRecords',
 								data : $("form").serialize(),
 								success : function() {
 									layer.close(index);

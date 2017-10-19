@@ -7,25 +7,22 @@ function init(keyword) {
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+             {
+                key: 'name',
+                text: '买家姓名'
+             },
             {
-                key: 'id',
-                text: '购物车ID'
+                key: 'aname',
+                text: '商品名称'
             },
-            {
-                key: 'articleId',
-                text: '商品ID'
-            },
-            {
-                key: 'perId',
-                text: '买家ID'
-            },
+           
             {
                 key: 'number',
                 text: '商品数量'
             },
             {
                 key: 'date',
-                text: '购物车生成时间'
+                text: '生成时间'
             },
             {
                 key: "operation",

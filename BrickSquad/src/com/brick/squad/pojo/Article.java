@@ -13,6 +13,12 @@ public class Article {
 	private String typeId;
 	private String businessId;
 	private String price;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	private int stock;
 	private String describes;
 	private String image;
@@ -23,12 +29,7 @@ public class Article {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getTypeId() {
 		return typeId;
 	}
