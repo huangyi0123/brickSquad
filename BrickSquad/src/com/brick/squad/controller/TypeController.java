@@ -1,5 +1,7 @@
 package com.brick.squad.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -45,8 +47,9 @@ public class TypeController {
 }
   
   @RequestMapping("/insertType")
-  public String insertType(Type type) {
-	  typeService.insertType(type);
+  public String insertType(Type type,Date da) {
+	  System.out.println(da);
+	 // typeService.insertType(type);
 	  return "backstage_managed/jsp/type/type_list";
 	
 }
