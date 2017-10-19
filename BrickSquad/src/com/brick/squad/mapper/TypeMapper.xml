@@ -12,6 +12,9 @@
 	</select>
 
 	<insert id="insertType" parameterType="Type">
+	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 		INSERT INTO
 		type(id,parent_id,name)
 		VALUES(#{id},#{parentId},#{name})
@@ -29,7 +32,7 @@
 		DELETE FROM type WHERE
 		id=#{id}
 	</delete>
-	
+
 	<select id="typePagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="Type">
 		SELECT
@@ -39,5 +42,9 @@
 	<select id="typeCount" resultType="int">
 		SELECT
 		COUNT(*) FROM type
+	</select>
+
+	<select id="findAllType" resultType="Type">
+		select id,name from type
 	</select>
 </mapper>

@@ -62,7 +62,7 @@
 	</resultMap>
 	<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
 		resultMap="findShoppingCarList">
-		SELECT p.name, a.aname , s.number ,s.date
+		SELECT s.id ,p.name, a.aname , s.number ,s.date
 		from shopping_car s INNER JOIN personal_information p ON s.per_id =p.id
 		INNER JOIN article a ON s.article_id=a.id
 		limit #{skipNum},#{takeNum}

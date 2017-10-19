@@ -50,34 +50,12 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function addBusiness(id) {
-
 	$("#addBusiness").click(function() {
-		console.log("id");
 		layui.use('layer', function() {
-			var layer = layui.layer;
-			$.ajax({
-				url : "business/toAddBusiness",
-				data : {
-					"id" : id
-				},
-				success : function(data) {
-					layer.open({
-						btn : [ '添加' ],
-						title : '添加商家',
-						content : data,
-						yes : function(index) {
-							$.ajax({
-								type : 'post',
-								url : 'addBusiness',
-								data : $("form").serialize(),
-								success : function() {
-									layer.close(index);
-									RefreshGridManagerList("");
-								}
-							});
-						}
-					});
-				}
+			layer.open({
+				title : '添加商家信息',
+				type : 2,
+				content : 'business/toAddBusiness',
 			});
 		});
 	});

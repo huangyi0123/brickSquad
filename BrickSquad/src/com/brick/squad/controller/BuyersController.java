@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Buyers;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.util.Pagination;
 
@@ -19,6 +20,10 @@ public class BuyersController {
 	public String toBuyersList(){
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+	@RequestMapping(value="/toAddBuyers")
+	public String toAddBuyers(){
+		return "backstage_managed/jsp/buyers/add_buyers";
+	}
 	@RequestMapping(value="/getBuyersList")
 	@ResponseBody
 	public String getBuyersList(int pSize,int cPage,String keyword) throws Exception{
@@ -27,5 +32,10 @@ public class BuyersController {
 		pagination.setCurentPage(cPage);
 		pagination.setKeyword(keyword);
 		return buyersService.buyersPagination(pagination);
+	}
+	@RequestMapping(value="/insertBuyres")
+	public String insertBuyres(Buyers buyers) throws Exception{
+		buyersService.insertBuyers(buyers);
+		return "backstage_managed/jsp/buyers/buyers_list";
 	}
 }
