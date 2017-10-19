@@ -9,15 +9,16 @@ public class Article {
  */
 	
 	private String id;
-	private String name;
+	private String aname;
 	private String typeId;
 	private String businessId;
 	private String price;
-	public String getName() {
-		return name;
+	
+	public String getAname() {
+		return aname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 	private int stock;
 	private String describes;
