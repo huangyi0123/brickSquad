@@ -77,7 +77,6 @@
 						<li><a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a>
 					</ul></li>
 
-
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人健康管理<span
 						class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
