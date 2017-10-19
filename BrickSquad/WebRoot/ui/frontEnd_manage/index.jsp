@@ -13,7 +13,7 @@
 
 <title>Home</title>
 
-<link href="ui/frontEnd_manage/css/bootstrap.css" rel="stylesheet">
+<link href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="ui/frontEnd_manage/css/style.css" rel="stylesheet"
 	type="text/css" media="all" />
 <link href="ui/backstage_managed/plugins/layui/css/layui.css"
@@ -44,7 +44,7 @@
 <!--//fonts-->
 <!-- js -->
 
-<script type="text/javascript" src="ui/frontEnd_manage/js/jquery.min.js"></script>
+<script type="text/javascript" src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <!-- js -->
@@ -1019,7 +1019,7 @@
 	</div>
 	<!-- //signup -->
 	<!-- for bootstrap working -->
-	<script src="ui/frontEnd_manage/js/bootstrap.js"></script>
+	<script src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 
 	<!-- //for bootstrap working -->
 </body>
