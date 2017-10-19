@@ -30,4 +30,5 @@ public class OrderDetailsController {
 	public String toAddOrdersDetails() {
 		return "backstage_managed/jsp/orderdetails/add_ordersdetails";
 	}
+
 }
