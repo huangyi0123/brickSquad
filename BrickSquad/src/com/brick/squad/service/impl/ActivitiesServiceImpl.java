@@ -41,9 +41,13 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 	//分页查询
 	@Override
 	public String activitiesPagination(Pagination pagination) {
+		
 		List<Activities> activities = activitiesMapper.activitiesPagination(pagination);
+		
 		int row = activitiesMapper.findActivitiesAllCount();
+		
 		Util<Activities> util = new Util<Activities>();
+		
 		String data = util.SplitPage(activities, row);
 		return data;
 	}
