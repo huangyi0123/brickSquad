@@ -28,19 +28,42 @@
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
+	/* 	layui.use('form', function() {
+	 var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+	 });
+	 */
+	$(function() {
+		$.ajax({
+			url : 'orders/findAllOrders',
+			success : function(data) {
+				data = JSON.parse(data);
+				$(data).each(
+						function() {
+							$("#parament").append(
+									'<option value="'+this.id+'">' + this.no
+											+ '</option>');
+							layui.use('form', function() {
+								var form = layui.form();
+							});
+						});
+			}
+		});
+	})
 </script>
 </head>
 <body>
-	<form class="layui-form" action="rated/addRated" id="form" method="post">
+	<form class="layui-form" action="rated/addRated" id="form"
+		method="post">
+
 		<div class="layui-form-item">
-			<label class="layui-form-label">订单ID</label>
+			<label class="layui-form-label">搜索选择订单ID</label>
 			<div class="layui-input-inline">
-				<input type="text" name="orderId" required lay-verify="required"
-					placeholder="订单ID" autocomplete="off" class="layui-input">
+				<select name="orderId" id="parament" lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">

@@ -1,9 +1,6 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
 import com.brick.squad.pojo.Rated;
-import com.brick.squad.pojo.Region;
 import com.brick.squad.util.Pagination;
 
 public interface RatedService {
@@ -13,4 +10,5 @@ public interface RatedService {
 	public void updateRatedCententById(Rated rated);
 	public String ratedPagination(Pagination pagination);
 	public int findReplyAllCount();
+	public String findAllRated();
 }
