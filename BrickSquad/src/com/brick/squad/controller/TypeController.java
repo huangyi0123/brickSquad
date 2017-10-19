@@ -47,9 +47,9 @@ public class TypeController {
 }
   
   @RequestMapping("/insertType")
-  public String insertType(Type type,Date da) {
-	  System.out.println(da);
-	 // typeService.insertType(type);
+  public String insertType(Type type) {
+	  
+	  typeService.insertType(type);
 	  return "backstage_managed/jsp/type/type_list";
 	
 }
