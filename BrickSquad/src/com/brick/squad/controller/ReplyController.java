@@ -31,5 +31,8 @@ public class ReplyController {
 		return replyService.replyPagination(pagination);
 
 	}
-
+	@RequestMapping("/toAddReply")
+	public String toAddReply() {
+		return "backstage_managed/jsp/reply/add_reply";
+	}
 }

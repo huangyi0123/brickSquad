@@ -34,7 +34,9 @@ function init(keyword) {
 							template : function(noteData, rowData) {
 								return '<a href="'
 										+ rowData.id
+
 										+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+
 										+ rowData.id
 										+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 							}
@@ -48,17 +50,19 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function addBusiness(id) {
-	
+
 	$("#addBusiness").click(function() {
 		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
 				url : "business/toAddBusiness",
-				data:{"id":id},
+				data : {
+					"id" : id
+				},
 				success : function(data) {
 					layer.open({
-						btn : [ '添加'],
+						btn : [ '添加' ],
 						title : '添加商家',
 						content : data,
 						yes : function(index) {
@@ -66,7 +70,7 @@ function addBusiness(id) {
 								type : 'post',
 								url : 'addBusiness',
 								data : $("form").serialize(),
-								success:function(){
+								success : function() {
 									layer.close(index);
 									RefreshGridManagerList("");
 								}

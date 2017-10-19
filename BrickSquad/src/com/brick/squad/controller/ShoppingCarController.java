@@ -25,7 +25,12 @@ public class ShoppingCarController {
 		Pagination pagination=new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		return shoppingCarService.shoppingCarPagination(pagination);
+		String value=shoppingCarService.shoppingCarPagination(pagination);
+		return  value;
+	}
+	@RequestMapping("/toAddShoppingCar")
+	public String toAddShoppingCar() {
+		return "backstage_managed/jsp/shoppingcar/add_shoppingcar";
 	}
 
 }

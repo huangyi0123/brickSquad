@@ -5,15 +5,13 @@
 
     <!-- 查询 -->
     <select id="findArticleById" resultType="article" parameterType="String" >
-	 	select id,name,type_id typeId,business_id businessId,price,stock,image from article where id=#{id}
+	 	select id,aname,type_id typeId,business_id businessId,price,stock,image from article where id=#{id}
 	</select>
 	
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into article(id,name,type_id,business_id,price,stock,describes,image)
-		values(#{id},#{name},#{typeId},#{businessId},#{price},#{stock},#{describe},#{image})
 	</insert>
 	
 	<delete id="deleteArticleById" parameterType="String">
@@ -21,7 +19,7 @@
 	</delete>
 	
 	<update id="updateArticleById" parameterType="article">
-		update article set name=#{name},
+		update article set aname=#{aname},
 				type_id=#{typeId},
 				business_id=#{businessId},
 				price=#{price},
@@ -33,7 +31,7 @@
 	
 	
 	<select  id="articlePagination" parameterType="com.brick.squad.util.Pagination" resultType="article">
-	  select id,name name,type_id typeId,business_id businessId,price,stock,describes,image from article limit #{skipNum},#{takeNum}
+	  select id,aname,type_id typeId,business_id businessId,price,stock,describes,image from article limit #{skipNum},#{takeNum}
 	
 	</select>
 	

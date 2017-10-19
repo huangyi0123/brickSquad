@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.expand.RapportExpand;
 import com.brick.squad.mapper.RapportMapper;
 import com.brick.squad.pojo.Rapport;
 import com.brick.squad.service.RapportService;
@@ -53,11 +54,11 @@ public class RapportServiceImpl implements RapportService{
 	}
 	@Override
 	/**老人客户沟通分页查询*/
-	public String rapportCarPagination(Pagination pagination)
+	public String rapportPagination(Pagination pagination)
 			throws Exception {
-		List<Rapport> regions=rapportMapper.rapportCarPagination(pagination);
+		List<RapportExpand> regions=rapportMapper.rapportPagination(pagination);
 		int row=rapportMapper.findRapportCount();
-		Util<Rapport> util=new Util<Rapport>();
+		Util<RapportExpand> util=new Util<RapportExpand>();
 		String data=util.SplitPage(regions, row);
 		return data;
 	}

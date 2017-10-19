@@ -25,7 +25,7 @@ public class ArticleServiceTest {
 	private ArticalService articleService;
 	@Test
 	public void findArticleById() throws Exception{
-		System.out.println(articleService.findArticleById("2").getName());
+		System.out.println(articleService.findArticleById("2").getAname());
 		
 	}
 	@Test
@@ -38,14 +38,12 @@ public class ArticleServiceTest {
 	@Test
 	public void insertArticleById() throws Exception{
 		Article article = new Article();
-		article.setId("4");
-		article.setTypeId("wwee");
-		article.setBusinessId("eeee");
-		article.setName("铁锤");
-		
-		articleService.insertArticleById(article);
-		
-	} 
+
+		article.setTypeId("11");
+		article.setBusinessId("22");
+		article.setAname("建国");
+	
+		articleService.insertArticleById(article);} 
 	
 	
 	@Test

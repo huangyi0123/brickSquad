@@ -8,37 +8,44 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'perId',
-                text: '老人ID'
+                key: 'name',
+                text: '老人姓名'
             },
             {
-                key: 'userId',
-                text: '客户ID'
+                key: 'username',
+                text: '客户姓名'
             },
-            {
-                key: 'rapportDate',
-                text: '沟通日期'
-            },
+           
             {
                 key: 'goal',
                 text: '沟通目标'
-            },
-            {
-                key: 'period',
-                text: '沟通时长'
             },
             {
                 key: 'content',
                 text: '沟通内容'
             },
             {
+                key: 'rapportDate',
+                text: '沟通日期'
+            },
+            {
+                key: 'period',
+                text: '沟通时长'
+            },
+           
+            {
                 key: "operation",
                 text: "操作",
-                template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+                template : function(noteData, rowData) {
+					return '<a href="'
+							+ rowData.id
+
+							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:55px;"></i></a> &nbsp;|&nbsp; <a href="'
+
+							+ rowData.id
+							+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 				}
-            }
-        ]
+			} ]
     });
 }
 function RefreshGridManagerList(keyword) {
@@ -47,24 +54,28 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addRapport(id) {
+
+	$("#addRapport").click(function() {
+		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
-				data:{"id":id},
+				url : "rapport/toAddRapport",
+				data : {
+					"id" : id
+				},
 				success : function(data) {
 					layer.open({
-						btn : [ '添加'],
-						title : '添加用户',
+						btn : [ '添加' ],
+						title : '添加老人客户沟通信息',
 						content : data,
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addRapport',
 								data : $("form").serialize(),
-								success:function(){
+								success : function() {
 									layer.close(index);
 									RefreshGridManagerList("");
 								}

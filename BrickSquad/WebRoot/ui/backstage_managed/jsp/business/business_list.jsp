@@ -38,11 +38,14 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript"
-	src="ui/backstage_managed/plugins/layui/lay/dest/layui.all.js"></script>
+	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
 		init("");
 		addBusiness("");
+	});
+	layui.use('form', function() {
+		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 	});
 </script>
 <style type="text/css">

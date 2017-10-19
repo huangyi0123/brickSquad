@@ -7,34 +7,36 @@ function init(keyword) {
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+             {
+                key: 'name',
+                text: '买家姓名'
+             },
             {
-                key: 'id',
-                text: '购物车ID'
+                key: 'aname',
+                text: '商品名称'
             },
-            {
-                key: 'articleId',
-                text: '商品ID'
-            },
-            {
-                key: 'perId',
-                text: '买家ID'
-            },
+           
             {
                 key: 'number',
                 text: '商品数量'
             },
             {
                 key: 'date',
-                text: '购物车生成时间'
+                text: '生成时间'
             },
             {
                 key: "operation",
                 text: "操作",
-                template: function(noteData,rowData) {
-					return '<a href="'+rowData.id+'"> <i class="fa fa-edit"></i>修改</a>';
+                template : function(noteData, rowData) {
+					return '<a href="'
+							+ rowData.id
+
+							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+
+							+ rowData.id
+							+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 				}
-            }
-        ]
+			} ]
     });
 }
 function RefreshGridManagerList(keyword) {
@@ -43,24 +45,28 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addShoppingCar(id) {
+
+	$("#addShoppingCar").click(function() {
+		console.log("id");
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
-				data:{"id":id},
+				url : "shoppingCar/toAddShoppingCar",
+				data : {
+					"id" : id
+				},
 				success : function(data) {
 					layer.open({
-						btn : [ '添加'],
-						title : '添加用户',
+						btn : [ '添加' ],
+						title : '添加购物车信息',
 						content : data,
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addShoppingCar',
 								data : $("form").serialize(),
-								success:function(){
+								success : function() {
 									layer.close(index);
 									RefreshGridManagerList("");
 								}

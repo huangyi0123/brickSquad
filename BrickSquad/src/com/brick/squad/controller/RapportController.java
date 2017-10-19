@@ -28,8 +28,11 @@ public class RapportController {
 			Pagination pagination = new Pagination();
 			pagination.setCurentPage(cPage);
 			pagination.setPageSize(pSize);
-			return rapportService.rapportCarPagination(pagination);
-
+			return rapportService.rapportPagination(pagination);
+		}
+		@RequestMapping("/toAddRapport")
+		public String toAddRapport() {
+			return "backstage_managed/jsp/rapport/add_rapport";
 		}
 	}
 

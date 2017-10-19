@@ -12,7 +12,7 @@ function init(keyword) {
                          text: '编号'
                      },
             {
-                key: 'name',
+                key: 'aname',
                 text: '姓名'
             },
             {
