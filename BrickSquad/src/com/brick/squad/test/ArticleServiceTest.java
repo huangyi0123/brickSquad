@@ -39,9 +39,10 @@ public class ArticleServiceTest {
 	public void insertArticleById() throws Exception{
 		Article article = new Article();
 
+
 		article.setAname("秋衣");
 		article.setDescribes("秋天穿的");
-	
+
 		articleService.insertArticleById(article);} 
 	
 	
