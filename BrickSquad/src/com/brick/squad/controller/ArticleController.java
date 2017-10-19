@@ -1,7 +1,7 @@
 package com.brick.squad.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +26,16 @@ public class ArticleController {
 	@RequestMapping("/getArticleList")
 	@ResponseBody
 	public String getArticleList(int pSize,int cPage,String keyword){
+		
 		Pagination pagination=new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		return  articleService.articlePagination(pagination);
+		return  articleService.articlePagination(pagination);}
+	
+	@RequestMapping("toAddArticle")
+	public String toAddArticle(){
+		return "backstage_managed/jsp/article/add_article";
 		
-	}
+	}	
+	
 }

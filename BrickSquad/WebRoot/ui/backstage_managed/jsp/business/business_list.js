@@ -50,7 +50,6 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function addBusiness(id) {
-
 	$("#addBusiness").click(function() {
 		layui.use('layer', function() {
 			layer.open({

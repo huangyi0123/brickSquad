@@ -38,4 +38,8 @@ public class OrdersController {
 		modelAndView.setViewName("/backstage_managed/jsp/orders/editeOrders");
 		return modelAndView;
 	}
+	@RequestMapping("/toAddOrders")
+	public String toAddOrders() {
+		return "backstage_managed/jsp/orders/add_orders";
+	}
 }

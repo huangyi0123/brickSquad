@@ -38,14 +38,12 @@ public class ArticleServiceTest {
 	@Test
 	public void insertArticleById() throws Exception{
 		Article article = new Article();
-		article.setId("4");
-		article.setTypeId("wwee");
-		article.setBusinessId("eeee");
-		article.setAname("铁锤");
-		
-		articleService.insertArticleById(article);
-		
-	} 
+
+
+		article.setAname("秋衣");
+		article.setDescribes("秋天穿的");
+
+		articleService.insertArticleById(article);} 
 	
 	
 	@Test

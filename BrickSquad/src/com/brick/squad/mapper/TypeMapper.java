@@ -51,4 +51,10 @@ public interface TypeMapper {
 	 */
 	public int typeCount();
 	
+	/**
+	 * 查询所有的类型
+	 * @return 类型名称
+	 */
+	public List<Type> findAllType();
+	
 }
