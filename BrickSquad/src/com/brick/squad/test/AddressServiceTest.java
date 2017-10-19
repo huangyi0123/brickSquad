@@ -29,8 +29,9 @@ public class AddressServiceTest {
 		address.setCityId("2");
 		address.setCountryId("3");
 		address.setCountyId("4");
-		address.setDetailed("5");
 		address.setProvinceId("贵州贵阳市");
+		address.setDetailed("5");
+		
 		addressService.insertAddress(address);
 		System.out.print(address);
 		
