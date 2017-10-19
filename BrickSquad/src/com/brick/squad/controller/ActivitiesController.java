@@ -36,5 +36,10 @@ public class ActivitiesController {
 			return "backstage_managed/jsp/activities/add_activities";
 			
 		}
+		@RequestMapping("/addActivities")
+		public String addActivities(Activities activities) throws Exception{
+			activitiesService.insertActivitiesById(activities);
+			return "backstage_managed/jsp/activities/activities_list";
+		}
 
 }
