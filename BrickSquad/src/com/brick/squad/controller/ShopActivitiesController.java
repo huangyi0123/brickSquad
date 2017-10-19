@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
 
@@ -37,6 +38,13 @@ public class ShopActivitiesController {
 	public String toAddShopActivities(){
 		
 		return "backstage_managed/jsp/shopActivities/add_shopActivities";
+		
+	}
+	
+	@RequestMapping("/AddShopActivities")
+	public String AddShopActivities(ShopActivities shopActivities) throws Exception{
+		shopActivitiesService.insertShopActivitiesById(shopActivities);
+		return "backstage_managed/jsp/shopActivities/shopActivities_list";
 		
 	}
 }
