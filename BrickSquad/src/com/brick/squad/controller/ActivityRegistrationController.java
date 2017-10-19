@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.util.Pagination;
 
@@ -31,4 +32,15 @@ public class ActivityRegistrationController {
 	return data;
 }
   
+  @RequestMapping("/toAddActivityRegistration")
+  public String toAddActivityRegistration() {
+	return "backstage_managed/jsp/activityRegistration/add_activityRegistration";
+	
+}
+  @RequestMapping("/insertActivityRegistration")
+  public String insertActivityRegistration(ActivityRegistration activityRegistration ) {
+	  activityRegistrationService.insertActivityRegistration(activityRegistration);
+	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
+	
+}
 }
