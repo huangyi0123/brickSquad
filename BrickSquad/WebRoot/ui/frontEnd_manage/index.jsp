@@ -26,25 +26,12 @@
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
-
-
+	 addEventListener("load", function() { 
+		 setTimeout(hideURLbar, 0); }, 
+		 false); 
+	 function hideURLbar(){ 
+		 window.scrollTo(0,1); 
+		 } 
 
 </script>
 <!-- //for-mobile-apps -->
@@ -110,6 +97,7 @@
 .layui-nav .layui-nav-item a {
 	color: white;
 }
+
 .layui-nav .layui-nav-item a:HOVER {
 	color: #CCFF9A;
 }
@@ -131,7 +119,7 @@
 				<ul class="layui-nav"
 					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #66CC66;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a  href="">最新活动</a></li>
+					<li class="layui-nav-item"><a href="">最新活动</a></li>
 					<li class="layui-nav-item"><a href="">产品</a></li>
 					<li class="layui-nav-item"><a href="">大数据</a></li>
 					<li class="layui-nav-item"><a href="javascript:;">解决方案</a>
