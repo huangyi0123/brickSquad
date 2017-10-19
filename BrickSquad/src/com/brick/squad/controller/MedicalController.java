@@ -1,8 +1,14 @@
 package com.brick.squad.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -35,12 +41,12 @@ public class MedicalController {
 
 	@RequestMapping("/toAddMedical")
 	public String toAddMedical() {
-		System.out.println("****");
 		return "backstage_managed/jsp/medical/add_medical";
 	}
 
 	@RequestMapping("/addMedical")
 	public String addMedical(Medical medical) {
+	
 		medicalService.insertMedical(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}

@@ -35,7 +35,7 @@
 </script>
 </head>
 <body>
-	<form class="layui-form" action="rated/addRated" id="form" method="get">
+	<form class="layui-form" action="rated/addRated" id="form" method="post">
 		<div class="layui-form-item">
 			<label class="layui-form-label">订单ID</label>
 			<div class="layui-input-inline">
