@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
 
@@ -30,5 +31,23 @@ public class TypeController {
 	pagination.setPageSize(pSize);
 	String data=typeService.typePagination(pagination);
 	return data;
+}
+  @RequestMapping("/toAddType")
+  public String toAddType() {
+	return "backstage_managed/jsp/type/add_type";
+	
+}
+  
+  @ResponseBody
+  @RequestMapping("/findAllType")
+  public String findAllType() {
+	  return typeService.findAllType();
+}
+  
+  @RequestMapping("/insertType")
+  public String insertType(Type type) {
+	  typeService.insertType(type);
+	  return "backstage_managed/jsp/type/type_list";
+	
 }
 }

@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'add_business.jsp' starting page</title>
+<title>My JSP 'add_type.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -30,39 +30,42 @@
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 	});
+	$(function() {
+		$.ajax({
+			url:'type/findAllType',
+			success:function(data){
+				data=JSON.parse(data);
+				$(data).each(function() {
+					console.log(this);
+					$("#parament").append('<option value="'+this.id+'">'+this.name+'</option>');
+				});
+			}
+		});
+	})
 </script>
+
 </head>
 
 <body>
-	<form class="layui-form" style="margin-right: 30px" action="#"
-		id="form1">
+	<form class="layui-form" action="type/insertType" id="form1">
 		<div class="layui-form-item">
-			<label class="layui-form-label">商家名称</label>
+			<label class="layui-form-label">名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
-					placeholder="商家名称" autocomplete="off" class="layui-input">
+					placeholder="名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">身份证号</label>
-			<div class="layui-input-inline">
-				<input type="text" name="idcard" required lay-verify="required"
-					placeholder="身份证号" autocomplete="off" class="layui-input">
+			<label class="layui-form-label">单行选择框</label>
+			<div class="layui-input-block">
+				<select name="parentId" id="parament" lay-filter="aihao">
+					<option value=""></option>
+					<option value="0">1作</option>
+				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">店铺名称</label>
-			<div class="layui-input-inline">
-				<input type="text" name="shopname" required lay-verify="required"
-					placeholder="店铺名称" autocomplete="off" class="layui-input">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">店铺名称</label>
-			<div class="layui-input-inline">
-				<input type="text" name="shopname" required lay-verify="required"
-					placeholder="店铺名称" autocomplete="off" class="layui-input">
-			</div>
+		  <button type="submit" class="btn">提交</button>
 		</div>
 	</form>
 </body>

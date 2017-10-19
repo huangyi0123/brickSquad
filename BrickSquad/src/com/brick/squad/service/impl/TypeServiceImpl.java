@@ -2,12 +2,13 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.TypeMapper;
-import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
@@ -50,6 +51,14 @@ public class TypeServiceImpl implements TypeService{
 		Util<Type> util=new Util<Type>();
 		String data=util.SplitPage(datas, n);
 		return data;
+	}
+
+	@Override
+	public String findAllType() {
+	  List<Type> typeList = typeMapper.findAllType();
+	 JSONArray jsonArray=new JSONArray();
+	 String string=jsonArray.fromObject(typeList).toString();
+	 return string;
 	}
 
 }
