@@ -1,9 +1,6 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
 import com.brick.squad.pojo.Activities;
-import com.brick.squad.pojo.Article;
 import com.brick.squad.util.Pagination;
 
 public interface ActivitiesService {

@@ -26,6 +26,7 @@ public class ArticleController {
 	@RequestMapping("/getArticleList")
 	@ResponseBody
 	public String getArticleList(int pSize,int cPage,String keyword){
+		
 		Pagination pagination=new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);

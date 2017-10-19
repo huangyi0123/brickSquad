@@ -9,10 +9,16 @@ public class Article {
  */
 	
 	private String id;
-	private String aname;
+	private String name;
 	private String typeId;
 	private String businessId;
 	private String price;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	private int stock;
 	private String describes;
 	private String image;
@@ -24,12 +30,6 @@ public class Article {
 		this.id = id;
 	}
 	
-	public String getAname() {
-		return aname;
-	}
-	public void setAname(String aname) {
-		this.aname = aname;
-	}
 	public String getTypeId() {
 		return typeId;
 	}
