@@ -59,7 +59,7 @@ function addReply(id) {
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addReply',
+								url : 'reply/addReply',
 								data : $("form").serialize(),
 								success : function() {
 									layer.close(index);
