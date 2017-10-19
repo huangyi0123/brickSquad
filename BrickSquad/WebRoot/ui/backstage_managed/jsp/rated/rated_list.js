@@ -59,7 +59,7 @@ function addRated(id) {
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addRated',
+								url : 'rated/addRated',
 								data : $("form").serialize(),
 								success : function() {
 									layer.close(index);

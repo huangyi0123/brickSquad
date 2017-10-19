@@ -2,6 +2,8 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author 吴文鑫

@@ -35,31 +35,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <form action="address/inserAddress" method="post">
  	<div class="layui-form-item">
     <label class="layui-form-label">输入省：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="provinceId" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
     </div>
   </div>
   	<div class="layui-form-item">
     <label class="layui-form-label">输入市：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="cityId" required  lay-verify="required" placeholder="请输入级别" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">输入区：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="countyId" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
     </div>
   </div>
   	<div class="layui-form-item">
     <label class="layui-form-label">输入县：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="countryId" required  lay-verify="required" placeholder="请输入级别" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">输入乡：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="detailed" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
     </div>
   </div>
