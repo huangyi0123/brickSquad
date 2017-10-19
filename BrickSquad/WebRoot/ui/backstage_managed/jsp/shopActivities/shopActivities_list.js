@@ -39,12 +39,12 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
+function addShopActivities(id) {
+	$("#addShopActivities").click(function() {
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$.ajax({
-				url : "toAddUser",
+				url : "shopActivities/toAddShopActivities",
 				data:{"id":id},
 				success : function(data) {
 					layer.open({
@@ -54,7 +54,7 @@ function addUser(id) {
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addUser',
+								url : 'addShopActivities',
 								data : $("form").serialize(),
 								success:function(){
 									layer.close(index);

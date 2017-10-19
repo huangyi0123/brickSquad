@@ -32,4 +32,11 @@ public class ShopActivitiesController {
 		pagination.setPageSize(pSize);
 		return  shopActivitiesService.shopActivitiesPagination(pagination);
 }
+	
+	@RequestMapping("/toAddShopActivities")
+	public String toAddShopActivities(){
+		
+		return "backstage_managed/jsp/shopActivities/add_shopActivities";
+		
+	}
 }
