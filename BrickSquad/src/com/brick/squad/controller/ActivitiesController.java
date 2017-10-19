@@ -29,6 +29,12 @@ public class ActivitiesController {
 			Pagination pagination=new Pagination();
 			pagination.setCurentPage(cPage);
 			pagination.setPageSize(pSize);
-			return  activitiesService.activitiesPagination(pagination);
-}
+			return  activitiesService.activitiesPagination(pagination);}
+		
+		@RequestMapping("/toAddActivities")
+		public String toAddActivities(){
+			return "backstage_managed/jsp/activities/add_activities";
+			
+		}
+
 }
