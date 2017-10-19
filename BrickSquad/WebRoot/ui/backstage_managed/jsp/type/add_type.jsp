@@ -29,31 +29,31 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
-	$(
-			function() {
-				$.ajax({
-					url : 'type/findAllType',
-					success : function(data) {
-						data = JSON.parse(data);
-						$(data).each(
-								function() {
-									console.log(this);
-									$("#parament").append(
-											'<option value="'+this.id+'">'
-													+ this.name + '</option>');
-								});
-					}
-				});
-			})
+	$(function() {
+		$.ajax({
+			url : 'type/findAllType',
+			success : function(data) {
+				data = JSON.parse(data);
+				$(data).each(
+						function() {
+							console.log(this);
+							$("#parament").append(
+									'<option value="'+this.id+'">' + this.name
+											+ '</option>');
+							layui.use('form', function() {
+								var form = layui.form();
+							});
+						});
+			}
+		});
+	})
 </script>
 
 </head>
 
 <body>
-	<form class="layui-form" action="type/insertType" id="form1" method="post">
+	<form class="layui-form" action="type/insertType" id="form1" style="margin-top: 40px"
+		method="post">
 		<div class="layui-form-item">
 			<label class="layui-form-label">名称</label>
 			<div class="layui-input-inline">
@@ -62,23 +62,19 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">单行选择框</label>
-			<div class="layui-input-block">
-				<select name="parentId" id="parament" lay-filter="aihao">
-					<option value=""></option>
-					<option value="0">1作</option>
+			<label class="layui-form-label">搜索选择框</label>
+			<div class="layui-input-inline">
+				<select name="modules" lay-verify="required" id="parament"
+					lay-search="">
+					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">活动日期：</label>
-			<div class="layui-input-inline logstart_time">
-				<input name="da " class="layui-input" placeholder="活动日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
-		</div>
-		<div class="layui-form-item">
-			<button type="submit" class="btn">提交</button>
 		</div>
 	</form>
 </body>
