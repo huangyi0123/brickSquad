@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Medical;
 import com.brick.squad.service.MedicalService;
 import com.brick.squad.util.Pagination;
 
@@ -23,17 +24,25 @@ public class MedicalController {
 
 	@RequestMapping("/getMedicalList")
 	@ResponseBody
-	public String getMedicalList(int pSize,int cPage,String keyword) {
-		Pagination pagination=new Pagination();
+	public String getMedicalList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		
+
 		return medicalService.medicalPagination(pagination);
 
 	}
+
 	@RequestMapping("/toAddMedical")
 	public String toAddMedical() {
+		System.out.println("****");
 		return "backstage_managed/jsp/medical/add_medical";
+	}
+
+	@RequestMapping("/addMedical")
+	public String addMedical(Medical medical) {
+		medicalService.insertMedical(medical);
+		return "backstage_managed/jsp/medical/medical_list";
 	}
 
 }

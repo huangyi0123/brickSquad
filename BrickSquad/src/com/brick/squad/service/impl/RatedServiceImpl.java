@@ -1,5 +1,6 @@
 package com.brick.squad.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -30,6 +31,7 @@ public class RatedServiceImpl implements RatedService {
 
 	@Override
 	public void insertRated(Rated rated) {
+		rated.setRatedDate(new Date());
 		ratedMapper.insertRated(rated);
 
 	}
