@@ -34,21 +34,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
  	<form action="${pageContext.request.contextPath }/region/insertRegion" method="post">
 	<div class="layui-form-item">
-    <label class="layui-form-label">输入区域名称：</label>
-    <div class="layui-input-block">
+    <label class="layui-form-label">区域名称：</label>
+    <div class="layui-input-inline">
       <input type="text" name="name" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
     </div>
   </div>
   	<div class="layui-form-item">
-    <label class="layui-form-label">输入区域级别：</label>
-    <div class="layui-input-block">
+    <label class="layui-form-label">区域级别：</label>
+    <div class="layui-input-inline">
       <input type="text" name="level" required  lay-verify="required" placeholder="请输入级别" autocomplete="off" class="layui-input">
     </div>
   </div>
    </div>
   	<div class="layui-form-item">
     <label class="layui-form-label">输入0或1：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="isleaf" required  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
     </div>
   </div>

@@ -35,19 +35,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <form action="buyers/insertBuyres" method="post">
  	<div class="layui-form-item">
     <label class="layui-form-label">int积分：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="currentIntegral" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
     </div>
   </div>
   	<div class="layui-form-item">
     <label class="layui-form-label">int历史积分：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="historicalIntegral" required  lay-verify="required" placeholder="请输入级别" autocomplete="off" class="layui-input">
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">int等级：</label>
-    <div class="layui-input-block">
+    <div class="layui-input-inline">
       <input type="text" name="grade" required  lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
     </div>
   </div>
