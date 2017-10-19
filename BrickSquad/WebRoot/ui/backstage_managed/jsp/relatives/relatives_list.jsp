@@ -41,9 +41,13 @@
 	src="ui/backstage_managed/plugins/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
 	$(function() {
-		init("");
+	init("");
 		addRelatives("");
 	});
+	layui.use('form', function() {
+		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+	});
+</script>
 </script>
 <style type="text/css">
 .search {
@@ -79,7 +83,7 @@ a:HOVER {
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="javascript:;" id="addRelatives"
+				<li><a href="relatives/toAddRelatives" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
 				<li><a href="#">导出</a></li>
