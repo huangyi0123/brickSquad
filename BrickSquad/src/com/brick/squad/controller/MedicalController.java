@@ -43,10 +43,13 @@ public class MedicalController {
 	public String toAddMedical() {
 		return "backstage_managed/jsp/medical/add_medical";
 	}
-
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	}
 	@RequestMapping("/addMedical")
 	public String addMedical(Medical medical) {
-	
 		medicalService.insertMedical(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}

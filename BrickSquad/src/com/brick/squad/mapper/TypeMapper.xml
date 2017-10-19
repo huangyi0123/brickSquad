@@ -5,10 +5,16 @@
 	<sql id="prop">
 		id,parent_id parentId,name
 	</sql>
+	<select id="findTypeByParentId" resultType="Type" parameterType="String">
+		SELECT
+		id id,parent_id parentId,name name
+		FROM type
+		WHERE parent_id=#{parentId}
+	</select>
 	<select id="findTypeById" resultType="Type" parameterType="String">
 		SELECT
 		FROM type
-		WHERE id=#{id};
+		WHERE id=#{id}
 	</select>
 
 	<insert id="insertType" parameterType="Type">
