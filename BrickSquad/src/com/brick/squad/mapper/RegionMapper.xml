@@ -9,8 +9,8 @@
 		select id,isleaf,name,parent_id perantId  from region where id=#{id}
 	</select>
 	<insert id="insertRegionById" parameterType="region">
-		insert into region (id,isleaf,name,parent_id)  values (#{id},#{isleaf},#{name}
-		,#{perantId})
+		insert into region (id,isleaf,name,parent_id,level)  values (#{id},#{isleaf},#{name}
+		,#{perantId},#{level})
 	</insert>
 	<delete id="deleteRegionById" parameterType="String">
 		delete from region where id=#{id}

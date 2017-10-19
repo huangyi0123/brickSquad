@@ -52,9 +52,9 @@ public class ActivitiesServiceTest {
 	public void insertActivitiesById() throws Exception{
 		
 		Activities activities = new Activities();
-		activities.setTypeId("范伟打天下");
-		activities.setName("小白");
-		activities.setCentent("dog");
+		activities.setTypeId("12222");
+		activities.setName("麻将");
+		activities.setCentent("午饭后小区打麻将");
 		activities.setStartTime(new Date());
 		activities.setEndTime(new Date());
 		

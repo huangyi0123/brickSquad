@@ -6,6 +6,7 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 import com.brick.squad.pojo.ActivityRegistration;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
 
 public interface ActivityRegistrationMapper {
@@ -47,4 +48,6 @@ public interface ActivityRegistrationMapper {
 	 * @return 记录数
 	 */
 	public int activityRegistrationCount();
+	
+
 }

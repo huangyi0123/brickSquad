@@ -22,6 +22,10 @@ public class AddressController {
 	public String toAddressList(){
 		return "backstage_managed/jsp/address/address_list";
 	}
+	@RequestMapping("/toAddAddress")
+	public String toAddAddress(){
+		return "backstage_managed/jsp/address/add_address";
+	}
 	@RequestMapping(value="/getAddressList")
 	@ResponseBody//返回json
 	public String getAddressList(int pSize,int cPage,String keyword) throws Exception{
@@ -31,6 +35,12 @@ public class AddressController {
 		pagination.setKeyword(keyword);
 		return addressService.addressPagination(pagination);
 	}
+	@RequestMapping(value="/inserAddress")
+	public String inserAddress(Address address) throws Exception{
+		addressService.insertAddress(address);
+		return "backstage_managed/jsp/address/address_list";
+	}
+	
 /*	@RequestMapping(value="findAddressById")
 	@ResponseBody
 	public String getfindAddressById(String id) throws Exception{
