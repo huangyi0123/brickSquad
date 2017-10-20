@@ -52,5 +52,12 @@ public class RapportController {
 			return "backstage_managed/jsp/rapport/rapport_list";
 		}
 		
+		@RequestMapping("/findAllUserAndPersonalInformation")
+		@ResponseBody
+		public String findAllUserAndPersonalInformation(){
+			return rapportService.findAllUserAndPersonalInformation();
+			
+		}
+		
 	}
 

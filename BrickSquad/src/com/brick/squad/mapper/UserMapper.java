@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface UserMapper {
 	//根据用户名查询
@@ -28,4 +29,12 @@ public interface UserMapper {
 	//用户登录
 	//public User findUserByName(String username);
 	public User checkLogin(String username);
+	/**
+	 * 查询所有用户,需求字段
+	 * */
+	public List<Select> findAllUser();
+	/**
+	 * 查询所有用户，所有字段
+	 * */
+	public List<User> findAllUsers();
 }

@@ -14,6 +14,8 @@ public class Article {
 	private String businessId;
 	private String price;
 	
+
+
 	public String getAname() {
 		return aname;
 	}
