@@ -45,7 +45,7 @@
 
 <body>
 	<form class="layui-form" style="margin-right: 30px;margin-left: 30px;"
-		action="collection/insertCollection" id="form1" method="post">
+		action="healthRecords/insertCollection" id="form1" method="post">
 		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label" style="width: 100px;">老人ID：</label>
 			<div class="layui-input-inline">
