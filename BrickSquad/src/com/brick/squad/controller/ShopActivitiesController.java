@@ -57,4 +57,12 @@ public class ShopActivitiesController {
 	}
 	
 	
+	@RequestMapping("/updateActivitiesById")
+	public String updateActivitiesById(ShopActivities shopActivities) throws Exception{
+		
+		shopActivitiesService.updateShopActivitiesById(shopActivities);
+		return "backstage_managed/jsp/shopActivities/shopActivities_list";
+		
+	}
+	
 }

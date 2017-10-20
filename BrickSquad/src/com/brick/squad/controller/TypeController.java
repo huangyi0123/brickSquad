@@ -77,6 +77,7 @@ public class TypeController {
 		typeService.updateTypeById(type);
 		return "backstage_managed/jsp/type/type_list";
 	}
+	
 	@RequestMapping("/deleteTypeById")
 	@ResponseBody
 	public String deleteTypeById(String id) {
