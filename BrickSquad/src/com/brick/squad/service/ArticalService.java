@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface ArticalService {
 	/**
@@ -23,4 +24,8 @@ public interface ArticalService {
 	public String articlePagination(Pagination pagination);
 
 	public int findArticleAllCount();
+	/**
+	 * 查询商品信息:根据所需字段
+	 * */
+	public String findArticle()throws Exception;
 }

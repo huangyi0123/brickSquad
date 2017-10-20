@@ -1,14 +1,21 @@
 package com.brick.squad.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.mapper.ArticleMapper;
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.ShoppingCarMapper;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 
 /**
@@ -18,7 +25,12 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	@Autowired
 	@Qualifier("shoppingCarMapper")
 	private ShoppingCarMapper shoppingCarMapper;
-
+	@Autowired
+	@Qualifier("articleMapper")
+	private ArticleMapper articleMapper;
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 	@Override
 	/**根据ID查询购物车*/
 	public ShoppingCar findShoppingCarById(String id) throws Exception {
@@ -67,5 +79,18 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		String data=util.SplitPage(regions, row);
 		return data;
 	}
-
+	@Override
+	/**
+	 * 查询购物车，关联到商品和老人信息的字段
+	 * */
+	public String findArticleAndPersonalInformation()throws Exception{
+		List<Select> articles=articleMapper.findArticle();
+		List<Select> personalInformations=personalInformationMapper.findAllPersonalInformation();
+		Map<String, List> map=new HashMap<String,List>();
+		map.put("article", articles);
+		map.put("personalInformation", personalInformations);
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(map).toString();
+		return data;
+	}
 }

@@ -34,7 +34,7 @@
 			url : 'rapport/findAllUserAndPersonalInformation',
 			success : function(data) {
 				data = JSON.parse(data);
-				console.log(data[0].user[0]);
+				/* console.log(data[0].user[0]); 浏览器中打印*/
 				var user = data[0].user;
 				var personalinformation = data[0].personalInformation;
 				findAll(user, "#userId");

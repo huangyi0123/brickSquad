@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface ArticleMapper {
 	/**
@@ -21,6 +22,10 @@ public interface ArticleMapper {
 	public List<Article> articlePagination(Pagination pagination);
 	
 	public int findArticleAllCount();
+	/**
+	 * 查询商品信息:根据所需字段
+	 * */
+	public List<Select> findArticle();
 
 }
 
