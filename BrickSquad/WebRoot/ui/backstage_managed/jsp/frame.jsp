@@ -67,7 +67,7 @@
 
 
 						<li><a class="J_menuItem" href="user/toUserList">用户信息列表</a></li>
-						<li><a href="personalInformation/toPersonalInformation">老人信息列表</a></li>
+						<li><a class="J_menuItem" href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 
 					</ul></li>
 
@@ -76,7 +76,6 @@
 					<ul class="nav nav-second-level">
 						<li><a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a>
 					</ul></li>
-
 
 				<li><a class="J_menuItem"><i class="fa fa-table"></i>老人健康管理<span
 						class="fa arrow"></span></a>

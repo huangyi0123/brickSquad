@@ -35,11 +35,11 @@ public class RapportTest {
 	@Test
 	public void insertRapport() throws Exception{
 		Rapport rapport=new Rapport();
-		rapport.setContent("3232");
-		rapport.setId("3");
-		rapport.setPerId("3");
+		rapport.setContent("5555");
+		rapport.setId("555");
+		rapport.setPerId("555");
 		rapport.setRapportDate(new Date());
-		rapport.setUserId("3");
+		rapport.setUserId("5555");
 		rapport.setGoal("健康信息采集");
 		rapport.setPeriod(324f);
 		rapportService.insertRapport(rapport);

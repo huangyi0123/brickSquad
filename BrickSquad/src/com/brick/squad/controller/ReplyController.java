@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Reply;
 import com.brick.squad.service.ReplyService;
 import com.brick.squad.util.Pagination;
 
@@ -34,5 +35,10 @@ public class ReplyController {
 	@RequestMapping("/toAddReply")
 	public String toAddReply() {
 		return "backstage_managed/jsp/reply/add_reply";
+	}
+	@RequestMapping("addReply")
+	public String addReply(Reply reply){
+		replyService.insertReply(reply);
+		return "backstage_managed/jsp/reply/reply_list";
 	}
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Relatives;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.util.Pagination;
 
@@ -34,5 +35,12 @@ public class RelativesController {
 	@RequestMapping("/toAddRelatives")
 	public String toAddRelatives() {
 		return "backstage_managed/jsp/relatives/add_relatives";
+	}
+	
+	@RequestMapping("/AddRelatives")
+	public String AddRelatives(Relatives relatives){
+		relativesService.insertRelatives(relatives);
+		return "backstage_managed/jsp/relatives/relatives_list";
+	
 	}
 }

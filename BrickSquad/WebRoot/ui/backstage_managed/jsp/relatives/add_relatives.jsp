@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'add_business.jsp' starting page</title>
+    <title>My JSP 'add_article.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -19,10 +19,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<link rel="stylesheet" type="text/css"
+	href="ui/backstage_managed/plugins/layui/css/layui.css">
+	
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript">
+	layui.use('form', function() {
+		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+	});
+</script>
   </head>
   
   <body>
-    添加老人亲属关系
+   <form class="layui-form" action="relatives/AddRelatives" id="form1">
+		<div class="layui-form-item">
+			<label class="layui-form-label">老人id</label>
+			<div class="layui-input-inline">
+				<input type="text" name="perId" required lay-verify="required"
+					placeholder="老人id" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">姓名</label>
+			<div class="layui-input-inline">
+				<input type="text" name="name" required lay-verify="required"
+					placeholder="活动类型id" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">联系电话</label>
+			<div class="layui-input-inline">
+				<input type="text" name="telephone" required lay-verify="required"
+					placeholder="联系电话" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">地址id</label>
+			<div class="layui-input-inline">
+				<input type="text" name="addressId" required lay-verify="required"
+					placeholder="地址id" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+	
+		<div class="layui-form-item">
+			<label class="layui-form-label">关系ID</label>
+			<div class="layui-input-inline">
+				<input type="text" name="relationshipId" required lay-verify="required"
+					placeholder="关系ID" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		
+		
+		<div class="layui-form-item">
+    		<div class="layui-input-block">
+     			 <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+     			 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+   	 	</div>
+  </div>
+			
+		
+		
+	</form>
   </body>
 </html>

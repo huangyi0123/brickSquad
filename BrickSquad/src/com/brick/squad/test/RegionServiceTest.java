@@ -37,10 +37,11 @@ public class RegionServiceTest {
 	@Test
 	public void testInsertRegionById() throws Exception{
 		Region region = new Region();
-		region.setId("4");
+		region.setId("8");
 		region.setName("坤哥哥");
 		region.setIsleaf(5);
 		region.setPerantId("100");
+		region.setLevel(0);
 		regionService.insertRegionById(region);
 	}
 	//根据id查找修改

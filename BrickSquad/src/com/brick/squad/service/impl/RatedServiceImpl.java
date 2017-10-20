@@ -1,5 +1,6 @@
 package com.brick.squad.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -30,6 +31,7 @@ public class RatedServiceImpl implements RatedService {
 
 	@Override
 	public void insertRated(Rated rated) {
+		rated.setRatedDate(new Date());
 		ratedMapper.insertRated(rated);
 
 	}
@@ -45,17 +47,19 @@ public class RatedServiceImpl implements RatedService {
 		ratedMapper.updateRatedCententById(rated);
 
 	}
-/**
- * 评论分页查询
- * @param pagination
- * @return
- */
+
+	/**
+	 * 评论分页查询
+	 * 
+	 * @param pagination
+	 * @return
+	 */
 	@Override
 	public String ratedPagination(Pagination pagination) {
 		List<Rated> rateds = ratedMapper.ratedPagination(pagination);
-		int row=ratedMapper.findRatedAllCount();
-		Util<Rated> util=new Util<Rated>();
-		String data =util.SplitPage(rateds, row);
+		int row = ratedMapper.findRatedAllCount();
+		Util<Rated> util = new Util<Rated>();
+		String data = util.SplitPage(rateds, row);
 		return data;
 	}
 
@@ -63,6 +67,18 @@ public class RatedServiceImpl implements RatedService {
 	public int findReplyAllCount() {
 		// TODO Auto-generated method stub
 		return ratedMapper.findRatedAllCount();
+	}
+
+	/**
+	 * 将查询出的封装成json字符串
+	 */
+	@Override
+	public String findAllRated() {
+		List<Rated> rateds = ratedMapper.findAllRated();
+		JSONArray jsonArray = new JSONArray();
+		String datarated = jsonArray.fromObject(rateds).toString();
+
+		return datarated;
 	}
 
 }

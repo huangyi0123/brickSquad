@@ -6,6 +6,13 @@ import java.util.List;
 
 
 
+
+
+
+import javax.json.JsonArray;
+
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,9 +53,11 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 	@Override
 	/**查询所有订单信息*/
-	public List<Orders> findOrders() throws Exception {
+	public String findOrders() throws Exception {
 		List<Orders> orders=ordersMapper.findOrders();
-		return orders;
+		JSONArray jsonArray = new JSONArray();
+		String ordersdata =jsonArray.fromObject(orders).toString();
+		return ordersdata;
 	}
 	@Override
 	/**查询订单总数*/

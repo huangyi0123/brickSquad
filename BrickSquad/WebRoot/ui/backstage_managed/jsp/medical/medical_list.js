@@ -71,7 +71,7 @@ function addMedical(id) {
 						yes : function(index) {
 							$.ajax({
 								type : 'post',
-								url : 'addMedical',
+								url : 'medical/addMedical',
 								data : $("form").serialize(),
 								success : function() {
 									layer.close(index);

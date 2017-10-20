@@ -1,5 +1,6 @@
 package com.brick.squad.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public void insertReply(Reply reply) {
+		reply.setReplyDate(new Date());
 		replyMapper.insertReply(reply);
 
 	}

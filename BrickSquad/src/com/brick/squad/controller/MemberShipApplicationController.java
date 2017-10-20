@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.MemberShipApplication;
 import com.brick.squad.service.MemberShipApplicationService;
 import com.brick.squad.util.Pagination;
 
@@ -37,5 +38,12 @@ public class MemberShipApplicationController {
 	@RequestMapping("/toAddMemberShipApplication")
 	public String toAddMemberShipApplication() {
 		return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
+	}
+	
+	@RequestMapping("/AddMemberShipApplication")
+	public String AddMemberShipApplication(MemberShipApplication memberShipApplication){
+		memberShipApplicationService.insertMemberShipApplicationById(memberShipApplication);
+		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
+		
 	}
 }

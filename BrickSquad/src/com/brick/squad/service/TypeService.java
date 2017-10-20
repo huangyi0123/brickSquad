@@ -38,4 +38,12 @@ public interface TypeService {
 	 * @return 物品所属类别信息
 	 */
 	public String typePagination(Pagination pagination);
+	
+	/**
+	 * 查询所有的类型
+	 * @return 类型名称
+	 */
+	public String findAllType();
+	
+	public String findTypeByParentId(String parentId);
 }

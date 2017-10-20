@@ -20,13 +20,20 @@ public class Util<T> {
 	 */
 	public String SplitPage(List<T> datas, int row) {
 		GridManagerList<T> gridManagerList = new GridManagerList<T>();
+		
 		gridManagerList.setStatus("success");
+		
 		gridManagerList.setData(datas);
+		
 		gridManagerList.setTotals(row);
+		
 		JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor());
+        
 		JSONArray jsonArray = JSONArray.fromObject(gridManagerList,jsonConfig);
+		
 		String data = jsonArray.toString();
+		
 		data = data.substring(1,data.length() - 1);
 		return data;
 	}

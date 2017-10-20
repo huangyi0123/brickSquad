@@ -26,4 +26,9 @@ public class OrderDetailsController {
 		pagination.setPageSize(pSize);
 		return orderDetailsService.orderDetailsPagination(pagination);
 	}
+	@RequestMapping("/toAddOrdersDetails")
+	public String toAddOrdersDetails() {
+		return "backstage_managed/jsp/orderdetails/add_ordersdetails";
+	}
+
 }

@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,27 +28,36 @@ public class RatedController {
 	public String toRatedList() {
 		return "backstage_managed/jsp/rated/rated_list";
 	}
+
 	@RequestMapping("/toAddRated")
 	public String toAddRated() {
 		return "backstage_managed/jsp/rated/add_rated";
 	}
+
 	@RequestMapping("/getRatedList")
 	@ResponseBody
-	public String getRatedList(int pSize,int cPage,String keyword) {
-		Pagination pagination=new Pagination();
+	public String getRatedList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return ratedService.ratedPagination(pagination);
 
 	}
-	
+
 	@RequestMapping("/findRatedById")
 	@ResponseBody
 	public String findRatedById(String id) {
-		Rated rated=ratedService.findRatedById("57d3413eb2dc11e78d4f5254002ec43c");
+		Rated rated = ratedService
+				.findRatedById("57d3413eb2dc11e78d4f5254002ec43c");
 		JSONObject jsonObject = JSONObject.fromObject(rated);
-		String dataString =jsonObject.toString();
+		String dataString = jsonObject.toString();
 		return dataString;
+	}
+
+	@RequestMapping("/findAllRated")
+	@ResponseBody
+	public String findAllRated() {
+		return ratedService.findAllRated();
 	}
 
 	@RequestMapping("/insertRated")
@@ -58,7 +69,14 @@ public class RatedController {
 			rated.setCentent("测试" + UUID.randomUUID().toString());
 			ratedService.insertRated(rated);
 		}
-		
+
+	}
+
+	@RequestMapping("/addRated")
+	public String addRated(Rated rated) {
+		ratedService.insertRated(rated);
+		return "backstage_managed/jsp/rated/rated_list";
+
 	}
 
 	@RequestMapping("/deleteRatedById")
