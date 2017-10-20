@@ -68,7 +68,7 @@
 					册</button>
 
 				<p class="text-muted text-center">
-					<small>已经有账户了？</small><a href="login.html">点此登录</a>
+					<small>已经有账户了？</small><a href="/BrickSquad/ui/backstage_managed/jsp/user/login.jsp">点此登录</a>
 				</p>
 
 			</form>
