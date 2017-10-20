@@ -26,39 +26,86 @@
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
-	<script type="text/javascript"
+<script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修改成功 
+	$(function() {
+		$.ajax({
+			url : 'rapport/findAllUserAndPersonalInformation',
+			success : function(data) {
+				data = JSON.parse(data);
+				console.log(data[0].user[0]);
+				var user = data[0].user;
+				var personalinformation = data[0].personalInformation;
+				findAll(user, "#userId");
+				findAll(personalinformation, "#personalInformationId");
+				layui.use('form', function() {
+					var form = layui.form();
+				});
+			}
+		});
+
+		/* $.ajax({
+			url : 'user/findAllUser',
+			success : function(data) {
+				data = JSON.parse(data);
+				$(data).each(
+						function() {
+							console.log(this);
+							$("#userId").append(
+									'<option value="'+this.id+'">' + this.username
+											+ '</option>');
+							layui.use('form', function() {
+								var form = layui.form();
+							});
+						});
+			}
+		}); */
 	});
+	function findAll(data, id) {
+		$(data).each(
+				function() {
+					console.log(this);
+					$(id).append(
+							'<option value="'+this.id+'">' + this.name
+									+ '</option>');
+				});
+	}
 </script>
 </head>
 <body>
 	<br>
-	<form class="layui-form" action="rapport/insertRapport" id="form1" method="post">
-	<div class="layui-form-item">
+	<form class="layui-form" action="rapport/insertRapport" id="form1"
+		method="post">
+		
+		<div class="layui-form-item">
 			<label class="layui-form-label">ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
-					placeholder="老人姓名" autocomplete="off" class="layui-input">
-			</div>
-		</div> 
-	<div class="layui-form-item">
-			<label class="layui-form-label">老人ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="perId" required lay-verify="required"
-					placeholder="老人姓名" autocomplete="off" class="layui-input">
-			</div>
-		</div> 
-
-		<div class="layui-form-item">
-			<label class="layui-form-label">客户ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="userId" required lay-verify="required"
-					placeholder="客户姓名" autocomplete="off" class="layui-input">
+					placeholder="沟通目标" autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">老人姓名</label>
+			<div class="layui-input-inline">
+				<select name="perId" id="personalInformationId" lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">客户姓名</label>
+			<div class="layui-input-inline">
+				<select name="userId" id="userId" lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
+			</div>
+		</div>
+
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">沟通目标</label>
 			<div class="layui-input-inline">
@@ -66,15 +113,31 @@
 					placeholder="沟通目标" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-		
+
+
+
 		<div class="layui-form-item">
-    <div class="layui-inline">
-      <label class="layui-form-label">沟通日期</label>
-      <div class="layui-input-inline">
-        <input type="date" class="layui-input" name="rapportDate" placeholder="yyyy-MM-dd">
-      </div>
-    </div>
+			<div class="layui-inline">
+				<label class="layui-form-label">沟通日期</label>
+				<div class="layui-input-inline">
+					<input type="date" class="layui-input" name="rapportDate"
+						placeholder="yyyy-MM-dd">
+				</div>
+			</div>
 		</div>
+
+
+
+		<!-- 
+		<div class="layui-form-item">
+			<label class="layui-form-label">沟通日期：</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" placeholder="沟通日期"
+					
+					type="date">
+			</div>
+		</div> -->
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">沟通时长</label>
 			<div class="layui-input-inline">
@@ -94,7 +157,7 @@
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
-		
+
 	</form>
 </body>
 </html>

@@ -53,7 +53,7 @@
 		<result column="date" property="date" />
 		<association property="personalInformation" javaType="PersonalInformation">
 			<id column="per_id" property="id" />
-			<result column="name" property="name" />
+			<result column="aname" property="aname" />
 		</association>
 		<collection property="articles" ofType="Article">
 			<id column="articleId" property="id" />

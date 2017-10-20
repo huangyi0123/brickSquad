@@ -33,4 +33,12 @@ public interface PersonalInformationService {
 	 * @return Json数据
 	 */
 	public String personalInformationPagination(Pagination pagination);
+	/**
+	 * 查询老人所有信息,所有字段
+	 * */
+	public String findAllPersonalInformations();
+	/**
+	 * 查询老人所有信息，需求字段
+	 * */
+	public String findAllPersonalInformation();
 }

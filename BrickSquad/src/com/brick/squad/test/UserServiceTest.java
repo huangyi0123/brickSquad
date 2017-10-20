@@ -78,4 +78,8 @@ public class UserServiceTest {
 		List<User> list=userService.userLogin("admin","admin");
 		System.out.println(list.size());
 	}*/
+	@Test
+	public void findAllUsers() throws Exception{
+		System.out.println(userService.findAllUsers());
+		}
 	}

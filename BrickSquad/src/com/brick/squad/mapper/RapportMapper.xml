@@ -19,11 +19,12 @@
 	
 	<insert id="insertRapport" parameterType="Rapport">
 		INSERT INTO rapport
-		(id, per_id, user_id,
+		( id,per_id, user_id,
 		rapport_date, content,
 		goal,period)
 		VALUES
-		(#{id,jdbcType=VARCHAR}, #{perId,jdbcType=VARCHAR},
+		(#{id,jdbcType=VARCHAR},
+		#{perId,jdbcType=VARCHAR},
 		#{userId,jdbcType=VARCHAR},
 		#{rapportDate,jdbcType=TIMESTAMP},
 		#{content,jdbcType=LONGVARCHAR},
