@@ -3,9 +3,11 @@ package com.brick.squad.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,7 @@ import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController  {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
@@ -37,7 +39,7 @@ public class UserController {
 	}
 	@RequestMapping("/toLogin")
 	public String toLogin(User user,Model model) {
-		System.out.println("11111111111111");
+		
 		 user=userService.checkLogin(user.getUsername(), user.getPassword());
 		 if(user!=null){
 	            model.addAttribute(user);
@@ -60,4 +62,31 @@ public class UserController {
 		userService.addUser(user);
 		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
 	}
+	
+	//校验用户名是否存在
+	@SuppressWarnings("unused")
+	@RequestMapping("/usernameCheck")
+	@ResponseBody
+	public String usernameCheck(User user){
+		 /**
+         * 调用service进行查询
+         */
+		  
+		user=userService.findUsername(user.getUsername());
+         if (user==null) {
+            //没有查询到该用户：用户名可以使用
+        	return "<font color='green'>用户名可以使用 ！</font>";
+        	
+        }	
+         	//查询到该用户：用户名已存在
+        	return "<font color='red'>用户名已存在 ！</font>";
+        }  
+            
+         
+        	
+      
+		
+		
 }
+	
+	

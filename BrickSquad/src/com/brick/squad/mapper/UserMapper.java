@@ -26,6 +26,7 @@ public interface UserMapper {
 	//用户分页条数
 	public int userCount(); 
 	//用户登录
-	//public User findUserByName(String username);
 	public User checkLogin(String username);
+	//查找用户
+	public User findUsername(String username);
 }

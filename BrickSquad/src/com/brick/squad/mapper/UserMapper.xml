@@ -27,9 +27,12 @@
 	<select id="checkLogin" parameterType="String" resultType="user">
 		select password FROM user WHERE  username=#{username} 
 	</select>
-	<select id="findUsername" resultType="user" parameterType="String">
+	<!-- <select id="findUsername" resultType="user" parameterType="String">
 		select username,telephone,role_id roleId from user where username=#{username};
 
+	</select> -->
+	<select id="findUsername"  resultType="user"  parameterType="String">
+		select username from user where username=#{username}
 	</select>
 
 </mapper>
