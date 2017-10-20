@@ -23,4 +23,6 @@ public interface UserService {
 
 	public User findUsername(String username);
 
+	public User loginCheck(String username, String password);
+
 }

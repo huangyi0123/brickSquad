@@ -29,4 +29,6 @@ public interface UserMapper {
 	public User checkLogin(String username);
 	//查找用户
 	public User findUsername(String username);
+	//查找用户,密码
+	public User loginCheck(@Param("username")String username,@Param("password")String password);
 }

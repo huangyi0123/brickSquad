@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -68,7 +69,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	
-
+	public User loginCheck(String username, String password){
+		User user=userMapper.loginCheck(username, password);
+		if(user!=null&&user.getPassword().equals(SecurityUtil.strToMD5(password))){
+			return user;
+		}
+			return null;
+		
+	}
 	
 
 	

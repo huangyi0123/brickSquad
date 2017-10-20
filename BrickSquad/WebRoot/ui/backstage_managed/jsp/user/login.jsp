@@ -36,13 +36,14 @@
 
 			<form class="m-t" role="form" action="user/toLogin"   method="post" >
 				<div class="form-group">
-					<input name="username" type="text" class="form-control" id="username" placeholder="用户名"  required="">
+					<input name="username" type="text" class="form-control" id="username" placeholder="用户名"  required="" >
 				</div>
+				<span id="username2" style="font-size: 10px; color: red;float: right;"></span>
 				<div class="form-group">
-					<input name="password" type="password" class="form-control" placeholder="密码"
+					<input name="password" type="password" class="form-control" id="password" placeholder="密码"
 						required="">
 				</div>
-				<button type="submit" class="btn btn-primary block full-width m-b">登
+				<button type="submit" class="btn btn-primary block full-width m-b"  >登
 					录</button>
 				<p class="text-muted text-center">
 					<a href="login.html#"><small>忘记密码了？</small></a> | <a
