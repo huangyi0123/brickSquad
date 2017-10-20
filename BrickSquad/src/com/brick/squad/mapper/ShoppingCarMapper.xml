@@ -45,26 +45,12 @@
 	<select id="findShoppingCarCount" resultType="Integer">
 		SELECT COUNT(*)
 		FROM shopping_car
-
 	</select>
-	<resultMap type="ShoppingCar" id="findShoppingCarList">
-		<id column="id" property="id" />
-		<result column="number" property="number" />
-		<result column="date" property="date" />
-		<association property="personalInformation" javaType="PersonalInformation">
-			<id column="per_id" property="id" />
-			<result column="aname" property="aname" />
-		</association>
-		<collection property="articles" ofType="Article">
-			<id column="articleId" property="id" />
-			<result column="aname" property="aname" />
-		</collection>
-	</resultMap>
 	<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
-		resultMap="findShoppingCarList">
-		SELECT s.id ,p.name, a.aname , s.number ,s.date
-		from shopping_car s INNER JOIN personal_information p ON s.per_id =p.id
-		INNER JOIN article a ON s.article_id=a.id
+		resultType="ShoppingCar">
+		SELECT 
+		<include refid="Base_Column_List" />
+		from shopping_car 
 		limit #{skipNum},#{takeNum}
-	</select>
+		</select>
 </mapper>

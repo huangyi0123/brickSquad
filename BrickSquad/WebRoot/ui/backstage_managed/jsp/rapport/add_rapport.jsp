@@ -86,7 +86,6 @@
 			</div>
 		</div>
 		
-		
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
@@ -126,17 +125,6 @@
 			</div>
 		</div>
 
-
-
-		<!-- 
-		<div class="layui-form-item">
-			<label class="layui-form-label">沟通日期：</label>
-			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" placeholder="沟通日期"
-					
-					type="date">
-			</div>
-		</div> -->
 
 		<div class="layui-form-item">
 			<label class="layui-form-label">沟通时长</label>
