@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
@@ -42,7 +45,17 @@ public class PersonalInformationController {
 
 
 	@RequestMapping("/toAddPersonalInformation")
-	public String toAddPersonalInformation() {
+	public String toAddPersonalInformation(HttpServletRequest request, String id) {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updatePersonalInformationById");
+			PersonalInformation personalInformation = personalInformationService.findPersonalInformationById(id);
+			request.setAttribute("personalInformation", personalInformation);
+		} else {
+			request.setAttribute("url", "insertPersonalInformation");
+			request.setAttribute("msg", "添加");
+		}
+		
 		return "backstage_managed/jsp/personal_Information/add_personal_Information";
 	}
 	@InitBinder
@@ -64,7 +77,17 @@ public class PersonalInformationController {
 		return personalInformationService.findAllPersonalInformation();
 		
 	}
+@RequestMapping("/updatePersonalInformation")
+public String updatePersonalInformation(PersonalInformation personalInformation){
+	personalInformationService.updatePersonalInformationById(personalInformation);
+	return "backstage_managed/jsp/personal_Information/personal_Information_list";
+}
 
-	
+	@RequestMapping("/deletePersonalInformationById")
+	@ResponseBody
+	public String deletePersonalInformationById(String id){
+		personalInformationService.deletePersonalInformationById(id);
+		return "success";
+	}
 
 }

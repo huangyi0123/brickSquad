@@ -38,24 +38,34 @@
 			},
 			success : function(data) {
 				data = JSON.parse(data);
-				console.log(data);
+				var id = $("#paramentTypeId").attr('val');
 				$(data).each(
 						function() {
-							$("#paramentTypeId").append(
-									'<option value="'+this.id+'">' + this.name
-											+ '</option>');
+							if (id == this.id) {
+								$("#paramentTypeId").append(
+										'<option value="'+this.id+'"  selected="selected">'
+												+ this.name + '</option>');
+							} else {
+								$("#paramentTypeId").append(
+										'<option value="'+this.id+'">'
+												+ this.name + '</option>');
+							}
+
+						});
 							layui.use('form', function() {
 								var form = layui.form();
 							});
-						});
+					
 			}
 		});
 	});
 </script>
 </head>
 <body>
-	<form class="layui-form" action="medical/addMedical" id="form"
+<h1>${msg}类别信息</h1>
+	<form class="layui-form" action="medical/${url }" id="form"
 		method="post">
+		<input type="hidden" name="id" value="${medical.id }">
 		<div class="layui-form-item">
 			<label class="layui-form-label">身份证号</label>
 
@@ -76,7 +86,7 @@
 			<label class="layui-form-label">perIdID</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="perId" id="perName" required
+				<input type="text" name="perId" value="${medical.perId }"  id="perName" required
 					lay-verify="required" placeholder="ID存入" autocomplete="off"
 					class="layui-input">
 			</div>
@@ -85,35 +95,28 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">日期</label>
 			<div class="layui-input-inline">
-				<input type="date" name="inspectionDate" required
+				<input type="date" name="inspectionDate" value="${medical.inspectionDate }" required
 					lay-verify="required" placeholder="" autocomplete="off"
 					class="layui-input"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
 
-		<!-- 
-		<div class="layui-form-item">
-			<label class="layui-form-label">检查日期</label>
-			<div class="layui-input-inline logstart_time">
-			<input type="date" name="inspectionDate" >
-				<input id="test" name="inspectionDate" class="layui-input" placeholder="检查日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
-			</div>
-		</div>  -->
+		
+	  
 
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查医院</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="hospital" required lay-verify="required"
+				<input type="text" name="hospital" value="${medical.hospital } required lay-verify="required"
 					placeholder="检查医院" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查类型</label>
 			<div class="layui-input-inline">
-				<select name="typeId" id="paramentTypeId" lay-search="">
+				<select name="typeId" id="paramentTypeId" value="${medical.typeId } lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -122,7 +125,7 @@
 			<label class="layui-form-label">病历详情</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="content" required lay-verify="required"
+				<input type="text" name="content" value="${medical.content } required lay-verify="required"
 					placeholder="病历详情" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -130,7 +133,7 @@
 			<label class="layui-form-label">主治医师</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="attendingSurgeon" required
+				<input type="text" name="attendingSurgeon" value="${medical.attendingSurgeon } required
 					lay-verify="required" placeholder="主治医师" autocomplete="off"
 					class="layui-input">
 			</div>
