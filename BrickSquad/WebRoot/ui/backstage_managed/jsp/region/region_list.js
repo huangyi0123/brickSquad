@@ -34,7 +34,6 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function addRegion(id) {
-	alert("cvhjkl");
 	$("#addRegion").click(function() {
 		console.log("id");
 		layui.use('layer', function() {

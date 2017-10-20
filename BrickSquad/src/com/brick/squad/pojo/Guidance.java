@@ -1,6 +1,8 @@
 package com.brick.squad.pojo;
 
 import java.util.Date;
+/*import com.fasterxml.jackson.annotation.JsonFormat;*/
+/*import org.springframework.format.annotation.DateTimeFormat;*/
 
 /**
  * 
@@ -10,6 +12,8 @@ import java.util.Date;
 public class Guidance {
 	private String id;
 	private Date guidanceDate;
+	/*@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")*/
+	/*@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")*/
 	private String disease;
 	private String assessment;
 	private String suggest;
@@ -56,6 +60,4 @@ public class Guidance {
 				+ ", disease=" + disease + ", assessment=" + assessment
 				+ ", suggest=" + suggest + ", perId=" + perId + "]";
 	}
-	
 }
-	
