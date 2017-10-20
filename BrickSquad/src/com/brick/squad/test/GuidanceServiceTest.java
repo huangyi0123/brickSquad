@@ -29,7 +29,7 @@ public class GuidanceServiceTest {
 		guidance.setDisease("007");
 		guidance.setGuidanceDate(new Date());
 		guidance.setPerId("009");
-		guidance.setSuggest("日你哥");
+		guidance.setSuggest("吴老狗");
 		guidanceService.insertGuidanceById(guidance);
 	}
 	@Test
