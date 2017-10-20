@@ -28,15 +28,9 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
-	/* layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-		//执行一个laydate实例
-		laydate.render({
-			elem : '#test1' //指定元素
-		});
-	}); */
 	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
 		$(function() {
+			alert("test");
 		$.ajax({
 			url : 'type/findTypeByParentId',
 			data : {
