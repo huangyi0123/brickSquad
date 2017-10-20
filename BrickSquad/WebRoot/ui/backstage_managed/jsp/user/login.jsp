@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<input name="username" type="text" class="form-control" id="username" placeholder="用户名"  required="" >
 				</div>
-				<span id="username2" style="font-size: 10px; color: red;float: right;"></span>
+				<span id="username2" style="font-size: 10px; color: red;float: right;">${msg}</span>
 				<div class="form-group">
 					<input name="password" type="password" class="form-control" id="password" placeholder="密码"
 						required="">

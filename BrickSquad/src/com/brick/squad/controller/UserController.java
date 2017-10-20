@@ -2,9 +2,11 @@ package com.brick.squad.controller;
 
 import java.awt.Window;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.ws.Action;
 
+import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+
+
+import org.springframework.web.context.request.RequestAttributes;
 
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
@@ -36,7 +42,7 @@ public class UserController  {
 		return userService.userPagination(pagination);
 	}
 	@RequestMapping("/toLogin")
-	public String toLogin(User user,Model model) {
+	public String toLogin(User user,Model model,HttpServletRequest request) {
 		
 		 user=userService.checkLogin(user.getUsername(), user.getPassword());
 		 
@@ -45,8 +51,9 @@ public class UserController  {
 	            model.addAttribute(user);
 	            return "redirect:/ui/backstage_managed/jsp/frame.jsp";   
 	        }
-		 		
-		 		return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
+		 		request.getSession().setAttribute("msg", "你输入的密码和账户名不匹配 ！");
+		 		//request.setAttribute("msg", "登录失败");
+		 		return "backstage_managed/jsp/user/login";
 	       
 	    }
 	
