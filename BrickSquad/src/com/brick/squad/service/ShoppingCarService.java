@@ -41,4 +41,8 @@ public interface ShoppingCarService {
 	 * 购物车分页查询
 	 * */
 	public String shoppingCarPagination(Pagination pagination)throws Exception;
+	/**
+	 * 查询购物车关联查询到的需要字段：商品信息字段，老人信息字段
+	 * */
+	public String findArticleAndPersonalInformation()throws Exception;
 }

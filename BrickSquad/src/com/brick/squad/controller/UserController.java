@@ -1,7 +1,9 @@
 package com.brick.squad.controller;
 
+import java.awt.Window;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Action;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,15 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-
-
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController  {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
@@ -37,15 +37,38 @@ public class UserController {
 	}
 	@RequestMapping("/toLogin")
 	public String toLogin(User user,Model model) {
-		System.out.println("11111111111111");
+		
 		 user=userService.checkLogin(user.getUsername(), user.getPassword());
+		 
 		 if(user!=null){
+			 
 	            model.addAttribute(user);
-	            return "redirect:/ui/backstage_managed/jsp/frame.jsp";// 路径 WEB-INF/pages/welcome.jsp            
+	            return "redirect:/ui/backstage_managed/jsp/frame.jsp";   
 	        }
-	        return "fail";
+		 		
+		 		return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
+	       
 	    }
-		//return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
+	
+	/*//登陆错误信息提示
+	@RequestMapping("/toLogin2")	
+	@ResponseBody
+	public String loginCheck(User user){
+			 *//**
+	         * 调用service进行查询
+	         *//*
+			  
+			user=userService.loginCheck(user.getUsername(),user.getPassword());
+			if (user==null) {
+	            //没有查询到该用户或者密码不匹配
+	        	return "<font color='red'>你输入的密码和用户名不匹配，是否忘记密码或忘记用户名 ！</font>";
+	        	
+	        }	
+	         	//查询到该用户且密码匹配
+			 	return "redirect:/ui/backstage_managed/jsp/frame.jsp";   
+	        }  	
+	
+		*/
 	
 	
 	@RequestMapping("/toRegister")
@@ -60,9 +83,39 @@ public class UserController {
 		userService.addUser(user);
 		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
 	}
+
+	
+	//校验用户名是否存在
+	@SuppressWarnings("unused")
+	@RequestMapping("/usernameCheck")
+	@ResponseBody
+	public String usernameCheck(User user){
+		 /**
+         * 调用service进行查询
+         */
+		  
+		user=userService.findUsername(user.getUsername());
+         if (user==null) {
+            //没有查询到该用户：用户名可以使用
+        	return "<font color='green'>用户名可以使用 ！</font>";
+        	
+        }	
+         	//查询到该用户：用户名已存在
+        	return "<font color='red'>用户名已存在 ！</font>";
+        }  
+            
+         
+        	
+      
+		
+		
+
 	@RequestMapping("/findAllUser")
 	@ResponseBody
 	public String findAllUser() throws Exception{
 		return userService.findAllUser();
 	}
+
 }
+	
+	

@@ -14,7 +14,7 @@ import net.sf.json.processors.JsonValueProcessor;
  */
 public class JsonDateValueProcessor implements JsonValueProcessor {
 	// 定义转换日期类型的输出格式
-	private String format = "yyyy-MM-dd hh:mm:ss";
+	private String format = "yyyy-MM-dd HH:mm:ss";
 
 	public JsonDateValueProcessor() {
 

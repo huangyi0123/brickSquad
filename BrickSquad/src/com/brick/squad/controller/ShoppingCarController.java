@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 
@@ -31,6 +32,17 @@ public class ShoppingCarController {
 	@RequestMapping("/toAddShoppingCar")
 	public String toAddShoppingCar() {
 		return "backstage_managed/jsp/shoppingcar/add_shoppingcar";
+	}
+	@RequestMapping("/findArticleAndPersonalInformation")
+	@ResponseBody
+	public String findArticleAndPersonalInformation() throws Exception{
+		String articles=shoppingCarService.findArticleAndPersonalInformation();
+		return articles;
+	}
+	@RequestMapping("/insertShoppingCar")
+	public String insertShoppingCar(ShoppingCar shoppingCar) throws Exception{
+		shoppingCarService.insertShoppingCar(shoppingCar);
+		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
 	}
 
 }
