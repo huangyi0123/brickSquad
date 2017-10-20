@@ -45,6 +45,16 @@ public class ShopActivitiesController {
 	public String AddShopActivities(ShopActivities shopActivities) throws Exception{
 		shopActivitiesService.insertShopActivitiesById(shopActivities);
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
+	}
+	
+	
+	@RequestMapping("/deleteShopActivitiesById")
+	@ResponseBody
+	public String deleteShopActivitiesById(String id) throws Exception{
+		shopActivitiesService.delectShopActivitiesById(id);
+		return "success";
 		
 	}
+	
+	
 }

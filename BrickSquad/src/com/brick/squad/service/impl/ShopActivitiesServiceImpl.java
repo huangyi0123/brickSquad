@@ -58,5 +58,16 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 		return shopActivitiesMapper.findShopActivitiesAllCount();
 	}
 
+	@Override
+	public String findAllShopActivities() {
+		return null;
+	}
+
+	@Override
+	public String findShopActivitiesByParentId(String parentId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
