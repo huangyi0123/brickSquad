@@ -34,16 +34,24 @@
 			url : 'type/findAllType',
 			success : function(data) {
 				data = JSON.parse(data);
+				var id = $("#parament").attr('val');
+				console.log(id);
 				$(data).each(
 						function() {
-							console.log(this);
-							$("#parament").append(
-									'<option value="'+this.id+'">' + this.name
-											+ '</option>');
-							layui.use('form', function() {
-								var form = layui.form();
-							});
+							if (id == this.id) {
+								$("#parament").append(
+										'<option value="'+this.id+'"  selected="selected">'
+												+ this.name + '</option>');
+							} else {
+								$("#parament").append(
+										'<option value="'+this.id+'">'
+												+ this.name + '</option>');
+							}
+
 						});
+				layui.use('form', function() {
+					var form = layui.form();
+				});
 			}
 		});
 	})
@@ -52,20 +60,22 @@
 </head>
 
 <body>
-	<form class="layui-form" action="type/insertType" id="form1" style="margin-top: 40px"
+	<h1>${msg}类别信息</h1>
+	<form class="layui-form" action="type/${url }" id="form1"
 		method="post">
+		<input type="hidden" name="id" value="${type.id }">
 		<div class="layui-form-item">
 			<label class="layui-form-label">名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input">
+					placeholder="名称" autocomplete="off" class="layui-input"
+					value="${type.name }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">搜索选择框</label>
 			<div class="layui-input-inline">
-				<select name="parentId"  id="parament"
-					lay-search="">
+				<select name="parentId" id="parament" val=${type.parentId } lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
