@@ -35,7 +35,7 @@
 
 <body>
 	<form class="layui-form" style="margin-right: 30px"
-		action="business/insertBusiness" id="form1">
+		action="business/insertBusiness" id="form1" method="post">
 		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label">商家名称：</label>
 			<div class="layui-input-inline">

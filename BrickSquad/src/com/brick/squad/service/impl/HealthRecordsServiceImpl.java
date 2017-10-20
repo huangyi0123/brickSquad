@@ -21,7 +21,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 
 	@Override
 	public void insertHealthRecords(HealthRecords healthRecords) {
-
+		healthRecords.setRegistrDate(new Date());
 		healthRecordsMapper.insertHealthRecords(healthRecords);
 
 	}
