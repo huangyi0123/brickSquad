@@ -61,4 +61,12 @@ public class TypeServiceImpl implements TypeService{
 	 return string;
 	}
 
+	@Override
+	public String findTypeByParentId(String parentId) {
+		List<Type> types =typeMapper.findTypeByParentId(parentId);
+		JSONArray jsonArray = new JSONArray();
+		String dataTytes =jsonArray.fromObject(types).toString();
+		return dataTytes;
+	}
+
 }

@@ -23,26 +23,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
+	$(function() {
+		$.ajax({
+			url : 'rated/findAllRated',
+			success : function(data) {
+				data = JSON.parse(data);
+				$(data).each(
+						function() {
+							$("#parament").append(
+									'<option value="'+this.id+'">' + this.id
+											+ '</option>');
+							layui.use('form', function() {
+								var form = layui.form();
+							});
+						});
+			}
+		});
+	})
 </script>
 
   </head>
   
   <body>
 	<form class="layui-form" action="reply/addReply" id="form" method="post">
-		<div class="layui-form-item">
+
+	<div class="layui-form-item">
 			<label class="layui-form-label">评论ID</label>
 			<div class="layui-input-inline">
-				<input type="text" name="ratedId" required lay-verify="required"
-					placeholder="评论ID" autocomplete="off" class="layui-input">
+				<select name="ratedId"  id="parament"
+					lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">回复内容</label>
-
 			<div class="layui-input-inline">
 				<input type="text" name="centent" required lay-verify="required"
 					placeholder="回复内容" autocomplete="off" class="layui-input">

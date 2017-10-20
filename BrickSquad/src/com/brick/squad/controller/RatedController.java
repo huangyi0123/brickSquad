@@ -54,6 +54,12 @@ public class RatedController {
 		return dataString;
 	}
 
+	@RequestMapping("/findAllRated")
+	@ResponseBody
+	public String findAllRated() {
+		return ratedService.findAllRated();
+	}
+
 	@RequestMapping("/insertRated")
 	public void insertRated() {
 		for (int i = 0; i < 10; i++) {
@@ -67,9 +73,10 @@ public class RatedController {
 	}
 
 	@RequestMapping("/addRated")
-	@ResponseBody
-	public void addRated(Rated rated) {
+	public String addRated(Rated rated) {
 		ratedService.insertRated(rated);
+		return "backstage_managed/jsp/rated/rated_list";
+
 	}
 
 	@RequestMapping("/deleteRatedById")

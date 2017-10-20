@@ -3,6 +3,10 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RatedMapper">
 
+<select id="findAllRated" resultType="rated">
+		select id id,order_id orderId,rated_date ratedDate,centent centent
+		from rated 
+	</select>
 	<select id="findRatedById" parameterType="String" resultType="rated">
 		select id id,order_id orderId,rated_date ratedDate,centent centent
 		from rated where id = #{id}

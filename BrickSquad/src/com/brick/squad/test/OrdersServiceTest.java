@@ -49,10 +49,10 @@ public class OrdersServiceTest {
 	}
 	@Test
 	public void findOrders() throws Exception{
-		List<Orders> orders=ordersService.findOrders();
+		/*List<Orders> orders=ordersService.findOrders();
 		for(Orders order:orders){
 			System.out.println(order);
-		}
+		}*/
 	}
 	@Test
 	public void findOrdersCount() throws Exception{

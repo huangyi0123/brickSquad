@@ -20,6 +20,13 @@ public class TypeServiceTest {
 	private TypeService typeService;
 
 	@Test
+	public void findTypeByParentIdTest(){
+		typeService.findTypeByParentId("0");
+	}
+	
+	
+	
+	@Test
 	public void testFindTypeById() {
 		typeService.findTypeById("c6158d3cb0b611e78d4f5254002ec43c");
 	}

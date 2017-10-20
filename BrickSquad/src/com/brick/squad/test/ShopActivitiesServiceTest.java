@@ -57,9 +57,9 @@ public class ShopActivitiesServiceTest {
 	public void InsertShopActivitiesById() throws Exception{
 			ShopActivities s = new ShopActivities();
 			s.setTypeId("美术");
-	/*		s.setStartTime("2017-10-20 13:00:00");
-			s.setEndTime("2017-10-20 15:00:00");
-			*/
+//			s.setStartTime("2017-10-20 13:00:00");
+//			s.setEndTime("2017-10-20 15:00:00");
+			
 			shopActivitiesService.insertShopActivitiesById(s);
 	} 
 	

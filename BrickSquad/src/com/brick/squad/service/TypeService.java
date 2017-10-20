@@ -44,4 +44,6 @@ public interface TypeService {
 	 * @return 类型名称
 	 */
 	public String findAllType();
+	
+	public String findTypeByParentId(String parentId);
 }

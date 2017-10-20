@@ -34,22 +34,47 @@
 </head>
 
 <body>
-	<form class="layui-form" action="#" id="form1">
+	<form class="layui-form" action="memberShipApplication/AddMemberShipApplication" id="form1">
 		<div class="layui-form-item">
-			<label class="layui-form-label">名称</label>
+			<label class="layui-form-label">会员类型ID</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
+				<input type="text" name="memberShipTypeId" required lay-verify="required"
+					placeholder="会员类型ID" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">申请人ID</label>
+			<div class="layui-input-inline">
+				<input type="text" name="perId" required lay-verify="required"
+					placeholder="申请人ID" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">工作人员ID</label>
+			<div class="layui-input-inline">
+				<input type="text" name="userId" required lay-verify="required"
 					placeholder="名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label">单行选择框</label>
-			<div class="layui-input-block">
-				<select name="interest" lay-filter="aihao">
-					<option value=""></option>
-					<option value="0">1</option>
-					<option value="0">2</option>
-					<option value="0">3</option>
+			<label class="layui-form-label">定金</label>
+			<div class="layui-input-inline">
+				<input type="text" name="deposit" required lay-verify="required"
+					placeholder="名称" autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		
+		<div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+			
 					
 				</select>
 			</div>
