@@ -19,6 +19,7 @@ private String perId;
 /**
  * 检查日期
  */
+@DateTimeFormat(pattern = "yyyy-MM-dd")
 private Date inspectionDate;
 /**
  * 检查类型

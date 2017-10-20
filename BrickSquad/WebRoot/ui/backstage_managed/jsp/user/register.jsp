@@ -23,6 +23,7 @@
 <script src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="ui/backstage_managed/plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript"  src="ui/backstage_managed/jsp/user/registerCheck.js"></script>
 </head>
 <body class="gray-bg">
 
@@ -36,33 +37,38 @@
 			<p>创建一个新账户</p>
 			<form class="m-t" role="form" action="${pageContext.request.contextPath }/user/register" method="post">
 				<div class="form-group">
-					<input type="text" name="username" class="form-control" placeholder="请输入用户名"
-						required="">
+					<input name="username" type="text" class="form-control" id="username" placeholder="请输入用户名" onblur="checkUsername()" required="">
+					<span id="username2" style="font-size: 10px; color: red;float: right;"></span>
 				</div>
 				<div class="form-group">
-					<input type="password" name="password" class="form-control" placeholder="请输入密码"
-						required="">
+					<input type="password" name="password" class="form-control" id="password"  placeholder="请输入密码"
+						required="" onblur="checkPassword()">
+					<span id="password2" style="font-size: 10px; color: red;float: right;"></span>
 				</div>
 				<div class="form-group">
-					<input type="password"  class="form-control" placeholder="请再次输入密码"
+					<input type="password"  class="form-control" placeholder="请再次输入密码" id="repassword" onblur="checkRepassword()"
 						required="">
+					<span id="repassword2" style="font-size: 10px; color: red;float: right;"></span>	
 				</div>
 				<div class="form-group">
-					<input type="text"  name="telephone" class="form-control" placeholder="请输入电话号码"
+					<input type="text"  name="telephone" class="form-control" placeholder="请输入电话号码" id="phone" onblur="checkPhone()"
 						required="">
+					<span id="phone2" style="font-size: 10px; color: red;float: right;"></span>	
 				</div>
 				<div class="form-group text-left">
 					<div class="checkbox i-checks">
-						<label class="no-padding"> <input type="checkbox"><i></i>
+						<label class="no-padding">
+						 <input type="checkbox"  name="xieyi" onclick="return checkedXieyi();"><i></i>
 							我同意注册协议
 						</label>
+						<span id="xieyi" style="font-size: 10px; color: red;float: right;"></span>	
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary block full-width m-b">注
+				<button type="submit" class="btn btn-primary block full-width m-b" onclick="checkPost();return false;">注
 					册</button>
 
 				<p class="text-muted text-center">
-					<small>已经有账户了？</small><a href="login.html">点此登录</a>
+					<small>已经有账户了？</small><a href="/BrickSquad/ui/backstage_managed/jsp/user/login.jsp">点此登录</a>
 				</p>
 
 			</form>

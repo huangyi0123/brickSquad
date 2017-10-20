@@ -67,8 +67,10 @@ public class ArticleServiceTest {
 	
 	@Test
 	public void findArticleAllCount(){
-		
-		
 		System.out.println(articleService.findArticleAllCount());
+	}
+	@Test
+	public void findArticle() throws Exception{
+		System.out.println(articleService.findArticle());
 	}
 }

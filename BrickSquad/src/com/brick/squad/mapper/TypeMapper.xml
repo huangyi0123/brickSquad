@@ -5,9 +5,9 @@
 	<sql id="prop">
 		id,parent_id parentId,name
 	</sql>
-	<select id="findTypeByParentId" resultType="Type" parameterType="String">
+	<select id="findTypeByParentId" resultType="com.brick.squad.util.Select" parameterType="String">
 		SELECT
-		id id,parent_id parentId,name name
+		id ,name 
 		FROM type
 		WHERE
 		parent_id=#{parentId}
