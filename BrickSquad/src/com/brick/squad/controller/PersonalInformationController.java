@@ -28,5 +28,13 @@ public class PersonalInformationController {
 		String data=personalInformationService.personalInformationPagination(pagination);
 		return data;
 	}
+	@RequestMapping("/findAllPersonalInformation")
+	@ResponseBody
+	public String findAllPersonalInformation(){
+		return personalInformationService.findAllPersonalInformation();
+		
+	}
+
+	
 	
 }

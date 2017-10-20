@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.util.Pagination;
 
@@ -27,5 +28,18 @@ public class LimitsController {
 		pagination.setPageSize(pSize);
 		String data=limitsService.limitsPagination(pagination);
 		return data;
+	}
+	
+	@RequestMapping("/toAddLimits")
+	public String toAddLimits(){
+		return "backstage_managed/jsp/limits/add_limits";
+		
+	}
+	
+	@RequestMapping("/addLimits")
+	public String addLimits(Limits limits){
+		System.out.println(limits.getRoleId()+"6666");
+		limitsService.insertLimits(limits);
+		return "backstage_managed/jsp/limits/limits_list";
 	}
 }

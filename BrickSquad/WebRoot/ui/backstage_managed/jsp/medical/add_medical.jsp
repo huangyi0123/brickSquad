@@ -40,7 +40,7 @@
 		$.ajax({
 			url : 'type/findTypeByParentId',
 			data : {
-				'parentId' : '0'
+				'parentId' : 'b5b8589cb53511e78d4f5254002ec43c'
 			},
 			success : function(data) {
 				data = JSON.parse(data);
@@ -87,23 +87,23 @@
 			</div>
 		</div>
 		
-		<div class="layui-form-item">
+		 <div class="layui-form-item">
 			<label class="layui-form-label">日期</label>
 			<div class="layui-input-inline">
 				<input type="date" name="inspectionDate" required lay-verify="required"
 					placeholder="" autocomplete="off" class="layui-input">
 			</div>
-		</div>
+		</div> 
 		
-		
-		<!-- <div class="layui-form-item">
+		<!-- 
+		<div class="layui-form-item">
 			<label class="layui-form-label">检查日期</label>
 			<div class="layui-input-inline logstart_time">
 			<input type="date" name="inspectionDate" >
 				<input id="test" name="inspectionDate" class="layui-input" placeholder="检查日期"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
-		</div> -->
+		</div>  -->
 		
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查医院</label>

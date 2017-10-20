@@ -1,16 +1,24 @@
 package com.brick.squad.service.impl;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.expand.RapportExpand;
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.RapportMapper;
+import com.brick.squad.mapper.UserMapper;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Rapport;
 import com.brick.squad.service.RapportService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 /**
  * 业务层：实现老人客户沟通接口实现类
@@ -19,6 +27,12 @@ public class RapportServiceImpl implements RapportService{
 	@Autowired
 	@Qualifier("rapportMapper")
 	private RapportMapper rapportMapper;
+	@Autowired
+	@Qualifier("userMapper")
+	private UserMapper userMapper;
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 	@Override
 	/**根据ID查询老人客户沟通信息*/
 	public Rapport findRapportById(String id) {
@@ -60,6 +74,18 @@ public class RapportServiceImpl implements RapportService{
 		int row=rapportMapper.findRapportCount();
 		Util<RapportExpand> util=new Util<RapportExpand>();
 		String data=util.SplitPage(regions, row);
+		return data;
+	}
+	@Override
+	/**查询用户和老人所有信息*/
+	public String findAllUserAndPersonalInformation() {
+		List<Select> users=userMapper.findAllUser();
+		List<Select> personalInformations=personalInformationMapper.findAllPersonalInformation();
+		Map<String, List> map=new HashMap<String, List>();
+		map.put("user", users);
+		map.put("personalInformation", personalInformations);
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(map).toString();
 		return data;
 	}
 }

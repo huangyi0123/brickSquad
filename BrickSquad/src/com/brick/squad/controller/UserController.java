@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -45,7 +46,7 @@ public class UserController  {
 	            return "redirect:/ui/backstage_managed/jsp/frame.jsp";   
 	        }
 		 		
-		 		return;
+		 		return "redirect:/ui/backstage_managed/jsp/user/login.jsp";
 	       
 	    }
 	
@@ -82,6 +83,7 @@ public class UserController  {
 		userService.addUser(user);
 		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
 	}
+
 	
 	//校验用户名是否存在
 	@SuppressWarnings("unused")
@@ -107,6 +109,13 @@ public class UserController  {
       
 		
 		
+
+	@RequestMapping("/findAllUser")
+	@ResponseBody
+	public String findAllUser() throws Exception{
+		return userService.findAllUser();
+	}
+
 }
 	
 	

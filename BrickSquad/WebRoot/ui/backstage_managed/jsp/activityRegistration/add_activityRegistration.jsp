@@ -61,7 +61,8 @@
 
 <body>
 	<form class="layui-form"
-		action="activityRegistration/insertActivityRegistration" id="form1">
+		action="activityRegistration/insertActivityRegistration" id="form1"
+		method="post">
 		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label">老人ID：</label>
 			<div class="layui-input-inline">
@@ -95,8 +96,10 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<button type="submit" style="margin-left: 120px;" class="layui-btn layui-btn-primary">提交</button>
-			<button type="reset" style="margin-left: 30px;" class="layui-btn layui-btn-primary">重置</button>
+			<button type="submit" style="margin-left: 120px;"
+				class="layui-btn layui-btn-primary">提交</button>
+			<button type="reset" style="margin-left: 30px;"
+				class="layui-btn layui-btn-primary">重置</button>
 
 		</div>
 	</form>

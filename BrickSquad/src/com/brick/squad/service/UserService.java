@@ -20,6 +20,14 @@ public interface UserService {
 
 	// 用户登录
 	public User checkLogin(String username, String password);
+	/**
+	 * 查询所有用户,需求字段
+	 * */
+	public String findAllUser()throws Exception;
+	/**
+	 * 查询所有用户，所有字段
+	 * */
+	public String findAllUsers()throws Exception ;
 
 	public User findUsername(String username);
 

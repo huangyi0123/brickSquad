@@ -1,7 +1,10 @@
 package com.brick.squad.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,7 +43,17 @@ public class TypeController {
 	}
 
 	@RequestMapping("/toAddType")
-	public String toAddType() {
+	public String toAddType(HttpServletRequest request, String id) {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateTypeById");
+			Type type = typeService.findTypeById(id);
+			request.setAttribute("type", type);
+		} else {
+			request.setAttribute("url", "insertType");
+			request.setAttribute("msg", "添加");
+		}
+
 		return "backstage_managed/jsp/type/add_type";
 
 	}
@@ -57,5 +70,18 @@ public class TypeController {
 		typeService.insertType(type);
 		return "backstage_managed/jsp/type/type_list";
 
+	}
+
+	@RequestMapping("/updateTypeById")
+	public String updateTypeById(Type type) {
+		typeService.updateTypeById(type);
+		return "backstage_managed/jsp/type/type_list";
+	}
+	@RequestMapping("/deleteTypeById")
+	@ResponseBody
+	public String deleteTypeById(String id) {
+		typeService.deleteTypeById(id);
+		return "success";
+				
 	}
 }

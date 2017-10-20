@@ -2,7 +2,7 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
-
+import net.sf.json.JSONArray;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 /**
  * 
@@ -62,11 +63,30 @@ public class UserServiceImpl implements UserService {
 		
 		 
 	}
+
 	
 	public User findUsername(String username) {
 		
 		return userMapper.findUsername(username);
 	}
+	@Override
+	/**查询所有用户，需求字段*/
+	public String findAllUser() throws Exception {
+		List<Select> users=userMapper.findAllUser();
+		JSONArray jsonArray=new JSONArray();
+		String date=jsonArray.fromObject(users).toString();
+		return date;
+	}
+	@Override
+	/**查询所有用户，所有字段*/
+	public String findAllUsers() throws Exception {
+		List<User> users=userMapper.findAllUsers();
+		JSONArray jsonArray=new JSONArray();
+		String date=jsonArray.fromObject(users).toString();
+		return date;
+
+	}
+
 
 	
 	public User loginCheck(String username, String password){
@@ -78,6 +98,9 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+
+	
+
 
 	
 

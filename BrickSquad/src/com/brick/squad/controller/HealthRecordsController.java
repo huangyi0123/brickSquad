@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.ActivityRegistration;
+import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.util.Pagination;
 
@@ -30,10 +32,17 @@ public class HealthRecordsController {
 		return healthRecordsService.healthRecordsPagination(pagination);
 
 	}
-	
-	
+
 	@RequestMapping("/toAddHealthRecords")
-	public String toHealthRecords() {
+	public String toAddHealthRecords() {
 		return "backstage_managed/jsp/healthRecords/add_healthRecords";
+	}
+
+	@RequestMapping("/insertHealthRecords")
+	public String insertHealthRecords(HealthRecords healthRecords) {
+		System.out.println("健康-----------------------------------------------------");
+		healthRecordsService.insertHealthRecords(healthRecords);
+		return "backstage_managed/jsp/healthRecords/healthRecords_list";
+
 	}
 }

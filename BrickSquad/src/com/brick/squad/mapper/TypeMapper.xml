@@ -9,16 +9,18 @@
 		SELECT
 		id id,parent_id parentId,name name
 		FROM type
-		WHERE parent_id=#{parentId}
+		WHERE
+		parent_id=#{parentId}
 	</select>
 	<select id="findTypeById" resultType="Type" parameterType="String">
 		SELECT
+		<include refid="prop" />
 		FROM type
 		WHERE id=#{id}
 	</select>
 
 	<insert id="insertType" parameterType="Type">
-	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		INSERT INTO
