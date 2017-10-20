@@ -8,11 +8,11 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
              {
-                key: 'name',
+                key: 'perId',
                 text: '买家姓名'
              },
             {
-                key: 'aname',
+                key: 'articleId',
                 text: '商品名称'
             },
            

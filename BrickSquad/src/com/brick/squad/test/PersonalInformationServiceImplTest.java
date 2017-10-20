@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,6 +55,10 @@ public class PersonalInformationServiceImplTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
 		System.out.println(personalInformationService.personalInformationPagination(pagination));
-		
+	}
+	
+	@Test
+	public void findAllPersonalInformation() {
+		System.out.println(personalInformationService.findAllPersonalInformations());
 	}
 }

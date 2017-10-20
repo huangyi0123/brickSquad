@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 /**
  * 老人信息mapper
  * @author 梁城月
@@ -42,4 +43,12 @@ public interface PersonalInformationMapper {
 	 * @return 记录数
 	 */
 	public int personalInformationCount();
+	/**
+	 * 查询老人所有信息,所有字段
+	 * */
+	public List<PersonalInformation> findAllPersonalInformations();
+	/**
+	 * 查询老人所有信息，需求字段
+	 * */
+	public List<Select> findAllPersonalInformation();
 }

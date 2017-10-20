@@ -29,7 +29,13 @@
 	</select>
 	<select id="findUsername" resultType="user" parameterType="String">
 		select username,telephone,role_id roleId from user where username=#{username};
-
 	</select>
-
+	<select id="findAllUser" resultType="com.brick.squad.util.Select">
+	SELECT id,username name
+	FROM user
+	</select>
+	<select id="findAllUsers" resultType="user">
+	SELECT id,password,username,telephone,role_id roleId
+	FROM user
+	</select>
 </mapper>

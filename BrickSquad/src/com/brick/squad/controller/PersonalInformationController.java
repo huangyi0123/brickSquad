@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
@@ -35,6 +34,7 @@ public class PersonalInformationController {
 		return data;
 	}
 
+
 	@RequestMapping("/toAddPersonalInformation")
 	public String toAddPersonalInformation() {
 		return "backstage_managed/jsp/personal_Information/add_personal_Information";
@@ -47,4 +47,14 @@ public class PersonalInformationController {
 				.insertPersonalInformation(personalInformation);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
+
+	@RequestMapping("/findAllPersonalInformation")
+	@ResponseBody
+	public String findAllPersonalInformation(){
+		return personalInformationService.findAllPersonalInformation();
+		
+	}
+
+	
+
 }

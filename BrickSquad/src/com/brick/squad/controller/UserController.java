@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 
 
@@ -59,5 +59,10 @@ public class UserController {
 		user.setRoleId("1");
 		userService.addUser(user);
 		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
+	}
+	@RequestMapping("/findAllUser")
+	@ResponseBody
+	public String findAllUser() throws Exception{
+		return userService.findAllUser();
 	}
 }

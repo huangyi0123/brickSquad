@@ -37,4 +37,8 @@ public interface RapportService {
 	 * 老人客户沟通分页查询
 	 * */
 	public String rapportPagination(Pagination pagination)throws Exception;
+	/**
+	 * 查询用户和老人所有信息
+	 * */
+	public String findAllUserAndPersonalInformation();
 }
