@@ -29,8 +29,8 @@
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
 	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
-		$(function() {
-			alert("test");
+	$(function() {
+		alert("test");
 		$.ajax({
 			url : 'type/findTypeByParentId',
 			data : {
@@ -76,19 +76,22 @@
 			<label class="layui-form-label">perIdID</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="perId" id="perName" required lay-verify="required"
-					placeholder="ID存入" autocomplete="off" class="layui-input">
+				<input type="text" name="perId" id="perName" required
+					lay-verify="required" placeholder="ID存入" autocomplete="off"
+					class="layui-input">
 			</div>
 		</div>
-		
-		 <div class="layui-form-item">
+
+		<div class="layui-form-item">
 			<label class="layui-form-label">日期</label>
 			<div class="layui-input-inline">
-				<input type="date" name="inspectionDate" required lay-verify="required"
-					placeholder="" autocomplete="off" class="layui-input">
+				<input type="date" name="inspectionDate" required
+					lay-verify="required" placeholder="" autocomplete="off"
+					class="layui-input"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
-		</div> 
-		
+		</div>
+
 		<!-- 
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查日期</label>
@@ -98,7 +101,7 @@
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>  -->
-		
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查医院</label>
 
@@ -110,8 +113,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查类型</label>
 			<div class="layui-input-inline">
-				<select name="typeId"  id="paramentTypeId"
-					lay-search="">
+				<select name="typeId" id="paramentTypeId" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -133,8 +135,8 @@
 					class="layui-input">
 			</div>
 		</div>
-		
-		
+
+
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
