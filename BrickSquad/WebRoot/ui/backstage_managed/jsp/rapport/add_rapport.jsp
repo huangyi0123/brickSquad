@@ -45,22 +45,6 @@
 			}
 		});
 
-		/* $.ajax({
-			url : 'user/findAllUser',
-			success : function(data) {
-				data = JSON.parse(data);
-				$(data).each(
-						function() {
-							console.log(this);
-							$("#userId").append(
-									'<option value="'+this.id+'">' + this.username
-											+ '</option>');
-							layui.use('form', function() {
-								var form = layui.form();
-							});
-						});
-			}
-		}); */
 	});
 	function findAll(data, id) {
 		$(data).each(
