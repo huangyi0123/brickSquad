@@ -51,7 +51,8 @@ public class UserController  {
 	            model.addAttribute(user);
 	            return "redirect:/ui/backstage_managed/jsp/frame.jsp";   
 	        }
-		 		request.getSession().setAttribute("msg", "你输入的密码和账户名不匹配 ！");
+		 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
+		 		
 		 		//request.setAttribute("msg", "登录失败");
 		 		return "backstage_managed/jsp/user/login";
 	       

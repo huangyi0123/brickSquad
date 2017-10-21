@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -40,18 +42,43 @@ public class MedicalController {
 	}
 
 	@RequestMapping("/toAddMedical")
-	public String toAddMedical() {
+	public String toAddMedical(HttpServletRequest request, String id) {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateMedicalById");
+			Medical medical = medicalService.findMedicalById(id);
+			request.setAttribute("medical", medical);
+		} else {
+			request.setAttribute("url", "insertMedical");
+			request.setAttribute("msg", "添加");
+		}
 		return "backstage_managed/jsp/medical/add_medical";
 	}
+
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
 	}
+
 	@RequestMapping("/addMedical")
 	public String addMedical(Medical medical) {
 		medicalService.insertMedical(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}
 
+	@RequestMapping("/deleteMedicalById")
+	@ResponseBody
+	public String deleteMedicalById(String id) {
+		medicalService.deleteMedicalById(id);
+		return "success";
+	}
+
+	@RequestMapping("/updateMedicalById")
+
+	public String updateMedicalById(Medical medical) {
+		medicalService.updateMedicalById(medical);
+		return "backstage_managed/jsp/medical/medical_list";
+	}
 }

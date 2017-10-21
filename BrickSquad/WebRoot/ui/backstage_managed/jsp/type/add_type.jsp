@@ -35,7 +35,7 @@
 			success : function(data) {
 				data = JSON.parse(data);
 				var id = $("#parament").attr('val');
-				console.log(id);
+				
 				$(data).each(
 						function() {
 							if (id == this.id) {

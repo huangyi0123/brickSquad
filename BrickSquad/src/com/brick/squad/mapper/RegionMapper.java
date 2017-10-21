@@ -7,11 +7,19 @@ import com.brick.squad.util.Pagination;
 
 public interface RegionMapper {
 	public List<Region> findRegionByLevel(int level);
+
 	public Region findRegionById(String id);
+
 	public void insertRegionById(Region region);
+
 	public void deleteRegionById(String id);
+
 	public void updateRegion(Region region);
+
 	public List<Region> regionPagination(Pagination pagination);
+
 	public int regionCount();
+
+	public List<Region> findRegionByParentId(String perantId);
 
 }

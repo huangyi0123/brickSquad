@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ReplyMapper">
+
+<select id="findAllReply"  resultType="reply">
+		select id id,rated_id ratedId,reply_date replyDate,centent centent
+		from reply 
+	</select>
 	<select id="findReplyById" parameterType="String" resultType="reply">
 		select id id,rated_id,reply_date replyDate,centent centent
 		from reply where id

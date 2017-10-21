@@ -28,29 +28,56 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/js/jquery.min.js"></script>
 <script type="text/javascript">
 	//查询type中parentId为mz，即所有民族集合
+
 	$(function() {
-	$.ajax({
-		url : 'type/findTypeByParentId',
-		data : {
-			'parentId' : 'mz'
-		},
-		success : function(data) {
-			data = JSON.parse(data);
-			console.log(data);
-			$(data).each(
-					function() {
-						$("#paramentNationId").append(
-								'<option value="'+this.id+'">' + this.name
-										+ '</option>');
-						layui.use('form', function() {
-							var form = layui.form();
+		$.ajax({
+			url : 'type/findTypeByParentId',
+			data : {
+				'parentId' : 'mz'
+			},
+			success : function(data) {
+				data = JSON.parse(data);
+				console.log(data);
+				$(data).each(
+						function() {
+							$("#paramentNationId").append(
+									'<option value="'+this.id+'">' + this.name
+											+ '</option>');
+
 						});
-					});
-		}
+			}
+		});
+
+		//查询region中level为1，即所有省份集合
+		$.ajax({
+			url : 'region/findRegionByLevel',
+			data : {
+				'level' : 1
+			},
+			success : function(data) {
+				data = JSON.parse(data);
+				console.log(data);
+				$(data).each(
+						function() {
+							$("#prId").append(
+									'<option value="'+this.id+'">' + this.name
+											+ '</option>');
+							layui.use('form', function() {
+								var form = layui.form();
+							});
+						});
+			}
+		});
+
+		$("#prId").change(function() {
+			console.log("获取省份下拉框的选中事件");
+		});
+
 	});
-});
 </script>
 </head>
 <body>
@@ -71,9 +98,10 @@
 			</div>
 			<label class="layui-form-label">出生日期 </label>
 			<div class="layui-input-inline">
-			<!-- name="birthday" -->
-				 <input type="date"  required lay-verify="required"
-					placeholder="出生日期" autocomplete="off" class="layui-input"> 
+				<!--  -->
+				<input type="date" name="birthday" required lay-verify="required"
+					placeholder="出生日期" autocomplete="off" class="layui-input"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 			<label class="layui-form-label">性别</label>
 			<div class="layui-input-inline">
@@ -95,14 +123,14 @@
 				<input type="text" name="height" required lay-verify="required"
 					placeholder="身高" autocomplete="off" class="layui-input">
 			</div>
-			
+
 			<label class="layui-form-label">民族</label>
 			<div class="layui-input-inline">
-				<select name="nationId" id="paramentNationId"  lay-search="">
+				<select name="nationId" id="paramentNationId" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
-		
+
 			<label class="layui-form-label">婚姻情况</label>
 
 			<div class="layui-input-inline">
@@ -153,31 +181,31 @@
 			<label class="layui-form-label">是否具有购买能力</label>
 			<div class="layui-input-inline">
 				<select name="isPurchasing">
-					<option value="0">是</option>
-					<option value="1">否</option>
+					<option value="是">是</option>
+					<option value="否">否</option>
 				</select>
 			</div>
 			<label class="layui-form-label">是否具有决策能力</label>
 			<div class="layui-input-inline">
 				<select name="isSupremacy">
-					<option value="0">是</option>
-					<option value="1">否</option>
+					<option value="是">是</option>
+					<option value="否">否</option>
 				</select>
 
 			</div>
 			<label class="layui-form-label">是否有购买需求</label>
 			<div class="layui-input-inline">
 				<select name="isPureq">
-					<option value="0">是</option>
-					<option value="1">否</option>
+					<option value="是">是</option>
+					<option value="否">否</option>
 				</select>
 
 			</div>
 			<label class="layui-form-label">购买意愿分类</label>
 			<div class="layui-input-inline">
 				<select name="pureqTypeId">
-					<option value="0">是</option>
-					<option value="1">否</option>
+					<option value="是">是</option>
+					<option value="否">否</option>
 				</select>
 
 			</div>
@@ -185,12 +213,11 @@
 		</div>
 
 		<div class="layui-form-item">
-			<div class="layui-inline">
-				<label class="layui-form-label">地址ID</label>
-				<div class="layui-input-inline">
-					<input type="text" class="layui-input" name="addressId"
-						placeholder="地址ID">
-				</div>
+			<label class="layui-form-label">地址</label>
+			<div class="layui-input-inline">
+				<select name="provinceId" id="prId" lay-search="">
+					<option value="">选择省份</option>
+				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -212,10 +239,11 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">退休日期 </label>
 			<div class="layui-input-inline">
-			<!-- name="retirementDate" -->
-				 <input type="date"  required
+				<!--  -->
+				<input type="date" name="retirementDate" required
 					lay-verify="required" placeholder="退休日期" autocomplete="off"
-					class="layui-input"> 
+					class="layui-input"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
 

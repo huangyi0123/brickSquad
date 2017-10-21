@@ -1,5 +1,7 @@
 package com.brick.squad.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -32,13 +34,41 @@ public class ReplyController {
 		return replyService.replyPagination(pagination);
 
 	}
+	@RequestMapping("/findAllReply")
+	@ResponseBody
+	public String findAllReply(){
+		return replyService.findAllReply();
+	}
+	
+	
 	@RequestMapping("/toAddReply")
-	public String toAddReply() {
+	public String toAddReply(HttpServletRequest request, String id) {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateReplyById");
+			Reply reply =replyService.findReplyById(id);
+			request.setAttribute("reply", reply);
+		} else {
+			request.setAttribute("url", "insertReply");
+			request.setAttribute("msg", "添加");
+		}
 		return "backstage_managed/jsp/reply/add_reply";
 	}
 	@RequestMapping("addReply")
 	public String addReply(Reply reply){
 		replyService.insertReply(reply);
+		return "backstage_managed/jsp/reply/reply_list";
+	}
+	@RequestMapping("/deleteReplyById")
+	@ResponseBody
+	public String deleteReplyById(String id){
+		replyService.deleteReplyById(id);
+		return "success";
+	}
+	@RequestMapping("/updateReplyById")
+
+	public String updateReplyById(Reply reply){
+		replyService.updateReplyCententById(reply);
 		return "backstage_managed/jsp/reply/reply_list";
 	}
 }
