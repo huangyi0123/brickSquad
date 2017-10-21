@@ -28,8 +28,6 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
-<script type="text/javascript"
-	src="ui/backstage_managed/js/jquery.min.js"></script>
 <script type="text/javascript">
 	//查询type中parentId为mz，即所有民族集合
 
@@ -47,7 +45,6 @@
 							$("#paramentNationId").append(
 									'<option value="'+this.id+'">' + this.name
 											+ '</option>');
-
 						});
 			}
 		});
@@ -127,14 +124,13 @@
 			<div class="layui-input-inline">
 				<!--  -->
 				<input type="date" name="birthday" required lay-verify="required"
-					placeholder="出生日期" autocomplete="off" class="layui-input"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					placeholder="出生日期" class="layui-input">
 			</div>
 			<label class="layui-form-label">性别</label>
 			<div class="layui-input-inline">
 				<select name="gender">
-					<option value="0">男</option>
-					<option value="1">女</option>
+					<option value="男">男</option>
+					<option value="女">女</option>
 				</select>
 			</div>
 		</div>
@@ -291,9 +287,9 @@
 			<label class="layui-form-label">退休日期 </label>
 			<div class="layui-input-inline">
 				<input type="date" name="retirementDate" required
-					lay-verify="required" placeholder="退休日期" autocomplete="off"
+					lay-verify="required" placeholder="退休日期" 
 					class="layui-input"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					>
 			</div>
 		</div>
 
