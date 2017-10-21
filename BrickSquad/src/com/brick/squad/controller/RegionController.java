@@ -20,32 +20,47 @@ public class RegionController {
 	@Autowired
 	@Qualifier("regionService")
 	private RegionService regionService;
+
 	@RequestMapping("/toRegionList")
 	public String toRegionList() {
 		return "backstage_managed/jsp/region/region_list";
 	}
+
 	@RequestMapping("/toAddRegion")
 	public String toAddRegion() {
 		return "backstage_managed/jsp/region/add_region";
 	}
+
 	@RequestMapping("/getRegionList")
 	@ResponseBody
-	public String getRegionList(int pSize,int cPage,String keyword) {
-		Pagination pagination=new Pagination();
+	public String getRegionList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return regionService.regionPagination(pagination);
 	}
+
+	@RequestMapping("/findRegionByLevel")
+	@ResponseBody
+	public String findRegionByLevel(int level) {
+		return regionService.findRegionByLevel(level);
+	}
+
+	@RequestMapping("/findRegionByParentId")
+	@ResponseBody
+	public String findRegionByParentId(String parantId) {
+		return regionService.findRegionByParentId(parantId);
+	}
+
 	@RequestMapping("/insertRegion")
-	public String insertRegion(Region region){
+	public String insertRegion(Region region) {
 		Random random = new Random();
-		region.setId(random.nextInt(10000)+"");
-	/*	StringBuffer stringBuffer = new StringBuffer();
-		for(int i = 0; i<100;i++){
-			stringBuffer.append(i);
-		}
-		random.nextInt(100);
-		region.setId(" "+stringBuffer.toString());*/
+		region.setId(random.nextInt(10000) + "");
+		/*
+		 * StringBuffer stringBuffer = new StringBuffer(); for(int i = 0;
+		 * i<100;i++){ stringBuffer.append(i); } random.nextInt(100);
+		 * region.setId(" "+stringBuffer.toString());
+		 */
 		region.setPerantId("1");
 		regionService.insertRegionById(region);
 		return "backstage_managed/jsp/region/region_list";

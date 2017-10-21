@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -62,6 +63,12 @@ public class UserServiceImpl implements UserService {
 		
 		 
 	}
+
+	
+	public User findUsername(String username) {
+		
+		return userMapper.findUsername(username);
+	}
 	@Override
 	/**查询所有用户，需求字段*/
 	public String findAllUser() throws Exception {
@@ -77,9 +84,26 @@ public class UserServiceImpl implements UserService {
 		JSONArray jsonArray=new JSONArray();
 		String date=jsonArray.fromObject(users).toString();
 		return date;
+
 	}
 
+
 	
+	public User loginCheck(String username, String password){
+		User user=userMapper.loginCheck(username, password);
+		if(user!=null&&user.getPassword().equals(SecurityUtil.strToMD5(password))){
+			return user;
+		}
+			return null;
+		
+	}
+	
+
+	
+
+
+	
+
 	
 	
 }

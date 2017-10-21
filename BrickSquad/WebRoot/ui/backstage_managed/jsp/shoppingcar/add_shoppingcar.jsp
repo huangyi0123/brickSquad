@@ -26,16 +26,47 @@
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修改成功 
+$(function() {
+	$.ajax({
+		url : 'shoppingCar/findArticleAndPersonalInformation',
+		success : function(data) {
+			data = JSON.parse(data);
+			/* console.log(data[0].article[0]);浏览器打印 */
+			var article = data[0].article;
+			var personalinformation = data[0].personalInformation;
+			findAll(article, "#articleId");
+			findAll(personalinformation, "#personalInformationId");
+			layui.use('form', function() {
+				var form = layui.form();
+			});
+		}
 	});
+});
+	function findAll(data, id) {
+		$(data).each(
+				function() {
+					console.log(this);
+					$(id).append(
+							'<option value="'+this.id+'">' + this.name
+									+ '</option>');
+				});
+	}
 </script>
 </head>
 
 <body>
 <br>
-	<form class="layui-form" action="#" id="form1">
+	<form class="layui-form" action="shoppingCar/insertShoppingCar" id="form1" method="post">
+		<div class="layui-form-item">
+			<label class="layui-form-label">ID</label>
+			<div class="layui-input-inline">
+				<input type="text" name="id" required lay-verify="required"
+					placeholder="ID" autocomplete="off" class="layui-input">
+			</div>
+		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">买家姓名</label>
 			<div class="layui-input-inline">
@@ -48,7 +79,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
-				<select name="perId" id="personalInformationId" lay-search="">
+				<select name="articleId" id="articleId" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -56,17 +87,18 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品数量</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
+				<input type="text" name="number" required lay-verify="required"
 					placeholder="商品数量" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">生成时间</label>
 			<div class="layui-input-inline">
-				<input type="date" name="title" required lay-verify="required"
+				<input type="date" name="date" required lay-verify="required"
 					placeholder="生成时间" autocomplete="off" class="layui-input">
 			</div>
-		</div>
+		</div> 
+		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>

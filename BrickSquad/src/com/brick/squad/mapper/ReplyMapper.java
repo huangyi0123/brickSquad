@@ -17,4 +17,5 @@ public void updateReplyCententById(Reply reply);
 
 public List<Reply> replyPagination(Pagination pagination);
 public int findReplyAllCount();
+public List<Reply> findAllReply();
 }

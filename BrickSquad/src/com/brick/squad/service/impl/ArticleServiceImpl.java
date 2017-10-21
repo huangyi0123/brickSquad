@@ -3,6 +3,8 @@ package com.brick.squad.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,7 @@ import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 @Transactional
 public class ArticleServiceImpl implements ArticalService{
@@ -56,6 +59,14 @@ public class ArticleServiceImpl implements ArticalService{
 	public int findArticleAllCount() {
 		// TODO Auto-generated method stub
 		return articleMapper.findArticleAllCount();
+	}
+	@Override
+	/**查询所有商品信息，根据字段需求*/
+	public String findArticle() throws Exception {
+		List<Select> articles= articleMapper.findArticle();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(articles).toString();
+		return data;
 	}
 	
 }

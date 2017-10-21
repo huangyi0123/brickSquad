@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-；scale=1.0">
 <title>登录</title>
 <link href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet">
@@ -21,6 +21,7 @@
 <link href="ui/backstage_managed/css/style.min.css" rel="stylesheet">
 <script src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript"  src="ui/backstage_managed/jsp/user/loginCheck.js"></script>
 
 </head>
 
@@ -33,16 +34,16 @@
 			</div>
 			<h3>欢迎使用 老人管理系统</h3>
 
-			<form class="m-t" role="form" action="user/toLogin"   method="post">
+			<form class="m-t" role="form" action="user/toLogin"   method="post" >
 				<div class="form-group">
-
-					<input name="username" type="text" class="form-control" placeholder="用户名" required="">
+					<input name="username" type="text" class="form-control" id="username" placeholder="用户名"  required="" >
 				</div>
+				<span id="username2" style="font-size: 10px; color: red;float: right;">${msg}</span>
 				<div class="form-group">
-					<input name="password" type="password" class="form-control" placeholder="密码"
+					<input name="password" type="password" class="form-control" id="password" placeholder="密码"
 						required="">
 				</div>
-				<button type="submit" class="btn btn-primary block full-width m-b">登
+				<button type="submit" class="btn btn-primary block full-width m-b"  >登
 					录</button>
 				<p class="text-muted text-center">
 					<a href="login.html#"><small>忘记密码了？</small></a> | <a

@@ -3,6 +3,8 @@ package com.brick.squad.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,6 +58,14 @@ public class ReplyServiceImpl implements ReplyService {
 	public int findReplyAllCount() {
 		// TODO Auto-generated method stub
 		return replyMapper.findReplyAllCount();
+	}
+
+	@Override
+	public String findAllReply() {
+		List<Reply> replies =replyMapper.findAllReply();
+		JSONArray jsonArray =  new JSONArray();
+		String replydata =jsonArray.fromObject(replies).toString();
+		return replydata;
 	}
 
 }
