@@ -92,7 +92,8 @@ function deleteById(id) {
 					url:'shopActivities/deleteShopActivitiesById?id='+id,
 					success:function(data){
 						RefreshGridManagerList("");
-						layer.close(index);
+						console.log(3333333);
+						layer.closeAll();
 					}
 				});
 			}
