@@ -75,7 +75,7 @@
 </head>
 <body>
 	<br>
-	<h1>${msg}类别信息</h1>
+	<h1>${msg}老人客户沟通信息</h1>
 	<form class="layui-form" action="rapport/${url }" id="form1"
 		method="post">
 		<%-- <input type="hidden" name="id" value="${rapport.id }"> --%>
@@ -141,8 +141,7 @@
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">沟通内容</label>
 			<div class="layui-input-block">
-				<textarea name="content" placeholder="请输入内容" class="layui-textarea"
-				></textarea>
+				<textarea name="content" placeholder="请输入内容" class="layui-textarea" value="${rapport.content}"></textarea>
 			</div>
 		</div>
 		<div class="layui-form-item">
