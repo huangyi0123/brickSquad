@@ -48,6 +48,7 @@
 											+ '</option>');
 						});
 			}
+			
 		});
 
 		//查询region中level为1，即所有省份集合
@@ -80,7 +81,12 @@
 			}
 
 		});
-
+		var birthdayId = $("#birthdayId").attr('val');
+		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
+		$("#birthdayId").val(birthdayId);
+		var retirementDateId = $("#retirementDateId").attr('val');
+		retirementDateId = Format(new Date(retirementDateId), "yyyy-MM-dd");
+		$("#retirementDateId").val(retirementDateId);
 	});
 	function findRegionByParentId(parent_id, select_id) {
 
@@ -126,12 +132,12 @@
 			<label class="layui-form-label">出生日期 </label>
 			<div class="layui-input-inline">
 				<!--  -->
-				<input type="date" name="birthday" required lay-verify="required"
+				<input type="date" id="birthdayId" val="${personalInformation.birthday }"  name="birthday" required lay-verify="required"
 					placeholder="出生日期" class="layui-input">
 			</div>
 			<label class="layui-form-label">性别</label>
 			<div class="layui-input-inline">
-				<select name="gender">
+				<select name="gender" value="${personalInformation.gender }">
 					<option value="男">男</option>
 					<option value="女">女</option>
 				</select>
@@ -141,18 +147,18 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">体重</label>
 			<div class="layui-input-inline">
-				<input type="text" name="weight" required lay-verify="required"
+				<input type="text" value="${personalInformation.weight }" name="weight" required lay-verify="required"
 					placeholder="体重" autocomplete="off" class="layui-input">
 			</div>
 			<label class="layui-form-label">身高</label>
 			<div class="layui-input-inline">
-				<input type="text" name="height" required lay-verify="required"
+				<input type="text" value="${personalInformation.height }" name="height" required lay-verify="required"
 					placeholder="身高" autocomplete="off" class="layui-input">
 			</div>
 
 			<label class="layui-form-label">民族</label>
 			<div class="layui-input-inline">
-				<select name="nationId" id="paramentNationId" lay-search="">
+				<select name="nationId" value="${personalInformation.nationId }" id="paramentNationId" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -160,7 +166,7 @@
 			<label class="layui-form-label">婚姻情况</label>
 
 			<div class="layui-input-inline">
-				<select name="marriageId">
+				<select value="${personalInformation.marriageId }" name="marriageId">
 					<option value="未婚">未婚</option>
 					<option value="已婚">已婚</option>
 					<option value="离异">离异</option>
@@ -169,27 +175,27 @@
 				</select>
 			</div>
 		</div>
-		<div class="layui-form-item">
+		<div class="layui-form-item" >
 
 			<label class="layui-form-label">家族遗传病史</label>
 			<div class="layui-input-inline">
-				<input type="text" name="familyHistory" required
+				<input type="text" value="${personalInformation.familyHistory }" name="familyHistory" required
 					lay-verify="required" placeholder="家族遗传病史" autocomplete="off"
 					class="layui-input">
 			</div>
 			<label class="layui-form-label">收入</label>
 			<div class="layui-input-inline">
-				<input type="text" name="income" required lay-verify="required"
+				<input type="text" value="${personalInformation.income }" name="income" required lay-verify="required"
 					placeholder="收入" autocomplete="off" class="layui-input">
 			</div>
 			<label class="layui-form-label">邮编</label>
 			<div class="layui-input-inline">
-				<input type="text" name="zip" required lay-verify="required"
+				<input type="text" value="${personalInformation.zip }" name="zip" required lay-verify="required"
 					placeholder="邮编" autocomplete="off" class="layui-input">
 			</div>
 			<label class="layui-form-label">文化程度</label>
 			<div class="layui-input-inline">
-				<select name="cultureId">
+				<select value="${personalInformation.cultureId }" name="cultureId">
 					<option value="小学">小学</option>
 					<option value="初中">初中</option>
 					<option value="高中">高中</option>
@@ -206,14 +212,14 @@
 
 			<label class="layui-form-label">是否具有购买能力</label>
 			<div class="layui-input-inline">
-				<select name="isPurchasing">
+				<select value="${personalInformation.isPurchasing }" name="isPurchasing">
 					<option value="是">是</option>
 					<option value="否">否</option>
 				</select>
 			</div>
 			<label class="layui-form-label">是否具有决策能力</label>
 			<div class="layui-input-inline">
-				<select name="isSupremacy">
+				<select value="${personalInformation.isSupremacy }" name="isSupremacy">
 					<option value="是">是</option>
 					<option value="否">否</option>
 				</select>
@@ -221,7 +227,7 @@
 			</div>
 			<label class="layui-form-label">是否有购买需求</label>
 			<div class="layui-input-inline">
-				<select name="isPureq">
+				<select value="${personalInformation.isPureq }" name="isPureq">
 					<option value="是">是</option>
 					<option value="否">否</option>
 				</select>
@@ -229,7 +235,7 @@
 			</div>
 			<label class="layui-form-label">购买意愿分类</label>
 			<div class="layui-input-inline">
-				<select name="pureqTypeId">
+				<select value="${personalInformation.pureqTypeId }" name="pureqTypeId">
 					<option value="是">是</option>
 					<option value="否">否</option>
 				</select>
@@ -241,7 +247,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select name="provinceId" id="prId" lay-filter="prIdSelect"
+				<select  name="provinceId" id="prId" lay-filter="prIdSelect"
 					lay-search="">
 					<option value="">选择省份</option>
 				</select>
@@ -273,7 +279,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">从事行业</label>
 			<div class="layui-input-inline">
-				<input type="text" name="engagedIndustry" required
+				<input value="${personalInformation.engagedIndustry }" type="text" name="engagedIndustry" required
 					lay-verify="required" placeholder="从事行业" autocomplete="off"
 					class="layui-input">
 			</div>
@@ -281,7 +287,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">退休单位</label>
 			<div class="layui-input-inline">
-				<input type="text" name="retirementUnit" required
+				<input value="${personalInformation.retirementUnit }" type="text" name="retirementUnit" required
 					lay-verify="required" placeholder="退休单位" autocomplete="off"
 					class="layui-input">
 			</div>
@@ -289,7 +295,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">退休日期 </label>
 			<div class="layui-input-inline">
-				<input type="date" name="retirementDate" required
+				<input id="retirementDateId" val="${personalInformation.retirementDate }" type="date" name="retirementDate" required
 					lay-verify="required" placeholder="退休日期" 
 					class="layui-input"
 					>
