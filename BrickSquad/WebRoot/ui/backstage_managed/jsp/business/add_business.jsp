@@ -35,26 +35,27 @@
 
 <body>
 	<form class="layui-form" style="margin-right: 30px"
-		action="business/insertBusiness" id="form1" method="post">
+		action="business/${url }" id="form1" method="post">
+		<input type="hidden" name="id" value="${business.id }">
 		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label">商家名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
-					placeholder="商家名称" autocomplete="off" class="layui-input">
+					placeholder="商家名称" autocomplete="off" class="layui-input" value="${business.name}">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">身份证号：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="idcard" required lay-verify="required"
-					placeholder="身份证号" autocomplete="off" class="layui-input">
+					placeholder="身份证号" autocomplete="off" class="layui-input" value="${business.idcard }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">店铺名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="shopname" required lay-verify="required"
-					placeholder="店铺名称" autocomplete="off" class="layui-input">
+					placeholder="店铺名称" autocomplete="off" class="layui-input" value="${business.shopname }">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -62,7 +63,7 @@
 			<div class="layui-input-inline">
 				<input type="text" name="shopMaterialPath" required
 					lay-verify="required" placeholder="商品来源" autocomplete="off"
-					class="layui-input">
+					class="layui-input" value="${business.shopMaterialPath }">
 			</div>
 		</div>
 		<div class="layui-form-item">

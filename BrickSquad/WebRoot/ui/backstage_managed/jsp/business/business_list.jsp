@@ -42,7 +42,6 @@
 <script type="text/javascript">
 	$(function() {
 		init("");
-		addBusiness("");
 	});
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
@@ -92,6 +91,7 @@ a:HOVER {
 		</div>
 	</div>
 	<div style="clear: both;"></div>
+	<div class="cls"></div>
 	<table grid-manager="demo-ajaxPageCode"></table>
 </body>
 </html>
