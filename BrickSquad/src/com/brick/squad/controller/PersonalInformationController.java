@@ -86,6 +86,7 @@ public String updatePersonalInformation(PersonalInformation personalInformation)
 	@RequestMapping("/deletePersonalInformationById")
 	@ResponseBody
 	public String deletePersonalInformationById(String id){
+		System.out.println("yyyyyy");
 		personalInformationService.deletePersonalInformationById(id);
 		return "success";
 	}

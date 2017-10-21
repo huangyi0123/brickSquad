@@ -12,8 +12,8 @@
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into article(id,aname,type_id,business_id,price,stock,image)
-		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{image})
+		insert into article(id,aname,type_id,business_id,price,stock,describes,image)
+		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{image})
 	</insert>
 	
 	<delete id="deleteArticleById" parameterType="String">

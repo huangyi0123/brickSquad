@@ -44,6 +44,7 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
+
 function serach() {
 	$("#serach").click(function() {
 		var keyword = $("#keyword").val();

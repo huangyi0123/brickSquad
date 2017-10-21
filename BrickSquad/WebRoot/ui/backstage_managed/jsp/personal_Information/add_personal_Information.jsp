@@ -66,18 +66,45 @@
 							$("#prId").append(
 									'<option value="'+this.id+'">' + this.name
 											+ '</option>');
+
+							layui.use('form', function() {
+								var form = layui.form();
+								form.on('select(prIdSelect)',
+										function(data) {
+											console.log(data.value);
+											findRegionByParentId(data.value,
+													'#cityId');
+										});
+							});
+
+						});
+
+			}
+
+		});
+
+	});
+	function findRegionByParentId(parent_id, select_id) {
+
+		$.ajax({
+			url : 'region/findRegionByParentId',
+			data : {
+				'parantId' : parent_id
+			},
+			success : function(data) {
+				data = JSON.parse(data);
+				$(data).each(
+						function() {
+							$(select_id).append(
+									'<option value="'+this.id+'">' + this.name
+											+ '</option>');
 							layui.use('form', function() {
 								var form = layui.form();
 							});
 						});
 			}
 		});
-
-		$("#prId").change(function() {
-			console.log("获取省份下拉框的选中事件");
-		});
-
-	});
+	}
 </script>
 </head>
 <body>
@@ -215,10 +242,34 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select name="provinceId" id="prId" lay-search="">
+				<select name="provinceId" id="prId" lay-filter="prIdSelect"
+					lay-search="">
 					<option value="">选择省份</option>
 				</select>
 			</div>
+			<div class="layui-input-inline">
+				<select name="cityId" id="cityId" lay-filter="cityIdSelect"
+					lay-search="">
+					<option value="">选择城市</option>
+				</select>
+			</div>
+			<div class="layui-input-inline">
+				<select name="countyId" id="countyId" lay-filter="countyIdSelect"
+					lay-search="">
+					<option value="">选择县市</option>
+				</select>
+			</div>
+			<div class="layui-input-inline">
+				<select name="countryId" id="countryId" lay-filter="countryIdSelect"
+					lay-search="">
+					<option value="">选择乡镇</option>
+				</select>
+			</div>
+			<div class="layui-input-inline">
+				<input type="text" name="detailed" required lay-verify="required"
+					placeholder="具体地址" autocomplete="off" class="layui-input">
+			</div>
+	
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">从事行业</label>
@@ -239,7 +290,6 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">退休日期 </label>
 			<div class="layui-input-inline">
-				<!--  -->
 				<input type="date" name="retirementDate" required
 					lay-verify="required" placeholder="退休日期" autocomplete="off"
 					class="layui-input"
