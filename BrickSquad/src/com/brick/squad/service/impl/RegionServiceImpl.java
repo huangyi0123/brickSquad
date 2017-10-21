@@ -20,8 +20,11 @@ public class RegionServiceImpl implements RegionService {
 	@Qualifier("regionMapper")
 	private RegionMapper regionMapper;
 	@Override
-	public List<Region> findRegionByLevel(int level) {
-		return regionMapper.findRegionByLevel(level);
+	public String findRegionByLevel(int level) {
+		List<Region> regions = regionMapper.findRegionByLevel(level);
+		JSONArray jsonArray = new JSONArray();
+		String dataregion =jsonArray.fromObject(regions).toString();
+		return dataregion;
 	}
 	@Override
 	public Region findRegionById(String id) {
@@ -47,5 +50,12 @@ public class RegionServiceImpl implements RegionService {
 		Util<Region> util=new Util<Region>();
 		String data=util.SplitPage(regions, row);
 		return data;
+	}
+	@Override
+	public String findRegionByParentId(String perantId) {
+		List<Region> regions = regionMapper.findRegionByParentId(perantId);
+		JSONArray jsonArray = new JSONArray();
+		String dataregion =jsonArray.fromObject(regions).toString();
+		return dataregion;
 	}
 }

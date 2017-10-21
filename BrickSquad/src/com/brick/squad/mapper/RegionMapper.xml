@@ -8,6 +8,9 @@
 	<select id="findRegionById" resultType="region" parameterType="String" >
 		select id,isleaf,name,parent_id perantId  from region where id=#{id}
 	</select>
+	<select id="findRegionByParentId" resultType="region" parameterType="String" >
+		select id,isleaf,name,parent_id perantId  from region where parent_id=#{perantId}
+	</select>
 	<insert id="insertRegionById" parameterType="region">
 		insert into region (id,isleaf,name,parent_id,level)  values (#{id},#{isleaf},#{name}
 		,#{perantId},#{level})

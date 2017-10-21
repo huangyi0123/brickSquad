@@ -1,7 +1,5 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.util.Pagination;
 
@@ -12,4 +10,5 @@ public interface ReplyService {
 	public void updateReplyCententById(Reply reply);
 	public String replyPagination(Pagination pagination);
 	public int findReplyAllCount();
+	public String findAllReply();
 }

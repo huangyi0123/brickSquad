@@ -30,7 +30,16 @@ public class RatedController {
 	}
 
 	@RequestMapping("/toAddRated")
-	public String toAddRated() {
+	public String toAddRated(HttpServletRequest request, String id) {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateRatedById");
+			Rated rated =ratedService.findRatedById(id);
+			request.setAttribute("rated", rated);
+		} else {
+			request.setAttribute("url", "insertRated");
+			request.setAttribute("msg", "添加");
+		}
 		return "backstage_managed/jsp/rated/add_rated";
 	}
 
@@ -81,11 +90,15 @@ public class RatedController {
 
 	@RequestMapping("/deleteRatedById")
 	@ResponseBody
-	public void deleteRatedById(String id) {
+	public String deleteRatedById(String id) {
+		ratedService.deleteRatedById(id);
+		return "success";
 	}
 
-	@RequestMapping("/updateRatedCententById")
-	@ResponseBody
-	public void updateRatedCententById(Rated rated) {
+	@RequestMapping("/updateRatedById")
+
+	public String updateRatedById(Rated rated) {
+		ratedService.updateRatedCententById(rated);
+		return "backstage_managed/jsp/rated/rated_list";
 	}
 }
