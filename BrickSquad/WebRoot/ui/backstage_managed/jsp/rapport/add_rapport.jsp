@@ -58,8 +58,10 @@
 </script>
 </head>
 <body>
+<div style="padding-left: 70px;">
 	<br>
-	<h1>${msg}老人客户沟通信息</h1>
+	<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}老人客户沟通信息</div>
+	<br>
 	<form class="layui-form" action="rapport/${url }" id="form1"
 		method="post">
 		<%-- <input type="hidden" name="id" value="${rapport.id }"> --%>
@@ -125,7 +127,8 @@
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">沟通内容</label>
 			<div class="layui-input-block">
-				<textarea name="content" placeholder="请输入内容" class="layui-textarea" value="${rapport.content}"></textarea>
+				<textarea name="content" placeholder="请输入内容" class="layui-textarea" value="${rapport.content}"
+				></textarea>
 			</div>
 		</div>
 		
@@ -138,5 +141,6 @@
 		</div>
 
 	</form>
+	</div>
 </body>
 </html>
