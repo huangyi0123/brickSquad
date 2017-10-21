@@ -30,7 +30,6 @@
 <script type="text/javascript">
 	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
 	$(function() {
-		alert("test");
 		$.ajax({
 			url : 'type/findTypeByParentId',
 			data : {
