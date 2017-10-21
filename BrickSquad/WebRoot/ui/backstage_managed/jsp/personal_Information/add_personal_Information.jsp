@@ -28,6 +28,7 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
 	//查询type中parentId为mz，即所有民族集合
 
@@ -106,8 +107,10 @@
 </head>
 <body>
 	<br>
+	<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}老人详细信息</div>
+	<br>
 	<form class="layui-form"
-		action="personalInformation/addPersonalInformation" id="form1"
+		action="personalInformation/${url }" id="form1"
 		method="post">
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>

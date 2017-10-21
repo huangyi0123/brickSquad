@@ -52,7 +52,7 @@ public class PersonalInformationController {
 			PersonalInformation personalInformation = personalInformationService.findPersonalInformationById(id);
 			request.setAttribute("personalInformation", personalInformation);
 		} else {
-			request.setAttribute("url", "insertPersonalInformation");
+			request.setAttribute("url", "addPersonalInformation");
 			request.setAttribute("msg", "添加");
 		}
 		
