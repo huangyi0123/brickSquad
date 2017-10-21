@@ -3,8 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.BusinessMapper">
 	<sql id="prop">
-		id,name,idcard,shopname,shop_material_path
-		shopMaterialPath
+		id,name,idcard,shopname,shop_material_path shopMaterialPath
 	</sql>
 	<select id="findBusinessById" resultType="Business"
 		parameterType="String">

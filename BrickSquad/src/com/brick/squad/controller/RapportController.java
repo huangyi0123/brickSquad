@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -38,7 +40,16 @@ public class RapportController {
 			return rapportService.rapportPagination(pagination);
 		}
 		@RequestMapping("/toAddRapport")
-		public String toAddRapport() {
+		public String toAddRapport(HttpServletRequest request,String id) throws Exception {
+			if(id!=null){
+				request.setAttribute("msg", "修改");
+				request.setAttribute("url", "updateRapportById");
+				Rapport rapport= rapportService.findRapportById(id);
+				request.setAttribute("rapport", rapport);
+			}else{
+				request.setAttribute("url", "insertRapport");
+				request.setAttribute("msg", "添加");
+			}
 			return "backstage_managed/jsp/rapport/add_rapport";
 		}
 		@InitBinder
@@ -56,8 +67,18 @@ public class RapportController {
 		@ResponseBody
 		public String findAllUserAndPersonalInformation(){
 			return rapportService.findAllUserAndPersonalInformation();
-			
 		}
-		
+		@RequestMapping("/deleteRapportById")
+		@ResponseBody
+		public String deleteRapportById(String id) throws Exception{
+			rapportService.deleteRapportById(id);
+			return "success";
+		}
+		@RequestMapping("/updateRapportById")
+		@ResponseBody
+		public String updateRapportById(Rapport rapport) throws Exception{
+			rapportService.updateRapportByID(rapport);
+			return "backstage_managed/jsp/rapport/rapport_list";
+		}
 	}
 
