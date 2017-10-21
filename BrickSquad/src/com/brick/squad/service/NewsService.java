@@ -25,5 +25,13 @@ public interface NewsService {
 	 * 添加新闻消息
 	 * */
 	public void insertNews(News news)throws Exception;
+	/**
+	 * 根据news的id修改信息
+	 * */
+	public void updateNewsById(News news)throws Exception;
+	/**
+	 * 根据新闻ID查询信息
+	 * */
+	public News findNewsById(String id)throws Exception;
 
 }

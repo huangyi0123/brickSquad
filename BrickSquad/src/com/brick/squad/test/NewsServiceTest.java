@@ -76,4 +76,28 @@ public class NewsServiceTest {
 		news.setUserId("3");
 		newsService.insertNews(news);
 	}
+	/**
+	 * 根据News的ID修改信息测试
+	 * @throws Exception 
+	 * */
+	@Test
+	public void updateNewsById() throws Exception{
+		News news=new News();
+		news.setId("5");
+		news.setContent("阿里云信息发布中心");
+		news.setImagePath("xuebiao.jpg");
+		news.setPostTime(new Date());
+		news.setUserId("555");
+		newsService.updateNewsById(news);
+	}
+	/**
+	 * 根据新闻的ID查询新闻信息测试
+	 * @throws Exception 
+	 * */
+	
+	@Test
+	public void findNewsById() throws Exception{
+		System.out.println(newsService.findNewsById("5"));
+	}
+	
 }
