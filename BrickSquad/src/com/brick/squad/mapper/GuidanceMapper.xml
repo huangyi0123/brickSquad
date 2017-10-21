@@ -26,4 +26,5 @@
 	<select id="findGuidanceAllCount" resultType="int">
 		select count(*) from guidance
 	</select>
+	
 </mapper>

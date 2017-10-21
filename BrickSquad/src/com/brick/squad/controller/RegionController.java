@@ -50,4 +50,10 @@ public class RegionController {
 		regionService.insertRegionById(region);
 		return "backstage_managed/jsp/region/region_list";
 	}
+	@RequestMapping(value="/deleteRegionById")
+	@ResponseBody
+	public String deleteRegionById(String id){
+		regionService.deleteRegionById(id);
+		return "success";
+	}
 }
