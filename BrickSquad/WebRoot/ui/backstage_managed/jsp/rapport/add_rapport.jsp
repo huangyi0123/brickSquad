@@ -128,6 +128,8 @@
 				<textarea name="content" placeholder="请输入内容" class="layui-textarea" value="${rapport.content}"></textarea>
 			</div>
 		</div>
+		
+		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>

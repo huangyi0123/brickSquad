@@ -47,6 +47,7 @@
 		<include refid="prop" />
 		FROM type LIMIT #{skipNum},#{takeNum}
 	</select>
+	
 	<select id="typeCount" resultType="int">
 		SELECT
 		COUNT(*) FROM type
@@ -55,4 +56,5 @@
 	<select id="findAllType" resultType="Type">
 		select id,name from type
 	</select>
+	
 </mapper>
