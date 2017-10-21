@@ -65,7 +65,6 @@ public class Rapport {
     public Date getRapportDate() {
         return rapportDate;
     }
-
     public void setRapportDate(Date rapportDate) {
         this.rapportDate = rapportDate;
     }

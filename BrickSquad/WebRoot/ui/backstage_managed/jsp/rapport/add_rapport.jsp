@@ -28,33 +28,31 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.ajax({
 			url : 'rapport/findAllUserAndPersonalInformation',
 			success : function(data) {
 				data = JSON.parse(data);
-				/* console.log(data[0].user[0]); 浏览器中打印*/
 				var user = data[0].user;
 				var personalinformation = data[0].personalInformation;
-				findAll(user, "#userId");
 				findAll(personalinformation, "#personalInformationId");
+				findAll(user, "#userId");
+				
 				layui.use('form', function() {
 					var form = layui.form();
 				});
 			}
 		});
-
+		var da = $("#rda").attr('val');
+		dat = Format(new Date(da), "yyyy-MM-dd");
+		$("#rda").val(dat);
+		var centent=$("#centent").attr('val');
+		console.log(centent);
+		$("#centent").val(centent);
 	});
-	function findAll(data, id) {
-		$(data).each(
-				function() {
-					console.log(this);
-					$(id).append(
-							'<option value="'+this.id+'">' + this.name
-									+ '</option>');
-				});
-	}
+	
 </script>
 </head>
 <body>
@@ -71,11 +69,12 @@
 					value="${rapport.id}">
 			</div>
 		</div>
-		
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
-				<select name="perId" id="personalInformationId" val="${rapport.perId}" lay-search="">
+				<select name="perId" id="personalInformationId"
+					val="${rapport.perId}" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -84,7 +83,8 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">客户姓名</label>
 			<div class="layui-input-inline">
-				<select name="userId" id="userId" val="${rapport.period}" lay-search="">
+				<select name="userId" id="userId" val="${rapport.perId}"
+					lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -107,8 +107,7 @@
 				<label class="layui-form-label">沟通日期</label>
 				<div class="layui-input-inline">
 					<input type="date" class="layui-input" name="rapportDate"
-						placeholder="yyyy-MM-dd"
-						value="${rapport.rapportDate}">
+						placeholder="yyyy-MM-dd" val="${rapport.rapportDate }" id="rda">
 				</div>
 			</div>
 		</div>
@@ -125,8 +124,7 @@
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">沟通内容</label>
 			<div class="layui-input-block">
-				<textarea name="content" placeholder="请输入内容" class="layui-textarea"
-				></textarea>
+				<textarea name="content" placeholder="请输入内容" class="layui-textarea" id="centent" val="${rapport.content }"></textarea>
 			</div>
 		</div>
 		<div class="layui-form-item">
