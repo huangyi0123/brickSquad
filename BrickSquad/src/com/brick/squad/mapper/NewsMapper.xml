@@ -28,4 +28,8 @@
 	<select id="findNewsCount" resultType="Integer">
 	SELECT COUNT(*) FROM news
 	</select>
+	<insert id="insertNews" parameterType="News">
+	INSERT INTO news(id,user_id,content,imgs_path,post_time)
+	 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
+	</insert>
 </mapper>

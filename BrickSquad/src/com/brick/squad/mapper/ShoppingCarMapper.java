@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.util.Pagination;
 
@@ -34,5 +35,9 @@ public interface ShoppingCarMapper {
 	/**
 	 * 购物车分页查询
 	 * */
-	public List<ShoppingCar> shoppingCarPagination(Pagination pagination);
+	public List<ShoppingCarExpand> shoppingCarPagination(Pagination pagination);
+	/**
+	 * 查询购物车关联查询到的需要字段：商品信息字段，老人信息字段
+	 * */
+	public String findArticleAndPersonalInformation()throws Exception;
 }

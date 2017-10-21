@@ -8,11 +8,11 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
              {
-                key: 'perId',
+                key: 'name',
                 text: '买家姓名'
              },
             {
-                key: 'articleId',
+                key: 'aname',
                 text: '商品名称'
             },
            
@@ -28,13 +28,13 @@ function init(keyword) {
                 key: "operation",
                 text: "操作",
                 template : function(noteData, rowData) {
-					return '<a href="'
+					return '<a href="shoppingCar/toAddShoppingCar?id='
 							+ rowData.id
 
-							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteShoppingCar("'
 
 							+ rowData.id
-							+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 				}
 			} ]
     });
@@ -82,5 +82,24 @@ function serach() {
 	$("#serach").click(function() {
 		var keyword=$("#keyword").val();
 		RefreshGridManagerList(keyword);
+	});
+}
+function deleteShoppingCar(id) {
+	layui.use('layer', function() {
+		var layer = layui.layer;
+		layer.open({
+			title : '警告',
+			content : '是否删除？',
+			btn:["确认","取消"],
+			yes:function(index){
+				$.ajax({
+					url:'shoppingCar/deleteShoppingCar?id='+id,
+					success:function(data){
+						RefreshGridManagerList("");
+						layer.close(index);
+					}
+				});
+			}
+		});
 	});
 }
