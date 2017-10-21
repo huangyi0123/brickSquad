@@ -22,56 +22,43 @@ function init(keyword) {
             {
                 key: "operation",
                 text: "操作",
-                template: function(noteData,rowData)  {
-					return '<a href="'
+                template: function(noteData,rowData) {
+					return '<a href="rated/toAddRated?id='
 					+ rowData.id
 
-					+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+					+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
 
 					+ rowData.id
-					+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+					+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 		}
             }
         ]
     });
+}
+function deleteById(id) {
+	layui.use('layer', function() {
+		var layer = layui.layer;
+		layer.open({
+			title : '警告',
+			content : '是否删除？',
+			btn:["确认","取消"],
+			yes:function(index){
+				$.ajax({
+					url:'rated/deleteRatedById?id='+id,
+					success:function(data){
+						RefreshGridManagerList("");
+						layer.close(index);
+					}
+				});
+			}
+		});
+	});
 }
 function RefreshGridManagerList(keyword) {
 	$(".table-div").remove();
 	$(".page-toolbar").remove();
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
-}
-function addRated(id) {
-	$("#addRated").click(function() {
-		console.log("id");
-		layui.use('layer', function() {
-			var layer = layui.layer;
-			$.ajax({
-				url : "rated/toAddRated",
-				data : {
-					"id" : id
-				},
-				success : function(data) {
-					layer.open({
-						btn : [ '添加' ],
-						title : '添加评论',
-						content : data,
-						yes : function(index) {
-							$.ajax({
-								type : 'post',
-								url : 'rated/addRated',
-								data : $("form").serialize(),
-								success : function() {
-									layer.close(index);
-									RefreshGridManagerList("");
-								}
-							});
-						}
-					});
-				}
-			});
-		});
-	});
 }
 function serach() {
 	$("#serach").click(function() {

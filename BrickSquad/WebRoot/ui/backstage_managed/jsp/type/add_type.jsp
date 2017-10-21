@@ -35,7 +35,7 @@
 			success : function(data) {
 				data = JSON.parse(data);
 				var id = $("#parament").attr('val');
-				console.log(id);
+				
 				$(data).each(
 						function() {
 							if (id == this.id) {
@@ -75,7 +75,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">搜索选择框</label>
 			<div class="layui-input-inline">
-				<select name="parentId" id="parament" val=${type.parentId } lay-search="">
+				<select name="parentId" id="parament" val=${type.parentId } lay-search="" lay-filter="test">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>

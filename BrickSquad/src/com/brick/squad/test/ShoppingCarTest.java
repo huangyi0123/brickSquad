@@ -30,11 +30,11 @@ public class ShoppingCarTest {
 	@Test
 	public void insertShoppingCar() throws Exception {
 		ShoppingCar shoppingCar = new ShoppingCar();
-		shoppingCar.setArticleId("2");
+		shoppingCar.setArticleId("22");
 		shoppingCar.setDate(new Date());
-		shoppingCar.setId("2");
-		shoppingCar.setNumber(32);
-		shoppingCar.setPerId("2");
+		shoppingCar.setId("22");
+		shoppingCar.setNumber(3222);
+		shoppingCar.setPerId("22");
 		shoppingCarService.insertShoppingCar(shoppingCar);
 	}
 

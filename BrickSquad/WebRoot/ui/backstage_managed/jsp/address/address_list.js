@@ -50,7 +50,7 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function addAddress(id) {
-	alert("cctv");
+
 	$("#addAddress").click(function() {
 		layui.use('layer', function() {
 			var layer = layui.layer;

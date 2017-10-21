@@ -28,32 +28,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	$(function() {
 		$.ajax({
-			url : 'rated/findAllRated',
+			url : 'reply/findAllReply',
 			success : function(data) {
 				data = JSON.parse(data);
+				console.log(data);
+				var id = $("#parament").attr('val');
+				
 				$(data).each(
 						function() {
-							$("#parament").append(
-									'<option value="'+this.id+'">' + this.id
-											+ '</option>');
-							layui.use('form', function() {
-								var form = layui.form();
-							});
+							if (id == this.ratedId) {
+								$("#parament").append(
+										'<option value="'+this.ratedId+'"  selected="selected">'
+												+ this.ratedId+ '</option>');
+							} else {
+								$("#parament").append(
+										'<option value="'+this.ratedId+'">'
+												+ this.ratedId + '</option>');
+							}
+							
 						});
+							
+				layui.use('form', function() {
+					var form = layui.form();
+				});	
 			}
 		});
-	})
+	});
 </script>
 
   </head>
   
   <body>
-	<form class="layui-form" action="reply/addReply" id="form" method="post">
-
+  <h1>${msg}类别信息</h1>
+	<form class="layui-form" action="reply/${url }" id="form" method="post">
+<input type="hidden" name="id" value="${reply.id }">
 	<div class="layui-form-item">
 			<label class="layui-form-label">评论ID</label>
 			<div class="layui-input-inline">
-				<select name="ratedId"  id="parament"
+				<select name="ratedId" value"=${reply.ratedId }"  id="parament"
 					lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
@@ -62,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-form-item">
 			<label class="layui-form-label">回复内容</label>
 			<div class="layui-input-inline">
-				<input type="text" name="centent" required lay-verify="required"
+				<input type="text" value="${reply.centent }" name="centent" required lay-verify="required"
 					placeholder="回复内容" autocomplete="off" class="layui-input">
 			</div>
 		</div>

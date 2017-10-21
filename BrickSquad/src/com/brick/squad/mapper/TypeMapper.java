@@ -5,6 +5,7 @@ import java.util.List;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 /**
  * 类型表
@@ -56,5 +57,11 @@ public interface TypeMapper {
 	 * @return 类型名称
 	 */
 	public List<Type> findAllType();
-	public List<Type> findTypeByParentId(String parentId);
+	/**
+	 * 查询所有民族
+	 * @return 民族集合
+	 */
+	public List<Select> findTypeByParentId(String parentId);
+	
+	
 }

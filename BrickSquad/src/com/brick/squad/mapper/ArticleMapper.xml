@@ -40,6 +40,9 @@
 	
 	<select id="findArticleAllCount" resultType="int" >
 		select count(*) from article
-	
+	</select>
+	<select id="findArticle" resultType="com.brick.squad.util.Select">
+	SELECT id,aname name
+	FROM article
 	</select>
 </mapper>

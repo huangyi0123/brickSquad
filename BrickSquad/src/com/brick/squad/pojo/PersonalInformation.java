@@ -2,6 +2,8 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 老人信息表
  * @author 梁城月
@@ -10,11 +12,13 @@ import java.util.Date;
 public class PersonalInformation {
 	private String id;
 	private String name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private String gender;
 	private String idCard;
 	private String addressId;
 	private String retirementUnit;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date retirementDate;
 	private String engagedIndustry;
 	private float weight;

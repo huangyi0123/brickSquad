@@ -12,6 +12,7 @@ import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 
 @Transactional
@@ -63,7 +64,7 @@ public class TypeServiceImpl implements TypeService{
 
 	@Override
 	public String findTypeByParentId(String parentId) {
-		List<Type> types =typeMapper.findTypeByParentId(parentId);
+		List<Select> types =typeMapper.findTypeByParentId(parentId);
 		JSONArray jsonArray = new JSONArray();
 		String dataTytes =jsonArray.fromObject(types).toString();
 		return dataTytes;

@@ -34,7 +34,7 @@
 			url : 'rapport/findAllUserAndPersonalInformation',
 			success : function(data) {
 				data = JSON.parse(data);
-				console.log(data[0].user[0]);
+				/* console.log(data[0].user[0]); 浏览器中打印*/
 				var user = data[0].user;
 				var personalinformation = data[0].personalInformation;
 				findAll(user, "#userId");
@@ -45,22 +45,6 @@
 			}
 		});
 
-		/* $.ajax({
-			url : 'user/findAllUser',
-			success : function(data) {
-				data = JSON.parse(data);
-				$(data).each(
-						function() {
-							console.log(this);
-							$("#userId").append(
-									'<option value="'+this.id+'">' + this.username
-											+ '</option>');
-							layui.use('form', function() {
-								var form = layui.form();
-							});
-						});
-			}
-		}); */
 	});
 	function findAll(data, id) {
 		$(data).each(
@@ -75,21 +59,23 @@
 </head>
 <body>
 	<br>
-	<form class="layui-form" action="rapport/insertRapport" id="form1"
+	<h1>${msg}类别信息</h1>
+	<form class="layui-form" action="rapport/${url }" id="form1"
 		method="post">
-		
+		<%-- <input type="hidden" name="id" value="${rapport.id }"> --%>
 		<div class="layui-form-item">
 			<label class="layui-form-label">ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
-					placeholder="沟通目标" autocomplete="off" class="layui-input">
+					placeholder="ID" autocomplete="off" class="layui-input"
+					value="${rapport.id}">
 			</div>
 		</div>
 		
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
-				<select name="perId" id="personalInformationId" lay-search="">
+				<select name="perId" id="personalInformationId" val="${rapport.perId}" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -98,7 +84,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">客户姓名</label>
 			<div class="layui-input-inline">
-				<select name="userId" id="userId" lay-search="">
+				<select name="userId" id="userId" val="${rapport.period}" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -109,7 +95,8 @@
 			<label class="layui-form-label">沟通目标</label>
 			<div class="layui-input-inline">
 				<input type="text" name="goal" required lay-verify="required"
-					placeholder="沟通目标" autocomplete="off" class="layui-input">
+					placeholder="沟通目标" autocomplete="off" class="layui-input"
+					value="${rapport.goal}">
 			</div>
 		</div>
 
@@ -120,7 +107,8 @@
 				<label class="layui-form-label">沟通日期</label>
 				<div class="layui-input-inline">
 					<input type="date" class="layui-input" name="rapportDate"
-						placeholder="yyyy-MM-dd">
+						placeholder="yyyy-MM-dd"
+						value="${rapport.rapportDate}">
 				</div>
 			</div>
 		</div>
@@ -130,13 +118,15 @@
 			<label class="layui-form-label">沟通时长</label>
 			<div class="layui-input-inline">
 				<input type="text" name="period" required lay-verify="required"
-					placeholder="沟通时长" autocomplete="off" class="layui-input">
+					placeholder="沟通时长" autocomplete="off" class="layui-input"
+					value="${rapport.period}">
 			</div>
 		</div>
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">沟通内容</label>
 			<div class="layui-input-block">
-				<textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
+				<textarea name="content" placeholder="请输入内容" class="layui-textarea"
+				></textarea>
 			</div>
 		</div>
 		<div class="layui-form-item">

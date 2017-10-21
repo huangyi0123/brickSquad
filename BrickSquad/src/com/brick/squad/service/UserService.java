@@ -6,7 +6,7 @@ import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 
 public interface UserService {
-
+	
 	public void deleteUser(String username);
 
 	public void updateUser(String username, String password);
@@ -28,5 +28,9 @@ public interface UserService {
 	 * 查询所有用户，所有字段
 	 * */
 	public String findAllUsers()throws Exception ;
+
+	public User findUsername(String username);
+
+	public User loginCheck(String username, String password);
 
 }
