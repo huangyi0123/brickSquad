@@ -21,5 +21,9 @@ public interface NewsService {
 	public Integer findNewsCount()throws Exception;
 	//新闻分页查询
 	public String newsPagination(Pagination pagination);
+	/**
+	 * 添加新闻消息
+	 * */
+	public void insertNews(News news)throws Exception;
 
 }

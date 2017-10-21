@@ -1,11 +1,8 @@
 package com.brick.squad.test;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-
- 
-
-
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +30,7 @@ public class NewsServiceTest {
 	@Qualifier("newsService")
 	private NewsService newsService;
 	//添加新闻
-	//@Test
+	@Test
 	public void addNews(){
 		newsService.addNews("4","4","Nike","/image/4.png",Calendar.getInstance().getTime());
 	}
@@ -64,5 +61,19 @@ public class NewsServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		System.out.println(newsService.newsPagination(pagination));
+	}
+	/**
+	 * 添加新闻信息测试
+	 * @throws Exception 
+	 * */
+	@Test
+	public void insertNews() throws Exception{
+		News news=new News();
+		news.setId("5");
+		news.setContent("阿里云信息发布中心");
+		news.setImagePath("img/map4.jpg");
+		news.setPostTime(new Date());
+		news.setUserId("3");
+		newsService.insertNews(news);
 	}
 }

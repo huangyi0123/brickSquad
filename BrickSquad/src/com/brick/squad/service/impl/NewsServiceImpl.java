@@ -78,4 +78,11 @@ public class NewsServiceImpl implements NewsService {
 		Integer countNews=newsMapper.findNewsCount();
 		return countNews;
 	}
+	@Override
+	/**
+	 * 添加新闻信息
+	 * */
+	public void insertNews(News news) throws Exception {
+		newsMapper.insertNews(news);
+	}
 }

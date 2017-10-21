@@ -30,4 +30,8 @@ public interface NewsMapper {
 	public Integer findNewsCount();
 	//新闻分页查询
 	public List<News> newsPagination(Pagination pagination);
+	/**
+	 * 添加新闻消息
+	 * */
+	public void insertNews(News news)throws Exception;
 }
