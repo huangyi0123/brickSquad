@@ -55,7 +55,10 @@
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
 	<select id="findRapportCount" resultType="Integer">
-		SELECT COUNT(*) FROM rapport
+		SELECT COUNT(*) 
+		FROM `user` u,personal_information p,rapport r 
+		WHERE r.user_id=u.id 
+		AND r.per_id=p.id
 	</select>
 	<select id="rapportPagination" resultType="com.brick.squad.expand.RapportExpand"
 		parameterType="com.brick.squad.util.Pagination">

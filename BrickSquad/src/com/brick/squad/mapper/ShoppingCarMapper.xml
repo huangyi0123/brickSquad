@@ -43,8 +43,10 @@
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
 	<select id="findShoppingCarCount" resultType="Integer">
-		SELECT COUNT(*)
-		FROM shopping_car
+		SELECT COUNT(*) 
+		FROM personal_information p,article a,shopping_car s 
+		WHERE s.article_id=a.id 
+		AND s.per_id=p.id
 	</select>
 		<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShoppingCarExpand">
