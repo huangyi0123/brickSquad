@@ -84,7 +84,7 @@
 							'<option value="">直接选择或搜索选择</option>');
 					//清空该区域下面的下拉框
 					$(" #detailedId").val("");
-					
+
 					findAll(result, "#countryId");
 					form.render('select', 'countryIdSelect');
 				}
@@ -93,16 +93,19 @@
 	});
 
 	$(function() {
-		
+
 		//查询type中parentId为mz，即所有民族集合
 		var nationData = ${nationData};
 		findAll(nationData, "#paramentNationId");
 		//查询region中level为1，即所有省份集合
 		var provinceData = ${provinceData};
 		findAll(provinceData, "#prId");
-		 //查询ID查询address中的地址
-		/*var address = ${address};
-		findAll(address, "#prId"); */
+		//查询ID查询address中的地址
+		var addressData = ${addressData};
+		findAll(addressData, "#prId");
+		findAll(addressData, "#cityId");
+		findAll(addressData, "#countyId");
+		findAll(addressData, "#countryId");
 		//页面日期格式回填处理
 		var birthdayId = $("#birthdayId").attr('val');
 		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
@@ -122,14 +125,16 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.name }" name="name" required lay-verify="required"
-					placeholder="老人姓名" autocomplete="off" class="layui-input">
+				<input type="hidden" value="${personalInformation.id }" name="id">
+				<input type="text" value="${personalInformation.name }" name="name"
+					required lay-verify="required" placeholder="老人姓名"
+					autocomplete="off" class="layui-input">
 			</div>
 			<label class="layui-form-label">身份证号</label>
 			<div class="layui-input-inline">
-				<input value="${personalInformation.idCard }" type="text" lay-verify="identity" name="idCard" required
-					lay-verify="required" placeholder="身份证号" autocomplete="off"
-					class="layui-input">
+				<input value="${personalInformation.idCard }" type="text"
+					lay-verify="identity" name="idCard" required lay-verify="required"
+					placeholder="身份证号" autocomplete="off" class="layui-input">
 			</div>
 			<label class="layui-form-label">出生日期 </label>
 			<div class="layui-input-inline">
@@ -254,7 +259,7 @@
 			</div>
 
 		</div>
-<div class="layui-form-item">
+		<div class="layui-form-item">
 			<label class="layui-form-label">从事行业</label>
 			<div class="layui-input-inline">
 				<input value="${personalInformation.engagedIndustry }" type="text"
@@ -278,38 +283,38 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select  name="provinceId" id="prId" lay-filter="prIdSelect"
-					lay-search="">
+				<select val="${address.provinceId}" name="provinceId" id="prId"
+					lay-filter="prIdSelect" lay-search="">
 					<option value="">选择省份</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select name="cityId" id="cityId" lay-filter="cityIdSelect"
-					lay-search="">
+				<select val="${address.cityId}" name="cityId" id="cityId"
+					lay-filter="cityIdSelect" lay-search="">
 					<option value="">选择城市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select name="countyId" id="countyId" lay-filter="countyIdSelect"
-					lay-search="">
+				<select val="${address.countyId}" name="countyId" id="countyId"
+					lay-filter="countyIdSelect" lay-search="">
 					<option value="">选择县市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select name="countryId" id="countryId" lay-filter="countryIdSelect"
-					lay-search="">
+				<select val="${address.countryId}" name="countryId" id="countryId"
+					lay-filter="countryIdSelect" lay-search="">
 					<option value="">选择乡镇</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<input type="text" id="detailedId" name="detailed" required
-					lay-verify="required" placeholder="具体地址，详细到街道门牌号"
-					 class="layui-input" >
-					
+				<input value="${address.detailed}" type="text" id="detailedId"
+					name="detailed" required lay-verify="required"
+					placeholder="具体地址，详细到街道门牌号" class="layui-input">
+
 			</div>
 
 		</div>
-		
+
 
 		<div class="layui-form-item">
 			<div class="layui-input-block">
