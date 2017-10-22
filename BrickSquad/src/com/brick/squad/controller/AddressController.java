@@ -1,6 +1,6 @@
 package com.brick.squad.controller;
 
-import net.sf.json.JSONObject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,38 +16,41 @@ import com.brick.squad.util.Pagination;
 @RequestMapping("/address")
 public class AddressController {
 	@Autowired
-	@Qualifier(value="addressService")
+	@Qualifier(value = "addressService")
 	private AddressService addressService;
+
 	@RequestMapping("/toAddressList")
-	public String toAddressList(){
+	public String toAddressList() {
 		return "backstage_managed/jsp/address/address_list";
 	}
-	@RequestMapping("/toAddAddress")
-	public String toAddAddress(){
+
+	@RequestMapping("/toAddress")
+	public String toAddress(HttpServletRequest request) {
+		String data=addressService.findRegionsByLevel();
+		request.setAttribute("data", data);
 		return "backstage_managed/jsp/address/add_address";
 	}
-	@RequestMapping(value="/getAddressList")
-	@ResponseBody//返回json
-	public String getAddressList(int pSize,int cPage,String keyword) throws Exception{
+
+	@RequestMapping(value = "/getAddressList")
+	@ResponseBody
+	// 返回json
+	public String getAddressList(int pSize, int cPage, String keyword)
+			throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setPageSize(pSize);
 		pagination.setCurentPage(cPage);
 		pagination.setKeyword(keyword);
 		return addressService.addressPagination(pagination);
 	}
-	@RequestMapping(value="/inserAddress")
-	public String inserAddress(Address address) throws Exception{
+
+	@RequestMapping(value = "/inserAddress")
+	public String inserAddress(Address address) throws Exception {
 		addressService.insertAddress(address);
 		return "backstage_managed/jsp/address/address_list";
 	}
-	
-/*	@RequestMapping(value="findAddressById")
+	@RequestMapping("/findRegionsByParentId")
 	@ResponseBody
-	public String getfindAddressById(String id) throws Exception{
-		Address address = addressService.findAddressById("2a98dcf4b35b11e78d4f5254002ec43c");
-		JSONObject jsonObject = JSONObject.fromObject(address);
-		String data = jsonObject.toString();
-		System.out.print(data);
-		return data;
-	}*/
+	public String findRegionsByParentId(String pid) {
+		return addressService.findRegionsByParentId(pid);
+	}
 }

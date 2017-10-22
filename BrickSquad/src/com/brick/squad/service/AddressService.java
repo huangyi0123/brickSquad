@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.Address;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface AddressService {
 	public void insertAddress(Address address) throws Exception;
@@ -19,4 +20,15 @@ public interface AddressService {
 	 * @throws Exception
 	 */
 	public String addressPagination(Pagination pagination) throws Exception;
+	/**
+	 * 查询省级区域
+	 * @return 省级区域及idjson字符串
+	 */
+	public String findRegionsByLevel();
+	/**
+	 * 根据父id查询区域
+	 * @param parentId父id
+	 * @return 区域
+	 */
+	public String findRegionsByParentId(String parentId);
 }

@@ -27,4 +27,11 @@
 	<select id="regionCount" resultType="int">
 		select count(1) from region
 	</select>
+	
+	<select id="findRegionsByLevel" parameterType="int" resultType="com.brick.squad.util.Select">
+		SELECT id,name FROM region WHERE level=#{level}
+	</select>
+	<select id="findRegionsByParentId" parameterType="String" resultType="com.brick.squad.util.Select">
+		SELECT id,name FROM region WHERE parent_id=#{parentId}
+	</select>
 </mapper>

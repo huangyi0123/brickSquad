@@ -95,6 +95,7 @@ function Format(now, mask) {
  */
 function findAll(data, id) {
 	var pid = $(id).attr('val');
+	
 	$(data).each(
 			function() {
 				if (pid == this.id) {
