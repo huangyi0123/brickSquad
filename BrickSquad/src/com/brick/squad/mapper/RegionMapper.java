@@ -21,5 +21,7 @@ public interface RegionMapper {
 	public int regionCount();
 
 	public List<Region> findRegionByParentId(String perantId);
+	//用于数据回显
+	public List<Region> findAllRegion ();
 
 }

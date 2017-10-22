@@ -58,4 +58,12 @@ public class RegionServiceImpl implements RegionService {
 		String dataregion =jsonArray.fromObject(regions).toString();
 		return dataregion;
 	}
+	@Override
+	public String findAllRegion() {
+		// TODO Auto-generated method stub
+		List<Region> list = regionMapper.findAllRegion();
+		JSONArray jsonArray = new	JSONArray();
+		String data = jsonArray.fromObject(list).toString();
+		return data;
+	}
 }
