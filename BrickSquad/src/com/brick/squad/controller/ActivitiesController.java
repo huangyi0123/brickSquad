@@ -59,9 +59,10 @@ public class ActivitiesController {
 		
 		
 		@RequestMapping("/deleteActivitiesById")
+		@ResponseBody
 		public String deleteActivitiesById(String id) throws Exception{
 			activitiesService.deleteActivitiesById(id);
 			return "success";
-	   	}
+	   	} 
 
 }

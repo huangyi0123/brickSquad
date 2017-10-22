@@ -53,6 +53,7 @@ public class ArticleController {
 		return "backstage_managed/jsp/article/article_list";}
 	
 	@RequestMapping("/deleteArticleById")
+	@ResponseBody
 	public String deleteArticleById(String id) throws Exception{
 		articleService.deleteArticleById(id);
 		return "success";
