@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.PersonalInformationService;
@@ -46,6 +47,10 @@ public class PersonalInformationController {
 
 	@RequestMapping("/toAddPersonalInformation")
 	public String toAddPersonalInformation(HttpServletRequest request, String id) {
+		String provinceData = personalInformationService.findRegionsByLevel();
+		request.setAttribute("provinceData", provinceData);
+		String nationData = personalInformationService.findTypesByParentId();
+		request.setAttribute("nationData", nationData);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updatePersonalInformationById");
@@ -64,10 +69,10 @@ public class PersonalInformationController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	@RequestMapping("/addPersonalInformation")
-	public String addPersonalInformation(
+	public String addPersonalInformation(Address address,
 			PersonalInformation personalInformation) {
 		personalInformationService
-				.insertPersonalInformation(personalInformation);
+				.insertPersonalInformation(address,personalInformation);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
 
