@@ -4,9 +4,10 @@ import java.util.List;
 
 import com.brick.squad.pojo.Region;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface RegionMapper {
-	public List<Region> findRegionByLevel(int level);
+	public List<Select> findRegionByLevel(int level);
 
 	public Region findRegionById(String id);
 

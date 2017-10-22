@@ -33,7 +33,6 @@
 	src="ui/backstage_managed/jsp/personal_Information/personal_Information_list.js"></script>
 <script type="text/javascript">
 	$(function() {
-	
 		$.ajax({
 			//查询type中parentId为mz，即所有民族集合
 			url : 'type/findTypeByParentId',
@@ -42,16 +41,8 @@
 			},
 			success : function(data) {
 				data = JSON.parse(data);
-				console.log(data);
-				$(data).each(
-						function() {
-							$("#paramentNationId").append(
-									'<option value="'+this.id+'">' + this.name
-											+ '</option>');
-							
-						});
+				findAll(data, "#paramentNationId");
 			}
-
 		});
 
 		//查询region中level为1，即所有省份集合
@@ -62,36 +53,25 @@
 			},
 			success : function(data) {
 				data = JSON.parse(data);
-				console.log(data);
-				$(data).each(
-						function() {
-							$("#prId").append(
-									'<option value="'+this.id+'">' + this.name
-											+ '</option>');
-							layui.use('form', function() {
-								var form = layui.form();
-								form.on('select(prIdSelect)', function(data) {
-									$("#cityId").empty();									
-									 findRegionByParentId(data.value, '#cityId');
-									//更新 lay-filter="test2" 所在容器内的全部 select 状态
-									form.render('select', 'cityIdSelect');
-								});
-
-							});
-						});
+				findAll(data, "#prId");
+				layui.use('form', function() {
+					var form = layui.form();
+					
+					
+				});
 			}
 
 		});
+		
 		var birthdayId = $("#birthdayId").attr('val');
 		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
 		$("#birthdayId").val(birthdayId);
 		var retirementDateId = $("#retirementDateId").attr('val');
 		retirementDateId = Format(new Date(retirementDateId), "yyyy-MM-dd");
 		$("#retirementDateId").val(retirementDateId);
+		
 
-	
 	});
-	
 </script>
 </head>
 <body>
