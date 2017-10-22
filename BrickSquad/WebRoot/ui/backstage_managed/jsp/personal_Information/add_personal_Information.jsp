@@ -101,8 +101,11 @@
 		var provinceData = ${provinceData};
 		findAll(provinceData, "#prId");
 		 //查询ID查询address中的地址
-		/*var address = ${address};
-		findAll(address, "#prId"); */
+		var addressData = ${addressData};
+		findAll(addressData, "#prId");
+		findAll(addressData, "#cityId"); 
+		findAll(addressData, "#countyId"); 
+		findAll(addressData, "#countryId"); 
 		//页面日期格式回填处理
 		var birthdayId = $("#birthdayId").attr('val');
 		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
@@ -278,31 +281,31 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select  name="provinceId" id="prId" lay-filter="prIdSelect"
+				<select  val="${address.provinceId}" name="provinceId" id="prId" lay-filter="prIdSelect"
 					lay-search="">
 					<option value="">选择省份</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select name="cityId" id="cityId" lay-filter="cityIdSelect"
+				<select val="${address.cityId}" name="cityId" id="cityId" lay-filter="cityIdSelect"
 					lay-search="">
 					<option value="">选择城市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select name="countyId" id="countyId" lay-filter="countyIdSelect"
+				<select val="${address.countyId}" name="countyId" id="countyId" lay-filter="countyIdSelect"
 					lay-search="">
 					<option value="">选择县市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select name="countryId" id="countryId" lay-filter="countryIdSelect"
+				<select val="${address.countryId}" name="countryId" id="countryId" lay-filter="countryIdSelect"
 					lay-search="">
 					<option value="">选择乡镇</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<input type="text" id="detailedId" name="detailed" required
+				<input value="${address.detailed}" type="text" id="detailedId" name="detailed" required
 					lay-verify="required" placeholder="具体地址，详细到街道门牌号"
 					 class="layui-input" >
 					
