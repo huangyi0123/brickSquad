@@ -23,14 +23,10 @@
 	<select id="regionCount" resultType="int">
 		select count(1) from region
 	</select>
-
 	<!-- 用于数据回显 -->
 	<select id="findAllRegion" resultType="region">
 		select id,isleaf,name,parent_id perantId,level from region
 	</select>
-
-
-	
 	<select id="findRegionsByLevel" parameterType="int" resultType="com.brick.squad.util.Select">
 		SELECT id,name FROM region WHERE level=#{level}
 	</select>

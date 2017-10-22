@@ -7,8 +7,6 @@ import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
 public interface RegionMapper {
-	public List<Select> findRegionByLevel(int level);
-
 	public Region findRegionById(String id);
 
 	public void insertRegionById(Region region);
