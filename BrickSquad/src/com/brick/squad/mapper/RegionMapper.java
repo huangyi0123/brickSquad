@@ -7,7 +7,6 @@ import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
 public interface RegionMapper {
-	
 
 	public Region findRegionById(String id);
 
@@ -22,6 +21,11 @@ public interface RegionMapper {
 	public int regionCount();
 
 	public List<Region> findRegionByParentId(String perantId);
+
+	//用于数据回显
+	public List<Region> findAllRegion ();
+
+
 	/**
 	 * 根据级别选择地区
 	 * @param level 级别
@@ -35,4 +39,5 @@ public interface RegionMapper {
 	 * @return 区域集合
 	 */
 	public List<Select> findRegionsByParentId(String parentId);
+
 }
