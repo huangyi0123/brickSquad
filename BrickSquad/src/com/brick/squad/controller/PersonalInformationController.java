@@ -47,6 +47,7 @@ public class PersonalInformationController {
 
 	@RequestMapping("/toAddPersonalInformation")
 	public String toAddPersonalInformation(HttpServletRequest request, String id) {
+		
 		String provinceData = personalInformationService.findRegionsByLevel();
 		request.setAttribute("provinceData", provinceData);
 		String nationData = personalInformationService.findTypesByParentId();
@@ -56,6 +57,9 @@ public class PersonalInformationController {
 			request.setAttribute("url", "updatePersonalInformationById");
 			PersonalInformation personalInformation = personalInformationService.findPersonalInformationById(id);
 			request.setAttribute("personalInformation", personalInformation);
+			String address = personalInformationService.findAddressById(personalInformation.getAddressId());
+			System.out.println(address.toString());
+			request.setAttribute("address", address);
 		} else {
 			request.setAttribute("url", "addPersonalInformation");
 			request.setAttribute("msg", "添加");

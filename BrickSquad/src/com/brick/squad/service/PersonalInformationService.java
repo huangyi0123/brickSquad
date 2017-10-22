@@ -6,6 +6,7 @@ import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
 	public String findTypesByParentId() ;
+	public String findAddressById(String id);
 	public String findRegionsByLevel() ;
 	/**
 	 * 根据老人id查询信息

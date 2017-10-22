@@ -3,6 +3,7 @@ package com.brick.squad.service.impl;
 import java.util.List;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -107,6 +108,21 @@ public class PersonalInformationServiceImpl implements PersonalInformationServic
 		JSONArray jsonArray = new JSONArray();
 		String dataTytes =jsonArray.fromObject(selects).toString();
 		return dataTytes;
+	}
+	@Override
+	public String findAddressById(String id) {
+		String addressesdata = null;
+		try {
+			Address addresses = addressMapper.findAddressById(id);
+			JSONObject jsonObject = new JSONObject();
+			 addressesdata =jsonObject.fromObject(addresses).toString();
+			return addressesdata;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return addressesdata;
+		
 	}
 
 }

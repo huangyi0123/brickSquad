@@ -93,12 +93,16 @@
 	});
 
 	$(function() {
+		
 		//查询type中parentId为mz，即所有民族集合
 		var nationData = ${nationData};
 		findAll(nationData, "#paramentNationId");
 		//查询region中level为1，即所有省份集合
 		var provinceData = ${provinceData};
 		findAll(provinceData, "#prId");
+		 //查询ID查询address中的地址
+		/*var address = ${address};
+		findAll(address, "#prId"); */
 		//页面日期格式回填处理
 		var birthdayId = $("#birthdayId").attr('val');
 		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
@@ -118,7 +122,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
-				<input type="text" name="name" required lay-verify="required"
+				<input type="text" value="${personalInformation.name }" name="name" required lay-verify="required"
 					placeholder="老人姓名" autocomplete="off" class="layui-input">
 			</div>
 			<label class="layui-form-label">身份证号</label>
@@ -159,7 +163,7 @@
 
 			<label class="layui-form-label">民族</label>
 			<div class="layui-input-inline">
-				<select name="nationId" value="${personalInformation.nationId }"
+				<select name="nationId" val="${personalInformation.nationId }"
 					id="paramentNationId" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
@@ -274,7 +278,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select name="provinceId" id="prId" lay-filter="prIdSelect"
+				<select  name="provinceId" id="prId" lay-filter="prIdSelect"
 					lay-search="">
 					<option value="">选择省份</option>
 				</select>
