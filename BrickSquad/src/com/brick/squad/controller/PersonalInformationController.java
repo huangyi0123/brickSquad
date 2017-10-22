@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.service.AddressService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
 
@@ -28,7 +29,10 @@ public class PersonalInformationController {
 	@Autowired
 	@Qualifier("personalInformationService")
 	private PersonalInformationService personalInformationService;
-
+	@Autowired
+	@Qualifier("addressService")
+	private AddressService addressService;
+	
 	@RequestMapping("/toPersonalInformation")
 	public String toPersonalInformation() {
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
@@ -94,9 +98,10 @@ public class PersonalInformationController {
 
 	}
 
-	@RequestMapping("/updatePersonalInformation")
-	public String updatePersonalInformation(
-			PersonalInformation personalInformation) {
+	@RequestMapping("/updatePersonalInformationById")
+	public String updatePersonalInformation(Address address,
+			PersonalInformation personalInformation) throws Exception {
+		addressService.updateAddressById(address);
 		personalInformationService
 				.updatePersonalInformationById(personalInformation);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
