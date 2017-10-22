@@ -20,13 +20,13 @@
 	<select id="findNews" resultType="news" parameterType="java.lang.Long">
 		select*from news where content=#{content}
 	</select>
-	<select id="newsPagination" resultType="news" parameterType="com.brick.squad.util.Pagination">
-		SELECT  
-		<include refid="Base_Column_List"/>
-		 FROM news limit #{skipNum},#{takeNum}
+	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand" parameterType="com.brick.squad.util.Pagination">
+		SELECT n.id,u.username,n.content,n.imgs_path imagePath,n.post_time postTime
+		FROM news n INNER JOIN `user` u ON n.user_id=u.id
+		limit #{skipNum},#{takeNum}
 	</select>
 	<select id="findNewsCount" resultType="Integer">
-	SELECT COUNT(*) FROM news
+	SELECT COUNT(*) from news n,`user` u where n.user_id=u.id
 	</select>
 	<insert id="insertNews" parameterType="news">
 	INSERT INTO news(id,user_id,content,imgs_path,post_time)

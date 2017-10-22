@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.pojo.News;
 import com.brick.squad.util.Pagination;
 
@@ -29,7 +30,7 @@ public interface NewsMapper {
 	 * */
 	public Integer findNewsCount();
 	//新闻分页查询
-	public List<News> newsPagination(Pagination pagination);
+	public List<NewsExpand> newsPagination(Pagination pagination);
 	/**
 	 * 添加新闻消息
 	 * */

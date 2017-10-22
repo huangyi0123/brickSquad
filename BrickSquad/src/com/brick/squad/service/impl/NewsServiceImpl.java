@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
 import com.brick.squad.service.NewsService;
@@ -67,9 +68,9 @@ public class NewsServiceImpl implements NewsService {
 	}
 	//新闻分页查询
 	public String newsPagination(Pagination pagination){
-		List<News> news=newsMapper.newsPagination(pagination);
+		List<NewsExpand> news=newsMapper.newsPagination(pagination);
 		int row=newsMapper.findNewsCount();
-		Util<News> util=new Util<News>();
+		Util<NewsExpand> util=new Util<NewsExpand>();
 		String data=util.SplitPage(news, row);
 		return data;
 	}

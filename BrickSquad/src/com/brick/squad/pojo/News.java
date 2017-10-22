@@ -8,8 +8,18 @@ public class News {
 	private String content;
 	private String imagePath;
 	private Date postTime;
+	/**
+	 * news新闻表与User用户表的关系：一对多
+	 * */
+	private User user;
 	
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getId() {
 		return id;
 	}

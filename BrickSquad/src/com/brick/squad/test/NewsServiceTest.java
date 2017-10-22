@@ -56,7 +56,7 @@ public class NewsServiceTest {
 	}
 	//新闻分页查询
 	@Test
-	public void ordersPagination() throws Exception{
+	public void newsPagination() throws Exception{
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);

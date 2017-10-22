@@ -28,6 +28,7 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
 $(function() {
 	$.ajax({
@@ -54,12 +55,12 @@ $(function() {
 			});
 		}
 	});
-	var da = $("#rda").attr('val');
+	var da = $("#nda").attr('val');
 	dat = Format(new Date(da), "yyyy-MM-dd");
-	$("#rda").val(dat);
-	var centent=$("#centent").attr('val');
-	console.log(centent);
-	$("#centent").val(centent);
+	$("#nda").val(dat);
+	var content=$("#content").attr('val');
+	console.log(content);
+	$("#content").val(content);
 });
 </script>
 </head>
@@ -70,16 +71,17 @@ $(function() {
 	<br>
 	<form class="layui-form" action="news/${url}" id="form1"
 		method="post">
-		<div class="layui-form-item">
+		<input type="hidden" name="id" value="${news.id }">
+		<%-- <div class="layui-form-item">
 			<label class="layui-form-label">新闻ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
 					placeholder="新闻ID" autocomplete="off" class="layui-input"
 					value="${news.id }">
 			</div>
-		</div>
+		</div> --%>
 		 <div class="layui-form-item">
-			<label class="layui-form-label">编辑用户ID</label>
+			<label class="layui-form-label">编辑用户名</label>
 			<div class="layui-input-inline">
 				<select name="userId" id="userId" val="${news.userId }" lay-search="">
 					<option value="">直接选择或搜索选择</option>
@@ -100,7 +102,7 @@ $(function() {
 				<div class="layui-input-inline">
 					<input type="date" class="layui-input" name="postTime"
 						placeholder="yyyy-MM-dd"
-						value="${news.postTime }" id="rda">
+						val="${news.postTime }" id="nda">
 				</div>
 			</div>
 		</div>
