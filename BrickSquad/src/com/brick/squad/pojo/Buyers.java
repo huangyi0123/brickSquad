@@ -10,6 +10,17 @@ public class Buyers {
 	private int historicalIntegral;
 	private int grade;
 	private String deliveryAddressId;
+	/**
+	 * 买家与老人信息的关系：一对一 的关系
+	 * */
+	private PersonalInformation personalInformation;
+	
+	public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
 	public String getId() {
 		return id;
 	}
