@@ -2,15 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RegionMapper">
-	<select id="findRegionByLevel" resultType="region" parameterType="int">
-		select id,isleaf,name,parent_id perantId  from region where level=#{level}
-	</select>
+
 	<select id="findRegionById" resultType="region" parameterType="String" >
 		select id,isleaf,name,parent_id perantId  from region where id=#{id}
 	</select>
-	<select id="findRegionByParentId" resultType="region" parameterType="String" >
-		select id,isleaf,name,parent_id perantId  from region where parent_id=#{perantId}
-	</select>
+
 	<insert id="insertRegionById" parameterType="region">
 		insert into region (id,isleaf,name,parent_id,level)  values (#{id},#{isleaf},#{name}
 		,#{perantId},#{level})
@@ -27,8 +23,18 @@
 	<select id="regionCount" resultType="int">
 		select count(1) from region
 	</select>
+
 	<!-- 用于数据回显 -->
 	<select id="findAllRegion" resultType="region">
 		select id,isleaf,name,parent_id perantId,level from region
+	</select>
+
+
+	
+	<select id="findRegionsByLevel" parameterType="int" resultType="com.brick.squad.util.Select">
+		SELECT id,name FROM region WHERE level=#{level}
+	</select>
+	<select id="findRegionsByParentId" parameterType="String" resultType="com.brick.squad.util.Select">
+		SELECT id,name FROM region WHERE parent_id=#{parentId}
 	</select>
 </mapper>

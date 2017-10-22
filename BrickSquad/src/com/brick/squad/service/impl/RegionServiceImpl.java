@@ -13,6 +13,7 @@ import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 @Transactional
 public class RegionServiceImpl implements RegionService {
@@ -21,7 +22,7 @@ public class RegionServiceImpl implements RegionService {
 	private RegionMapper regionMapper;
 	@Override
 	public String findRegionByLevel(int level) {
-		List<Region> regions = regionMapper.findRegionByLevel(level);
+		List<Select> regions = regionMapper.findRegionByLevel(level);
 		JSONArray jsonArray = new JSONArray();
 		String dataregion =jsonArray.fromObject(regions).toString();
 		return dataregion;

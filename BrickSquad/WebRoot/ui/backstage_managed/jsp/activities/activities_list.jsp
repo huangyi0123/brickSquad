@@ -93,6 +93,7 @@ a:HOVER {
 		</div>
 	</div>
 	<div style="clear: both;"></div>
+	<div class="cls"></div>
 	<table grid-manager="demo-ajaxPageCode"></table>
   </body>
 </html>

@@ -34,8 +34,6 @@
 	
 	<select id="loginCheck"  resultType="user"  parameterType="String">
 		select username from user where username=#{username} AND password=#{password}
-
-
 	</select>
 	<select id="findAllUser" resultType="com.brick.squad.util.Select">
 	SELECT id,username name

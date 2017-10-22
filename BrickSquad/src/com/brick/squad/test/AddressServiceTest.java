@@ -33,7 +33,7 @@ public class AddressServiceTest {
 		address.setDetailed("5");
 		
 		addressService.insertAddress(address);
-		System.out.print(address);
+		System.out.print(address.getId()+"ID");
 		
 	}
 	@Test
