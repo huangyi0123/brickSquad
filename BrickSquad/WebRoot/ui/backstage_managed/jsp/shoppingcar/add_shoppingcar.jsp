@@ -69,15 +69,15 @@ $(function() {
 <div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}购物车信息</div>
 <br>
 	<form class="layui-form" action="shoppingCar/${url}" id="form1" method="post">
-		<%-- <input type="hidden" name="id" value="${shoppingCar.id }"> --%>
-		<div class="layui-form-item">
+		<input type="hidden" name="id" value="${shoppingCar.id }"> 
+		<%-- <div class="layui-form-item">
 			<label class="layui-form-label">ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
 					placeholder="ID" autocomplete="off" class="layui-input"
 					value="${shoppingCar.id }">
 			</div>
-		</div>
+		</div> --%>
 		<div class="layui-form-item">
 			<label class="layui-form-label">买家姓名</label>
 			<div class="layui-input-inline">

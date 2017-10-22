@@ -29,6 +29,9 @@
 	SELECT COUNT(*) from news n,`user` u where n.user_id=u.id
 	</select>
 	<insert id="insertNews" parameterType="news">
+	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 	INSERT INTO news(id,user_id,content,imgs_path,post_time)
 	 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
 	</insert>

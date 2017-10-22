@@ -63,14 +63,6 @@
 	<form class="layui-form" action="rapport/${url }" id="form1"
 		method="post">
 		<input type="hidden" name="id" value="${rapport.id }"> 
-		<%-- <div class="layui-form-item">
-			<label class="layui-form-label">ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="id" required lay-verify="required"
-					placeholder="ID" autocomplete="off" class="layui-input"
-					value="${rapport.id}">
-			</div>
-		</div> --%>
 
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>

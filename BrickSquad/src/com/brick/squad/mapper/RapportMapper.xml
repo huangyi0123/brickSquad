@@ -20,6 +20,9 @@
 	</select>
 
 	<insert id="insertRapport" parameterType="Rapport">
+	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 		INSERT INTO rapport
 		(
 		id,per_id, user_id,

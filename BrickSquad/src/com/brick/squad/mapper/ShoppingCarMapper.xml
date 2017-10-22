@@ -17,6 +17,9 @@
 		FROM shopping_car
 	</select>
 	<insert id="insertShoppingCar" parameterType="ShoppingCar">
+	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 		INSERT INTO
 		shopping_car (id, article_id, per_id,
 		number, date)
