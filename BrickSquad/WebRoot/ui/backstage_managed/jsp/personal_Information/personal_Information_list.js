@@ -1,3 +1,23 @@
+function findRegionByParentId(parent_id, select_id) {
+
+		$.ajax({
+			url : 'region/findRegionByParentId',
+			data : {
+				'parantId' : parent_id
+			},
+			success : function(data) {
+				data = JSON.parse(data);
+				console.log(data);
+				$(data).each(
+						function() {
+							$(select_id).append(
+									'<option value="'+this.id+'">' + this.name
+											+ '</option>');
+							
+						});
+			}
+		});
+	}
 function init(keyword) {
 	var table = document
 			.querySelector('table[grid-manager="demo-ajaxPageCode"]');
