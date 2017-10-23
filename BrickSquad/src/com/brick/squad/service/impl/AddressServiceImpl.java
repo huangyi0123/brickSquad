@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.json.JsonArray;
 
@@ -86,6 +88,19 @@ public class AddressServiceImpl implements AddressService{
 	public String findRegionsByParentId(String parentId) {
 		List<Select> selects=regionMapper.findRegionsByParentId(parentId);
 		JSONArray jsonArray=JSONArray.fromObject(selects);
+		return jsonArray.toString();
+	}
+
+	@Override
+	public String getAllRegion(Address address) {
+		List<Select> city=regionMapper.findRegionsByParentId(address.getProvinceId());
+		List<Select> county=regionMapper.findRegionsByParentId(address.getCityId());
+		List<Select> country=regionMapper.findRegionsByParentId(address.getCountyId());
+		Map<String, List<Select>> map=new HashMap<String, List<Select>>();
+		map.put("city", city);
+		map.put("county", county);
+		map.put("country", country);
+		JSONArray jsonArray=JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}
 

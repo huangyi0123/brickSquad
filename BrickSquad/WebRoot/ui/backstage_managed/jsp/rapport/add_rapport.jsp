@@ -48,6 +48,7 @@
 		var da = $("#rda").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd");
 		$("#rda").val(dat);
+		
 		var centent=$("#centent").attr('val');
 		console.log(centent);
 		$("#centent").val(centent);

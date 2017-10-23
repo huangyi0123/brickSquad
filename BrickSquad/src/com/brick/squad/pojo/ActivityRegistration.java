@@ -2,6 +2,8 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author hy
@@ -12,6 +14,7 @@ public class ActivityRegistration {
 	private String perId;
 	private String activitiesId;
 	private Date registrationDate;
+	/*@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")*/
 	private int appointment;
 	public String getId() {
 		return id;

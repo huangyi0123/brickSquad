@@ -43,8 +43,8 @@ public class ShopActivitiesServiceTest {
 		/**
 		 * 如果要修改，先查询再修改。
 		 */
-		ShopActivities s = shopActivitiesService.findShopActivitiesById("2");
-		s.setArticleId("1213");
+		ShopActivities s = shopActivitiesService.findShopActivitiesById("8b1b72d6b70611e78d4f5254002ec43c");
+		s.setTypeId("舞狮");
 		shopActivitiesService.updateShopActivitiesById(s);
 		
 	}

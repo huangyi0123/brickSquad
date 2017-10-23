@@ -59,10 +59,10 @@
 			<div class="layui-input-block">
 				<select name="typeId" lay-filter="aihao">
 					<option value=""></option>
-					<option value="0">秋衣</option>
-					<option value="0">裤子</option>
-					<option value="0">羽绒服</option>
-					<option value="0">鞋子</option>
+					<option value="秋衣">秋衣</option>
+					<option value="裤子">裤子</option>
+					<option value="羽绒服">羽绒服</option>
+					<option value="鞋子">鞋子</option>
 				</select>
 			</div>
 			

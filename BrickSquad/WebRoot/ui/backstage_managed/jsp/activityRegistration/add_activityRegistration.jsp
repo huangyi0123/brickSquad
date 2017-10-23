@@ -20,7 +20,7 @@
 <meta http-equiv="description" content="This is my page">
 
 <link rel="stylesheet" type="text/css"
-	href="ui/backstage_managed/plugins/layui/css/layui.css" media="all">
+	href="ui/backstage_managed/plugins/layui/css/layui.css">
 
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
@@ -60,14 +60,14 @@
 </head>
 
 <body>
-	<form class="layui-form"
-		action="activityRegistration/insertActivityRegistration" id="form1"
-		method="post">
+	<form class="layui-form" action="activityRegistration/insertActivityRegistration"
+		id="form1" method="post">
+		<input type="hidden" name="id" value="${activityRegistration.id }">
 		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label">老人ID：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="perId" required lay-verify="required"
-					placeholder="老人ID" autocomplete="off" class="layui-input">
+					placeholder="老人ID" autocomplete="off" class="layui-input" value="${activityRegistration.perId }">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -75,20 +75,31 @@
 			<div class="layui-input-inline">
 				<input type="text" name="activitiesId" required
 					lay-verify="required" placeholder="活动ID" autocomplete="off"
-					class="layui-input">
+					class="layui-input" value="${activityRegistration.activitiesId }">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label">活动日期：</label>
+			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" placeholder="活动日期"
+				<input class="layui-input" name="registrationDate" value="${activityRegistration.registrationDate }" placeholder="活动日期"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
+	
+		<%-- <div class="layui-form-item">
+			<label class="layui-form-label">活动日期：</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" name="registrationDate" placeholder="活动日期"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" 
+					value="${activityRegistration.registrationDate }">
+			</div>
+		</div> --%>
+		
 		<div class="layui-form-item">
 			<label class="layui-form-label">是否预约：</label>
 			<div class="layui-input-inline">
-				<select name="appointment" required id="parament" lay-filter="aihao">
+				<select name="appointment" required lay-verify="required" id="parament" lay-filter="aihao">
 					<option value=""></option>
 					<option value="0">是</option>
 					<option value="1">否</option>
@@ -100,7 +111,6 @@
 				class="layui-btn layui-btn-primary">提交</button>
 			<button type="reset" style="margin-left: 30px;"
 				class="layui-btn layui-btn-primary">重置</button>
-
 		</div>
 	</form>
 </body>
