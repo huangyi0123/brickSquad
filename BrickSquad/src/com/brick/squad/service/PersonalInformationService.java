@@ -1,11 +1,14 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
+import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
+	public String findTypesByParentId() ;
+	public Address findAddressById(String id)throws Exception;
+	public String findAddressByIdGetString(String id)throws Exception;
+	public String findRegionsByLevel() ;
 	/**
 	 * 根据老人id查询信息
 	 * @param id 老人id
@@ -16,7 +19,7 @@ public interface PersonalInformationService {
 	 * 插入老人信息
 	 * @param personalInformation 老人信息
 	 */
-	public void insertPersonalInformation(PersonalInformation personalInformation);
+	public void insertPersonalInformation(Address address, PersonalInformation personalInformation);
 	/**
 	 * 根据id删除老人信息
 	 * @param personalInformation 老人信息

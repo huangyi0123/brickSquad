@@ -26,14 +26,14 @@ public class PersonalInformationServiceImplTest {
 
 	@Test
 	public void testInsertPersonalInformation() {
-			PersonalInformation personalInformation=new PersonalInformation();
+			/*PersonalInformation personalInformation=new PersonalInformation();
 			personalInformation.setName("zs");
 			personalInformation.setBirthday(new Date());
 			personalInformation.setGender("男");
 			personalInformation.setAddressId("123");
 			personalInformation.setIdCard("1212");
 			personalInformationService.insertPersonalInformation(personalInformation);
-			System.out.println(personalInformation.getId());
+			System.out.println(personalInformation.getId());*/
 		
 	}
 

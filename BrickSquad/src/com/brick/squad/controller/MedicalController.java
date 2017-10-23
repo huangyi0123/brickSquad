@@ -49,7 +49,7 @@ public class MedicalController {
 			Medical medical = medicalService.findMedicalById(id);
 			request.setAttribute("medical", medical);
 		} else {
-			request.setAttribute("url", "insertMedical");
+			request.setAttribute("url", "addMedical");
 			request.setAttribute("msg", "添加");
 		}
 		return "backstage_managed/jsp/medical/add_medical";
@@ -61,9 +61,9 @@ public class MedicalController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, true));
 	}
-
 	@RequestMapping("/addMedical")
 	public String addMedical(Medical medical) {
+		System.out.println(medical.getTypeId()+"99");
 		medicalService.insertMedical(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}

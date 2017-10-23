@@ -32,43 +32,47 @@
 	});
 </script>
 </head>
-
 <body>
 <br>
-	<form class="layui-form" action="#" id="form1">
+	<form class="layui-form" action="orderDetails/${url }" id="form1">
 		<div class="layui-form-item">
 			<label class="layui-form-label">订单项ID</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="订单项ID" autocomplete="off" class="layui-input">
+				<input type="text" name="id" required lay-verify="required"
+					placeholder="订单项ID" autocomplete="off" class="layui-input"
+					value="${orderDetails.id }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品ID</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="商品ID" autocomplete="off" class="layui-input">
+				<input type="text" name="articleId" required lay-verify="required"
+					placeholder="商品ID" autocomplete="off" class="layui-input"
+					value="${orderDetails.articleId }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">订单ID</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="订单ID" autocomplete="off" class="layui-input">
+				<input type="text" name="ordersId" required lay-verify="required"
+					placeholder="订单ID" autocomplete="off" class="layui-input"
+					value="${orderDetails.ordersId }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品数量</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="商品数量" autocomplete="off" class="layui-input">
+				<input type="text" name="number" required lay-verify="required"
+					placeholder="商品数量" autocomplete="off" class="layui-input"
+					value="${orderDetails.number }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">小计</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="小计" autocomplete="off" class="layui-input">
+				<input type="text" name="subtotal" required lay-verify="required"
+					placeholder="小计" autocomplete="off" class="layui-input"
+					value="${orderDetails.subtotal }">
 			</div>
 		</div>
 		<div class="layui-form-item">

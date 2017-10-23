@@ -31,13 +31,16 @@ function init(keyword) {
                 key: "operation",
                 text: "操作",
                 template: function(noteData,rowData)  {
-					return '<a href="'
+                	return '<a href="address/toAddress?id='
 					+ rowData.id
 
-					+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+					+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
 
 					+ rowData.id
-					+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+					+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="'
+
+					+ rowData.id
+					+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
 		}
             }
         ]
@@ -49,33 +52,22 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addAddress(id) {
-
-	$("#addAddress").click(function() {
-		layui.use('layer', function() {
-			var layer = layui.layer;
-			$.ajax({
-				url : "address/toAddAddress",
-				data:{"id":id},
-				success : function(data) {
-					layer.open({
-						btn : [ '添加'],
-						title : '添加用户',
-						content : data,
-						yes : function(index) {
-							$.ajax({
-								type : 'post',
-								url : 'addAddress',
-								data : $("form").serialize(),
-								success:function(){
-									layer.close(index);
-									RefreshGridManagerList("");
-								}
-							});
-						}
-					});
-				}
-			});
+function deleteById(id) {
+	layui.use('layer', function() {
+		var layer = layui.layer;
+		layer.open({
+			title : '警告',
+			content : '是否删除？',
+			btn:["确认","取消"],
+			yes:function(index){
+				$.ajax({
+					url:'address/deleteAddressById?id='+id,
+					success:function(data){
+						RefreshGridManagerList("");
+						layer.close(index);
+					}
+				});
+			}
 		});
 	});
 }

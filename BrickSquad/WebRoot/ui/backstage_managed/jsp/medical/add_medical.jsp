@@ -27,10 +27,10 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
 	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
 	$(function() {
-		alert("test");
 		$.ajax({
 			url : 'type/findTypeByParentId',
 			data : {
@@ -38,26 +38,16 @@
 			},
 			success : function(data) {
 				data = JSON.parse(data);
-				var id = $("#paramentTypeId").attr('val');
-				$(data).each(
-						function() {
-							if (id == this.id) {
-								$("#paramentTypeId").append(
-										'<option value="'+this.id+'"  selected="selected">'
-												+ this.name + '</option>');
-							} else {
-								$("#paramentTypeId").append(
-										'<option value="'+this.id+'">'
-												+ this.name + '</option>');
-							}
-
-						});
-							layui.use('form', function() {
+				findAll(data,"#paramentTypeId" );
+						layui.use('form', function() {
 								var form = layui.form();
 							});
 					
 			}
 		});
+		var dat =$("#inspectionDateId").attr('val');
+		dat = Format(new Date(dat), "yyyy-MM-dd");
+		$("#inspectionDateId").val(dat);
 	});
 </script>
 </head>
@@ -95,10 +85,11 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">日期</label>
 			<div class="layui-input-inline">
-				<input type="date" name="inspectionDate" value="${medical.inspectionDate }" required
-					lay-verify="required" placeholder="" autocomplete="off"
+				<input type="date" id="inspectionDateId" name="inspectionDate" val="${medical.inspectionDate }" required
+					lay-verify="required" placeholder="yyyy-MM-dd" 
 					class="layui-input"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					>
+					<!-- onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" -->
 			</div>
 		</div>
 
@@ -109,14 +100,14 @@
 			<label class="layui-form-label">检查医院</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="hospital" value="${medical.hospital } required lay-verify="required"
+				<input type="text" name="hospital" value="${medical.hospital }" required lay-verify="required"
 					placeholder="检查医院" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">检查类型</label>
 			<div class="layui-input-inline">
-				<select name="typeId" id="paramentTypeId" value="${medical.typeId } lay-search="">
+				<select name="typeId" id="paramentTypeId" val="${medical.typeId }" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -125,7 +116,7 @@
 			<label class="layui-form-label">病历详情</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="content" value="${medical.content } required lay-verify="required"
+				<input type="text" name="content" value="${medical.content }"required lay-verify="required"
 					placeholder="病历详情" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -133,7 +124,7 @@
 			<label class="layui-form-label">主治医师</label>
 
 			<div class="layui-input-inline">
-				<input type="text" name="attendingSurgeon" value="${medical.attendingSurgeon } required
+				<input type="text" name="attendingSurgeon" value="${medical.attendingSurgeon }" required
 					lay-verify="required" placeholder="主治医师" autocomplete="off"
 					class="layui-input">
 			</div>

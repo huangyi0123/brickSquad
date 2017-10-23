@@ -40,12 +40,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	$(function() {
 		init("");
-		addAddress("");
 	});
 	</script>
-  </head>
-  
-  <body>
+ <style type="text/css">
+.search {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+a:HOVER {
+	text-decoration: none;
+}
+</style>
+</head>
+
+<body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
 			<input type="text" class="form-control" placeholder="Search for...">
@@ -66,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="address/toAddAddress" id="addAddress"
+				<li><a href="address/toAddress" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
 				<li><a href="#">导出</a></li>
@@ -77,6 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	<div style="clear: both;"></div>
+	<div class="cls"></div>
 	<table grid-manager="demo-ajaxPageCode"></table>
 </body>
 </html>

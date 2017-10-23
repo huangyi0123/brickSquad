@@ -58,12 +58,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="layui-input-block">
 				<select name="centent" lay-filter="aihao">
 					<option value=""></option>
-					<option value="0">打麻将</option>
-					<option value="0">打扑克</option>
-					<option value="0">养生讲座</option>
+					<option value="打麻将">打麻将</option>
+					<option value="打扑克">打扑克</option>
+					<option value="养生讲座">养生讲座</option>
 				</select>
 			</div>
 		</div>
+		
+		
 		
 		
 		<div class="layui-form-item">
@@ -73,6 +75,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					placeholder="活动类型id" autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">开始时间</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" name="startTime" placeholder="开始时间"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+			</div>
+		</div>
+    
+        <div class="layui-form-item">
+			<label class="layui-form-label">结束时间</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" name="endTime" placeholder="结束时间"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+			</div>
+		</div>
+		
+		
+		
 		
 		<div class="layui-form-item">
     <div class="layui-input-block">
