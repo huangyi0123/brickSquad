@@ -5,7 +5,7 @@ import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
-	public String getAllRegionById(Address address);
+	
 	public String findTypesByParentId() ;
 	public Address findAddressById(String id)throws Exception;
 	

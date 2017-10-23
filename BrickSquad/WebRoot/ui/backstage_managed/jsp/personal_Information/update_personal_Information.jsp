@@ -85,7 +85,7 @@ layui.use('form', function() {
 				$("#countryId").append(
 						'<option value="">直接选择或搜索选择</option>');
 				//清空该区域下面的下拉框
-				$(" #detailedId").val("");
+				$("#detailedId").empty();
 
 				findAll(result, "#countryId");
 				form.render('select', 'countryIdSelect');
@@ -101,23 +101,21 @@ layui.use('form', function() {
 		var nationData = ${nationData};
 		findAll(nationData, "#paramentNationId");
 		form.render('select', 'NationIdSelect');
-		//查询region中level为1，即所有省份集合
+		//回显address中的省级地址
 		var provinceData = ${provinceData};
 		findAll(provinceData, "#prId");
-		form.render('select', 'prIdSelect');
-		//查询ID查询region中的市级地址
-		//查询ID查询region中的县级地址
-		//查询ID查询region中的乡镇级地址
-	
-		/* var addressData = ${addressData};
-		findAll(addressData, "#prId");
-		form.render();
-		findAll(addressData, "#cityId");
-		form.render();
-		findAll(addressData, "#countyId");
-		form.render();
-		findAll(addressData, "#countryId");
-		form.render(); */
+		 form.render('select', 'prIdSelect'); 
+		//回显address中的市级地址
+		var address =${allRegionResultById};
+		findAll(address[0].city, "#cityId");
+		console.log(address[0].city);
+		 form.render('select', 'cityIdSelect'); 
+		//回显address中的县级地址
+		findAll(address[0].county, "#countyId");
+		 form.render('select', 'countyIdSelect'); 
+		//回显address中的乡镇级地址
+		findAll(address[0].country, "#countryId");
+		form.render('select', 'countryIdSelect'); 
 		//页面日期格式回填处理
 		var birthdayId = $("#birthdayId").attr('val');
 		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
@@ -323,6 +321,7 @@ layui.use('form', function() {
 				</select>
 			</div>
 			<div class="layui-input-inline ">
+			<input type="hidden" name="id" value="${address.id}">
 				<input value="${address.detailed}" type="text" id="detailedId"
 					name="detailed" required lay-verify="required"
 					placeholder="具体地址，详细到街道门牌号" class="layui-input">

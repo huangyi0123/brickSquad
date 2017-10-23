@@ -85,7 +85,7 @@
 
 		} else {
 			var regions = ${regions};
-			console.log(regions[0].city);
+			console.log(regions[0]);
 			findAll(regions[0].city, "#city");
 			findAll(regions[0].county, "#citg");
 			findAll(regions[0].country, "#cit");

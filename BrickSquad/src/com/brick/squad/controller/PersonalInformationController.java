@@ -32,7 +32,7 @@ public class PersonalInformationController {
 	@Autowired
 	@Qualifier("addressService")
 	private AddressService addressService;
-	
+
 	@RequestMapping("/toPersonalInformation")
 	public String toPersonalInformation() {
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
@@ -49,8 +49,10 @@ public class PersonalInformationController {
 				.personalInformationPagination(pagination);
 		return data;
 	}
+
 	@RequestMapping("/toUpdatePersonalInformation")
-	public String toUpdatePersonalInformation(HttpServletRequest request, String id) throws Exception {
+	public String toUpdatePersonalInformation(HttpServletRequest request,
+			String id) throws Exception {
 		String provinceData = personalInformationService.findRegionsByLevel();
 		request.setAttribute("provinceData", provinceData);
 		String nationData = personalInformationService.findTypesByParentId();
@@ -64,17 +66,19 @@ public class PersonalInformationController {
 			Address address = personalInformationService
 					.findAddressById(personalInformation.getAddressId());
 			request.setAttribute("address", address);
-			String allRegionResultById =personalInformationService.getAllRegionById(address);
+			String allRegionResultById = addressService.getAllRegion(address);
 			request.setAttribute("allRegionResultById", allRegionResultById);
-		
+
 		} else {
 			return "backstage_managed/jsp/personal_Information/add_personal_Information";
 		}
 
 		return "backstage_managed/jsp/personal_Information/update_personal_Information";
 	}
+
 	@RequestMapping("/toAddPersonalInformation")
-	public String toAddPersonalInformation(HttpServletRequest request) throws Exception {
+	public String toAddPersonalInformation(HttpServletRequest request)
+			throws Exception {
 
 		String provinceData = personalInformationService.findRegionsByLevel();
 		request.setAttribute("provinceData", provinceData);
@@ -108,6 +112,8 @@ public class PersonalInformationController {
 	@RequestMapping("/updatePersonalInformationById")
 	public String updatePersonalInformation(Address address,
 			PersonalInformation personalInformation) throws Exception {
+		System.out.println(address.toString());
+		System.out.println(personalInformation.toString());
 		addressService.updateAddressById(address);
 		personalInformationService
 				.updatePersonalInformationById(personalInformation);

@@ -135,19 +135,8 @@ public class PersonalInformationServiceImpl implements
 	/**
 	 * 根据ID查询地址，将地址转为JSON对象字符串，页面上回显地址用
 	 */
-@Override
-public String getAllRegionById(Address address) {
-	Region city=regionMapper.findRegionById(address.getCityId());
-	Region county  = regionMapper.findRegionById(address.getCountyId());
-	Region country =regionMapper.findRegionById(address.getCountryId());
-	Map<String, Region> map = new HashMap<String, Region>();
-	map.put("city", city);
-	map.put("county", county);
-	map.put("country", country);
-	JSONArray jsonArray = new JSONArray();
-	String allRegion = jsonArray.fromObject(map).toString();
-	return allRegion;
-}
+
+
 
 
 
