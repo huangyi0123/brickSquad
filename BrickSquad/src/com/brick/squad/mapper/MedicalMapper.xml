@@ -26,7 +26,9 @@
 	</delete>
 	<update id="updateMedicalCententById" parameterType="medical">
 		UPDATE
-		medical set content=#{content} where id =#{id}
+		medical set content=#{content},per_id= #{perId},inspection_date=#{inspectionDate},
+		hospital=#{hospital},attending_surgeon=#{attendingSurgeon},type_id=#{typeId}
+		where id =#{id}
 	</update>
 	<select id="medicalPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="medical">

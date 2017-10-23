@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.Pagination;
 
@@ -41,10 +44,27 @@ public class ActivitiesController {
 		
 		
 		@RequestMapping("/toAddActivities")
-		public String toAddActivities(){
+		public String toAddActivities(HttpServletRequest request, String id) throws Exception{
+			if (id != null) {
+				request.setAttribute("msg", "修改");
+				request.setAttribute("url", "updateShopActivitiesById");
+				Activities activities = activitiesService.findActivitiesById(id);
+				request.setAttribute("activities", activities);
+			} else {
+				request.setAttribute("url", "addActivities");
+				request.setAttribute("msg", "添加");
+			}
+		
 			return "backstage_managed/jsp/activities/add_activities";
 			
 		}
+		
+		
+		
+		
+		
+		
+		
 		@RequestMapping("/addActivities")
 		public String addActivities(Activities activities) throws Exception{
 			activitiesService.insertActivitiesById(activities);

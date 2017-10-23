@@ -5,6 +5,7 @@ import java.util.List;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface ActivitiesMapper {
 	/**
@@ -24,4 +25,5 @@ public interface ActivitiesMapper {
 	public List<Activities> activitiesPagination(Pagination pagination) ;
 	
 	public int findActivitiesAllCount();
+	
 }

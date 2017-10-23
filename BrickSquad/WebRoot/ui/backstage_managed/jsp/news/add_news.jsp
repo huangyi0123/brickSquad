@@ -31,80 +31,86 @@
 <script type="text/javascript">
 $(function() {
 	$.ajax({
-		url : 'shoppingCar/findArticleAndPersonalInformation',
+		url : 'news/findUser',
 		success : function(data) {
 			data = JSON.parse(data);
-			/* console.log(data[0].article[0]);浏览器打印 */
-			var article = data[0].article;
-			var personalinformation = data[0].personalInformation;
-			findAll(article, "#articleId");
-			findAll(personalinformation, "#personalInformationId");
+			var id = $("#userId").attr('val');
+			
+			$(data).each(
+					function() {
+						if (id == this.id) {
+							$("#userId").append(
+									'<option value="'+this.id+'"  selected="selected">'
+											+ this.username + '</option>');
+						} else {
+							$("#userId").append(
+									'<option value="'+this.id+'">'
+											+ this.username + '</option>');
+						}
+
+					});
 			layui.use('form', function() {
 				var form = layui.form();
 			});
 		}
 	});
+	var da = $("#rda").attr('val');
+	dat = Format(new Date(da), "yyyy-MM-dd");
+	$("#rda").val(dat);
+	var centent=$("#centent").attr('val');
+	console.log(centent);
+	$("#centent").val(centent);
 });
-	function findAll(data, id) {
-		$(data).each(
-				function() {
-					console.log(this);
-					$(id).append(
-							'<option value="'+this.id+'">' + this.name
-									+ '</option>');
-				});
-	}
 </script>
 </head>
-
 <body>
-<br>
-<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}购物车信息</div>
-<br>
-	<form class="layui-form" action="shoppingCar/${url}" id="form1" method="post">
-		<%-- <input type="hidden" name="id" value="${shoppingCar.id }"> --%>
+<div style="padding-left: 70px;">
+	<br>
+	<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}新闻编辑</div>
+	<br>
+	<form class="layui-form" action="news/${url}" id="form1"
+		method="post">
 		<div class="layui-form-item">
-			<label class="layui-form-label">ID</label>
+			<label class="layui-form-label">新闻ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
-					placeholder="ID" autocomplete="off" class="layui-input"
-					value="${shoppingCar.id }">
+					placeholder="新闻ID" autocomplete="off" class="layui-input"
+					value="${news.id }">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">买家姓名</label>
+		 <div class="layui-form-item">
+			<label class="layui-form-label">编辑用户ID</label>
 			<div class="layui-input-inline">
-				<select name="perId" id="personalInformationId" val="${shoppingCar.perId}" lay-search="">
+				<select name="userId" id="userId" val="${news.userId }" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
-			</div>
-		</div>
-		
-		<div class="layui-form-item">
-			<label class="layui-form-label">商品名称</label>
-			<div class="layui-input-inline">
-				<select name="articleId" id="articleId" val="${shoppingCar.articleId}" lay-search="">
-					<option value="">直接选择或搜索选择</option>
-				</select>
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">商品数量</label>
-			<div class="layui-input-inline">
-				<input type="text" name="number" required lay-verify="required"
-					placeholder="商品数量" autocomplete="off" class="layui-input"
-					value="${ shoppingCar.number}">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">生成时间</label>
-			<div class="layui-input-inline">
-				<input type="date" name="date" required lay-verify="required"
-					placeholder="生成时间" autocomplete="off" class="layui-input"
-					value="${shoppingCar.date }">
 			</div>
 		</div> 
-		
+		<div class="layui-form-item">
+			<label class="layui-form-label">图片路径</label>
+			<div class="layui-input-inline">
+				<input type="text" name="imagePath" required lay-verify="required"
+					placeholder="图片路径" autocomplete="off" class="layui-input"
+					value="${news.imagePath }">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label">提交时间</label>
+				<div class="layui-input-inline">
+					<input type="date" class="layui-input" name="postTime"
+						placeholder="yyyy-MM-dd"
+						value="${news.postTime }" id="rda">
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">编辑内容</label>
+			<div class="layui-input-block">
+				<textarea name="content" placeholder="请输入内容" class="layui-textarea" 
+				val="${news.content }" id="content"></textarea>
+			</div>
+		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
@@ -112,5 +118,6 @@ $(function() {
 			</div>
 		</div>
 	</form>
+	</div>
 </body>
 </html>

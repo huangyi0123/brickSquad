@@ -27,19 +27,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+	
+	$(function() {
+		$.ajax({
+			url : 'activities/findAllActivities',
+			success : function(data) {
+				data = JSON.parse(data);
+				var id = $("#parament").attr('val');
+				
+				$(data).each(
+						function() {
+							if (id == this.id) {
+								$("#parament").append(
+										'<option value="'+this.id+'"  selected="selected">'
+												+ this.name + '</option>');
+							} else {
+								$("#parament").append(
+										'<option value="'+this.id+'">'
+												+ this.name + '</option>');
+							}
+
+						});
+				layui.use('form', function() {
+					var form = layui.form();
+				});
+			}
+		});
 	});
 </script>
   </head>
   
   <body>
-   <form class="layui-form" action="activities/addActivities" id="form1">
+   <form class="layui-form" action="activities/${url }" id="form1">
+   <input type="hidden" name="id" value="${activities.id}">
 		<div class="layui-form-item">
 			<label class="layui-form-label">活动编号</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input">
+					placeholder="活动编号" autocomplete="off" class="layui-input"
+					value="${activities.id }">
 			</div>
 		</div>
 		
@@ -48,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<label class="layui-form-label">活动名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
-					placeholder="活动名称" autocomplete="off" class="layui-input">
+					placeholder="活动名称" value="${activities.name }" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		
@@ -56,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-form-item">
 			<label class="layui-form-label">活动内容</label>
 			<div class="layui-input-block">
-				<select name="centent" lay-filter="aihao">
+				<select name="centent" lay-filter="aihao" val="${activities.centent}">
 					<option value=""></option>
 					<option value="打麻将">打麻将</option>
 					<option value="打扑克">打扑克</option>
@@ -72,7 +98,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<label class="layui-form-label">活动类型id</label>
 			<div class="layui-input-inline">
 				<input type="text" name="typeId" required lay-verify="required"
-					placeholder="活动类型id" autocomplete="off" class="layui-input">
+					placeholder="活动类型id" autocomplete="off" class="layui-input"
+					value="${activities.typeId }">
 			</div>
 		</div>
 		

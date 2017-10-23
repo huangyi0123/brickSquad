@@ -1,5 +1,7 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Region;
 import com.brick.squad.util.Pagination;
 
@@ -24,4 +26,5 @@ public interface RegionService {
 	public String regionPagination(Pagination pagination);
 
 	public String findRegionByParentId(String perantId);
+	public String findAllRegion ();
 }

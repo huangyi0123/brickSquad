@@ -12,7 +12,7 @@
 			 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
 	</insert>
 	<delete id="deleteNews">
-		delete from News where id=#{id}
+		delete from news where id=#{id}
 	</delete>
 	<update id="updateNews">
 		UPDATE news SET content=#{content} WHERE user_id=#{userId}
@@ -27,5 +27,24 @@
 	</select>
 	<select id="findNewsCount" resultType="Integer">
 	SELECT COUNT(*) FROM news
+	</select>
+	<insert id="insertNews" parameterType="news">
+	INSERT INTO news(id,user_id,content,imgs_path,post_time)
+	 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
+	</insert>
+	<update id="updateNewsById" parameterType="news">
+	UPDATE news
+		SET
+		user_id=#{userId},
+		content=#{content},
+		imgs_path=#{imagePath},
+		post_time=#{postTime}
+		WHERE id=#{id}
+	</update>
+	<select id="findNewsById" parameterType="java.lang.String" resultType="news">
+	SELECT 
+	<include refid="Base_Column_List"/>
+	FROM news
+	WHERE id=#{id}
 	</select>
 </mapper>

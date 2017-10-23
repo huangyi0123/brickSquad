@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat; 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.ShopActivities;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
 
@@ -25,7 +28,7 @@ public class ShopActivitiesController {
 	@Qualifier("shopActivitiesService")
 	private ShopActivitiesService shopActivitiesService;
 	
-	@RequestMapping("toShopActivitiesList")
+	@RequestMapping("/toShopActivitiesList")
 	public String toShopActivitiesList(){
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
 		
@@ -41,8 +44,17 @@ public class ShopActivitiesController {
 }
 	
 	@RequestMapping("/toAddShopActivities")
-	public String toAddShopActivities(){
-		
+	public String toAddShopActivities(HttpServletRequest request, String id) throws Exception {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateShopActivitiesById");
+			ShopActivities shopActivities = shopActivitiesService.findShopActivitiesById(id);
+			request.setAttribute("shopActivities", shopActivities);
+		} else {
+			request.setAttribute("url", "addShopActivities");
+			request.setAttribute("msg", "添加");
+		}
+	
 		return "backstage_managed/jsp/shopActivities/add_shopActivities";
 		
 	}
@@ -53,8 +65,8 @@ public class ShopActivitiesController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	
-	@RequestMapping("/AddShopActivities")
-	public String AddShopActivities(ShopActivities shopActivities) throws Exception{
+	@RequestMapping("/addShopActivities")
+	public String addShopActivities(ShopActivities shopActivities) throws Exception{
 
 		shopActivitiesService.insertShopActivitiesById(shopActivities);
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
@@ -71,10 +83,11 @@ public class ShopActivitiesController {
 
 	
 	
-	@RequestMapping("/updateActivitiesById")
-	public String updateActivitiesById(ShopActivities shopActivities) throws Exception{
+	@RequestMapping("/updateShopActivitiesById")
+	public String updateShopActivitiesById(ShopActivities shopActivities) throws Exception{
 		
 		shopActivitiesService.updateShopActivitiesById(shopActivities);
+		
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
 		
 	}

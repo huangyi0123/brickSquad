@@ -40,112 +40,107 @@
 		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label" style="width: 100px;">老人ID：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="perId" required lay-verify="required"
-					placeholder="老人ID" autocomplete="off" class="layui-input">
+				<input type="hidden" value="${healthRecords.id }" name="id">
+				<input type="text" value="${healthRecords.perId }" name="perId"
+					required lay-verify="required" placeholder="老人ID"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">记录人员ID：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="userId" required lay-verify="required"
-					placeholder="记录人员ID" autocomplete="off" class="layui-input">
+				<input type="text" name="userId" value="${healthRecords.userId }"
+					required lay-verify="required" placeholder="记录人员ID"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">疾病ID：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="diseaseId" required
-					lay-verify="required" placeholder="疾病ID" autocomplete="off"
-					class="layui-input">
+				<input type="text" name="diseaseId" required lay-verify="required"
+					value="${healthRecords.diseaseId }" placeholder="疾病ID"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">症状：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="shape" required
-					lay-verify="required" placeholder="症状" autocomplete="off"
+				<input type="text" name="shape" required lay-verify="required"
+					value="${healthRecords.shape }" placeholder="症状" autocomplete="off"
 					class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">饮食情况：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="dietSituation" required
-					lay-verify="required" placeholder="饮食情况" autocomplete="off"
-					class="layui-input">
+				<input type="text" value="${healthRecords.dietSituation }"
+					name="dietSituation" required lay-verify="required"
+					placeholder="饮食情况" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">运动情况：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="sportsSituation" required
-					lay-verify="required" placeholder="运动情况" autocomplete="off"
-					class="layui-input">
+				<input type="text" value="${healthRecords.sportsSituation }"
+					name="sportsSituation" required lay-verify="required"
+					placeholder="运动情况" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">情绪控制：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="emotionControl" required
-					lay-verify="required" placeholder="情绪控制" autocomplete="off"
-					class="layui-input">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">运动情况：</label>
-			<div class="layui-input-inline">
-				<input type="text" name="thrombus" required
-					lay-verify="required" placeholder="运动情况" autocomplete="off"
-					class="layui-input">
+				<input type="text" value="${healthRecords.emotionControl }"
+					name="emotionControl" required lay-verify="required"
+					placeholder="情绪控制" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">血栓：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="thrombus" required
-					lay-verify="required" placeholder="血栓" autocomplete="off"
-					class="layui-input">
+				<input type="text" name="thrombus" required lay-verify="required"
+					value="${healthRecords.thrombus }" placeholder="血栓"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">血压：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="bloodPressure" required
-					lay-verify="required" placeholder="血压" autocomplete="off"
-					class="layui-input">
+					lay-verify="required" value="${healthRecords.bloodPressure }"
+					placeholder="血压" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">健康评价：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="healthAssessment" required
-					lay-verify="required" placeholder="健康评价" autocomplete="off"
-					class="layui-input">
+					lay-verify="required" value="${healthRecords.healthAssessment }"
+					placeholder="健康评价" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">危险提示：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="dangerousTips" required
-					lay-verify="required" placeholder="危险提示" autocomplete="off"
-					class="layui-input">
+					lay-verify="required" value="${healthRecords.dangerousTips }"
+					placeholder="危险提示" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">结论/建议：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="conclusionSuggestion" required
-					lay-verify="required" placeholder="最终建议" autocomplete="off"
-					class="layui-input">
+				<input type="text" value="${healthRecords.conclusionSuggestion }"
+					name="conclusionSuggestion" required lay-verify="required"
+					placeholder="最终建议" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-		
+
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">评估：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="evaluate" required
-					lay-verify="required" placeholder="评估" autocomplete="off"
-					class="layui-input">
+				<input type="text" value="${healthRecords.evaluate }"
+					name="evaluate" required lay-verify="required" placeholder="评估"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">

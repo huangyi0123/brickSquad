@@ -78,4 +78,26 @@ public class NewsServiceImpl implements NewsService {
 		Integer countNews=newsMapper.findNewsCount();
 		return countNews;
 	}
+	@Override
+	/**
+	 * 添加新闻信息
+	 * */
+	public void insertNews(News news) throws Exception {
+		newsMapper.insertNews(news);
+	}
+	@Override
+	/**
+	 * 根据news的ID修改信息
+	 * */
+	public void updateNewsById(News news) throws Exception {
+		newsMapper.updateNewsById(news);
+	}
+	@Override
+	/**
+	 * 根据新闻的ID查询用户信息
+	 * */
+	public News findNewsById(String id) throws Exception {
+		News news=newsMapper.findNewsById(id);
+		return news;
+	}
 }

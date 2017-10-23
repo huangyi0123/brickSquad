@@ -40,10 +40,17 @@ public class MemberShipApplicationController {
 		return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
 	}
 	
-	@RequestMapping("/AddMemberShipApplication")
-	public String AddMemberShipApplication(MemberShipApplication memberShipApplication){
+	@RequestMapping("/addMemberShipApplication")
+	public String addMemberShipApplication(MemberShipApplication memberShipApplication){
 		memberShipApplicationService.insertMemberShipApplicationById(memberShipApplication);
 		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
 		
+	}
+	
+	@RequestMapping("/deleteMemberShipApplicationById")
+	public String deleteMemberShipApplicationById(String id){
+		memberShipApplicationService.deleteMemberShipApplicationById(id);
+		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
+	
 	}
 }

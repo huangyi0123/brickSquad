@@ -9,6 +9,7 @@ import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.ShoppingCarMapper;
@@ -73,9 +74,9 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	/**分页查询购物车*/
 	public String shoppingCarPagination(Pagination pagination)
 			throws Exception {
-		List<ShoppingCar> regions=shoppingCarMapper.shoppingCarPagination(pagination);
+		List<ShoppingCarExpand> regions=shoppingCarMapper.shoppingCarPagination(pagination);
 		int row=shoppingCarMapper.findShoppingCarCount();
-		Util<ShoppingCar> util=new Util<ShoppingCar>();
+		Util<ShoppingCarExpand> util=new Util<ShoppingCarExpand>();
 		String data=util.SplitPage(regions, row);
 		return data;
 	}

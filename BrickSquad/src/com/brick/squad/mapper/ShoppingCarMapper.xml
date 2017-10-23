@@ -46,11 +46,14 @@
 		SELECT COUNT(*)
 		FROM shopping_car
 	</select>
-	<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="ShoppingCar">
-		SELECT 
-		<include refid="Base_Column_List" />
-		from shopping_car 
+		<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.ShoppingCarExpand">
+		SELECT p.`name`,a.aname,s.number,s.date,s.id
+		from shopping_car s 
+		INNER JOIN personal_information p 
+		ON s.per_id =p.id 
+		INNER JOIN article a 
+		ON s.article_id=a.id
 		limit #{skipNum},#{takeNum}
 		</select>
 </mapper>

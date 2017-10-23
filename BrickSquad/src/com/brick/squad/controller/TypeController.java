@@ -1,4 +1,4 @@
-package com.brick.squad.controller;
+ package com.brick.squad.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

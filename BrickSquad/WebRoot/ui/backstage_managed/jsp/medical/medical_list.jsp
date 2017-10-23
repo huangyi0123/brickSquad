@@ -42,7 +42,6 @@
 <script type="text/javascript">
 	$(function() {
 		init("");
-		addMedical("");
 	});
 </script>
 <style type="text/css">
