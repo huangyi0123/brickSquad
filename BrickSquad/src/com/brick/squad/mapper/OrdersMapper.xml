@@ -30,7 +30,6 @@
 		#{buyId,jdbcType=VARCHAR},
 		#{number,jdbcType=INTEGER}, #{money,jdbcType=REAL})
 	</insert>
-
 	<update id="updateOrdersById" parameterType="Orders">
 		UPDATE orders
 		SET 
