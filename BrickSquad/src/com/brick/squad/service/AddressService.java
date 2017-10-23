@@ -31,4 +31,10 @@ public interface AddressService {
 	 * @return 区域
 	 */
 	public String findRegionsByParentId(String parentId);
+	/**
+	 * 根据地址信息查询相关区域
+	 * @param address 地址信息
+	 * @return 区域信息
+	 */
+	public String getAllRegion(Address address);
 }
