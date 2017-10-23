@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
@@ -110,20 +111,24 @@ public class PersonalInformationController {
 	}
 
 	@RequestMapping("/updatePersonalInformationById")
-	public String updatePersonalInformation(Address address,
-			PersonalInformation personalInformation) throws Exception {
-		System.out.println(address.toString());
-		System.out.println(personalInformation.toString());
-		addressService.updateAddressById(address);
+	public String updatePersonalInformation(
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand)
+			throws Exception {
+		System.out.println(addressAndPersonaInformationExpand.getAddress()
+				.toString());
+		System.out.println(addressAndPersonaInformationExpand
+				.getPersonalInformation().toString());
+		addressService.updateAddressById(addressAndPersonaInformationExpand
+				.getAddress());
 		personalInformationService
-				.updatePersonalInformationById(personalInformation);
+				.updatePersonalInformationById(addressAndPersonaInformationExpand
+						.getPersonalInformation());
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
 
 	@RequestMapping("/deletePersonalInformationById")
 	@ResponseBody
 	public String deletePersonalInformationById(String id) {
-		System.out.println("yyyyyy");
 		personalInformationService.deletePersonalInformationById(id);
 		return "success";
 	}

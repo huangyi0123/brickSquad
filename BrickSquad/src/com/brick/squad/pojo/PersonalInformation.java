@@ -179,5 +179,22 @@ public class PersonalInformation {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PersonalInformation [id=" + id + ", name=" + name
+				+ ", birthday=" + birthday + ", gender=" + gender + ", idCard="
+				+ idCard + ", addressId=" + addressId + ", retirementUnit="
+				+ retirementUnit + ", retirementDate=" + retirementDate
+				+ ", engagedIndustry=" + engagedIndustry + ", weight=" + weight
+				+ ", height=" + height + ", income=" + income
+				+ ", familyHistory=" + familyHistory + ", isPurchasing="
+				+ isPurchasing + ", isSupremacy=" + isSupremacy + ", isPureq="
+				+ isPureq + ", pureqTypeId=" + pureqTypeId + ", nationId="
+				+ nationId + ", cultureId=" + cultureId + ", marriageId="
+				+ marriageId + ", zip=" + zip + "]";
+	}
 	
 }
