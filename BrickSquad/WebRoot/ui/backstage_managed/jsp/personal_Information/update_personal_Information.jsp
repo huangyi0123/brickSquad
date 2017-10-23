@@ -33,18 +33,8 @@
 <script type="text/javascript">
 layui.use('form', function() {
 	var form = layui.form();
+	form.render();
 	
-	$(function() {
-		//查询type中parentId为mz，即所有民族集合
-		var nationData = ${nationData};
-		console.log(nationData);
-		findAll(nationData, "#paramentNationId");
-		form.render('select', 'NationIdSelect');
-		//查询region中level为1，即所有省份集合
-		var provinceData = ${provinceData};
-		findAll(provinceData, "#prId");	
-		form.render('select', 'prIdSelect');
-	});	
 	//监听省份下拉框的选中事件，根据省份id查询相应省份下面的城市
 	form.on('select(prIdSelect)', function(data) {
 		$.ajax({
@@ -95,7 +85,7 @@ layui.use('form', function() {
 				$("#countryId").append(
 						'<option value="">直接选择或搜索选择</option>');
 				//清空该区域下面的下拉框
-				$(" #detailedId").val("");
+				$("#detailedId").empty();
 
 				findAll(result, "#countryId");
 				form.render('select', 'countryIdSelect');
@@ -106,7 +96,34 @@ layui.use('form', function() {
 	
 
 	
-	
+	$(function() {
+		//查询type中parentId为mz，即所有民族集合
+		var nationData = ${nationData};
+		findAll(nationData, "#paramentNationId");
+		form.render('select', 'NationIdSelect');
+		//回显address中的省级地址
+		var provinceData = ${provinceData};
+		findAll(provinceData, "#prId");
+		 form.render('select', 'prIdSelect'); 
+		//回显address中的市级地址
+		var address =${allRegionResultById};
+		findAll(address[0].city, "#cityId");
+		console.log(address[0].city);
+		 form.render('select', 'cityIdSelect'); 
+		//回显address中的县级地址
+		findAll(address[0].county, "#countyId");
+		 form.render('select', 'countyIdSelect'); 
+		//回显address中的乡镇级地址
+		findAll(address[0].country, "#countryId");
+		form.render('select', 'countryIdSelect'); 
+		//页面日期格式回填处理
+		var birthdayId = $("#birthdayId").attr('val');
+		birthdayId = Format(new Date(birthdayId), "yyyy-MM-dd");
+		$("#birthdayId").val(birthdayId);
+		var retirementDateId = $("#retirementDateId").attr('val');
+		retirementDateId = Format(new Date(retirementDateId), "yyyy-MM-dd");
+		$("#retirementDateId").val(retirementDateId);
+	});	
 });
 	 
 
@@ -115,13 +132,14 @@ layui.use('form', function() {
 </head>
 <body>
 	<br>
-	<div style="padding-left: 120px;font-size:16;font-style: oblique;">添加老人详细信息</div>
+	<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}老人详细信息</div>
 	<br>
-	<form class="layui-form" action="personalInformation/addPersonalInformation"
+	<form class="layui-form" action="personalInformation/${url }"
 		id="form1" method="post">
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
+				<input type="hidden" value="${personalInformation.id }" name="id">
 				<input type="text" value="${personalInformation.name }" name="name"
 					required lay-verify="required" placeholder="老人姓名"
 					autocomplete="off" class="layui-input">
@@ -164,7 +182,7 @@ layui.use('form', function() {
 
 			<label class="layui-form-label">民族</label>
 			<div class="layui-input-inline">
-				<select name="nationId" val="${personalInformation.nationId }"
+				<select name="nationId"  val="${personalInformation.nationId }"
 					id="paramentNationId" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
@@ -278,7 +296,7 @@ layui.use('form', function() {
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
-			<div class="layui-input-inline"> 
+			<div class="layui-input-inline">
 				<select val="${address.provinceId}" name="provinceId" id="prId"
 					lay-filter="prIdSelect" lay-search="">
 					<option value="">选择省份</option>
@@ -303,6 +321,7 @@ layui.use('form', function() {
 				</select>
 			</div>
 			<div class="layui-input-inline ">
+			<input type="hidden" name="id" value="${address.id}">
 				<input value="${address.detailed}" type="text" id="detailedId"
 					name="detailed" required lay-verify="required"
 					placeholder="具体地址，详细到街道门牌号" class="layui-input">

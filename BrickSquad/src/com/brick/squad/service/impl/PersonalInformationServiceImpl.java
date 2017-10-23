@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -15,6 +17,7 @@ import com.brick.squad.mapper.RegionMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Region;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -127,16 +130,14 @@ public class PersonalInformationServiceImpl implements
 		return addressMapper.findAddressById(id);
 
 	}
-/**
- * 根据ID查询地址，将地址转为JSON对象字符串，页面上回显地址用
- */
-	@Override
-	public String findAddressByIdGetString(String id) throws Exception {
-		Address address = addressMapper.findAddressById(id);
-		JSONObject jsonObject = new JSONObject();
-		String addressData = jsonObject.fromObject(address).toString();
 
-		return addressData;
-	}
+
+	/**
+	 * 根据ID查询地址，将地址转为JSON对象字符串，页面上回显地址用
+	 */
+
+
+
+
 
 }

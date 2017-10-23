@@ -32,7 +32,7 @@ public class PersonalInformationController {
 	@Autowired
 	@Qualifier("addressService")
 	private AddressService addressService;
-	
+
 	@RequestMapping("/toPersonalInformation")
 	public String toPersonalInformation() {
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
@@ -50,9 +50,9 @@ public class PersonalInformationController {
 		return data;
 	}
 
-	@RequestMapping("/toAddPersonalInformation")
-	public String toAddPersonalInformation(HttpServletRequest request, String id) throws Exception {
-
+	@RequestMapping("/toUpdatePersonalInformation")
+	public String toUpdatePersonalInformation(HttpServletRequest request,
+			String id) throws Exception {
 		String provinceData = personalInformationService.findRegionsByLevel();
 		request.setAttribute("provinceData", provinceData);
 		String nationData = personalInformationService.findTypesByParentId();
@@ -66,13 +66,24 @@ public class PersonalInformationController {
 			Address address = personalInformationService
 					.findAddressById(personalInformation.getAddressId());
 			request.setAttribute("address", address);
-			String addressData = personalInformationService.findAddressByIdGetString(id);
-			request.setAttribute("addressData", addressData);
+			String allRegionResultById = addressService.getAllRegion(address);
+			request.setAttribute("allRegionResultById", allRegionResultById);
+
 		} else {
-			request.setAttribute("url", "addPersonalInformation");
-			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/personal_Information/add_personal_Information";
 		}
 
+		return "backstage_managed/jsp/personal_Information/update_personal_Information";
+	}
+
+	@RequestMapping("/toAddPersonalInformation")
+	public String toAddPersonalInformation(HttpServletRequest request)
+			throws Exception {
+
+		String provinceData = personalInformationService.findRegionsByLevel();
+		request.setAttribute("provinceData", provinceData);
+		String nationData = personalInformationService.findTypesByParentId();
+		request.setAttribute("nationData", nationData);
 		return "backstage_managed/jsp/personal_Information/add_personal_Information";
 	}
 
@@ -101,6 +112,8 @@ public class PersonalInformationController {
 	@RequestMapping("/updatePersonalInformationById")
 	public String updatePersonalInformation(Address address,
 			PersonalInformation personalInformation) throws Exception {
+		System.out.println(address.toString());
+		System.out.println(personalInformation.toString());
 		addressService.updateAddressById(address);
 		personalInformationService
 				.updatePersonalInformationById(personalInformation);
