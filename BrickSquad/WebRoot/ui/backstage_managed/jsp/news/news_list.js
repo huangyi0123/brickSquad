@@ -12,8 +12,8 @@ function init(keyword) {
                 text: '新闻ID'
             },
             {
-                key: 'userId',
-                text: '编辑用户ID'
+                key: 'username',
+                text: '编辑用户名'
             },
             {
                 key: 'content',

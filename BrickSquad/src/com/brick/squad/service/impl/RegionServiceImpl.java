@@ -22,7 +22,7 @@ public class RegionServiceImpl implements RegionService {
 	private RegionMapper regionMapper;
 	@Override
 	public String findRegionByLevel(int level) {
-		List<Select> regions = regionMapper.findRegionByLevel(level);
+		List<Select> regions =regionMapper.findRegionsByLevel(level);
 		JSONArray jsonArray = new JSONArray();
 		String dataregion =jsonArray.fromObject(regions).toString();
 		return dataregion;

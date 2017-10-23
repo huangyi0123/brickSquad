@@ -35,7 +35,7 @@
 	</update>
 
 	<delete id="deleteActivityRegistrationById" parameterType="String">
-		DELETE activity_registration WHERE id=#{id}
+		DELETE FROM activity_registration WHERE id=#{id}
 	</delete>
 	<select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="ActivityRegistration">

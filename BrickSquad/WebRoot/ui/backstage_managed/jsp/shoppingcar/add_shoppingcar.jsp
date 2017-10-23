@@ -28,6 +28,7 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
 $(function() {
 	$.ajax({
@@ -44,6 +45,12 @@ $(function() {
 			});
 		}
 	});
+	var da = $("#sda").attr('val');
+	dat = Format(new Date(da), "yyyy-MM-dd");
+	$("#sda").val(dat);
+	var la=$("#personalInformationId").attr('val');
+	console.log(la);
+	$("#personalInformationId").val(la);
 });
 	function findAll(data, id) {
 		$(data).each(
@@ -62,15 +69,15 @@ $(function() {
 <div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}购物车信息</div>
 <br>
 	<form class="layui-form" action="shoppingCar/${url}" id="form1" method="post">
-		<%-- <input type="hidden" name="id" value="${shoppingCar.id }"> --%>
-		<div class="layui-form-item">
+		<input type="hidden" name="id" value="${shoppingCar.id }"> 
+		<%-- <div class="layui-form-item">
 			<label class="layui-form-label">ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
 					placeholder="ID" autocomplete="off" class="layui-input"
 					value="${shoppingCar.id }">
 			</div>
-		</div>
+		</div> --%>
 		<div class="layui-form-item">
 			<label class="layui-form-label">买家姓名</label>
 			<div class="layui-input-inline">
@@ -101,7 +108,7 @@ $(function() {
 			<div class="layui-input-inline">
 				<input type="date" name="date" required lay-verify="required"
 					placeholder="生成时间" autocomplete="off" class="layui-input"
-					value="${shoppingCar.date }">
+					val="${shoppingCar.date }" id="sda">
 			</div>
 		</div> 
 		

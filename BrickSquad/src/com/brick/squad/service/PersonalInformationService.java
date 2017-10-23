@@ -6,6 +6,8 @@ import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
 	public String findTypesByParentId() ;
+	public Address findAddressById(String id)throws Exception;
+	public String findAddressByIdGetString(String id)throws Exception;
 	public String findRegionsByLevel() ;
 	/**
 	 * 根据老人id查询信息

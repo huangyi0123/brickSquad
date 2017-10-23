@@ -7,7 +7,6 @@ import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
 public interface RegionMapper {
-	public List<Select> findRegionByLevel(int level);
 
 	public Region findRegionById(String id);
 
@@ -33,6 +32,7 @@ public interface RegionMapper {
 	 * @return 区域及id集合
 	 */
 	public List<Select> findRegionsByLevel(int level);
+	public List<Select> findRegionByLevel(int level);
 	/**
 	 * 根据父id查询区域
 	 * @param parentId 父id
