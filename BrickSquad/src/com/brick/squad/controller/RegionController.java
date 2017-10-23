@@ -2,7 +2,10 @@ package com.brick.squad.controller;
 
 import java.util.Random;
 
+import javax.enterprise.inject.New;
 import javax.servlet.http.HttpServletRequest;
+
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -68,7 +71,14 @@ public class RegionController {
 		regionService.updateRegion(region);
 		return "backstage_managed/jsp/region/region_list";
 	}
-
+@RequestMapping("/findRegionById")
+@ResponseBody
+public String findRegionById(String id){
+	Region region =regionService.findRegionById(id);
+	JSONObject jsonObject =new JSONObject();
+	String regiondata =  jsonObject.fromObject(region).toString();
+	return regiondata;
+}
 	@RequestMapping("/findRegionByParentId")
 	@ResponseBody
 	public String findRegionByParentId(String parantId) {
