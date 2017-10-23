@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.Pagination;
 
@@ -23,6 +26,9 @@ public class ActivitiesController {
 		@Autowired
 		@Qualifier("activitiesService")
 		private ActivitiesService activitiesService;
+		
+		
+		
 		
 		@RequestMapping("/toActivitiesList")
 		public String toActivitiesList(){
@@ -41,10 +47,27 @@ public class ActivitiesController {
 		
 		
 		@RequestMapping("/toAddActivities")
-		public String toAddActivities(){
+		public String toAddActivities(HttpServletRequest request, String id) throws Exception{
+			if (id != null) {
+				request.setAttribute("msg", "修改");
+				request.setAttribute("url", "updateActivitiesById");
+				Activities activities = activitiesService.findActivitiesById(id);
+				request.setAttribute("activities", activities);
+			} else {
+				request.setAttribute("url", "addActivities");
+				request.setAttribute("msg", "添加");
+			}
+		
 			return "backstage_managed/jsp/activities/add_activities";
 			
 		}
+		
+		
+		
+		
+		
+		
+		
 		@RequestMapping("/addActivities")
 		public String addActivities(Activities activities) throws Exception{
 			activitiesService.insertActivitiesById(activities);
@@ -59,9 +82,26 @@ public class ActivitiesController {
 		
 		
 		@RequestMapping("/deleteActivitiesById")
+		@ResponseBody
 		public String deleteActivitiesById(String id) throws Exception{
 			activitiesService.deleteActivitiesById(id);
 			return "success";
-	   	}
+	   	} 
+		
+		@RequestMapping("/findAllActivities")
+		@ResponseBody
+		public String findAllActivities(){
+			return activitiesService.findAllActivities();
+		}
+		
+		
+		@RequestMapping("/updateActivitiesById")
+		public String updateActivitiesById(Activities activities) throws Exception{
+			activitiesService.updateActivitiesById(activities);
+			System.out.println("11111111111111111111111");
+			return "backstage_managed/jsp/activities/activities_list";
+			
+		}
+		
 
 }

@@ -97,8 +97,9 @@ function deleteById(id) {
 				$.ajax({
 					url:'article/deleteArticleById?id='+id,
 					success:function(data){
+						console.log(data);
 						RefreshGridManagerList("");
-						layer.close(index);
+						layer.closeAll();
 					}
 				});
 			}

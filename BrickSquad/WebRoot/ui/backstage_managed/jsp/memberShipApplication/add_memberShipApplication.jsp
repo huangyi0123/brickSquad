@@ -34,7 +34,7 @@
 </head>
 
 <body>
-	<form class="layui-form" action="memberShipApplication/AddMemberShipApplication" id="form1">
+	<form class="layui-form" action="memberShipApplication/addMemberShipApplication" id="form1">
 		<div class="layui-form-item">
 			<label class="layui-form-label">会员类型ID</label>
 			<div class="layui-input-inline">
@@ -76,7 +76,7 @@
   </div>
 			
 					
-				</select>
+				
 			</div>
 		</div>
 	</form>

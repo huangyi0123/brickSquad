@@ -1,7 +1,7 @@
 package com.brick.squad.service;
 
-import java.util.List;
 
+import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.util.Pagination;
 
@@ -35,4 +35,8 @@ public interface OrdersService {
 	 * 订单分页查询
 	 * */
 	public String ordersPagination(Pagination pagination)throws Exception;
+	/**
+	 * 查询Orders关联buyser买家和PersonalInformation老人姓名
+	 * */
+	public OrdersExpand findBuyserAndPersonalInformation(String id)throws Exception;
 }
