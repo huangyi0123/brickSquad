@@ -7,6 +7,10 @@ function init(keyword) {
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+                     {
+                         key: 'name',
+                         text: '买家姓名'
+                     },
             {
                 key: 'no',
                 text: '运单号'

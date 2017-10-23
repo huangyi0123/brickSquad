@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.OrdersService;
@@ -57,6 +58,9 @@ public class OrdersController {
 	@RequestMapping("/toAddOrders")
 	public String toAddOrders(HttpServletRequest request,String id) throws Exception {
 		if(id!=null){
+			OrdersExpand ordersExpand=ordersService.findBuyserAndPersonalInformation(id);
+			request.setAttribute("ordersName", ordersExpand);
+			System.out.println(ordersExpand.getName());
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateOrders");
 			Orders orders=ordersService.findOrdersById(id);
