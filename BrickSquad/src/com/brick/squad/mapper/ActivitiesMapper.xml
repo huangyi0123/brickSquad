@@ -38,4 +38,9 @@
 		<select id="findActivitiesAllCount" resultType="int">
 			select count(*) from activities
 		</select>
+		
+		
+		<select id="findAllActivities" resultType="activities">
+		SELECT activities.centent from activities
+		</select>
 </mapper>

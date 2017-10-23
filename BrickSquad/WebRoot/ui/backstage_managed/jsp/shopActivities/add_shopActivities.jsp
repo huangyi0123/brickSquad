@@ -29,7 +29,7 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
-	
+<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>	
 	
 <!-- <script type="text/javascript">
 	layui.use('form', function() {

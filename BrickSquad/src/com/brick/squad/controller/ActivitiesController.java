@@ -27,6 +27,9 @@ public class ActivitiesController {
 		@Qualifier("activitiesService")
 		private ActivitiesService activitiesService;
 		
+		
+		
+		
 		@RequestMapping("/toActivitiesList")
 		public String toActivitiesList(){
 			return "backstage_managed/jsp/activities/activities_list";
@@ -47,7 +50,7 @@ public class ActivitiesController {
 		public String toAddActivities(HttpServletRequest request, String id) throws Exception{
 			if (id != null) {
 				request.setAttribute("msg", "修改");
-				request.setAttribute("url", "updateShopActivitiesById");
+				request.setAttribute("url", "updateActivitiesById");
 				Activities activities = activitiesService.findActivitiesById(id);
 				request.setAttribute("activities", activities);
 			} else {
@@ -84,5 +87,21 @@ public class ActivitiesController {
 			activitiesService.deleteActivitiesById(id);
 			return "success";
 	   	} 
+		
+		@RequestMapping("/findAllActivities")
+		@ResponseBody
+		public String findAllActivities(){
+			return activitiesService.findAllActivities();
+		}
+		
+		
+		@RequestMapping("/updateActivitiesById")
+		public String updateActivitiesById(Activities activities) throws Exception{
+			activitiesService.updateActivitiesById(activities);
+			System.out.println("11111111111111111111111");
+			return "backstage_managed/jsp/activities/activities_list";
+			
+		}
+		
 
 }

@@ -47,4 +47,9 @@
 		select count(*) from shop_activities
 
 	</select>
+	
+	
+	<select id="findAllShopActivities" resultType="ShopActivities">
+		select from shop_shop_activities
+	</select>
 </mapper>
