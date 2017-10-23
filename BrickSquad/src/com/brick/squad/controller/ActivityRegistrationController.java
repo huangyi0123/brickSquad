@@ -57,7 +57,6 @@ public class ActivityRegistrationController {
 }
   @InitBinder
 	protected void initBinder(WebDataBinder binder) {
-	  System.out.print("--------------------");
 	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
