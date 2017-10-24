@@ -46,6 +46,11 @@ public class HealthRecordsController {
 	@RequestMapping("/toAddHealthRecords")
 	public String toAddHealthRecords(HttpServletRequest request, String id)
 			throws Exception {
+		// 获得全部的personalinformattion页面填写身份证信息用
+		String allPersonalInformationData = healthRecordsService
+				.findAllPersonalInformationGetIdAndIdCardAndName();
+		request.setAttribute("allPersonalInformationData",
+				allPersonalInformationData);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateHealthRecordsById");
