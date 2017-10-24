@@ -10,4 +10,8 @@ public class CommonController {
 	public String toFrame() {
 		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
 	}
+	@RequestMapping("/toIndex")
+	public String toIndex() {
+		return "redirect:/ui/frontEnd_manage/index.jsp";
+	}
 }

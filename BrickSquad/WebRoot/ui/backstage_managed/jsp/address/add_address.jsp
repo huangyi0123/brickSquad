@@ -78,13 +78,14 @@
 		});
 	});
 	$(function() {
-		var da = ${data};
+		var da = '${data}';
+		da=JSON.parse(da);
 		findAll(da, "#prf");
 		var url = "${url}";
 		if (url == 'inserAddress') {
 
 		} else {
-			var regions = ${regions};
+			var regions = "${regions}";
 			console.log(regions[0]);
 			findAll(regions[0].city, "#city");
 			findAll(regions[0].county, "#citg");
