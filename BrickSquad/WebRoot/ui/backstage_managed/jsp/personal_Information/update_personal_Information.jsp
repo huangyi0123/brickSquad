@@ -168,10 +168,10 @@
 							findAll(address[0].country, "#countryId");
 							form.render('select', 'countryIdSelect');
 							//页面日期格式回填处理
-							var birthdayId = $("#birthdayId").attr('val');
+							var birthdayId = $("#birthdayId").attr('val');							
 							birthdayId = Format(new Date(birthdayId),
-									"yyyy-MM-dd");
-							$("#birthdayId").val(birthdayId);
+									"yyyy-MM-dd");						
+							$("#birthdayId").val(birthdayId);			
 							var retirementDateId = $("#retirementDateId").attr(
 									'val');
 							retirementDateId = Format(

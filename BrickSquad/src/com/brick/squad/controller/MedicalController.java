@@ -43,6 +43,9 @@ public class MedicalController {
 
 	@RequestMapping("/toAddMedical")
 	public String toAddMedical(HttpServletRequest request, String id) {
+		//获得全部的personalinformattion页面填写身份证信息用
+		String allPersonalInformationData =medicalService.findAllPersonalInformationGetIdAndIdCardAndName();
+		request.setAttribute("allPersonalInformationData", allPersonalInformationData);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateMedicalById");
