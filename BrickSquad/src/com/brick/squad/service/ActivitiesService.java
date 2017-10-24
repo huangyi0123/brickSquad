@@ -25,6 +25,7 @@ public interface ActivitiesService {
 
 	public String findAllActivities();
 
+	
 
 
 }

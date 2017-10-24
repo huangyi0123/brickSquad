@@ -27,5 +27,6 @@ public interface ArticleMapper {
 	 * */
 	public List<Select> findArticle();
 
+	public List<Article> findAllArticle();
 }
 

@@ -45,4 +45,9 @@
 	SELECT id,aname name
 	FROM article
 	</select>
+	
+	<select id="findAllArticle" resultType="article">
+		select article.type_id from article
+	</select>
+	
 </mapper>
