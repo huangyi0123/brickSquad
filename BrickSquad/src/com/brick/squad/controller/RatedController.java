@@ -37,7 +37,7 @@ public class RatedController {
 			Rated rated =ratedService.findRatedById(id);
 			request.setAttribute("rated", rated);
 		} else {
-			request.setAttribute("url", "insertRated");
+			request.setAttribute("url", "addRated");
 			request.setAttribute("msg", "添加");
 		}
 		return "backstage_managed/jsp/rated/add_rated";

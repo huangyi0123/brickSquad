@@ -87,20 +87,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					placeholder="活动名称" value="${activities.name }" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-		<div class="layui-form-item" style="width: 300px;">
-			<label class="layui-form-label">活动内容</label>
-			<div class="layui-input-block">
-				<select name="centent" id="act"  lay-filter="aihao" val="${activities.centent}">
-					<option value=""></option>
-				</select>
-			</div>
-		</div>
+		
 		<div class="layui-form-item">
 			<label class="layui-form-label">活动类型id</label>
 			<div class="layui-input-inline">
 				<input type="text" name="typeId" required lay-verify="required"
 					placeholder="活动类型id" autocomplete="off" class="layui-input"
 					value="${activities.typeId }">
+			</div>
+		</div>
+		<div class="layui-form-item" style="width: 300px;">
+			<label class="layui-form-label">活动内容</label>
+			<div class="layui-input-block">
+				<select name="centent" id="act"  lay-filter="aihao" val="${activities.centent}">
+					<option value=""></option>
+				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">
