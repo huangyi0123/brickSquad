@@ -85,7 +85,7 @@
 
 		} else {
 			var regions = ${regions};
-			console.log(regions[0].city);
+			console.log(regions[0]);
 			findAll(regions[0].city, "#city");
 			findAll(regions[0].county, "#citg");
 			findAll(regions[0].country, "#cit");
@@ -97,6 +97,9 @@
 </head>
 
 <body>
+ <br>
+	<div style="padding-left: 160px;font-size:16;">地址信息</div>
+	<br>
 	<form action="address/${url }" class="layui-form"
 		method="post">
 			<input type="hidden" name="id" value="${address.id }">

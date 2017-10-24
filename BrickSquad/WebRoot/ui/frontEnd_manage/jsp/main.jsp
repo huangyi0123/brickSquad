@@ -1,0 +1,144 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'centent.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+</head>
+
+<body>
+	<div class="content-bottom">
+		<div class="btm-grids">
+			<div class="col-md-4 btm-grid back-col1 text-center">
+				<img src="ui/frontEnd_manage/images/bbbb.png" alt="" />
+			</div>
+			<div class="col-md-4 btm-grid btm-wid">
+				<h3>SPECIAL RECHARGE OFFERS</h3>
+				<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+					odit aut fugit, sed quia conse magni dolores eos qui ratione. Nemo
+					enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+					fugit, sed quia conse magni dolores eos qui ratione.</p>
+			</div>
+			<div class="col-md-4 btm-grid back-col2 text-center">
+				<img src="ui/frontEnd_manage/images/bbb1.png" alt="" />
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="coupons">
+		<div class="container">
+			<div class="coupons-grids text-center">
+				<div class="col-md-3 coupons-gd">
+					<h3>
+						RECHARGE IN <span>3 SIMPLE STEPS</span>
+					</h3>
+				</div>
+				<div class="col-md-3 coupons-gd">
+					<h4>
+						<span><img src="ui/frontEnd_manage/images/web.png" alt=" " /></span>
+					</h4>
+					<p>LOGIN TO YOUR ACCOUNT</p>
+				</div>
+				<div class="col-md-3 coupons-gd">
+					<h4>
+						<span><img src="ui/frontEnd_manage/images/credit.png"
+							alt=" " /></span>
+					</h4>
+					<p>ENTER RECHARGE DETAILS</p>
+				</div>
+				<div class="col-md-3 coupons-gd">
+					<h4>
+						<span><img src="ui/frontEnd_manage/images/security.png"
+							alt=" " /></span>
+					</h4>
+					<p>MAKE PAYMENT</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="content-bottom-two">
+		<div class="col-md-6 content-left text-center">
+			<img src="ui/frontEnd_manage/images/bbb5.png" alt="" />
+		</div>
+		<div class="col-md-6 content-right text-center">
+			<img src="ui/frontEnd_manage/images/bbb3.png" alt="" />
+		</div>
+		<div class="clearfix"></div>
+		<div class="btm-pos">
+			<h3>Exclusive Offers</h3>
+			<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque
+				nihil impedit quo minus id quod maxime placeat facere possimus,
+				omnis voluptas assumenda est.</p>
+		</div>
+	</div>
+	<div class="footer-top">
+		<div class="container">
+			<div class="foo-grids">
+				<div class="col-md-3 foo-grid">
+					<h3>MOBILE RECHARGES</h3>
+					<ul>
+						<li><a href="#">Airtel</a></li>
+						<li><a href="#">Aircel</a></li>
+						<li><a href="#">BSNL</a></li>
+						<li><a href="#">Idea</a></li>
+						<li><a href="#">MTNL</a></li>
+						<li><a href="#">MTS</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<h3>DTH RECHARGES</h3>
+					<ul>
+						<li><a href="#">Airtel Digital TV Recharges</a></li>
+						<li><a href="#">Dish TV Recharges</a></li>
+						<li><a href="#">Tata Sky Recharges</a></li>
+						<li><a href="#">Reliance Digital TV Recharges</a></li>
+						<li><a href="#">Sun Direct Recharges</a></li>
+						<li><a href="#">Videocon D2H Recharges</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<h3>DATACARD RECHARGES</h3>
+					<ul>
+						<li><a href="#">Airtel 2G Service</a></li>
+						<li><a href="#">Aircel 2G Service</a></li>
+						<li><a href="#">BSNL 2G Service</a></li>
+						<li><a href="#">MTS MBlaze Recharges</a></li>
+						<li><a href="#">Tata Photon Plus Recharges</a></li>
+						<li><a href="#">Reliance NetConnect Recharges</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<h3>PAYMENT OPTIONS</h3>
+					<ul>
+						<li>Credit Cards</li>
+						<li>Debit Cards</li>
+						<li>Any Visa Debit Card (VBV)</li>
+						<li>Direct Bank Debits</li>
+						<li>Cash Cards</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

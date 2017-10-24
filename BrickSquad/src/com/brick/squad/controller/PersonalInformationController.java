@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
@@ -32,7 +33,7 @@ public class PersonalInformationController {
 	@Autowired
 	@Qualifier("addressService")
 	private AddressService addressService;
-	
+
 	@RequestMapping("/toPersonalInformation")
 	public String toPersonalInformation() {
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
@@ -50,9 +51,9 @@ public class PersonalInformationController {
 		return data;
 	}
 
-	@RequestMapping("/toAddPersonalInformation")
-	public String toAddPersonalInformation(HttpServletRequest request, String id) throws Exception {
-
+	@RequestMapping("/toUpdatePersonalInformation")
+	public String toUpdatePersonalInformation(HttpServletRequest request,
+			String id) throws Exception {
 		String provinceData = personalInformationService.findRegionsByLevel();
 		request.setAttribute("provinceData", provinceData);
 		String nationData = personalInformationService.findTypesByParentId();
@@ -66,13 +67,24 @@ public class PersonalInformationController {
 			Address address = personalInformationService
 					.findAddressById(personalInformation.getAddressId());
 			request.setAttribute("address", address);
-			String addressData = personalInformationService.findAddressByIdGetString(id);
-			request.setAttribute("addressData", addressData);
+			String allRegionResultById = addressService.getAllRegion(address);
+			request.setAttribute("allRegionResultById", allRegionResultById);
+
 		} else {
-			request.setAttribute("url", "addPersonalInformation");
-			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/personal_Information/add_personal_Information";
 		}
 
+		return "backstage_managed/jsp/personal_Information/update_personal_Information";
+	}
+
+	@RequestMapping("/toAddPersonalInformation")
+	public String toAddPersonalInformation(HttpServletRequest request)
+			throws Exception {
+
+		String provinceData = personalInformationService.findRegionsByLevel();
+		request.setAttribute("provinceData", provinceData);
+		String nationData = personalInformationService.findTypesByParentId();
+		request.setAttribute("nationData", nationData);
 		return "backstage_managed/jsp/personal_Information/add_personal_Information";
 	}
 
@@ -97,20 +109,29 @@ public class PersonalInformationController {
 		return personalInformationService.findAllPersonalInformation();
 
 	}
-
+/**
+ * 修改PersonalInformation
+ * @param addressAndPersonaInformationExpand 扩展类
+ * @return 
+ * @throws Exception
+ */
 	@RequestMapping("/updatePersonalInformationById")
-	public String updatePersonalInformation(Address address,
-			PersonalInformation personalInformation) throws Exception {
-		addressService.updateAddressById(address);
+	public String updatePersonalInformation(
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand)
+			throws Exception {
+		//先修改地址信息
+		addressService.updateAddressById(addressAndPersonaInformationExpand
+				.getAddress());
+		
 		personalInformationService
-				.updatePersonalInformationById(personalInformation);
+				.updatePersonalInformationById(addressAndPersonaInformationExpand
+						.getPersonalInformation());
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
 
 	@RequestMapping("/deletePersonalInformationById")
 	@ResponseBody
 	public String deletePersonalInformationById(String id) {
-		System.out.println("yyyyyy");
 		personalInformationService.deletePersonalInformationById(id);
 		return "success";
 	}

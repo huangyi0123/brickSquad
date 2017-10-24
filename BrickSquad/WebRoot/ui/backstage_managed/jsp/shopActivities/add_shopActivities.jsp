@@ -64,7 +64,14 @@
 </head>
 
 <body>
-	<form class="layui-form" action="shopActivities/${url}" id="form1">
+
+	 <br>
+	<div style="padding-left: 130px;font-size:16;">${msg }商品活动信息</div>
+	<br>
+	
+	<form class="layui-form" action="shopActivities/${url}" id="form1" >
+	<input type="hidden" name="id" value="${shopActivities.id}">
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">序号</label>
 			<div class="layui-input-inline">

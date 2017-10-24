@@ -68,7 +68,7 @@ function init(keyword) {
 							key : "operation",
 							text : "操作",
 							template : function(noteData, rowData) {
-								return '<a href="personalInformation/toAddPersonalInformation?id='
+								return '<a href="personalInformation/toUpdatePersonalInformation?id='
 										+ rowData.id
 
 										+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'

@@ -26,16 +26,16 @@
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
 $(function() {
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修改成功 
-	});
+				layui.use('form', function() {
+					var form = layui.form();
+				});
 	var da = $("#oda").attr('val');
 	dat = Format(new Date(da), "yyyy-MM-dd");
 	$("#oda").val(dat);
 });
-
 </script>
 </head>
 
@@ -44,17 +44,15 @@ $(function() {
 <div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}订单信息</div>
 	<br>
 	<form class="layui-form" action="orders/updateOrders" id="form1">
-	<input type="hidden" name="id" value="${rapport.id }"> 
+	<input type="hidden" name="id" value="${orders.id }"> 
 		<div class="layui-form-item">
 			<label class="layui-form-label">买家姓名</label>
 			<div class="layui-input-inline">
-				<select name="buyId" id="buyId"
-					val="${rapport.perId}" lay-search="">
-					<option value="">直接选择或搜索选择</option>
-				</select>
+				<input type="text" name="buyId" required lay-verify="required"
+					placeholder="买家姓名" autocomplete="off" class="layui-input"
+					value="${ordersName.name }">
 			</div>
-		</div>
-		
+		</div> 
 		<div class="layui-form-item">
 			<label class="layui-form-label">运单号</label>
 			<div class="layui-input-inline">
@@ -74,7 +72,7 @@ $(function() {
 		
 		<div class="layui-form-item">
 			<div class="layui-inline">
-				<label class="layui-form-label">沟通日期</label>
+				<label class="layui-form-label">订单生产日期</label>
 				<div class="layui-input-inline">
 					<input type="date" class="layui-input" name="productionDate"
 						placeholder="yyyy-MM-dd" val="${orders.productionDate }" id="oda">

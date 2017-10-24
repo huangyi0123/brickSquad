@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.util.Pagination;
 
@@ -33,6 +34,9 @@ public interface OrdersMapper {
 	/**
 	 * Orders订单分页查询
 	 * */
-	public List<Orders> ordersPagination(Pagination pagination);
-
+	public List<OrdersExpand> ordersPagination(Pagination pagination);
+	/**
+	 * 查询Orders关联buyser买家和PersonalInformation老人姓名
+	 * */
+	public OrdersExpand findBuyserAndPersonalInformation(String id);
 }

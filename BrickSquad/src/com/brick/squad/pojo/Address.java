@@ -47,5 +47,14 @@ public class Address {
 	public void setDetailed(String detailed) {
 		this.detailed = detailed;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", provinceId=" + provinceId + ", cityId="
+				+ cityId + ", countyId=" + countyId + ", countryId="
+				+ countryId + ", detailed=" + detailed + "]";
+	}
 	
 }
