@@ -60,10 +60,13 @@
 </head>
 
 <body>
+	<br>
+	<div style="padding-left: 130px;font-size:16;">添加活动管理信息</div>
+	<br>
 	<form class="layui-form" action="activityRegistration/insertActivityRegistration"
 		id="form1" method="post">
+		<div class="layui-form-item">
 		<input type="hidden" name="id" value="${activityRegistration.id }">
-		<div class="layui-form-item" style="margin-top: 50px;">
 			<label class="layui-form-label">老人ID：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="perId" required lay-verify="required"
@@ -106,12 +109,12 @@
 				</select>
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<button type="submit" style="margin-left: 120px;"
-				class="layui-btn layui-btn-primary">提交</button>
-			<button type="reset" style="margin-left: 30px;"
-				class="layui-btn layui-btn-primary">重置</button>
-		</div>
+		 <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
 	</form>
 </body>
 </html>

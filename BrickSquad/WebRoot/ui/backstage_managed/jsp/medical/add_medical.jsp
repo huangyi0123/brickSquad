@@ -52,7 +52,9 @@
 </script>
 </head>
 <body>
-<h1>${msg}类别信息</h1>
+<br>
+	<div style="padding-left: 140px;font-size:16;">${msg}类别信息</div>
+	<br>
 	<form class="layui-form" action="medical/${url }" id="form"
 		method="post">
 		<input type="hidden" name="id" value="${medical.id }">

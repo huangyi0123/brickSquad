@@ -34,6 +34,9 @@
 </head>
 
 <body>
+ <br>
+	<div style="padding-left: 130px;font-size:16;">添加商品信息</div>
+	<br>
 	<form class="layui-form" action="article/addArticle" id="form1">
 	
 		<div class="layui-form-item">
@@ -65,8 +68,7 @@
 					<option value="鞋子">鞋子</option>
 				</select>
 			</div>
-			
-			
+			</div>
 			<div class="layui-form-item">
 			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">

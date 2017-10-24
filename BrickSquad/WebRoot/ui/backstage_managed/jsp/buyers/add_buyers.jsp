@@ -32,6 +32,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
   
   <body>
+  	<br>
+	<div style="padding-left: 150px;font-size:16;">添加买家信息</div>
+	<br>
   <form action="buyers/insertBuyres" method="post">
  	<div class="layui-form-item">
     <label class="layui-form-label">int积分：</label>
