@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.brick.squad.mapper.UserMapper"> 
-	<!-- Luyujing User表 增删改查-->
-	<insert id="addUser"  parameterType="com.brick.squad.pojo.User">
+<mapper namespace="com.brick.squad.mapper.UserMapper">
+	<!-- Luyujing User表 增删改查 -->
+	<sql id="prop">
+		id,username,password telephone, role_id roleId
+	</sql>
+	<insert id="addUser" parameterType="com.brick.squad.pojo.User">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
-		select replace(uuid(),'-','') from dual
-	</selectKey>
-		INSERT INTO user(id,username,password,telephone,role_id) VALUES(#{id},#{username},#{password},#{telephone},#{roleId})
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO user(id,username,password,telephone,role_id)
+		VALUES(#{id},#{username},#{password},#{telephone},#{roleId})
 	</insert>
 	<update id="updateUser" parameterType="String">
-		UPDATE user SET password=#{password} WHERE username=#{username}
-	</update> 
-	<delete id="deleteUser"  parameterType="String">
-		delete from user where username=#{username};
+		UPDATE user SET
+		password=#{password} WHERE username=#{username}
+	</update>
+	<delete id="deleteUser" parameterType="String">
+		delete from user where
+		username=#{username};
 	</delete>
-	
-	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
-		select*from user limit #{skipNum},#{takeNum}
+
+	<select id="userPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="user">
+		select
+		<include refid="prop" />
+		from user limit #{skipNum},#{takeNum}
 	</select>
-	
+
 	<select id="userCount" resultType="int">
 		select count(*) from user
 	</select>
 
-	<select id="checkLogin" parameterType="String" resultType="user">
-		select password FROM user WHERE  username=#{username} 
+	<select id="checkLogin" parameterType="user" resultType="user">
+		select
+		<include refid="prop" />
+		FROM user WHERE username=#{username} and password=#{password}
 	</select>
-	
-	<select id="findUsername"  resultType="user"  parameterType="String">
+
+	<select id="findUsername" resultType="user" parameterType="String">
 		select username from user where username=#{username}
 	</select>
-	
-	<select id="loginCheck"  resultType="user"  parameterType="String">
-		select username from user where username=#{username} AND password=#{password}
-	</select>
 	<select id="findAllUser" resultType="com.brick.squad.util.Select">
-	SELECT id,username name
-	FROM user
+		SELECT id,username name
+		FROM
+		user
 	</select>
 	<select id="findAllUsers" resultType="user">
-	SELECT id,password,username,telephone,role_id roleId
-	FROM user
+		SELECT
+		id,password,username,telephone,role_id roleId
+		FROM user
 	</select>
 </mapper>

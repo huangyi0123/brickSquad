@@ -86,8 +86,12 @@ a:HOVER {
 			</ul>
 		</div>
 	</div>
-	<div style="clear: both;"></div>
-	<dir class="cls"></dir>
+
+
+	 <div style="clear: both;"></div>
+	<div class="cls"></div>
+
 	<table grid-manager="demo-ajaxPageCode"></table>
+
 </body>
 </html>

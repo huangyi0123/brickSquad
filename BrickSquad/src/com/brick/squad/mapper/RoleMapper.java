@@ -16,11 +16,26 @@ public interface RoleMapper {
 	//修改用户
 	public void updateRole(@Param("id")String id,@Param("name")String name);
 	//查询用户
-	public List<Role> findRole(String id);
+	public Role findRole(String id);
 	
 	//新闻分页查询
 	public List<Role> rolePagination(Pagination pagination);
 	
 	//新闻条数统计
 	public int roleCount();
+	/***
+	 * 添加角色信息
+	 * @param role
+	 */
+	public void insertRole(Role role);
+	/***
+	 * 查询所有角色名称
+	 * @return
+	 */
+	public List<Role> findRoleAll();
+	/***
+	 * 根据ID修改角色信息
+	 * @param role
+	 */
+	public void updateRoleById(Role role);
 }

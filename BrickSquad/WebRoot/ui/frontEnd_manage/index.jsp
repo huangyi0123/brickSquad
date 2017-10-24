@@ -32,6 +32,8 @@
 <script src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/angularjs/angular.min.js"></script>
 <script>
 	//注意：导航 依赖 element 模块，否则无法进行功能性操作
 	layui.use('element', function() {
@@ -40,11 +42,31 @@
 	function login() {
 		layui.use('layer', function() {
 			var index = layer.open({
-				title:'登录',
+				title : '登录',
 				type : 2,
-				content : "user/toLogin",
-				offset: '200px',
-				area: ['400px', '450px']
+				content : "user/toLogin?f=user",
+				offset : '200px',
+				area : [ '400px', '450px' ]
+			});
+		});
+	}
+	function logout() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer.open({
+				title:'提示',
+				content:"是否退出系统？",
+				offset : '200px',
+				btn:["确认","取消"],
+				yes:function(index){
+					$.ajax({
+						url:"user/logout",
+						success:function(data){
+							window.location="ui/frontEnd_manage/index.jsp";
+							layer.close(index);
+						}
+					});
+				}
 			});
 		});
 	}
@@ -69,7 +91,7 @@
 							src="ui/frontEnd_manage/images/cell.png" alt=" " /></i>老人管理</a>
 				</h1>
 			</div>
-			<div class="top-nav">
+			<div class="top-nav" ng-app="">
 				<span class="menu"><img
 					src="ui/frontEnd_manage/images/menu.png" alt=" " /></span>
 				<ul class="layui-nav"
@@ -78,19 +100,23 @@
 					<li class="layui-nav-item"><a href="">最新活动</a></li>
 					<li class="layui-nav-item"><a href="">老年教育</a></li>
 					<li class="layui-nav-item"><a href="">社区</a></li>
-					<li class="layui-nav-item"><a href="">社区</a></li>
-					<li class="layui-nav-item"><a href="javascript:;"
-						onclick="login()" data-toggle="modal" data-target="#myModal">登录</a>
+					<li class="layui-nav-item" ng-if="${user!=null }"><a
+						href="javascript:;">${user.username }</a>
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
-							<!-- <dd>
-								<a href="">注册</a>
-							</dd> -->
 							<dd>
 								<a href="">个人信息</a>
 							</dd>
 							<dd>
-								<a href="">退出</a>
+								<a href="javascript:;" onclick="logout()">退出</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item" ng-if="${user==null }"><a
+						href="javascript:;" onclick="login()">登录</a>
+						<dl class="layui-nav-child" style="background-color: #66CC66">
+							<!-- 二级菜单 -->
+							<dd>
+								<a href="">注册</a>
 							</dd>
 						</dl></li>
 

@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.MedicalMapper;
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.pojo.Medical;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.service.MedicalService;
 import com.brick.squad.util.GridManagerList;
@@ -26,6 +28,9 @@ public class MedicalServiceImpl implements MedicalService {
 	@Autowired
 	@Qualifier("medicalMapper")
 	private MedicalMapper medicalMapper;
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 
 	@Override
 	public void insertMedical(Medical medical) {
@@ -65,4 +70,11 @@ public class MedicalServiceImpl implements MedicalService {
 		return medicalMapper.findMedicalAllCount();
 	}
 
+	@Override
+	public String findAllPersonalInformationGetIdAndIdCardAndName() {
+		List<PersonalInformation> allPersonalInformation =personalInformationMapper.findPerIdAndIdCard();
+		JSONArray jsonArray = new JSONArray();
+		String allPersonalInformationData =jsonArray.fromObject(allPersonalInformation).toString();	
+		return allPersonalInformationData;
+	}
 }

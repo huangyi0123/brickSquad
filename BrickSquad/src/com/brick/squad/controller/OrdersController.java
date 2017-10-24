@@ -60,7 +60,6 @@ public class OrdersController {
 		if(id!=null){
 			OrdersExpand ordersExpand=ordersService.findBuyserAndPersonalInformation(id);
 			request.setAttribute("ordersName", ordersExpand);
-			System.out.println(ordersExpand.getName());
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateOrders");
 			Orders orders=ordersService.findOrdersById(id);

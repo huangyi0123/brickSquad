@@ -51,4 +51,8 @@ public interface PersonalInformationMapper {
 	 * 查询老人所有信息，需求字段
 	 * */
 	public List<Select> findAllPersonalInformation();
+	/**
+	 * 查询老人姓名 身份证用于guidance的回显
+	 */
+	public List<PersonalInformation> findPerIdAndIdCard();
 }

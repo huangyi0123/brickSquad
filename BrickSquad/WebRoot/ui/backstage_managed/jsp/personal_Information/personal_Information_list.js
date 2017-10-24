@@ -57,8 +57,8 @@ function init(keyword) {
 							text : '婚姻状况'
 						},
 						{
-							key : 'id',
-							text : '老人id'
+							key : 'name',
+							text : '姓名'
 						},
 						{
 							key : 'gender',

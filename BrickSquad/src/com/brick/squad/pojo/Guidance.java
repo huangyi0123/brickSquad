@@ -18,6 +18,8 @@ public class Guidance {
 	private String assessment;
 	private String suggest;
 	private String perId;
+	private String perIdCard;
+	private String perIdName;
 	public String getId() {
 		return id;
 	}
@@ -54,10 +56,24 @@ public class Guidance {
 	public void setPerId(String perId) {
 		this.perId = perId;
 	}
+	public String getPerIdCard() {
+		return perIdCard;
+	}
+	public void setPerIdCard(String perIdCard) {
+		this.perIdCard = perIdCard;
+	}
+	public String getPerIdName() {
+		return perIdName;
+	}
+	public void setPerIdName(String perIdName) {
+		this.perIdName = perIdName;
+	}
 	@Override
 	public String toString() {
 		return "Guidance [id=" + id + ", guidanceDate=" + guidanceDate
 				+ ", disease=" + disease + ", assessment=" + assessment
-				+ ", suggest=" + suggest + ", perId=" + perId + "]";
+				+ ", suggest=" + suggest + ", perId=" + perId + ", perIdCard="
+				+ perIdCard + ", perIdName=" + perIdName + "]";
 	}
+
 }

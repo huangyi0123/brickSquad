@@ -5,10 +5,22 @@ import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
-	
+	/**
+	 * 根据ParentId查询全部的type表的数据
+	 * @return 在实现类中将集合转换为json字符串
+	 */
 	public String findTypesByParentId() ;
+	/**
+	 * 根据ID查询地址信息
+	 * @param id
+	 * @return 地址对象
+	 * @throws Exception
+	 */
 	public Address findAddressById(String id)throws Exception;
-	
+	/**
+	 * 根据region表中的字段Level查询
+	 * @return region集合（大部分情况用于查询省份集合《Level=1》）
+	 */
 	public String findRegionsByLevel() ;
 	/**
 	 * 根据老人id查询信息

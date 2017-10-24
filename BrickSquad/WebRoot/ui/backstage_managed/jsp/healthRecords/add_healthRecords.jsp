@@ -31,22 +31,63 @@
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 	});
+	
+	$(function() {
+		/* 从conterller获取数据打印在控制台 */
+		var allPersonalInformationdata = '${allPersonalInformationData}';
+		allPersonalInformationdata = JSON.parse(allPersonalInformationdata);
+		/* 修改时显示身份证和名字但是不能修改 */
+			/* 遍历allPersonalInformationdata数据 */
+			var perId = $("#perId").val();
+			for (var i = 0; i < allPersonalInformationdata.length; i++) {
+				if (perId == allPersonalInformationdata[i].id) {
+					$("#IdName").val(allPersonalInformationdata[i].name);
+					$("#IdName").attr('disabled',true);
+					$("#perIdCardId").val(allPersonalInformationdata[i].idCard);
+					$("#perIdCardId").attr('disabled',true);
+				}
+			}
+		/*$绑定从输入框身份证号码id的监听事件，change input设置监听事件的实现方式，鼠标点击输入就启动 */
+		$("#perIdCardId").bind('change input',
+		/*  */
+		function() {
+			/*定义一个变量d，让perIdCardId的输入值传进去  */
+			var d = $("#perIdCardId").val();
+			$("#IdName").val("");
+			$("#perId").val("");
+			/* 遍历allPersonalInformationdata数据 */
+			for (var i = 0; i < allPersonalInformationdata.length; i++) {
+				if (d == allPersonalInformationdata[i].idCard) {
+					$("#IdName").val(allPersonalInformationdata[i].name);
+					$("#perId").val(allPersonalInformationdata[i].id);
+				}
+			}
+		});
+	});
 </script>
 </head>
 
 <body>
 <br>
-	<div style="padding-left: 140px;font-size:16;">添加老人健康档案信息</div>
+	<div style="padding-left: 140px;font-size:16;">${msg}老人健康档案信息</div>
 	<br>
 	<form class="layui-form" style="margin-right: 30px"
 		action="healthRecords/insertHealthRecords" id="form1" method="post">
-		
 			<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">老人ID：</label>
+			<label class="layui-form-label">身份证号</label>
+
 			<div class="layui-input-inline">
-				<input type="text" name="userId" value="${healthRecords.userId }"
-					required lay-verify="required" placeholder="老人ID"
-					autocomplete="off" class="layui-input">
+				<input type="text" id="perIdCardId" required lay-verify="required"
+					placeholder="身份证号" autocomplete="off" class="layui-input">
+				 <input type="hidden" name="perId" value="${healthRecords.perId}"
+					id="perId" required lay-verify="required" placeholder="ID存入"
+					autocomplete="off" class="layui-input"> 
+			</div>
+			<label class="layui-form-label">姓名</label>
+
+			<div class="layui-input-inline">
+				<input type="text" id="IdName" required lay-verify="required"
+					placeholder="姓名" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 			
