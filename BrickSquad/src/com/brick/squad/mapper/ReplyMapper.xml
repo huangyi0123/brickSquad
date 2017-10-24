@@ -8,7 +8,7 @@
 		from reply 
 	</select>
 	<select id="findReplyById" parameterType="String" resultType="reply">
-		select id id,rated_id,reply_date replyDate,centent centent
+		select id id,rated_id ratedId,reply_date replyDate,centent centent
 		from reply where id
 		= #{id}
 	</select>

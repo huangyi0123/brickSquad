@@ -37,7 +37,7 @@ public class GuidanceServiceTest {
 	}
 	@Test
 	public void testQueryGuidanceById() throws Exception{
-		System.out.println(guidanceService.queryGuidanceById("5f82a01eb26911e78d4f5254002ec43c"));
+		System.out.println(guidanceService.queryGuidanceById("47343c9ab86b11e78d4f5254002ec43c"));
 	}
 	@Test
 	public void testDeleteGuidanceById() throws Exception{
