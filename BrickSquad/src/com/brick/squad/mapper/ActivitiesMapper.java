@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.util.Pagination;
@@ -26,6 +27,7 @@ public interface ActivitiesMapper {
 	
 	public int findActivitiesAllCount();
 	
-	public List<Activities> findAllActivities();
+	public List<ActivitiesExpand> findAllActivities();
 	
+
 }

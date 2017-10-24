@@ -16,8 +16,23 @@ public class Activities {
 	private String typeId;
 	private Date startTime;
 	private Date endTime;
+	private String userId;
+	private int number;
+	
 	public String getId() {
 		return id;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
 	}
 	public void setId(String id) {
 		this.id = id;
