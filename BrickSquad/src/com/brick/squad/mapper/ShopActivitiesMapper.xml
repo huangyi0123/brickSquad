@@ -45,11 +45,11 @@
 
 	<select id="findShopActivitiesAllCount" resultType="int">
 		select count(*) from shop_activities
-
-	</select>
+   </select>
 	
 	
 	<select id="findAllShopActivities" resultType="ShopActivities">
-		select from shop_shop_activities
+		select shop_activities.type_id from shop_activities
 	</select>
+	
 </mapper>

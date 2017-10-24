@@ -23,5 +23,5 @@ public interface ShopActivitiesMapper {
 
 	public int findShopActivitiesAllCount();
 	
-	public ShopActivities findAllShopActivities();
+	public List<ShopActivities> findAllShopActivities();
 }

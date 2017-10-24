@@ -26,24 +26,59 @@
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>	
+	
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+	
+	$(function() {
+		$.ajax({
+			url : 'article/findAllArticle',
+			success : function(data) {
+				data = JSON.parse(data);
+				var id = $("#typeId").attr('val');
+				
+				$(data).each(
+						function() {
+							if (id == this.id) {
+								$("#typeId").append(
+										'<option value="'+this.id+'"  selected="selected">'
+												+ this.centent+ '</option>');
+							} else {
+								$("#typeId").append(
+										'<option value="'+this.id+'">'
+												+ this.centent + '</option>');
+							}
+
+						});
+				layui.use('form', function() {
+					var form = layui.form();
+				});
+			}
+		});	
+		
+		
 	});
+	
+	
 </script>
 </head>
 
 <body>
+
  <br>
 	<div style="padding-left: 130px;font-size:16;">添加商品信息</div>
 	<br>
 	<form class="layui-form" action="article/addArticle" id="form1">
+
 	
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品序号</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
-					placeholder="商品序号" autocomplete="off" class="layui-input">
+					placeholder="商品序号" autocomplete="off" class="layui-input"
+					value="${article.id }">
 			</div>
 		</div>
 		
@@ -52,7 +87,8 @@
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="aname" required lay-verify="required"
-					placeholder="商品名称" autocomplete="off" class="layui-input">
+					placeholder="商品名称" autocomplete="off" class="layui-input"
+					value="${article.aname }">
 			</div>
 		</div>
 		
@@ -60,7 +96,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品类型</label>
 			<div class="layui-input-block">
-				<select name="typeId" lay-filter="aihao">
+				<select name="typeId" lay-filter="aihao" id="typeId" val="${article.typeId }">
 					<option value=""></option>
 					<option value="秋衣">秋衣</option>
 					<option value="裤子">裤子</option>
@@ -73,7 +109,8 @@
 			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">
 				<input type="text" name="price" required lay-verify="required"
-					placeholder="价格" autocomplete="off" class="layui-input">
+					placeholder="价格" autocomplete="off" class="layui-input"
+					value="${article.price }">
 			</div>
 		</div>
 		
@@ -81,7 +118,8 @@
 			<label class="layui-form-label">库存</label>
 			<div class="layui-input-inline">
 				<input type="text" name="stock" required lay-verify="required"
-					placeholder="库存" autocomplete="off" class="layui-input">
+					placeholder="库存" autocomplete="off" class="layui-input"
+					value="${article.stock }">
 			</div>
 		</div>
 		
@@ -89,7 +127,8 @@
 			<label class="layui-form-label">商品描述</label>
 			<div class="layui-input-inline">
 				<input type="text" name="describes" required lay-verify="required"
-					placeholder="商品描述" autocomplete="off" class="layui-input">
+					placeholder="商品描述" autocomplete="off" class="layui-input"
+					value="${article.describes }">
 			</div>
 		</div>
 		

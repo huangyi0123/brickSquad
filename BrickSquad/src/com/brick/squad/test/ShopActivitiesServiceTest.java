@@ -89,4 +89,11 @@ public class ShopActivitiesServiceTest {
 		
 		System.out.println(shopActivitiesService.findShopActivitiesAllCount());
 	}
+	
+	
+	@Test
+	public void findAllShopActivities(){
+		
+		System.out.println("11111111111111111111111"+shopActivitiesService.findAllShopActivities());
+	}
 }

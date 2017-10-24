@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
-	<script type="text/javascript"
+<script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>	
 	
@@ -73,9 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
   </head>
   <body>
-  <br>
-	<div style="padding-left: 130px;font-size:16;">${msg}活动信息</div>
-	<br>
+
    <form class="layui-form" action="activities/${url }" id="form1" method="post">
   <input type="hidden" name="id" value="${activities.id}">
 		<div class="layui-form-item">

@@ -13,7 +13,9 @@ public class Article {
 	private String typeId;
 	private String businessId;
 	private String price;
-	
+	private int stock;
+	private String describes;
+	private String image;
 
 
 	public String getAname() {
@@ -22,9 +24,7 @@ public class Article {
 	public void setAname(String aname) {
 		this.aname = aname;
 	}
-	private int stock;
-	private String describes;
-	private String image;
+
 	
 	public String getId() {
 		return id;
