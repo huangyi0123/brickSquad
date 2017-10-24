@@ -40,7 +40,7 @@ public class OrdersServiceTest {
 	@Test
 	public void updateOrdersById() throws Exception{
 		Orders orders=ordersService.findOrdersById("1");
-		orders.setStateId("66");
+		orders.setStateId("888");
 		ordersService.updateOrdersById(orders);
 	}
 	@Test
@@ -65,6 +65,10 @@ public class OrdersServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		System.out.println(ordersService.ordersPagination(pagination));
+	}
+	@Test
+	public void findBuyserAndPersonalInformation() throws Exception{
+		System.out.println(ordersService.findBuyserAndPersonalInformation("7"));
 	}
 	
 }

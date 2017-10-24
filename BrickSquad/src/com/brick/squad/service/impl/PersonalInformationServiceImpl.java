@@ -3,7 +3,6 @@ package com.brick.squad.service.impl;
 import java.util.List;
 
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +18,11 @@ import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
-
+/**
+ * 
+ * @author 吴文鑫
+ *
+ */
 @Transactional
 public class PersonalInformationServiceImpl implements
 		PersonalInformationService {
@@ -45,6 +48,7 @@ public class PersonalInformationServiceImpl implements
 	}
 
 	@Override
+	
 	public PersonalInformation findPersonalInformationById(String id) {
 
 		return personalInformationMapper.findPersonalInformationById(id);
@@ -54,7 +58,9 @@ public class PersonalInformationServiceImpl implements
 	public void insertPersonalInformation(Address address,
 			PersonalInformation personalInformation) {
 		try {
+			//先插入地址，mybatis插入语句已配置插入成功返回主键Id(uuid)
 			addressMapper.insertAddress(address);
+			//根据插入地址返回ID存在信息记录中，再存入数据库
 			personalInformation.setAddressId(address.getId());
 			personalInformationMapper
 					.insertPersonalInformation(personalInformation);
@@ -75,12 +81,27 @@ public class PersonalInformationServiceImpl implements
 
 	@Override
 	public void deletePersonalInformationById(String id) {
-		personalInformationMapper.deletePersonalInformationById(id);
+		//先根据ID查询表，返回这条记录，用来删除地址表中的记录
+		PersonalInformation  personalInformation =personalInformationMapper.findPersonalInformationById(id);
+		if (personalInformation.getAddressId()!=null) {
+			try {
+				//根据信息表中要删除的数据存的地址ID删除地址
+				addressMapper.deleteAddressById(personalInformation.getAddressId());
+				//地址删除成功后，再删除信息表的记录
+				personalInformationMapper.deletePersonalInformationById(id);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
 
 	}
 
 	@Override
 	public String personalInformationPagination(Pagination pagination) {
+		
 		List<PersonalInformation> datas = personalInformationMapper
 				.personalInformationPagination(pagination);
 		int n = personalInformationMapper.personalInformationCount();
@@ -126,17 +147,6 @@ public class PersonalInformationServiceImpl implements
 
 		return addressMapper.findAddressById(id);
 
-	}
-/**
- * 根据ID查询地址，将地址转为JSON对象字符串，页面上回显地址用
- */
-	@Override
-	public String findAddressByIdGetString(String id) throws Exception {
-		Address address = addressMapper.findAddressById(id);
-		JSONObject jsonObject = new JSONObject();
-		String addressData = jsonObject.fromObject(address).toString();
-
-		return addressData;
 	}
 
 }

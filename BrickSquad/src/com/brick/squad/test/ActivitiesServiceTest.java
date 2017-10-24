@@ -39,8 +39,8 @@ public class ActivitiesServiceTest {
 	@Test
 	public void updateActivitiesById() throws Exception{
 		Activities a = activitiesService.findActivitiesById("1");
-		a.setName("小明");
-		a.setCentent("滚出去");
+		a.setName("范伟111");
+		a.setCentent("好玩");
 		a.setStartTime(new Date());
 		a.setEndTime(new Date());
 		
@@ -77,5 +77,12 @@ public class ActivitiesServiceTest {
 		
 		
 		System.out.println(activitiesService.findActivitiesAllCount());
+	}
+	
+	@Test
+	public void findAllActivities(){
+		
+		
+		System.out.println(activitiesService.findAllActivities());
 	}
 }

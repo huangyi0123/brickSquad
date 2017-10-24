@@ -26,4 +26,6 @@ public interface ActivitiesMapper {
 	
 	public int findActivitiesAllCount();
 	
+	public List<Activities> findAllActivities();
+	
 }

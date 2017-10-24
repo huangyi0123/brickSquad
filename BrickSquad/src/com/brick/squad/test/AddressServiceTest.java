@@ -1,18 +1,13 @@
 package com.brick.squad.test;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Address;
-import com.brick.squad.pojo.Region;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
@@ -47,13 +42,8 @@ public class AddressServiceTest {
 	}
 	@Test
 	public void testUpdateAddressById() throws Exception{
-		Address address = new Address();
-		address.setId("ef0505e8b08d11e78d4f5254002ec43c");
-		address.setCityId("5");
-		address.setCountryId("4");
-		address.setCountyId("3");
-		address.setDetailed("啊撒大苏打");
-		address.setProvinceId("1");
+		Address address = addressService.findAddressById("8e938ce0b7a211e78d4f5254002ec43c");	
+		address.setDetailed("xiugai");
 		addressService.updateAddressById(address);
 	}
 	@Test

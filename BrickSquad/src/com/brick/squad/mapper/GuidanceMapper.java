@@ -13,5 +13,4 @@ public interface GuidanceMapper {
 	public void updateGuidanceById(Guidance guidance) throws Exception;
 	public List<Guidance> guidancePagination(Pagination pagination) throws Exception;
 	public int findGuidanceAllCount () throws Exception;
-	public List<Select> findPerIdAndIdCard();
 }

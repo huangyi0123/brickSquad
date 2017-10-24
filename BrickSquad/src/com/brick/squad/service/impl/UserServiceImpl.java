@@ -53,18 +53,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	//验证用户名密码
-	public User checkLogin(String username,String password){
-	
-		User user=userMapper.checkLogin(username);
-		if(user!=null&&user.getPassword().equals(SecurityUtil.strToMD5(password))){
-			return user;
-		}
-			return null;
+	public User checkLogin(User user){
+		user.setPassword(SecurityUtil.strToMD5(user.getPassword()));
+		return userMapper.checkLogin(user);
 		
-		 
 	}
-
-	
 	public User findUsername(String username) {
 		
 		return userMapper.findUsername(username);
@@ -86,24 +79,4 @@ public class UserServiceImpl implements UserService {
 		return date;
 
 	}
-
-
-	
-	public User loginCheck(String username, String password){
-		User user=userMapper.loginCheck(username, password);
-		if(user!=null&&user.getPassword().equals(SecurityUtil.strToMD5(password))){
-			return user;
-		}
-			return null;
-		
-	}
-	
-
-	
-
-
-	
-
-	
-	
 }

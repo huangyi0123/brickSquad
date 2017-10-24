@@ -35,17 +35,21 @@
 </head>
 
 <body>
+<br>
+	<div style="padding-left: 140px;font-size:16;">添加老人健康档案信息</div>
+	<br>
 	<form class="layui-form" style="margin-right: 30px"
 		action="healthRecords/insertHealthRecords" id="form1" method="post">
-		<div class="layui-form-item" style="margin-top: 50px;">
+		
+			<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">老人ID：</label>
 			<div class="layui-input-inline">
-				<input type="hidden" value="${healthRecords.id }" name="id">
-				<input type="text" value="${healthRecords.perId }" name="perId"
+				<input type="text" name="userId" value="${healthRecords.userId }"
 					required lay-verify="required" placeholder="老人ID"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
+			
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">记录人员ID：</label>
 			<div class="layui-input-inline">

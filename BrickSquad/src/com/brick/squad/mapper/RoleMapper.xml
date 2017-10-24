@@ -2,23 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RoleMapper">
-	<!-- Luyujing Role表 增删改查-->
+	<!-- Luyujing Role表 增删改查 -->
 	<insert id="addRole" parameterType="String">
-	INSERT INTO role (id,name) VALUES(#{id},#{name})
+		INSERT INTO role (id,name) VALUES(#{id},#{name})
 	</insert>
 	<delete id="deleteRole" parameterType="String">
-	delete from role where id=#{id};
+		delete from role where id=#{id};
 	</delete>
 	<update id="updateRole" parameterType="String">
-		UPDATE role SET name=#{name} WHERE id=#{id}
+		UPDATE role SET
+		name=#{name} WHERE id=#{id}
 	</update>
 	<select id="findRole" resultType="role" parameterType="String">
-		select name,id from role where id=#{id};
+		select
+		name,id from role where id=#{id};
 	</select>
-	<select id="rolePagination" resultType="role" parameterType="com.brick.squad.util.Pagination">
+	<select id="rolePagination" resultType="role"
+		parameterType="com.brick.squad.util.Pagination">
 		select*from role limit #{skipNum},#{takeNum}
 	</select>
-	<select id="roleCount" resultType="int" >
-		select count(*) from role 
+	<select id="roleCount" resultType="int">
+		select count(*) from
+		role
 	</select>
+	<insert id="insertRole" parameterType="Role">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO role (id,name)
+		VALUES (#{id},#{name})
+	</insert>
+	<select id="findRoleAll" resultType="Role">
+		SELECT name FROM role
+	</select>
+	<update id="updateRoleById" parameterType="Role">
+		UPDATE role
+		SET name=#{name}
+		WHERE id=#{id}
+	</update>
 </mapper>

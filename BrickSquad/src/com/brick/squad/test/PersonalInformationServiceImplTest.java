@@ -1,8 +1,5 @@
 package com.brick.squad.test;
 
-import java.util.Date;
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +36,8 @@ public class PersonalInformationServiceImplTest {
 
 	@Test
 	public void testUpdatePersonalInformationById() {
-		PersonalInformation personalInformation =personalInformationService.findPersonalInformationById("1");
+		PersonalInformation personalInformation =personalInformationService.findPersonalInformationById("8ecd8aa8b7a211e78d4f5254002ec43c");
+		System.out.println(personalInformation.toString());
 		personalInformation.setName("12");
 		personalInformationService.updatePersonalInformationById(personalInformation);
 	}

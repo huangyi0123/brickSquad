@@ -58,6 +58,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
   
   <body>
+  <br>
+	<div style="padding-left: 160px;font-size:16;">区域信息</div>
+	<br>
  	<form action="region/${url }" id="form1" method="post">
  		<div class="layui-form-item">
     <label class="layui-form-label">区域id：</label>

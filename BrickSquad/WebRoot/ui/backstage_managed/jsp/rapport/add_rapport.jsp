@@ -48,6 +48,7 @@
 		var da = $("#rda").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd");
 		$("#rda").val(dat);
+		
 		var centent=$("#centent").attr('val');
 		console.log(centent);
 		$("#centent").val(centent);
@@ -122,8 +123,6 @@
 
 			</div>
 		</div>
-		
-		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
