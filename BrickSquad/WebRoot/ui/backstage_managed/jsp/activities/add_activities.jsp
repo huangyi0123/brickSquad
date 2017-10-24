@@ -58,6 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				});
 			}
 		});
+		
+		var url="${url}"
+		if(url=='addActivities'){}
+		else{
 		var da = $("#startTimeId").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$("#startTimeId").val(dat);
@@ -65,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var da = $("#endTimeId").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$("#endTimeId").val(dat);
-		
+		}
 		
 	});
 	

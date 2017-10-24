@@ -1,11 +1,14 @@
 package com.brick.squad.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.MemberShipApplication;
 import com.brick.squad.service.MemberShipApplicationService;
 import com.brick.squad.util.Pagination;
@@ -36,7 +39,17 @@ public class MemberShipApplicationController {
 	}
 
 	@RequestMapping("/toAddMemberShipApplication")
-	public String toAddMemberShipApplication() {
+	public String toAddMemberShipApplication(HttpServletRequest request, String id) {
+		
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateActivitiesById");
+			MemberShipApplication memberShipApplication=memberShipApplicationService.findMemberShipApplicationById(id);
+			request.setAttribute("memberShipApplication", memberShipApplication);
+		} else {
+			request.setAttribute("url", "addMemberShipApplication");
+			request.setAttribute("msg", "添加");
+		}
 		return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
 	}
 	
@@ -53,4 +66,18 @@ public class MemberShipApplicationController {
 		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
 	
 	}
+	
+	@RequestMapping("/updateMemberShipApplicationById")
+	public String updateMemberShipApplicationById(MemberShipApplication memberShipApplication){
+		memberShipApplicationService.updateMemberShipApplicationById(memberShipApplication);
+		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";	
+	}
+	
+	@RequestMapping("/findAllMemberShipApplication")
+	@ResponseBody
+	public String findAllMemberShipApplication(){
+		return memberShipApplicationService.findAllMemberShipApplication();
+		
+	}
+	
 }

@@ -70,19 +70,8 @@
  <br>
 	<div style="padding-left: 130px;font-size:16;">添加商品信息</div>
 	<br>
-	<form class="layui-form" action="article/addArticle" id="form1">
+	<form class="layui-form" action="article/${url}" id="form1" method="post">
 
-	
-		<div class="layui-form-item">
-			<label class="layui-form-label">商品序号</label>
-			<div class="layui-input-inline">
-				<input type="text" name="id" required lay-verify="required"
-					placeholder="商品序号" autocomplete="off" class="layui-input"
-					value="${article.id }">
-			</div>
-		</div>
-		
-		
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
@@ -91,6 +80,17 @@
 					value="${article.aname }">
 			</div>
 		</div>
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">商品类型</label>
+			<div class="layui-input-inline">
+				<input type="text" name="typeId" required lay-verify="required"
+					placeholder="商品序号" autocomplete="off" class="layui-input"
+					value="${article.typeId }">
+			</div>
+		</div>
+		
 		
 		
 		<div class="layui-form-item">

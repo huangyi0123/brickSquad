@@ -98,7 +98,6 @@ public class ActivitiesController {
 		@RequestMapping("/updateActivitiesById")
 		public String updateActivitiesById(Activities activities) throws Exception{
 			activitiesService.updateActivitiesById(activities);
-			System.out.println("11111111111111111111111");
 			return "backstage_managed/jsp/activities/activities_list";
 			
 		}
