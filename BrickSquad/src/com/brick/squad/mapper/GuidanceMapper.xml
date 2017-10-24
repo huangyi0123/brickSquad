@@ -5,11 +5,11 @@
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into guidance (id,per_id,guidance_date,disease,assessment,suggest)
-		 values (#{id},#{perId},#{guidanceDate},#{disease},#{assessment},#{suggest})
+		insert into guidance (id,per_id,guidance_date,disease,assessment,suggest,per_idCard,per_idName)
+		 values (#{id},#{perId},#{guidanceDate},#{disease},#{assessment},#{suggest},#{perIdCard},#{perIdName})
 	</insert>
 	<select id="queryGuidanceById" parameterType="String" resultType="com.brick.squad.pojo.Guidance">
-		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest 
+		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest,per_idCard perIdCard,per_idName perIdName
 		from  guidance where id=#{id}
 	</select>
 	<delete id="deleteGuidanceById" parameterType="String">
@@ -17,10 +17,10 @@
 	</delete>
 	<update id="updateGuidanceById" parameterType="com.brick.squad.pojo.Guidance">
 		update guidance set
-		 per_id=#{perId},disease=#{disease},assessment=#{assessment},suggest=#{suggest} where id=#{id}
+		 per_id=#{perId},disease=#{disease},assessment=#{assessment},suggest=#{suggest},per_idCard=#{perIdCard},per_idName=#{perIdName} where id=#{id}
 	</update>
 	<select id="guidancePagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.Guidance">
-		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest 
+		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest,per_idCard perIdCard,per_idName perIdName
 		from  guidance limit #{skipNum},#{takeNum}
 	</select>
 	<select id="findGuidanceAllCount" resultType="int">

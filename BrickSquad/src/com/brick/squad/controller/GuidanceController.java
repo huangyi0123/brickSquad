@@ -3,6 +3,8 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -27,7 +29,10 @@ public class GuidanceController {
 		return "backstage_managed/jsp/guidance/guidance_list";
 	}
 	@RequestMapping(value="/toAddGuidance")
-	public String toAddGuidance(){
+	public String toAddGuidance(HttpServletRequest request){
+		//得到数据库中查询的身份证 姓名 id的json数据用于页面显示出来
+		String	allPersonalInformationdata = guidanceService.findPerIdAndIdCard();
+		request.setAttribute("allPersonalInformationdata", allPersonalInformationdata);
 		return "backstage_managed/jsp/guidance/add_guidance";
 	}
 	@RequestMapping(value="getGuidanceList")
@@ -47,6 +52,11 @@ public class GuidanceController {
 	@RequestMapping(value="/insertGuidance")
 	public String insertGuidance(Guidance guidance) throws Exception{
 		guidanceService.insertGuidanceById(guidance);
+		return "backstage_managed/jsp/guidance/guidance_list";
+	}
+	@RequestMapping("/deleteGuidanceById")
+	public String deleteGuidanceById(String id) throws Exception{
+		guidanceService.deleteGuidanceById(id);
 		return "backstage_managed/jsp/guidance/guidance_list";
 	}
 }
