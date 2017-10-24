@@ -40,10 +40,13 @@ function init(keyword) {
 					return '<a href="rapport/toAddRapport?id='
 							+ rowData.id
 
-							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:55px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteRapportById("'
+							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:40px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteRapportById("'
 
 							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="'
+
+							+ rowData.id
+							+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
 				}
 			} ]
     });
