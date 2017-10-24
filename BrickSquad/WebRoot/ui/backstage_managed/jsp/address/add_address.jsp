@@ -85,8 +85,8 @@
 		if (url == 'inserAddress') {
 
 		} else {
-			var regions = "${regions}";
-			console.log(regions[0]);
+			var regions = '${regions}';
+			regions=JSON.parse(regions);
 			findAll(regions[0].city, "#city");
 			findAll(regions[0].county, "#citg");
 			findAll(regions[0].country, "#cit");
