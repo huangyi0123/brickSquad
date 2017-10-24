@@ -36,20 +36,22 @@ public class UserController {
 	}
 
 	@RequestMapping("/toLogin")
-	public String toLogin(User user, Model model, HttpServletRequest request) {
-
-		user = userService.checkLogin(user.getUsername(), user.getPassword());
-
-		if (user != null) {
-
-			model.addAttribute(user);
-			return "redirect:/ui/backstage_managed/jsp/frame.jsp";
-		}
-		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
-
-		// request.setAttribute("msg", "登录失败");
+	public String toLogin(HttpServletRequest request) {
+		request.setAttribute("flag", "1");
 		return "backstage_managed/jsp/user/login";
 
+	}
+
+	@RequestMapping("/login")
+	public String login(HttpServletRequest request, User user1) {
+		User user = userService.checkLogin(user1);
+		/*if (user != null) {
+			request.getSession().setAttribute("user", user);
+			return "redirect:/ui/backstage_managed/jsp/frame.jsp";
+		}*/
+		request.setAttribute("flag", "2");
+		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
+		return "backstage_managed/jsp/user/login";
 	}
 
 	@RequestMapping("/toRegister")

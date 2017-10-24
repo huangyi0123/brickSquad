@@ -32,7 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	});
 </script>
   </head>
-  
   <body>
 	<br>
 	<div style="padding-left: 130px;font-size:16;">添加权限信息</div>
