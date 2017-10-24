@@ -37,7 +37,7 @@
 
 <body>
 	<br>
-	<div style="padding-left: 130px;font-size:16;">添加会员申请信息</div>
+	<div style="padding-left: 130px;font-size:16;">添加会员申请信息....</div>
 	<br>
 	<form class="layui-form" action="memberShipApplication/${url}" id="form1" method="post">
 		<div class="layui-form-item">

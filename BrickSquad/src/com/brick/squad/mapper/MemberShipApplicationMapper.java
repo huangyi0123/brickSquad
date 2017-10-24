@@ -21,6 +21,6 @@ public interface MemberShipApplicationMapper {
 
 	public int findMemberShipApplicationAllCount();
 
-	public List<MemberShipApplication> findAllMemberShipApplications();
+	public List<MemberShipApplication> findAllMemberShipApplication();
 
 }

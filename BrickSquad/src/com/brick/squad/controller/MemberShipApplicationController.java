@@ -13,8 +13,8 @@ import com.brick.squad.pojo.MemberShipApplication;
 import com.brick.squad.service.MemberShipApplicationService;
 import com.brick.squad.util.Pagination;
 
-@RequestMapping("/memberShipApplication")
 @Controller
+@RequestMapping("/memberShipApplication")
 public class MemberShipApplicationController {
 	@Autowired
 	@Qualifier("memberShipApplicationService")
@@ -43,7 +43,7 @@ public class MemberShipApplicationController {
 		
 		if (id != null) {
 			request.setAttribute("msg", "修改");
-			request.setAttribute("url", "updateActivitiesById");
+			request.setAttribute("url", "updateMemberShipApplicationById");
 			MemberShipApplication memberShipApplication=memberShipApplicationService.findMemberShipApplicationById(id);
 			request.setAttribute("memberShipApplication", memberShipApplication);
 		} else {

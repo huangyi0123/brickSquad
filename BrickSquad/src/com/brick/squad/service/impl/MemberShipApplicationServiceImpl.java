@@ -74,7 +74,7 @@ public class MemberShipApplicationServiceImpl implements
 
 	@Override
 	public String findAllMemberShipApplication() {
-		List<MemberShipApplication> memberShipApplications= memberShipApplicationMapper.findAllMemberShipApplications();
+		List<MemberShipApplication> memberShipApplications= memberShipApplicationMapper.findAllMemberShipApplication();
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(memberShipApplications).toString();
 		return data;
