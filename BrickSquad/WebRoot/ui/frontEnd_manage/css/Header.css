@@ -1,0 +1,318 @@
+/*固定定位position:fixed;一旦设置了该属性，那么该元素就会脱离文档流，进行固定定位。*/
+#gototop a {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: #CCC;
+	text-align: center;
+	color: #FFF;
+	position: fixed;
+	right: 0;
+	bottom: 100px;
+}
+
+.body {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background-color: white;
+	background: url('../image/head_bg.png');
+}
+
+.topbar_1 {
+	width: 100%;
+	height: 70px;
+	padding: 0;
+	margin: 0;
+}
+
+.topbar_1_1 {
+	width: 22%;
+	height: 82%;
+	margin-top: 0px;
+	margin-left: 0px;
+	float: left;
+	background: url('../image/bg_1.jpg');
+}
+
+.topbar_1_2 {
+	float: left;
+	width: 43%;
+	height: 100%;
+}
+.topbar_1_3 {
+	float: left;
+	width: 35%;
+	height: 100%;
+}
+.topbar_1_2 li a {
+	height: 63px;
+	width: 170px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+	margin-left: 0px;
+}
+
+.tab-content {
+	width: 100%;
+	height: 37px;
+}
+
+.tab-pane {
+	width: 100%;
+	height: 37px;
+	margin-top: 0px;
+	float: left;
+}
+
+.ul2 {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	float: left;
+}
+
+.ul2 li {
+	list-style: none;
+	float: left;
+	margin-left: 80px;
+	margin-top: -5px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.tab-pane li a {
+	width: 90px;
+	height: 20px;
+	text-align: center;
+	font-size: 14px;
+}
+
+
+
+}
+.ul_1 {
+	list-style: none;
+	height: 100%;
+	margin: 0;
+}
+
+.ul_1 li {
+	display: block;
+	height: 75px;
+	list-style: none;
+	float: left;
+	line-height: 75px;
+	width: 120px;
+	text-align: center;
+	color: black;
+}
+
+.ul_1 li:hover {
+	background: url('../image/bg_move.jpg');
+	cursor: pointer;
+}
+
+.ul_1 li:active {
+	background: url('../image/bg_click.jpg');
+	cursor: pointer;
+}
+
+.header {
+	display: none;
+}
+
+.reg {
+}
+
+.topbar_1_3 a {
+	text-decoration: none;
+	width: 100px;
+	height: 5px;
+	/* font-size: 1em; */
+	color: white;
+	text-align: center;
+	line-height: 30px;
+	margin-left: 20px;
+}
+
+.topbar_2 {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	border: 1px solid black;
+	background-color: red;
+}
+
+.ul_2 {
+	list-style: none;
+	height: 100%;
+	margin-left: 325px;
+}
+
+.ul_2 li {
+	display: block;
+	list-style: none;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	width: 110px;
+	text-align: center;
+	color: white;
+}
+
+.div_search {
+	width: 50%;
+	height: 100px;
+	float: left;
+	font-size: 5px;
+	/* border: 1px solid red; */
+}
+
+.search {
+	margin-top: 40px;
+	display: block;
+	float: left;
+	width: 160px;
+	height: 30px;
+	border-radius: 10px;
+	display: block;
+}
+
+.search1 {
+	margin-top: 40px;
+	height:30px;
+	width: 60px;
+	display: block;
+	float: left;
+	border-radius: 10px;
+	background: white;
+}
+
+.div_login {
+	padding-top: 40px;
+	height: 100px;
+	width: 50%;
+	float: right;
+	font-size: 18px;
+	color: black;
+
+}
+
+
+.div_login a {
+	color: black;
+}
+
+.div_login li {
+	display: block;
+	list-style: none;
+	float: left;
+	text-align: center;
+	color: black;
+	margin-left: 10px;
+} 
+.div5 {
+	float: right;
+	width: 100%;
+	height: 45px;
+	background-color: white;
+	margin-top: 0px;
+	margin-right: 100px;
+	width: 100%;
+}
+
+.div5 img {
+	padding:0;
+	margin:0;
+	display: block;
+	float: left;
+	width: 100%;
+	margin-right: auto;
+	margin-top: 0px;
+}
+
+.right {
+}
+
+.font {
+	display: block;
+	line-height: 400px;
+}
+
+.login_windows {
+	height: 350px;
+	width: 480px;
+}
+
+.login_user {
+	float: left;
+	height: 50px;
+}
+
+.login_user input {
+	width: 290px;
+	height: 35px;
+}
+
+.login_password {
+	float: left;
+	height: 50px;
+}
+
+.login_password input {
+	width: 290px;
+	height: 35px;
+}
+
+.modal_footer {
+	padding-top: 30px;
+}
+
+.modal_footer button {
+	margin-left: 100px;
+}
+
+.box{
+	width:350px;
+	height:300px;
+	margin:auto;
+}
+
+.box_body{
+	text-align: center;
+	margin-top: 100px;
+}
+
+.box_footer button{
+	margin-left:80px;
+	margin-top: 70px;
+}
+
+.box_header button{
+	margin-left:327px;
+}
+.pager span{
+	cursor: pointer;
+}
+.mybfq{
+	display: block;
+	position: absolute;
+	right: 0px;
+	top: 20px;
+	cursor: pointer;
+}
+
+.myplay{
+	width:100%;
+	position: fixed;
+	bottom:0;
+	z-index: 1;
+}
