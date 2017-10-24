@@ -47,6 +47,7 @@
 		layui.use('form', function() {
 					var form = layui.form();
 				});
+				
 		var url = "${url}";
 		if (url == 'addShopActivities') {
 		} else {

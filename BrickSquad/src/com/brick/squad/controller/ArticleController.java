@@ -43,7 +43,7 @@ public class ArticleController {
 		pagination.setPageSize(pSize);
 		return  articleService.articlePagination(pagination);}
 	
-	@RequestMapping("/toAddArticle")
+	@RequestMapping("toAddArticle")
 	public String toAddArticle(HttpServletRequest request, String id) throws Exception{
 		 	if (id != null) {
 			request.setAttribute("msg", "修改");

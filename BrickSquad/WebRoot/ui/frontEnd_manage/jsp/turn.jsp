@@ -18,7 +18,6 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<meta http-equiv="Refresh" content="0;url=ui/frontEnd_manage/index.jsp">
 <link type="text/css"
 	href="ui/backstage_managed/plugins/layui/css/layui.css">
 <script type="text/javascript"
@@ -26,15 +25,10 @@
 <script type="text/javascript">
 	layui.use('layer', function() {
 		var layer = layui.layer;
-		window.location = "ui/frontEnd_manage/index.jsp";
 		parent.layer.closeAll();
-
+		window.parent.dialogArguments.document.execCommand('Refresh');
 	});
 </script>
 </head>
 
-<body>
-	This is my JSP page.
-	<br>
-</body>
 </html>

@@ -8,12 +8,25 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
                      {
-                         key: 'id',
-                         text: '活动顺序'
+                         key: 'name',
+                         text: '活动名称'
+                     },
+                    {
+                         key: 'tname',
+                         text: '活动类型'
                      },
             {
-                key: 'name',
-                text: '活动名称'
+                key: 'number',
+                text: '参会人数'
+            },
+            
+            {
+                key: 'username',
+                text: '负责人'
+            },
+            {
+                key: 'centent',
+                text: '活动内容'
             },
             {
                 key: 'startTime',
@@ -34,7 +47,7 @@ function init(keyword) {
 
 					+ rowData.id
 					+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
-		}
+		}  
             }
         ]
     });

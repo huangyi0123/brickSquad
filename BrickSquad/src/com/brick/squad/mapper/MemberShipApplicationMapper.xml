@@ -49,5 +49,10 @@
 		select count(*) from membership_application
 
 	</select>
+	
+	<select id="findAllMemberShipApplications" resultType="memberShipApplication">
+		select membership_application.membership_type_id from membership_application
+	</select>
+	
 
 </mapper>
