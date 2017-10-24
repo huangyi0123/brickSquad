@@ -50,6 +50,7 @@
 			<h3>欢迎使用 老人管理系统</h3>
 
 			<form class="m-t" role="form" action="user/login" method="post">
+			<input type="hidden" name="f" id="admin">
 				<div class="form-group">
 					<input name="username" type="text" class="form-control"
 						id="username" placeholder="用户名" required="">

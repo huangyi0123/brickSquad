@@ -53,15 +53,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	//验证用户名密码
-	public User checkLogin(User user1){
-	
-		User user=userMapper.checkLogin(user1);
-		if(user!=null&&user.getPassword().equals(SecurityUtil.strToMD5(user1.getPassword()))){
-			return user;
-		}
-			return null;
+	public User checkLogin(User user){
+		user.setPassword(SecurityUtil.strToMD5(user.getPassword()));
+		return userMapper.checkLogin(user);
 		
-		 
 	}
 	public User findUsername(String username) {
 		

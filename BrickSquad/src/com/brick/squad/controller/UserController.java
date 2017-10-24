@@ -45,10 +45,10 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1) {
 		User user = userService.checkLogin(user1);
-		/*if (user != null) {
+		if (user != null) {
 			request.getSession().setAttribute("user", user);
-			return "redirect:/ui/backstage_managed/jsp/frame.jsp";
-		}*/
+			return "redirect:/ui/frontEnd_manage/jsp/turn.jsp";
+		}
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
 		return "backstage_managed/jsp/user/login";
@@ -92,5 +92,10 @@ public class UserController {
 	public String findAllUser() throws Exception {
 		return userService.findAllUser();
 	}
-
+	@RequestMapping("/logout")
+	@ResponseBody
+	public String logout(HttpServletRequest request) {
+		request.getSession().removeAttribute("user");
+		return "1";
+	}
 }

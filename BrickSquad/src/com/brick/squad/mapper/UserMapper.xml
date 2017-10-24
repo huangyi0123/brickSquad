@@ -4,7 +4,7 @@
 <mapper namespace="com.brick.squad.mapper.UserMapper">
 	<!-- Luyujing User表 增删改查 -->
 	<sql id="prop">
-		id,username,password telephone, role_id
+		id,username,password telephone, role_id roleId
 	</sql>
 	<insert id="addUser" parameterType="com.brick.squad.pojo.User">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -33,10 +33,10 @@
 		select count(*) from user
 	</select>
 
-	<select id="checkLogin" parameterType="String" resultType="user">
+	<select id="checkLogin" parameterType="user" resultType="user">
 		select
 		<include refid="prop" />
-		FROM user WHERE username=#{username}
+		FROM user WHERE username=#{username} and password=#{password}
 	</select>
 
 	<select id="findUsername" resultType="user" parameterType="String">
