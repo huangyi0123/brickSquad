@@ -28,6 +28,7 @@ public class BuyersServiceTest {
 		buyers.setDeliveryAddressId("6");
 		buyers.setGrade(4);
 		buyers.setHistoricalIntegral(5);
+		buyers.setInformationId("8");
 		buyersService.insertBuyers(buyers);
 	}
 	@Test
@@ -46,13 +47,13 @@ public class BuyersServiceTest {
 		buyers.setDeliveryAddressId("007");
 		buyers.setGrade(006);
 		buyers.setHistoricalIntegral(002);
+		buyers.setInformationId("004");
 		buyersService.updateBuyersById(buyers);	
 	}
 	@Test
 	public void testDeleteBuyersById() throws Exception{
-		Buyers buyers = new Buyers();
-		buyers.setId("ab1595b6b0bd11e78d4f5254002ec43c");
-		buyersService.deleteBuyersById(buyers);
+
+		buyersService.deleteBuyersById("ab1595b6b0bd11e78d4f5254002ec43c");
 	}
 	@Test
 	public void testBuyersPagination() throws Exception{

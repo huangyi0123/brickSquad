@@ -38,4 +38,10 @@ public class BuyersController {
 		buyersService.insertBuyers(buyers);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+	@RequestMapping("/deleteBuyersById")
+	public String deleteBuyersById(String id ) throws Exception{
+		buyersService.deleteBuyersById(id);
+		System.out.print(buyersService);
+		return "backstage_managed/jsp/buyers/buyers_list";
+	}
 }

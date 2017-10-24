@@ -10,7 +10,7 @@ public interface BuyersService {
 	//根据id模糊查询
 	public List<Buyers> findBuyersByUUID (String id) throws Exception;
 	public void updateBuyersById(Buyers buyers) throws Exception;
-	public void deleteBuyersById(Buyers buyers) throws Exception;
+	public void deleteBuyersById(String id) throws Exception;
 	public String buyersPagination(Pagination pagination) throws Exception;
 	public int findBuyersAllCount() throws Exception;
 }

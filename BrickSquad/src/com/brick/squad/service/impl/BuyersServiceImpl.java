@@ -32,9 +32,9 @@ public class BuyersServiceImpl implements BuyersService {
 		buyersMapper.updateBuyersById(buyers);
 	}
 	@Override
-	public void deleteBuyersById(Buyers buyers) throws Exception {
+	public void deleteBuyersById(String id) throws Exception {
 		// TODO Auto-generated method stub
-		buyersMapper.deleteBuyersById(buyers);
+		buyersMapper.deleteBuyersById(id);
 	}
 	@Override
 	public String buyersPagination(Pagination pagination)
