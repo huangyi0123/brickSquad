@@ -29,10 +29,19 @@ public class GuidanceController {
 		return "backstage_managed/jsp/guidance/guidance_list";
 	}
 	@RequestMapping(value="/toAddGuidance")
-	public String toAddGuidance(HttpServletRequest request){
+	public String toAddGuidance(HttpServletRequest request,String id) throws Exception{
 		//得到数据库中查询的身份证 姓名 id的json数据用于页面显示出来
 		String	allPersonalInformationdata = guidanceService.findPerIdAndIdCard();
 		request.setAttribute("allPersonalInformationdata", allPersonalInformationdata);
+		if(id!= null){
+			Guidance guidance = guidanceService.queryGuidanceById(id);
+			request.setAttribute("selectGuidanceId", guidance);
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateGuidanceById");
+			System.out.print(guidance.toString());
+		}else
+			request.setAttribute("msg", "添加");
+			request.setAttribute("url", "insertGuidance");
 		return "backstage_managed/jsp/guidance/add_guidance";
 	}
 	@RequestMapping(value="getGuidanceList")
@@ -57,6 +66,11 @@ public class GuidanceController {
 	@RequestMapping("/deleteGuidanceById")
 	public String deleteGuidanceById(String id) throws Exception{
 		guidanceService.deleteGuidanceById(id);
+		return "backstage_managed/jsp/guidance/guidance_list";
+	}
+	@RequestMapping("updateGuidanceById")
+	public String updateGuidanceById(Guidance guidance) throws Exception{
+		guidanceService.updateGuidanceById(guidance);
 		return "backstage_managed/jsp/guidance/guidance_list";
 	}
 }
