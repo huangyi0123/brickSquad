@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -215,8 +217,8 @@
 			<label class="layui-form-label ">性别</label>
 			<div class="layui-input-inline">
 				<select name="personalInformation.gender" value="${personalInformation.gender }">
-					<option value="男">男</option>
-					<option value="女">女</option>
+					<option <c:if test="${personalInformation.marriageId eq'其他'}">selected</c:if> value="男">男</option>
+					<option <c:if test="${personalInformation.marriageId eq'其他'}">selected</c:if> value="女">女</option>
 				</select>
 			</div>
 		</div>
@@ -247,11 +249,11 @@
 
 			<div class="layui-input-inline">
 				<select value="${personalInformation.marriageId }" name="personalInformation.marriageId">
-					<option value="未婚">未婚</option>
-					<option value="已婚">已婚</option>
-					<option value="离异">离异</option>
-					<option value="丧偶">丧偶</option>
-					<option value="其他">其他</option>
+					<option <c:if test="${personalInformation.marriageId eq'未婚'}">selected</c:if> value="未婚">未婚</option>
+					<option <c:if test="${personalInformation.marriageId eq'已婚'}">selected</c:if> value="已婚">已婚</option>
+					<option <c:if test="${personalInformation.marriageId eq'离异'}">selected</c:if> value="离异">离异</option>
+					<option <c:if test="${personalInformation.marriageId eq'丧偶'}">selected</c:if> value="丧偶">丧偶</option>
+					<option <c:if test="${personalInformation.marriageId eq'其他'}">selected</c:if> value="其他">其他</option>
 				</select>
 			</div>
 		</div>
@@ -278,14 +280,14 @@
 			<label class="layui-form-label">文化程度</label>
 			<div class="layui-input-inline">
 				<select required lay-verify="required" value="${personalInformation.cultureId }" name="personalInformation.cultureId">
-					<option value="小学">小学</option>
-					<option value="初中">初中</option>
-					<option value="高中">高中</option>
-					<option value="本科">本科</option>
-					<option value="专科">专科</option>
-					<option value="硕士研究生">硕士研究生</option>
-					<option value="博士">博士</option>
-					<option value="其他">其他</option>
+					<option <c:if test="${personalInformation.cultureId eq'小学'}">selected</c:if> value="小学">小学</option>
+					<option <c:if test="${personalInformation.cultureId eq'初中'}">selected</c:if> value="初中">初中</option>
+					<option <c:if test="${personalInformation.cultureId eq'高中'}">selected</c:if> value="高中">高中</option>
+					<option <c:if test="${personalInformation.cultureId eq'本科'}">selected</c:if> value="本科">本科</option>
+					<option <c:if test="${personalInformation.cultureId eq'专科'}">selected</c:if> value="专科">专科</option>
+					<option <c:if test="${personalInformation.cultureId eq'硕士研究生'}">selected</c:if> value="硕士研究生">硕士研究生</option>
+					<option <c:if test="${personalInformation.cultureId eq'博士'}">selected</c:if> value="博士">博士</option>
+					<option <c:if test="${personalInformation.cultureId eq'其他'}">selected</c:if> value="其他">其他</option>
 				</select>
 			</div>
 
@@ -296,24 +298,24 @@
 			<div class="layui-input-inline">
 				<select required lay-verify="required" value="${personalInformation.isPurchasing }"
 					name="personalInformation.isPurchasing">
-					<option value="是">是</option>
-					<option value="否">否</option>
+					<option <c:if test="${personalInformation.isPurchasing eq'是'}">selected</c:if> value="是">是</option>
+					<option <c:if test="${personalInformation.isPurchasing eq'否'}">selected</c:if> value="否">否</option>
 				</select>
 			</div>
 			<label class="layui-form-label">是否具有决策能力</label>
 			<div class="layui-input-inline">
 				<select required lay-verify="required" value="${personalInformation.isSupremacy }"
 					name="personalInformation.isSupremacy">
-					<option value="是">是</option>
-					<option value="否">否</option>
+					<option <c:if test="${personalInformation.isSupremacy eq'是'}">selected</c:if> value="是">是</option>
+					<option <c:if test="${personalInformation.isSupremacy eq'否'}">selected</c:if> value="否">否</option>
 				</select>
 
 			</div>
 			<label class="layui-form-label">是否有购买需求</label>
 			<div class="layui-input-inline">
 				<select required lay-verify="required" value="${personalInformation.isPureq }" name="personalInformation.isPureq">
-					<option value="是">是</option>
-					<option value="否">否</option>
+					<option <c:if test="${personalInformation.isPureq eq'是'}">selected</c:if> value="是">是</option>
+					<option <c:if test="${personalInformation.isPureq eq'否'}">selected</c:if> value="否">否</option>
 				</select>
 
 			</div>
@@ -321,8 +323,8 @@
 			<div class="layui-input-inline">
 				<select required lay-verify="required" value="${personalInformation.pureqTypeId }"
 					name="personalInformation.pureqTypeId">
-					<option value="是">是</option>
-					<option value="否">否</option>
+					<option <c:if test="${personalInformation.pureqTypeId eq'是'}">selected</c:if> value="是">是</option>
+					<option <c:if test="${personalInformation.pureqTypeId eq'否'}">selected</c:if> value="否">否</option>
 				</select>
 
 			</div>
