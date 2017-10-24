@@ -45,6 +45,7 @@ public class ShopActivitiesController {
 	
 	@RequestMapping("/toAddShopActivities")
 	public String toAddShopActivities(HttpServletRequest request, String id) throws Exception {
+		request.setAttribute("type", shopActivitiesService.findAllShopActivities());
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateShopActivitiesById");
@@ -80,7 +81,13 @@ public class ShopActivitiesController {
 		return "success";
 		
 	}
-
+	
+	
+	@RequestMapping("/findAllShopActivities")
+	public String findAllShopActivities(){
+		return shopActivitiesService.findAllShopActivities();
+		
+	}
 	
 	
 	@RequestMapping("/updateShopActivitiesById")

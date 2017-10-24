@@ -28,7 +28,6 @@
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
-	
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
@@ -64,8 +63,10 @@
 </head>
   
   <body>
+  <br>
+	<div style="padding-left: 120px;font-size:16;">添加老人健康指导信息</div>
+	<br>
   <form action="guidance/insertGuidance" method="post" id="form">
-  
    <div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">

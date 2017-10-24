@@ -34,10 +34,12 @@
 </head>
 
 <body>
-	<form class="layui-form" style="margin-right: 30px"
-		action="business/${url }" id="form1" method="post">
+	<br>
+	<div style="padding-left: 150px;font-size:16;">${msg}类别信息</div>
+	<br>
+	<form class="layui-form" action="business/${url }" id="form1" method="post">
 		<input type="hidden" name="id" value="${business.id }">
-		<div class="layui-form-item" style="margin-top: 50px;">
+		<div class="layui-form-item">
 			<label class="layui-form-label">商家名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"

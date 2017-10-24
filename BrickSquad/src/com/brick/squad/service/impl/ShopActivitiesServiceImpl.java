@@ -2,22 +2,30 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.ShopActivitiesMapper;
+import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 @Transactional
 public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 
 	@Autowired
 	@Qualifier("shopActivitiesMapper")
-	private ShopActivitiesMapper shopActivitiesMapper;
+	private ShopActivitiesMapper shopActivitiesMapper; 
+	
+	@Autowired
+	@Qualifier("typeMapper")
+	private TypeMapper typeMapper;
 	
 	@Override
 	public ShopActivities findShopActivitiesById(String id) {
@@ -60,14 +68,12 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 
 	@Override
 	public String findAllShopActivities() {
-		return null;
+		List<Select> selects=typeMapper.findTypeByParentId("9356093ab7eb11e78d4f5254002ec43c");
+		JSONArray jsonArray=new JSONArray();
+		String data = jsonArray.fromObject(selects).toString();
+		return data ;
 	}
 
-	@Override
-	public String findShopActivitiesByParentId(String parentId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 }

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.brick.squad.pojo.ActivityRegistration;
-import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.Pagination;

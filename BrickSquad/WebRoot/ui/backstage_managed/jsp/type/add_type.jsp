@@ -60,7 +60,9 @@
 </head>
 
 <body>
-	<h1>${msg}类别信息</h1>
+ <br>
+	<div style="padding-left: 150px;font-size:16;">${msg}类别信息</div>
+	<br>
 	<form class="layui-form" action="type/${url }" id="form1"
 		method="post">
 		<input type="hidden" name="id" value="${type.id }">

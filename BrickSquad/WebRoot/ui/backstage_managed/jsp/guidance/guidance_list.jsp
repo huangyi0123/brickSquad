@@ -42,6 +42,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		init("");
 	});
 	</script>
+	<style type="text/css">
+.search {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+a:HOVER {
+	text-decoration: none;
+}
+</style>
   </head>
   
     <body>
@@ -76,8 +87,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 
+
 	 <div style="clear: both;"></div>
 	<div class="cls"></div>
+
 	<table grid-manager="demo-ajaxPageCode"></table>
 
 </body>

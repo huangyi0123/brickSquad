@@ -34,12 +34,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  
- 
-  
-  
+	<br>
+	<div style="padding-left: 130px;font-size:16;">添加权限信息</div>
+	<br>
    <form class="layui-form" action="limits/addLimits" id="form1">
-   
     <div class="layui-form-item">
 			<label class="layui-form-label">角色</label>
 			<div class="layui-input-block">
@@ -51,9 +49,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</select>
 			</div>
 		</div>
-  
-   
-   
 		<div class="layui-form-item">
 			<label class="layui-form-label">表名</label>
 			<div class="layui-input-inline">
@@ -61,22 +56,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					placeholder="表名" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-	
-		
 		<div class="layui-form-item">
     <div class="layui-input-block">
       <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>
-		
-		
 	</form>
   </body>
 </html>

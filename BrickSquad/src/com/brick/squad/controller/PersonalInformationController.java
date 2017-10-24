@@ -109,17 +109,20 @@ public class PersonalInformationController {
 		return personalInformationService.findAllPersonalInformation();
 
 	}
-
+/**
+ * 修改PersonalInformation
+ * @param addressAndPersonaInformationExpand 扩展类
+ * @return 
+ * @throws Exception
+ */
 	@RequestMapping("/updatePersonalInformationById")
 	public String updatePersonalInformation(
 			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand)
 			throws Exception {
-		System.out.println(addressAndPersonaInformationExpand.getAddress()
-				.toString());
-		System.out.println(addressAndPersonaInformationExpand
-				.getPersonalInformation().toString());
+		//先修改地址信息
 		addressService.updateAddressById(addressAndPersonaInformationExpand
 				.getAddress());
+		
 		personalInformationService
 				.updatePersonalInformationById(addressAndPersonaInformationExpand
 						.getPersonalInformation());
