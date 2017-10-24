@@ -38,7 +38,7 @@ public class AddressController {
 			request.setAttribute("address", address);
 		} else {
 			request.setAttribute("url", "inserAddress");
-			request.setAttribute("address", "添加");
+			request.setAttribute("msg", "添加");
 		}
 
 		return "backstage_managed/jsp/address/add_address";

@@ -49,12 +49,12 @@ public class ReplyController {
 			Reply reply =replyService.findReplyById(id);
 			request.setAttribute("reply", reply);
 		} else {
-			request.setAttribute("url", "insertReply");
+			request.setAttribute("url", "addReply");
 			request.setAttribute("msg", "添加");
 		}
 		return "backstage_managed/jsp/reply/add_reply";
 	}
-	@RequestMapping("addReply")
+	@RequestMapping("/addReply")
 	public String addReply(Reply reply){
 		replyService.insertReply(reply);
 		return "backstage_managed/jsp/reply/reply_list";

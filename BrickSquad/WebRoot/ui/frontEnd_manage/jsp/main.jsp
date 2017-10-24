@@ -31,7 +31,7 @@
 				<img src="ui/frontEnd_manage/images/bbbb.png" alt="" />
 			</div>
 			<div class="col-md-4 btm-grid btm-wid">
-				<h3>SPECIAL RECHARGE OFFERS</h3>
+				<h3>最新动态</h3>
 				<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
 					odit aut fugit, sed quia conse magni dolores eos qui ratione. Nemo
 					enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
