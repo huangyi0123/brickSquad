@@ -35,7 +35,7 @@
 <script src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="ui/backstage_managed/plugins/layui/layui.js"></script>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 	layui.use('element', function() {
 		var element = layui.element;
 		element.on('tab(demo)', function(data) {
@@ -53,7 +53,8 @@
 					class="dropdown-toggle" data-toggle="dropdown" href="#"> 账户设置 <span
 						class="caret"></span>
 				</a>
-					<div class="dropdown-menu" style="height: 150px;width: 485px;background-color: #5EBC5E">
+					<div class="dropdown-menu"
+						style="height: 150px;width: 485px;background-color: #5EBC5E">
 						<ul style="float: left;">
 							<li style="font-weight: bold;">安全设置</li>
 							<li><a href="#">修改安全密码</a></li>
@@ -75,9 +76,6 @@
 					</div></li>
 				<li role="presentation"><a href="#">消息</a></li>
 			</ul>
-
-
-
 			<div class="input-group"
 				style="width:400px;float:right;margin-top: -38px;margin-right: 50px;">
 				<input type="text" class="form-control" placeholder="Search for...">
@@ -86,10 +84,11 @@
 				</span>
 			</div>
 		</div>
-		<div class="Per_left" >
-			<ul class="layui-nav layui-nav-tree" lay-filter="test" style="background-color: #5EBC5E">
+		<div class="Per_left">
+			<ul class="layui-nav layui-nav-tree" lay-filter="test"
+				style="background-color: #5EBC5E">
 				<!-- <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-				<li class="layui-nav-item layui-nav-itemed" ><a
+				<li class="layui-nav-item layui-nav-itemed"><a
 					href="javascript:;">默认展开</a>
 					<dl class="layui-nav-child">
 						<dd>
