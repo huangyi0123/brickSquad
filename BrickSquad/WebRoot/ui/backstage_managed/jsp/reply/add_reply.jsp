@@ -27,23 +27,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
 	$(function() {
+		
+		var  testdata = '${reply}';
+		console.log(testdata);
 		$.ajax({
-			url : 'reply/findAllReply',
+			url : 'rated/findAllRated',
 			success : function(data) {
 				data = JSON.parse(data);
 				console.log(data);
-				var id = $("#parament").attr('val');
-				
+				var id = $("#paramentratedId").attr('val');
+				console.log(id);
 				$(data).each(
 						function() {
-							if (id == this.ratedId) {
-								$("#parament").append(
-										'<option value="'+this.ratedId+'"  selected="selected">'
-												+ this.ratedId+ '</option>');
+							if (id == this.id) {
+								$("#paramentratedId").append(
+										'<option value="'+this.id+'"  selected="selected">'
+												+ this.id+ '</option>');
 							} else {
-								$("#parament").append(
-										'<option value="'+this.ratedId+'">'
-												+ this.ratedId + '</option>');
+								$("#paramentratedId").append(
+										'<option value="'+this.id+'">'
+												+ this.id + '</option>');
 							}
 							
 						});
@@ -58,14 +61,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <body>
 <br>
-	<div style="padding-left: 150px;font-size:16;">${msg}类别信息</div>
+	<div style="padding-left: 150px;font-size:16;">${msg}回复信息</div>
 	<br>
 	<form class="layui-form" action="reply/${url }" id="form" method="post">
 <input type="hidden" name="id" value="${reply.id }">
 	<div class="layui-form-item">
 			<label class="layui-form-label">评论ID</label>
 			<div class="layui-input-inline">
-				<select name="ratedId" value"=${reply.ratedId }"  id="parament"
+				<select name="ratedId" val="${reply.ratedId }" required lay-verify="required" id="paramentratedId"
 					lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>

@@ -29,16 +29,22 @@
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
 <script type="text/javascript">
-	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
+layui.use('layer', function(){
+	  var layer = layui.layer;
+	  /* 打开遮罩层 */
+	  var test =layer.load(1, {shade: [0.8, '#393D49']});
+	  /*  */
+	  //查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
 	$(function() {
 		$.ajax({
 			url : 'type/findTypeByParentId',
 			data : {
-				'parentId' : 'b5b8589cb53511e78d4f5254002ec43c'
+				'parentId' : 'jibingleixin'
 			},
 			success : function(data) {
 				data = JSON.parse(data);
 				findAll(data, "#paramentTypeId");
+				
 				layui.use('form', function() {
 					var form = layui.form();
 				});
@@ -79,6 +85,12 @@
 			}
 		});
 	});
+	  
+	  /* 关闭遮罩层 */
+	  layer.close(test);
+	});
+
+	
 </script>
 </head>
 <body>

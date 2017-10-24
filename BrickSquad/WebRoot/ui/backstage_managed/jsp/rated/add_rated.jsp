@@ -40,16 +40,17 @@
 			url : 'orders/findAllOrders',
 			success : function(data) {
 				data = JSON.parse(data);
-		
-				var id = $("#parament").attr('val');
+				var id = $("#paramentorderId").attr('val');
+				console.log(id+"iii");
+				console.log(data);
 				$(data).each(
 						function() {
 							if (id == this.id) {
-								$("#parament").append(
+								$("#paramentorderId").append(
 										'<option value="'+this.id+'"  selected="selected">'
 												+ this.id + '</option>');
 							} else {
-								$("#parament").append(
+								$("#paramentorderId").append(
 										'<option value="'+this.id+'">'
 												+ this.id + '</option>');
 							}
@@ -66,7 +67,7 @@
 </head>
 <body>
 <br>
-	<div style="padding-left: 150px;font-size:16;">${msg}类别信息</div>
+	<div style="padding-left: 150px;font-size:16;">${msg}评论信息</div>
 	<br>
 	<form class="layui-form" action="rated/${url }" id="form"
 		method="post">
@@ -74,7 +75,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">搜索选择订单ID</label>
 			<div class="layui-input-inline">
-				<select name="orderId" id="parament" lay-search="" value="${rated.orderId }">
+				<select name="orderId" id="paramentorderId" lay-search="" val="${rated.orderId }">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -83,7 +84,7 @@
 			<label class="layui-form-label">评论内容</label>
 
 			<div class="layui-input-inline">
-				<input value="${rated.centent } type="text" name="centent" required lay-verify="required"
+				<input value="${rated.centent }" type="text" name="centent" required lay-verify="required"
 					placeholder="评论内容" autocomplete="off" class="layui-input">
 			</div>
 		</div>
