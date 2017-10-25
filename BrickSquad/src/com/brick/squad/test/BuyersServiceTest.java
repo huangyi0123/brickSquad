@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Buyers;
 import com.brick.squad.service.BuyersService;
@@ -26,6 +27,12 @@ public class BuyersServiceTest {
 	public void testInsertBuyers() throws Exception{
 		Buyers buyers = new Buyers();
 		Address address = new Address();
+		address.setCityId("9");
+		address.setCountryId("8");
+		address.setCountyId("7");
+		address.setDetailed("88");
+		address.setId("998");
+		address.setProvinceId("89");
 		buyers.setCurrentIntegral(5);
 		buyers.setDeliveryAddressId("6");
 		buyers.setGrade(4);
@@ -41,14 +48,9 @@ public class BuyersServiceTest {
 	}
 	@Test
 	public void testUpdateBuyersById() throws Exception{
-		Buyers buyers = new Buyers();
-		buyers.setId("ab1595b6b0bd11e78d4f5254002ec43c");
-		buyers.setCurrentIntegral(00);
-		buyers.setDeliveryAddressId("007");
-		buyers.setGrade(006);
-		buyers.setHistoricalIntegral(002);
-		buyers.setInformationId("004");
-		buyersService.updateBuyersById(buyers);	
+		AddressAndBuyersExpand addressAndBuyersExpand = new AddressAndBuyersExpand();
+
+		buyersService.updateBuyersById(addressAndBuyersExpand);	
 	}
 	@Test
 	public void testDeleteBuyersById() throws Exception{
