@@ -44,7 +44,7 @@
 			var index = layer.open({
 				title : '登录',
 				type : 2,
-				content : "user/toLogin?f=user",
+				content : "user/toLogin",
 				offset : '100px',
 				area : [ '400px', '450px' ],
 				end: function () {
