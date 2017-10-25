@@ -29,6 +29,7 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
 $(function() {
 	$.ajax({
@@ -58,9 +59,11 @@ $(function() {
 	var da = $("#nda").attr('val');
 	dat = Format(new Date(da), "yyyy-MM-dd");
 	$("#nda").val(dat);
-	var content=$("#content").attr('val');
-	console.log(content);
-	$("#content").val(content);
+	//添加wangedit
+	var E = window.wangEditor;
+    var editor = new E('#editor');
+    editor.customConfig.uploadImgShowBase64 = true;
+    editor.create();
 });
 </script>
 </head>
@@ -116,9 +119,8 @@ $(function() {
 		</div>
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">编辑内容</label>
-			<div class="layui-input-block">
-				<textarea name="content" placeholder="请输入内容" class="layui-textarea" 
-				val="${news.content }" id="content"></textarea>
+			<div class="layui-input-block" id="editor">
+				
 			</div>
 		</div>
 		<div class="layui-form-item">
