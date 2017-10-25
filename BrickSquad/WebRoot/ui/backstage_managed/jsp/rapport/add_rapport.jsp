@@ -83,8 +83,6 @@
 				</select>
 			</div>
 		</div>
-
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">沟通目标</label>
 			<div class="layui-input-inline">
@@ -93,9 +91,6 @@
 					value="${rapport.goal}">
 			</div>
 		</div>
-
-
-
 		<div class="layui-form-item">
 			<div class="layui-inline">
 				<label class="layui-form-label">沟通日期</label>
