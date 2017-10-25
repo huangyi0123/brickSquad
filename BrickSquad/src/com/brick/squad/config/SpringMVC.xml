@@ -13,29 +13,6 @@
         http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
-    <context:component-scan base-package="com.brick.squad" />
-    <mvc:annotation-driven>
-        <!-- 消息转换器 --> 
-        <!-- 解决@ResponseBody中文乱码 -->
-        <mvc:message-converters register-defaults="true">
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
-    <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="formattingConversionServiceFactoryBean">
-    <property name="converters">
-    <list>
-    <bean class="com.brick.squad.util.DateConverter"/>
-    </list>
-    </property>
-    </bean>
-    <mvc:resources location="/ui/" mapping="/ui/**"/>
-    <bean
-        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/ui/" />
-        <property name="suffix" value=".jsp" />
-    </bean>
 	<context:component-scan base-package="com.brick.squad" />
 	<mvc:annotation-driven>
 		<!-- 消息转换器 -->
@@ -46,12 +23,14 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
 	<mvc:resources location="/ui/" mapping="/ui/**" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/ui/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
 	<bean id="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
