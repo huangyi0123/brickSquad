@@ -20,7 +20,7 @@ public interface BuyersService {
 	 * @return region集合（大部分情况用于查询省份集合《Level=1》）
 	 */
 	public String findRegionsByLevel() ;
-	public void insertBuyers(Address address,Buyers buyers) throws Exception;
+	public void insertBuyers(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception;
 	//根据id查询
 	public Buyers findBuyersByUUID (String id) throws Exception;
 	public void updateBuyersById(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception;

@@ -38,9 +38,11 @@ public class BuyersController {
 		request.setAttribute("regionDataString", regionDataString);
 		if(id!=null){
 			Buyers buyers = buyersService.findBuyersByUUID(id);
-			request.setAttribute("buyersById", buyers);
 			Address address = addressService.findAddressById(buyers.getDeliveryAddressId());
-			request.setAttribute("address",address );
+			AddressAndBuyersExpand addressAndBuyersExpand=new AddressAndBuyersExpand();
+			addressAndBuyersExpand.setAddress(address);
+			addressAndBuyersExpand.setBuyers(buyers);
+			request.setAttribute("addressAndBuyersExpand",addressAndBuyersExpand );
 			String allRegionResultById = addressService.getAllRegion(address);
 			request.setAttribute("allRegionResultById", allRegionResultById);
 			request.setAttribute("msg","修改");
@@ -63,10 +65,9 @@ public class BuyersController {
 		return buyersService.buyersPagination(pagination);
 	}
 	@RequestMapping(value="/insertBuyres")
-	public String insertBuyres(Address address,Buyers buyers) throws Exception{
-		System.out.print(address.toString());
-		System.out.print("-----------------------------"+buyers.toString());
-		buyersService.insertBuyers(address,buyers);
+	public String insertBuyres(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception{
+
+		buyersService.insertBuyers(addressAndBuyersExpand);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
 	@RequestMapping("/deleteBuyersById")

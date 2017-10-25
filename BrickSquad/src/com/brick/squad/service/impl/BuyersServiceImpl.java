@@ -34,11 +34,11 @@ public class BuyersServiceImpl implements BuyersService {
 	 */
 	
 	@Override
-	public void insertBuyers(Address address,Buyers buyers) throws Exception {
+	public void insertBuyers(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception {
 		// TODO Auto-generated method stub
-		addressMapper.insertAddress(address);
-		buyers.setDeliveryAddressId(address.getId());
-		buyersMapper.insertBuyers(buyers);
+		addressMapper.insertAddress(addressAndBuyersExpand.getAddress());
+		addressAndBuyersExpand.getBuyers().setDeliveryAddressId(addressAndBuyersExpand.getAddress().getId());
+		buyersMapper.insertBuyers(addressAndBuyersExpand.getBuyers());
 	}
 	@Override
 	public Buyers findBuyersByUUID(String id) throws Exception {
@@ -49,6 +49,7 @@ public class BuyersServiceImpl implements BuyersService {
 	public void updateBuyersById(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception {
 		// TODO Auto-generated method stub
 		addressMapper.updateAddressById(addressAndBuyersExpand.getAddress());
+		addressAndBuyersExpand.getBuyers().setDeliveryAddressId(addressAndBuyersExpand.getAddress().getId());
 		buyersMapper.updateBuyersById(addressAndBuyersExpand.getBuyers());
 	}
 	@Override

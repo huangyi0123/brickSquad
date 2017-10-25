@@ -38,7 +38,6 @@ public class BuyersServiceTest {
 		buyers.setGrade(4);
 		buyers.setHistoricalIntegral(5);
 		buyers.setInformationId("8");
-		buyersService.insertBuyers(address,buyers);
 	}
 	@Test
 	public void testfindBuyersByUUID () throws Exception{
