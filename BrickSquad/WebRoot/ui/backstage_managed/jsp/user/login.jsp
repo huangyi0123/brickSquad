@@ -47,7 +47,7 @@
 				<img class="logo-name" alt=""
 					src="ui/backstage_managed/image/logo.png">
 			</div>
-			<h3>欢迎使用 老人管理系统</h3>
+			<h3>欢迎使用 后台管理系统</h3>
 
 			<form class="m-t" role="form" action="user/login" method="post">
 			<!-- <input type="hidden" name="f" id="admin"> -->
