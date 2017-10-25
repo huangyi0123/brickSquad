@@ -45,8 +45,11 @@
 				title : '登录',
 				type : 2,
 				content : "user/toLogin?f=user",
-				offset : '200px',
-				area : [ '400px', '450px' ]
+				offset : '100px',
+				area : [ '400px', '450px' ],
+				end: function () {
+	                location.reload();
+	            }
 			});
 		});
 	}
@@ -83,7 +86,7 @@
 </head>
 <body>
 
-	<div class="banner">
+	<div class="">
 		<div class="header" style="height: 70px; background-color: #66CC66;">
 			<div class="logo">
 				<h1>
