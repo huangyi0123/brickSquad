@@ -45,7 +45,7 @@
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg"
-	style="overflow:hidden" ng-app="" ng-if="${user!=null }">
+	style="overflow:hidden" ng-app="" >
 	<div id="wrapper">
 		<!--左侧导航开始-->
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -177,7 +177,7 @@
 						<li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
 					</ul>
 				</div> 
-				<div  
+				<div  ng-if="${user!=null }"
 					style="height:30px;width:160px; text-align:center;  float:right; margin-right: 10px;margin-top: -54px;"
 					class="dropdown profile-element">
 					<a style="text-align: center;" data-toggle="dropdown"
