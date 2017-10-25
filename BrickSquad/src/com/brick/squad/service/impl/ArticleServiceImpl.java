@@ -69,4 +69,12 @@ public class ArticleServiceImpl implements ArticalService{
 		return data;
 	}
 	
+	@Override
+	public String findAllArticle() {
+		List<Article> articles= articleMapper.findAllArticle();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(articles).toString();
+		return data;
+	}
+	
 }

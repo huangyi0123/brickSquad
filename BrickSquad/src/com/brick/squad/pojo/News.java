@@ -8,6 +8,7 @@ public class News {
 	private String content;
 	private String imagePath;
 	private Date postTime;
+	private String title;
 	/**
 	 * news新闻表与User用户表的关系：一对多
 	 * */
@@ -31,6 +32,13 @@ public class News {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContent() {
 		return content;

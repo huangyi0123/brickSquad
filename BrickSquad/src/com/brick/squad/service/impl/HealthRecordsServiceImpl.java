@@ -3,12 +3,16 @@ package com.brick.squad.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.HealthRecordsMapper;
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.pojo.HealthRecords;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
@@ -18,6 +22,9 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 	@Autowired
 	@Qualifier("healthRecordsMapper")
 	private HealthRecordsMapper healthRecordsMapper;
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 
 	@Override
 	public void insertHealthRecords(HealthRecords healthRecords) {
@@ -58,6 +65,16 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 	public int findHealthRecordsAllCount() {
 		// TODO Auto-generated method stub
 		return healthRecordsMapper.findHealthRecordsAllCount();
+	}
+
+	@Override
+	public String findAllPersonalInformationGetIdAndIdCardAndName() {
+		List<PersonalInformation> allPersonalInformation = personalInformationMapper
+				.findPerIdAndIdCard();
+		JSONArray jsonArray = new JSONArray();
+		String allPersonalInformationData = jsonArray.fromObject(
+				allPersonalInformation).toString();
+		return allPersonalInformationData;
 	}
 
 }

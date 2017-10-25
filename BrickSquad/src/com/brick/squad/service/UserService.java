@@ -1,7 +1,9 @@
 package com.brick.squad.service;
 
 
+
 import com.brick.squad.pojo.Type;
+
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 
@@ -19,7 +21,7 @@ public interface UserService {
 	public int userCount();
 
 	// 用户登录
-	public User checkLogin(String username, String password);
+	public User checkLogin(User user);
 	/**
 	 * 查询所有用户,需求字段
 	 * */
@@ -31,12 +33,11 @@ public interface UserService {
 
 	public User findUsername(String username);
 
+
 	public User findUserById(String id);
 
 	public void updateUserById(String username, String telephone,String id);
 
 
-
-	
 
 }

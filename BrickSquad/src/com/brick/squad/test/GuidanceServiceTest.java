@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.pojo.Guidance;
 import com.brick.squad.service.GuidanceService;
 import com.brick.squad.util.JunitClassRunner;
@@ -21,7 +22,9 @@ public class GuidanceServiceTest {
 	@Autowired
 	@Qualifier("guidanceService")
 	private GuidanceService guidanceService;
-	
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 	@Test
 	public void testInsertGuidance() throws Exception{
 		Guidance guidance = new Guidance();
@@ -34,7 +37,7 @@ public class GuidanceServiceTest {
 	}
 	@Test
 	public void testQueryGuidanceById() throws Exception{
-		System.out.println(guidanceService.queryGuidanceById("5f82a01eb26911e78d4f5254002ec43c"));
+		System.out.println(guidanceService.queryGuidanceById("47343c9ab86b11e78d4f5254002ec43c"));
 	}
 	@Test
 	public void testDeleteGuidanceById() throws Exception{
@@ -61,5 +64,9 @@ public class GuidanceServiceTest {
 	@Test
 	public void testFindGuidanceAllCount() throws Exception{
 		guidanceService.findGuidanceAllCount();
+	}
+	@Test 
+	public void test(){
+		guidanceService.findPerIdAndIdCard();
 	}
 }

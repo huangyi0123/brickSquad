@@ -3,11 +3,14 @@ package com.brick.squad.service.impl;
 import java.net.URI;
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.MemberShipApplicationMapper;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.MemberShipApplication;
 import com.brick.squad.service.MemberShipApplicationService;
 import com.brick.squad.util.Pagination;
@@ -67,6 +70,15 @@ public class MemberShipApplicationServiceImpl implements
 	public int findMemberShipApplicationAllCount() {
 		// TODO Auto-generated method stub
 		return memberShipApplicationMapper.findMemberShipApplicationAllCount();
+	}
+
+	@Override
+	public String findAllMemberShipApplication() {
+		List<MemberShipApplication> memberShipApplications= memberShipApplicationMapper.findAllMemberShipApplication();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(memberShipApplications).toString();
+		return data;
+	
 	}
 
 }

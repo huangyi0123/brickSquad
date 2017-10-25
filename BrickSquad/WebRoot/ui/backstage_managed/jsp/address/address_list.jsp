@@ -40,7 +40,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 	$(function() {
 		init("");
-		addAddress("");
 	});
 	</script>
  <style type="text/css">

@@ -2,10 +2,13 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.mapper.ActivitiesMapper;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Article;
@@ -55,6 +58,13 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 	public int findActivitiesAllCount() {
 		// TODO Auto-generated method stub
 		return activitiesMapper.findActivitiesAllCount();
+	}
+	@Override
+	public String findAllActivities() {
+		List<ActivitiesExpand>  activities = activitiesMapper.findAllActivities();
+		JSONArray jsonArray=new JSONArray();
+		String data = jsonArray.fromObject(activities).toString();
+		return data ;
 	}
 
 	

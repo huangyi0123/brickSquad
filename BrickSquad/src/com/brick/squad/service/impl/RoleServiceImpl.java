@@ -2,6 +2,8 @@ package com.brick.squad.service.impl;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -36,7 +38,7 @@ public class RoleServiceImpl implements RoleService{
 		
 	}
 	
-	public  List<Role> findRole(String id){
+	public  Role findRole(String id){
 		return roleMapper.findRole(id);
 		
 	}
@@ -52,6 +54,33 @@ public class RoleServiceImpl implements RoleService{
 	public int roleCount(){
 		int count=roleMapper.roleCount();
 		return count;
+	}
+	/***
+	 * 添加角色信息
+	 * @param role
+	 */
+	@Override
+	public void insertRole(Role role) throws Exception {
+		roleMapper.insertRole(role);
+	}
+	/***
+	 * 查询所有角色名称
+	 * @return
+	 */
+	@Override
+	public String findRoleAll() throws Exception {
+		List<Role> roles=roleMapper.findRoleAll();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(roles).toString();
+		return data;
+	}
+	/***
+	 * 根据ID修改角色信息
+	 * @param role
+	 */
+	@Override
+	public void updateRoleById(Role role) throws Exception {
+		roleMapper.updateRoleById(role);
 	}
 	
 	

@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+.Per_body {
+	width: 100%;
+	height: 500px;
+	background-color: white;
+}
+
+.Per_header {
+	width: 100%;
+	height: 42px;
+	background-color: #5EBC5E;
+}
+
+.nav-tabs ul {
+	width: 120px;
+}
+
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover
+	{
+	background-color: #61B261;
+}
+
+.nav .open>a,.nav .open>a:focus,.nav .open>a:hover {
+	border-color: white;
+}
+
+.nav-tabs>li>a:hover {
+	background-color: #81D781;
+}
+
+.nav .open>a,.nav .open>a:focus,.nav .open>a:hover {
+	background-color: #61B261;
+}
+
+.Per_header a:HOVER {
+	color: #CCFF9A;
+	text-decoration: none;
+}
+
+.nav-tabs .dropdown-menu {
+	margin-left: -180px;
+}
+
+.dropdown-menu ul {
+	margin-left: 30px;
+	width: 130px;
+	float: left;
+}
+
+.dropdown-menu li {
+	margin-top: 12px;
+}
+
+.Per_left {
+	width: 200px;
+	height: 100%;
+	background-color: white;
+}
+
+.layui-nav-itemed>a {
+	background-color: #61B261 !important;
+}
+
+.layui-nav-tree .layui-nav-item a:hover {
+	background-color: #61B261;
+	text
+}
+
+.layui-nav-tree .layui-nav-bar {
+	background-color: #5B9C5B;
+}
+
+.Per_left a {
+	text-decoration: none;
+}

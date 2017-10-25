@@ -75,7 +75,8 @@
 	SELECT id ,name
 	FROM personal_information
 	</select>
-	<!-- <select id="findPerIdAndIdCard" resultType="com.brick.squad.util.Select">
-		select id,idcard name from personal_information
-	</select> -->
+	<!-- 用于guidance表的回显 -->
+	<select id="findPerIdAndIdCard" resultType="PersonalInformation">
+		select id,idcard idCard,name from personal_information
+	</select>
 </mapper>

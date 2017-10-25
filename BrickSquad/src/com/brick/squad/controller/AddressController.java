@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Address;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.util.Pagination;
 
@@ -25,9 +26,21 @@ public class AddressController {
 	}
 
 	@RequestMapping("/toAddress")
-	public String toAddress(HttpServletRequest request) {
+	public String toAddress(HttpServletRequest request,String id) throws Exception {
 		String data=addressService.findRegionsByLevel();
 		request.setAttribute("data", data);
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateAddressById");
+			Address address = addressService.findAddressById(id);
+			String regions=addressService.getAllRegion(address);
+			request.setAttribute("regions", regions);
+			request.setAttribute("address", address);
+		} else {
+			request.setAttribute("url", "inserAddress");
+			request.setAttribute("msg", "添加");
+		}
+
 		return "backstage_managed/jsp/address/add_address";
 	}
 
@@ -52,5 +65,16 @@ public class AddressController {
 	@ResponseBody
 	public String findRegionsByParentId(String pid) {
 		return addressService.findRegionsByParentId(pid);
+	}
+	@RequestMapping("/updateAddressById")
+	public String updateAddressById(Address address) throws Exception {
+		addressService.updateAddressById(address);
+		return "backstage_managed/jsp/address/address_list";
+	}
+	@RequestMapping("/deleteAddressById")
+	@ResponseBody
+	public String deleteAddressById(String id) throws Exception {
+		addressService.deleteAddressById(id);
+		return "success";
 	}
 }

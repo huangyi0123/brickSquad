@@ -30,17 +30,16 @@
 		#{buyId,jdbcType=VARCHAR},
 		#{number,jdbcType=INTEGER}, #{money,jdbcType=REAL})
 	</insert>
-
 	<update id="updateOrdersById" parameterType="Orders">
 		UPDATE orders
-		SET no
-		= #{no,jdbcType=VARCHAR},
-		state_id = #{stateId,jdbcType=VARCHAR},
+		SET 
+		state_id = #{stateId,jdbcType=VARCHAR}
+		<!-- no= #{no,jdbcType=VARCHAR},
 		production_date = #{productionDate,jdbcType=TIMESTAMP},
 		buy_id =
 		#{buyId,jdbcType=VARCHAR},
 		number = #{number,jdbcType=INTEGER},
-		money = #{money,jdbcType=REAL}
+		money = #{money,jdbcType=REAL} -->
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
 
@@ -49,11 +48,20 @@
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
 	<select id="findOrdersCount" resultType="Integer">
-	SELECT COUNT(*) FROM orders
+	SELECT COUNT(*) 
+	FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
+		JOIN personal_information p ON b.information_id=p.id
 	</select>
-	<select id="ordersPagination" parameterType="com.brick.squad.util.Pagination" resultType="Orders">
-	SELECT 
-	<include refid="Base_Column_List" />
-	 FROM orders limit #{skipNum},#{takeNum}
+	<select id="ordersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.OrdersExpand">
+		SELECT  o.id,p.`name`,o.`no`,o.state_id stateId,o.number,o.production_date productionDate,o.money
+		FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
+		JOIN personal_information p ON b.information_id=p.id 
+		limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findBuyserAndPersonalInformation" parameterType="java.lang.String" resultType="com.brick.squad.expand.OrdersExpand">
+		SELECT p.`name`
+		FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
+		JOIN personal_information p ON b.information_id=p.id
+		WHERE o.id = #{o.id,jdbcType=VARCHAR}
 	</select>
 </mapper>

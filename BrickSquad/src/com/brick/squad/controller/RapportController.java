@@ -68,12 +68,14 @@ public class RapportController {
 		public String findAllUserAndPersonalInformation(){
 			return rapportService.findAllUserAndPersonalInformation();
 		}
+		
 		@RequestMapping("/deleteRapportById")
 		@ResponseBody
 		public String deleteRapportById(String id) throws Exception{
 			rapportService.deleteRapportById(id);
 			return "success";
 		}
+		
 		@RequestMapping("/updateRapportById")
 		public String updateRapportById(Rapport rapport) throws Exception{
 			rapportService.updateRapportByID(rapport);

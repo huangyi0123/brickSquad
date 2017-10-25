@@ -1,7 +1,5 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
 import com.brick.squad.pojo.Guidance;
 import com.brick.squad.util.Pagination;
 
@@ -12,4 +10,6 @@ public interface GuidanceService {
 	public void updateGuidanceById(Guidance guidance) throws Exception;
 	public String guidancePagination(Pagination pagination) throws Exception;
 	public int findGuidanceAllCount() throws Exception;
+	//得到从信息表中查询出来的接口信息
+	public String findPerIdAndIdCard();
 }

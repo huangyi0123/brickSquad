@@ -53,8 +53,9 @@ public class MemberShipApplicationServiceTest {
 	@Test
 	public void updateMemberShipApplicationById() {
 		MemberShipApplication m = memberShipApplicationService
-				.findMemberShipApplicationById("2");
+				.findMemberShipApplicationById("d93f3ac0b3a911e78d4f5254002ec43c");
 		m.setMemberShipTypeId("欢乐斗地主");
+		m.setUserId("11111");
 		memberShipApplicationService.updateMemberShipApplicationById(m);
 
 	}

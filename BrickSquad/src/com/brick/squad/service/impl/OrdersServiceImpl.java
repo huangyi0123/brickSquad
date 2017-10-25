@@ -9,6 +9,8 @@ import java.util.List;
 
 
 
+
+
 import javax.json.JsonArray;
 
 import net.sf.json.JSONArray;
@@ -17,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.mapper.OrdersMapper;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.service.OrdersService;
@@ -69,11 +72,19 @@ public class OrdersServiceImpl implements OrdersService{
 	/**订单分页查询*/
 	public String ordersPagination(Pagination pagination)
 			throws Exception {
-		List<Orders> orders=ordersMapper.ordersPagination(pagination);
+		List<OrdersExpand> orders=ordersMapper.ordersPagination(pagination);
 		int row=ordersMapper.findOrdersCount();
-		Util<Orders> util=new Util<Orders>();
+		Util<OrdersExpand> util=new Util<OrdersExpand>();
 		String data=util.SplitPage(orders, row);
 		return data;
+	}
+	/**
+	 * 查询Orders关联buyser买家和PersonalInformation老人姓名
+	 * */
+	@Override
+	public OrdersExpand findBuyserAndPersonalInformation(String id) throws Exception {
+		OrdersExpand ordersName=ordersMapper.findBuyserAndPersonalInformation(id);
+		return ordersName;
 	}
 	
 }

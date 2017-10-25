@@ -7,7 +7,7 @@ public class MemberShipApplication {
 	private String memberShipTypeId;
 	private String userId;
 	private String perId;
-	private float deposit;
+	private double deposit;
 	
 	public String getId() {
 		return id;
@@ -33,10 +33,10 @@ public class MemberShipApplication {
 	public void setPerId(String perId) {
 		this.perId = perId;
 	}
-	public float getDeposit() {
+	public double getDeposit() {
 		return deposit;
 	}
-	public void setDeposit(float deposit) {
+	public void setDeposit(double deposit) {
 		this.deposit = deposit;
 	}
 	

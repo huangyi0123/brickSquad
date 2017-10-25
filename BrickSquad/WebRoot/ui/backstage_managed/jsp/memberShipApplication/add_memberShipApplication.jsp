@@ -26,6 +26,8 @@
 	src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
+
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
@@ -34,12 +36,17 @@
 </head>
 
 <body>
-	<form class="layui-form" action="memberShipApplication/AddMemberShipApplication" id="form1">
+	<br>
+	<div style="padding-left: 130px;font-size:16;">${msg }会员申请信息</div>
+	<br>
+	<form class="layui-form" action="memberShipApplication/${url}" id="form1" method="post">
+	<input type="hidden" name="id"  value="${memberShipApplication.id}" > 
 		<div class="layui-form-item">
 			<label class="layui-form-label">会员类型ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="memberShipTypeId" required lay-verify="required"
-					placeholder="会员类型ID" autocomplete="off" class="layui-input">
+					placeholder="会员类型ID" autocomplete="off" class="layui-input"
+					value="${memberShipApplication.memberShipTypeId }">
 			</div>
 		</div>
 		
@@ -47,7 +54,8 @@
 			<label class="layui-form-label">申请人ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="perId" required lay-verify="required"
-					placeholder="申请人ID" autocomplete="off" class="layui-input">
+					placeholder="申请人ID" autocomplete="off" class="layui-input"
+					value="${memberShipApplication.perId}">
 			</div>
 		</div>
 		
@@ -55,7 +63,8 @@
 			<label class="layui-form-label">工作人员ID</label>
 			<div class="layui-input-inline">
 				<input type="text" name="userId" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input">
+					placeholder="名称" autocomplete="off" class="layui-input"
+					value="${memberShipApplication.userId}">
 			</div>
 		</div>
 		
@@ -63,7 +72,8 @@
 			<label class="layui-form-label">定金</label>
 			<div class="layui-input-inline">
 				<input type="text" name="deposit" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input">
+					placeholder="名称" autocomplete="off" class="layui-input"
+					value="${memberShipApplication.deposit}">
 			</div>
 		</div>
 		
@@ -76,7 +86,7 @@
   </div>
 			
 					
-				</select>
+				
 			</div>
 		</div>
 	</form>

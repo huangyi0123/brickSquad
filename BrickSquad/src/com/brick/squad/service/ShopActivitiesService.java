@@ -39,5 +39,4 @@ public interface ShopActivitiesService {
 	
 	public String findAllShopActivities();
 	
-	public String findShopActivitiesByParentId(String parentId);
 }

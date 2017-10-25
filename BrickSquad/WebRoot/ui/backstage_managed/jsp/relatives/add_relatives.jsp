@@ -34,6 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <br>
+	<div style="padding-left: 120px;font-size:16;">添加老人亲属关系信息</div>
+	<br>
    <form class="layui-form" action="relatives/AddRelatives" id="form1">
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人id</label>

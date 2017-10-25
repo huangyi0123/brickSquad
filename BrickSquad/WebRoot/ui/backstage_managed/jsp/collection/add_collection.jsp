@@ -44,36 +44,41 @@
 </head>
 
 <body>
-	<form class="layui-form" style="margin-right: 30px;margin-left: 30px;"
-		action="healthRecords/insertCollection" id="form1" method="post">
-		<div class="layui-form-item" style="margin-top: 50px;">
+ <br>
+	<div style="padding-left: 150px;font-size:16;">${msg }商品收藏信息</div>
+	<br>
+	<form class="layui-form" action="collection/${url }" id="form1" method="post">
+		<input type="hidden" name="id" value="${collection.id }">
+		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">老人ID：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="perId" required lay-verify="required"
-					placeholder="老人ID" autocomplete="off" class="layui-input">
+					placeholder="老人ID" autocomplete="off" class="layui-input"
+					value="${collection.perId }">
 			</div>
 		</div>
 		<div class="layui-form-item" style="width: 450px;">
 			<label class="layui-form-label" style="width: 100px;">收藏商品ID：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="articleId" required lay-verify="required"
-					placeholder="收藏商品ID" autocomplete="off" class="layui-input">
+					placeholder="收藏商品ID" autocomplete="off" class="layui-input"
+					value="${collection. articleId}">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">收藏日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" placeholder="收藏日期"
+				<input class="layui-input" name="colDate" placeholder="收藏日期"
+					value="${collection.colDate }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<button type="submit" style="margin-left: 140px;"
-				class="layui-btn layui-btn-primary">提交</button>
-			<button type="reset" style="margin-left: 30px;"
-				class="layui-btn layui-btn-primary">重置</button>
-
-		</div>
+			<div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
 	</form>
 </body>
 </html>

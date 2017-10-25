@@ -28,4 +28,6 @@ public interface ArticalService {
 	 * 查询商品信息:根据所需字段
 	 * */
 	public String findArticle()throws Exception;
+	
+	public String findAllArticle();
 }

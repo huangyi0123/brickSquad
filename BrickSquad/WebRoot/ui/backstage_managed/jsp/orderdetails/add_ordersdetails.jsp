@@ -34,6 +34,8 @@
 </head>
 <body>
 <br>
+	<div style="padding-left: 130px;font-size:16;">添加订单项信息</div>
+	<br>
 	<form class="layui-form" action="orderDetails/${url }" id="form1">
 		<div class="layui-form-item">
 			<label class="layui-form-label">订单项ID</label>

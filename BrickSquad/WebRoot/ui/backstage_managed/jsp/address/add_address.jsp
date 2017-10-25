@@ -34,7 +34,7 @@
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 		form.on('select(test1)', function(data) {
-			
+
 			$.ajax({
 				url : 'address/findRegionsByParentId?pid=' + data.value,
 				success : function(result) {
@@ -50,7 +50,7 @@
 				}
 			});
 		});
-		form.on('select(test2)',function(data){
+		form.on('select(test2)', function(data) {
 			$.ajax({
 				url : 'address/findRegionsByParentId?pid=' + data.value,
 				success : function(result) {
@@ -64,7 +64,7 @@
 				}
 			});
 		});
-		form.on('select(test3)',function(data){
+		form.on('select(test3)', function(data) {
 			$.ajax({
 				url : 'address/findRegionsByParentId?pid=' + data.value,
 				success : function(result) {
@@ -78,19 +78,37 @@
 		});
 	});
 	$(function() {
-		var da = ${data};
+		var da = '${data}';
+		da=JSON.parse(da);
 		findAll(da, "#prf");
+		var url = "${url}";
+		if (url == 'inserAddress') {
+
+		} else {
+			var regions = '${regions}';
+			regions=JSON.parse(regions);
+			findAll(regions[0].city, "#city");
+			findAll(regions[0].county, "#citg");
+			findAll(regions[0].country, "#cit");
+			var detailed=$("#detailed").attr('val');
+			$("#detailed").val(detailed);
+		}
 	});
 </script>
 </head>
 
 <body>
-	<form action="address/inserAddress" class="layui-form" method="post">
+ <br>
+	<div style="padding-left: 160px;font-size:16;">地址信息</div>
+	<br>
+	<form action="address/${url }" class="layui-form"
+		method="post">
+			<input type="hidden" name="id" value="${address.id }">
 		<div class="layui-form-item">
 			<label class="layui-form-label">省</label>
 			<div class="layui-input-inline">
-				<select name="provinceId" id="prf" val=${address.provinceId } lay-search=""
-					lay-filter="test1">
+				<select name="provinceId" id="prf" val=${address.provinceId }
+					lay-search="" lay-filter="test1">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -98,8 +116,8 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">市</label>
 			<div class="layui-input-inline">
-				<select name="cityId" id="city" val=${address.cityId }
-					lay-search="" lay-filter="test2">
+				<select name="cityId" id="city" val=${address.cityId } lay-search=""
+					lay-filter="test2">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -125,7 +143,7 @@
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">详细地址</label>
 			<div class="layui-input-block">
-				<textarea name="detailed" placeholder="请输入详细地址"
+				<textarea name="detailed" placeholder="请输入详细地址" id="detailed" val="${address.detailed }"
 					class="layui-textarea"></textarea>
 			</div>
 		</div>
