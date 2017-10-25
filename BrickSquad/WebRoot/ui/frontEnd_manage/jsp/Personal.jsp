@@ -68,15 +68,54 @@
 							style="width: 350px;margin-left: 150px;margin-top: -35px;"
 							autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
 						<label>* 性别：</label>
-						<form class="layui-form" action="">
+						<form class="layui-form" action=""
+							style="margin-left: 40px;margin-top: -35px;">
 							<div class="layui-form-item">
 								<div class="layui-input-block">
 									<input type="radio" name="sex" value="男" title="男" checked>
 									<input type="radio" name="sex" value="女" title="女">
-									<input type="radio" name="sex" value="禁" title="禁用" disabled="">
 								</div>
 							</div>
 						</form>
+						<label>* 身份证号：</label>
+						<input type="text" name="title" lay-verify="title"
+							style="width: 350px;margin-left: 150px;margin-top: -35px;"
+							autocomplete="off" placeholder="请输入身份证号" class="layui-input">
+						<label>出生年月：</label> <label>* 现居住地：</label>
+						<form class="layui-form" action="">
+						<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<select name="quiz1">
+								<option value="">请选择省</option>
+								<option value="浙江" selected="">浙江省</option>
+								<option value="你的工号">江西省</option>
+								<option value="你最喜欢的老师">福建省</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="quiz2">
+								<option value="">请选择市</option>
+								<option value="杭州">杭州</option>
+								<option value="宁波" disabled="">宁波</option>
+								<option value="温州">温州</option>
+								<option value="温州">台州</option>
+								<option value="温州">绍兴</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="quiz3">
+								<option value="">请选择县/区</option>
+								<option value="西湖区">西湖区</option>
+								<option value="余杭区">余杭区</option>
+								<option value="拱墅区">临安市</option>
+							</select>
+						</div>
+						</div>
+						</form>
+						<label>故乡所在地：</label>
+						<input type="text" name="title" lay-verify="title"
+							style="width: 350px;margin-left: 150px;margin-top: -35px;"
+							autocomplete="off" placeholder="请输入故乡所在地" class="layui-input">
 					</div>
 					<div class="layui-tab-item">2</div>
 					<div class="layui-tab-item">3</div>
@@ -95,20 +134,12 @@
 					//因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
 					form.render("select");
 				});
-
-				
 			</script>
 			<script>
-				 form.on('radio(filter)', function(data) {
+				form.on('radio(filter)', function(data) {
 					console.log(data.elem); //得到radio原始DOM对象
 					console.log(data.value); //被点击的radio的value值
 				});
-				 /*//监听提交
-					form.on('submit(formDemo)', function(data) {
-						layer.msg(JSON.stringify(data.field));
-						return false;
-					});
-				}); */
 			</script>
 		</div>
 	</div>
