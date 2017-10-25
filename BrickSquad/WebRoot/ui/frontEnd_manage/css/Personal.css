@@ -19,3 +19,10 @@
 	float:right;
 	/* background-color: green; */
 }
+
+.layui-tab-content label{
+	line-height: 30px;
+	margin-top:20px;
+	margin-left: 50px; 
+	display:block; 
+}

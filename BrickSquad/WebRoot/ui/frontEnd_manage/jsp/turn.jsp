@@ -31,6 +31,6 @@
 </head>
  <%  
         //转向语句  
-        response.setHeader("Refresh", "0;URL=ui/frontEnd_manage/jsp/time.jsp");  
+        response.setHeader("Refresh", "0;URL=/BrickSquad/common/toFrame");  
     %> 
 </html>
