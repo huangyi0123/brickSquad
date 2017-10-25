@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Buyers;
 import com.brick.squad.util.Pagination;
@@ -22,7 +23,7 @@ public interface BuyersService {
 	public void insertBuyers(Address address,Buyers buyers) throws Exception;
 	//根据id查询
 	public Buyers findBuyersByUUID (String id) throws Exception;
-	public void updateBuyersById(Buyers buyers) throws Exception;
+	public void updateBuyersById(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception;
 	public void deleteBuyersById(String id) throws Exception;
 	public String buyersPagination(Pagination pagination) throws Exception;
 	public int findBuyersAllCount() throws Exception;

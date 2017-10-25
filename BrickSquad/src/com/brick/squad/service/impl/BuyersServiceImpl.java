@@ -8,6 +8,7 @@ import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.mapper.AddressMapper;
 import com.brick.squad.mapper.BuyersMapper;
 import com.brick.squad.mapper.RegionMapper;
@@ -45,9 +46,10 @@ public class BuyersServiceImpl implements BuyersService {
 		return buyersMapper.findBuyersByUUID(id);
 	}
 	@Override
-	public void updateBuyersById(Buyers buyers) throws Exception {
+	public void updateBuyersById(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception {
 		// TODO Auto-generated method stub
-		buyersMapper.updateBuyersById(buyers);
+		addressMapper.updateAddressById(addressAndBuyersExpand.getAddress());
+		buyersMapper.updateBuyersById(addressAndBuyersExpand.getBuyers());
 	}
 	@Override
 	public void deleteBuyersById(String id) throws Exception {
