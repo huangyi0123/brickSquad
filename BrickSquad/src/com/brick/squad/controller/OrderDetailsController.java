@@ -53,4 +53,10 @@ public class OrderDetailsController {
 		orderDetailsService.updateOrderDetails(orderDetails);
 		return "backstage_managed/jsp/orderdetails/orderdetails_list";
 	}
+	@RequestMapping("/findOrdersDetailsById")
+	public String findOrdersDetailsById(HttpServletRequest request,String id) throws Exception{
+		OrderDetails orderDetails=orderDetailsService.findOrderDetailsById(id);
+		request.setAttribute("orderDetails", orderDetails);
+		return "backstage_managed/jsp/orderdetails/search_orderdetails";
+	}
 }

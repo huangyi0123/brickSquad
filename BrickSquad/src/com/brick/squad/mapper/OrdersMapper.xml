@@ -64,4 +64,11 @@
 		JOIN personal_information p ON b.information_id=p.id
 		WHERE o.id = #{o.id,jdbcType=VARCHAR}
 	</select>
+	<select id="findOrdersAndBuyserById" parameterType="java.lang.String" 
+	resultType="com.brick.squad.expand.OrdersExpand">
+	SELECT  o.id,p.`name`,o.`no`,o.state_id stateId,o.number,o.production_date productionDate,o.money
+		FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
+		JOIN personal_information p ON b.information_id=p.id 
+		WHERE o.id=#{id,jdbcType=VARCHAR}
+	</select>
 </mapper>

@@ -42,7 +42,7 @@
       
     <%  
         //转向语句  
-        response.setHeader("Refresh", "3;URL=ui/frontEnd_manage/index.jsp");  
+        response.setHeader("Refresh", "3;URL=/BrickSquad/common/toFrame");  
     %>  
   
 </body> 
