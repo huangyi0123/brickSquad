@@ -71,5 +71,9 @@ public class ShoppingCarTest {
 		String shoppings=shoppingCarService.shoppingCarPagination(pagination);
 		System.out.println(shoppings);
 	}
+	@Test
+	public void findShoppingCarAndUserAndPsersonalInformationById() throws Exception{
+		System.out.println(shoppingCarService.findShoppingCarAndUserAndPsersonalInformationById("2").getName());
+	}
 
 }

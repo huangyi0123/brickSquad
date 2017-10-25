@@ -58,7 +58,7 @@ a:HOVER {
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
 			<input type="text" class="form-control" placeholder="Search for...">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button" onclick="find()">
+				<button class="btn btn-default" type="button" id="btn">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
 				</button>
 			</span>

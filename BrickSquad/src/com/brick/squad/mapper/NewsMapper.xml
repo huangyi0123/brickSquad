@@ -4,7 +4,7 @@
 <mapper namespace="com.brick.squad.mapper.NewsMapper">
 
 <sql id="Base_Column_List">
-		id, user_id userId, content , imgs_path imagePath,post_time postTime
+		id, user_id userId,title, content , imgs_path imagePath,post_time postTime
 	</sql>
 	<!-- Luyujing News表 增删改查-->
 	<insert id="addNews"  parameterType="java.lang.Long">
@@ -21,7 +21,7 @@
 		select*from news where content=#{content}
 	</select>
 	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand" parameterType="com.brick.squad.util.Pagination">
-		SELECT n.id,u.username,n.content,n.imgs_path imagePath,n.post_time postTime
+		SELECT n.id,u.username,n.content,n.imgs_path imagePath,n.post_time postTime,n.title
 		FROM news n INNER JOIN `user` u ON n.user_id=u.id
 		limit #{skipNum},#{takeNum}
 	</select>
@@ -32,13 +32,14 @@
 	<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-	INSERT INTO news(id,user_id,content,imgs_path,post_time)
-	 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
+	INSERT INTO news(id,user_id,title,content,imgs_path,post_time)
+	 VALUES(#{id},#{userId},#{title},#{content},#{imagePath},#{postTime})
 	</insert>
 	<update id="updateNewsById" parameterType="news">
 	UPDATE news
 		SET
 		user_id=#{userId},
+		title=#{title},
 		content=#{content},
 		imgs_path=#{imagePath},
 		post_time=#{postTime}

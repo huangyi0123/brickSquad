@@ -36,5 +36,9 @@ public interface RapportMapper {
 	 * 老人客户沟通分页查询
 	 * */
 	public List<RapportExpand> rapportPagination(Pagination pagination);
+	/***
+	 * 根据老人客户ID关联查询需要字段以及老人客户所有信息
+	 */
+	public RapportExpand findRapportAndUserAndPersonalInformation(String id);
 	
 }

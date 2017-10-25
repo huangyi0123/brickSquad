@@ -1,11 +1,15 @@
 package com.brick.squad.service;
 
+
+
+import com.brick.squad.pojo.Type;
+
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 
 public interface UserService {
 	
-	public void deleteUser(String username);
+	public void deleteUser(String id);
 
 	public void updateUser(String username, String password);
 
@@ -28,6 +32,12 @@ public interface UserService {
 	public String findAllUsers()throws Exception ;
 
 	public User findUsername(String username);
+
+
+	public User findUserById(String id);
+
+	public void updateUserById(String username, String telephone,String id);
+
 
 
 }

@@ -40,7 +40,6 @@ public class MemberShipApplicationController {
 
 	@RequestMapping("/toAddMemberShipApplication")
 	public String toAddMemberShipApplication(HttpServletRequest request, String id) {
-		
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateMemberShipApplicationById");

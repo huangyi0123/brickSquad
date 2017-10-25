@@ -88,4 +88,13 @@ public class RapportServiceImpl implements RapportService{
 		String data=jsonArray.fromObject(map).toString();
 		return data;
 	}
+	
+	@Override
+	/**根据老人客户ID关联查询需要字段以及老人客户所有信息*/
+	public RapportExpand findRapportAndUserAndPersonalInformation(String id)
+			throws Exception {
+		RapportExpand rapportExpand=rapportMapper.findRapportAndUserAndPersonalInformation(id);
+		return rapportExpand;
+	}
+	
 }

@@ -94,4 +94,12 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		String data=jsonArray.fromObject(map).toString();
 		return data;
 	}
+
+	@Override
+	/**查询购物车详细信息，关联查询到老人姓名与商品名称*/
+	public ShoppingCarExpand findShoppingCarAndUserAndPsersonalInformationById(
+			String id) throws Exception {
+		ShoppingCarExpand shoppingCarExpand=shoppingCarMapper.findShoppingCarAndUserAndPsersonalInformationById(id);
+		return shoppingCarExpand;
+	}
 }

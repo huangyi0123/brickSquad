@@ -1,5 +1,6 @@
 package com.brick.squad.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,6 @@ public class UserController {
 		return userService.userPagination(pagination);
 	}
 
-	@RequestMapping("/toLogin")
 	public String toLogin(HttpServletRequest request) {
 		request.setAttribute("flag", "1");
 		return "backstage_managed/jsp/user/login";
@@ -53,6 +53,7 @@ public class UserController {
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
 		return "backstage_managed/jsp/user/login";
 	}
+
 
 	@RequestMapping("/toRegister")
 	public String toRegister() {
@@ -92,10 +93,39 @@ public class UserController {
 	public String findAllUser() throws Exception {
 		return userService.findAllUser();
 	}
+
+	
+	//后台删除用户
+	@RequestMapping("/deleteUserById")
+	@ResponseBody
+	public String deleteUserById(String id){
+		userService.deleteUser(id);
+		return "success";
+	}
+	//进入后台修改页面
+	@RequestMapping("/toAddUser")
+	public String toAddUser(HttpServletRequest request,String id) {
+		
+			User user = userService.findUserById(id);
+			
+			request.setAttribute("user",user);
+			
+			return "backstage_managed/jsp/user/update_user";
+
+	}
+	//后台修改用户
+	@RequestMapping("/toAddUser2")
+	public String toAddUser2(HttpServletRequest request,User user,Model model) {
+		userService.updateUserById(user.getUsername(),user.getTelephone(),user.getId());	
+		return "redirect:/ui/backstage_managed/jsp/user/user_list.jsp";
+
+}
+
 	@RequestMapping("/logout")
 	@ResponseBody
 	public String logout(HttpServletRequest request) {
 		request.getSession().removeAttribute("user");
 		return "1";
 	}
+
 }

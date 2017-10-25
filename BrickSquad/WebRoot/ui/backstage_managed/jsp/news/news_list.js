@@ -16,6 +16,10 @@ function init(keyword) {
                 text: '编辑用户名'
             },
             {
+                key: 'title',
+                text: '标题'
+            },
+            {
                 key: 'content',
                 text: '编辑内容'
             },

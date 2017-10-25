@@ -89,6 +89,14 @@ $(function() {
 			</div>
 		</div> 
 		<div class="layui-form-item">
+			<label class="layui-form-label">标题</label>
+			<div class="layui-input-inline">
+				<input type="text" name="title" required lay-verify="required"
+					placeholder="图片路径" autocomplete="off" class="layui-input"
+					value="${news.title }">
+			</div>
+		</div>
+		<div class="layui-form-item">
 			<label class="layui-form-label">图片路径</label>
 			<div class="layui-input-inline">
 				<input type="text" name="imagePath" required lay-verify="required"

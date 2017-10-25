@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
@@ -98,7 +99,11 @@ public class ShoppingCarController {
 	public String updateShoppingCar(ShoppingCar shoppingCar) throws Exception{
 		shoppingCarService.updateShoppingCarById(shoppingCar);
 		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
-		
 	}
-
+	@RequestMapping("/findShoppingCarAndUserAndPsersonalInformationById")
+	public String findShoppingCarAndUserAndPsersonalInformationById(HttpServletRequest request,String id) throws Exception{
+		 ShoppingCarExpand shoppingCarExpand=shoppingCarService.findShoppingCarAndUserAndPsersonalInformationById(id);
+		 request.setAttribute("shoppingCarExpand", shoppingCarExpand);
+		return "backstage_managed/jsp/shoppingcar/search_shoppingcar";
+	}
 }
