@@ -11,7 +11,7 @@
 	</insert>
 	<select id="findBuyersByUUID" parameterType="String" resultType="com.brick.squad.pojo.Buyers">
 	select id,current_integral currentIntegral,historical_integral historicalIntegral,grade grade,delivery_address_id deliveryAddressId 
-	from buyers where id REGEXP #{id}
+	from buyers where id=#{id}
 	</select>
 	<update id="updateBuyersById" parameterType="com.brick.squad.pojo.Buyers">
 		update buyers set 
