@@ -5,10 +5,16 @@ import java.util.List;
 import net.sf.json.JSONArray;
 
 
+
+
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.mapper.UserMapper;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -31,8 +37,8 @@ public class UserServiceImpl implements UserService {
 		
 		userMapper.addUser(user);
 	}
-	public void deleteUser(String username){
-		userMapper.deleteUser(username);
+	public void deleteUser(String id){
+		userMapper.deleteUser(id);
 	}
 	public void updateUser(String username,String password) {
 		userMapper.updateUser(username,password);
@@ -51,7 +57,7 @@ public class UserServiceImpl implements UserService {
 		int count= userMapper.userCount();
 		return count;
 	}
-
+	
 	//验证用户名密码
 	public User checkLogin(User user){
 		user.setPassword(SecurityUtil.strToMD5(user.getPassword()));
@@ -61,6 +67,14 @@ public class UserServiceImpl implements UserService {
 	public User findUsername(String username) {
 		
 		return userMapper.findUsername(username);
+	}
+	
+	public User findUserById(String id){
+		return userMapper.findUserById(id);
+	}
+	
+	public void updateUserById(String username, String telephone,String id){
+		userMapper.updateUserById(username,telephone,id);
 	}
 	@Override
 	/**查询所有用户，需求字段*/
@@ -77,6 +91,12 @@ public class UserServiceImpl implements UserService {
 		JSONArray jsonArray=new JSONArray();
 		String date=jsonArray.fromObject(users).toString();
 		return date;
-
+	
 	}
+
 }
+
+
+	
+		
+
