@@ -4,7 +4,7 @@ import com.brick.squad.pojo.Activities;
 
 public class ActivitiesExpand extends Activities{
 	
-	private String name;
+	private String tname;
 	private String username;
 	
 	  
@@ -14,12 +14,13 @@ public class ActivitiesExpand extends Activities{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getName() {
-		return name;
+	public String getTname() {
+		return tname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTname(String tname) {
+		this.tname = tname;
 	}
+	
 
 	
 	
