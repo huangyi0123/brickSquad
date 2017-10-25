@@ -27,48 +27,74 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 <script type="text/javascript">
+$(function() {
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修改成功 
 	});
+	var da = $("#oda").attr('val');
+	dat = Format(new Date(da), "yyyy-MM-dd");
+	$("#oda").val(dat);
+});
+
 </script>
 </head>
 
 <body>
 <br>
-	<form class="layui-form" action="#" id="form1">
+<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}订单信息</div>
+	<br>
+	<form class="layui-form" action="orders/updateOrders" id="form1">
+	<input type="hidden" name="id" value="${rapport.id }"> 
+		<div class="layui-form-item">
+			<label class="layui-form-label">买家姓名</label>
+			<div class="layui-input-inline">
+				<select name="buyId" id="buyId"
+					val="${rapport.perId}" lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
+			</div>
+		</div>
+		
 		<div class="layui-form-item">
 			<label class="layui-form-label">运单号</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="运单号" autocomplete="off" class="layui-input">
+				<input type="text" name="no" required lay-verify="required"
+					placeholder="运单号" autocomplete="off" class="layui-input"
+					value="${orders.no }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">状态</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="状态" autocomplete="off" class="layui-input">
+				<input type="text" name="stateId" required lay-verify="required"
+					placeholder="状态" autocomplete="off" class="layui-input"
+					value="${orders.stateId }">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label">订单生产日期</label>
-			<div class="layui-input-inline">
-				<input type="date" name="title" required lay-verify="required"
-					placeholder="订单生产日期" autocomplete="off" class="layui-input">
+			<div class="layui-inline">
+				<label class="layui-form-label">沟通日期</label>
+				<div class="layui-input-inline">
+					<input type="date" class="layui-input" name="productionDate"
+						placeholder="yyyy-MM-dd" val="${orders.productionDate }" id="oda">
+				</div>
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">数量</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="数量" autocomplete="off" class="layui-input">
+				<input type="text" name="number" required lay-verify="required"
+					placeholder="数量" autocomplete="off" class="layui-input"
+					value="${orders.number }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">总额</label>
 			<div class="layui-input-inline">
-				<input type="text" name="title" required lay-verify="required"
-					placeholder="总额" autocomplete="off" class="layui-input">
+				<input type="text" name="money" required lay-verify="required"
+					placeholder="总额" autocomplete="off" class="layui-input"
+					value="${orders.money }">
 			</div>
 		</div>
 		<div class="layui-form-item">

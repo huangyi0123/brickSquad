@@ -1,11 +1,8 @@
 package com.brick.squad.test;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-
- 
-
-
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +30,7 @@ public class NewsServiceTest {
 	@Qualifier("newsService")
 	private NewsService newsService;
 	//添加新闻
-	//@Test
+	@Test
 	public void addNews(){
 		newsService.addNews("4","4","Nike","/image/4.png",Calendar.getInstance().getTime());
 	}
@@ -59,10 +56,48 @@ public class NewsServiceTest {
 	}
 	//新闻分页查询
 	@Test
-	public void ordersPagination() throws Exception{
+	public void newsPagination() throws Exception{
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		System.out.println(newsService.newsPagination(pagination));
 	}
+	/**
+	 * 添加新闻信息测试
+	 * @throws Exception 
+	 * */
+	@Test
+	public void insertNews() throws Exception{
+		News news=new News();
+		news.setId("5");
+		news.setContent("阿里云信息发布中心");
+		news.setImagePath("img/map4.jpg");
+		news.setPostTime(new Date());
+		news.setUserId("3");
+		newsService.insertNews(news);
+	}
+	/**
+	 * 根据News的ID修改信息测试
+	 * @throws Exception 
+	 * */
+	@Test
+	public void updateNewsById() throws Exception{
+		News news=new News();
+		news.setId("5");
+		news.setContent("阿里云信息发布中心");
+		news.setImagePath("xuebiao.jpg");
+		news.setPostTime(new Date());
+		news.setUserId("555");
+		newsService.updateNewsById(news);
+	}
+	/**
+	 * 根据新闻的ID查询新闻信息测试
+	 * @throws Exception 
+	 * */
+	
+	@Test
+	public void findNewsById() throws Exception{
+		System.out.println(newsService.findNewsById("5"));
+	}
+	
 }

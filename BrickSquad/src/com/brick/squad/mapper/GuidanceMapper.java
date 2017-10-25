@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.Guidance;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface GuidanceMapper {
 	public void insertGuidanceById(Guidance guidance) throws Exception;
@@ -12,4 +13,5 @@ public interface GuidanceMapper {
 	public void updateGuidanceById(Guidance guidance) throws Exception;
 	public List<Guidance> guidancePagination(Pagination pagination) throws Exception;
 	public int findGuidanceAllCount () throws Exception;
+	public List<Select> findPerIdAndIdCard();
 }

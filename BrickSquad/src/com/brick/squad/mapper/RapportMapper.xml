@@ -2,12 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RapportMapper">
 	<sql id="Base_Column_List">
-		id, per_id perId, user_id userId, rapport_date rapportDate,goal,period
+		id, per_id perId, user_id userId, rapport_date
+		rapportDate,goal,period
 	</sql>
 	<select id="findRapportById" parameterType="java.lang.String"
 		resultType="Rapport">
 		SELECT
 		<include refid="Base_Column_List" />
+		,content
 		FROM rapport
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</select>
@@ -16,10 +18,14 @@
 		<include refid="Base_Column_List" />
 		FROM rapport
 	</select>
-	
+
 	<insert id="insertRapport" parameterType="Rapport">
+	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
 		INSERT INTO rapport
-		( id,per_id, user_id,
+		(
+		id,per_id, user_id,
 		rapport_date, content,
 		goal,period)
 		VALUES
@@ -41,9 +47,9 @@
 		#{rapportDate,jdbcType=TIMESTAMP},
 		content =
 		#{content,jdbcType=LONGVARCHAR},
-			goal =
+		goal =
 		#{goal,jdbcType=VARCHAR},
-			period =
+		period =
 		#{period,jdbcType=FLOAT}
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
@@ -52,11 +58,17 @@
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
 	<select id="findRapportCount" resultType="Integer">
-	SELECT COUNT(*) FROM rapport
+		SELECT COUNT(*) 
+		FROM `user` u,personal_information p,rapport r 
+		WHERE r.user_id=u.id 
+		AND r.per_id=p.id
 	</select>
-	<select id="rapportPagination" resultType="com.brick.squad.expand.RapportExpand" parameterType="com.brick.squad.util.Pagination">
-		SELECT r.id,u.username, p.name, r.goal,r.content,r.rapport_date rapportDate,r.period
-	from rapport r INNER JOIN personal_information p ON r.per_id =p.id INNER JOIN `user` u ON r.user_id=u.id
-	limit #{skipNum},#{takeNum}
+	<select id="rapportPagination" resultType="com.brick.squad.expand.RapportExpand"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT r.id,u.username, p.name,
+		r.goal,r.content,r.rapport_date rapportDate,r.period
+		from rapport r INNER JOIN personal_information p ON r.per_id =p.id INNER
+		JOIN `user` u ON r.user_id=u.id
+		limit #{skipNum},#{takeNum}
 	</select>
 </mapper>

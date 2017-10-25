@@ -43,5 +43,15 @@ public class User {
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password="
+				+ password + ", telephone=" + telephone + ", roleId=" + roleId
+				+ ", getId()=" + getId() + ", getUsername()=" + getUsername()
+				+ ", getPassword()=" + getPassword() + ", getTelephone()="
+				+ getTelephone() + ", getRoleId()=" + getRoleId()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -18,8 +19,8 @@ public interface UserMapper {
 	@Param("telephone")String telephone,
 	@Param("roleId")String roleId);*/
 	public void addUser(User user);
-	//根据用户名删除
-	public void deleteUser(String username);
+	//根据用户ID删除
+	public void deleteUser(String id);
 	//根据用户名修改密码
 	public void updateUser(@Param("username")String username,@Param("password")String password);
 	//用户分页查询
@@ -31,8 +32,7 @@ public interface UserMapper {
 
 	//查找用户
 	public User findUsername(String username);
-	//查找用户,密码
-	public User loginCheck(@Param("username")String username,@Param("password")String password);
+	
 
 	/**
 	 * 查询所有用户,需求字段
@@ -42,5 +42,9 @@ public interface UserMapper {
 	 * 查询所有用户，所有字段
 	 * */
 	public List<User> findAllUsers();
+	public User findUserById(String id);
+	public  void updateUserById(@Param("username")String username,@Param("telephone")String telephone,@Param("id")String id);
+	
+	
 
 }

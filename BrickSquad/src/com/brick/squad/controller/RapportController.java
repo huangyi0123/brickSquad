@@ -75,7 +75,6 @@ public class RapportController {
 			return "success";
 		}
 		@RequestMapping("/updateRapportById")
-		@ResponseBody
 		public String updateRapportById(Rapport rapport) throws Exception{
 			rapportService.updateRapportByID(rapport);
 			return "backstage_managed/jsp/rapport/rapport_list";

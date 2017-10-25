@@ -1,12 +1,8 @@
 package com.brick.squad.controller;
 
-import java.awt.Window;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.ws.Action;
 
-import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,11 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-
-
-import org.springframework.web.context.request.RequestAttributes;
-
+import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -44,7 +36,7 @@ public class UserController  {
 	@RequestMapping("/toLogin")
 	public String toLogin(User user,Model model,HttpServletRequest request) {
 		
-		 user=userService.checkLogin(user.getUsername(), user.getPassword());
+		 user=userService.checkLogin(user.getUsername(),user.getPassword());
 		 
 		 if(user!=null){
 			 
@@ -57,26 +49,6 @@ public class UserController  {
 		 		return "backstage_managed/jsp/user/login";
 	       
 	    }
-	
-	/*//登陆错误信息提示
-	@RequestMapping("/toLogin2")	
-	@ResponseBody
-	public String loginCheck(User user){
-			 *//**
-	         * 调用service进行查询
-	         *//*
-			  
-			user=userService.loginCheck(user.getUsername(),user.getPassword());
-			if (user==null) {
-	            //没有查询到该用户或者密码不匹配
-	        	return "<font color='red'>你输入的密码和用户名不匹配，是否忘记密码或忘记用户名 ！</font>";
-	        	
-	        }	
-	         	//查询到该用户且密码匹配
-			 	return "redirect:/ui/backstage_managed/jsp/frame.jsp";   
-	        }  	
-	
-		*/
 	
 	
 	@RequestMapping("/toRegister")
@@ -123,7 +95,32 @@ public class UserController  {
 	public String findAllUser() throws Exception{
 		return userService.findAllUser();
 	}
+	
+	//后台删除用户
+	@RequestMapping("/deleteUserById")
+	@ResponseBody
+	public String deleteUserById(String id){
+		userService.deleteUser(id);
+		return "success";
+	}
+	//进入后台修改页面
+	@RequestMapping("/toAddUser")
+	public String toAddUser(HttpServletRequest request,String id) {
+		
+			User user = userService.findUserById(id);
+			
+			request.setAttribute("user",user);
+			
+			return "backstage_managed/jsp/user/update_user";
 
+	}
+	//后台修改用户
+	@RequestMapping("/toAddUser2")
+	public String toAddUser2(HttpServletRequest request,User user,Model model) {
+		userService.updateUserById(user.getUsername(),user.getTelephone(),user.getId());	
+		return "redirect:/ui/backstage_managed/jsp/user/user_list.jsp";
+
+}
 }
 	
 	

@@ -25,14 +25,51 @@ public class PersonalInformation {
 	private float height;
 	private float income;
 	private String familyHistory;
-	private boolean isPurchasing;
-	private boolean isSupremacy;
-	private boolean isPureq;
+	private String isPurchasing;
+	private String isSupremacy;
+	private String isPureq;
 	private String pureqTypeId;
 	private String nationId;
 	private String cultureId;
 	private String marriageId;
 	private String zip;
+	
+	/**
+	 * @return the isPurchasing
+	 */
+	public String getIsPurchasing() {
+		return isPurchasing;
+	}
+	/**
+	 * @param isPurchasing the isPurchasing to set
+	 */
+	public void setIsPurchasing(String isPurchasing) {
+		this.isPurchasing = isPurchasing;
+	}
+	/**
+	 * @return the isSupremacy
+	 */
+	public String getIsSupremacy() {
+		return isSupremacy;
+	}
+	/**
+	 * @param isSupremacy the isSupremacy to set
+	 */
+	public void setIsSupremacy(String isSupremacy) {
+		this.isSupremacy = isSupremacy;
+	}
+	/**
+	 * @return the isPureq
+	 */
+	public String getIsPureq() {
+		return isPureq;
+	}
+	/**
+	 * @param isPureq the isPureq to set
+	 */
+	public void setIsPureq(String isPureq) {
+		this.isPureq = isPureq;
+	}
 	public String getId() {
 		return id;
 	}
@@ -111,24 +148,7 @@ public class PersonalInformation {
 	public void setFamilyHistory(String familyHistory) {
 		this.familyHistory = familyHistory;
 	}
-	public boolean isPurchasing() {
-		return isPurchasing;
-	}
-	public void setPurchasing(boolean isPurchasing) {
-		this.isPurchasing = isPurchasing;
-	}
-	public boolean isSupremacy() {
-		return isSupremacy;
-	}
-	public void setSupremacy(boolean isSupremacy) {
-		this.isSupremacy = isSupremacy;
-	}
-	public boolean isPureq() {
-		return isPureq;
-	}
-	public void setPureq(boolean isPureq) {
-		this.isPureq = isPureq;
-	}
+	
 	public String getPureqTypeId() {
 		return pureqTypeId;
 	}
