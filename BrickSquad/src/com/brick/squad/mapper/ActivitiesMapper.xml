@@ -55,7 +55,8 @@
 
 	<select id="findActivitiesAllCount" resultType="int">
 		select count(*)
-		from activities
+		from activities a INNER JOIN type t ON a.type_id =t.id INNER
+			JOIN `user` u ON a.user_id=u.id
 	</select>
 
 
