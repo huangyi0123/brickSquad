@@ -6,19 +6,19 @@
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into buyers(id,current_integral,historical_integral,grade,delivery_address_id)
-		 values (#{id},#{currentIntegral},#{historicalIntegral},#{grade},#{deliveryAddressId})
+		insert into buyers(id,current_integral,historical_integral,grade,delivery_address_id,information_id)
+		 values (#{id},#{currentIntegral},#{historicalIntegral},#{grade},#{deliveryAddressId},#{informationId})
 	</insert>
 	<select id="findBuyersByUUID" parameterType="String" resultType="com.brick.squad.pojo.Buyers">
 	select id,current_integral currentIntegral,historical_integral historicalIntegral,grade grade,delivery_address_id deliveryAddressId 
-	from buyers where id REGEXP #{id}
+	from buyers where id=#{id}
 	</select>
 	<update id="updateBuyersById" parameterType="com.brick.squad.pojo.Buyers">
 		update buyers set 
 		current_integral=#{currentIntegral},historical_integral=#{historicalIntegral}
-		,grade=#{grade},delivery_address_id=#{deliveryAddressId} where id=#{id}
+		,grade=#{grade},delivery_address_id=#{deliveryAddressId},information_id=#{informationId} where id=#{id}
 	</update>
-	<delete id="deleteBuyersById" parameterType="com.brick.squad.pojo.Buyers">
+	<delete id="deleteBuyersById" parameterType="String">
 		delete from buyers where id=#{id}
 	</delete>
 	<!--分页查询  -->
@@ -26,7 +26,7 @@
 		select 
 		id,current_integral currentIntegral,
 		historical_integral historicalIntegral,
-		grade grade,delivery_address_id deliveryAddressId 
+		grade grade,delivery_address_id deliveryAddressId,information_id informationId
 		from buyers limit #{skipNum},#{takeNum}
 	</select>
 	<select id="findBuyersAllCount" resultType="int">

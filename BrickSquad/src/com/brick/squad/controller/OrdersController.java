@@ -92,4 +92,10 @@ public class OrdersController {
 		ordersService.updateOrdersById(orders);
 		return "backstage_managed/jsp/orders/orders_list";
 	}
+	@RequestMapping("/findOrdersAndBuyserById")
+	public String findOrdersAndBuyserById(HttpServletRequest request,String id) throws Exception{
+		OrdersExpand ordersExpand=ordersService.findOrdersAndBuyserById(id);
+		request.setAttribute("ordersExpand", ordersExpand);
+		return "backstage_managed/jsp/orders/search_orders";
+	}
 }

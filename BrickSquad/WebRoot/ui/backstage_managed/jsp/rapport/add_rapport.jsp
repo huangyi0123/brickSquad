@@ -39,7 +39,6 @@
 				var personalinformation = data[0].personalInformation;
 				findAll(personalinformation, "#personalInformationId");
 				findAll(user, "#userId");
-				
 				layui.use('form', function() {
 					var form = layui.form();
 				});
