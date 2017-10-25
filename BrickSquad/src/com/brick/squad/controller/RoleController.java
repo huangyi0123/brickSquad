@@ -58,4 +58,10 @@ public class RoleController {
 		roleService.updateRoleById(role);
 		return "backstage_managed/jsp/role/role_list";
 	}
+	@RequestMapping("/findRoleById")
+	public String findRoleById(HttpServletRequest request ,String id){
+		Role role=roleService.findRole(id);
+		request.setAttribute("role", role);
+		return "backstage_managed/jsp/role/search_role";
+	}
 }
