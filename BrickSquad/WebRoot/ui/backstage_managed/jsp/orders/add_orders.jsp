@@ -50,7 +50,7 @@ $(function() {
 			<div class="layui-input-inline">
 				<input type="text" name="buyId" required lay-verify="required"
 					placeholder="买家姓名" autocomplete="off" class="layui-input"
-					value="${ordersName.name }">
+					value="${ordersName.name }" readonly="readonly">
 			</div>
 		</div> 
 		<div class="layui-form-item">
@@ -58,7 +58,7 @@ $(function() {
 			<div class="layui-input-inline">
 				<input type="text" name="no" required lay-verify="required"
 					placeholder="运单号" autocomplete="off" class="layui-input"
-					value="${orders.no }">
+					value="${orders.no }" readonly="readonly">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -75,7 +75,8 @@ $(function() {
 				<label class="layui-form-label">订单生产日期</label>
 				<div class="layui-input-inline">
 					<input type="date" class="layui-input" name="productionDate"
-						placeholder="yyyy-MM-dd" val="${orders.productionDate }" id="oda">
+						placeholder="yyyy-MM-dd" val="${orders.productionDate }" id="oda"
+						readonly="readonly">
 				</div>
 			</div>
 		</div>
@@ -84,7 +85,7 @@ $(function() {
 			<div class="layui-input-inline">
 				<input type="text" name="number" required lay-verify="required"
 					placeholder="数量" autocomplete="off" class="layui-input"
-					value="${orders.number }">
+					value="${orders.number }" readonly="readonly">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -92,7 +93,7 @@ $(function() {
 			<div class="layui-input-inline">
 				<input type="text" name="money" required lay-verify="required"
 					placeholder="总额" autocomplete="off" class="layui-input"
-					value="${orders.money }">
+					value="${orders.money }" readonly="readonly">
 			</div>
 		</div>
 		<div class="layui-form-item">
