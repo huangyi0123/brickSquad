@@ -45,7 +45,6 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1) {
 		User user = userService.checkLogin(user1);
-		System.out.println(user.toString()+"88");
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
 			return "redirect:/ui/frontEnd_manage/jsp/turn.jsp";
