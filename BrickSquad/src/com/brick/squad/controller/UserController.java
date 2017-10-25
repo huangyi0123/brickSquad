@@ -35,7 +35,7 @@ public class UserController {
 		pagination.setPageSize(pSize);
 		return userService.userPagination(pagination);
 	}
-
+	@RequestMapping("/toLogin")
 	public String toLogin(HttpServletRequest request) {
 		request.setAttribute("flag", "1");
 		return "backstage_managed/jsp/user/login";

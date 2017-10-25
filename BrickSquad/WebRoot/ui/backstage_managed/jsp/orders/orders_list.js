@@ -38,10 +38,13 @@ function init(keyword) {
 					return '<a href="orders/toAddOrders?id='
 							+ rowData.id
 
-							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:70px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteOrders("'
+							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:50px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteOrders("'
 
 							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="orders/findOrdersAndBuyserById?id='
+
+							+ rowData.id
+							+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
 				}
 			} ]
     });

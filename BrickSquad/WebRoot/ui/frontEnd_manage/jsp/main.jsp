@@ -36,7 +36,7 @@
 				<h3>最新动态</h3>
 				<p>
 				<ul class="news">
-					<li><a href="#" style="display:block; line-height: 30px"><span
+					<li><a href="/ui/frontEnd_manage/jsp/newsDetail.jsp?url=newsDetail.jsp" style="display:block; line-height: 30px"><span
 							style="font-size:24px;margin-left: 10px;display: block;float: left;">xxxxxxxxxxxxxxxxxxx</span><span
 							style="margin-right: 5px;display: block;float: right;margin-bottom: 0;line-height: 27.2px;">2017.10.11</span></a>
 					</li>

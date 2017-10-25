@@ -39,4 +39,8 @@ public interface OrdersService {
 	 * 查询Orders关联buyser买家和PersonalInformation老人姓名
 	 * */
 	public OrdersExpand findBuyserAndPersonalInformation(String id)throws Exception;
+	/**
+	 * 查询订单所有信息关联查询出买家名字
+	 * */
+	public OrdersExpand findOrdersAndBuyserById(String id)throws Exception;
 }

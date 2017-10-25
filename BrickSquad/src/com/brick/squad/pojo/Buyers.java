@@ -10,17 +10,11 @@ public class Buyers {
 	private int historicalIntegral;
 	private int grade;
 	private String deliveryAddressId;
+	private String informationId;
 	/**
 	 * 买家与老人信息的关系：一对一 的关系
 	 * */
 	private PersonalInformation personalInformation;
-	
-	public PersonalInformation getPersonalInformation() {
-		return personalInformation;
-	}
-	public void setPersonalInformation(PersonalInformation personalInformation) {
-		this.personalInformation = personalInformation;
-	}
 	public String getId() {
 		return id;
 	}
@@ -51,5 +45,26 @@ public class Buyers {
 	public void setDeliveryAddressId(String deliveryAddressId) {
 		this.deliveryAddressId = deliveryAddressId;
 	}
+	public String getInformationId() {
+		return informationId;
+	}
+	public void setInformationId(String informationId) {
+		this.informationId = informationId;
+	}
+	public PersonalInformation getPersonalInformation() {
+		return personalInformation;
+	}
+	public void setPersonalInformation(PersonalInformation personalInformation) {
+		this.personalInformation = personalInformation;
+	}
+	@Override
+	public String toString() {
+		return "Buyers [id=" + id + ", currentIntegral=" + currentIntegral
+				+ ", historicalIntegral=" + historicalIntegral + ", grade="
+				+ grade + ", deliveryAddressId=" + deliveryAddressId
+				+ ", informationId=" + informationId + "]";
+	}
+	
+	
 	
 }
