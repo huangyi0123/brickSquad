@@ -2,10 +2,11 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.OrderDetailsExpand;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.util.Pagination;
 
-public interface OrderDetailsMapper {
+public interface OrderDetailsMapper  {
 	/**
 	 * 查询订单项
 	 * */
@@ -27,6 +28,6 @@ public interface OrderDetailsMapper {
 	/**
 	 * 分页查询订单项
 	 * */
-	public List<OrderDetails> orderDetailsPagination(Pagination pagination);
+	public List<OrderDetailsExpand> orderDetailsPagination(Pagination pagination);
 }
 

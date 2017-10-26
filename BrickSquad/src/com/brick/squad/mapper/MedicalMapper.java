@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.util.Pagination;
 
@@ -14,6 +15,6 @@ public interface MedicalMapper {
 
 	public Medical findMedicalById(String id);
 	
-	public List<Medical> medicalPagination(Pagination pagination);
+	public List<MedicalExpand> medicalPagination(Pagination pagination);
 	public int findMedicalAllCount();
 }

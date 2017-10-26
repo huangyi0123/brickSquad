@@ -8,8 +8,14 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'articleId',
-                text: '商品ID'
+
+                key: 'id',
+                text: '订单项ID'
+            },
+            {
+                key: 'articleAname',
+
+              text: '商品ID'
             },
             {
                 key: 'ordersId',

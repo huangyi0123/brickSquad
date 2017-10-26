@@ -81,4 +81,18 @@ public class BuyersController {
 		buyersService.updateBuyersById(addressAndBuyersExpand);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+	@RequestMapping("/findBuyersByIdString")
+	public String findBuyersByIdString(HttpServletRequest request,String id) throws Exception{
+		String regionDataString = buyersService.findRegionsByLevel();
+		request.setAttribute("regionDataString", regionDataString);
+		Buyers buyers = buyersService.findBuyersByUUID(id);
+		Address address = addressService.findAddressById(buyers.getDeliveryAddressId());
+		AddressAndBuyersExpand addressAndBuyersExpand=new AddressAndBuyersExpand();
+		addressAndBuyersExpand.setAddress(address);
+		addressAndBuyersExpand.setBuyers(buyers);
+		request.setAttribute("addressAndBuyersExpand",addressAndBuyersExpand );
+		String allRegionResultById = addressService.getAllRegion(address);
+		request.setAttribute("allRegionResultById", allRegionResultById);
+		return "backstage_managed/jsp/buyers/search_buyers";
+	}
 }

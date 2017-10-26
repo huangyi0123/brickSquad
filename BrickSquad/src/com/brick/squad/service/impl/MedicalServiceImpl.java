@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.mapper.MedicalMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.pojo.Medical;
@@ -57,9 +58,9 @@ public class MedicalServiceImpl implements MedicalService {
 
 	@Override
 	public String medicalPagination(Pagination pagination) {
-		List<Medical> medicals = medicalMapper.medicalPagination(pagination);
+		List<MedicalExpand> medicals = medicalMapper.medicalPagination(pagination);
 		int row = medicalMapper.findMedicalAllCount();
-		Util<Medical> util = new Util<>();
+		Util<MedicalExpand> util = new Util<>();
 		String data = util.SplitPage(medicals, row);
 		return data;
 	}

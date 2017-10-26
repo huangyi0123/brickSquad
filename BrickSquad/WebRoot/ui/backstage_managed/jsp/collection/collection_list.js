@@ -8,12 +8,12 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'perId',
-                text: '买家id'
+                key: 'personalInformationName',
+                text: '买家名称'
             },
             {
-                key: 'articleId',
-                text: '商品id'
+                key: 'articleAname',
+                text: '商品名称'
             },
             {
                 key: 'colDate',

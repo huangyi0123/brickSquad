@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ActivityRegistrationExpand;
 import com.brick.squad.mapper.ActivityRegistrationMapper;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.service.ActivityRegistrationService;
@@ -43,9 +44,9 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
 	@Override
 	public String activityRegistrationPagination(
 			Pagination pagination) {
-		List<ActivityRegistration> datas=activityRegistrationMapper.activityRegistrationPagination(pagination);
+		List<ActivityRegistrationExpand> datas=activityRegistrationMapper.activityRegistrationPagination(pagination);
 		int n=activityRegistrationMapper.activityRegistrationCount();
-		Util<ActivityRegistration> util=new Util<ActivityRegistration>();
+		Util<ActivityRegistrationExpand> util=new Util<ActivityRegistrationExpand>();
 		String data=util.SplitPage(datas, n);
 		return data;
 	}

@@ -8,24 +8,39 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
 					{
-					    key: 'id',
-					    text: '序号'
+					    key: 'aname',
+					    text: '商品名称'
 					},
                      {
-                         key: 'typeId',
+
+
+                         key: 'bname',
+                         text: '店铺名称'
+                     },
+                     {
+                         key: 'tname',
+
                          text: '活动类型'
                      },
-            {
-                key: 'startTime',
-                text: '开始时间'
-            },
-            {
-                key: 'endTime',
-                text: '结束时间'
-            },
-            {
-                key: "operation",
-                text: "操作",
+		            {
+		                key: 'startTime',
+		                text: '开始时间'
+		            },
+		            {
+		                key: 'endTime',
+		                text: '结束时间'
+		            },
+		            {
+		                key: 'businessName',
+		                text: '商家名称'
+		            },
+		            {
+		                key: 'articleAname',
+		                text: '商品名称'
+		            },
+		            {
+		                key: "operation",
+		                text: "操作",
                 template: function(noteData,rowData)  {
 					return '<a href="shopActivities/toAddShopActivities?id='
 					+ rowData.id

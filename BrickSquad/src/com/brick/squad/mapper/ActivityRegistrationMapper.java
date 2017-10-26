@@ -5,6 +5,7 @@ package com.brick.squad.mapper;
  */
 import java.util.List;
 
+import com.brick.squad.expand.ActivityRegistrationExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
@@ -41,7 +42,7 @@ public interface ActivityRegistrationMapper {
 	 * @param pagination 分页信息
 	 * @return 活动信息
 	 */
-	public List<ActivityRegistration> activityRegistrationPagination(Pagination pagination);
+	public List<ActivityRegistrationExpand> activityRegistrationPagination(Pagination pagination);
 	
 	/**
 	 * 查询记录数

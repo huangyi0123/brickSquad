@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.mapper.CollectionMapper;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Collection;
@@ -45,9 +46,9 @@ public class CollectionServiceImpl implements CollectionService{
 
 	@Override
 	public String collectionPagination(Pagination pagination) {
-		List<Collection> datas=collectionMapper.collectionPagination(pagination);
+		List<CollectionExpand> datas=collectionMapper.collectionPagination(pagination);
 		int n=collectionMapper.collectionCount();
-		Util<Collection> util=new Util<Collection>();
+		Util<CollectionExpand> util=new Util<CollectionExpand>();
 		String data=util.SplitPage(datas, n);
 		return data;
 	}

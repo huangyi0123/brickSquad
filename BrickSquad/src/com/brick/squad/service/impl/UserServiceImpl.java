@@ -4,20 +4,12 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 
-
-
-
-
-
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.UserExpand;
 import com.brick.squad.mapper.UserMapper;
-import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -49,9 +41,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	public String userPagination(Pagination pagination){
-		List<User> users=userMapper.userPagination(pagination); 
+		List<UserExpand> users=userMapper.userPagination(pagination); 
 		int row=userMapper.userCount();
-		Util<User> util=new Util<User>();
+		Util<UserExpand> util=new Util<UserExpand>();
 		String data=util.SplitPage(users, row);
 		return data;
 	}

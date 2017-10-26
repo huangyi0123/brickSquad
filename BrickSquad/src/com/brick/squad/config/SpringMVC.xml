@@ -23,14 +23,14 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	
+
 	<mvc:resources location="/ui/" mapping="/ui/**" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/ui/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
+
 	<bean id="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
@@ -38,5 +38,11 @@
 				<bean class="com.brick.squad.util.DateConverter" />
 			</list>
 		</property>
+	</bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600" />
+		<property name="maxInMemorySize" value="4096" />
+		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
 </beans>

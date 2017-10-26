@@ -76,7 +76,9 @@ public class ArticleController {
 	
 	@RequestMapping("/updateArticleById")
 	public String updateArticleById(Article article) throws Exception{
+		
 		articleService.updateArticleById(article);
+		System.out.println("11111111111111111111");
 		return "backstage_managed/jsp/article/article_list";
 	}
 	

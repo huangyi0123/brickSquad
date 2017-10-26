@@ -8,16 +8,25 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
                      {
-                         key: 'memberShipTypeId',
-                         text: '会员类型ID'
+
+                     
+                         key: 'tname',
+                         text: '会员级别'
+
                      },
             {
-                key: 'userId',
-                text: '工作人员ID'
+
+              
+
+                key: 'username',
+                text: '工作人员'
+
             },
             {
-                key: 'perId',
-                text: '申请人ID'
+
+                key: 'pname',
+                text: '申请人'
+
             },
             {
                 key: 'deposit',
