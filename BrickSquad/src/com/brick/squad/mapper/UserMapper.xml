@@ -24,14 +24,20 @@
 		username=#{username};
 
 	</delete>
-
+<!-- 
 	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
 		select
 		<include refid="prop" />
 		from user limit #{skipNum},#{takeNum}
-
+	</select> -->
+	
+	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.UserExpand">
+		
+		SELECT user.id,user.password,user.username,user.telephone,role.name FROM user JOIN role on user.role_id=role.id limit #{skipNum},#{takeNum}
+	
+	
 	</select>
-
+	
 	<select id="userCount" resultType="int">
 		select count(*) from user
 

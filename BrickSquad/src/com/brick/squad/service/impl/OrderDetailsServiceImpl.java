@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.OrderDetailsExpand;
 import com.brick.squad.mapper.OrderDetailsMapper;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.service.OrderDetailsService;
@@ -51,9 +52,9 @@ public class OrderDetailsServiceImpl implements OrderDetailsService{
 	@Override
 	/**分页查询订单项*/
 	public String orderDetailsPagination(Pagination pagination) {
-		List<OrderDetails> regions=orderDetailsMapper.orderDetailsPagination(pagination);
+		List<OrderDetailsExpand> regions=orderDetailsMapper.orderDetailsPagination(pagination);
 		int row=orderDetailsMapper.countOrderDetails();
-		Util<OrderDetails> util=new Util<OrderDetails>();
+		Util<OrderDetailsExpand> util=new Util<OrderDetailsExpand>();
 		String data=util.SplitPage(regions, row);
 		return data;
 	}

@@ -11,10 +11,10 @@ function init(keyword) {
 		supportAjaxPage : true,
 		supportCheckbox : false,
 		columnData : [ {
-			key : 'perId',
+			key : 'personalInformationName',
 			text : '老人id'
 		}, {
-			key : 'activitiesId',
+			key : 'activitiesName',
 			text : '活动信息id'
 		}, {
 			key : 'registrationDate',

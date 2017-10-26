@@ -8,16 +8,25 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
                      {
+
+                     
                          key: 'tname',
                          text: '会员级别'
+
                      },
             {
+
+              
+
                 key: 'username',
                 text: '工作人员'
+
             },
             {
+
                 key: 'pname',
                 text: '申请人'
+
             },
             {
                 key: 'deposit',

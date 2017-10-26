@@ -1,9 +1,5 @@
 package com.brick.squad.service;
 
-
-
-import com.brick.squad.pojo.Type;
-
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 

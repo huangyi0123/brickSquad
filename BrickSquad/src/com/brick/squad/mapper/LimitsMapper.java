@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.LimitsExpand;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.util.Pagination;
 
@@ -32,7 +33,7 @@ public interface LimitsMapper {
 	 * @param pagination 分页条件
 	 * @return 权限数据
 	 */
-	public List<Limits> limitsPagination(Pagination pagination);
+	public List<LimitsExpand> limitsPagination(Pagination pagination);
 	/**
 	 * 查询权限记录数
 	 * @return 记录数
