@@ -17,7 +17,7 @@ function init(keyword) {
 							text : '表名'
 						},
 						{
-							key : 'roleId',
+							key : 'roleName',
 							text : '角色id'
 						},
 						,

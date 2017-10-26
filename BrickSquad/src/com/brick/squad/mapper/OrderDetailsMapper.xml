@@ -33,9 +33,8 @@
  	 <select id="countOrderDetails" resultType="Integer">
  	 SELECT COUNT(*) FROM order_details
  	 </select>
- 	 <select id="orderDetailsPagination" parameterType="com.brick.squad.util.Pagination" resultType="OrderDetails">
-	SELECT 
-	<include refid="Base_Column_List" />
-	 FROM order_details limit #{skipNum},#{takeNum}
+ 	 <select id="orderDetailsPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.OrderDetailsExpand">
+	SELECT  order_details.id,article.aname articleAname, order_details.orders_id ordersId,order_details.number,order_details.subtotal 
+				FROM order_details  JOIN article ON order_details.article_id=article.id  limit #{skipNum},#{takeNum}
 	</select>
 </mapper>

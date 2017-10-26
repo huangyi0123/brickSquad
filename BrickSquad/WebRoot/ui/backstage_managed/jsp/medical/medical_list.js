@@ -13,11 +13,16 @@ function init(keyword) {
 				supportCheckbox : false,
 				columnData : [
 						{
+							key : 'personalInformationName',
+							text : '老人姓名'
+						},
+						{
 							key : 'hospital',
 							text : '检查医院'
 						},
+						
 						{
-							key : 'typeId',
+							key : 'typeName',
 							text : '检查类型'
 						},
 						{

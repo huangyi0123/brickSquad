@@ -24,7 +24,7 @@ function init(keyword) {
                 text: '联系方式'
             },
             {
-                key: 'roleId',
+                key: 'name',
                 text: '角色'
             },
             {

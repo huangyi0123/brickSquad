@@ -8,15 +8,15 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
                      {
-                         key: 'memberShipTypeId',
+                         key: 'typeName',
                          text: '会员类型ID'
                      },
             {
-                key: 'userId',
+                key: 'userUsername',
                 text: '工作人员ID'
             },
             {
-                key: 'perId',
+                key: 'personalInformationName',
                 text: '申请人ID'
             },
             {

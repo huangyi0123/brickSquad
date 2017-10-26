@@ -34,14 +34,22 @@
 		where id =#{id}
 	</update>
 
-	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
+	<!-- <select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="shopActivities">
 		select id,type_id typeId,start_time startTime,end_time
 		endTime,business_id businessId,article_id articleId from
 		shop_activities limit #{skipNum},#{takeNum}
 
-	</select>
+	</select> -->
+	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.ShopActivitiesExpand">
+		select shop_activities.id,type.name typeName,shop_activities.start_time startTime,shop_activities.end_time endTime,
+			 business.name businessName,article.aname articleAname from shop_activities 
+			 JOIN type ON shop_activities.type_id=type.id 
+			 JOIN business ON shop_activities.business_id=business.id
+			 JOIN article ON shop_activities.article_id=article.id	limit #{skipNum},#{takeNum}
 
+	</select>
 
 	<select id="findShopActivitiesAllCount" resultType="int">
 		select count(*) from shop_activities

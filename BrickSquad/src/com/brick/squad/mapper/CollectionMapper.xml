@@ -37,12 +37,22 @@
 		collection WHERE id=#{id}
 	</delete>
 	
-	<select id="collectionPagination" parameterType="com.brick.squad.util.Pagination"
+	<!-- <select id="collectionPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="Collection">
 		SELECT
-		<include refid="prop" />
+		id,per_id perId,article_id articleId,col_date
+		colDate
 		FROM collection LIMIT #{skipNum},#{takeNum}
+		
+	</select> -->
+	<select id="collectionPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.CollectionExpand">
+		SELECT personal_information.name personalInformationName,article.aname articleAname,collection.col_date colDate FROM collection 
+			 JOIN personal_information ON collection.per_id=personal_information.id 
+			 JOIN article ON collection.article_id=article.id LIMIT #{skipNum},#{takeNum}
+		
 	</select>
+	
 	<select id="collectionCount" resultType="int">
 		SELECT
 		COUNT(*) FROM collection

@@ -37,11 +37,20 @@
 	<delete id="deleteActivityRegistrationById" parameterType="String">
 		DELETE FROM activity_registration WHERE id=#{id}
 	</delete>
-	<select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
+	<!-- <select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="ActivityRegistration">
 		SELECT
-		<include refid="prop" />
+		id,per_id perId,activities_id
+		activitiesId,registration_date
+		registrationDate,appointment
 		FROM activity_registration LIMIT #{skipNum},#{takeNum}
+	</select> -->
+	
+	<select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.ActivityRegistrationExpand">
+		SELECT personal_information.name personalInformationName,activities.name activitiesName,activity_registration.registration_date registrationDate,activity_registration.appointment 
+				FROM activity_registration JOIN personal_information ON activity_registration.per_id=personal_information.id
+				JOIN activities ON activity_registration.activities_id=activities.id LIMIT #{skipNum},#{takeNum}
 	</select>
 	<select id="activityRegistrationCount" resultType="int">
 		SELECT

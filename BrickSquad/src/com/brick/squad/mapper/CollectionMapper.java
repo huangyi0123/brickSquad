@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.util.Pagination;
@@ -43,7 +44,7 @@ public interface CollectionMapper {
 	 * @param pagination 分页信息
 	 * @return 收藏物品信息
 	 */
-	public List<Collection> collectionPagination(Pagination pagination);
+	public List<CollectionExpand> collectionPagination(Pagination pagination);
 	
 	/**
 	 * 查询记录数

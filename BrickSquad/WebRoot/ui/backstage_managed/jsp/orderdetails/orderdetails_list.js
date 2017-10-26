@@ -12,7 +12,7 @@ function init(keyword) {
                 text: '订单项ID'
             },
             {
-                key: 'articleId',
+                key: 'articleAname',
                 text: '商品ID'
             },
             {
