@@ -42,7 +42,7 @@ public User findUserByusername(String username) ;
 	 * */
 	public List<User> findAllUsers();
 	public User findUserById(String id);
-	public void updateUserById(User user);
+	public void updateUserByIdByWWX(User user);
 	public  void updateUserById(@Param("username")String username,@Param("telephone")String telephone,@Param("id")String id);
 	
 	

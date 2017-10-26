@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
 		//密码MD5加密
 		 String passwordMd5 =SecurityUtil.strToMD5(user.getPassword());
 		newUser.setPassword(passwordMd5);
-		userMapper.updateUserById(newUser);
+		userMapper.updateUserByIdByWWX(newUser);
 		
 	}
 
