@@ -44,11 +44,11 @@
 							if (id == this.id) {
 								$("#typeId").append(
 										'<option value="'+this.id+'"  selected="selected">'
-												+ this.centent+ '</option>');
+												+ this.typeId+ '</option>');
 							} else {
 								$("#typeId").append(
 										'<option value="'+this.id+'">'
-												+ this.centent + '</option>');
+												+ this.typeId + '</option>');
 							}
 
 						});
@@ -68,10 +68,10 @@
 <body>
 
  <br>
-	<div style="padding-left: 130px;font-size:16;">添加商品信息</div>
+	<div style="padding-left: 130px;font-size:20;">${msg}商品信息</div>
 	<br>
 	<form class="layui-form" action="article/${url}" id="form1" method="post">
-
+<input type="hidden" name="id"  value="${article.id}">
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
@@ -82,26 +82,15 @@
 		</div>
 		
 		
-		<div class="layui-form-item">
-			<label class="layui-form-label">商品类型</label>
-			<div class="layui-input-inline">
-				<input type="text" name="typeId" required lay-verify="required"
-					placeholder="商品序号" autocomplete="off" class="layui-input"
-					value="${article.typeId }">
-			</div>
-		</div>
 		
 		
 		
-		<div class="layui-form-item">
+		<div class="layui-form-item" style="width: 300px">
 			<label class="layui-form-label">商品类型</label>
 			<div class="layui-input-block">
 				<select name="typeId" lay-filter="aihao" id="typeId" val="${article.typeId }">
 					<option value=""></option>
-					<option value="秋衣">秋衣</option>
-					<option value="裤子">裤子</option>
-					<option value="羽绒服">羽绒服</option>
-					<option value="鞋子">鞋子</option>
+					
 				</select>
 			</div>
 			</div>
@@ -128,7 +117,18 @@
 			<div class="layui-input-inline">
 				<input type="text" name="describes" required lay-verify="required"
 					placeholder="商品描述" autocomplete="off" class="layui-input"
-					value="${article.describes }">
+					value="${article.describes}">
+			</div>
+		</div>
+		
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">店铺名</label>
+			<div class="layui-input-inline">
+				<input type="text" name="businessId" required lay-verify="required"
+					placeholder="店铺名" autocomplete="off" class="layui-input"
+					value="${article.businessId }">
 			</div>
 		</div>
 		

@@ -74,14 +74,24 @@
 	<input type="hidden" name="id" value="${shopActivities.id}">
 
 		<div class="layui-form-item">
-			<label class="layui-form-label">序号</label>
+			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="id" required lay-verify="required"
-					placeholder="序号" autocomplete="off" class="layui-input"
-					value="${shopActivities.id}">
+					placeholder="商品名称" autocomplete="off" class="layui-input"
+					value="${shopActivities.articleId}">
 			</div>
 		</div>
-
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">店铺名</label>
+			<div class="layui-input-inline">
+				<input type="text" name="id" required lay-verify="required"
+					placeholder="店铺名" autocomplete="off" class="layui-input"
+					value="${shopActivities.businessId}">
+			</div>
+		</div>
+		
+ 
 
 		<div class="layui-form-item" style="width: 220; ">
 			<label class="layui-form-label">活动类型</label>

@@ -3,51 +3,65 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ArticleMapper">
 
-    <!-- 查询 -->
-    <select id="findArticleById" resultType="article" parameterType="String" >
-	 	select id,aname aname,type_id typeId,business_id businessId,price,stock,image from article where id=#{id}
+	<!-- 查询 -->
+	<select id="findArticleById" resultType="article" parameterType="String">
+		select id,aname aname,type_id typeId,business_id
+		businessId,price,stock,image from article where id=#{id}
 	</select>
-	
+
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into article(id,aname,type_id,business_id,price,stock,describes,image)
+		insert into
+		article(id,aname,type_id,business_id,price,stock,describes,image)
 		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{image})
 	</insert>
-	
+
 	<delete id="deleteArticleById" parameterType="String">
-		delete from article where id=#{id}
+		delete from article
+		where id=#{id}
 	</delete>
-	
+
 	<update id="updateArticleById" parameterType="article">
-		update article set aname=#{aname},
-				type_id=#{typeId},
-				business_id=#{businessId},
-				price=#{price},
-				stock=#{stock},
-				describes=#{describe},
-				image=#{image}
-				where id = #{id}
+		update article set
+		
+		aname=#{aname},
+		type_id=#{typeId},
+		business_id=#{businessId},
+		price=#{price},
+		stock=#{stock},
+		describes=#{describes},
+		image=#{image}
+		where id = #{id}
 	</update>
-	
-	
-	<select  id="articlePagination" parameterType="com.brick.squad.util.Pagination" resultType="article">
-	  select id id,aname aname,type_id typeId,business_id businessId,price,stock,describes,image from article limit #{skipNum},#{takeNum}
-	
+
+
+	<select id="articlePagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.ArticleExpand">
+		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
+		bname,a.describes
+		FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
+		ON a.business_id = b.id
+		limit #{skipNum},#{takeNum}
+
 	</select>
-	
-	
-	<select id="findArticleAllCount" resultType="int" >
-		select count(*) from article
+
+
+	<select id="findArticleAllCount" resultType="int">
+		select
+		count(*) FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
+		ON a.business_id = b.id
 	</select>
 	<select id="findArticle" resultType="com.brick.squad.util.Select">
-	SELECT id,aname name
-	FROM article
+		SELECT id,aname name
+		FROM
+		article
 	</select>
-	
-	<select id="findAllArticle"  resultType="article">
-		select article.type_id from article
+
+	<select id="findAllArticle" resultType="article">
+		select article.type_id typeId
+		from article
 	</select>
-	
+
 </mapper>

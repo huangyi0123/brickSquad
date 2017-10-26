@@ -8,11 +8,15 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
 					{
-					    key: 'id',
-					    text: '序号'
+					    key: 'aname',
+					    text: '商品名称'
 					},
                      {
-                         key: 'typeId',
+                         key: 'bname',
+                         text: '店铺名称'
+                     },
+                     {
+                         key: 'tname',
                          text: '活动类型'
                      },
             {
