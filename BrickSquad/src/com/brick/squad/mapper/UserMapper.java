@@ -10,7 +10,12 @@ import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
 public interface UserMapper {
-
+	/**
+	 * 根据用户名查询用户
+	 * @param username
+	 * @return
+	 */
+public User findUserByusername(String username) ;
 	public void addUser(User user);
 	//根据用户ID删除
 	public void deleteUser(String id);
@@ -35,6 +40,7 @@ public interface UserMapper {
 	 * */
 	public List<User> findAllUsers();
 	public User findUserById(String id);
+	public void updateUserById(User user);
 	public  void updateUserById(@Param("username")String username,@Param("telephone")String telephone,@Param("id")String id);
 	
 	

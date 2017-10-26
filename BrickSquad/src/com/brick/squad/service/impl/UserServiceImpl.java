@@ -10,8 +10,11 @@ import net.sf.json.JSONArray;
 
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Type;
@@ -27,6 +30,7 @@ import com.brick.squad.util.Util;
  *	
  *	User表调用增删改查方法
  */ 
+@Transactional
 public class UserServiceImpl implements UserService {
 	@Autowired
 	@Qualifier("userMapper")
@@ -93,6 +97,20 @@ public class UserServiceImpl implements UserService {
 		String date=jsonArray.fromObject(users).toString();
 		return date;
 	
+	}
+	@Override
+	public User findUserByusername(String username) {
+		
+		return userMapper.findUserByusername(username);
+	}
+	@Override
+	public void updateUserById(User user) {
+		User newUser =userMapper.findUserById(user.getId());
+		//密码MD5加密
+		 String passwordMd5 =SecurityUtil.strToMD5(user.getPassword());
+		newUser.setPassword(passwordMd5);
+		userMapper.updateUserById(newUser);
+		
 	}
 
 }

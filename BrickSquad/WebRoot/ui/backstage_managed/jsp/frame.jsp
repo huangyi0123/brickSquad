@@ -259,7 +259,7 @@ function logout() {
 				$.ajax({
 					url:"user/logout",
 					success:function(data){
-						window.location="ui/frontEnd_manage/index.jsp";
+						window.location="/BrickSquad/ui/frontEnd_manage/index.jsp";
 						layer.close(index);
 					}
 				});

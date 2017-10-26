@@ -10,9 +10,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-；scale=1.0">
-<title>登录</title>
+<title>填写账户 身份认证</title>
 <link href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet">
 <link href="ui/backstage_managed/plugins/fonts/font-awesome.min.css"
@@ -24,6 +22,7 @@
 <script src="ui/backstage_managed/plugins/jquery/jquery.min.js"></script>
 <script src="ui/backstage_managed/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="ui/backstage_managed/plugins/layui/layui.js"></script>
+</head>
 <script type="text/javascript">
 	$(function() {
 		var flag = '${flag}';
@@ -37,40 +36,36 @@
 
 	});
 </script>
-</head>
-
-<body class="gray-bg">
-
+<body class="layui-layout-body gray-bg">
+	<!--验证用户  -->
 	<div class="middle-box text-center loginscreen  animated fadeInDown">
-		<div>
-			<div>
-				<img class="logo-name" alt=""
-					src="ui/backstage_managed/image/logo.png">
+		<form class="layui-form" action="user/toUpdatePassword" method="post" role="form">
+			<div class="layui-form-item">
+				<label class="layui-form-label">账户：</label>
+				<div class="layui-input-inline">
+					<input type="text" name="username" required lay-verify="required"
+						placeholder="账户" autocomplete="off" class="layui-input">
+				</div>
 			</div>
-			<h3>欢迎使用 后台管理系统</h3>
+			<!-- 	<div class="layui-form-item">
+			<label class="layui-form-label">验证：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="" required lay-verify="required"
+					placeholder="验证码" autocomplete="off" class="layui-input">
+			</div>
+		</div> -->
 
-			<form class="m-t" role="form" action="user/login" method="post">
-			<!-- <input type="hidden" name="f" id="admin"> -->
-				<div class="form-group">
-					<input name="username" type="text" class="form-control"
-						id="username" placeholder="用户名" required="">
+			<div class="layui-form-item">
+				<label class="layui-form-label"></label>
+				<div class="layui-input-inline">
+					<button type="submit"
+						class="layui-btn layui-btn-radius layui-btn-normal">确定</button>
+					<button type="reset"
+						class="layui-btn layui-btn-radius layui-btn-normal">清空</button>
 				</div>
-				<div class="form-group">
-					<input name="password" type="password" class="form-control"
-						id="password" placeholder="密码" required="">
-				</div>
-				<button type="submit" class="btn btn-primary block full-width m-b">登
-					录</button>
-				<p class="text-muted text-center">
-					<a href="/BrickSquad/ui/backstage_managed/jsp/user/userAccountAuthentication.jsp"><small>忘记密码了？</small></a> | <a
-						href="/BrickSquad/ui/backstage_managed/jsp/user/register.jsp">注册一个新账号</a>
-				</p>
-
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
-
 </body>
 
-</html>
 </html>

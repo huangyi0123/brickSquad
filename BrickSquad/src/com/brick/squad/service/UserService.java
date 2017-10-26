@@ -2,13 +2,21 @@ package com.brick.squad.service;
 
 
 
-import com.brick.squad.pojo.Type;
-
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
 
 public interface UserService {
-	
+	/**
+	 * 传对象修改User
+	 * @param user
+	 */
+	public void updateUserById(User user);
+	/**
+	 * 根据用户名查询用户
+	 * @param username
+	 * @return
+	 */
+	public User findUserByusername(String username) ;
 	public void deleteUser(String id);
 
 	public void updateUser(String username, String password);

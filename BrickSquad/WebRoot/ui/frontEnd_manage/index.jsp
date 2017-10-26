@@ -146,25 +146,8 @@
 			<div class="clearfix"></div>
 		</div>
 		<jsp:include page="jsp/main.jsp"></jsp:include>
-
-		<div class="footer">
-			<div class="container">
-				<h2>
-					<a href="ui/frontEnd_manage/index.jsp">Easy Recharge</a>
-				</h2>
-				<p>
-					Copyright &copy; 2016.Company name All rights reserved.More
-					Templates <a href="http://www.cssmoban.com/" target="_blank"
-						title="模板之家">模板之家</a> - Collect from <a
-						href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-				</p>
-				<ul>
-					<li><a class="face1" href="#"></a></li>
-					<li><a class="face2" href="#"></a></li>
-					<li><a class="face3" href="#"></a></li>
-					<li><a class="face4" href="#"></a></li>
-				</ul>
-			</div>
-		</div>
+		
+<jsp:include page="indexFooter.jsp"></jsp:include>
+	
 </body>
 </html>

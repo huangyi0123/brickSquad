@@ -1,6 +1,5 @@
 package com.brick.squad.controller;
 
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +34,7 @@ public class UserController {
 		pagination.setPageSize(pSize);
 		return userService.userPagination(pagination);
 	}
+
 	@RequestMapping("/toLogin")
 	public String toLogin(HttpServletRequest request) {
 		request.setAttribute("flag", "1");
@@ -53,7 +53,6 @@ public class UserController {
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
 		return "backstage_managed/jsp/user/login";
 	}
-
 
 	@RequestMapping("/toRegister")
 	public String toRegister() {
@@ -94,32 +93,34 @@ public class UserController {
 		return userService.findAllUser();
 	}
 
-	
-	//后台删除用户
+	// 后台删除用户
 	@RequestMapping("/deleteUserById")
 	@ResponseBody
-	public String deleteUserById(String id){
+	public String deleteUserById(String id) {
 		userService.deleteUser(id);
 		return "success";
 	}
-	//进入后台修改页面
+
+	// 进入后台修改页面
 	@RequestMapping("/toAddUser")
-	public String toAddUser(HttpServletRequest request,String id) {
-		
-			User user = userService.findUserById(id);
-			
-			request.setAttribute("user",user);
-			
-			return "backstage_managed/jsp/user/update_user";
+	public String toAddUser(HttpServletRequest request, String id) {
+
+		User user = userService.findUserById(id);
+
+		request.setAttribute("user", user);
+
+		return "backstage_managed/jsp/user/update_user";
 
 	}
-	//后台修改用户
+
+	// 后台修改用户
 	@RequestMapping("/toAddUser2")
-	public String toAddUser2(HttpServletRequest request,User user,Model model) {
-		userService.updateUserById(user.getUsername(),user.getTelephone(),user.getId());	
+	public String toAddUser2(HttpServletRequest request, User user, Model model) {
+		userService.updateUserById(user.getUsername(), user.getTelephone(),
+				user.getId());
 		return "redirect:/ui/backstage_managed/jsp/user/user_list.jsp";
 
-}
+	}
 
 	@RequestMapping("/logout")
 	@ResponseBody
@@ -128,4 +129,33 @@ public class UserController {
 		return "1";
 	}
 
+	/**
+	 * 跳转修改密码页面
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/toUpdatePassword")
+	public String toUpdatePassword(HttpServletRequest request,
+			String username) {
+		User user = userService.findUserByusername(username);
+		if (user != null) {
+            request.setAttribute("user", user);
+			return "/backstage_managed/jsp/user/userUpdatePassword";
+		}
+		request.setAttribute("flag", "2");
+		request.setAttribute("msg", "验证失败，你输入的账户不存在！");
+		return "/backstage_managed/jsp/user/userAccountAuthentication";
+	}
+	/**
+	 * 修改密码
+	 * @param user
+	 */
+	@RequestMapping("/updatePassword")
+	public String updatePassword(HttpServletRequest request ,User user){
+		userService.updateUserById(user);
+		request.setAttribute("flag", "2");
+		request.setAttribute("msg", "密码修改成功！请重新登录");
+		return "backstage_managed/jsp/user/login";
+	}
 }

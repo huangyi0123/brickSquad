@@ -4,7 +4,7 @@
 <mapper namespace="com.brick.squad.mapper.UserMapper">
 	<!-- Luyujing User表 增删改查 -->
 	<sql id="prop">
-		id,username,password telephone, role_id roleId
+		id,username,password,telephone, role_id roleId
 	</sql>
 	<insert id="addUser" parameterType="com.brick.squad.pojo.User">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -15,17 +15,23 @@
 
 	</insert>
 	<update id="updateUserById" parameterType="String">
-		UPDATE user SET username=#{username},telephone=#{telephone} WHERE id=#{id}
+		UPDATE user SET
+		username=#{username},telephone=#{telephone} WHERE id=#{id}
 	</update>
-	
-	
+	<update id="updateUserById" parameterType="user">
+
+		UPDATE user SET
+		username=#{username},telephone=#{telephone},role_id=#{
+		roleId} WHERE id=#{id}
+	</update>
 	<delete id="deleteUser" parameterType="String">
 		delete from user where
 		username=#{username};
 
 	</delete>
 
-	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
+	<select id="userPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="user">
 		select
 		<include refid="prop" />
 		from user limit #{skipNum},#{takeNum}
@@ -37,7 +43,7 @@
 
 	</select>
 	<select id="findUserById" resultType="user" parameterType="String">
-		select username,telephone,id FROM user WHERE  id=#{id} 
+		select username,telephone,id,role_id roleId FROM user WHERE id=#{id}
 	</select>
 	<select id="checkLogin" parameterType="user" resultType="user">
 		select
@@ -49,9 +55,15 @@
 	<select id="findUsername" resultType="user" parameterType="String">
 		select username from user where username=#{username}
 	</select>
+	<select id="findUserByusername" resultType="user" parameterType="String">
+		select id,username,password,telephone, role_id roleId from user where
+		username=#{username}
+	</select>
 
-	<select id="loginCheck"  resultType="user"  parameterType="String">
-		select username from user where username=#{username} AND password=#{password}
+	<select id="loginCheck" resultType="user" parameterType="String">
+		select
+		username from user where username=#{username} AND
+		password=#{password}
 	</select>
 
 	<select id="findAllUser" resultType="com.brick.squad.util.Select">
@@ -64,5 +76,5 @@
 		id,password,username,telephone,role_id roleId
 		FROM user
 	</select>
-	
+
 </mapper>

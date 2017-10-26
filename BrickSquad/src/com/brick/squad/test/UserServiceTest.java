@@ -30,7 +30,11 @@ public class UserServiceTest {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
-	
+	@Test
+	public void testfindUserByusername(){
+		System.out.println(userService.findUserByusername("1400170316").toString());
+		
+	}
 	//User表插入数据
 	@Test
 	public void addUserTest(){
