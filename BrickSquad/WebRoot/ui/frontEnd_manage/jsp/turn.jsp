@@ -26,9 +26,11 @@
 	layui.use('layer', function() {
 		var layer = layui.layer;
 		parent.layer.closeAll();
-		window.parent.dialogArguments.document.execCommand('Refresh');
 	});
 </script>
 </head>
-
+ <%  
+        //转向语句  
+        response.setHeader("Refresh", "0;URL=/BrickSquad/common/toFrame");  
+    %> 
 </html>

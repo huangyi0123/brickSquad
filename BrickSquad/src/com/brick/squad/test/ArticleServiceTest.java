@@ -49,8 +49,8 @@ public class ArticleServiceTest {
 	@Test
 	public void updateArticleById() throws Exception{
 		
-		Article article = articleService.findArticleById("1");
-		article.setPrice("200");
+		Article article = articleService.findArticleById("2");
+		article.setPrice("299");
 		
 		articleService.updateArticleById(article);
 	}

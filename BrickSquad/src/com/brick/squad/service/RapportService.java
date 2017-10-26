@@ -3,6 +3,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.RapportExpand;
 import com.brick.squad.pojo.Rapport;
 import com.brick.squad.util.Pagination;
 /**
@@ -41,4 +42,8 @@ public interface RapportService {
 	 * 查询用户和老人所有信息
 	 * */
 	public String findAllUserAndPersonalInformation();
+	/***
+	 * 根据老人客户ID关联查询需要字段以及老人客户所有信息
+	 */
+	public RapportExpand findRapportAndUserAndPersonalInformation(String id)throws Exception;
 }

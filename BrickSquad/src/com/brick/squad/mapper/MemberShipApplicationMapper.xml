@@ -36,31 +36,46 @@
 		where id=#{id}
 	</update>
 
+
 	<!-- 分页查询 -->
 	<!-- <select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="memberShipApplication">
 		select id,membership_type_id memberShipTypeId,user_id userId,per_id
 		perId,deposit from membership_application limit #{skipNum},#{takeNum}
 	</select> -->
-	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination"
+	<!-- <select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.MemberShipApplicationExpand">
 		select type.name typeName,user.username userUsername,personal_information.name personalInformationName,membership_application.deposit from membership_application
 				JOIN type ON membership_application.membership_type_id=type.id
 				JOIN user ON membership_application.user_id=user.id
 				JOIN personal_information ON membership_application.per_id=personal_information.id
 				 limit #{skipNum},#{takeNum}
+	</select> -->
+	<!-- 分页查询 级联查询 -->
+	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.MemberShipApplicationExpand">
+		SELECT m.id, t.`name` tname,u.username,p.`name` pname,m.deposit
+		FROM membership_application m INNER JOIN `user` u ON m.user_id = u.id
+		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
+		personal_information p ON m.per_id = p.id	
+		limit #{skipNum},#{takeNum}
+
 	</select>
 
 
 	<select id="findMemberShipApplicationAllCount" resultType="int">
 
-		select count(*) from membership_application
+		select count(*) from 
+		membership_application m INNER JOIN `user` u ON m.user_id = u.id
+		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
+		personal_information p ON m.per_id = p.id	
 
 	</select>
-	
+
 	<select id="findAllMemberShipApplications" resultType="memberShipApplication">
-		select membership_application.membership_type_id from membership_application
+		select
+		membership_application.membership_type_id from membership_application
 	</select>
-	
+
 
 </mapper>

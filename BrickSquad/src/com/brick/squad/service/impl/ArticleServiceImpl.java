@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Reply;
@@ -71,7 +72,7 @@ public class ArticleServiceImpl implements ArticalService{
 	
 	@Override
 	public String findAllArticle() {
-		List<Article> articles= articleMapper.findAllArticle();
+		List<ArticleExpand> articles= articleMapper.findAllArticle();
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(articles).toString();
 		return data;

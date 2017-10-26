@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -27,6 +28,6 @@ public interface ArticleMapper {
 	 * */
 	public List<Select> findArticle();
 
-	public List<Article> findAllArticle();
+	public List<ArticleExpand> findAllArticle();
 }
 

@@ -21,7 +21,9 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<style type="text/css">
+	
+</style>
 </head>
 
 <body>
@@ -32,10 +34,18 @@
 			</div>
 			<div class="col-md-4 btm-grid btm-wid">
 				<h3>最新动态</h3>
-				<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-					odit aut fugit, sed quia conse magni dolores eos qui ratione. Nemo
-					enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-					fugit, sed quia conse magni dolores eos qui ratione.</p>
+				<p>
+				<ul class="news">
+					<li><a href="/ui/frontEnd_manage/jsp/newsDetail.jsp?url=newsDetail.jsp" style="display:block; line-height: 30px"><span
+							style="font-size:24px;margin-left: 10px;display: block;float: left;">xxxxxxxxxxxxxxxxxxx</span><span
+							style="margin-right: 5px;display: block;float: right;margin-bottom: 0;line-height: 27.2px;">2017.10.11</span></a>
+					</li>
+					<li><a href="#" style="clear:both; line-height: 30px"><span
+							style="font-size:24px;margin-left: 10px;display: block;float: left;">xxxxxxxxxxxxxxxxxxx</span><span
+							style="margin-right: 5px;display: block;float: right;margin-bottom: 0;line-height: 27.2px;">2017.10.11</span></a>
+					</li>
+				</ul>
+				</p>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
 				<img src="ui/frontEnd_manage/images/bbb1.png" alt="" />

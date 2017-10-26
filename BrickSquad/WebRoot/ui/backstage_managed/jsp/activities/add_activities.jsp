@@ -62,11 +62,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var url="${url}"
 		if(url=='addActivities'){}
 		else{
-		var da = $("#startTimeId").attr('val');
+		var da = $("#startId").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$("#startTimeId").val(dat);
 		
-		var da = $("#endTimeId").attr('val');
+		var da = $("#endId").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$("#endTimeId").val(dat);
 		}
@@ -107,14 +107,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-form-item">
 			<label class="layui-form-label">开始时间</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" id="startTimeId" name="startTime" placeholder="开始时间" val="${activities.startTime }"
+				<input class="layui-input" id="startId" name="startTime" placeholder="开始时间" val="${activities.startTime }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
         <div class="layui-form-item">
 			<label class="layui-form-label">结束时间</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" id="endTimeId" name="endTime" placeholder="结束时间" val="${activities.endTime }"
+				<input class="layui-input" id="endId" name="endTime" placeholder="结束时间" val="${activities.endTime }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>

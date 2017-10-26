@@ -62,6 +62,7 @@ public class UserServiceImpl implements UserService {
 	
 	//验证用户名密码
 	public User checkLogin(User user){
+		
 		user.setPassword(SecurityUtil.strToMD5(user.getPassword()));
 		return userMapper.checkLogin(user);
 		

@@ -68,9 +68,15 @@ public class GuidanceController {
 		guidanceService.deleteGuidanceById(id);
 		return "backstage_managed/jsp/guidance/guidance_list";
 	}
-	@RequestMapping("updateGuidanceById")
+	@RequestMapping("/updateGuidanceById")
 	public String updateGuidanceById(Guidance guidance) throws Exception{
 		guidanceService.updateGuidanceById(guidance);
 		return "backstage_managed/jsp/guidance/guidance_list";
+	}
+	@RequestMapping("/findGuidanceById")
+	public String findGuidanceById(HttpServletRequest request,String id) throws Exception{
+		Guidance guidance = guidanceService.queryGuidanceById(id);
+		request.setAttribute("guidance", guidance);
+		return "backstage_managed/jsp/guidance/search_guidance";
 	}
 }

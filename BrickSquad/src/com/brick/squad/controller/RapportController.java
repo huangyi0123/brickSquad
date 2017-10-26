@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.RapportExpand;
 import com.brick.squad.pojo.Rapport;
 import com.brick.squad.service.RapportService;
 import com.brick.squad.util.Pagination;
@@ -29,7 +30,7 @@ public class RapportController {
 		public String toRegionList() {
 			return "backstage_managed/jsp/rapport/rapport_list";
 		}
-
+		
 		@RequestMapping("/getRapportList")
 		@ResponseBody
 		public String getRegionList(int pSize, int cPage, String keyword)
@@ -80,6 +81,12 @@ public class RapportController {
 		public String updateRapportById(Rapport rapport) throws Exception{
 			rapportService.updateRapportByID(rapport);
 			return "backstage_managed/jsp/rapport/rapport_list";
+		}
+		@RequestMapping("/findRapportById")
+		public String findRapportById(HttpServletRequest request,String id) throws Exception{
+			RapportExpand rapportExpand=rapportService.findRapportAndUserAndPersonalInformation(id);
+			request.setAttribute("rapportExpand", rapportExpand);
+			return "backstage_managed/jsp/rapport/search_rapport";
 		}
 	}
 

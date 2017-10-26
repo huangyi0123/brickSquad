@@ -6,8 +6,10 @@
 
 	<select id="findShopActivitiesById" resultType="ShopActivities"
 		parameterType="String">
-		select id,type_id typeId,start_time startTime,end_time endTime,business_id
-		businessId,article_id articleId from shop_activities where id=#{id}
+		select id,type_id typeId,start_time startTime,end_time
+		endTime,business_id
+		businessId,article_id articleId from
+		shop_activities where id=#{id}
 	</select>
 
 	<insert id="insertShopActivitiesById" parameterType="ShopActivities">
@@ -25,7 +27,8 @@
 	</delete>
 
 	<update id="updateShopActivitiesById" parameterType="String">
-		UPDATE shop_activities set id=#{id} ,
+		UPDATE
+		shop_activities set id=#{id} ,
 		type_id=#{typeId},
 		start_time=#{startTime},
 		end_time=#{endTime},
@@ -34,14 +37,23 @@
 		where id =#{id}
 	</update>
 
-	<!-- <select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="shopActivities">
-		select id,type_id typeId,start_time startTime,end_time
-		endTime,business_id businessId,article_id articleId from
-		shop_activities limit #{skipNum},#{takeNum}
 
-	</select> -->
+
+	<!-- 分页查询 级联查询 -->
 	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.ShopActivitiesExpand">
+		SELECT s.id, a.aname aname,b.`name` bname,t.`name` tname,s.start_time startTime,s.end_time endTime
+		
+		from shop_activities s INNER JOIN type t ON s.type_id=t.id INNER JOIN
+		
+		business b ON s.business_id = b.id INNER JOIN article a ON s.type_id =a.id
+
+
+		limit #{skipNum},#{takeNum}
+
+
+	</select>
+	<!-- <select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
 		select shop_activities.id,type.name typeName,shop_activities.start_time startTime,shop_activities.end_time endTime,
 			 business.name businessName,article.aname articleAname from shop_activities 
@@ -49,15 +61,17 @@
 			 JOIN business ON shop_activities.business_id=business.id
 			 JOIN article ON shop_activities.article_id=article.id	limit #{skipNum},#{takeNum}
 
-	</select>
+	</select> -->
 
 	<select id="findShopActivitiesAllCount" resultType="int">
-		select count(*) from shop_activities
-   </select>
-	
-	
-	<select id="findAllShopActivities" resultType="ShopActivities">
-		select shop_activities.type_id from shop_activities
+		select
+		count(*) from shop_activities
 	</select>
-	
+
+
+	<select id="findAllShopActivities" resultType="ShopActivities">
+		select
+		shop_activities.type_id from shop_activities
+	</select>
+
 </mapper>

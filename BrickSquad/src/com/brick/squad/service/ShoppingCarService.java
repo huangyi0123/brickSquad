@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.util.Pagination;
 
@@ -45,4 +46,8 @@ public interface ShoppingCarService {
 	 * 查询购物车关联查询到的需要字段：商品信息字段，老人信息字段
 	 * */
 	public String findArticleAndPersonalInformation()throws Exception;
+	/**
+	 * 查询购物车详细信息，关联查询到老人姓名与商品名称
+	 * */
+	public ShoppingCarExpand findShoppingCarAndUserAndPsersonalInformationById(String id)throws Exception;
 }

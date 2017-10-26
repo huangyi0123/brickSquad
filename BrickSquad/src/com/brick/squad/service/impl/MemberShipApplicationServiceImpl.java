@@ -57,8 +57,10 @@ public class MemberShipApplicationServiceImpl implements
 	public String MemberShipApplicationPagination(Pagination pagination) {
 		List<MemberShipApplicationExpand> memberShipApplications = memberShipApplicationMapper
 				.MemberShipApplicationPagination(pagination);
+
 		
 		System.out.println(memberShipApplications.toString());
+
 		Util<MemberShipApplicationExpand> util = new Util<>();
 		int row = memberShipApplicationMapper
 				.findMemberShipApplicationAllCount();

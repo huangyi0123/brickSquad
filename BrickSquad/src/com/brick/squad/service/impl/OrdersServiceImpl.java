@@ -11,6 +11,7 @@ import java.util.List;
 
 
 
+
 import javax.json.JsonArray;
 
 import net.sf.json.JSONArray;
@@ -85,6 +86,14 @@ public class OrdersServiceImpl implements OrdersService{
 	public OrdersExpand findBuyserAndPersonalInformation(String id) throws Exception {
 		OrdersExpand ordersName=ordersMapper.findBuyserAndPersonalInformation(id);
 		return ordersName;
+	}
+	/**
+	 * 查询订单所有信息关联查询出买家名字
+	 * */
+	@Override
+	public OrdersExpand findOrdersAndBuyserById(String id) throws Exception {
+		OrdersExpand ordersExpand=ordersMapper.findOrdersAndBuyserById(id);
+		return ordersExpand;
 	}
 	
 }

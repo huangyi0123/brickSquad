@@ -8,12 +8,14 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
+
                 key: 'id',
                 text: '订单项ID'
             },
             {
                 key: 'articleAname',
-                text: '商品ID'
+
+              text: '商品ID'
             },
             {
                 key: 'ordersId',
@@ -37,7 +39,10 @@ function init(keyword) {
 							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:70px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteOrdersDetails("'
 
 							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="orderDetails/findOrdersDetailsById?id='
+
+							+ rowData.id
+							+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
 				}
 			} ]
     });
