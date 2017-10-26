@@ -53,7 +53,7 @@
 <body class="layui-layout-body gray-bg">
 
 	<div class="middle-box text-center loginscreen  animated fadeInDown">
-	<h1>修改密码</h1>
+	<h2>修改密码</h2>
 		<form class="layui-form" action="user/updatePassword" method="post"
 			role="form">
 			<div class="layui-form-item">

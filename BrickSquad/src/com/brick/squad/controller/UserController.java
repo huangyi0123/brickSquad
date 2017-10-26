@@ -138,6 +138,8 @@ public class UserController {
 	@RequestMapping("/toUpdatePassword")
 	public String toUpdatePassword(HttpServletRequest request,
 			String username) {
+		System.out.println(username);
+		
 		User user = userService.findUserByusername(username);
 		if (user != null) {
             request.setAttribute("user", user);

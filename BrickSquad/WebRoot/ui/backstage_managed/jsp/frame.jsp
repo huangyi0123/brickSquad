@@ -197,6 +197,8 @@
 							href="contacts.html">联系我们</a></li>
 						<li><a style="text-align: center;" class="J_menuItem"
 							href="mailbox.html">信箱</a></li>
+							<li><a style="text-align: center;" class="J_menuItem"
+							href="user/toUpdatePassword?username=${user.username }">修改密码</a></li>
 						<li class="dropdown"><a style="text-align: center;"
 							class="dropdown-toggle count-info" data-toggle="dropdown"
 							href="#"> 信息 <span style="margin-top: -5px;"
@@ -237,8 +239,7 @@
 			</div>
 			<div class="footer">
 				<div class="pull-right">
-					&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's
-						blog</a>
+					&copy; 2017-2019 <a href="" target="_blank"></a>
 				</div>
 			</div>
 		</div>

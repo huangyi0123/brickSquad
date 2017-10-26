@@ -47,6 +47,9 @@
 		select count(*) from user
 
 	</select>
+	<select id="findUserByusername" resultType="user" parameterType="String">
+		select role_id roleId, username,telephone,id FROM user WHERE  username=#{username} 
+	</select>
 	<select id="findUserById" resultType="user" parameterType="String">
 		select role_id roleId, username,telephone,id FROM user WHERE  id=#{id} 
 	</select>
