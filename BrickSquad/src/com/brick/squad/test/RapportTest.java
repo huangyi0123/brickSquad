@@ -70,4 +70,8 @@ public class RapportTest {
 		pagination.setPageSize(3);
 		System.out.println(rapportService.rapportPagination(pagination));
 	}
+	@Test
+	public void findRapportAndUserAndPersonalInformation() throws Exception{
+		System.out.println(rapportService.findRapportAndUserAndPersonalInformation("b418bf20b93811e78d4f5254002ec43c").getUsername());
+	}
 }

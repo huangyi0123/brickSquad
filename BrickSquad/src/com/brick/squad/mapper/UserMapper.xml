@@ -12,36 +12,48 @@
 		</selectKey>
 		INSERT INTO user(id,username,password,telephone,role_id)
 		VALUES(#{id},#{username},#{password},#{telephone},#{roleId})
+
 	</insert>
-	<update id="updateUser" parameterType="String">
-		UPDATE user SET
-		password=#{password} WHERE username=#{username}
+	<update id="updateUserById" parameterType="String">
+		UPDATE user SET username=#{username},telephone=#{telephone} WHERE id=#{id}
 	</update>
+	
+	
 	<delete id="deleteUser" parameterType="String">
 		delete from user where
 		username=#{username};
+
 	</delete>
 
-	<select id="userPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="user">
+	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
 		select
 		<include refid="prop" />
 		from user limit #{skipNum},#{takeNum}
+
 	</select>
 
 	<select id="userCount" resultType="int">
 		select count(*) from user
-	</select>
 
+	</select>
+	<select id="findUserById" resultType="user" parameterType="String">
+		select username,telephone,id FROM user WHERE  id=#{id} 
+	</select>
 	<select id="checkLogin" parameterType="user" resultType="user">
 		select
 		<include refid="prop" />
 		FROM user WHERE username=#{username} and password=#{password}
+
 	</select>
 
 	<select id="findUsername" resultType="user" parameterType="String">
 		select username from user where username=#{username}
 	</select>
+
+	<select id="loginCheck"  resultType="user"  parameterType="String">
+		select username from user where username=#{username} AND password=#{password}
+	</select>
+
 	<select id="findAllUser" resultType="com.brick.squad.util.Select">
 		SELECT id,username name
 		FROM
@@ -52,4 +64,5 @@
 		id,password,username,telephone,role_id roleId
 		FROM user
 	</select>
+	
 </mapper>

@@ -20,6 +20,8 @@
 <meta http-equiv="description" content="This is my page">
 <title>H+ li主题UI框架 - 主页</title>
 <link rel="shortcut icon" href="favicon.ico">
+<link href="ui/backstage_managed/plugins/layui/css/layui.css"
+	rel="stylesheet" type="text/css" media="all" />
 <link href="ui/backstage_managed/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" />
 <link href="ui/backstage_managed/plugins/fonts/font-awesome.min.css"
@@ -36,10 +38,14 @@
 <script src="ui/backstage_managed/js/hplus.min.js?v=4.0.0"></script>
 <script type="text/javascript"
 	src="ui/backstage_managed/js/contabs.min.js"></script>
+<script type="text/javascript"
+	src="ui/backstage_managed/plugins/angularjs/angular.min.js"></script>
+	<script type="text/javascript"
+	src="ui/backstage_managed/plugins/layui/layui.js"></script>
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg"
-	style="overflow:hidden">
+	style="overflow:hidden" ng-app="" >
 	<div id="wrapper">
 		<!--左侧导航开始-->
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -67,7 +73,8 @@
 
 
 						<li><a class="J_menuItem" href="user/toUserList">用户信息列表</a></li>
-						<li><a class="J_menuItem" href="personalInformation/toPersonalInformation">老人信息列表</a></li>
+						<li><a class="J_menuItem"
+							href="personalInformation/toPersonalInformation">老人信息列表</a></li>
 
 					</ul></li>
 
@@ -169,15 +176,15 @@
 						<li class="J_tabCloseAll"><a>关闭全部选项卡</a></li>
 						<li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
 					</ul>
-				</div>
-				<div
+				</div> 
+				<div  ng-if="${user!=null }"
 					style="height:30px;width:160px; text-align:center;  float:right; margin-right: 10px;margin-top: -54px;"
 					class="dropdown profile-element">
 					<a style="text-align: center;" data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <span class="clear">
 							<span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
 							<span style="margin-top: -20px;text-align:center;"
-							class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+							class="text-muted text-xs block">${user.username }<b class="caret"></b></span>
 					</span>
 					</a>
 					<ul style="margin-top: 25px; "
@@ -219,7 +226,7 @@
 								</li>
 							</ul></li>
 						<li class="divider"></li>
-						<li><a style="text-align: center;" href="login.html">安全退出</a></li>
+						<li><a style="text-align: center;" href="javascript:;" onclick="logout()"> 安全退出</a></li>
 					</ul>
 				</div>
 			</div>
@@ -239,4 +246,26 @@
 	</div>
 
 </body>
+<script type="text/javascript">
+function logout() {
+	layui.use('layer', function() {
+		var layer = layui.layer;
+		layer.open({
+			title:'提示',
+			content:"是否退出系统？",
+			offset : '200px',
+			btn:["确认","取消"],
+			yes:function(index){
+				$.ajax({
+					url:"user/logout",
+					success:function(data){
+						window.location="ui/frontEnd_manage/index.jsp";
+						layer.close(index);
+					}
+				});
+			}
+		});
+	});
+}
+</script>
 </html>

@@ -7,9 +7,9 @@ import com.brick.squad.util.Pagination;
 
 public interface BuyersMapper {
 	public void insertBuyers(Buyers buyers) throws Exception;
-	public List<Buyers> findBuyersByUUID (String id) throws Exception;
+	public Buyers findBuyersByUUID (String id) throws Exception;
 	public void updateBuyersById(Buyers buyers) throws Exception;
-	public void deleteBuyersById(Buyers buyers) throws Exception;
+	public void deleteBuyersById(String id) throws Exception;
 	public List<Buyers> buyersPagination(Pagination pagination) throws Exception;
 	public int findBuyersAllCount() throws Exception;
 	/**

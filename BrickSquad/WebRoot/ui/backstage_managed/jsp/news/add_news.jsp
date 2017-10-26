@@ -29,6 +29,7 @@
 <script type="text/javascript"
 	src="ui/backstage_managed/plugins/layui/lay/modules/laydate.js"></script>
 	<script type="text/javascript" src="ui/backstage_managed/js/common.js"></script>
+	<script type="text/javascript" src="ui/backstage_managed/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
 $(function() {
 	$.ajax({
@@ -58,10 +59,34 @@ $(function() {
 	var da = $("#nda").attr('val');
 	dat = Format(new Date(da), "yyyy-MM-dd");
 	$("#nda").val(dat);
-	var content=$("#content").attr('val');
-	console.log(content);
-	$("#content").val(content);
+	//添加wangedit
+	var E = window.wangEditor;
+    var editor = new E('#editor');
+    editor.customConfig.showLinkImg = false;
+    editor.customConfig.menus = [
+                                 'bold',
+                                 'italic',
+                                 'underline',
+                                 'strikeThrough',  // 删除线
+                                 'foreColor',  // 文字颜色
+                                 'backColor',  // 背景颜色
+                                 'link',  // 插入链接
+                                 'justify',  // 对齐方式
+                                 'quote',  // 引用
+                                 'emoticon',  // 表情
+                                 'image',  // 插入图片
+                                 'table',  // 表格
+                                 'code',  // 插入代码
+                                 'undo',  // 撤销
+                                 'redo'  // 重复
+                             ];
+    editor.customConfig.uploadImgShowBase64 = true;
+    editor.create();
+    $("#reset").click(function(){
+    	console.log($("#editor").html());
+    });
 });
+
 </script>
 </head>
 <body>
@@ -72,14 +97,6 @@ $(function() {
 	<form class="layui-form" action="news/${url}" id="form1"
 		method="post">
 		<input type="hidden" name="id" value="${news.id }">
-		<%-- <div class="layui-form-item">
-			<label class="layui-form-label">新闻ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="id" required lay-verify="required"
-					placeholder="新闻ID" autocomplete="off" class="layui-input"
-					value="${news.id }">
-			</div>
-		</div> --%>
 		 <div class="layui-form-item">
 			<label class="layui-form-label">编辑用户名</label>
 			<div class="layui-input-inline">
@@ -116,15 +133,14 @@ $(function() {
 		</div>
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">编辑内容</label>
-			<div class="layui-input-block">
-				<textarea name="content" placeholder="请输入内容" class="layui-textarea" 
-				val="${news.content }" id="content"></textarea>
+			<div class="layui-input-block" id="editor">
+				
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				<button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
 			</div>
 		</div>
 	</form>

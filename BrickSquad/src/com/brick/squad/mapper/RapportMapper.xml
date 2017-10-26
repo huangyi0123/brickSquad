@@ -71,4 +71,12 @@
 		JOIN `user` u ON r.user_id=u.id
 		limit #{skipNum},#{takeNum}
 	</select>
+	<select id="findRapportAndUserAndPersonalInformation" parameterType="java.lang.String" 
+	resultType="com.brick.squad.expand.RapportExpand">
+	SELECT r.id,u.username, p.name,
+		r.goal,r.content,r.rapport_date rapportDate,r.period
+		from rapport r INNER JOIN personal_information p ON r.per_id =p.id INNER
+		JOIN `user` u ON r.user_id=u.id
+		WHERE r.id = #{id,jdbcType=VARCHAR}
+	</select>
 </mapper>
