@@ -60,9 +60,9 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">主要疾病：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="disease" required lay-verify="required"
+				<input type="text" name="disease" value="${guidance.disease}" required lay-verify="required"
 					autocomplete="off" class="layui-input"
-					value="${guidance.disease}" readonly="readonly"
+					readonly="readonly"
 					style="border: none;background: #F3F3F4;">
 			</div>
 		</div>
