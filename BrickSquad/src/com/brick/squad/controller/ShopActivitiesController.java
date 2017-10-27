@@ -38,6 +38,7 @@ public class ShopActivitiesController {
 	@ResponseBody
 	public String getShopActivitiesList(int pSize,int cPage,String keyword){
 		Pagination pagination=new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return  shopActivitiesService.shopActivitiesPagination(pagination);

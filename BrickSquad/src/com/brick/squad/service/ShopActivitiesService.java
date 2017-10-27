@@ -35,7 +35,7 @@ public interface ShopActivitiesService {
 	
 	public String shopActivitiesPagination(Pagination pagination);
 	
-	public int findShopActivitiesAllCount();
+	//public int findShopActivitiesAllCount();
 	
 	public String findAllShopActivities();
 	
