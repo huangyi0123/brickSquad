@@ -38,14 +38,25 @@
 	
 	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.UserExpand">
 		
-		SELECT user.id,user.password,user.username,user.telephone,role.name FROM user JOIN role on user.role_id=role.id limit #{skipNum},#{takeNum}
+	<if test="keyword!=''">
+		SELECT user.id,user.password,user.username,user.telephone,role.name 
+		FROM user JOIN role on user.role_id=role.id WHERE username REGEXP #{keyword} limit #{skipNum},#{takeNum}
 	
-	
+	</if>
+	<if test="keyword==''"> 
+		SELECT user.id,user.password,user.username,user.telephone,role.name 
+		FROM user JOIN role on user.role_id=role.id  limit #{skipNum},#{takeNum}	
+	</if>
+		
 	</select>
 	
-	<select id="userCount" resultType="int">
+	<select id="userCount"  resultType="int" parameterType="com.brick.squad.util.Pagination">
 		select count(*) from user
-
+		<if test="keyword!=''">
+		 
+		WHERE username REGEXP #{keyword} limit #{skipNum},#{takeNum}
+	
+	</if>
 	</select>
 	<select id="findUserByusername" resultType="user" parameterType="String">
 		select role_id roleId, username,telephone,id FROM user WHERE  username=#{username} 

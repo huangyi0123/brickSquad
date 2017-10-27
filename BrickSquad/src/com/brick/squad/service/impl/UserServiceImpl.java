@@ -42,17 +42,17 @@ public class UserServiceImpl implements UserService {
 	
 	public String userPagination(Pagination pagination){
 		List<UserExpand> users=userMapper.userPagination(pagination); 
-		int row=userMapper.userCount();
+		int row=userMapper.userCount(pagination);
 		Util<UserExpand> util=new Util<UserExpand>();
 		String data=util.SplitPage(users, row);
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int userCount() {
 		int count= userMapper.userCount();
 		return count;
-	}
+	}*/
 	
 	//验证用户名密码
 	public User checkLogin(User user){
