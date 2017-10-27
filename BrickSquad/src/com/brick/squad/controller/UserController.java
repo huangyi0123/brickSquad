@@ -26,6 +26,7 @@ public class UserController {
 		return "backstage_managed/jsp/user/user_list";
 	}
 
+
 	@RequestMapping("/getUserList")
 	@ResponseBody
 	public String getUserList(int pSize, int cPage, String keyword) {
@@ -56,6 +57,7 @@ public class UserController {
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
 			return "backstage_managed/jsp/frame";
+			
 		}
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
@@ -73,7 +75,7 @@ public class UserController {
 		user.setPassword(passwordMD5);
 		user.setRoleId("1");
 		userService.addUser(user);
-		return "backstage_managed/jsp/frame";
+		return "redirect:/user/toLogin";
 	}
 
 	// 校验用户名是否存在
