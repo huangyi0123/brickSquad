@@ -10,7 +10,7 @@ public interface RoleService {
 	public void updateRole(String id, String name);
 	public Role findRole(String id);
 	public String rolePagination(Pagination pagination);
-	public int roleCount();
+	//public int roleCount();
 	/***
 	 * 添加角色信息
 	 * @param role
