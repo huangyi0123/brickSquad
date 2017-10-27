@@ -42,34 +42,42 @@
 	<!-- 分页查询 级联查询 -->
 	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
-		SELECT s.id, a.aname aname,b.`name` bname,t.`name` tname,s.start_time startTime,s.end_time endTime
 		
-		from shop_activities s INNER JOIN type t ON s.type_id=t.id INNER JOIN
+		<if test="keyword!=''">
+		SELECT shop_activities.id,article.aname aname,business.`name` bname,type.`name` tname,
+			shop_activities.start_time startTime,shop_activities.end_time endTime
 		
-		business b ON s.business_id = b.id INNER JOIN article a ON s.type_id =a.id
-
-
-		limit #{skipNum},#{takeNum}
-
+		from shop_activities  JOIN type   ON shop_activities.type_id=type.id  JOIN
+		
+		business  ON shop_activities.business_id = business.id  JOIN article   ON shop_activities.type_id =article.id
+		 WHERE article.aname REGEXP #{keyword} or business.`name` REGEXP #{keyword}
+		 or type.`name` REGEXP #{keyword}  limit #{skipNum},#{takeNum}
+		
+	
+		</if>
+		<if test="keyword==''"> 
+		SELECT shop_activities.id,article.aname aname,business.`name` bname,type.`name` tname,
+			shop_activities.start_time startTime,shop_activities.end_time endTime
+		
+		from shop_activities   JOIN type   ON shop_activities.type_id=type.id   JOIN
+		
+		business  ON shop_activities.business_id = business.id JOIN article   ON shop_activities.type_id =article.id limit #{skipNum},#{takeNum}
+	</if>
 
 	</select>
-	<!-- <select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="com.brick.squad.expand.ShopActivitiesExpand">
-		select shop_activities.id,type.name typeName,shop_activities.start_time startTime,shop_activities.end_time endTime,
-			 business.name businessName,article.aname articleAname from shop_activities 
-			 JOIN type ON shop_activities.type_id=type.id 
-			 JOIN business ON shop_activities.business_id=business.id
-			 JOIN article ON shop_activities.article_id=article.id	limit #{skipNum},#{takeNum}
-
-	</select> -->
-
-	<select id="findShopActivitiesAllCount" resultType="int">
+	
+	<select id="findShopActivitiesAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		select
 		count(*) from shop_activities
+		<if test="keyword!=''">
+		 ,article,business,type
+		 WHERE article.aname REGEXP #{keyword} or business.name REGEXP #{keyword} 
+		 or type.name REGEXP #{keyword}  limit #{skipNum},#{takeNum}
+		</if>
 	</select>
 
 
-	<select id="findAllShopActivities" resultType="ShopActivities">
+	<select id="findAllShopActivities" resultType="ShopActivities" >
 		select
 		shop_activities.type_id from shop_activities
 	</select>
