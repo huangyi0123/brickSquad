@@ -12,8 +12,56 @@
 <base href="<%=basePath%>">
 
 <title>Home</title>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			url : 'news/findNews',
+			success : function(result) {
+				result = JSON.parse(result);
+				$(result).each(
+						function() {
+							var title = this.title.length > 16 ? this.title
+									.substring(0, 17)
+									+ "..." : this.title;
+							$("#news").append(
+									'<li><a title="' + this.title
+											+ '" href="news/findNewsExpandById?id='
+											+ this.id
+											+ '"><span class="title">' + title
+											+ '</span><span class="time">'
+											+ this.postTime
+											+ '</span> </a></li>');
+						});
+			}
+		});
+	});
+</script>
+<style type="text/css">
+.news>li {
+	height: 30px;
+	width: 100%
+}
+
+.news>li>a {
+	display: block;
+}
+
+.title {
+	font-size: 15px;
+	line-height: 30px;
+	display: block;
+	float: left;
+}
+
+.time {
+	line-height: 30px;
+	display: block;
+	float: right;
+}
+</style>
 <body>
-	<jsp:include page="WEB-INF/frontEnd_manage/head.jsp"/>
+	<jsp:include page="WEB-INF/frontEnd_manage/head.jsp" />
 	<div class="content-bottom">
 		<div class="btm-grids">
 			<div class="col-md-4 btm-grid back-col1 text-center">
@@ -22,23 +70,7 @@
 			<div class="col-md-4 btm-grid btm-wid">
 				<h3>最新动态</h3>
 				<p>
-				<ul class="news">
-					<li>
-						<!--  要改路径-->
-						<a href="" style="display:block; line-height: 30px">
-							<span style="font-size:24px;margin-left: 10px;display: block;float: left;">xxxxxxxxxxxxxxxxxxx</span>
-							<span
-								style="margin-right: 5px;display: block;float: right;margin-bottom: 0;line-height: 27.2px;">2017.10.11</span>
-						</a>
-					</li>
-					<li>
-						<a href="#" style="clear:both; line-height: 30px">
-							<span style="font-size:24px;margin-left: 10px;display: block;float: left;">xxxxxxxxxxxxxxxxxxx</span>
-							<span
-								style="margin-right: 5px;display: block;float: right;margin-bottom: 0;line-height: 27.2px;">2017.10.11</span>
-						</a>
-					</li>
-				</ul>
+				<ul class="news" id="news"></ul>
 				</p>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
@@ -184,5 +216,5 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="WEB-INF/frontEnd_manage/indexFooter.jsp"/></ body>
+	<jsp:include page="WEB-INF/frontEnd_manage/indexFooter.jsp" /></ body>
 </html>

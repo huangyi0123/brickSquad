@@ -43,4 +43,15 @@ public interface NewsMapper {
 	 * 根据新闻ID查询信息
 	 * */
 	public News findNewsById(String id)throws Exception;
+	/**
+	 * 获取 最新10条新闻
+	 * @return 新闻内容
+	 */
+	public List<News> findNewsList();
+	/**
+	 * 根据id查询新闻详情
+	 * @param id id
+	 * @return 新闻详情
+	 */
+	public NewsExpand findNewsExpandById(String id);
 }
