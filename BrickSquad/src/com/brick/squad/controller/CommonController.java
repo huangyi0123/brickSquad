@@ -20,12 +20,12 @@ import com.brick.squad.util.UpLoadFile;
 public class CommonController {
 	@RequestMapping("/toFrame")
 	public String toFrame() {
-		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
+		return "backstage_managed/jsp/frame";
 	}
 
 	@RequestMapping("/toIndex")
 	public String toIndex() {
-		return "redirect:/ui/frontEnd_manage/index.jsp";
+		return "frontEnd_manage/index";
 	}
 
 	@RequestMapping("/uploadImg")

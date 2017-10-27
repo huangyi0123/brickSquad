@@ -41,13 +41,21 @@ public class UserController {
 		return "backstage_managed/jsp/user/login";
 
 	}
+/**
+ * 跳转到用户验证
+ * @return
+ */
+	@RequestMapping("/toUserAccountAuthentication")
+	public String toUserAccountAuthentication() {
+		return "backstage_managed/jsp/user/userAccountAuthentication";
+	}
 
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1) {
 		User user = userService.checkLogin(user1);
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
-			return "redirect:/ui/frontEnd_manage/jsp/turn.jsp";
+			return "backstage_managed/jsp/frame";
 		}
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
@@ -56,7 +64,7 @@ public class UserController {
 
 	@RequestMapping("/toRegister")
 	public String toRegister() {
-		return "redirect:/ui/backstage_managed/jsp/user/register.jsp";
+		return "backstage_managed/jsp/user/register";
 	}
 
 	@RequestMapping("/register")
@@ -65,7 +73,7 @@ public class UserController {
 		user.setPassword(passwordMD5);
 		user.setRoleId("1");
 		userService.addUser(user);
-		return "redirect:/ui/backstage_managed/jsp/frame.jsp";
+		return "backstage_managed/jsp/frame";
 	}
 
 	// 校验用户名是否存在
@@ -118,7 +126,7 @@ public class UserController {
 	public String toAddUser2(HttpServletRequest request, User user, Model model) {
 		userService.updateUserById(user.getUsername(), user.getTelephone(),
 				user.getId());
-		return "redirect:/ui/backstage_managed/jsp/user/user_list.jsp";
+		return "backstage_managed/jsp/user/user_list.jsp";
 
 	}
 
@@ -136,25 +144,26 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/toUpdatePassword")
-	public String toUpdatePassword(HttpServletRequest request,
-			String username) {
+	public String toUpdatePassword(HttpServletRequest request, String username) {
 		System.out.println(username);
-		
+
 		User user = userService.findUserByusername(username);
 		if (user != null) {
-            request.setAttribute("user", user);
+			request.setAttribute("user", user);
 			return "/backstage_managed/jsp/user/userUpdatePassword";
 		}
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "验证失败，你输入的账户不存在！");
 		return "/backstage_managed/jsp/user/userAccountAuthentication";
 	}
+
 	/**
 	 * 修改密码
+	 * 
 	 * @param user
 	 */
 	@RequestMapping("/updatePassword")
-	public String updatePassword(HttpServletRequest request ,User user){
+	public String updatePassword(HttpServletRequest request, User user) {
 		userService.updateUserById(user);
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "密码修改成功！请重新登录");

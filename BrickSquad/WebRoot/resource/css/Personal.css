@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+.Person_body {
+	width: 100%;
+	height: 100%;
+	/* background-color: red; */
+}
+
+.Person_left {
+	width: 25%;
+	height: 100%;
+	float: left;
+	/* background-color: blue; */
+}
+
+.Person_right {
+	width: 75%;
+	height: 100%;
+	float: right;
+	/* background-color: green; */
+}
+
+.layui-tab-item1 label {
+	line-height: 30px;
+	margin-top: 20px;
+	margin-left: 50px;
+	display: block;
+}
+
+.layui-tab-item2>a {
+	display: block;
+	color: #236FC0;
+}
+
+.layui-tab-item2>a:HOVER {
+	color: #5EBC5E;
+}
+
+.layui-tab-item2 label {
+	line-height: 30px;
+	margin-top: 5px;
+	margin-left: 50px;
+	display: block;
+}
+
+.layui-tab-item3 label {
+	line-height: 30px;
+	margin-top: 30px;
+	margin-left: 50px;
+	display: block;
+}
+
+.high_input:FOCUS {
+	border:1px solid black;
+}
