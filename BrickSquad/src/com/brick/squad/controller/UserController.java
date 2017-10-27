@@ -30,6 +30,7 @@ public class UserController {
 	@ResponseBody
 	public String getUserList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return userService.userPagination(pagination);
