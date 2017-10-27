@@ -45,16 +45,16 @@ public class RoleServiceImpl implements RoleService{
 	
 	public  String rolePagination(Pagination pagination){
 		List<Role> roles= roleMapper.rolePagination(pagination);
-		int row=roleMapper.roleCount();
+		int row=roleMapper.roleCount(pagination);
 		Util<Role> util=new Util<Role>();
 		String data=util.SplitPage(roles,row);
 		return data;
 		
 	}
-	public int roleCount(){
+	/*public int roleCount(){
 		int count=roleMapper.roleCount();
 		return count;
-	}
+	}*/
 	/***
 	 * 添加角色信息
 	 * @param role

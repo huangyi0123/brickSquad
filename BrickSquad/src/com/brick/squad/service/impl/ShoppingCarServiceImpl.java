@@ -63,19 +63,19 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		return shoppingCars;
 	}
 
-	@Override
-	/**查询购物车总数*/
+	/*@Override
+	*//**查询购物车总数*//*
 	public Integer findShoppingCarCount() throws Exception {
 		Integer countShoppingCar=shoppingCarMapper.findShoppingCarCount();
 		return countShoppingCar;
-	}
+	}*/
 
 	@Override
 	/**分页查询购物车*/
 	public String shoppingCarPagination(Pagination pagination)
 			throws Exception {
 		List<ShoppingCarExpand> regions=shoppingCarMapper.shoppingCarPagination(pagination);
-		int row=shoppingCarMapper.findShoppingCarCount();
+		int row=shoppingCarMapper.findShoppingCarCount(pagination);
 		Util<ShoppingCarExpand> util=new Util<ShoppingCarExpand>();
 		String data=util.SplitPage(regions, row);
 		return data;

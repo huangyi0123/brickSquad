@@ -22,7 +22,7 @@ public interface ShopActivitiesMapper {
 	
 	public List<ShopActivitiesExpand> shopActivitiesPagination(Pagination pagination);
 
-	public int findShopActivitiesAllCount();
+	public int findShopActivitiesAllCount(Pagination pagination);
 	
 	public List<ShopActivities> findAllShopActivities();
 }

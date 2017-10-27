@@ -10,7 +10,17 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet">
+<link href="resource/plugins/fonts/font-awesome.min.css"
+	rel="stylesheet">
+<link href="resource/plugins/layui/css/layui.css"
+	rel="stylesheet">
+<link href="resource/css/animate.min.css" rel="stylesheet">
+<link href="resource/css/style.min.css" rel="stylesheet">
+<script src="resource/plugins/jquery/jquery.min.js"></script>
+<script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="resource/plugins/layui/layui.js"></script>
 <title>Home</title>
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">

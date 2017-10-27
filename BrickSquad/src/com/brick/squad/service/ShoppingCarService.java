@@ -37,7 +37,7 @@ public interface ShoppingCarService {
 	/**
 	 * 查询购物车总数
 	 * */
-	public Integer findShoppingCarCount()throws Exception;
+	//public Integer findShoppingCarCount()throws Exception;
 	/**
 	 * 购物车分页查询
 	 * */

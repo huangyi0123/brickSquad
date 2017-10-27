@@ -66,10 +66,12 @@ public class UserServiceTest {
 		System.out.println(list.size());
 	}*/
 	//@Test
-	public void userCount(){
+	/*public void userCount(){
 		
-		//System.out.println(userService.userCount());
-	}
+<<<<<<< HEAD
+		System.out.println(userService.userCount());
+	}*/
+
 	//@Test
 	public void testUserPagination() throws Exception{
 		Pagination pagination = new Pagination();

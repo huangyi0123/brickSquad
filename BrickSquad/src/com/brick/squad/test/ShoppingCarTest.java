@@ -58,11 +58,11 @@ public class ShoppingCarTest {
 			System.out.println(shoppingCar.getDate());
 		}
 	}
-	@Test
+	/*@Test
 	public void findCount() throws Exception{
 		Integer count=shoppingCarService.findShoppingCarCount();
 		System.out.println(count);
-	}
+	}*/
 	@Test
 	public void shoppingCarPagination() throws Exception{
 		Pagination pagination = new Pagination();

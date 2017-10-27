@@ -31,7 +31,7 @@ public interface ShoppingCarMapper {
 	/**
 	 * 查询购物车总数
 	 * */
-	public Integer findShoppingCarCount();
+	public Integer findShoppingCarCount(Pagination pagination);
 	/**
 	 * 购物车分页查询
 	 * */

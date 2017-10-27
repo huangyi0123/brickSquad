@@ -15,7 +15,7 @@ class LoginInterceptor implements HandlerInterceptor {
 			HttpServletResponse response, Object handler) throws Exception {
 	
 		String urlString = request.getRequestURI();// 取得当前请求
-		// 放行
+		// 直接放行
 		if (urlString.indexOf("toIndex") > 0
 				|| urlString.indexOf("toRegister") > 0
 				|| urlString.indexOf("toUpdatePassword") > 0
@@ -30,19 +30,15 @@ class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		User user = null;
 		user = (User) session.getAttribute("user");
-
+		//用户登录后放行
 		if (user != null) {
 			return true;
 		}
-
-		/*
-		 * request.setAttribute("msg", "请先登录"); request.getRequestDispatcher(
-		 * "/ui/frontEnd_manage/index.jsp").forward( request, response);
-		 */
 		//拦截后跳转
 		else {
-			response.sendRedirect(request.getContextPath()
-					+ "/frontEnd_manage/index.jsp");
+			request.setAttribute("flag", "2");
+			request.setAttribute("msg", "请先登录");
+			 request.getRequestDispatcher("/index.jsp").forward( request, response);
 			return false;
 		}
 

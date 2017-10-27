@@ -36,6 +36,8 @@ public class ShoppingCarController {
 	@ResponseBody
 	public String getRegionList(int pSize,int cPage,String keyword) throws Exception {
 		Pagination pagination=new Pagination();
+		pagination.setKeyword(keyword);
+		System.out.println(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		String value=shoppingCarService.shoppingCarPagination(pagination);
