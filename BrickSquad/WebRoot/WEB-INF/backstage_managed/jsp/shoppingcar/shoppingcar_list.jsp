@@ -21,31 +21,24 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/grid_manager/GridManager.min.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/layui/css/layui.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/fonts/font-awesome.min.css">
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/grid_manager/GridManager.min.js"></script>
-<script type="text/javascript"
-	src="resource/js/shoppingcar_list.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/plugins/grid_manager/GridManager.min.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/fonts/font-awesome.min.css">
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/grid_manager/GridManager.min.js"></script>
+<script type="text/javascript" src="resource/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/js/shoppingcar_list.js"></script>
+
 <script type="text/javascript">
 	$(function() {
 		init("");
-		addShoppingCar("");
 		serach();
+		addShoppingCar("");
+		
 	});
-	layui.use('form', function() {
+	 layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 	});
 </script>
