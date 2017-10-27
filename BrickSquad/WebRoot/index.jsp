@@ -10,8 +10,30 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet">
+<link href="resource/plugins/fonts/font-awesome.min.css"
+	rel="stylesheet">
+<link href="resource/plugins/layui/css/layui.css"
+	rel="stylesheet">
+<link href="resource/css/animate.min.css" rel="stylesheet">
+<link href="resource/css/style.min.css" rel="stylesheet">
+<script src="resource/plugins/jquery/jquery.min.js"></script>
+<script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="resource/plugins/layui/layui.js"></script>
 <title>Home</title>
+<script type="text/javascript">
+$(function() {
+	var flag = '${flag}';
+	if (flag == '2') {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			var msg = '${msg}';
+			layer.msg(msg);
+		});
+	}
+
+});</script>
 <body>
 	<jsp:include page="WEB-INF/frontEnd_manage/head.jsp"/>
 	<div class="content-bottom">
