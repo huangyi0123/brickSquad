@@ -260,7 +260,7 @@ function logout() {
 				$.ajax({
 					url:"user/logout",
 					success:function(data){
-						window.location="common/toIndex";
+						window.location="/BrickSquad/user/toLogin";
 						layer.close(index);
 					}
 				});
