@@ -26,7 +26,7 @@ public User findUserByusername(String username) ;
 	//用户分页查询
 	public List<UserExpand> userPagination(Pagination pagination);
 	//用户分页条数
-	public int userCount(); 
+	public int userCount(Pagination pagination); 
 	//用户登录
 	public User checkLogin(User user);
 

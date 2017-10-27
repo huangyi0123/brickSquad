@@ -24,7 +24,7 @@ public interface UserService {
 	public void addUser(User user);
 
 	// 用户分页显示
-	public int userCount();
+	//public int userCount();
 
 	// 用户登录
 	public User checkLogin(User user);

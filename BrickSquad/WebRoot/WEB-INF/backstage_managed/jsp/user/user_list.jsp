@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="expires" content="0">     
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="resource/plugins/grid_manager/GridManager.min.js"></script>
 	<script type="text/javascript" src="resource/js/user_list.js"></script>
+	
 	<script type="text/javascript">
 	$(function() {
 		init("");

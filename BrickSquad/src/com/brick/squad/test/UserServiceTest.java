@@ -68,7 +68,7 @@ public class UserServiceTest {
 	//@Test
 	public void userCount(){
 		
-		System.out.println(userService.userCount());
+		//System.out.println(userService.userCount());
 	}
 	//@Test
 	public void testUserPagination() throws Exception{
