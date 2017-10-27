@@ -51,6 +51,7 @@
 
 			<form class="m-t" role="form" action="user/login" method="post">
 			<!-- <input type="hidden" name="f" id="admin"> -->
+			<input type="hidden" name="type" value="${type }">
 				<div class="form-group">
 					<input name="username" type="text" class="form-control"
 						id="username" placeholder="用户名" required="">

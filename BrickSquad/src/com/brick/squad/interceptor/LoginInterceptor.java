@@ -13,8 +13,9 @@ class LoginInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		// 登录放行
+	
 		String urlString = request.getRequestURI();// 取得当前请求
+		// 放行
 		if (urlString.indexOf("toIndex") > 0
 				|| urlString.indexOf("toRegister") > 0
 				|| urlString.indexOf("toUpdatePassword") > 0
@@ -38,6 +39,7 @@ class LoginInterceptor implements HandlerInterceptor {
 		 * request.setAttribute("msg", "请先登录"); request.getRequestDispatcher(
 		 * "/ui/frontEnd_manage/index.jsp").forward( request, response);
 		 */
+		//拦截后跳转
 		else {
 			response.sendRedirect(request.getContextPath()
 					+ "/frontEnd_manage/index.jsp");

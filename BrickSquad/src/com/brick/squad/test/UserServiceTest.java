@@ -68,8 +68,10 @@ public class UserServiceTest {
 	//@Test
 	/*public void userCount(){
 		
+<<<<<<< HEAD
 		System.out.println(userService.userCount());
 	}*/
+
 	//@Test
 	public void testUserPagination() throws Exception{
 		Pagination pagination = new Pagination();
