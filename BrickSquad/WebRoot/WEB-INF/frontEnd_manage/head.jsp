@@ -21,12 +21,9 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link href="resource/plugins/bootstrap/bootstrap.min.css"
-	rel="stylesheet">
-<link href="resource/css/style.css" rel="stylesheet"
-	type="text/css" media="all" />
-<link href="resource/plugins/layui/css/layui.css"
-	rel="stylesheet" type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="resource/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet" type="text/css" media="all" />
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,32 +31,58 @@
 	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
 <script>
 	//注意：导航 依赖 element 模块，否则无法进行功能性操作
 	layui.use('element', function() {
 		var element = layui.element;
 	});
+	var index = null;
 	function login() {
 		layui.use('layer', function() {
-			var index = layer.open({
+			index = layer.open({
 				title : '登录',
 				type : 2,
-				content : "user/toLogin",
+				content : "user/toLogin?type=user",
 				offset : '100px',
 				area : [ '400px', '450px' ],
 				end : function() {
 					location.reload();
 				}
 			});
+
 		});
 	}
+	$(function() {
+		var a = ${user==null};
+		if (!a) {
+			parent.index.closeAll();
+		}
+	});
+	$(function() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			$("#login").click(function() {
+				layer = layer.open({
+					title : '登录',
+					type : 2,
+					content : "user/toLogin?type=user",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+			var a = ${user==null};
+			if (!a) {
+				parent.layer.closeAll();
+			}
+		});
+	});
 	function logout() {
 		layui.use('layer', function() {
 			var layer = layui.layer;
@@ -72,7 +95,7 @@
 					$.ajax({
 						url : "user/logout",
 						success : function(data) {
-							window.location = "resource/index.jsp";
+							window.location = "common/toIndex";
 							layer.close(index);
 						}
 					});
@@ -98,21 +121,31 @@
 		<div class="header" style="height: 70px; background-color: #66CC66;">
 			<div class="logo">
 				<h1>
-					<a href="resource/index.jsp"><i><img
-							src="resource/image/cell.png" alt=" " /></i>老人管理</a>
+					<a href="resource/index.jsp">
+						<i><img src="resource/image/cell.png" alt=" " /></i>老人管理
+					</a>
 				</h1>
 			</div>
 			<div class="top-nav" ng-app="">
-				<span class="menu"><img
-					src="resource/image/menu.png" alt=" " /></span>
+				<span class="menu">
+					<img src="resource/image/menu.png" alt=" " />
+				</span>
 				<ul class="layui-nav"
 					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #66CC66;">
-					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href="">最新活动</a></li>
-					<li class="layui-nav-item"><a href="">老年教育</a></li>
-					<li class="layui-nav-item"><a href="">社区</a></li>
-					<li class="layui-nav-item" ng-if="${user!=null }"><a
-						href="javascript:;">${user.username }</a>
+					<li class="layui-nav-item layui-this">
+						<a href="">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="">最新活动</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="">老年教育</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="">社区</a>
+					</li>
+					<li class="layui-nav-item" ng-if="${user!=null }">
+						<a href="javascript:;">${user.username }</a>
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
 							<dd>
@@ -121,15 +154,17 @@
 							<dd>
 								<a href="javascript:;" onclick="logout()">退出</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item" ng-if="${user==null }"><a
-						href="javascript:;" onclick="login()">登录</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item" ng-if="${user==null }">
+						<a href="javascript:;" id="login">登录</a>
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
 							<dd>
 								<a href="">注册</a>
 							</dd>
-						</dl></li>
+						</dl>
+					</li>
 
 				</ul>
 			</div>
@@ -138,11 +173,9 @@
 				<div id="sb-search" class="sb-search">
 					<form>
 						<input style="background-color:  #5FB878;" class="sb-search-input"
-							placeholder="Enter your search item..." type="search"
-							name="search" id="search">
+							placeholder="Enter your search item..." type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
-						<span class="sb-icon-search" style="background-color:  #66CC66;">
-						</span>
+						<span class="sb-icon-search" style="background-color:  #66CC66;"> </span>
 					</form>
 				</div>
 			</div>

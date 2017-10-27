@@ -25,9 +25,12 @@ public class CommonController {
 
 	@RequestMapping("/toIndex")
 	public String toIndex() {
-		return "frontEnd_manage/index";
+		return "redirect:/";
 	}
-
+	@RequestMapping("/toIndexModal")
+	public String toIndexModal() {
+		return "frontEnd_manage/turn";
+	}
 	@RequestMapping("/uploadImg")
 	@ResponseBody
 	public String uploadImg(MultipartFile file, HttpServletRequest request) {

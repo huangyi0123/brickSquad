@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <div class="footer">
 			<div class="container">
 				<h2>
-						<a href="user/toLogin">后台管理登录</a>
+						<a href="user/toLogin?type=admin">后台管理登录</a>
 				</h2>
 				<p>
 					Copyright &copy; 2017.搬砖小分队

@@ -36,8 +36,9 @@ public class UserController {
 	}
 
 	@RequestMapping("/toLogin")
-	public String toLogin(HttpServletRequest request) {
+	public String toLogin(HttpServletRequest request,String type) {
 		request.setAttribute("flag", "1");
+		request.setAttribute("type", type);
 		return "backstage_managed/jsp/user/login";
 
 	}
@@ -51,17 +52,23 @@ public class UserController {
 	}
 
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request, User user1) {
+	public String login(HttpServletRequest request, User user1,String type) {
 		User user = userService.checkLogin(user1);
+		System.out.println(type+"-------------------------------------");
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
-			return "backstage_managed/jsp/frame";
+			//begin 判断登录类型
+			if (type.equals("admin")) {
+				return "redirect:/common/toFrame";
+			}else {
+				return "redirect:/common/toIndexModal";
+			}
+			//end
 		}
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
 		return "backstage_managed/jsp/user/login";
 	}
-
 	@RequestMapping("/toRegister")
 	public String toRegister() {
 		return "backstage_managed/jsp/user/register";

@@ -31,6 +31,6 @@
 </head>
  <%  
         //转向语句  
-        response.setHeader("Refresh", "0;URL=/BrickSquad/common/toFrame");  
+        response.setHeader("Refresh", "0;URL=/BrickSquad/common/toIndex");  
     %> 
 </html>
