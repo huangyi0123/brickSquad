@@ -8,6 +8,9 @@ public class ShopActivitiesExpand extends ShopActivities{
 	private String businessName;
 	private String articleAname;
 	private String typeName;
+	private String aname;
+	private String bname;
+	private String tname;
 	
 	public String getTypeName() {
 		return typeName;
@@ -27,12 +30,6 @@ public class ShopActivitiesExpand extends ShopActivities{
 	public void setArticleAname(String articleAname) {
 		this.articleAname = articleAname;
 	}
-	
-
-
-	private String aname;
-	private String bname;
-	private String tname;
 	
 	public String getAname() {
 		return aname;
