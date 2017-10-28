@@ -62,7 +62,7 @@ public class CommonController {
 	}
 	@RequestMapping("/businessIndex")
 	public String businessIndex(){
-		return "frontEnd_manage/shop/business";
+		return "frontEnd_manage/business/business";
 	}
 
 	@RequestMapping("/toPersonal")
