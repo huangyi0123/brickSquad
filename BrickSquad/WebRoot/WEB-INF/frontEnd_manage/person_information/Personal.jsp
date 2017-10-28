@@ -13,12 +13,10 @@
 
 <title>My JSP 'Personal.jsp' starting page</title>
 
-<link href="resource/plugins/layui/css/layui.css"
-	rel="stylesheet" type="text/css" media="all" />
-<link href="resource/plugins/bootstrap/bootstrap.min.css"
-	rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css"
-	href="resource/css/Personal.css">
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet" type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"
+	media="all" />
+<link rel="stylesheet" type="text/css" href="resource/css/Personal.css">
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -29,27 +27,24 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 </head>
 
 <body>
-	<div class="Person_body">
+<jsp:include page="../util/head.jsp"></jsp:include>
+	<div class="Person_body"> 
 		<div class="Person_left">
-			<div class="Person_left_src"">
-				<img
-					style="width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;"
-					alt="" src="resource/image/2.png"> <span
+			<div class="Person_left_src">
+				<img style="width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;" alt=""
+					src="resource/image/2.png">
+				<span
 					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">我的用户名</span>
 			</div>
 		</div>
 		<div class="Person_right">
-			<div class="layui-tab layui-tab-card"
-				style="height:1100px; margin-top: 40px;margin-left: 10px;">
+			<div class="layui-tab layui-tab-card" style="height:1100px; margin-top: 40px;margin-left: 10px;">
 				<ul class="layui-tab-title">
 					<li class="layui-this">个人资料</li>
 					<li>安全设置</li>
@@ -58,21 +53,20 @@
 					<li>订单管理</li>
 				</ul>
 				<div class="layui-tab-content" style="height: 900px;">
-					<div class="layui-tab-item layui-tab-item1">
-						<label>亲爱的**************，填写真实的资料，有助于你的好友找到你哦！</label> <label>当前头像：</label>
-						<img
-							style="width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;"
-							alt="" src="resource/image/2.png"> <label>昵称：</label>
+					<div class="layui-tab-item layui-show  layui-tab-item1">
+						<label >亲爱的**************，填写真实的资料，有助于你的好友找到你哦！</label> <label>当前头像：</label>
+						<img style="width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;" alt=""
+							src="resource/image/2.png">
+						<label>昵称：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入昵称" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入昵称" class="layui-input">
 						<label>* 真实姓名：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入真实姓名" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入真实姓名" class="layui-input">
 						<label>* 性别：</label>
-						<form class="layui-form" action=""
-							style="margin-left: 40px;margin-top: -35px;">
+						<form class="layui-form" action="" style="margin-left: 40px;margin-top: -35px;">
 							<div class="layui-form-item">
 								<div class="layui-input-block">
 									<input type="radio" name="sex" value="男" title="男" checked>
@@ -82,12 +76,11 @@
 						</form>
 						<label>* 身份证号：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入身份证号" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入身份证号" class="layui-input">
 						<label>出生年月：</label> <label>* 现居住地：</label>
 						<form class="layui-form" action="">
-							<div class="layui-form-item"
-								style="margin-left: 150px;margin-top: -35px;">
+							<div class="layui-form-item" style="margin-left: 150px;margin-top: -35px;">
 								<div class="layui-input-inline">
 									<select name="quiz1">
 										<option value="">请选择省</option>
@@ -118,22 +111,20 @@
 						</form>
 						<label>故乡所在地：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入故乡所在地" class="layui-input">
-						<div
-							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入故乡所在地" class="layui-input">
+						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
 						<label>* 亲属联系人1：</label> <label>* 联系人姓名：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入联系人姓名" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人姓名" class="layui-input">
 						<label>* 联系人电话：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入联系人电话" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人电话" class="layui-input">
 						<label>* 亲属关系：</label>
 						<form class="layui-form" action="">
-							<div class="layui-inline"
-								style="margin-left: 150px;margin-top: -35px;">
+							<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
 								<div class="layui-input-inline">
 									<select name="modules" lay-verify="required" lay-search="">
 										<option value="">直接选择或搜索选择</option>
@@ -151,16 +142,15 @@
 						</form>
 						<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入联系人姓名" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人姓名" class="layui-input">
 						<label>* 联系人电话：</label>
 						<input type="text" name="title" lay-verify="title"
-							style="width: 350px;margin-left: 150px;margin-top: -35px;"
-							autocomplete="off" placeholder="请输入联系人电话" class="layui-input">
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人电话" class="layui-input">
 						<label>* 亲属关系：</label>
 						<form class="layui-form" action="">
-							<div class="layui-inline"
-								style="margin-left: 150px;margin-top: -35px;">
+							<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
 								<div class="layui-input-inline">
 									<select name="modules" lay-verify="required" lay-search="">
 										<option value="">直接选择或搜索选择</option>
@@ -178,48 +168,42 @@
 						</form>
 					</div>
 					<div class="layui-tab-item layui-tab-item2">
-						<label
-							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
-						<label>用户名：</label> <label>绑定手机：</label> <a href="#"
+						<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
+						<label>用户名：</label> <label>绑定手机：</label>
+						<a href="#"
 							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
-						<div
-							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-						<label
-							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
+						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+						<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
 						<!-------------------------------- 身份验证 ---------------------------------->
 						<i class="layui-icon"
 							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label>
-						<label style="margin-left: 200px;margin-top: -60px;">身份验证</label>
+						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
+							style="margin-left: 200px;margin-top: -60px;">身份验证</label>
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div
-							style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
 						<!-------------------------------- 登录密码 ---------------------------------->
 
 						<i class="layui-icon"
 							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label>
-						<label style="margin-left: 200px;margin-top: -60px;">登录密码</label>
+						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
+							style="margin-left: 200px;margin-top: -60px;">登录密码</label>
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div
-							style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
 
 						<!-------------------------------- 绑定手机 ---------------------------------->
 						<i class="layui-icon"
 							style="font-size: 35px;color: red;margin-left: 100px;margin-top: 20px;display: block;">&#x1006;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label>
-						<label style="margin-left: 200px;margin-top: -60px;">绑定手机</label>
+						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label> <label
+							style="margin-left: 200px;margin-top: -60px;">绑定手机</label>
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
 					</div>
 					<div class="layui-tab-item layui-tab-item3">
-						<label
-							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">基础管理信息</label>
+						<label style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">基础管理信息</label>
 						<label>国籍：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 100px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 100px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -228,8 +212,7 @@
 							</select>
 						</form>
 						<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 450px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 450px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -239,8 +222,7 @@
 						</form>
 
 						<label>文化程度：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 130px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 130px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -249,8 +231,7 @@
 							</select>
 						</form>
 						<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 480px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 480px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -262,13 +243,13 @@
 						<input type="text" name="title" lay-verify="title"
 							style="width: 100px;margin-left: 100px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							autocomplete="off" placeholder="请输入身高" class="layui-input">
-						<label style="margin-left: 200px;margin-top: -25px;">（Kg/千克）</label>
-						<label style="margin-left: 400px;margin-top: -35px;">体重：</label>
+						<label style="margin-left: 200px;margin-top: -25px;">（Kg/千克）</label> <label
+							style="margin-left: 400px;margin-top: -35px;">体重：</label>
 						<input type="text" name="title" lay-verify="title"
 							style="width: 100px;margin-left: 450px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							autocomplete="off" placeholder="请输入体重" class="layui-input">
-						<label style="margin-left: 550px;margin-top: -25px;">（Kg/千克）</label>
-						<label style="margin-top: 20px;">血栓：</label>
+						<label style="margin-left: 550px;margin-top: -25px;">（Kg/千克）</label> <label
+							style="margin-top: 20px;">血栓：</label>
 						<input type="text" name="title" lay-verify="title"
 							style="width: 100px;margin-left: 100px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							autocomplete="off" placeholder="请输入血栓" class="layui-input">
@@ -277,8 +258,7 @@
 							style="width: 100px;margin-left: 450px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							autocomplete="off" placeholder="请输入血压" class="layui-input">
 						<label>饮食状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 130px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 130px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -287,8 +267,7 @@
 							</select>
 						</form>
 						<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 480px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 480px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -297,8 +276,7 @@
 							</select>
 						</form>
 						<label>情绪控制：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 130px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 130px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -307,8 +285,7 @@
 							</select>
 						</form>
 						<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 480px;margin-top: -35px;">
+						<form class="layui-form" action="" style="width: 100px;margin-left: 480px;margin-top: -35px;">
 							<select name="city" lay-verify="">
 								<option value="">请选择一个城市</option>
 								<option value="010">北京</option>
@@ -316,10 +293,8 @@
 								<option value="0571">杭州</option>
 							</select>
 						</form>
-						<div
-							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-						<label
-							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">健康管理信息</label>
+						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+						<label style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">健康管理信息</label>
 						<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
 							<div class="layui-colla-item">
 								<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
@@ -342,9 +317,8 @@
 					</div>
 					<div class="layui-tab-item">4</div>
 
-					<div class="layui-tab-item layui-show layui-tab-item5">
-						<div class="layui-tab layui-tab-brief"
-							lay-filter="docDemoTabBrief">
+					<div class="layui-tab-item layui-tab-item5">
+						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 							<ul class="layui-tab-title">
 								<li class="layui-this">所有订单</li>
 								<li>待付款</li>
@@ -352,9 +326,8 @@
 								<li>待收货</li>
 								<li>待评价</li>
 							</ul>
-							<i class="glyphicon glyphicon-trash"
-								style="margin-left: 850px;margin-top: -38px;"> </i> <a href="#"
-								style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
+							<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
+							<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
 							<div class="layui-tab-content">
 								<div class="layui-tab-item layui-show">
 									<table class="layui-table">
@@ -528,13 +501,11 @@
 								</div>
 								<div class="layui-tab-item">6</div>
 							</div>
-							<i class="fa fa-trash-o"
-								style="display:block; margin-left: 900px;margin-top: -60px;">
-							</i>
+							<i class="fa fa-trash-o" style="display:block; margin-left: 900px;margin-top: -60px;"> </i>
 						</div>
 
 					</div>
-					
+
 					<div class="layui-tab-item">6</div>
 				</div>
 			</div>
@@ -561,5 +532,6 @@
 			</script>
 		</div>
 	</div>
+	<jsp:include page="../util/indexFooter.jsp"></jsp:include>
 </body>
 </html>
