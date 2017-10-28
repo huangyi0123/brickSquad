@@ -15,6 +15,8 @@
 
 <link href="resource/plugins/layui/css/layui.css"
 	rel="stylesheet" type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css"
 	href="resource/css/Personal.css">
 
@@ -31,7 +33,8 @@
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/layui.js"></script>
-
+<script type="text/javascript"
+	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -211,8 +214,7 @@
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
 					</div>
-
-					<div class="layui-tab-item layui-show layui-tab-item3">
+					<div class="layui-tab-item layui-tab-item3">
 						<label
 							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">基础管理信息</label>
 						<label>国籍：</label>
@@ -320,26 +322,219 @@
 							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">健康管理信息</label>
 						<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
 							<div class="layui-colla-item">
-								<h2 class="layui-colla-title">家族史</h2>
+								<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
 								<div class="layui-colla-content layui-show">内容区域</div>
 							</div>
 							<div class="layui-colla-item">
-								<h2 class="layui-colla-title">过敏史</h2>
+								<h5 class="layui-colla-title" style="font-weight: bold;">过敏史</h5>
 								<div class="layui-colla-content">内容区域</div>
 							</div>
 							<div class="layui-colla-item">
-								<h2 class="layui-colla-title">接种史</h2>
+								<h5 class="layui-colla-title" style="font-weight: bold;">接种史</h5>
 								<div class="layui-colla-content">内容区域</div>
 							</div>
 							<div class="layui-colla-item">
-								<h2 class="layui-colla-title">病史</h2>
+								<h5 class="layui-colla-title" style="font-weight: bold;">病史</h5>
 								<div class="layui-colla-content">内容区域</div>
 							</div>
 						</div>
 
 					</div>
 					<div class="layui-tab-item">4</div>
-					<div class="layui-tab-item">5</div>
+
+					<div class="layui-tab-item layui-show layui-tab-item5">
+						<div class="layui-tab layui-tab-brief"
+							lay-filter="docDemoTabBrief">
+							<ul class="layui-tab-title">
+								<li class="layui-this">所有订单</li>
+								<li>待付款</li>
+								<li>待发货</li>
+								<li>待收货</li>
+								<li>待评价</li>
+							</ul>
+							<i class="glyphicon glyphicon-trash"
+								style="margin-left: 850px;margin-top: -38px;"> </i> <a href="#"
+								style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
+							<div class="layui-tab-content">
+								<div class="layui-tab-item layui-show">
+									<table class="layui-table">
+										<colgroup>
+											<col width="150">
+											<col width="200">
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>宝贝</th>
+												<th>单价</th>
+												<th>数量</th>
+												<th>交易状态</th>
+												<th>交易操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>贤心</td>
+												<td>2016-11-29</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+											</tr>
+											<tr>
+												<td>许闲心</td>
+												<td>2016-11-28</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="layui-tab-item">
+									<table class="layui-table">
+										<colgroup>
+											<col width="150">
+											<col width="200">
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>宝贝</th>
+												<th>单价</th>
+												<th>数量</th>
+												<th>交易状态</th>
+												<th>交易操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>贤心</td>
+												<td>2016-11-29</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+											</tr>
+											<tr>
+												<td>许闲心</td>
+												<td>2016-11-28</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="layui-tab-item">
+									<table class="layui-table">
+										<colgroup>
+											<col width="150">
+											<col width="200">
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>宝贝</th>
+												<th>单价</th>
+												<th>数量</th>
+												<th>交易状态</th>
+												<th>交易操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>贤心</td>
+												<td>2016-11-29</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+											</tr>
+											<tr>
+												<td>许闲心</td>
+												<td>2016-11-28</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="layui-tab-item">
+									<table class="layui-table">
+										<colgroup>
+											<col width="150">
+											<col width="200">
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>宝贝</th>
+												<th>单价</th>
+												<th>数量</th>
+												<th>交易状态</th>
+												<th>交易操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>贤心</td>
+												<td>2016-11-29</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+											</tr>
+											<tr>
+												<td>许闲心</td>
+												<td>2016-11-28</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="layui-tab-item">
+									<table class="layui-table">
+										<colgroup>
+											<col width="150">
+											<col width="200">
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th>宝贝</th>
+												<th>单价</th>
+												<th>数量</th>
+												<th>交易状态</th>
+												<th>交易操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>贤心</td>
+												<td>2016-11-29</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+												<td>人生就像是一场修行</td>
+											</tr>
+											<tr>
+												<td>许闲心</td>
+												<td>2016-11-28</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="layui-tab-item">6</div>
+							</div>
+							<i class="fa fa-trash-o"
+								style="display:block; margin-left: 900px;margin-top: -60px;">
+							</i>
+						</div>
+
+					</div>
+					
 					<div class="layui-tab-item">6</div>
 				</div>
 			</div>

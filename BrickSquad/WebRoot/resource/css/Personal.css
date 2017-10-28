@@ -53,3 +53,8 @@
 .high_input:FOCUS {
 	border:1px solid black;
 }
+
+.layui-tab-title li{
+	margin-left: 50px;
+/* 	padding-left: 50px; */
+}

@@ -52,7 +52,7 @@ public class NewsServiceTest {
 	}
 	@Test
 	public void findNewsCount() throws Exception{
-		System.out.println(newsService.findNewsCount());
+		//System.out.println(newsService.findNewsCount());
 	}
 	//新闻分页查询
 	@Test
@@ -60,7 +60,7 @@ public class NewsServiceTest {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
-		System.out.println(newsService.newsPagination(pagination));
+		//System.out.println(newsService.newsPagination(pagination));
 	}
 	/**
 	 * 添加新闻信息测试
