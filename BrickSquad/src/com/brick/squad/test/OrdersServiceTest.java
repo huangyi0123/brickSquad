@@ -56,8 +56,8 @@ public class OrdersServiceTest {
 	}
 	@Test
 	public void findOrdersCount() throws Exception{
-		Integer ordersCount=ordersService.findOrdersCount();
-		System.out.println(ordersCount);
+		/*Integer ordersCount=ordersService.findOrdersCount();*/
+	/*	System.out.println(ordersCount);*/
 	}
 	@Test
 	public void ordersPagination() throws Exception{
