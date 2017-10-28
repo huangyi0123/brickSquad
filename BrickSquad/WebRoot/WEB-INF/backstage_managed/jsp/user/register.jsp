@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta charset="utf-8">
-<title>注册</title>
+<title>养乐堡注册</title>
 <link href="resource/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet">
 <link href="resource/plugins/fonts/font-awesome.min.css"
@@ -33,7 +33,7 @@
 				<img class="logo-name" alt=""
 					src="resource/image/logo.png">
 			</div>
-			<h3>欢迎注册 老人管理系统</h3>
+			<h3>欢迎注册 养乐堡</h3>
 			<p>创建一个新账户</p>
 			<form class="m-t" role="form" action="${pageContext.request.contextPath }/user/register" method="post">
 				<div class="form-group">

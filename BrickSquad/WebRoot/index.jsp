@@ -71,7 +71,7 @@
 }
 </style>
 <body>
-	<jsp:include page="WEB-INF/frontEnd_manage/head.jsp" />
+	<jsp:include page="WEB-INF/frontEnd_manage/util/head.jsp" />
 	<div class="content-bottom">
 		<div class="btm-grids">
 			<div class="col-md-4 btm-grid back-col1 text-center">
@@ -226,5 +226,9 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="WEB-INF/frontEnd_manage/indexFooter.jsp" /></ body>
+
+	
+
+<jsp:include page="WEB-INF/frontEnd_manage/util/indexFooter.jsp" /></body>
+
 </html>
