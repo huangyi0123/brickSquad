@@ -45,6 +45,6 @@ $(function() {
 			<h5 align="right">【责任编辑：${news.username }】</h5>
 		</div>
 	</div>
-	<jsp:include page="../util/indexFooter.jsp" /></ body>
+	<jsp:include page="../util/indexFooter.jsp" />
 </body>
 </html>
