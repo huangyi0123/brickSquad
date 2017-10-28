@@ -84,13 +84,13 @@ public class ShopActivitiesServiceTest {
 	
 	
 	//测试统计
-	@Test
+	/*@Test
 	public void findShopActivitiesAllCount(){
 		
 		
 		System.out.println(shopActivitiesService.findShopActivitiesAllCount());
 	}
-	
+	*/
 	
 	@Test
 	public void findAllShopActivities(){

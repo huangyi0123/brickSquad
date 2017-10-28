@@ -40,28 +40,6 @@
 	layui.use('element', function() {
 		var element = layui.element;
 	});
-	var index = null;
-	function login() {
-		layui.use('layer', function() {
-			index = layer.open({
-				title : '登录',
-				type : 2,
-				content : "user/toLogin?type=user",
-				offset : '100px',
-				area : [ '400px', '450px' ],
-				end : function() {
-					location.reload();
-				}
-			});
-
-		});
-	}
-	$(function() {
-		var a = ${user==null};
-		if (!a) {
-			parent.index.closeAll();
-		}
-	});
 	$(function() {
 		layui.use('layer', function() {
 			var layer = layui.layer;
@@ -77,10 +55,6 @@
 					}
 				});
 			});
-			var a = ${user==null};
-			if (!a) {
-				parent.layer.closeAll();
-			}
 		});
 	});
 	function logout() {
@@ -161,7 +135,7 @@
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
 							<dd>
-								<a href="">注册</a>
+								<a href="user/toRegister">注册</a>
 							</dd>
 						</dl>
 					</li>

@@ -8,24 +8,12 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'id',
-                text: '新闻ID'
-            },
-            {
                 key: 'username',
                 text: '编辑用户名'
             },
             {
                 key: 'title',
                 text: '标题'
-            },
-            {
-                key: 'content',
-                text: '编辑内容'
-            },
-            {
-                key: 'imagePath',
-                text: '图片路径'
             },
             {
                 key: 'postTime',

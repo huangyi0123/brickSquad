@@ -55,17 +55,17 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	@Override
 	public String shopActivitiesPagination(Pagination pagination) {
 		List<ShopActivitiesExpand> shopActivities = shopActivitiesMapper.shopActivitiesPagination(pagination);
-		int row = shopActivitiesMapper.findShopActivitiesAllCount();
+		int row = shopActivitiesMapper.findShopActivitiesAllCount(pagination);
 		Util<ShopActivitiesExpand> util = new Util<ShopActivitiesExpand>();
 		String data = util.SplitPage(shopActivities, row);
 		return data;
 	}
 
-	@Override
+/*	@Override
 	public int findShopActivitiesAllCount() {
 		// TODO Auto-generated method stub
 		return shopActivitiesMapper.findShopActivitiesAllCount();
-	}
+	}*/
 
 	@Override
 	public String findAllShopActivities() {

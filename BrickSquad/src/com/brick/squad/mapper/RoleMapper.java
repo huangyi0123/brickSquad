@@ -22,7 +22,7 @@ public interface RoleMapper {
 	public List<Role> rolePagination(Pagination pagination);
 	
 	//新闻条数统计
-	public int roleCount();
+	public int roleCount(Pagination pagination);
 	/***
 	 * 添加角色信息
 	 * @param role
