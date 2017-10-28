@@ -32,6 +32,8 @@ public interface ArticalService {
 	
 	public String findAllArticle();
 	
+	
+	
 	public String findAllTypeAndBusiness();
 	
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
