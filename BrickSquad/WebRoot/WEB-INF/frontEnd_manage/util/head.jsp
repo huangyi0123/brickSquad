@@ -104,12 +104,12 @@
 				<span class="menu">
 					<img src="resource/image/menu.png" alt=" " />
 				</span>
-				<ul class="layui-nav"
+				<ul class="layui-nav layui-this"
 					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #66CC66;">
 					<li class="layui-nav-item layui-this">
 						<a href="common/toIndex">首页</a>
 					</li>
-					<li class="layui-nav-item">
+					<li class="layui-nav-item ">
 						<a href="">最新活动</a>
 					</li>
 					<li class="layui-nav-item">
@@ -123,7 +123,7 @@
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
 							<dd>
-								<a href="">个人信息</a>
+								<a href="common/toPersonal">个人信息</a>
 							</dd>
 							<dd>
 								<a href="javascript:;" onclick="logout()">退出</a>

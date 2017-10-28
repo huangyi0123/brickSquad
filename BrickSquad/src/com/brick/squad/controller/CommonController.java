@@ -76,4 +76,5 @@ public class CommonController {
 		return "frontEnd_manage/shop/ProductDetails";
 		
 	}
+	
 }
