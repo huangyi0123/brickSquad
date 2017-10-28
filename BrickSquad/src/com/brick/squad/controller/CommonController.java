@@ -60,4 +60,8 @@ public class CommonController {
 		}
 		return upLoadFile.toJson();
 	}
+	@RequestMapping("/businessIndex")
+	public String businessIndex(){
+		return "frontEnd_manage/business";
+	}
 }
