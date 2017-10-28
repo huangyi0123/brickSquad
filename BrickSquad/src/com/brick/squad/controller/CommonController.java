@@ -62,18 +62,18 @@ public class CommonController {
 	}
 	@RequestMapping("/businessIndex")
 	public String businessIndex(){
-		return "frontEnd_manage/business";
+		return "frontEnd_manage/shop/business";
 	}
 
 	@RequestMapping("/toPersonal")
 	public String toPersonal(){
-		return "frontEnd_manage/Personal";
+		return "frontEnd_manage/person_information/Personal";
 		
 	}
 	
 	@RequestMapping("/toProductDetails")
 	public String toProductDetails() {
-		return "frontEnd_manage/ProductDetails";
+		return "frontEnd_manage/shop/ProductDetails";
 		
 	}
 }

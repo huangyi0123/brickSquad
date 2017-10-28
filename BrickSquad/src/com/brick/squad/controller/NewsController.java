@@ -102,6 +102,6 @@ public class NewsController {
 	public String findNewsExpandById(HttpServletRequest request,String id){
 		NewsExpand newsExpand=newsService.findNewsExpandById(id);
 		request.setAttribute("news", newsExpand);
-		return "frontEnd_manage/newsDetail";
+		return "frontEnd_manage/news/newsDetail";
 	}
 }

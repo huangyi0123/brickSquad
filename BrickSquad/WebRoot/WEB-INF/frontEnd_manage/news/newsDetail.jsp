@@ -30,7 +30,7 @@ $(function() {
 </script>
 </head>
 <body>
-	<jsp:include page="head.jsp" />
+	<jsp:include page="../util/head.jsp" />
 	<div class="content-bottom" style="margin: 40px">
 		<div class="page-header">
 			<h1 align="center">${news.title }</h1>
@@ -45,6 +45,6 @@ $(function() {
 			<h5 align="right">【责任编辑：${news.username }】</h5>
 		</div>
 	</div>
-	<jsp:include page="indexFooter.jsp" /></ body>
+	<jsp:include page="../util/indexFooter.jsp" /></ body>
 </body>
 </html>
