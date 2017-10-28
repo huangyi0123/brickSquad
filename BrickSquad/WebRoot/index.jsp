@@ -206,5 +206,6 @@ $(function() {
 			</div>
 		</div>
 	</div>
-	<jsp:include page="WEB-INF/frontEnd_manage/indexFooter.jsp"/></ body>
+	<jsp:include page="WEB-INF/frontEnd_manage/indexFooter.jsp"/>
+	</body>
 </html>
