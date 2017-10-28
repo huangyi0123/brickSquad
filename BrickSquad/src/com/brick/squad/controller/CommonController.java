@@ -64,4 +64,10 @@ public class CommonController {
 	public String businessIndex(){
 		return "frontEnd_manage/business";
 	}
+
+	@RequestMapping("/toPersonal")
+	public String toPersonal(){
+		return "frontEnd_manage/Personal";
+		
+	}
 }
