@@ -2,6 +2,8 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import javax.swing.Spring;
+
 import com.brick.squad.pojo.Business;
 import com.brick.squad.util.Pagination;
 
@@ -39,4 +41,11 @@ public interface BusinessService {
 	 * @return 商家信息
 	 */
 	public String businessPagination(Pagination pagination);
+	
+	public String findAllBusiness();
+
+
+	public Business findBusiness(String id);
+
+
 }

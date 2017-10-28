@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ActivitiesService;
@@ -99,6 +100,14 @@ public class ActivitiesController {
 		public String updateActivitiesById(Activities activities) throws Exception{
 			activitiesService.updateActivitiesById(activities);
 			return "backstage_managed/jsp/activities/activities_list";
+			
+		}
+		
+		@RequestMapping("/findActivitiesById")
+		public String findActivitiesById(HttpServletRequest request,String id){
+			ActivitiesExpand activitiesExpand = activitiesService.findActivitiesAndTpyeAndUser(id);
+			request.setAttribute("activitiesExpand", activitiesExpand);
+			return "backstage_managed/jsp/activities/search_activities";
 			
 		}
 		

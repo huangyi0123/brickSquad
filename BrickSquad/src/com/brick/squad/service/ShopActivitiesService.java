@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.util.Pagination;
@@ -28,15 +29,18 @@ public interface ShopActivitiesService {
 	
 	public void delectShopActivitiesById(String id) throws Exception;
 	
-	
-	
 	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception;
-	
 	
 	public String shopActivitiesPagination(Pagination pagination);
 	
 	//public int findShopActivitiesAllCount();
 	
 	public String findAllShopActivities();
+	
+	
+	
+	public String findTypeAndArticle();
+	
+	public ShopActivitiesExpand findShopActivitiesAndTypeAndArticle(String id);
 	
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ShopActivitiesService;
@@ -99,5 +100,15 @@ public class ShopActivitiesController {
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
 		
 	}
+	
+	@RequestMapping("/findShopActivitiesById")
+	public String findShopActivitiesById(HttpServletRequest request,String id){
+		ShopActivitiesExpand shopActivitiesExpand = shopActivitiesService.findShopActivitiesAndTypeAndArticle(id);
+		request.setAttribute("shopActivitiesExpand", shopActivitiesExpand);
+		return "backstage_managed/jsp/shopActivities/search_shopActivities";
+		
+	}
+	
+	
 	
 }
