@@ -26,7 +26,6 @@ public class UserController {
 		return "backstage_managed/jsp/user/user_list";
 	}
 
-
 	@RequestMapping("/getUserList")
 	@ResponseBody
 	public String getUserList(int pSize, int cPage, String keyword) {
@@ -38,38 +37,44 @@ public class UserController {
 	}
 
 	@RequestMapping("/toLogin")
-	public String toLogin(HttpServletRequest request,String type) {
+	public String toLogin(HttpServletRequest request, String type) {
 		request.setAttribute("flag", "1");
 		request.setAttribute("type", type);
 		return "backstage_managed/jsp/user/login";
 
 	}
-/**
- * 跳转到用户验证
- * @return
- */
+
+	/**
+	 * 跳转到用户验证
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/toUserAccountAuthentication")
 	public String toUserAccountAuthentication() {
 		return "backstage_managed/jsp/user/userAccountAuthentication";
 	}
 
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request, User user1,String type) {
+	public String login(HttpServletRequest request, User user1, String type) {
 		User user = userService.checkLogin(user1);
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
-			//begin 判断登录类型
-			if (type.equals("admin")) {
+			// begin 判断登录类型
+			if (type.equals("admin")
+					&& !(user.getRoleId().equals(
+							"e2ebe746b86b11e78d4f5254002ec43c"))) {
 				return "redirect:/common/toFrame";
-			}else {
+
+			} else {
 				return "redirect:/common/toIndexModal";
 			}
-			//end
+			// end
 		}
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
 		return "backstage_managed/jsp/user/login";
 	}
+
 	@RequestMapping("/toRegister")
 	public String toRegister() {
 		return "backstage_managed/jsp/user/register";

@@ -48,6 +48,7 @@
 			<h3>欢迎登录养乐堡</h3>
 
 			<form class="m-t" role="form" action="user/login" method="post">
+			<input type="hidden" name="type" value="user">
 				<div class="form-group">
 					<input name="username" type="text" class="form-control"
 						id="username" placeholder="用户名" required="">

@@ -29,7 +29,7 @@ public class CommonController {
 	}
 	@RequestMapping("/toIndexModal")
 	public String toIndexModal() {
-		return "frontEnd_manage/turn";
+		return "frontEnd_manage/util/turn";
 	}
 	@RequestMapping("/uploadImg")
 	@ResponseBody
