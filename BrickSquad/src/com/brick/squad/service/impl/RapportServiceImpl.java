@@ -60,18 +60,18 @@ public class RapportServiceImpl implements RapportService{
 		List<Rapport> rapport=rapportMapper.findRapport();
 		return rapport;
 	}
-	@Override
-	/**查询老人客户沟通总数*/
+	/*@Override
+	*//**查询老人客户沟通总数*//*
 	public Integer findRapportCount() throws Exception {
 		Integer countRapport=rapportMapper.findRapportCount();
 		return countRapport;
-	}
+	}*/
 	@Override
 	/**老人客户沟通分页查询*/
 	public String rapportPagination(Pagination pagination)
 			throws Exception {
 		List<RapportExpand> regions=rapportMapper.rapportPagination(pagination);
-		int row=rapportMapper.findRapportCount();
+		int row=rapportMapper.findRapportCount(pagination);
 		Util<RapportExpand> util=new Util<RapportExpand>();
 		String data=util.SplitPage(regions, row);
 		return data;

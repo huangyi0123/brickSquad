@@ -43,18 +43,6 @@
 		layui.use('form', function() {
 			var form = layui.form();
 		});
-		
-	var url="${url}"
-		if(url=='addActivities'){}
-		else{
-		var da = $("#startId").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#startId").val(dat);
-		
-		var da = $("#endId").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#endId").val(dat);
-		}
 	});
 </script>
 </head>
@@ -65,26 +53,25 @@
 	<div style="padding-left: 130px;font-size:22;">查看商家详细信息</div>
 	<br>
 	
-
-       <div class="layui-form-item">
+<div class="layui-form-item">
 			<label class="layui-form-label">商家名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
-					placeholder="商家名称" autocomplete="off" class="layui-input" value="${business.name}" readonly="readonly">
+					placeholder="商家名称" autocomplete="off" class="layui-input" value="${business.name}">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">身份证号：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="idcard" required lay-verify="required"
-					placeholder="身份证号" autocomplete="off" class="layui-input" value="${business.idcard }" readonly="readonly">
+					placeholder="身份证号" autocomplete="off" class="layui-input" value="${business.idcard }">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">店铺名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="shopname" required lay-verify="required"
-					placeholder="店铺名称" autocomplete="off" class="layui-input" value="${business.shopname }" readonly="readonly">
+					placeholder="店铺名称" autocomplete="off" class="layui-input" value="${business.shopname }">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -92,7 +79,7 @@
 			<div class="layui-input-inline">
 				<input type="text" name="shopMaterialPath" required
 					lay-verify="required" placeholder="商品来源" autocomplete="off"
-					class="layui-input" value="${business.shopMaterialPath }" readonly="readonly">
+					class="layui-input" value="${business.shopMaterialPath }">
 			</div>
 		</div>
 		

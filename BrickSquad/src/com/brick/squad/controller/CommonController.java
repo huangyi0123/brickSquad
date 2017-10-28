@@ -29,7 +29,7 @@ public class CommonController {
 	}
 	@RequestMapping("/toIndexModal")
 	public String toIndexModal() {
-		return "frontEnd_manage/turn";
+		return "frontEnd_manage/util/turn";
 	}
 	@RequestMapping("/uploadImg")
 	@ResponseBody
@@ -62,18 +62,18 @@ public class CommonController {
 	}
 	@RequestMapping("/businessIndex")
 	public String businessIndex(){
-		return "frontEnd_manage/business";
+		return "frontEnd_manage/business/business";
 	}
 
 	@RequestMapping("/toPersonal")
 	public String toPersonal(){
-		return "frontEnd_manage/Personal";
+		return "frontEnd_manage/person_information/Personal";
 		
 	}
 	
 	@RequestMapping("/toProductDetails")
 	public String toProductDetails() {
-		return "frontEnd_manage/ProductDetails";
+		return "frontEnd_manage/shop/ProductDetails";
 		
 	}
 }

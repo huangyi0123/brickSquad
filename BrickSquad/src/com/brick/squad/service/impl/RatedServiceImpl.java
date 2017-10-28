@@ -57,17 +57,17 @@ public class RatedServiceImpl implements RatedService {
 	@Override
 	public String ratedPagination(Pagination pagination) {
 		List<Rated> rateds = ratedMapper.ratedPagination(pagination);
-		int row = ratedMapper.findRatedAllCount();
+		int row = ratedMapper.findRatedAllCount(pagination);
 		Util<Rated> util = new Util<Rated>();
 		String data = util.SplitPage(rateds, row);
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int findReplyAllCount() {
 		// TODO Auto-generated method stub
 		return ratedMapper.findRatedAllCount();
-	}
+	}*/
 
 	/**
 	 * 将查询出的封装成json字符串

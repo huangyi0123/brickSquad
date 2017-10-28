@@ -33,7 +33,7 @@ public interface RapportService {
 	/**
 	 * 查询老人客户总数
 	 * */
-	public Integer findRapportCount()throws Exception;
+	//public Integer findRapportCount()throws Exception;
 	/**
 	 * 老人客户沟通分页查询
 	 * */

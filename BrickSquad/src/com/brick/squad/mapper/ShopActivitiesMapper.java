@@ -25,4 +25,7 @@ public interface ShopActivitiesMapper {
 	public int findShopActivitiesAllCount(Pagination pagination);
 	
 	public List<ShopActivities> findAllShopActivities();
+	
+	
+	public ShopActivitiesExpand findShopActivitiesAndTypeAndArticle(String id);
 }

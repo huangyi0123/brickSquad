@@ -31,18 +31,31 @@
 		DELETE FROM
 		relatives WHERE id=#{id}
 	</delete>
-	<select id="relativesPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="relatives">
-		select
+	<select id="relativesPagination" parameterType="com.brick.squad.util.Pagination" resultType="relatives">
+	<if test="keyword!=''">
+	select
+		id,per_id perId, name,telephone,address_id
+		addressId,relationship_id relationshipId
+		from relatives WHERE name REGEXP #{keyword} or address_id REGEXP #{keyword} limit #{skipNum},#{takeNum}
+	</if>
+	<if test="keyword==''">
+	select
 		id,per_id perId, name,telephone,address_id
 		addressId,relationship_id relationshipId
 		from relatives
 		limit
 		#{skipNum},#{takeNum}
+	</if>
+		
 
 	</select>
-	<select id="findRelativesAllCount" resultType="int">
+	<select id="findRelativesAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+		
 		select count(*)
 		from relatives
+		
+		<if test="keyword!=''">
+		 WHERE name REGEXP #{keyword} or address_id REGEXP #{keyword} limit #{skipNum},#{takeNum}
+	</if>
 	</select>
 </mapper>
