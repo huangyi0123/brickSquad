@@ -115,37 +115,11 @@
 			onsubmit="subm()">
 			<input type="hidden" name="id" value="${news.id }">
 			<div class="layui-form-item">
-				<label class="layui-form-label">编辑用户名</label>
-				<div class="layui-input-inline">
-					<select name="userId" id="userId" val="${news.userId }"
-						lay-search="">
-						<option value="">直接选择或搜索选择</option>
-					</select>
-				</div>
-			</div>
-			<div class="layui-form-item">
 				<label class="layui-form-label">标题</label>
 				<div class="layui-input-inline">
 					<input type="text" name="title" required lay-verify="required"
-						placeholder="图片路径" autocomplete="off" class="layui-input"
+						placeholder="标题" autocomplete="off" class="layui-input"
 						value="${news.title }">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">图片路径</label>
-				<div class="layui-input-inline">
-					<input type="text" name="imagePath" required lay-verify="required"
-						placeholder="图片路径" autocomplete="off" class="layui-input"
-						value="${news.imagePath }">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<div class="layui-inline">
-					<label class="layui-form-label">提交时间</label>
-					<div class="layui-input-inline">
-						<input type="date" class="layui-input" name="postTime"
-							placeholder="yyyy-MM-dd" val="${news.postTime }" id="nda">
-					</div>
 				</div>
 			</div>
 			<input type="hidden" name="content" id="con">

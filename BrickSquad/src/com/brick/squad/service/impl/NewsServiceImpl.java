@@ -72,15 +72,15 @@ public class NewsServiceImpl implements NewsService {
 	// 新闻分页查询
 	public String newsPagination(Pagination pagination) {
 		List<NewsExpand> news = newsMapper.newsPagination(pagination);
-		int row = newsMapper.findNewsCount();
+		int row = newsMapper.findNewsCount(pagination);
 		Util<NewsExpand> util = new Util<NewsExpand>();
 		String data = util.SplitPage(news, row);
 		return data;
 	}
 
 	@Override
-	public Integer findNewsCount() throws Exception {
-		Integer countNews = newsMapper.findNewsCount();
+	public Integer findNewsCount(Pagination pagination) throws Exception {
+		Integer countNews = newsMapper.findNewsCount(pagination);
 		return countNews;
 	}
 

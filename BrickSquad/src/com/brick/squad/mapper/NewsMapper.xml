@@ -28,12 +28,12 @@
 		SELECT n.id,u.username,n.content,n.imgs_path
 		imagePath,n.post_time postTime,n.title
 		FROM news n INNER JOIN `user` u
-		ON n.user_id=u.id
+		ON n.user_id=u.id where n.user_id=#{userId}
 		limit #{skipNum},#{takeNum}
 	</select>
 	<select id="findNewsCount" resultType="Integer">
 		SELECT COUNT(*) from news
-		n,`user` u where n.user_id=u.id
+		where user_id=#{userId}
 	</select>
 	<insert id="insertNews" parameterType="news">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">

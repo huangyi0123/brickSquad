@@ -1,6 +1,7 @@
 package com.brick.squad.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.Spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -70,4 +71,12 @@ public class BusinessController {
 		return "success";
 				
 	}
+	
+	@RequestMapping("/findBusinessById")
+	public String findBusinessById(HttpServletRequest request,String id){
+		Business business = businessService.findBusiness(id);
+		request.setAttribute("business", business);
+		return "backstage_managed/jsp/business/search_business";
+	}
+	
 }

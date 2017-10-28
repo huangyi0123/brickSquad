@@ -182,7 +182,7 @@
 					class="dropdown profile-element">
 					<a style="text-align: center;" data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <span class="clear">
-							<span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+							<span class="block m-t-xs"><strong class="font-bold">欢迎你</strong></span>
 							<span style="margin-top: -20px;text-align:center;"
 							class="text-muted text-xs block">${user.username }<b class="caret"></b></span>
 					</span>
@@ -260,7 +260,7 @@ function logout() {
 				$.ajax({
 					url:"user/logout",
 					success:function(data){
-						window.location="/BrickSquad/user/toLogin";
+						window.location="/BrickSquad/adminLogin.jsp";
 						layer.close(index);
 					}
 				});
