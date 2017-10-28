@@ -113,6 +113,7 @@
 	<form class="layui-form"
 		action="personalInformation/addPersonalInformation" id="form1"
 		method="post">
+		<div class="layui-row">
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名</label>
 			<div class="layui-input-inline">
@@ -302,19 +303,15 @@
 				<input value="${address.detailed}" type="text" id="detailedId"
 					name="detailed" required lay-verify="required"
 					placeholder="具体地址，详细到街道门牌号" class="layui-input">
-
 			</div>
-
 		</div>
-
-
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
-
+	</div>
 	</form>
 </body>
 </html>

@@ -40,7 +40,7 @@
 				<img style="width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;" alt=""
 					src="resource/image/2.png">
 				<span
-					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">我的用户名</span>
+					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">${user.username }</span>
 			</div>
 		</div>
 		<div class="Person_right">
@@ -54,7 +54,7 @@
 				</ul>
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
-						<label >亲爱的**************，填写真实的资料，有助于你的好友找到你哦！</label> <label>当前头像：</label>
+						<label >亲爱的${user.username }，填写真实的资料，有助于你的好友找到你哦！</label> <label>当前头像：</label>
 						<img style="width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;" alt=""
 							src="resource/image/2.png">
 						<label>昵称：</label>
