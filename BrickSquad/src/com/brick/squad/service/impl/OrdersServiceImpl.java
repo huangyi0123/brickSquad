@@ -63,18 +63,18 @@ public class OrdersServiceImpl implements OrdersService{
 		String ordersdata =jsonArray.fromObject(orders).toString();
 		return ordersdata;
 	}
-	@Override
-	/**查询订单总数*/
+	/*@Override
+	*//**查询订单总数*//*
 	public Integer findOrdersCount() throws Exception {
 		Integer ordersCount=ordersMapper.findOrdersCount();
 		return ordersCount;
-	}
+	}*/
 	@Override
 	/**订单分页查询*/
 	public String ordersPagination(Pagination pagination)
 			throws Exception {
 		List<OrdersExpand> orders=ordersMapper.ordersPagination(pagination);
-		int row=ordersMapper.findOrdersCount();
+		int row=ordersMapper.findOrdersCount(pagination);
 		Util<OrdersExpand> util=new Util<OrdersExpand>();
 		String data=util.SplitPage(orders, row);
 		return data;
