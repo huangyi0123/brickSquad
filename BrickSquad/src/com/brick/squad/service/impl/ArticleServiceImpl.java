@@ -106,8 +106,8 @@ public class ArticleServiceImpl implements ArticalService{
 
 	@Override
 	public ArticleExpand findArticleAndTypeAndBusiness(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		ArticleExpand articleExpand = articleMapper.findArticleAndTypeAndBusiness(id);
+		return articleExpand;
 	}
 	
 }
