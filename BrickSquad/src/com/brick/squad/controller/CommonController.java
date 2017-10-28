@@ -70,4 +70,10 @@ public class CommonController {
 		return "frontEnd_manage/Personal";
 		
 	}
+	
+	@RequestMapping("/toProductDetails")
+	public String toProductDetails() {
+		return "frontEnd_manage/ProductDetails";
+		
+	}
 }
