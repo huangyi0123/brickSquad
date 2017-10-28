@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.NewsService;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -37,10 +38,12 @@ public class NewsController {
 	}
 	@RequestMapping("/getNewsList")
 	@ResponseBody
-	public String getRegionList(int pSize,int cPage,String keyword) throws Exception {
+	public String getRegionList(int pSize,int cPage,String keyword,HttpServletRequest request) throws Exception {
 		Pagination pagination=new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		User user=(User) request.getSession().getAttribute("user");
+		pagination.setUserId(user.getId());
 		return newsService.newsPagination(pagination);
 	}
 	/**
@@ -66,7 +69,10 @@ public class NewsController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	@RequestMapping("/insertNews")
-	public String insertNews(News news) throws Exception{
+	public String insertNews(News news,HttpServletRequest request) throws Exception{
+		User user=(User)request.getSession().getAttribute("user");
+		news.setUserId(user.getId());
+		news.setPostTime(new Date() );
 		newsService.insertNews(news);
 		return "backstage_managed/jsp/news/news_list";
 	}

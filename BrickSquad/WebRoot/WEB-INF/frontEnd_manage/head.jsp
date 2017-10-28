@@ -95,7 +95,7 @@
 		<div class="header" style="height: 70px; background-color: #66CC66;">
 			<div class="logo">
 				<h1>
-					<a href="resource/index.jsp">
+					<a href="common/toIndex">
 						<i><img src="resource/image/cell.png" alt=" " /></i>老人管理
 					</a>
 				</h1>
@@ -107,7 +107,7 @@
 				<ul class="layui-nav"
 					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #66CC66;">
 					<li class="layui-nav-item layui-this">
-						<a href="">首页</a>
+						<a href="common/toIndex">首页</a>
 					</li>
 					<li class="layui-nav-item">
 						<a href="">最新活动</a>
