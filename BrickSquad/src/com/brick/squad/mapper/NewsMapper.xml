@@ -3,40 +3,47 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.NewsMapper">
 
-<sql id="Base_Column_List">
-		id, user_id userId,title, content , imgs_path imagePath,post_time postTime
+	<sql id="Base_Column_List">
+		id, user_id userId,title, content , imgs_path
+		imagePath,post_time postTime
 	</sql>
-	<!-- Luyujing News表 增删改查-->
-	<insert id="addNews"  parameterType="java.lang.Long">
-		INSERT INTO news(id,user_id,content,imgs_path,post_time)
-			 VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
+	<!-- Luyujing News表 增删改查 -->
+	<insert id="addNews" parameterType="java.lang.Long">
+		INSERT INTO
+		news(id,user_id,content,imgs_path,post_time)
+		VALUES(#{id},#{userId},#{content},#{imagePath},#{postTime})
 	</insert>
 	<delete id="deleteNews">
 		delete from news where id=#{id}
 	</delete>
 	<update id="updateNews">
-		UPDATE news SET content=#{content} WHERE user_id=#{userId}
+		UPDATE news SET content=#{content} WHERE
+		user_id=#{userId}
 	</update>
 	<select id="findNews" resultType="news" parameterType="java.lang.Long">
 		select*from news where content=#{content}
 	</select>
-	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand" parameterType="com.brick.squad.util.Pagination">
-		SELECT n.id,u.username,n.content,n.imgs_path imagePath,n.post_time postTime,n.title
-		FROM news n INNER JOIN `user` u ON n.user_id=u.id
+	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT n.id,u.username,n.content,n.imgs_path
+		imagePath,n.post_time postTime,n.title
+		FROM news n INNER JOIN `user` u
+		ON n.user_id=u.id
 		limit #{skipNum},#{takeNum}
 	</select>
 	<select id="findNewsCount" resultType="Integer">
-	SELECT COUNT(*) from news n,`user` u where n.user_id=u.id
+		SELECT COUNT(*) from news
+		n,`user` u where n.user_id=u.id
 	</select>
 	<insert id="insertNews" parameterType="news">
-	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-	INSERT INTO news(id,user_id,title,content,imgs_path,post_time)
-	 VALUES(#{id},#{userId},#{title},#{content},#{imagePath},#{postTime})
+		INSERT INTO news(id,user_id,title,content,imgs_path,post_time)
+		VALUES(#{id},#{userId},#{title},#{content},#{imagePath},#{postTime})
 	</insert>
 	<update id="updateNewsById" parameterType="news">
-	UPDATE news
+		UPDATE news
 		SET
 		user_id=#{userId},
 		title=#{title},
@@ -45,10 +52,22 @@
 		post_time=#{postTime}
 		WHERE id=#{id}
 	</update>
-	<select id="findNewsById" parameterType="java.lang.String" resultType="news">
-	SELECT 
-	<include refid="Base_Column_List"/>
-	FROM news
-	WHERE id=#{id}
+	<select id="findNewsById" parameterType="java.lang.String"
+		resultType="news">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM news
+		WHERE id=#{id}
+	</select>
+	<select id="findNewsList" resultType="news">
+		SELECT id,title,post_time
+		postTime
+		FROM news ORDER BY (news.post_time) DESC LIMIT 0,10
+	</select>
+	<select id="findNewsExpandById" parameterType="String"
+		resultType="com.brick.squad.expand.NewsExpand">
+		SELECT n.title,n.post_time postTime,u.username ,n.content
+		FROM news n JOIN `user` u on n.user_id=u.id
+		WHERE n.id=#{id}
 	</select>
 </mapper>

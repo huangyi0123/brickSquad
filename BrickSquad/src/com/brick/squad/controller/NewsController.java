@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.NewsService;
@@ -85,5 +86,16 @@ public class NewsController {
 	public String updateNews(News news) throws Exception{
 		newsService.updateNewsById(news);
 		return "backstage_managed/jsp/news/news_list";
+	}
+	@RequestMapping("/findNews")
+	@ResponseBody
+	public String findNews() {
+		return newsService.findNewsList();
+	}
+	@RequestMapping("/findNewsExpandById")
+	public String findNewsExpandById(HttpServletRequest request,String id){
+		NewsExpand newsExpand=newsService.findNewsExpandById(id);
+		request.setAttribute("news", newsExpand);
+		return "frontEnd_manage/newsDetail";
 	}
 }

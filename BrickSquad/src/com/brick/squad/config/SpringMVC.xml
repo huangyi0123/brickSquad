@@ -54,6 +54,11 @@
 			<!-- 放行 -->
 			<mvc:exclude-mapping path="/resource/**" />
 			<mvc:exclude-mapping path="/user/register" />
+			<mvc:exclude-mapping path="/user/usernameCheck" />
+			<mvc:exclude-mapping path="/news/findNewsExpandById" />
+			<mvc:exclude-mapping path="/news/findNews" />
+			<mvc:exclude-mapping path="/common/businessIndex" />
+			<mvc:exclude-mapping path="/common/toPersonal" />
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>
