@@ -42,7 +42,7 @@ public interface PersonalInformationMapper {
 	 * 查询记录数
 	 * @return 记录数
 	 */
-	public int personalInformationCount();
+	public int personalInformationCount(Pagination pagination);
 	/**
 	 * 查询老人所有信息,所有字段
 	 * */

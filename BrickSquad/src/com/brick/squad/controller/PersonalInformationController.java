@@ -66,6 +66,8 @@ public class PersonalInformationController {
 	public String getPersonalInformationList(int pSize, int cPage,
 			String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
+		System.out.println(keyword+"111111111111111111111111111111");
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		String data = personalInformationService

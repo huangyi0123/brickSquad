@@ -62,37 +62,76 @@
 <body>
 
 	 <br>
-	<div style="padding-left: 130px;font-size:22;">查看商家详细信息</div>
+	<div style="padding-left: 130px;font-size:20;">详细商品信息</div>
 	<br>
-	
 
-       <div class="layui-form-item">
-			<label class="layui-form-label">商家名称：</label>
+		<div class="layui-form-item">
+			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
-				<input type="text" name="name" required lay-verify="required"
-					placeholder="商家名称" autocomplete="off" class="layui-input" value="${business.name}" readonly="readonly">
+				<input type="text" name="aname" required lay-verify="required"
+					placeholder="商品名称" autocomplete="off" class="layui-input"
+					value="${articleExpand.aname }" readonly="readonly">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">身份证号：</label>
+			
+			
+			<div class="layui-form-item">
+			<label class="layui-form-label">商品类型</label>
 			<div class="layui-input-inline">
-				<input type="text" name="idcard" required lay-verify="required"
-					placeholder="身份证号" autocomplete="off" class="layui-input" value="${business.idcard }" readonly="readonly">
+				<input type="text" name="typeId" id="typeId" required lay-verify="required"
+					placeholder="商品类型" autocomplete="off" class="layui-input"
+					value="${articleExpand.tname }" readonly="readonly">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">店铺名称：</label>
+			
+			
+			<div class="layui-form-item">
+			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">
-				<input type="text" name="shopname" required lay-verify="required"
-					placeholder="店铺名称" autocomplete="off" class="layui-input" value="${business.shopname }" readonly="readonly">
+				<input type="text" name="price" required lay-verify="required"
+					placeholder="价格" autocomplete="off" class="layui-input"
+					value="${articleExpand.price }" readonly="readonly">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label">商品来源：</label>
+			<label class="layui-form-label">库存</label>
 			<div class="layui-input-inline">
-				<input type="text" name="shopMaterialPath" required
-					lay-verify="required" placeholder="商品来源" autocomplete="off"
-					class="layui-input" value="${business.shopMaterialPath }" readonly="readonly">
+				<input type="text" name="stock" required lay-verify="required"
+					placeholder="库存" autocomplete="off" class="layui-input"
+					value="${articleExpand.stock }" readonly="readonly">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">商品描述</label>
+			<div class="layui-input-inline">
+				<input type="text" name="describes" required lay-verify="required"
+					placeholder="商品描述" autocomplete="off" class="layui-input"
+					value="${articleExpand.describes}" readonly="readonly">
+			</div>
+		</div>
+		
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">店铺名</label>
+			<div class="layui-input-inline">
+				<input type="text" name="businessId" required lay-verify="required"
+					placeholder="店铺名" autocomplete="off" class="layui-input"
+					value="${articleExpand.bname }" readonly="readonly">
+			</div>
+		</div>
+		
+		
+			
+			
+			
+			<div class="layui-form-item">
+			<label class="layui-form-label">商品图片</label>
+			<div class="layui-input-inline">
+				<input type="text" name="image" required lay-verify="required"
+					placeholder="商品图片" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		

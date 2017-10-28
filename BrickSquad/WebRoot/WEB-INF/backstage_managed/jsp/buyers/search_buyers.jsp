@@ -89,7 +89,7 @@
 	<div style="padding-left: 150px;font-size:16;"></div>
 	<br>
 	<form action="buyers/findBuyersByIdString" class="layui-form" method="post">
-		<input type="hidden" name="buyers.id" value="${addressAndBuyersExpand.buyers.id}">
+		<input type="hidden" name="buyers.id" value="${addressAndBuyersExpand.buyers.id}" >
 		<input type="hidden" name="address.id" value="${addressAndBuyersExpand.address.id }">
 		
 		<div class="layui-form-item">

@@ -29,5 +29,10 @@ public interface ActivitiesMapper {
 	
 	public List<ActivitiesExpand> findAllActivities();
 	
+	
+	/**
+	 * 根据活动ID查询关联的tpye表和user的相关详细信息
+	 */
+	public ActivitiesExpand findActivitiesAndTpyeAndUser(String id);
 
 }

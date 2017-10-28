@@ -41,6 +41,7 @@ public class OrdersController {
 	public String getRegionList(int pSize, int cPage, String keyword)
 			throws Exception {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return ordersService.ordersPagination(pagination);

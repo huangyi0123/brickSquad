@@ -30,7 +30,7 @@ public interface OrdersService {
 	/**
 	 * 查询订单总数
 	 * */
-	public Integer findOrdersCount()throws Exception;
+	//public Integer findOrdersCount()throws Exception;
 	/**
 	 * 订单分页查询
 	 * */

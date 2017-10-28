@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
@@ -78,7 +79,6 @@ public class ArticleController {
 	public String updateArticleById(Article article) throws Exception{
 		
 		articleService.updateArticleById(article);
-		System.out.println("11111111111111111111");
 		return "backstage_managed/jsp/article/article_list";
 	}
 	
@@ -87,6 +87,14 @@ public class ArticleController {
 	@ResponseBody
 	public String findAllArticle(){
 		return articleService.findAllArticle();
+	}
+	
+	
+	@RequestMapping("/findArticleById")
+	public String findArticleById(HttpServletRequest request,String id){
+		ArticleExpand articleExpand = articleService.findArticleAndTypeAndBusiness(id);
+		request.setAttribute("articleExpand", articleExpand);
+		return "backstage_managed/jsp/article/search_article";
 	}
 	
 }

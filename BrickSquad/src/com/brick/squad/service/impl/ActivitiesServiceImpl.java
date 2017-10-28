@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -10,16 +12,29 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.mapper.ActivitiesMapper;
+import com.brick.squad.mapper.TypeMapper;
+import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 @Transactional
 public class ActivitiesServiceImpl implements ActivitiesService{
 	@Autowired
 	@Qualifier("activitiesMapper")
 	private ActivitiesMapper activitiesMapper;
+	
+	@Autowired
+	@Qualifier("typeMapper")
+	private TypeMapper typeMapper;
+	
+	@Autowired
+	@Qualifier("userMapper")
+	private UserMapper userMapper;
+	
 	@Override
 	public Activities findActivitiesById(String id) {
 		return activitiesMapper.findActivitiesById(id);
@@ -65,6 +80,25 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 		JSONArray jsonArray=new JSONArray();
 		String data = jsonArray.fromObject(activities).toString();
 		return data ;
+	}
+	
+	
+	
+	@Override
+	public String findAllTypeAndUser() {
+		List<Select> users=userMapper.findAllUser();
+		List<Type> type =typeMapper.findAllType();
+		Map<String, List> map=new HashMap<String, List>();
+		map.put("user", users);
+		map.put("type", type);
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(map).toString();
+		return data;
+	}
+	@Override
+	public ActivitiesExpand findActivitiesAndTpyeAndUser(String id) {
+		ActivitiesExpand activitiesExpand = activitiesMapper.findActivitiesAndTpyeAndUser(id);
+		return activitiesExpand;
 	}
 
 	

@@ -11,41 +11,37 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'frame.jsp' starting page</title>
+<title>后台管理</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<title> 主页</title>
+<title>主页</title>
 <link rel="shortcut icon" href="favicon.ico">
-<link href="resource/plugins/layui/css/layui.css"
-	rel="stylesheet" type="text/css" media="all" />
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
 <link href="resource/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" />
 <link href="resource/plugins/fonts/font-awesome.min.css"
 	rel="stylesheet" />
 <link href="resource/css/animate.min.css" rel="stylesheet">
-<link href="resource/css/style.min.css?v=4.0.0"
-	rel="stylesheet">
+<link href="resource/css/style.min.css?v=4.0.0" rel="stylesheet">
 <script src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="resource/plugins/jquery/jquery.metisMenu.js"></script>
-<script
-	src="resource/plugins/jquery/jquery.slimscroll.min.js"></script>
+<script src="resource/plugins/jquery/jquery.slimscroll.min.js"></script>
 <script src="resource/plugins/layer/layer.min.js"></script>
 <script src="resource/js/hplus.min.js?v=4.0.0"></script>
-<script type="text/javascript"
-	src="resource/js/contabs.min.js"></script>
+<script type="text/javascript" src="resource/js/contabs.min.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/angularjs/angular.min.js"></script>
-	<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg"
-	style="overflow:hidden" ng-app="" >
+	style="overflow:hidden" ng-app="">
 	<div id="wrapper">
 		<!--左侧导航开始-->
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -176,28 +172,22 @@
 						<li class="J_tabCloseAll"><a>关闭全部选项卡</a></li>
 						<li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
 					</ul>
-				</div> 
-				<div  ng-if="${user!=null }"
+				</div>
+				<div ng-if="${user!=null }"
 					style="height:30px;width:160px; text-align:center;  float:right; margin-right: 10px;margin-top: -54px;"
 					class="dropdown profile-element">
 					<a style="text-align: center;" data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <span class="clear">
-							<span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+							<span class="block m-t-xs"><strong class="font-bold">欢迎你</strong></span>
 							<span style="margin-top: -20px;text-align:center;"
-							class="text-muted text-xs block">${user.username }<b class="caret"></b></span>
+							class="text-muted text-xs block">${user.username }<b
+								class="caret"></b></span>
 					</span>
 					</a>
 					<ul style="margin-top: 25px; "
 						class="dropdown-menu animated fadeInRight m-t-xs">
+
 						<li><a style="text-align: center;" class="J_menuItem"
-							href="form_avatar.html">修改头像</a></li>
-						<li><a style="text-align: center;" class="J_menuItem"
-							href="profile.html">个人资料</a></li>
-						<li><a style="text-align: center;" class="J_menuItem"
-							href="contacts.html">联系我们</a></li>
-						<li><a style="text-align: center;" class="J_menuItem"
-							href="mailbox.html">信箱</a></li>
-							<li><a style="text-align: center;" class="J_menuItem"
 							href="user/toUpdatePassword?username=${user.username }">修改密码</a></li>
 						<li class="dropdown"><a style="text-align: center;"
 							class="dropdown-toggle count-info" data-toggle="dropdown"
@@ -228,7 +218,8 @@
 								</li>
 							</ul></li>
 						<li class="divider"></li>
-						<li><a style="text-align: center;" href="javascript:;" onclick="logout()"> 安全退出</a></li>
+						<li><a style="text-align: center;" href="javascript:;"
+							onclick="logout()"> 安全退出</a></li>
 					</ul>
 				</div>
 			</div>
@@ -238,35 +229,34 @@
 					seamless></iframe>
 			</div>
 			<div class="footer">
-				<div class="pull-right">
-					&copy; 2017-2019 <a href="" target="_blank"></a>
-				</div>
+				<div style="text-align: center;">2017.搬砖小分队</div>
 			</div>
+
 		</div>
 		<!--右侧部分结束-->
 	</div>
 
 </body>
 <script type="text/javascript">
-function logout() {
-	layui.use('layer', function() {
-		var layer = layui.layer;
-		layer.open({
-			title:'提示',
-			content:"是否退出系统？",
-			offset : '200px',
-			btn:["确认","取消"],
-			yes:function(index){
-				$.ajax({
-					url:"user/logout",
-					success:function(data){
-						window.location="/BrickSquad/adminLogin.jsp";
-						layer.close(index);
-					}
-				});
-			}
+	function logout() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer.open({
+				title : '提示',
+				content : "是否退出系统？",
+				offset : '200px',
+				btn : [ "确认", "取消" ],
+				yes : function(index) {
+					$.ajax({
+						url : "user/logout",
+						success : function(data) {
+							window.location = "/BrickSquad/adminLogin.jsp";
+							layer.close(index);
+						}
+					});
+				}
+			});
 		});
-	});
-}
+	}
 </script>
 </html>

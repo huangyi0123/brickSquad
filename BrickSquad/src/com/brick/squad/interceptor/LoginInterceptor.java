@@ -15,17 +15,10 @@ class LoginInterceptor implements HandlerInterceptor {
 			HttpServletResponse response, Object handler) throws Exception {
 	
 		String urlString = request.getRequestURI();// 取得当前请求
-		// 直接放行
-		if (urlString.indexOf("toIndex") > 0
-				|| urlString.indexOf("toRegister") > 0
-				|| urlString.indexOf("toUpdatePassword") > 0
-				|| urlString.indexOf("toRegister") > 0
-				|| urlString.indexOf("logout") > 0
-				|| urlString.indexOf("toLogin") > 0
-				|| urlString.indexOf("login") > 0
-				|| urlString.indexOf("toUserAccountAuthentication") > 0) {
+		/*// 直接放行
+		if (urlString.indexOf("toIndex") > 0) {
 			return true;
-		}
+		}*/
 		// 每有一次请求，判断用户是否登录
 		HttpSession session = request.getSession();
 		User user = null;

@@ -43,9 +43,21 @@
 	$(function() {
 		layui.use('layer', function() {
 			var layer = layui.layer;
+			$("#register").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toRegister",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
 			$("#login").click(function() {
 				layer = layer.open({
-					title : '登录',
+					title : '注册|登录',
 					type : 2,
 					content : "user/toLogin?type=user",
 					offset : '100px',
@@ -92,11 +104,11 @@
 
 <body>
 	<div class="">
-		<div class="header" style="height: 70px; background-color: #66CC66;">
+		<div class="header" style="height: 70px; background-color: #66CC66">
 			<div class="logo">
 				<h1>
 					<a href="common/toIndex">
-						<i><img src="resource/image/cell.png" alt=" " /></i>老人管理
+						<i><img src="resource/image/cell.png" alt=" " /></i>养乐堡
 					</a>
 				</h1>
 			</div>
@@ -104,12 +116,12 @@
 				<span class="menu">
 					<img src="resource/image/menu.png" alt=" " />
 				</span>
-				<ul class="layui-nav"
+				<ul class="layui-nav layui-this"
 					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #66CC66;">
 					<li class="layui-nav-item layui-this">
 						<a href="common/toIndex">首页</a>
 					</li>
-					<li class="layui-nav-item">
+					<li class="layui-nav-item ">
 						<a href="">最新活动</a>
 					</li>
 					<li class="layui-nav-item">
@@ -123,7 +135,7 @@
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
 							<dd>
-								<a href="">个人信息</a>
+								<a href="common/toPersonal">个人信息</a>
 							</dd>
 							<dd>
 								<a href="javascript:;" onclick="logout()">退出</a>
@@ -135,7 +147,7 @@
 						<dl class="layui-nav-child" style="background-color: #66CC66">
 							<!-- 二级菜单 -->
 							<dd>
-								<a href="user/toRegister">注册</a>
+								<a href="javascript:;" id="register">注册</a>
 							</dd>
 						</dl>
 					</li>

@@ -47,7 +47,7 @@ public class RegionServiceImpl implements RegionService {
 	@Override
 	public String regionPagination(Pagination pagination) {
 		List<Region> regions=regionMapper.regionPagination(pagination);
-		int row=regionMapper.regionCount();
+		int row=regionMapper.regionCount(pagination);
 		Util<Region> util=new Util<Region>();
 		String data=util.SplitPage(regions, row);
 		return data;

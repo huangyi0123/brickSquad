@@ -30,7 +30,7 @@ public interface OrdersMapper {
 	/**
 	 * 查询订单总数
 	 * */
-	public Integer findOrdersCount();
+	public Integer findOrdersCount(Pagination pagination);
 	/**
 	 * Orders订单分页查询
 	 * */

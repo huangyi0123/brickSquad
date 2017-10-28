@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -8,11 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.ShopActivitiesExpand;
+import com.brick.squad.mapper.ArticleMapper;
+import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.mapper.TypeMapper;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.pojo.ShopActivities;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -27,6 +34,14 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	@Autowired
 	@Qualifier("typeMapper")
 	private TypeMapper typeMapper;
+	
+	@Autowired
+	@Qualifier("articleMapper")
+	private ArticleMapper articleMapper;
+	
+	@Autowired
+	@Qualifier("businessMapper")
+	private BusinessMapper businessMapper;
 	
 	@Override
 	public ShopActivities findShopActivitiesById(String id) {
@@ -73,6 +88,27 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 		JSONArray jsonArray=new JSONArray();
 		String data = jsonArray.fromObject(selects).toString();
 		return data ;
+	}
+
+	
+	
+	@Override
+	public String findTypeAndArticle() {
+		// TODO Auto-generated method stub
+		List<ArticleExpand> article=articleMapper.findAllArticle();
+		List<Type> type =typeMapper.findAllType();
+		Map<String, List> map=new HashMap<String, List>();
+		map.put("user", article);
+		map.put("type", type);
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(map).toString();
+		return data;
+	}
+
+	@Override
+	public ShopActivitiesExpand findShopActivitiesAndTypeAndArticle(String id) {
+		ShopActivitiesExpand shopActivitiesExpand = shopActivitiesMapper.findShopActivitiesAndTypeAndArticle(id);
+		return shopActivitiesExpand;
 	}
 
 

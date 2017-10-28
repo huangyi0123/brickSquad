@@ -49,4 +49,14 @@ public interface BusinessMapper {
 	 * @return 记录数
 	 */
 	public int businessCount();
+	
+	
+	
+	public List<Business> findAllBusiness();
+	
+	public Business findBusiness(String id);
+	
 }
+
+
+

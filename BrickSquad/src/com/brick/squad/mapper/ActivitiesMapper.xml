@@ -46,9 +46,11 @@
 		SELECT a.id,u.username,t.`name` tname,a.centent,a.`name`
 		,a.start_time startTime,a.end_time endTime,a.number
 
-		from activities a INNER JOIN type t ON a.type_id =t.id INNER
+		from activities a
+		INNER JOIN type t ON a.type_id =t.id INNER
 
-		JOIN `user` u ON a.user_id=u.id
+		JOIN `user` u ON
+		a.user_id=u.id
 		limit #{skipNum},#{takeNum}
 	</select>
 
@@ -56,16 +58,29 @@
 	<select id="findActivitiesAllCount" resultType="int">
 		select count(*)
 		from activities a INNER JOIN type t ON a.type_id =t.id INNER
-			JOIN `user` u ON a.user_id=u.id
+		JOIN `user` u ON a.user_id=u.id
 	</select>
 
 
-	<select id="findAllActivities" resultType="activities">
+	<select id="findAllActivities" parameterType="java.lang.String"
+		resultType="activities">
 		select
 		activities.centent from activities
 	</select>
 
+	<select id="findActivitiesAndTpyeAndUser" parameterType="java.lang.String"
+		resultType="com.brick.squad.expand.ActivitiesExpand">
+		SELECT a.id,u.username,t.`name` tname,a.centent,a.`name`
+		,a.start_time startTime,a.end_time endTime,a.number
 
+		from activities a
+		INNER JOIN type t ON a.type_id =t.id INNER
+
+		JOIN `user` u ON
+		a.user_id=u.id
+		WHERE a.id = #{id,jdbcType=VARCHAR}
+
+	</select>
 
 
 </mapper>

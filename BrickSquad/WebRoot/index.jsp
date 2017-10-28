@@ -10,41 +10,44 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<link href="resource/plugins/bootstrap/bootstrap.min.css"
-	rel="stylesheet">
-<link href="resource/plugins/fonts/font-awesome.min.css"
-	rel="stylesheet">
-<link href="resource/plugins/layui/css/layui.css"
-	rel="stylesheet">
+<link href="resource/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="resource/plugins/fonts/font-awesome.min.css" rel="stylesheet">
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet">
 <link href="resource/css/animate.min.css" rel="stylesheet">
 <link href="resource/css/style.min.css" rel="stylesheet">
 <script src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="resource/plugins/layui/layui.js"></script>
-<title>Home</title>
-<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/js/common.js"></script>
+
 <script type="text/javascript">
 	$(function() {
-		$.ajax({
-			url : 'news/findNews',
-			success : function(result) {
-				result = JSON.parse(result);
-				$(result).each(
-						function() {
-							var title = this.title.length > 16 ? this.title
-									.substring(0, 17)
-									+ "..." : this.title;
-							$("#news").append(
-									'<li><a title="' + this.title
-											+ '" href="news/findNewsExpandById?id='
-											+ this.id
-											+ '"><span class="title">' + title
-											+ '</span><span class="time">'
-											+ this.postTime
-											+ '</span> </a></li>');
-						});
-			}
-		});
+		$
+				.ajax({
+					url : 'news/findNews',
+					success : function(result) {
+						result = JSON.parse(result);
+						$(result)
+								.each(
+										function() {
+											var title = this.title.length > 16 ? this.title
+													.substring(0, 17)
+													+ "..."
+													: this.title;
+											$("#news")
+													.append(
+															'<li><a title="'
+																	+ this.title
+																	+ '" href="news/findNewsExpandById?id='
+																	+ this.id
+																	+ '"><span class="title">'
+																	+ title
+																	+ '</span><span class="time">'
+																	+ this.postTime
+																	+ '</span> </a></li>');
+										});
+					}
+				});
 	});
 </script>
 <style type="text/css">
@@ -226,9 +229,7 @@
 			</div>
 		</div>
 	</div>
-
-	
-
-<jsp:include page="WEB-INF/frontEnd_manage/util/indexFooter.jsp" /></body>
+	<jsp:include page="WEB-INF/frontEnd_manage/util/indexFooter.jsp" />
+</body>
 
 </html>
