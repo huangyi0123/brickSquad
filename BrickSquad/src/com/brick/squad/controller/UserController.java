@@ -56,7 +56,6 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1,String type) {
 		User user = userService.checkLogin(user1);
-		System.out.println(type+"-------------------------------------");
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
 			//begin 判断登录类型
@@ -77,12 +76,13 @@ public class UserController {
 	}
 
 	@RequestMapping("/register")
-	public String register(User user, HttpServletRequest httpServletRequest) {
+	public String register(User user, HttpServletRequest request) {
 		String passwordMD5 = SecurityUtil.strToMD5(user.getPassword());
 		user.setPassword(passwordMD5);
 		user.setRoleId("1");
 		userService.addUser(user);
-		return "redirect:/user/toLogin";
+		request.getSession().setAttribute("user", user);
+		return "redirect:/common/toIndex";
 	}
 
 	// 校验用户名是否存在

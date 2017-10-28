@@ -36,7 +36,7 @@ public class CommonController {
 	public String uploadImg(MultipartFile file, HttpServletRequest request) {
 		UpLoadFile upLoadFile=new UpLoadFile();
 		List<String> list=new ArrayList<String>();
-		String realPath="ui/image/news/";
+		String realPath="resource/image/news/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name=file.getOriginalFilename();
@@ -59,5 +59,9 @@ public class CommonController {
 			e.printStackTrace();
 		}
 		return upLoadFile.toJson();
+	}
+	@RequestMapping("/businessIndex")
+	public String businessIndex(){
+		return "frontEnd_manage/business";
 	}
 }

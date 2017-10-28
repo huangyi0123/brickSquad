@@ -19,11 +19,20 @@
 	</select>
 	<select id="rolePagination" resultType="role"
 		parameterType="com.brick.squad.util.Pagination">
+		<if test="keyword!=''">
+		select*from role  WHERE name REGEXP #{keyword} limit #{skipNum},#{takeNum}
+		</if>
+		<if test="keyword==''">
 		select*from role limit #{skipNum},#{takeNum}
+		</if>
+		
 	</select>
-	<select id="roleCount" resultType="int">
-		select count(*) from
-		role
+	<select id="roleCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+		select count(*) from role
+		
+		<if test="keyword!=''">
+		 WHERE name REGEXP #{keyword} limit #{skipNum},#{takeNum}
+		</if>
 	</select>
 	<insert id="insertRole" parameterType="Role">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
