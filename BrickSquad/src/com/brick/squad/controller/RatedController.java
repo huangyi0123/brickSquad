@@ -47,6 +47,7 @@ public class RatedController {
 	@ResponseBody
 	public String getRatedList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return ratedService.ratedPagination(pagination);

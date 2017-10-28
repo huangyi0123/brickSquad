@@ -104,7 +104,7 @@
 
 <body>
 	<div class="">
-		<div class="header" style="height: 70px; background-color: #66CC66;">
+		<div class="header" style="height: 70px; background-color: #66CC66">
 			<div class="logo">
 				<h1>
 					<a href="common/toIndex">

@@ -33,8 +33,9 @@ function init(keyword) {
 				supportCheckbox : false,
 				columnData : [
 						{
-							key : 'zip',
-							text : '邮编'
+							key : 'name',
+							text : '姓名'
+							
 						},
 						{
 							key : 'nationId',
@@ -57,8 +58,8 @@ function init(keyword) {
 							text : '婚姻状况'
 						},
 						{
-							key : 'name',
-							text : '姓名'
+							key : 'zip',
+							text : '邮编'
 						},
 						{
 							key : 'gender',
@@ -114,9 +115,7 @@ function RefreshGridManagerList(keyword) {
 function serach() {
 	$("#serach").click(function () {
 		var keyword = $("#keyword").val();
-		if (keyword.trim()=='') {
-			RefreshGridManagerList('');
-		}
+		
 		RefreshGridManagerList(keyword);
 	});
 	

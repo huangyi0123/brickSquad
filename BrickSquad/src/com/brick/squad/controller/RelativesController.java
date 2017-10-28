@@ -27,6 +27,7 @@ public class RelativesController {
 	@ResponseBody
 	public String getRelativesList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return relativesService.relativesPagination(pagination);

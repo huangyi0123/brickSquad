@@ -46,9 +46,8 @@ public class RelativesServiceImpl implements RelativesService {
 	 */
 	@Override
 	public String relativesPagination(Pagination pagination) {
-		List<Relatives> relatives = relativesMapper
-				.relativesPagination(pagination);
-		int row = relativesMapper.findRelativesAllCount();
+		List<Relatives> relatives = relativesMapper .relativesPagination(pagination);
+		int row = relativesMapper.findRelativesAllCount(pagination);
 		Util<Relatives> util = new Util<>();
 		String data = util.SplitPage(relatives, row);
 		return data;
