@@ -41,5 +41,5 @@ public interface RelativesMapper {
 
 	public List<Relatives> relativesPagination(Pagination pagination);
 
-	public int findRelativesAllCount();
+	public int findRelativesAllCount(Pagination pagination);
 }

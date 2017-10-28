@@ -55,6 +55,7 @@ public class RegionController {
 	@ResponseBody
 	public String getRegionList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return regionService.regionPagination(pagination);
