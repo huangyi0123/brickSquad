@@ -108,7 +108,7 @@
 			<div class="logo">
 				<h1>
 					<a href="common/toIndex">
-						<i><img src="resource/image/cell.png" alt=" " /></i>老人管理
+						<i><img src="resource/image/cell.png" alt=" " /></i>养乐堡
 					</a>
 				</h1>
 			</div>
