@@ -88,7 +88,7 @@ public class UserController {
 		user.setRoleId("1");
 		userService.addUser(user);
 		request.getSession().setAttribute("user", user);
-		return "redirect:/common/toIndex";
+		return "redirect:/common/toIndexModal";
 	}
 
 	// 校验用户名是否存在
