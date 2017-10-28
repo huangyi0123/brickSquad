@@ -57,19 +57,31 @@
 		DELETE FROM rapport
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
-	<select id="findRapportCount" resultType="Integer">
+	<select id="findRapportCount" resultType="Integer" parameterType="com.brick.squad.util.Pagination">
 		SELECT COUNT(*) 
 		FROM `user` u,personal_information p,rapport r 
 		WHERE r.user_id=u.id 
 		AND r.per_id=p.id
+		<if test="keyword!=''">
+		AND (u.username REGEXP #{keyword} or p.name REGEXP #{keyword} or r.goal REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+		</if>
+		
 	</select>
-	<select id="rapportPagination" resultType="com.brick.squad.expand.RapportExpand"
-		parameterType="com.brick.squad.util.Pagination">
+	<select id="rapportPagination" resultType="com.brick.squad.expand.RapportExpand" parameterType="com.brick.squad.util.Pagination">
+		<if test="keyword!=''">
+		SELECT r.id,u.username, p.name,
+		r.goal,r.content,r.rapport_date rapportDate,r.period
+		from rapport r INNER JOIN personal_information p ON r.per_id =p.id INNER
+		JOIN `user` u ON r.user_id=u.id WHERE u.username REGEXP #{keyword} or p.name REGEXP #{keyword} or r.goal REGEXP #{keyword}
+		limit #{skipNum},#{takeNum}
+		</if>
+		<if test="keyword==''">
 		SELECT r.id,u.username, p.name,
 		r.goal,r.content,r.rapport_date rapportDate,r.period
 		from rapport r INNER JOIN personal_information p ON r.per_id =p.id INNER
 		JOIN `user` u ON r.user_id=u.id
 		limit #{skipNum},#{takeNum}
+		</if>
 	</select>
 	<select id="findRapportAndUserAndPersonalInformation" parameterType="java.lang.String" 
 	resultType="com.brick.squad.expand.RapportExpand">

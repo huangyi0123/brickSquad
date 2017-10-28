@@ -89,6 +89,14 @@ public class ArticleController {
 		return articleService.findAllArticle();
 	}
 	
+	
+	@RequestMapping("/findArticleById")
+	public String findArticleById(HttpServletRequest request,String id){
+		return null;
+		
+		
+	}
+	
 }
 
 

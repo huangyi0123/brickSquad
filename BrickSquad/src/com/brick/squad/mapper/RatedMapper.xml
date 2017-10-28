@@ -34,7 +34,7 @@
 		select id id,order_id orderId,rated_date ratedDate,centent centent
 		from rated limit #{skipNum},#{takeNum}
 		</select>
-		<select id="findRatedAllCount" resultType="int">
+		<select id="findRatedAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		select COUNT(*) from rated
 	</select>
 </mapper>

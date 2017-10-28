@@ -104,7 +104,7 @@ public class PersonalInformationServiceImpl implements
 		
 		List<PersonalInformation> datas = personalInformationMapper
 				.personalInformationPagination(pagination);
-		int n = personalInformationMapper.personalInformationCount();
+		int n = personalInformationMapper.personalInformationCount(pagination);
 		Util<PersonalInformation> util = new Util<PersonalInformation>();
 		String data = util.SplitPage(datas, n);
 		return data;

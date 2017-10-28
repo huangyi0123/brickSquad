@@ -9,6 +9,6 @@ public interface RatedService {
 	public void deleteRatedById(String id);
 	public void updateRatedCententById(Rated rated);
 	public String ratedPagination(Pagination pagination);
-	public int findReplyAllCount();
+	//public int findReplyAllCount();
 	public String findAllRated();
 }

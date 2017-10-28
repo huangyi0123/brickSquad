@@ -18,7 +18,7 @@ public interface RegionMapper {
 
 	public List<Region> regionPagination(Pagination pagination);
 
-	public int regionCount();
+	public int regionCount(Pagination pagination);
 
 	public List<Region> findRegionByParentId(String perantId);
 

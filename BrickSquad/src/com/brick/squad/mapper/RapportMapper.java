@@ -31,7 +31,7 @@ public interface RapportMapper {
 	 * */
 	public void deleteRapportById(String id);
 	/**查询老人客户总数*/
-	public Integer findRapportCount();
+	public Integer findRapportCount(Pagination pagination);
 	/**
 	 * 老人客户沟通分页查询
 	 * */

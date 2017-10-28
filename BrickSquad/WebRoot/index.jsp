@@ -18,8 +18,8 @@
 <script src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="resource/plugins/layui/layui.js"></script>
-<title>Home</title>
-<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/js/common.js"></script>
+
 <script type="text/javascript">
 	$(function() {
 		$
@@ -229,9 +229,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 	<jsp:include page="WEB-INF/frontEnd_manage/util/indexFooter.jsp" />
 </body>
 

@@ -1,7 +1,9 @@
 package com.brick.squad.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -11,8 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.mapper.ArticleMapper;
+import com.brick.squad.mapper.BusinessMapper;
+import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Reply;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -22,6 +28,15 @@ public class ArticleServiceImpl implements ArticalService{
 	@Autowired
 	@Qualifier("articleMapper")
 	private ArticleMapper articleMapper;
+	
+	@Autowired
+	@Qualifier("typeMapper")
+	private TypeMapper typeMapper;
+	
+	@Autowired
+	@Qualifier("businessMapper")
+	private BusinessMapper businessMapper;
+	
 	@Override
 	public Article findArticleById(String id) {
 		// TODO Auto-generated method stub
@@ -76,6 +91,23 @@ public class ArticleServiceImpl implements ArticalService{
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(articles).toString();
 		return data;
+	}
+	@Override
+	public String findAllTypeAndBusiness() {
+		List<Business> business=businessMapper.findAllBusiness();
+		List<Type> type =typeMapper.findAllType();
+		Map<String, List> map=new HashMap<String, List>();
+		map.put("user", business);
+		map.put("type", type);
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(map).toString();
+		return data;
+	}
+
+	@Override
+	public ArticleExpand findArticleAndTypeAndBusiness(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

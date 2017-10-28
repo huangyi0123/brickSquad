@@ -31,19 +31,28 @@
 		WHERE id=#{id}
 	</update>
 
-	<delete id="deleteBusinessById" parameterType="String">
+	<delete id="deleteBusinessById" parameterType="String" >
 		DELETE FROM
 		business WHERE id=#{id}
 	</delete>
-
+	
+	<!-- 分页查询 -->
 	<select id="businessPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="Business">
-		SELECT
-		<include refid="prop" />
-		FROM business LIMIT #{skipNum},#{takeNum}
+		select id,name,idcard,shopname,shop_material_path
+		from business
+	    LIMIT #{skipNum},#{takeNum}
 	</select>
 	<select id="businessCount" resultType="int">
 		SELECT
 		COUNT(*) FROM business
 	</select>
+	
+	<select id="findBusiness" parameterType="java.lang.String" resultType="Business">
+	select id,name,idcard,shopname,shop_material_path
+		from business
+	WHERE id = #{id,jdbcType=VARCHAR}
+	</select>
+	
+	
 </mapper>

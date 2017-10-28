@@ -81,5 +81,17 @@
 		select
 		shop_activities.type_id from shop_activities
 	</select>
+	
+	
+	
+	<select id="findShopActivitiesAndTypeAndArticle"  parameterType="java.lang.String" 
+	 resultType="com.brick.squad.expand.ShopActivitiesExpand">
+	SELECT shop_activities.id,article.aname aname,business.`name` bname,type.`name` tname,
+			shop_activities.start_time startTime,shop_activities.end_time endTime
+		
+		from shop_activities  JOIN type   ON shop_activities.type_id=type.id  JOIN
+		
+		business  ON shop_activities.business_id = business.id  JOIN article   ON shop_activities.type_id =article.id
+	</select>
 
 </mapper>

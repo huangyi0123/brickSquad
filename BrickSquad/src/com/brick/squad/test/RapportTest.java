@@ -58,11 +58,11 @@ public class RapportTest {
 	public void deleteRapportById() throws Exception{
 		rapportService.deleteRapportById("3");
 	}
-	@Test
+	/*@Test
 	public void findRapportCount() throws Exception{
 		Integer count=rapportService.findRapportCount();
 		System.out.println(count);
-	}
+	}*/
 	@Test
 	public void rapportCarPagination() throws Exception{
 		Pagination pagination = new Pagination();

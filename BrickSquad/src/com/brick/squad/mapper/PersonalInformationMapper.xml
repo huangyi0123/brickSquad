@@ -56,16 +56,32 @@
 		DELETE
 		FROM personal_information WHERE id=#{id}
 	</delete>
-	<select id="personalInformationPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="personalInformation">
+	<select id="personalInformationPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.PersonalInformation">
+		<if test="keyword!=''">
+		SELECT
+		<include refid="prop" /> 
+		FROM personal_information WHERE `name` REGEXP  #{keyword} or gender REGEXP #{keyword} or idcard REGEXP #{keyword}
+		LIMIT #{skipNum},#{takeNum}
+		</if>
+		
+		<if test="keyword==''">
 		SELECT
 		<include refid="prop" />
-		FROM personal_information LIMIT
-		#{skipNum},#{takeNum}
+		FROM personal_information LIMIT #{skipNum},#{takeNum}
+		</if>
 	</select>
-	<select id="personalInformationCount" resultType="int">
+	
+	<select id="personalInformationCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+		<if test="keyword==''">
+		
 		SELECT COUNT(*) FROM personal_information
+		</if>
+		<if test="keyword!=''">
+		SELECT COUNT(*) FROM personal_information WHERE `name` REGEXP  #{keyword} or gender REGEXP #{keyword} or idcard REGEXP #{keyword}
+		LIMIT #{skipNum},#{takeNum}
+		</if>
 	</select>
+	
 	<select id="findAllPersonalInformation1" resultType="personalInformation">
 	SELECT 
 	<include refid="prop" />

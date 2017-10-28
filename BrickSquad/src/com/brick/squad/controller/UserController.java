@@ -60,6 +60,7 @@ public class UserController {
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
 			// begin 判断登录类型
+			//如果查询出来的用户RoleId是普通用户，跳转到主页去，不能登录看到后台管理页面
 			if (type.equals("admin")
 					&& !(user.getRoleId().equals(
 							"e2ebe746b86b11e78d4f5254002ec43c"))) {
@@ -87,7 +88,7 @@ public class UserController {
 		user.setRoleId("1");
 		userService.addUser(user);
 		request.getSession().setAttribute("user", user);
-		return "redirect:/common/toIndex";
+		return "redirect:/common/toIndexModal";
 	}
 
 	// 校验用户名是否存在

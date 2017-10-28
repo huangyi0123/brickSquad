@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -30,4 +31,8 @@ public interface ArticalService {
 	public String findArticle()throws Exception;
 	
 	public String findAllArticle();
+	
+	public String findAllTypeAndBusiness();
+	
+	public ArticleExpand findArticleAndTypeAndBusiness(String id);
 }
