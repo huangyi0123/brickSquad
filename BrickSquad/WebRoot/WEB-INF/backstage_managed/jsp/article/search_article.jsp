@@ -70,29 +70,27 @@
 			<div class="layui-input-inline">
 				<input type="text" name="aname" required lay-verify="required"
 					placeholder="商品名称" autocomplete="off" class="layui-input"
-					value="${article.aname }">
+					value="${articleExpand.aname }" readonly="readonly">
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		<div class="layui-form-item" style="width: 300px">
+			
+			
+			<div class="layui-form-item">
 			<label class="layui-form-label">商品类型</label>
-			<div class="layui-input-block">
-				<select name="typeId" lay-filter="aihao" id="typeId" val="${article.typeId }">
-					<option value=""></option>
-					
-				</select>
+			<div class="layui-input-inline">
+				<input type="text" name="typeId" id="typeId" required lay-verify="required"
+					placeholder="商品类型" autocomplete="off" class="layui-input"
+					value="${articleExpand.tname }" readonly="readonly">
 			</div>
-			</div>
+		</div>
+			
+			
 			<div class="layui-form-item">
 			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">
 				<input type="text" name="price" required lay-verify="required"
 					placeholder="价格" autocomplete="off" class="layui-input"
-					value="${article.price }">
+					value="${articleExpand.price }" readonly="readonly">
 			</div>
 		</div>
 		
@@ -101,7 +99,7 @@
 			<div class="layui-input-inline">
 				<input type="text" name="stock" required lay-verify="required"
 					placeholder="库存" autocomplete="off" class="layui-input"
-					value="${article.stock }">
+					value="${articleExpand.stock }" readonly="readonly">
 			</div>
 		</div>
 		
@@ -110,7 +108,7 @@
 			<div class="layui-input-inline">
 				<input type="text" name="describes" required lay-verify="required"
 					placeholder="商品描述" autocomplete="off" class="layui-input"
-					value="${article.describes}">
+					value="${articleExpand.describes}" readonly="readonly">
 			</div>
 		</div>
 		
@@ -121,7 +119,7 @@
 			<div class="layui-input-inline">
 				<input type="text" name="businessId" required lay-verify="required"
 					placeholder="店铺名" autocomplete="off" class="layui-input"
-					value="${article.businessId }">
+					value="${articleExpand.bname }" readonly="readonly">
 			</div>
 		</div>
 		
