@@ -56,13 +56,6 @@ public class OrdersServiceTest {
 	}
 	@Test
 	public void findOrdersCount() throws Exception{
-<<<<<<< HEAD
-		//Integer ordersCount=ordersService.findOrdersCount();
-		//System.out.println(ordersCount);
-=======
-		/*Integer ordersCount=ordersService.findOrdersCount();*/
-	/*	System.out.println(ordersCount);*/
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 	}
 	@Test
 	public void ordersPagination() throws Exception{
