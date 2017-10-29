@@ -19,9 +19,6 @@
 		from personal_information WHERE id=#{id}
 	</select>
 	<insert id="insertPersonalInformation" parameterType="personalInformation">
-		<selectKey resultType="String" keyProperty="id" order="BEFORE">
-			select replace(uuid(),'-','') from dual
-		</selectKey>
 		INSERT INTO personal_information
 		(id,name,birthday,gender,idcard,address_id,retirement_unit,retirement_date,engaged_industry,weight,height,income,family_history,is_purchasing,is_supremacy,is_pureq,pureq_type_id,nation_id,culture_id,marriage_id,zip)
 		VALUES(#{id},#{name},#{birthday},#{gender},#{idCard},#{addressId},#{retirementUnit},#{retirementDate},#{engagedIndustry},#{weight},#{height},#{income},#{familyHistory},#{isPurchasing},#{isSupremacy},#{isPureq},#{pureqTypeId},#{nationId},#{cultureId},#{marriageId},#{zip})

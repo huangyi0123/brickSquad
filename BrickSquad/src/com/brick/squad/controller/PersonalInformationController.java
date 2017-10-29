@@ -67,7 +67,6 @@ public class PersonalInformationController {
 			String keyword) {
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
-		System.out.println(keyword+"111111111111111111111111111111");
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		String data = personalInformationService
@@ -148,10 +147,8 @@ public class PersonalInformationController {
  * @return 分页显示页面
  */
 	@RequestMapping("/addPersonalInformation")
-	public String addPersonalInformation(Address address,
-			PersonalInformation personalInformation) {
-		personalInformationService.insertPersonalInformation(address,
-				personalInformation);
+	public String addPersonalInformation(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) {
+		personalInformationService.insertPersonalInformation(addressAndPersonaInformationExpand);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
 

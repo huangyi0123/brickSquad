@@ -184,4 +184,12 @@ public class UserController {
 		request.setAttribute("msg", "密码修改成功！请重新登录");
 		return "backstage_managed/jsp/user/login";
 	}
+	@RequestMapping("/findUserByBranch")
+	@ResponseBody
+	public String findUserByBranch(HttpServletRequest request) {
+		User user=(User) request.getSession().getAttribute("user");
+		System.out.println(user.getBranchId()+"+++++++++++++++++++++++++++++++++++++++++++++");
+		String data=userService.findUserByBranchId(user.getBranchId());
+		return data;
+	}
 }

@@ -1,5 +1,6 @@
 package com.brick.squad.service;
 
+import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
@@ -32,7 +33,7 @@ public interface PersonalInformationService {
 	 * 插入老人信息
 	 * @param personalInformation 老人信息
 	 */
-	public void insertPersonalInformation(Address address, PersonalInformation personalInformation);
+	public void insertPersonalInformation(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand);
 	/**
 	 * 根据id删除老人信息
 	 * @param personalInformation 老人信息

@@ -4,7 +4,8 @@
 <mapper namespace="com.brick.squad.mapper.UserMapper">
 	<!-- Luyujing User表 增删改查 -->
 	<sql id="prop">
-		id,username,password telephone, role_id roleId
+		id,username,password telephone, role_id roleId,branch_id
+		branchId
 	</sql>
 	<insert id="addUser" parameterType="com.brick.squad.pojo.User">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -15,54 +16,61 @@
 
 	</insert>
 	<update id="updateUserById" parameterType="String">
-		UPDATE user SET username=#{username},telephone=#{telephone} WHERE id=#{id}
+		UPDATE user SET
+		username=#{username},telephone=#{telephone} WHERE id=#{id}
 	</update>
 	<update id="updateUserByIdByWWX" parameterType="user">
 
 		UPDATE user SET
 		username=#{username},telephone=#{telephone},role_id=#{
-		roleId} WHERE id=#{id}
+		roleId} WHERE
+		id=#{id}
 	</update>
-	
 	<delete id="deleteUser" parameterType="String">
 		delete from user where
 		username=#{username};
 
 	</delete>
-<!-- 
-	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="user">
-		select
-		<include refid="prop" />
-		from user limit #{skipNum},#{takeNum}
-	</select> -->
-	
-	<select id="userPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.UserExpand">
-		
-	<if test="keyword!=''">
-		SELECT user.id,user.password,user.username,user.telephone,role.name 
-		FROM user JOIN role on user.role_id=role.id WHERE username REGEXP #{keyword} limit #{skipNum},#{takeNum}
-	
-	</if>
-	<if test="keyword==''"> 
-		SELECT user.id,user.password,user.username,user.telephone,role.name 
-		FROM user JOIN role on user.role_id=role.id  limit #{skipNum},#{takeNum}	
-	</if>
-		
+
+	<select id="userPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.UserExpand">
+
+		<if test="keyword!=''">
+			SELECT
+			user.id,user.password,user.username,user.telephone,role.name
+			FROM user
+			JOIN role on user.role_id=role.id WHERE username REGEXP
+			#{keyword}
+			limit #{skipNum},#{takeNum}
+
+		</if>
+		<if test="keyword==''">
+			SELECT
+			user.id,user.password,user.username,user.telephone,role.name
+			FROM user
+			JOIN role on user.role_id=role.id limit #{skipNum},#{takeNum}
+		</if>
+
 	</select>
-	
-	<select id="userCount"  resultType="int" parameterType="com.brick.squad.util.Pagination">
+
+	<select id="userCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select count(*) from user
 		<if test="keyword!=''">
-		 
-		WHERE username REGEXP #{keyword} limit #{skipNum},#{takeNum}
-	
-	</if>
+
+			WHERE username REGEXP #{keyword} limit
+			#{skipNum},#{takeNum}
+
+		</if>
 	</select>
 	<select id="findUserByusername" resultType="user" parameterType="String">
-		select role_id roleId, username,telephone,id FROM user WHERE  username=#{username} 
+		select role_id roleId, username,telephone,id FROM user WHERE
+		username=#{username}
 	</select>
 	<select id="findUserById" resultType="user" parameterType="String">
-		select role_id roleId, username,telephone,id FROM user WHERE  id=#{id} 
+		select
+		<include refid="prop" />
+		FROM user WHERE id=#{id}
 	</select>
 	<select id="checkLogin" parameterType="user" resultType="user">
 		select
@@ -75,8 +83,11 @@
 		select username from user where username=#{username}
 	</select>
 
-	<select id="loginCheck"  resultType="user"  parameterType="String">
-		select username from user where username=#{username} AND password=#{password}
+	<select id="loginCheck" resultType="user" parameterType="user">
+		select
+		<include refid="prop" />
+		from user where username=#{username} AND
+		password=#{password}
 	</select>
 
 	<select id="findAllUser" resultType="com.brick.squad.util.Select">
@@ -89,5 +100,12 @@
 		id,password,username,telephone,role_id roleId
 		FROM user
 	</select>
-	
+	<select id="findUserByBranchId" resultType="com.brick.squad.util.Select"
+		parameterType="String">
+		SELECT id,username name FROM user u
+		WHERE
+		u.branch_id=#{branchId}
+		and
+		u.role_id='e2ebe746b86b11e78d4f5254002ec43c'
+	</select>
 </mapper>
