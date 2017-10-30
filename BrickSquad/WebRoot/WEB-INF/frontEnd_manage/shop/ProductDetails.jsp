@@ -305,10 +305,23 @@
 					<label style="display:block; margin-top: -30px;margin-left: 180px;">件</label>
 					<label style="display:block; margin-top: -25px;margin-left: 200px;">库存189件</label>
 					<input type="submit" value="立即购买"
-						style="width: 120px;height: 40px;background-color: white; margin-top: 30px;margin-left: 100px;">
+						style="width: 120px;height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
 					<input type="submit" value="加入购物车"
-						style="width: 120px;height: 40px;background-color: white;margin-top: 30px;margin-left: 40px;">
+						style="width: 120px;height: 40px;background-color: white;margin-top: 40px;margin-left: 40px;">
+
+
 				</div>
+
+			</div>
+			<div class="Pro_seemore">
+				<div
+					style="width: 45px;border-top: 1px dashed #C9C9C9 ;margin-left: 30px;margin-top: 10px;"></div>
+				<label style="margin-left: 80px; margin-top: -10px;">看了又看</label>
+				<div
+					style="width: 45px;border-top: 1px dashed #C9C9C9 ;margin-left: 142px;margin-top: -16px;"></div>
+				<a href="#"> <img src="resource/image/2.png"></a> <a href="#">
+					<img src="resource/image/2.png">
+				</a> <a href="#"> <img src="resource/image/2.png"></a> 
 
 			</div>
 		</div>
