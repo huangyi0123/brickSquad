@@ -100,8 +100,6 @@
 }
 </style>
 </head>
-</head>
-
 <body>
 	<div class="">
 		<div class="header" style="height: 70px; background-color: #66CC66">

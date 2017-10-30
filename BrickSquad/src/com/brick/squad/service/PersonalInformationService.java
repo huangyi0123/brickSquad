@@ -38,7 +38,7 @@ public interface PersonalInformationService {
 	 * 根据id删除老人信息
 	 * @param personalInformation 老人信息
 	 */
-	public void updatePersonalInformationById(PersonalInformation personalInformation);
+	public void updatePersonalInformationById(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) throws Exception;
 	/**
 	 * 根据id删除老人信息
 	 * @param id 老人id
@@ -58,4 +58,5 @@ public interface PersonalInformationService {
 	 * 查询老人所有信息，需求字段
 	 * */
 	public String findAllPersonalInformation();
+	
 }

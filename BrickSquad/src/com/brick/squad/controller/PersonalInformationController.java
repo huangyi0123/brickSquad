@@ -140,16 +140,36 @@ public class PersonalInformationController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, true));
 	}
-/**
- * 新增个人信息
- * @param address 地址
- * @param personalInformation 个人信息
- * @return 分页显示页面
- */
+
+	/**
+	 * 新增个人信息
+	 * 
+	 * @param address
+	 *            地址
+	 * @param personalInformation
+	 *            个人信息
+	 * @return 分页显示页面
+	 */
 	@RequestMapping("/addPersonalInformation")
-	public String addPersonalInformation(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) {
-		personalInformationService.insertPersonalInformation(addressAndPersonaInformationExpand);
+	public String addPersonalInformation(
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) {
+		personalInformationService
+				.insertPersonalInformation(addressAndPersonaInformationExpand);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
+	}
+
+	/**
+	 * 用户个人信息完善
+	 * 
+	 * @param userUpdatePersonalInformation
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping("/userUpdatePersonalInformation")
+	public String userUpdatePersonalInformation(HttpServletRequest request,
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) throws Exception {
+		personalInformationService.updatePersonalInformationById(addressAndPersonaInformationExpand);
+		return "redirect:/common/toPersonal";
 	}
 
 	@RequestMapping("/findAllPersonalInformation")
@@ -171,20 +191,17 @@ public class PersonalInformationController {
 	public String updatePersonalInformation(
 			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand)
 			throws Exception {
-		// 先修改地址信息
-		addressService.updateAddressById(addressAndPersonaInformationExpand
-				.getAddress());
-
 		personalInformationService
-				.updatePersonalInformationById(addressAndPersonaInformationExpand
-						.getPersonalInformation());
+				.updatePersonalInformationById(addressAndPersonaInformationExpand);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
-/**
- * 删除PersonalInformation
- * @param PersonalInformation的id
- * @return 状态参数
- */
+
+	/**
+	 * 删除PersonalInformation
+	 * 
+	 * @param PersonalInformation的id
+	 * @return 状态参数
+	 */
 	@RequestMapping("/deletePersonalInformationById")
 	@ResponseBody
 	public String deletePersonalInformationById(String id) {

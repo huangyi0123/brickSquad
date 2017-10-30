@@ -78,10 +78,25 @@ public class PersonalInformationServiceImpl implements
 	}
 
 	@Override
-	public void updatePersonalInformationById(
-			PersonalInformation personalInformation) {
-		personalInformationMapper
-				.updatePersonalInformationById(personalInformation);
+	public void updatePersonalInformationById(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand
+			) throws Exception {
+		PersonalInformation personalInformation =addressAndPersonaInformationExpand.getPersonalInformation();
+		//先修改地址,如果addressID为空，先插入
+		if (addressAndPersonaInformationExpand.getAddress().getId()==""||addressAndPersonaInformationExpand.getAddress().getId()==null) {
+			Address address = addressAndPersonaInformationExpand.getAddress();
+			addressMapper.insertAddress(address);
+			
+			personalInformation.setAddressId(address.getId());
+			
+		}else {
+			personalInformation.setAddressId(addressAndPersonaInformationExpand.getAddress().getId());
+			addressMapper.updateAddressById(addressAndPersonaInformationExpand.getAddress());
+		}	
+		
+		
+			personalInformationMapper.updatePersonalInformationById(personalInformation);
+		
+		
 
 	}
 
@@ -154,5 +169,7 @@ public class PersonalInformationServiceImpl implements
 		return addressMapper.findAddressById(id);
 
 	}
+
+
 
 }

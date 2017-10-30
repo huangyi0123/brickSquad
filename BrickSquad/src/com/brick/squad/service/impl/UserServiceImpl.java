@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.UserExpand;
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.UserMapper;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
@@ -26,12 +28,17 @@ import com.brick.squad.util.Util;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	@Qualifier("userMapper")
-	
 	private UserMapper userMapper;
-	
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 	public void  addUser(User user){
-		
 		userMapper.addUser(user);
+		//用户注册成功，就把userID存入personalInformation，用户修改信息是就可以直接通过ID修改
+		PersonalInformation personalInformation =new PersonalInformation();
+		personalInformation.setId(user.getId());
+		personalInformationMapper.insertPersonalInformation(personalInformation);
+		
 	}
 	public void deleteUser(String id){
 		userMapper.deleteUser(id);
