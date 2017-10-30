@@ -37,6 +37,7 @@ public class TypeController {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		pagination.setKeyword(keyword);
 		String data = typeService.typePagination(pagination);
 		return data;
 	}

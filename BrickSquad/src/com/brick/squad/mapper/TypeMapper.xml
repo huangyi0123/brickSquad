@@ -45,7 +45,11 @@
 		resultType="Type">
 		SELECT
 		<include refid="prop" />
-		FROM type LIMIT #{skipNum},#{takeNum}
+		FROM type
+		<if test="keyword!=''">
+		where name REGEXP #{keyword}
+		</if>
+		 LIMIT #{skipNum},#{takeNum}
 	</select>
 	
 	<select id="typeCount" resultType="int">

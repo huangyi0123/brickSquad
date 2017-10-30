@@ -37,6 +37,7 @@ public class ActivityRegistrationController {
 	Pagination pagination=new Pagination();
 	pagination.setCurentPage(cPage);
 	pagination.setPageSize(pSize);
+	pagination.setKeyword(keyword);
 	String data=activityRegistrationService.activityRegistrationPagination(pagination);
 	return data;
 }

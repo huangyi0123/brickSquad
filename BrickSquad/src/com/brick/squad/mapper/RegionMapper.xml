@@ -18,19 +18,23 @@
 		update region set name=#{name}	where id=#{id} 
 	</update>
 	<select id="regionPagination" parameterType="com.brick.squad.util.Pagination" resultType="region">
+		
+		select id,isleaf,name,parent_id perantId from region
 		<if test="keyword!=''">
-		select id,isleaf,name,parent_id perantId from region WHERE name  REGEXP #{keyword}  limit #{skipNum},#{takeNum}
-		</if>
-		<if test="keyword==''">
+		 WHERE name  REGEXP #{keyword}  
+		 </if>
+		 limit #{skipNum},#{takeNum}
+		
+<!-- 		<if test="keyword==''">
 		select id,isleaf,name,parent_id perantId from region  limit #{skipNum},#{takeNum}
 		</if>
-		
+		 -->
 	</select>
 	<select id="regionCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
-		select count(1) from region
-		<if test="keyword!=''">
+		select count(*) from region
+	<!-- 	<if test="keyword!=''">
 		WHERE name  REGEXP #{keyword}  limit #{skipNum},#{takeNum}
-		</if>
+		</if> -->
 	</select>
 	<!-- 用于数据回显 -->
 	<select id="findAllRegion" resultType="region">

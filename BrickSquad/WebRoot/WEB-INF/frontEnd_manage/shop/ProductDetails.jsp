@@ -153,6 +153,56 @@
 
 		</div>
 
+		<div class="Pro_mainbody">
+			<div class="jumbotron"
+				style="height:150px; background-color: white;text-align: center;">
+				<h2>Hello, world!</h2>
+			</div>
+			<div class="Pro_info">
+				<div class="comm_img">
+					<a href="#"><img alt="" src="resource/image/3.png"
+						style="width: 350px;height: 350px;margin-left: 20px;margin-top: 20px;"></a>
+					<div class="comm_imgs">
+						<a href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a>
+						<div>
+							<div style="float: left;">
+								<a href="#"
+									style="color: #BAAA99;border: none;margin-left: 30px;"> <i
+									class="glyphicon glyphicon-share"></i> <label
+									style="cursor: pointer;">分享</label>
+								</a> <a href="#"
+									style="display:block; color: #BAAA99;border: none;margin-left: 30px;">
+									<i class="glyphicon glyphicon-star"></i> <label
+									style="cursor: pointer;">收藏商品</label>
+								</a> <label style="font-size: 0.1px;margin-top: 22px;color:#BAAA99;">（1762人气）</label>
+							</div>
+							<div style="float: left;">
+								<a href="#"
+									style="display: block; margin-left:70px;margin-top: 20px;border: none;color: #BAAA99;"><label>举报</label></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="comm_info">
+					<p
+						style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">珂卡芙2017新款冬季女鞋韩版圆头粗跟长筒靴女中跟女靴964186621@</p>
+						<label style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label>
+						<div class="comm_backimg" >
+						<label>价格</label>
+						<label>78</label>
+						<label>促销价</label>
+						<label>60</label>
+						</div>
+
+				</div>
+
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>
