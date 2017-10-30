@@ -38,7 +38,6 @@ public class GuidanceController {
 			request.setAttribute("selectGuidanceId", guidance);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateGuidanceById");
-			System.out.print(guidance.toString());
 		}else
 			request.setAttribute("msg", "添加");
 			request.setAttribute("url", "insertGuidance");

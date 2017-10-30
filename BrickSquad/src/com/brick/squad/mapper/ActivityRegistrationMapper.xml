@@ -7,12 +7,12 @@
 		activitiesId,registration_date
 		registrationDate,appointment
 	</sql>
-	<select id="findActivityRegistrationById" resultType="ActivityRegistration"
-		parameterType="String">
+	<select id="findActivityRegistrationById" parameterType="String" resultType="ActivityRegistration"
+		>
 		select
 		<include refid="prop" />
 		from activity_registration where
-		id=#{id};
+		id=#{id}
 	</select>
 
 	<insert id="insertActivityRegistration" parameterType="ActivityRegistration">
@@ -61,4 +61,5 @@
 		SELECT
 		COUNT(*) FROM activity_registration
 	</select>
+	
 </mapper>

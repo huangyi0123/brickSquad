@@ -24,10 +24,11 @@ public class LimitsController {
 	@ResponseBody
 	public String getLimitsList(int pSize,int cPage,String keyword) {
 		Pagination pagination=new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		String data=limitsService.limitsPagination(pagination);
-		return data;
+		return limitsService.limitsPagination(pagination);
+		 
 	}
 	
 	@RequestMapping("/toAddLimits")

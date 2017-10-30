@@ -19,24 +19,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link rel="stylesheet" type="text/css"
-	href="resource/plugins/grid_manager/GridManager.min.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/layui/css/layui.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/fonts/font-awesome.min.css">
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/grid_manager/GridManager.min.js"></script>
-<script type="text/javascript"
-	src="resource/js/guidance_list.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/lay/dest/layui.all.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/plugins/grid_manager/GridManager.min.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/fonts/font-awesome.min.css">
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/grid_manager/GridManager.min.js"></script>
+<script type="text/javascript" src="resource/js/guidance_list.js"></script>
+<script type="text/javascript" src="resource/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
 	$(function() {
 		init("");
@@ -59,7 +50,7 @@ a:HOVER {
     <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" id="keyword" class="form-control" placeholder="请输入姓名查找..." >
+			<input type="text" id="keyword" class="form-control" placeholder="请输入姓名查找..." id="keyword" >
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>查找

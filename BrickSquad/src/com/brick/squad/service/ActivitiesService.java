@@ -30,7 +30,10 @@ public interface ActivitiesService {
 	public String findAllTypeAndUser();
 	
 	public ActivitiesExpand findActivitiesAndTpyeAndUser(String id);
-
+	/*
+	 * 查询出所有活动的需求字段
+	 */
+	public String findAllActivitiesIdAndName();
 	
 
 
