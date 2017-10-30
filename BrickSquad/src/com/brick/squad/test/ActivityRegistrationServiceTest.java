@@ -16,7 +16,7 @@ import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 @RunWith(JunitClassRunner.class)
-@ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
+@ContextConfiguration(locations="classpath*:com/brick/squad/config/applicationContext.xml")
 public class ActivityRegistrationServiceTest {
 
 	@Autowired
@@ -25,12 +25,10 @@ public class ActivityRegistrationServiceTest {
 	
 	@Test
 	public void testFindActivityRegistrationById() {
-		try {
-			activityRegistrationService.findActivityRegistrationById("123");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ActivityRegistration activityRegistration=
+				activityRegistrationService.findActivityRegistrationById("123");
+	System.out.println(activityRegistration.toString());
+	
 	}
 
 	@Test

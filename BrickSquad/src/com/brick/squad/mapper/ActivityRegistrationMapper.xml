@@ -7,8 +7,8 @@
 		activitiesId,registration_date
 		registrationDate,appointment
 	</sql>
-	<select id="findActivityRegistrationById" resultType="ActivityRegistration"
-		parameterType="String">
+	<select id="findActivityRegistrationById" parameterType="String" resultType="ActivityRegistration"
+		>
 		select
 		<include refid="prop" />
 		from activity_registration where

@@ -46,6 +46,12 @@ public class ActivityRegistration {
 	public void setAppointment(int appointment) {
 		this.appointment = appointment;
 	}
+	@Override
+	public String toString() {
+		return "ActivityRegistration [id=" + id + ", perId=" + perId
+				+ ", activitiesId=" + activitiesId + ", registrationDate="
+				+ registrationDate + ", appointment=" + appointment + "]";
+	}
 	
 	
 
