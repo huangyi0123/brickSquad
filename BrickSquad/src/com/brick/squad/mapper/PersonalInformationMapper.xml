@@ -84,6 +84,7 @@
 	<include refid="prop" />
 	FROM personal_information
 	</select>
+	<!-- 查询老人姓名和id -->
 	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select">
 	SELECT id ,name
 	FROM personal_information
@@ -92,4 +93,6 @@
 	<select id="findPerIdAndIdCard" resultType="PersonalInformation">
 		select id,idcard idCard,name from personal_information
 	</select>
+	
+	
 </mapper>
