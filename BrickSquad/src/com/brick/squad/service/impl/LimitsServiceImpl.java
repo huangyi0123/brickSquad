@@ -51,5 +51,11 @@ public class LimitsServiceImpl implements LimitsService {
 		String data=util.SplitPage(datas, n);
 		return data;
 	}
+
+	@Override
+	public String findAllTableName(String roleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
