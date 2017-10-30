@@ -17,4 +17,8 @@ public interface MedicalMapper {
 	
 	public List<MedicalExpand> medicalPagination(Pagination pagination);
 	public int findMedicalAllCount();
+	
+	
+	public String findAllPersonalInformationAndType();
+	public MedicalExpand findPersonalInformationAndType(String id);
 }
