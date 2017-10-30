@@ -76,4 +76,8 @@ public class CommonController {
 		return "frontEnd_manage/shop/ProductDetails";
 		
 	}
+	@RequestMapping("/toPersonalInformation")
+	public String toPersonalInformation() {
+		return "frontEnd_manage/person_information/PersonalInformation";
+	}
 }

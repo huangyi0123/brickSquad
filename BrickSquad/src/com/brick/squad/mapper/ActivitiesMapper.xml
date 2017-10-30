@@ -45,12 +45,14 @@
 		resultType="com.brick.squad.expand.ActivitiesExpand">
 		SELECT a.id,u.username,t.`name` tname,a.centent,a.`name`
 		,a.start_time startTime,a.end_time endTime,a.number
-
 		from activities a
 		INNER JOIN type t ON a.type_id =t.id INNER
-
 		JOIN `user` u ON
 		a.user_id=u.id
+		<if test="keyword!=''and keyword!=null">
+		WHERE u.username REGEXP #{keyword} or t.`name` REGEXP #{keyword}
+		 or a.centent REGEXP #{keyword} or a.centent REGEXP #{keyword}
+		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
 

@@ -12,6 +12,7 @@ public class User {
 	private String password;
 	private String telephone;
 	private String roleId;
+	private String branchId;
 	
 	public String getId() {
 		return id;
@@ -42,6 +43,12 @@ public class User {
 	}
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
+	}
+	public String getBranchId() {
+		return branchId;
+	}
+	public void setBranchId(String branchId) {
+		this.branchId = branchId;
 	}
 	@Override
 	public String toString() {

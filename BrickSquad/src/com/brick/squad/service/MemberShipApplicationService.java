@@ -4,6 +4,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.MemberShipApplicationExpand;
 import com.brick.squad.pojo.MemberShipApplication;
 import com.brick.squad.util.Pagination;
 
@@ -22,4 +23,9 @@ public interface MemberShipApplicationService {
 	public int findMemberShipApplicationAllCount();
 	
 	public String findAllMemberShipApplication();
+	
+	
+	public String findAllTypeAndUserAndPersonalInformation();
+	
+	public MemberShipApplicationExpand findMemberShipApplicationAndTypeAndUserAndPersonalInformation(String id);
 }

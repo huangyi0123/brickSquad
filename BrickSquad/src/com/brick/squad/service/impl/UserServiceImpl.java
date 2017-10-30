@@ -104,6 +104,12 @@ public class UserServiceImpl implements UserService {
 		userMapper.updateUserByIdByWWX(newUser);
 		
 	}
+	@Override
+	public String findUserByBranchId(String branchId) {
+		List<Select> list=userMapper.findUserByBranchId(branchId);
+		JSONArray jsonArray=JSONArray.fromObject(list);
+		return jsonArray.toString();
+	}
 
 }
 

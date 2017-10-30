@@ -44,7 +44,12 @@ public User findUserByusername(String username) ;
 	public User findUserById(String id);
 	public void updateUserByIdByWWX(User user);
 	public  void updateUserById(@Param("username")String username,@Param("telephone")String telephone,@Param("id")String id);
-	
+	/**
+	 * 根据分店名称查询老人用户名及id
+	 * @param branchId 分店id
+	 * @return 老人用户名及id集合
+	 */
+	public List<Select> findUserByBranchId(String branchId);
 	
 
 }

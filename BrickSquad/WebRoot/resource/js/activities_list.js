@@ -62,16 +62,6 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function serach() {
-	$("#serach").click(function () {
-		var keyword = $("#keyword").val();
-		if (keyword.trim()=='') {
-			RefreshGridManagerList('');
-		}
-		RefreshGridManagerList(keyword);
-	});
-	
-}
-function serach() {
 	$("#serach").click(function() {
 		var keyword=$("#keyword").val();
 		RefreshGridManagerList(keyword);

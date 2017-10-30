@@ -1,7 +1,10 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.User;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface UserService {
 	/**
@@ -44,6 +47,11 @@ public interface UserService {
 
 	public void updateUserById(String username, String telephone,String id);
 
-
+	/**
+	 * 根据分店名称查询老人用户名及id
+	 * @param branchId 分店id
+	 * @return 老人用户名及idjson字符串
+	 */
+	public String findUserByBranchId(String branchId);
 
 }

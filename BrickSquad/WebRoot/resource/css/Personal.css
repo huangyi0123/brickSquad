@@ -2,12 +2,14 @@
 
 .Person_body {
 	width: 100%;
-	height: 100%;
+	height: 1150px;
 	/* background-color: red; */
 }
-
+.Person_body label{
+	color:#000;
+}
 .Person_left {
-	width: 25%;
+	width: 10%;
 	height: 100%;
 	float: left;
 	/* background-color: blue; */
@@ -18,6 +20,7 @@
 	height: 100%;
 	float: right;
 	/* background-color: green; */
+	margin-right: 20px;
 }
 
 .layui-tab-item1 label {

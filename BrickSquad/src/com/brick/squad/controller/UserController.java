@@ -85,7 +85,7 @@ public class UserController {
 	public String register(User user, HttpServletRequest request) {
 		String passwordMD5 = SecurityUtil.strToMD5(user.getPassword());
 		user.setPassword(passwordMD5);
-		user.setRoleId("1");
+		user.setRoleId("e2ebe746b86b11e78d4f5254002ec43c");
 		userService.addUser(user);
 		request.getSession().setAttribute("user", user);
 		return "redirect:/common/toIndexModal";
@@ -183,5 +183,13 @@ public class UserController {
 		request.setAttribute("flag", "2");
 		request.setAttribute("msg", "密码修改成功！请重新登录");
 		return "backstage_managed/jsp/user/login";
+	}
+	@RequestMapping("/findUserByBranch")
+	@ResponseBody
+	public String findUserByBranch(HttpServletRequest request) {
+		User user=(User) request.getSession().getAttribute("user");
+		System.out.println(user.getBranchId()+"+++++++++++++++++++++++++++++++++++++++++++++");
+		String data=userService.findUserByBranchId(user.getBranchId());
+		return data;
 	}
 }
