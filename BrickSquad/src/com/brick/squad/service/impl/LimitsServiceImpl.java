@@ -46,10 +46,16 @@ public class LimitsServiceImpl implements LimitsService {
 	@Override
 	public String limitsPagination(Pagination pagination) {
 		List<LimitsExpand> datas=limitsMapper.limitsPagination(pagination);
-		int n=limitsMapper.limitsCount();
+		int n=limitsMapper.limitsCount(pagination);
 		Util<LimitsExpand> util=new Util<LimitsExpand>();
 		String data=util.SplitPage(datas, n);
 		return data;
+	}
+
+	@Override
+	public String findAllTableName(String roleId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

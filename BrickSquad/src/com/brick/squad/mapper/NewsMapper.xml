@@ -23,17 +23,33 @@
 	<select id="findNews" resultType="news" parameterType="java.lang.Long">
 		select*from news where content=#{content}
 	</select>
-	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand"
-		parameterType="com.brick.squad.util.Pagination">
+	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand" parameterType="com.brick.squad.util.Pagination">
+		
+		<if test="keyword!=''">
+		SELECT n.id,u.username,n.content,n.imgs_path
+		imagePath,n.post_time postTime,n.title
+		FROM news n INNER JOIN `user` u
+		ON n.user_id=u.id where n.user_id=#{userId} AND (u.username REGEXP #{keyword} or n.content REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+		</if>
+		<if test="keyword==''">
 		SELECT n.id,u.username,n.content,n.imgs_path
 		imagePath,n.post_time postTime,n.title
 		FROM news n INNER JOIN `user` u
 		ON n.user_id=u.id where n.user_id=#{userId}
 		limit #{skipNum},#{takeNum}
+		</if>
 	</select>
-	<select id="findNewsCount" resultType="Integer">
-		SELECT COUNT(*) from news
-		where user_id=#{userId}
+	<select id="findNewsCount" resultType="Integer" parameterType="com.brick.squad.util.Pagination">
+		<if test="keyword==''">
+		SELECT COUNT(*) from news where user_id=#{userId}
+		</if>
+		
+		<if test="keyword!=''">
+		SELECT COUNT(*) from news n INNER JOIN `user` u
+		ON n.user_id=u.id where user_id=#{userId}
+		AND (u.username REGEXP #{keyword} or n.content REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+
+		</if>
 	</select>
 	<insert id="insertNews" parameterType="news">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">

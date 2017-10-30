@@ -21,10 +21,10 @@ public class MedicalServiceImplTest {
 	@Autowired
 	@Qualifier("medicalService")
 	private MedicalService medicalService;
-	@Test
+	/*@Test
 	public void findMedicalAllCount(){
 		System.out.println(medicalService.findMedicalAllCount());
-	}
+	}*/
 	@Test
 	public void medicalPagination(){
 		Pagination pagination =new Pagination();

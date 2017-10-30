@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.HealthRecordsExpand;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.util.Pagination;
 
@@ -20,7 +21,7 @@ public interface HealthRecordsMapper {
 
 	public void updateHealthRecordsById(HealthRecords healthRecords);
 
-	public List<HealthRecords> healthRecordsPagination(Pagination pagination);
-	public int findHealthRecordsAllCount();
+	public List<HealthRecordsExpand> healthRecordsPagination(Pagination pagination);
+	public int findHealthRecordsAllCount(Pagination pagination);
 
 }

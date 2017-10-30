@@ -45,16 +45,24 @@
 		FROM collection LIMIT #{skipNum},#{takeNum}
 		
 	</select> -->
-	<select id="collectionPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="com.brick.squad.expand.CollectionExpand">
+	<select id="collectionPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.CollectionExpand">
 		SELECT personal_information.name personalInformationName,article.aname articleAname,collection.col_date colDate FROM collection 
 			 JOIN personal_information ON collection.per_id=personal_information.id 
-			 JOIN article ON collection.article_id=article.id LIMIT #{skipNum},#{takeNum}
+			 JOIN article ON collection.article_id=article.id
+		<if test="keyword!=''">
+		 WHERE personal_information.name REGEXP #{keyword} or article.aname REGEXP #{keyword}
+		</if>
+		 LIMIT #{skipNum},#{takeNum}
 		
 	</select>
 	
-	<select id="collectionCount" resultType="int">
+	<select id="collectionCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		SELECT
 		COUNT(*) FROM collection
+		<if test="keyword!=''">
+		JOIN personal_information ON collection.per_id=personal_information.id 
+		JOIN article ON collection.article_id=article.id
+		 WHERE personal_information.name REGEXP #{keyword} or article.aname REGEXP #{keyword}
+		</if>
 	</select>
 </mapper>

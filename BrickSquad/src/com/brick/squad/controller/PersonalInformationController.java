@@ -176,7 +176,6 @@ public class PersonalInformationController {
 	@ResponseBody
 	public String findAllPersonalInformation() {
 		return personalInformationService.findAllPersonalInformation();
-
 	}
 
 	/**

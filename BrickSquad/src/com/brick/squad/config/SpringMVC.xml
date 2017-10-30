@@ -66,6 +66,7 @@
 			<mvc:exclude-mapping path="/common/businessIndex" />
 			<mvc:exclude-mapping path="/common/toProductDetails" />
 			<mvc:exclude-mapping path="/common/toIndex" />
+			<mvc:exclude-mapping path="/common/toLimits"/>
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>

@@ -38,5 +38,10 @@ public interface LimitsMapper {
 	 * 查询权限记录数
 	 * @return 记录数
 	 */
-	public int limitsCount();
+	public int limitsCount(Pagination pagination);
+	/**
+	 * 查询数据库中所有表名
+	 * @return 表名集合
+	 */
+	public List<String> findAllTableName();
 }

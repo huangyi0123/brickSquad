@@ -51,15 +51,15 @@ public class GuidanceServiceImpl implements GuidanceService {
 		List<Guidance> list = new ArrayList<Guidance>();
 		Util<Guidance> util = new Util<Guidance>();
 		list = guidanceMapper.guidancePagination(pagination);
-		int row = guidanceMapper.findGuidanceAllCount();
+		int row = guidanceMapper.findGuidanceAllCount(pagination);
 		String dataString = util.SplitPage(list, row);
 		return dataString;
 	}
-	@Override
-	public int findGuidanceAllCount() throws Exception {
+	/*@Override
+	public int findGuidanceAllCount(Pagination pagination) throws Exception {
 		// TODO Auto-generated method stub
-		return guidanceMapper.findGuidanceAllCount();
-	}
+		return guidanceMapper.findGuidanceAllCount(pagination);
+	}*/
 	//封装json数据
 	@Override
 	public String findPerIdAndIdCard() {

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.service.MedicalService;
 import com.brick.squad.util.Pagination;
@@ -34,6 +35,7 @@ public class MedicalController {
 	@ResponseBody
 	public String getMedicalList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 
@@ -84,4 +86,15 @@ public class MedicalController {
 		medicalService.updateMedicalById(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}
+	
+	
+	
+	@RequestMapping("/findMedicalById")
+	public String findMedicalById(HttpServletRequest request,String id){
+		MedicalExpand medicalExpand = medicalService.findPersonalInformationAndType(id);
+		request.setAttribute("medicalExpand", medicalExpand);
+		return  "backstage_managed/jsp/medical/search_medical";
+		
+	}
+	
 }

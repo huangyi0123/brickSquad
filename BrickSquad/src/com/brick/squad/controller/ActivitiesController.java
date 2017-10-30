@@ -28,9 +28,6 @@ public class ActivitiesController {
 		@Qualifier("activitiesService")
 		private ActivitiesService activitiesService;
 		
-		
-		
-		
 		@RequestMapping("/toActivitiesList")
 		public String toActivitiesList(){
 			return "backstage_managed/jsp/activities/activities_list";
@@ -42,6 +39,7 @@ public class ActivitiesController {
 			Pagination pagination=new Pagination();
 			pagination.setCurentPage(cPage);
 			pagination.setPageSize(pSize);
+			pagination.setKeyword(keyword);
 			return  activitiesService.activitiesPagination(pagination);}
 		
 		
@@ -110,6 +108,13 @@ public class ActivitiesController {
 			return "backstage_managed/jsp/activities/search_activities";
 			
 		}
-		
+		/*
+		 * 获取活动id和所有活动名称
+		 */
+		@RequestMapping("/findAllActivitiesIdAndName")
+		@ResponseBody
+		public String findAllActivitiesIdAndName(){
+			return activitiesService.findAllActivitiesIdAndName();
+		}
 
 }

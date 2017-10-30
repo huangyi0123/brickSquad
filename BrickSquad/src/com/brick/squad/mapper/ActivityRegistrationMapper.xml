@@ -7,12 +7,12 @@
 		activitiesId,registration_date
 		registrationDate,appointment
 	</sql>
-	<select id="findActivityRegistrationById" resultType="ActivityRegistration"
-		parameterType="String">
+	<select id="findActivityRegistrationById" parameterType="String" resultType="ActivityRegistration"
+		>
 		select
 		<include refid="prop" />
 		from activity_registration where
-		id=#{id};
+		id=#{id}
 	</select>
 
 	<insert id="insertActivityRegistration" parameterType="ActivityRegistration">
@@ -50,10 +50,16 @@
 		resultType="com.brick.squad.expand.ActivityRegistrationExpand">
 		SELECT personal_information.name personalInformationName,activities.name activitiesName,activity_registration.registration_date registrationDate,activity_registration.appointment 
 				FROM activity_registration JOIN personal_information ON activity_registration.per_id=personal_information.id
-				JOIN activities ON activity_registration.activities_id=activities.id LIMIT #{skipNum},#{takeNum}
+				JOIN activities ON activity_registration.activities_id=activities.id 
+				<if test="keyword!=''and keyword!=null">
+				 WHERE personal_information.name REGEXP #{keyword} or 
+				 activities.name REGEXP #{keyword}
+				</if>
+				LIMIT #{skipNum},#{takeNum}
 	</select>
 	<select id="activityRegistrationCount" resultType="int">
 		SELECT
 		COUNT(*) FROM activity_registration
 	</select>
+	
 </mapper>

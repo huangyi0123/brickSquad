@@ -1,7 +1,9 @@
 package com.brick.squad.service.impl;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -11,10 +13,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.MemberShipApplicationExpand;
 import com.brick.squad.mapper.MemberShipApplicationMapper;
+import com.brick.squad.mapper.PersonalInformationMapper;
+import com.brick.squad.mapper.TypeMapper;
+import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.MemberShipApplication;
+import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.MemberShipApplicationService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 
 @Transactional
@@ -24,6 +33,18 @@ public class MemberShipApplicationServiceImpl implements
 	@Autowired
 	@Qualifier("memberShipApplicationMapper")
 	private MemberShipApplicationMapper memberShipApplicationMapper;
+
+	@Autowired
+	@Qualifier("typeMapper")
+	private TypeMapper typeMapper;
+
+	@Autowired
+	@Qualifier("userMapper")
+	private UserMapper userMapper;
+
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 
 	@Override
 	public MemberShipApplication findMemberShipApplicationById(String id) {
@@ -58,30 +79,53 @@ public class MemberShipApplicationServiceImpl implements
 		List<MemberShipApplicationExpand> memberShipApplications = memberShipApplicationMapper
 				.MemberShipApplicationPagination(pagination);
 
-		
 		System.out.println(memberShipApplications.toString());
 
 		Util<MemberShipApplicationExpand> util = new Util<>();
 		int row = memberShipApplicationMapper
-				.findMemberShipApplicationAllCount();
+				.findMemberShipApplicationAllCount(pagination);
 		String data = util.SplitPage(memberShipApplications, row);
 
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int findMemberShipApplicationAllCount() {
 		// TODO Auto-generated method stub
 		return memberShipApplicationMapper.findMemberShipApplicationAllCount();
-	}
+	}*/
 
 	@Override
 	public String findAllMemberShipApplication() {
-		List<MemberShipApplication> memberShipApplications= memberShipApplicationMapper.findAllMemberShipApplication();
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(memberShipApplications).toString();
+		List<MemberShipApplication> memberShipApplications = memberShipApplicationMapper
+				.findAllMemberShipApplication();
+		JSONArray jsonArray = new JSONArray();
+		String data = jsonArray.fromObject(memberShipApplications).toString();
 		return data;
-	
+
+	}
+
+	@Override
+	public String findAllTypeAndUserAndPersonalInformation() {
+		List<User> user = userMapper.findAllUsers();
+		List<Type> type = typeMapper.findAllType();
+		List<Select> per = personalInformationMapper
+				.findAllPersonalInformation();
+		Map<String, List> map = new HashMap<String, List>();
+		map.put("user", user);
+		map.put("type", type);
+		map.put("per", per);
+		JSONArray jsonArray = new JSONArray();
+		String data = jsonArray.fromObject(map).toString();
+		return data;
+	}
+
+	@Override
+	public MemberShipApplicationExpand findMemberShipApplicationAndTypeAndUserAndPersonalInformation(
+			String id) {
+		MemberShipApplicationExpand memberShipApplicationExpand = memberShipApplicationMapper
+				.findMemberShipApplicationAndTypeAndUserAndPersonalInformation(id);
+        return memberShipApplicationExpand;
 	}
 
 }

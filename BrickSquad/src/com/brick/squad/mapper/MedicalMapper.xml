@@ -41,14 +41,39 @@
 		
 		</select> -->
 		<select id="medicalPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.MedicalExpand">
+		<if test="keyword!=''">
+		select medical.id,personal_information.name personalInformationName,medical.inspection_date inspectionDate,type.name typeName,
+				medical.hospital,medical.content,medical.attending_surgeon attendingSurgeon
+				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
+				where   personal_information.name REGEXP #{keyword} or type.name REGEXP #{keyword} 
+				or medical.content REGEXP #{keyword} or medical.hospital REGEXP #{keyword}
+				limit  #{skipNum},#{takeNum}
+		</if>
+		<if test="keyword==''">
 		select medical.id,personal_information.name personalInformationName,medical.inspection_date inspectionDate,type.name typeName,
 				medical.hospital,medical.content,medical.attending_surgeon attendingSurgeon
 				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
 				limit  #{skipNum},#{takeNum}
-		
+		</if>
 		</select>
 	
-	<select id="findMedicalAllCount" resultType="int">
+	<select id="findMedicalAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		select COUNT(*) from medical
+		<if test="keyword!=''">
+		  JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
+				where   personal_information.name REGEXP #{keyword} or type.name REGEXP #{keyword} 
+				or medical.content REGEXP #{keyword} or medical.hospital REGEXP #{keyword}
+				limit  #{skipNum},#{takeNum}
+		</if>
+		
 	</select>
+	
+	<select id="findPersonalInformationAndType"  parameterType="java.lang.String"  resultType="com.brick.squad.expand.MedicalExpand">
+		select medical.id,personal_information.name personalInformationName,medical.inspection_date inspectionDate,type.name typeName,
+				medical.hospital,medical.content,medical.attending_surgeon attendingSurgeon
+				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
+		where medical.id=#{id,jdbcType=VARCHAR}
+	</select>
+	
+	
 </mapper>
