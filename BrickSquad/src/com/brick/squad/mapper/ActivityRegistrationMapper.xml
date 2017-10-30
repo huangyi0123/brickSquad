@@ -61,4 +61,5 @@
 		SELECT
 		COUNT(*) FROM activity_registration
 	</select>
+	
 </mapper>

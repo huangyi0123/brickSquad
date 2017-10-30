@@ -100,6 +100,14 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 		ActivitiesExpand activitiesExpand = activitiesMapper.findActivitiesAndTpyeAndUser(id);
 		return activitiesExpand;
 	}
+	@Override
+	public String findAllActivitiesIdAndName() {
+		// TODO Auto-generated method stub
+		List<Select> list = activitiesMapper.findAllActivitiesIdAndName();
+		JSONArray jsonArray = new JSONArray();
+		String dataString = jsonArray.fromObject(list).toString();
+		return dataString;
+	}
 
 	
 

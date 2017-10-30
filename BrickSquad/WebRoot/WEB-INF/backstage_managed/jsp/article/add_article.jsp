@@ -89,8 +89,10 @@
 			<label class="layui-form-label">商品类型</label>
 			<div class="layui-input-block">
 				<select name="typeId" lay-filter="aihao" id="typeId" val="${article.typeId }">
-					<option value=""></option>
-					
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
 				</select>
 			</div>
 			</div>

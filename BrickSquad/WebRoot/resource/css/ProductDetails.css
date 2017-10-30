@@ -119,3 +119,57 @@
 	background-position: center center;
 }
 
+.btn-default:hover{
+	background-color: white;
+	border-color: white;
+}
+.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+	background-color: white;
+	border-color: white;
+}
+
+
+
+.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:FOCUS{
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default:active:focus, .btn-default:active:hover{
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default:focus {
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default:hover{
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default{
+	border-color: white;
+	background-color: white;
+}
+
+.btn-group.open .dropdown-toggle{
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+
+.btn.active, .btn:active {
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+ 
+.open >.dropdown-toggle.btn-default{
+	background-color: white;
+	border-color: white;
+}

@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/layui/css/layui.css">
-
+<script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
@@ -29,22 +29,23 @@
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
-	$(function() {
 		$.ajax({
-			url : 'type/findAllType',
-			success : function(data) {
-				data = JSON.parse(data);
-				$(data).each(
-						function() {
-							console.log(this);
-							$("#parament").append(
-									'<option value="'+this.id+'">' + this.name
-											+ '</option>');
-						});
+			url : 'personalInformation/findAllPersonalInformation',
+			success : function(result) {
+				result = JSON.parse(result);
+				findAll(result, "#perid");
+				form.render('select', 'perid');
 			}
 		});
-	})
+		$.ajax({
+			url:'activities/findAllActivitiesIdAndName',
+			success : function(ActityResult) {
+				Result = JSON.parse(ActityResult);
+				findAll(Result,"#actityId");
+				form.render('select','actityId');	
+			}
+		});
+	});
 </script>
 <script>
 	layui.use('laydate', function() {
@@ -65,7 +66,8 @@
 	<br>
 	<form class="layui-form" action="activityRegistration/insertActivityRegistration"
 		id="form1" method="post">
-		<div class="layui-form-item">
+		
+		<%-- <div class="layui-form-item">
 		<input type="hidden" name="id" value="${activityRegistration.id }">
 			<label class="layui-form-label">老人ID：</label>
 			<div class="layui-input-inline">
@@ -73,7 +75,17 @@
 					placeholder="老人ID" autocomplete="off" class="layui-input" value="${activityRegistration.perId }">
 			</div>
 		</div>
+		 --%>
 		<div class="layui-form-item">
+		<label class="layui-form-label">老人姓名：</label>
+				<div class="layui-input-inline">
+				<select  name="perId" id="perid" lay-filter="perid">
+					<option value="">选择老人姓名</option>
+				</select>
+			</div>
+			</div>
+		
+<%-- 		<div class="layui-form-item">
 			<label class="layui-form-label">活动ID：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="activitiesId" required
@@ -81,6 +93,15 @@
 					class="layui-input" value="${activityRegistration.activitiesId }">
 			</div>
 		</div>
+		 --%>
+		<div class="layui-form-item">
+		<label class="layui-form-label">活动名称：</label>
+				<div class="layui-input-inline">
+				<select name="activitiesId" id="actityId" lay-filter="actityId">
+					<option value="">选择活动名称</option>
+				</select>
+			</div>
+			</div>
 		
 		<div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>

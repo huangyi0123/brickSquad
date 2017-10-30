@@ -190,19 +190,39 @@
 				<div class="comm_info">
 					<p
 						style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">珂卡芙2017新款冬季女鞋韩版圆头粗跟长筒靴女中跟女靴964186621@</p>
-						<label style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label>
-						<div class="comm_backimg" >
-						<label>价格</label>
-						<label>78</label>
-						<label>促销价</label>
-						<label>60</label>
-						</div>
-
+					<label
+						style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label>
+					<div class="comm_backimg">
+						<dl>
+							<dd>
+								<label>价格</label> <label style="margin-left: 50px;">78</label>
+							</dd>
+							<dd>
+								<label>促销价</label> <label style="margin-left: 36px;">60</label>
+							</dd>
+							<dd>
+								<label>本店活动</label> <label style="margin-left: 22px;">满2件，包邮</label>
+							</dd>
+						</dl>
+					</div>
+					<label style="margin-left: 30px;">运费</label> <label
+						style="margin-left: 50px;">浙江温州 至 </label>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle btnMy" style="border: none;"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="ture">
+							南通 <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+					</div>
 				</div>
-
 			</div>
 		</div>
-
 	</div>
 </body>
 </html>

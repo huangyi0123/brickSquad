@@ -12,10 +12,10 @@ function init(keyword) {
 		supportCheckbox : false,
 		columnData : [ {
 			key : 'personalInformationName',
-			text : '老人id'
+			text : '老人姓名'
 		}, {
 			key : 'activitiesName',
-			text : '活动信息id'
+			text : '活动名称'
 		}, {
 			key : 'registrationDate',
 			text : '活动日期'
