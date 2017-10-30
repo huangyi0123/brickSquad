@@ -33,13 +33,7 @@
 		DELETE FROM limits
 		WHERE id=#{id}
 	</delete>
-	<!-- <select id="limitsPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="limits">
-		SELECT
-		id,role_id roleId,tablename,ad,dl,up,`query`
-		FROM limits LIMIT
-		#{skipNum},#{takeNum}
-	</select> -->
+
 	<select id="limitsPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.LimitsExpand">
 		
 		SELECT limits.tablename,role.name roleName FROM limits JOIN role ON limits.role_id=role.id 
@@ -56,5 +50,10 @@
 		,role where  limits.tablename REGEXP #{keyword} or role.name REGEXP #{keyword}
 		</if>
 		 
+	</select>
+	<select id="findAllTableName">
+		select tableName
+		from information_schema.tables
+		where table_schema='PracticalTraining'
 	</select>
 </mapper>

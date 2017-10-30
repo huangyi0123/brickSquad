@@ -47,10 +47,10 @@ public class ActivityRegistrationController {
   
   @RequestMapping("/toAddActivityRegistration")
   public String toAddActivityRegistration(HttpServletRequest request, String id) {
-	  
 	  if (id != null) {
-			ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById(id);
+			ActivityRegistration activityRegistration = activityRegistrationService.findActivityRegistrationById(id);
 			request.setAttribute("activityRegistration", activityRegistration);
+			/*System.out.println(activityRegistration.toString());*/
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateActivityRegistrationById");
 		} else {
