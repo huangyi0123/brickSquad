@@ -51,6 +51,7 @@ public class ArticleServiceTest {
 		
 		Article article = articleService.findArticleById("2");
 		article.setPrice("299");
+		article.setTypeId("1");
 		
 		articleService.updateArticleById(article);
 	}
