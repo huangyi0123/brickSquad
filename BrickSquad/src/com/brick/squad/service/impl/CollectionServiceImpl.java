@@ -47,7 +47,7 @@ public class CollectionServiceImpl implements CollectionService{
 	@Override
 	public String collectionPagination(Pagination pagination) {
 		List<CollectionExpand> datas=collectionMapper.collectionPagination(pagination);
-		int n=collectionMapper.collectionCount();
+		int n=collectionMapper.collectionCount(pagination);
 		Util<CollectionExpand> util=new Util<CollectionExpand>();
 		String data=util.SplitPage(datas, n);
 		return data;

@@ -38,7 +38,7 @@ public class MedicalServiceImpl implements MedicalService {
 	@Qualifier("personalInformationMapper")
 	private PersonalInformationMapper personalInformationMapper;
 	@Autowired
-	@Qualifier("/typeMapper")
+	@Qualifier("typeMapper")
 	private TypeMapper typeMapper;
 
 	@Override

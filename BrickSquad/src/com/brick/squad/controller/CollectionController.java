@@ -35,6 +35,7 @@ public class CollectionController {
 	public String getCollectionList(int pSize, int cPage,
 			String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		String data = collectionService.collectionPagination(pagination);

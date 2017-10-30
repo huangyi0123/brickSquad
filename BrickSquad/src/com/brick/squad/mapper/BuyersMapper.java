@@ -11,7 +11,7 @@ public interface BuyersMapper {
 	public void updateBuyersById(Buyers buyers) throws Exception;
 	public void deleteBuyersById(String id) throws Exception;
 	public List<Buyers> buyersPagination(Pagination pagination) throws Exception;
-	public int findBuyersAllCount() throws Exception;
+	public int findBuyersAllCount(Pagination pagination) throws Exception;
 	/**
 	 * 用户Orders查询需要的字段：姓名
 	 * */
