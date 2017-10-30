@@ -1,5 +1,6 @@
 package com.brick.squad.service;
 
+import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.util.Pagination;
 
@@ -28,5 +29,11 @@ public interface MedicalService {
 	 */
 	public String medicalPagination(Pagination pagination);
 
+
 	//public int findMedicalAllCount();
+	
+	
+	public String findAllPersonalInformationAndType();
+	public MedicalExpand findPersonalInformationAndType(String id);
+
 }

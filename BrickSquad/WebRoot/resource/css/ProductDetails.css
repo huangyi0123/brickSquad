@@ -54,3 +54,122 @@
 .nav>li>a:focus, .nav>li>a:hover{
 	background-color: #AEED70;
 }
+
+/* -------------------  商品详情主体  ------------------- */
+.Pro_mainbody{
+	width: 100%;
+	height:1000px;
+/* 	background-color: blue; */
+}
+
+.Pro_info{
+	width: 70%;
+	height:600px;
+    margin-left:100px;
+	border: 1px solid #D5FFAB;
+	background-color: white;
+}
+
+.comm_img{
+	width: 400px;
+	height:100%;
+	float: left;
+/* 	background-color: gray; */
+}
+
+.comm_imgs img{
+	width:50px;
+	height:50px;
+	display:block;
+	margin:0;
+	padding:0;
+	
+}
+.comm_imgs a{
+	display: block;
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+	border: 2px solid white;
+}
+.comm_imgs a:HOVER{
+	border-color: #ADEB6E;
+	text-decoration: none;
+}
+
+.comm_info{
+	width: 500px;
+	height:100%;
+	float:left;
+/* 	background-color: blue; */
+}
+
+.comm_info label{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.comm_backimg{
+	width:500px;
+	height:100px;
+	margin-left:20px;
+	margin-top:20px;
+	background-image: url('/BrickSquad/resource/image/2.png');
+	background-size:100% 100%;
+	background-position: center center;
+}
+
+.btn-default:hover{
+	background-color: white;
+	border-color: white;
+}
+.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+	background-color: white;
+	border-color: white;
+}
+
+
+
+.open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:FOCUS{
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default:active:focus, .btn-default:active:hover{
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default:focus {
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default:hover{
+	background-color: white;
+	border-color: white;
+	border: none;
+}
+
+.btn-default{
+	border-color: white;
+	background-color: white;
+}
+
+.btn-group.open .dropdown-toggle{
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+
+.btn.active, .btn:active {
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+ 
+.open >.dropdown-toggle.btn-default{
+	background-color: white;
+	border-color: white;
+}

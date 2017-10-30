@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.MemberShipApplicationExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.MemberShipApplication;
 import com.brick.squad.service.MemberShipApplicationService;
@@ -78,5 +79,13 @@ public class MemberShipApplicationController {
 		return memberShipApplicationService.findAllMemberShipApplication();
 		
 	}
+	
+	@RequestMapping("/findMembershipApplicationById")
+	public String findMembershipApplicationById(HttpServletRequest request,String id){
+		MemberShipApplicationExpand memberShipApplicationExpand = memberShipApplicationService.findMemberShipApplicationAndTypeAndUserAndPersonalInformation(id);
+		request.setAttribute("memberShipApplicationExpand", memberShipApplicationExpand);
+		return "backstage_managed/jsp/memberShipApplication/search_memberShipApplication";	
+	}
+
 	
 }

@@ -51,6 +51,7 @@
 				JOIN personal_information ON membership_application.per_id=personal_information.id
 				 limit #{skipNum},#{takeNum}
 	</select> -->
+	
 	<!-- 分页查询 级联查询 -->
 	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.MemberShipApplicationExpand">
 		<if test="keyword!=''">
@@ -92,5 +93,14 @@
 		membership_application.membership_type_id from membership_application
 	</select>
 
+
+	<select id="findMemberShipApplicationAndTypeAndUserAndPersonalInformation" 
+	parameterType="java.lang.String"  resultType="com.brick.squad.expand.MemberShipApplicationExpand">
+		SELECT m.id, t.`name` tname,u.username,p.`name` pname,m.deposit
+		FROM membership_application m INNER JOIN `user` u ON m.user_id = u.id
+		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
+		personal_information p ON m.per_id = p.id	
+		WHERE m.id = #{id,jdbcType=VARCHAR}
+	</select>
 
 </mapper>
