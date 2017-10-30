@@ -42,6 +42,7 @@ public class ActivitiesController {
 			Pagination pagination=new Pagination();
 			pagination.setCurentPage(cPage);
 			pagination.setPageSize(pSize);
+			pagination.setKeyword(keyword);
 			return  activitiesService.activitiesPagination(pagination);}
 		
 		
