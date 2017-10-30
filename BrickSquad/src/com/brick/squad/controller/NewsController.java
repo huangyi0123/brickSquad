@@ -40,6 +40,7 @@ public class NewsController {
 	@ResponseBody
 	public String getRegionList(int pSize,int cPage,String keyword,HttpServletRequest request) throws Exception {
 		Pagination pagination=new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		User user=(User) request.getSession().getAttribute("user");
