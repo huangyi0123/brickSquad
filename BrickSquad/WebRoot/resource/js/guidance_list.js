@@ -7,13 +7,18 @@ function init(keyword) {
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
-            {
-                key: 'guidanceDate',
-                text: '指导日期'
+			{
+				key: 'perIdName',
+				text:'客户姓名'
+			},
+            {	
+				key: 'disease',
+                text: '主要疾病'
+               
             },
             {
-                key: 'disease',
-                text: '主要疾病'
+            	 key: 'guidanceDate',
+                 text: '指导日期'
             },
             {
                 key: 'assessment',
@@ -22,10 +27,6 @@ function init(keyword) {
             {
             	key: 'suggest',
                 text: '专家建议'
-            },
-            {
-            	key: 'perIdName',
-            	text:'客户姓名'
             },
             {
             	key: 'perIdCard',
@@ -59,9 +60,6 @@ function RefreshGridManagerList(keyword) {
 function serach() {
 	$("#serach").click(function () {
 		var keyword = $("#keyword").val();
-		if (keyword.trim()=='') {
-			RefreshGridManagerList('');
-		}
 		RefreshGridManagerList(keyword);
 	});
 	

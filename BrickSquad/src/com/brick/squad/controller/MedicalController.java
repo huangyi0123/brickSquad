@@ -34,6 +34,7 @@ public class MedicalController {
 	@ResponseBody
 	public String getMedicalList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 

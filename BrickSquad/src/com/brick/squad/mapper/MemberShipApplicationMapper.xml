@@ -52,24 +52,39 @@
 				 limit #{skipNum},#{takeNum}
 	</select> -->
 	<!-- 分页查询 级联查询 -->
-	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="com.brick.squad.expand.MemberShipApplicationExpand">
+	<select id="MemberShipApplicationPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.MemberShipApplicationExpand">
+		<if test="keyword!=''">
 		SELECT m.id, t.`name` tname,u.username,p.`name` pname,m.deposit
 		FROM membership_application m INNER JOIN `user` u ON m.user_id = u.id
 		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
 		personal_information p ON m.per_id = p.id	
+		where   t.`name` REGEXP #{keyword} or u.username REGEXP #{keyword} or p.`name` REGEXP #{keyword}
 		limit #{skipNum},#{takeNum}
-
+		</if>
+		<if test="keyword==''">
+		SELECT m.id, t.`name` tname,u.username,p.`name` pname,m.deposit
+		FROM membership_application m INNER JOIN `user` u ON m.user_id = u.id
+		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
+		personal_information p ON m.per_id = p.id	limit #{skipNum},#{takeNum}
+		</if>
 	</select>
 
 
-	<select id="findMemberShipApplicationAllCount" resultType="int">
-
+	<select id="findMemberShipApplicationAllCount" resultType="int"  parameterType="com.brick.squad.util.Pagination">
+	<if test="keyword==''">
 		select count(*) from 
 		membership_application m INNER JOIN `user` u ON m.user_id = u.id
 		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
 		personal_information p ON m.per_id = p.id	
-
+	</if>
+	<if test="keyword!=''">
+		select count(*) from 
+		membership_application m INNER JOIN `user` u ON m.user_id = u.id
+		INNER JOIN type t ON m.membership_type_id=t.id INNER JOIN
+		personal_information p ON m.per_id = p.id
+		where   t.`name` REGEXP #{keyword} or u.username REGEXP #{keyword} or p.`name` REGEXP #{keyword}
+		limit #{skipNum},#{takeNum}
+	</if>
 	</select>
 
 	<select id="findAllMemberShipApplications" resultType="memberShipApplication">

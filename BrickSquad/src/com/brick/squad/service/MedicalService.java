@@ -28,5 +28,5 @@ public interface MedicalService {
 	 */
 	public String medicalPagination(Pagination pagination);
 
-	public int findMedicalAllCount();
+	//public int findMedicalAllCount();
 }

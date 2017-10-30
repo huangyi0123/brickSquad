@@ -27,21 +27,16 @@
 	href="resource/plugins/layui/css/layui.css">
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/fonts/font-awesome.min.css">
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/grid_manager/GridManager.min.js"></script>
-<script type="text/javascript"
-	src="resource/js/medical_list.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/lay/dest/layui.all.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/plugins/fonts/font-awesome.min.css">
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/grid_manager/GridManager.min.js"></script>
+<script type="text/javascript" src="resource/js/medical_list.js"></script>
+<script type="text/javascript" src="resource/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
 	$(function() {
 		init("");
+		serach();
 	});
 </script>
 <style type="text/css">
@@ -60,9 +55,9 @@ a:HOVER {
 <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" placeholder="Search for...">
+			<input type="text" class="form-control" placeholder="Search for..." id="keyword">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">
+				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
 				</button>
 			</span>

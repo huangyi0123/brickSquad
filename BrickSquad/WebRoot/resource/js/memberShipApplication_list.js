@@ -58,9 +58,6 @@ function RefreshGridManagerList(keyword) {
 function serach() {
 	$("#serach").click(function () {
 		var keyword = $("#keyword").val();
-		if (keyword.trim()=='') {
-			RefreshGridManagerList('');
-		}
 		RefreshGridManagerList(keyword);
 	});
 	

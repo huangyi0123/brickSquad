@@ -63,17 +63,17 @@ public class MemberShipApplicationServiceImpl implements
 
 		Util<MemberShipApplicationExpand> util = new Util<>();
 		int row = memberShipApplicationMapper
-				.findMemberShipApplicationAllCount();
+				.findMemberShipApplicationAllCount(pagination);
 		String data = util.SplitPage(memberShipApplications, row);
 
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int findMemberShipApplicationAllCount() {
 		// TODO Auto-generated method stub
 		return memberShipApplicationMapper.findMemberShipApplicationAllCount();
-	}
+	}*/
 
 	@Override
 	public String findAllMemberShipApplication() {

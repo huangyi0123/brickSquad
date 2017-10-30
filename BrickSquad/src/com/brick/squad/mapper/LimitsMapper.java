@@ -38,5 +38,5 @@ public interface LimitsMapper {
 	 * 查询权限记录数
 	 * @return 记录数
 	 */
-	public int limitsCount();
+	public int limitsCount(Pagination pagination);
 }

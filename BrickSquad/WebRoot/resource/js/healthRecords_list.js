@@ -14,8 +14,11 @@ function init(keyword) {
 			key : 'registrDate',
 			text : '登记时间'
 		}, {
-			key : 'userId',
+			key : 'username',
 			text : '登记人ID'
+		}, {
+			key : 'pname',
+			text : '老人ID'
 		}, {
 			key : 'diseaseId',
 			text : '所患疾病ID'
