@@ -12,7 +12,7 @@
 		select
 		<include refid="prop" />
 		from activity_registration where
-		id=#{id};
+		id=#{id}
 	</select>
 
 	<insert id="insertActivityRegistration" parameterType="ActivityRegistration">

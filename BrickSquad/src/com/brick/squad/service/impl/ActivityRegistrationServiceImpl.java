@@ -22,7 +22,6 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
     
 	@Override
 	public ActivityRegistration findActivityRegistrationById(String id) {
-		
 		return activityRegistrationMapper.findActivityRegistrationById(id);
 	}
 

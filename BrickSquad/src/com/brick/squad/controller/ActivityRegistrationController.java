@@ -47,7 +47,6 @@ public class ActivityRegistrationController {
   
   @RequestMapping("/toAddActivityRegistration")
   public String toAddActivityRegistration(HttpServletRequest request, String id) {
-	  
 	  if (id != null) {
 			ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById(id);
 			request.setAttribute("activityRegistration", activityRegistration);

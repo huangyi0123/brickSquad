@@ -46,11 +46,18 @@
 			}
 		});
 	});
+	 $(function(){
+		//日期格式回填
+		var registrationDate = $("#registrationDate").attr('val');
+		registrationDate = Format(new Date(registrationDate),
+				"yyyy-MM-dd hh:mm:ss");
+		$("#guidanceDateId").val(registrationDate);
+		
+	}); 
 </script>
 <script>
 	layui.use('laydate', function() {
 		var laydate = layui.laydate;
-
 		//执行一个laydate实例
 		laydate.render({
 			elem : '#test1' //指定元素
@@ -62,7 +69,7 @@
 
 <body>
 	<br>
-	<div style="padding-left: 130px;font-size:16;">添加活动管理信息</div>
+	<div style="padding-left: 130px;font-size:16;">${msg}活动管理信息</div>
 	<br>
 	<form class="layui-form" action="activityRegistration/insertActivityRegistration"
 		id="form1" method="post">
@@ -106,7 +113,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" name="registrationDate" value="${activityRegistration.registrationDate }" placeholder="活动日期"
+				<input class="layui-input" name="registrationDate" id="registrationDate" value="${activityRegistration.registrationDate }" placeholder="活动日期"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>

@@ -25,7 +25,12 @@ public class ActivityRegistrationServiceTest {
 	
 	@Test
 	public void testFindActivityRegistrationById() {
-		activityRegistrationService.findActivityRegistrationById("123");
+		try {
+			activityRegistrationService.findActivityRegistrationById("123");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
