@@ -80,4 +80,8 @@ public class CommonController {
 	public String toPersonalInformation() {
 		return "frontEnd_manage/person_information/PersonalInformation";
 	}
+	@RequestMapping("/toLimits")
+	public String toLimits() {
+		return "backstage_managed/jsp/role/limits";
+	}
 }
