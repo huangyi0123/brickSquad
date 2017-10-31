@@ -38,7 +38,7 @@ public class MedicalServiceImpl implements MedicalService {
 	@Qualifier("personalInformationMapper")
 	private PersonalInformationMapper personalInformationMapper;
 	@Autowired
-	@Qualifier("/typeMapper")
+	@Qualifier("typeMapper")
 	private TypeMapper typeMapper;
 
 	@Override
@@ -67,17 +67,17 @@ public class MedicalServiceImpl implements MedicalService {
 	@Override
 	public String medicalPagination(Pagination pagination) {
 		List<MedicalExpand> medicals = medicalMapper.medicalPagination(pagination);
-		int row = medicalMapper.findMedicalAllCount();
+		int row = medicalMapper.findMedicalAllCount(pagination);
 		Util<MedicalExpand> util = new Util<>();
 		String data = util.SplitPage(medicals, row);
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int findMedicalAllCount() {
 		// TODO Auto-generated method stub
 		return medicalMapper.findMedicalAllCount();
-	}
+	}*/
 
 	@Override
 	public String findAllPersonalInformationGetIdAndIdCardAndName() {

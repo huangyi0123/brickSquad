@@ -32,10 +32,10 @@ public class MemberShipApplicationController {
 	public String getMemberShipApplicationList(int pSize, int cPage,
 			String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		return memberShipApplicationService
-				.MemberShipApplicationPagination(pagination);
+		return memberShipApplicationService.MemberShipApplicationPagination(pagination);
 
 	}
 

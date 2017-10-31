@@ -9,7 +9,7 @@ public interface GuidanceService {
 	public  void deleteGuidanceById(String id) throws Exception;
 	public void updateGuidanceById(Guidance guidance) throws Exception;
 	public String guidancePagination(Pagination pagination) throws Exception;
-	public int findGuidanceAllCount() throws Exception;
+	//public int findGuidanceAllCount() throws Exception;
 	//得到从信息表中查询出来的接口信息
 	public String findPerIdAndIdCard();
 }

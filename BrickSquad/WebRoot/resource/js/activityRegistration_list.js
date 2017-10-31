@@ -12,10 +12,10 @@ function init(keyword) {
 		supportCheckbox : false,
 		columnData : [ {
 			key : 'personalInformationName',
-			text : '老人id'
+			text : '老人姓名'
 		}, {
 			key : 'activitiesName',
-			text : '活动信息id'
+			text : '活动名称'
 		}, {
 			key : 'registrationDate',
 			text : '活动日期'
@@ -30,7 +30,6 @@ function init(keyword) {
 				+ rowData.id
 
 				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
-
 				+ rowData.id
 				+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 	}

@@ -22,14 +22,29 @@
 		delete from buyers where id=#{id}
 	</delete>
 	<!--分页查询  -->
-	<select id="buyersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.Buyers">
-		select 
-		id,current_integral currentIntegral,
+	<select id="buyersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.BuyersExpand">
+		select buyers.id,personal_information.name pname,current_integral currentIntegral,
 		historical_integral historicalIntegral,
 		grade grade,delivery_address_id deliveryAddressId,information_id informationId
-		from buyers limit #{skipNum},#{takeNum}
+		<if test="keyword==''">
+		from buyers,personal_information
+		</if>
+		<if test="keyword!=''">
+		from buyers 
+		JOIN personal_information ON buyers.id=personal_information.id 
+		where personal_information.name REGEXP #{keyword} or buyers.grade REGEXP #{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
 	</select>
-	<select id="findBuyersAllCount" resultType="int">
-		select count(*) from buyers
+	<select id="findBuyersAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+		<if test="keyword==''">
+		select count(*) from buyers  JOIN personal_information ON buyers.id=personal_information.id
+		</if>
+		
+		<if test="keyword!=''">
+		select count(*) from buyers  
+		JOIN personal_information ON buyers.id=personal_information.id 
+		where personal_information.name REGEXP #{keyword} or buyers.grade REGEXP #{keyword}
+		</if>
 	</select>
 </mapper>

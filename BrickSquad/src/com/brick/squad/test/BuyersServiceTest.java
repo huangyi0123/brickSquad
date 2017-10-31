@@ -65,8 +65,8 @@ public class BuyersServiceTest {
 		/*lBuyers = buyersService.buyersPagination(pagination);*/
 		buyersService.buyersPagination(pagination);
 	}
-	@Test
+	/*@Test
 	public void testFindBuyersAllCount() throws Exception{
 		buyersService.findBuyersAllCount();
-	}
+	}*/
 }

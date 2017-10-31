@@ -33,4 +33,10 @@ public interface LimitsService {
 	 * @return 权限数据json数据
 	 */
 	public String limitsPagination(Pagination pagination);
+	/**
+	 * 根据角色id查询权限
+	 * @param roleId 角色id
+	 * @return 权限
+	 */
+	public String findAllTableName(String roleId);
 }

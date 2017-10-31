@@ -61,10 +61,10 @@ public class GuidanceServiceTest {
 		/*lGuidances = guidanceService.guidancePagination(pagination);*/
 		guidanceService.guidancePagination(pagination);
 	}
-	@Test
+/*	@Test
 	public void testFindGuidanceAllCount() throws Exception{
 		guidanceService.findGuidanceAllCount();
-	}
+	}*/
 	@Test 
 	public void test(){
 		guidanceService.findPerIdAndIdCard();

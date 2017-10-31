@@ -20,7 +20,7 @@ public interface MemberShipApplicationService {
 
 	public String MemberShipApplicationPagination(Pagination pagination);
 		
-	public int findMemberShipApplicationAllCount();
+	//public int findMemberShipApplicationAllCount();
 	
 	public String findAllMemberShipApplication();
 	

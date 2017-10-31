@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.HealthRecordsExpand;
 import com.brick.squad.mapper.HealthRecordsMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.pojo.HealthRecords;
@@ -53,19 +54,19 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 
 	@Override
 	public String healthRecordsPagination(Pagination pagination) {
-		List<HealthRecords> healthRecords = healthRecordsMapper
+		List<HealthRecordsExpand> healthRecords = healthRecordsMapper
 				.healthRecordsPagination(pagination);
-		int row = healthRecordsMapper.findHealthRecordsAllCount();
-		Util<HealthRecords> util = new Util<>();
+		int row = healthRecordsMapper.findHealthRecordsAllCount(pagination);
+		Util<HealthRecordsExpand> util = new Util<>();
 		String data = util.SplitPage(healthRecords, row);
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int findHealthRecordsAllCount() {
 		// TODO Auto-generated method stub
 		return healthRecordsMapper.findHealthRecordsAllCount();
-	}
+	}*/
 
 	@Override
 	public String findAllPersonalInformationGetIdAndIdCardAndName() {

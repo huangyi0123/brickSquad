@@ -69,6 +69,11 @@
 		select
 		activities.centent from activities
 	</select>
+	
+	<!-- 查询活动中的id和活动名称 -->
+	<select id="findAllActivitiesIdAndName" resultType="com.brick.squad.util.Select">
+	select id,name from activities
+	</select>
 
 	<select id="findActivitiesAndTpyeAndUser" parameterType="java.lang.String"
 		resultType="com.brick.squad.expand.ActivitiesExpand">

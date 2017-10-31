@@ -58,24 +58,47 @@
 		where id =#{id}
 	</update>
 
-	<select id="healthRecordsPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="healthRecords">
-		select id, per_id perId, registr_date registrDate,
-		user_id userId,
-		disease_id diseaseId, shape, diet_situation
+	<select id="healthRecordsPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.HealthRecordsExpand">
+		
+		<if test="keyword!=''">
+		select p.name pname, h.registr_date registrDate,
+		u.username username,
+		h.disease_id diseaseId, h.shape, h.diet_situation
 		dietSituation,
-		sports_situation sportsSituation,
-		emotion_control
-		emotionControl,
-		thrombus, blood_pressure bloodPressure,
-		health_assessment
-		healthAssessment, dangerous_tips dangerousTips,
-		conclusion_suggestion
-		conclusionSuggestion, evaluate
-		from health_records
+		h.sports_situation sportsSituation,
+		h.emotion_control emotionControl,
+		h.thrombus, h.blood_pressure bloodPressure,
+		h.health_assessment healthAssessment, h.dangerous_tips dangerousTips,
+		h.conclusion_suggestion conclusionSuggestion, h.evaluate
+		from health_records h JOIN personal_information p ON h.per_id=p.id
+		JOIN `user` u ON h.user_id=u.id
+		WHERE p.name REGEXP #{keyword} or u.username REGEXP #{keyword}
+		</if>
+		<if test="keyword==''">
+		select p.name pname, h.registr_date registrDate,
+		u.username username,
+		h.disease_id diseaseId, h.shape, h.diet_situation
+		dietSituation,
+		h.sports_situation sportsSituation,
+		h.emotion_control emotionControl,
+		h.thrombus, h.blood_pressure bloodPressure,
+		h.health_assessment healthAssessment, h.dangerous_tips dangerousTips,
+		h.conclusion_suggestion conclusionSuggestion, h.evaluate
+		from health_records h JOIN personal_information p ON h.per_id=p.id
+		JOIN `user` u ON h.user_id=u.id 
+		</if>
+		
 		limit #{skipNum},#{takeNum}
-		</select>
-		<select id="findHealthRecordsAllCount" resultType="int">
-		select COUNT(*) from health_records
+	</select>
+	
+	<select id="findHealthRecordsAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+		select COUNT(*) from health_records 
+		<if test="keyword!=''">
+		JOIN personal_information  ON health_records.per_id=personal_information.id JOIN `user`   ON health_records.user_id=`user`.id
+		WHERE personal_information.name REGEXP #{keyword} or `user`.username REGEXP #{keyword}
+		</if>
+		<if test="keyword==''">
+		JOIN personal_information  ON health_records.per_id=personal_information.id JOIN `user`   ON health_records.user_id=`user`.id
+		</if>
 	</select>
 </mapper>

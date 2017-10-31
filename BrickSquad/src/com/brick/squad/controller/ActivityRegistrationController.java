@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Business;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.ActivityRegistrationService;
+import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
 
 @Controller
@@ -25,7 +27,9 @@ public class ActivityRegistrationController {
   @Autowired
   @Qualifier("activityRegistrationService")
   private ActivityRegistrationService activityRegistrationService;
-  
+  @Autowired
+  @Qualifier("personalInformationService")
+  private PersonalInformationService personalInformationService;
   @RequestMapping("/toActivityRegistration")
   public String toActivityRegistration(){
 	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
@@ -45,10 +49,12 @@ public class ActivityRegistrationController {
   @RequestMapping("/toAddActivityRegistration")
   public String toAddActivityRegistration(HttpServletRequest request, String id) {
 	  if (id != null) {
+			ActivityRegistration activityRegistration = activityRegistrationService.findActivityRegistrationById(id);
+			request.setAttribute("activityRegistration", activityRegistration);
+			String personalInformation = personalInformationService.findAllPersonalInformation();
+			request.setAttribute("personalInformation", personalInformation);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateActivityRegistrationById");
-			ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById(id);
-			request.setAttribute("activityRegistration", activityRegistration);
 		} else {
 			request.setAttribute("url", "insertActivityRegistration");
 			request.setAttribute("msg", "添加");

@@ -64,15 +64,15 @@ public class BuyersServiceImpl implements BuyersService {
 		List<Buyers> buyers =new ArrayList<Buyers>();
 		Util<Buyers> util = new Util<Buyers>();
 		buyers = buyersMapper.buyersPagination(pagination);
-		int row = buyersMapper.findBuyersAllCount();
+		int row = buyersMapper.findBuyersAllCount(pagination);
 		String data = util.SplitPage(buyers, row);
 		return data;
 	}
-	@Override
+	/*@Override
 	public int findBuyersAllCount() throws Exception {
 		// TODO Auto-generated method stub
 		return buyersMapper.findBuyersAllCount();
-	}
+	}*/
 	@Override
 	public Address findAddressById(String id) throws Exception {
 		// TODO Auto-generated method stub
