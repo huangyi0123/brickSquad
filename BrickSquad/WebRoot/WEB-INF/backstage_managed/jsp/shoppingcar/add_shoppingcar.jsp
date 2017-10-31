@@ -35,7 +35,7 @@ $(function() {
 		url : 'shoppingCar/findArticleAndPersonalInformation',
 		success : function(data) {
 			data = JSON.parse(data);
-			/* console.log(data[0].article[0]);浏览器打印 */
+			console.log(data[0].article[0]);
 			var article = data[0].article;
 			var personalinformation = data[0].personalInformation;
 			findAll(article, "#articleId");

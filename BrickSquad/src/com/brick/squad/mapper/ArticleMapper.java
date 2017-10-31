@@ -29,7 +29,7 @@ public interface ArticleMapper {
 	public List<Select> findArticle();
 
 	public List<ArticleExpand> findAllArticle();
-	
+	public String findAllTypeAndBusiness();
 	
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
 }

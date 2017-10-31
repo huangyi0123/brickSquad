@@ -84,7 +84,7 @@
 	<include refid="prop" />
 	FROM personal_information
 	</select>
-	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select">
+	<select id="findAllPersonalInformation"  resultType="com.brick.squad.util.Select">
 	SELECT id ,name
 	FROM personal_information
 	</select>

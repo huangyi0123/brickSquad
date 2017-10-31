@@ -28,40 +28,25 @@
 	src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
-<script type="text/javascript" src="resource/js/common.js"></script>	
-	
+	<script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript">
-	
-	$(function() {
-		$.ajax({
-			url : 'article/findAllArticle',
-			success : function(data) {
-				data = JSON.parse(data);
-				var id = $("#typeId").attr('val');
-				
-				$(data).each(
-						function() {
-							if (id == this.id) {
-								$("#typeId").append(
-										'<option value="'+this.id+'"  selected="selected">'
-												+ this.typeId+ '</option>');
-							} else {
-								$("#typeId").append(
-										'<option value="'+this.id+'">'
-												+ this.typeId + '</option>');
-							}
-
-						});
-				layui.use('form', function() {
-					var form = layui.form();
-				});
-			}
-		});	
-		
-		
+$(function() {
+	$.ajax({
+		url : 'article/findAllTypeAndBusiness',
+		success : function(data) {
+			data = JSON.parse(data);
+			console.log(data[0].type[0]);
+			var type = data[0].type;
+			var business = data[0].business;
+			findAll(type, "#typeId");
+			findAll(business, "#businessId");
+			layui.use('form', function() {
+				var form = layui.form();
+			});
+		}
 	});
 	
-	
+});
 </script>
 </head>
 
@@ -82,20 +67,16 @@
 		</div>
 		
 		
-		
-		
-		
-		<div class="layui-form-item" style="width: 300px">
+		<div class="layui-form-item">
 			<label class="layui-form-label">商品类型</label>
-			<div class="layui-input-block">
-				<select name="typeId" lay-filter="aihao" id="typeId" val="${article.typeId }">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
+			<div class="layui-input-inline">
+				<select name="typeId" id="typeId" val="${article.typeId}" lay-search="">
+					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
-			</div>
+		</div>
+		
+
 			<div class="layui-form-item">
 			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">
@@ -124,18 +105,18 @@
 		</div>
 		
 		
+	
 		
-		<div class="layui-form-item">
+		
+			<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
-				<input type="text" name="businessId" required lay-verify="required"
-					placeholder="店铺名" autocomplete="off" class="layui-input"
-					value="${article.businessId }">
+				<select name="businessId" id="businessId"
+					val="${article.businessId}" lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
 			</div>
 		</div>
-		
-		
-			
 			
 			
 			<div class="layui-form-item">
