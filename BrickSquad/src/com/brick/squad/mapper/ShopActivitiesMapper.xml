@@ -55,7 +55,7 @@
 			ON shop_activities.type_id=type.id JOIN business ON shop_activities.business_id 
 			= business.id JOIN article ON shop_activities.type_id =article.id limit #{skipNum},#{takeNum} 
 			</if> -->
-		SELECT a.aname aname,b.shopname bname,t.`name` tname,sa.start_time
+		SELECT sa.id,a.aname aname,b.shopname bname,t.`name` tname,sa.start_time
 		startTime,sa.end_time endTime FROM shop_activities sa
 		join type t on sa.type_id=t.id
 		JOIN business b on sa.business_id=b.id
