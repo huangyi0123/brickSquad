@@ -32,16 +32,7 @@
 <script type="text/javascript"
 	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script>
-	//Demo
-	layui.use('form', function() {
-		var form = layui.form;
-
-		//监听提交
-		form.on('submit(formDemo)', function(data) {
-			layer.msg(JSON.stringify(data.field));
-			return false;
-		});
-	});
+	
 </script>
 </head>
 
@@ -315,16 +306,58 @@
 			</div>
 			<div class="Pro_seemore">
 				<div
-					style="width: 45px;border-top: 1px dashed #C9C9C9 ;margin-left: 30px;margin-top: 10px;"></div>
+					style="width: 45px;border-top: 1px dashed #CCFF99 ;margin-left: 30px;margin-top: 10px;"></div>
 				<label style="margin-left: 80px; margin-top: -10px;">看了又看</label>
 				<div
-					style="width: 45px;border-top: 1px dashed #C9C9C9 ;margin-left: 142px;margin-top: -16px;"></div>
+					style="width: 45px;border-top: 1px dashed #CCFF99 ;margin-left: 142px;margin-top: -16px;"></div>
 				<a href="#"> <img src="resource/image/2.png"></a> <a href="#">
 					<img src="resource/image/2.png">
-				</a> <a href="#"> <img src="resource/image/2.png"></a> 
+				</a> <a href="#"> <img src="resource/image/2.png"></a>
 
+			</div>
+			<div style="clear: both;"></div>
+			<div class="pro_det">
+				<!-- <div class="layui-tab layui-tab-card" style="height:1100px; margin-top: 40px;margin-left: 10px;background-color: red;">
+					<ul class="layui-tab-title" style="background-color: blue;margin-left: -500px;">
+						<li class="layui-this">网站设置</li>
+						<li>用户管理</li>
+						<li>权限分配</li>
+						<li>商品管理</li>
+						<li>订单管理</li>
+					</ul>
+					<div class="layui-tab-content" style="height: 100px;">
+						<div class="layui-tab-item layui-show">默认宽度是相对于父元素100%适应的，你也可以固定宽度。</div>
+						<div class="layui-tab-item">2</div>
+						<div class="layui-tab-item">3</div>
+						<div class="layui-tab-item">4</div>
+						<div class="layui-tab-item">5</div>
+						<div class="layui-tab-item">6</div>
+					</div>
+				</div> -->
+				<div class="layui-tab layui-tab-card">
+					<ul class="layui-tab-title">
+						<li class="layui-this">网站设置</li>
+						<li>用户管理</li>
+						<li>权限分配</li>
+						<li>商品管理</li>
+						<li>订单管理</li>
+					</ul>
+					<div class="layui-tab-content" style="height: 100px;">
+						<div class="layui-tab-item layui-show">默认宽度是相对于父元素100%适应的，你也可以固定宽度。</div>
+						<div class="layui-tab-item">2</div>
+						<div class="layui-tab-item">3</div>
+						<div class="layui-tab-item">4</div>
+						<div class="layui-tab-item">5</div>
+						<div class="layui-tab-item">6</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		layui.use('element', function() {
+			var element = layui.element;
+		});
+	</script>
 </body>
 </html>

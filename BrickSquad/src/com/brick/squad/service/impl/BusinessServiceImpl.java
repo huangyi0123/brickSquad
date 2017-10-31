@@ -55,7 +55,7 @@ public class BusinessServiceImpl implements BusinessService{
 	@Override
 	public String businessPagination(Pagination pagination) {
 		List<Business> datas=businessMapper.businessPagination(pagination);
-		int n=businessMapper.businessCount();
+		int n=businessMapper.businessCount(pagination);
 		Util<Business> util=new Util<Business>();
 		String data=util.SplitPage(datas, n);
 		return data;

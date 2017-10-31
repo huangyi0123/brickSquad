@@ -47,5 +47,11 @@ public class Relatives {
 	public void setRelationshipId(String relationshipId) {
 		this.relationshipId = relationshipId;
 	}
+	@Override
+	public String toString() {
+		return "Relatives [id=" + id + ", perId=" + perId + ", name=" + name
+				+ ", telephone=" + telephone + ", addressId=" + addressId
+				+ ", relationshipId=" + relationshipId + "]";
+	}
 	
 }

@@ -40,6 +40,7 @@ public class ArticleController {
 	public String getArticleList(int pSize,int cPage,String keyword){
 		
 		Pagination pagination=new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return  articleService.articlePagination(pagination);}

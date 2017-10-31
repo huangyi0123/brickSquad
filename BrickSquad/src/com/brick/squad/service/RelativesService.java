@@ -1,9 +1,21 @@
 package com.brick.squad.service;
 
+import com.brick.squad.expand.RelativesAndAddressExpand;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.util.Pagination;
 
 public interface RelativesService {
+	/**
+	 * 根据perId查询亲属
+	 * @param PerId
+	 * @return
+	 */
+	public Relatives selectRelativesByPerId(String PerId);
+	/**
+	 * 用户完善亲属联系信息
+	 * @param relativesAndAddressExpand
+	 */
+	public void userUpdateRelatives(RelativesAndAddressExpand relativesAndAddressExpand)throws Exception;
 	/**
 	 * 根据id查询亲属关系
 	 * 
