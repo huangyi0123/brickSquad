@@ -68,6 +68,7 @@
 			<mvc:exclude-mapping path="/common/toProductDetails" />
 			<mvc:exclude-mapping path="/common/toIndex" />
 			<mvc:exclude-mapping path="/common/toLimits"/>
+			<mvc:exclude-mapping path="/limits/findAllLimitsByRoleId"/>
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>

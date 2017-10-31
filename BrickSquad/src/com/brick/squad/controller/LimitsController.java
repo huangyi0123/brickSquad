@@ -43,4 +43,10 @@ public class LimitsController {
 		limitsService.insertLimits(limits);
 		return "backstage_managed/jsp/limits/limits_list";
 	}
+	@RequestMapping("/findAllLimitsByRoleId")
+	@ResponseBody
+	public String findAllLimitsByRoleId(String roleId) {
+		String data=limitsService.findAllTableName(roleId);
+		return data;
+	}
 }

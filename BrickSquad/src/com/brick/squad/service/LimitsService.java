@@ -1,7 +1,5 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.util.Pagination;
 
