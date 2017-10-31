@@ -46,6 +46,7 @@
 			var type = data[0].type;
 			var business = data[0].business;
 			var article =  data[0].article;
+
 			findAll(type, "#typeId");
 			findAll(business, "#businessId");
 			findAll(article, "#articleId");

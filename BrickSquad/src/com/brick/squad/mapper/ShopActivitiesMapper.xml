@@ -42,56 +42,64 @@
 	<!-- 分页查询 级联查询 -->
 	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
-		
-		<if test="keyword!=''">
-		SELECT shop_activities.id,article.aname aname,business.`name` bname,type.`name` tname,
-			shop_activities.start_time startTime,shop_activities.end_time endTime
-		
-		from shop_activities  JOIN type   ON shop_activities.type_id=type.id  JOIN
-		
-		business  ON shop_activities.business_id = business.id  JOIN article   ON shop_activities.type_id =article.id
-		 WHERE article.aname REGEXP #{keyword} or business.`name` REGEXP #{keyword}
-		 or type.`name` REGEXP #{keyword}  limit #{skipNum},#{takeNum}
-		
-	
-		</if>
-		<if test="keyword==''"> 
-		SELECT shop_activities.id,article.aname aname,business.`name` bname,type.`name` tname,
-			shop_activities.start_time startTime,shop_activities.end_time endTime
-		
-		from shop_activities   JOIN type   ON shop_activities.type_id=type.id   JOIN
-		
-		business  ON shop_activities.business_id = business.id JOIN article   ON shop_activities.type_id =article.id limit #{skipNum},#{takeNum}
-	</if>
 
+		<!-- <if test="keyword!=''"> SELECT shop_activities.id,article.aname aname,business.`name` 
+			bname,type.`name` tname, shop_activities.start_time startTime,shop_activities.end_time 
+			endTime from shop_activities JOIN type ON shop_activities.type_id=type.id 
+			JOIN business ON shop_activities.business_id = business.id JOIN article ON 
+			shop_activities.article_id =article.id WHERE article.aname REGEXP #{keyword} 
+			or business.`name` REGEXP #{keyword} or type.`name` REGEXP #{keyword} limit 
+			#{skipNum},#{takeNum} </if> <if test="keyword==''"> SELECT shop_activities.id,article.aname 
+			aname,business.`name` bname,type.`name` tname, shop_activities.start_time 
+			startTime,shop_activities.end_time endTime from shop_activities JOIN type 
+			ON shop_activities.type_id=type.id JOIN business ON shop_activities.business_id 
+			= business.id JOIN article ON shop_activities.type_id =article.id limit #{skipNum},#{takeNum} 
+			</if> -->
+		SELECT a.aname aname,b.shopname bname,t.`name` tname,sa.start_time
+		startTime,sa.end_time endTime FROM shop_activities sa
+		join type t on sa.type_id=t.id
+		JOIN business b on sa.business_id=b.id
+		JOIN article a on sa.article_id=a.id
+
+		<if test="keyword!='' and keyword!=null">
+			WHERE t.`name` REGEXP #{keyword} or b.shopname REGEXP #{keyword} or
+			a.aname REGEXP #{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
 	</select>
-	
-	<select id="findShopActivitiesAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+
+	<select id="findShopActivitiesAllCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select
 		count(*) from shop_activities
 		<if test="keyword!=''">
-		 ,article,business,type
-		 WHERE article.aname REGEXP #{keyword} or business.name REGEXP #{keyword} 
-		 or type.name REGEXP #{keyword}  limit #{skipNum},#{takeNum}
+			,article,business,type
+			WHERE article.aname REGEXP
+			#{keyword} or business.name REGEXP #{keyword}
+			or type.name REGEXP
+			#{keyword} limit #{skipNum},#{takeNum}
 		</if>
 	</select>
 
 
-	<select id="findAllShopActivities" resultType="ShopActivities" >
+	<select id="findAllShopActivities" resultType="ShopActivities">
 		select
 		shop_activities.type_id from shop_activities
 	</select>
-	
-	
-	
-	<select id="findShopActivitiesAndTypeAndArticle"  parameterType="java.lang.String" 
-	 resultType="com.brick.squad.expand.ShopActivitiesExpand">
-	SELECT shop_activities.id,article.aname aname,business.`name` bname,type.`name` tname,
-			shop_activities.start_time startTime,shop_activities.end_time endTime
-		
-		from shop_activities  JOIN type   ON shop_activities.type_id=type.id  JOIN
-		
-		business  ON shop_activities.business_id = business.id  JOIN article   ON shop_activities.type_id =article.id
+
+
+
+	<select id="findShopActivitiesAndTypeAndArticle" parameterType="java.lang.String"
+		resultType="com.brick.squad.expand.ShopActivitiesExpand">
+		SELECT shop_activities.id,article.aname
+		aname,business.`name`
+		bname,type.`name` tname,
+		shop_activities.start_time startTime,shop_activities.end_time endTime
+
+		from shop_activities JOIN type ON shop_activities.type_id=type.id JOIN
+
+		business ON shop_activities.business_id = business.id JOIN article ON
+		shop_activities.type_id =article.id
 	</select>
 
 </mapper>
