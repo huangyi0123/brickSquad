@@ -206,7 +206,6 @@
 
 .Pro_seemore {
 	width: 240px;
-	height: 100%;
 	float: left;
 }
 
@@ -218,12 +217,5 @@
 }
 
 .pro_det {
-	width: 70%;
-	height: 900px;
-	
-	background-color: white;
-	margin-top: 660px;
-	margin-left: 100px;
-	border: 1px solid #D5FFAB;
 }
 

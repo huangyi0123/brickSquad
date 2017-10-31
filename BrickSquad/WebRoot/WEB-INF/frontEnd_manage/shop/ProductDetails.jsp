@@ -33,7 +33,6 @@
 	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script>
 	
-	
 </script>
 </head>
 
@@ -316,8 +315,9 @@
 				</a> <a href="#"> <img src="resource/image/2.png"></a>
 
 			</div>
+			<div style="clear: both;"></div>
 			<div class="pro_det">
-				<div class="layui-tab layui-tab-card" style="height:1100px; margin-top: 40px;margin-left: 10px;background-color: red;">
+				<!-- <div class="layui-tab layui-tab-card" style="height:1100px; margin-top: 40px;margin-left: 10px;background-color: red;">
 					<ul class="layui-tab-title" style="background-color: blue;margin-left: -500px;">
 						<li class="layui-this">网站设置</li>
 						<li>用户管理</li>
@@ -333,15 +333,31 @@
 						<div class="layui-tab-item">5</div>
 						<div class="layui-tab-item">6</div>
 					</div>
+				</div> -->
+				<div class="layui-tab layui-tab-card">
+					<ul class="layui-tab-title">
+						<li class="layui-this">网站设置</li>
+						<li>用户管理</li>
+						<li>权限分配</li>
+						<li>商品管理</li>
+						<li>订单管理</li>
+					</ul>
+					<div class="layui-tab-content" style="height: 100px;">
+						<div class="layui-tab-item layui-show">默认宽度是相对于父元素100%适应的，你也可以固定宽度。</div>
+						<div class="layui-tab-item">2</div>
+						<div class="layui-tab-item">3</div>
+						<div class="layui-tab-item">4</div>
+						<div class="layui-tab-item">5</div>
+						<div class="layui-tab-item">6</div>
+					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-	layui.use('element', function() {
-		var element = layui.element;
-	});
+		layui.use('element', function() {
+			var element = layui.element;
+		});
 	</script>
 </body>
 </html>
