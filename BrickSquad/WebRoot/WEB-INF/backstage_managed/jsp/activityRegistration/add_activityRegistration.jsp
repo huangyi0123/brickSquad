@@ -51,8 +51,14 @@
 		var registrationDate = $("#registrationDate").attr('val');
 		registrationDate = Format(new Date(registrationDate),
 				"yyyy-MM-dd hh:mm:ss");
-		$("#guidanceDateId").val(registrationDate);
-		
+		$("#registrationDate").val(registrationDate);
+		//预约回填
+		var parament =$("#parament").attr('val');	
+		$("#parament").val(parament);
+		//姓名回填
+	/* 	var result = ${result};
+		findAll(result, "#perid");
+		form.render('select', 'prIdSelect');  */
 	}); 
 </script>
 <script>
@@ -86,7 +92,7 @@
 		<div class="layui-form-item">
 		<label class="layui-form-label">老人姓名：</label>
 				<div class="layui-input-inline">
-				<select  name="perId" id="perid" lay-filter="perid">
+				<select  lay-filter="perid" name="perId" id="perid"  lay-filter="perid" >
 					<option value="">选择老人姓名</option>
 				</select>
 			</div>
@@ -113,7 +119,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" name="registrationDate" id="registrationDate" value="${activityRegistration.registrationDate }" placeholder="活动日期"
+				<input class="layui-input" name="registrationDate" id="registrationDate" val="${activityRegistration.registrationDate}" placeholder="活动日期"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
@@ -130,7 +136,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">是否预约：</label>
 			<div class="layui-input-inline">
-				<select name="appointment" required lay-verify="required" id="parament" lay-filter="aihao">
+				<select name="appointment" required lay-verify="required" id="parament" lay-filter="aihao" val="${activityRegistration.appointment}">
 					<option value=""></option>
 					<option value="0">是</option>
 					<option value="1">否</option>

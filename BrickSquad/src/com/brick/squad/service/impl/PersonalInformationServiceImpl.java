@@ -85,7 +85,6 @@ public class PersonalInformationServiceImpl implements
 		if (addressAndPersonaInformationExpand.getAddress().getId()==""||addressAndPersonaInformationExpand.getAddress().getId()==null) {
 			Address address = addressAndPersonaInformationExpand.getAddress();
 			addressMapper.insertAddress(address);
-			
 			personalInformation.setAddressId(address.getId());
 			
 		}else {
