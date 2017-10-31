@@ -96,7 +96,7 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	public String findTypeAndArticle() {
 		// TODO Auto-generated method stub
 		List<Select> article=articleMapper.findArticle(); 
-		List<Select> type =typeMapper.findType();
+		List<Select> type =typeMapper.findTypeByParentId("shangpinhuodongleixing");
 		List<Select> business = businessMapper.findAllBusiness();
 		Map<String, List> map=new HashMap<String, List>();
 		map.put("article", article);

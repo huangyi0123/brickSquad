@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.mapper.LimitsMapper;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.util.JunitClassRunner;
@@ -17,6 +18,9 @@ public class LimitsServiceTest {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+	@Autowired
+	@Qualifier("limitsMapper")
+	private LimitsMapper limitsMapper;
 
 	@Test
 	public void testFindLimitsById() {
@@ -58,5 +62,9 @@ public class LimitsServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		System.out.println(limitsService.limitsPagination(pagination));
+	}
+	@Test
+	public void testFindAllTableName() {
+		System.out.println(limitsService.findAllTableName("1"));
 	}
 }

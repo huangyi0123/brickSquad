@@ -44,4 +44,10 @@ public interface LimitsMapper {
 	 * @return 表名集合
 	 */
 	public List<String> findAllTableName();
+	/**
+	 * 根据角色id查询权限
+	 * @param roleId 角色id
+	 * @return 权限列表
+	 */
+	public List<Limits> findLimitsByRoleId(String roleId);
 }

@@ -65,7 +65,8 @@
 		title=#{title},
 		content=#{content},
 		imgs_path=#{imagePath},
-		post_time=#{postTime}
+		post_time=#{postTime},
+		user_id=#{userId}
 		WHERE id=#{id}
 	</update>
 	<select id="findNewsById" parameterType="java.lang.String"

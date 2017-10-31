@@ -32,7 +32,6 @@
 		$(function() {
 			//查询type中parentId为mz，即所有民族集合
 			var nationData = ${nationData};
-			console.log(nationData);
 			findAll(nationData, "#paramentNationId");
 			form.render('select', 'NationIdSelect');
 			//查询region中level为1，即所有省份集合

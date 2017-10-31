@@ -21,33 +21,23 @@
 			enable : true
 		},
 	};
-	var zNodes = [ {
-		name : "用户表",
-		tId : "user",
-		open : true,
-		checked : true,
-		children : [ {
-			name : "删除",
-			id : "user"
-		}, {
-			name : "修改"
-		} ]
-	}, {
-		name : "老人信息表",
-		open : true,
-		children : [ {
-			name : "删除"
-		}, {
-			name : "修改"
-		} ]
-	} ];
-	$(document).ready(function() {
-		zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-
+	$(function() {
+		$.ajax({
+			url:'limits/findAllLimitsByRoleId?roleId=12',
+			success:function(result){
+				result=JSON.parse(result);
+				zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, result);
+			}
+		});
 	});
 	function test() {
 		var checkedNodes = zTreeObj.getCheckedNodes();
-		console.log(checkedNodes);
+		$(checkedNodes).each(function() {
+			if(this.value!=""){
+				var url="id="+this.id+"&"+this.value+"=1";
+				console.log(url);
+			}
+		});
 	}
 </script>
 </head>
