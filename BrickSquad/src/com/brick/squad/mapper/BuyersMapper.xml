@@ -23,13 +23,12 @@
 	</delete>
 	<!--分页查询  -->
 	<select id="buyersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.BuyersExpand">
-		select personal_information.name pname,current_integral currentIntegral,
+		select buyers.id,personal_information.name pname,current_integral currentIntegral,
 		historical_integral historicalIntegral,
 		grade grade,delivery_address_id deliveryAddressId,information_id informationId
 		<if test="keyword==''">
-		from buyers,personal_information 
+		from buyers,personal_information
 		</if>
-		
 		<if test="keyword!=''">
 		from buyers 
 		JOIN personal_information ON buyers.id=personal_information.id 

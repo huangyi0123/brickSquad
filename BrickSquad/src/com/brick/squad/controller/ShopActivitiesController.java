@@ -110,5 +110,12 @@ public class ShopActivitiesController {
 	}
 	
 	
+	@RequestMapping("/findTypeAndArticle")
+	@ResponseBody
+	public String findTypeAndArticle(){
+		System.out.println(shopActivitiesService.findTypeAndArticle());
+		return shopActivitiesService.findTypeAndArticle();}
+	
+	
 	
 }
