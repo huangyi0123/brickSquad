@@ -22,14 +22,14 @@ public interface ArticleMapper {
 	
 	public List<Article> articlePagination(Pagination pagination);
 	
-	public int findArticleAllCount();
+	public int findArticleAllCount(Pagination pagination);
 	/**
 	 * 查询商品信息:根据所需字段
 	 * */
 	public List<Select> findArticle();
 
 	public List<ArticleExpand> findAllArticle();
-	
+	public String findAllTypeAndBusiness();
 	
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
 }

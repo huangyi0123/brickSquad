@@ -7,6 +7,10 @@ function init(keyword) {
         supportAjaxPage: true,
         supportCheckbox: false,
         columnData: [
+			{
+			    key: 'pname',
+			    text: '客户名称'
+			},
             {
                 key: 'currentIntegral',
                 text: '当前积分'

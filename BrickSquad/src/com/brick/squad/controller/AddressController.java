@@ -50,6 +50,7 @@ public class AddressController {
 	public String getAddressList(int pSize, int cPage, String keyword)
 			throws Exception {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setPageSize(pSize);
 		pagination.setCurentPage(cPage);
 		pagination.setKeyword(keyword);

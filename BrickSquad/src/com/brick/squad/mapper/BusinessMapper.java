@@ -3,11 +3,13 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 
+
 /**
  * 商家信息表
  */
 import com.brick.squad.pojo.Business;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface BusinessMapper {
   
@@ -48,11 +50,11 @@ public interface BusinessMapper {
 	 * 查询记录数
 	 * @return 记录数
 	 */
-	public int businessCount();
+	public int businessCount(Pagination pagination);
 	
 	
 	
-	public List<Business> findAllBusiness();
+	public List<Select> findAllBusiness();
 	
 	public Business findBusiness(String id);
 	

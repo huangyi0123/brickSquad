@@ -12,7 +12,7 @@ public interface AddressService {
 	public void deleteAddressById(String id ) throws Exception;
 	public void updateAddressById(Address address) throws Exception;
 	
-	public int findAddressAllCount() throws Exception;
+	//public int findAddressAllCount() throws Exception;
 	/**
 	 * 分页查询
 	 * @param pagination

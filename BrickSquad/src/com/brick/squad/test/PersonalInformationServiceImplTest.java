@@ -34,14 +34,14 @@ public class PersonalInformationServiceImplTest {
 		
 	}
 
-	@Test
+/*	@Test
 	public void testUpdatePersonalInformationById() {
 		PersonalInformation personalInformation =personalInformationService.findPersonalInformationById("8ecd8aa8b7a211e78d4f5254002ec43c");
 		System.out.println(personalInformation.toString());
 		personalInformation.setName("12");
 		personalInformationService.updatePersonalInformationById(personalInformation);
 	}
-
+*/
 	@Test
 	public void testDeletePersonalInformationById() {
 			personalInformationService.deletePersonalInformationById("765c3378b08811e78d4f5254002ec43c");

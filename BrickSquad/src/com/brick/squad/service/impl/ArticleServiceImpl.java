@@ -65,17 +65,17 @@ public class ArticleServiceImpl implements ArticalService{
 	public String articlePagination(Pagination pagination) {
 
 		List<Article> articles = articleMapper.articlePagination(pagination);
-		int row = articleMapper.findArticleAllCount();
+		int row = articleMapper.findArticleAllCount(pagination);
 		Util<Article> util = new Util<Article>();
 		String data = util.SplitPage(articles, row);
 		return data;
 		
 	}
-	@Override
+	/*@Override
 	public int findArticleAllCount() {
 		// TODO Auto-generated method stub
 		return articleMapper.findArticleAllCount();
-	}
+	}*/
 	@Override
 	/**查询所有商品信息，根据字段需求*/
 	public String findArticle() throws Exception {
@@ -94,10 +94,10 @@ public class ArticleServiceImpl implements ArticalService{
 	}
 	@Override
 	public String findAllTypeAndBusiness() {
-		List<Business> business=businessMapper.findAllBusiness();
-		List<Type> type =typeMapper.findAllType();
+		List<Select> business=businessMapper.findAllBusiness();
+		List<Select> type =typeMapper.findType();
 		Map<String, List> map=new HashMap<String, List>();
-		map.put("user", business);
+		map.put("business", business);
 		map.put("type", type);
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(map).toString();

@@ -6,6 +6,7 @@ import javax.swing.Spring;
 
 import com.brick.squad.pojo.Business;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface BusinessService {
 

@@ -70,4 +70,9 @@ public class TypeServiceImpl implements TypeService{
 		return dataTytes;
 	}
 
+	@Override
+	public List<Select> findType() {
+		return typeMapper.findType();
+	}
+
 }

@@ -24,7 +24,7 @@ public class BusinessServiceTest {
 
 	@Test
 	public void testFindBusinessById() {
-		businessService.findBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
+		businessService.findBusinessById("1");
 	}
 
 	@Test
@@ -57,4 +57,8 @@ public class BusinessServiceTest {
 		System.out.println(businessService.businessPagination(pagination));
 	}
 
+	@Test
+	public void findAllBusiness(){
+		System.out.println(businessService.findAllBusiness());
+	}
 }

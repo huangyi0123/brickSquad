@@ -64,7 +64,6 @@
 			<mvc:exclude-mapping path="/news/findNewsExpandById" />
 			<mvc:exclude-mapping path="/news/findNews" />
 			<mvc:exclude-mapping path="/common/businessIndex" />
-			<mvc:exclude-mapping path="/common/toPersonal" />
 			<mvc:exclude-mapping path="/common/toProductDetails" />
 			<mvc:exclude-mapping path="/common/toIndex" />
 			<mvc:exclude-mapping path="/common/toLimits"/>

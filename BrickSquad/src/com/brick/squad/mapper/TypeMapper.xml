@@ -60,5 +60,7 @@
 	<select id="findAllType" resultType="Type">
 		select id,name from type
 	</select>
-	
+	<select id="findType" resultType="com.brick.squad.util.Select">
+		select id,name from type
+	</select>
 </mapper>

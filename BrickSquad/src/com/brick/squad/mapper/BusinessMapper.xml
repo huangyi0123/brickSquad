@@ -37,21 +37,27 @@
 	</delete>
 	
 	<!-- 分页查询 -->
-	<select id="businessPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="Business">
+	<select id="businessPagination" parameterType="com.brick.squad.util.Pagination" resultType="Business">
+	
 		select id,name,idcard,shopname,shop_material_path
 		from business
-	    LIMIT #{skipNum},#{takeNum}
+	   
+		<if test="keyword!=''">
+		where name REGEXP #{keyword} or shopname REGEXP #{keyword} or idcard REGEXP #{keyword} 
+		</if>
+	 	LIMIT #{skipNum},#{takeNum}
 	</select>
-	<select id="businessCount" resultType="int">
+	<select id="businessCount" resultType="int"  parameterType="com.brick.squad.util.Pagination">
 		SELECT
 		COUNT(*) FROM business
+		<if test="keyword!=''">
+		where name REGEXP #{keyword} or shopname REGEXP #{keyword} or idcard REGEXP #{keyword} 
+		</if>
 	</select>
 	
-	<select id="findBusiness" parameterType="java.lang.String" resultType="Business">
-	select id,name,idcard,shopname,shop_material_path
+	<select id="findAllBusiness"  resultType="com.brick.squad.util.Select">
+	select id,name,idcard,shopname,shop_material_path shopMaterialPath
 		from business
-	WHERE id = #{id,jdbcType=VARCHAR}
 	</select>
 	
 	

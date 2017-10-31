@@ -7,6 +7,12 @@ import com.brick.squad.util.Pagination;
 
 public interface RelativesMapper {
 	/**
+	 * 根据perId查询亲属
+	 * @param PerId
+	 * @return
+	 */
+	public Relatives selectRelativesByPerId(String perId);
+	/**
 	 * 根据id查询亲属关系
 	 * 
 	 * @param id

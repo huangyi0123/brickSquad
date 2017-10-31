@@ -31,6 +31,7 @@ public class BusinessController {
 	@ResponseBody
 	public String getBusinessList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		String data = businessService.businessPagination(pagination);

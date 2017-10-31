@@ -114,12 +114,13 @@
 		
 		
 		
-		<div class="layui-form-item">
+		
+			<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
-				<input type="text" name="businessId" required lay-verify="required"
-					placeholder="店铺名" autocomplete="off" class="layui-input"
-					value="${articleExpand.bname }" readonly="readonly">
+				<input type="text" name="typeId" id="typeId" required lay-verify="required"
+					placeholder="商品类型" autocomplete="off" class="layui-input"
+					value="${articleExpand.tname }" readonly="readonly">
 			</div>
 		</div>
 		
