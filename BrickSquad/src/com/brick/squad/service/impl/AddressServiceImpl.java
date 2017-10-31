@@ -65,16 +65,16 @@ public class AddressServiceImpl implements AddressService{
 		List<Address> list = new ArrayList<Address>();
 		Util<Address> util = new Util<Address>();
 		list=addressMapper.addressPagination(pagination);
-		int row = addressMapper.findAddressAllCount();
+		int row = addressMapper.findAddressAllCount(pagination);
 		String data =util.SplitPage(list, row);
 		return data;
 	}
 
-	@Override
+	/*@Override
 	public int findAddressAllCount() throws Exception {
 		// TODO Auto-generated method stub
 		return addressMapper.findAddressAllCount();
-	}
+	}*/
 
 	@Override
 	public String findRegionsByLevel() {

@@ -65,17 +65,17 @@ public class ArticleServiceImpl implements ArticalService{
 	public String articlePagination(Pagination pagination) {
 
 		List<Article> articles = articleMapper.articlePagination(pagination);
-		int row = articleMapper.findArticleAllCount();
+		int row = articleMapper.findArticleAllCount(pagination);
 		Util<Article> util = new Util<Article>();
 		String data = util.SplitPage(articles, row);
 		return data;
 		
 	}
-	@Override
+	/*@Override
 	public int findArticleAllCount() {
 		// TODO Auto-generated method stub
 		return articleMapper.findArticleAllCount();
-	}
+	}*/
 	@Override
 	/**查询所有商品信息，根据字段需求*/
 	public String findArticle() throws Exception {

@@ -63,10 +63,10 @@ public class ArticleServiceTest {
 		articleService.articlePagination(pagination);
 	}
 	
-	@Test
+	/*@Test
 	public void findArticleAllCount(){
 		System.out.println(articleService.findArticleAllCount());
-	}
+	}*/
 	
 	@Test
 	public void findAllArticle() throws Exception{

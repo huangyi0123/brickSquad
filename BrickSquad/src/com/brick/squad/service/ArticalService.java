@@ -24,7 +24,7 @@ public interface ArticalService {
 	
 	public String articlePagination(Pagination pagination);
 
-	public int findArticleAllCount();
+	//public int findArticleAllCount();
 	/**
 	 * 查询商品信息:根据所需字段
 	 * */

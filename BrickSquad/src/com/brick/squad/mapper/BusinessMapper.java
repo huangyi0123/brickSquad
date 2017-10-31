@@ -48,7 +48,7 @@ public interface BusinessMapper {
 	 * 查询记录数
 	 * @return 记录数
 	 */
-	public int businessCount();
+	public int businessCount(Pagination pagination);
 	
 	
 	
