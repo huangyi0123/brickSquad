@@ -94,10 +94,10 @@ public class ArticleServiceImpl implements ArticalService{
 	}
 	@Override
 	public String findAllTypeAndBusiness() {
-		List<Business> business=businessMapper.findAllBusiness();
-		List<Type> type =typeMapper.findAllType();
+		List<Select> business=businessMapper.findAllBusiness();
+		List<Select> type =typeMapper.findType();
 		Map<String, List> map=new HashMap<String, List>();
-		map.put("user", business);
+		map.put("business", business);
 		map.put("type", type);
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(map).toString();

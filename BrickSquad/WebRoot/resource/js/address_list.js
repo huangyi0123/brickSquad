@@ -9,19 +9,19 @@ function init(keyword) {
         columnData: [
             {
                 key: 'provinceId',
-                text: '省份id'
+                text: '省份'
             },
             {
                 key: 'cityId',
-                text: '市id'
+                text: '市'
             },
             {
                 key: 'countyId',
-                text: '区县id'
+                text: '区县'
             },
             {
                 key: 'countryId',
-                text: '乡镇id'
+                text: '乡镇'
             },
             {
             	key: 'detailed',
@@ -55,9 +55,6 @@ function RefreshGridManagerList(keyword) {
 function serach() {
 	$("#serach").click(function () {
 		var keyword = $("#keyword").val();
-		if (keyword.trim()=='') {
-			RefreshGridManagerList('');
-		}
 		RefreshGridManagerList(keyword);
 	});
 	

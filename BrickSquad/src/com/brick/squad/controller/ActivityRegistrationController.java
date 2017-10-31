@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Business;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
@@ -50,7 +51,8 @@ public class ActivityRegistrationController {
 	  if (id != null) {
 			ActivityRegistration activityRegistration = activityRegistrationService.findActivityRegistrationById(id);
 			request.setAttribute("activityRegistration", activityRegistration);
-			/*System.out.println(activityRegistration.toString());*/
+			String personalInformation = personalInformationService.findAllPersonalInformation();
+			request.setAttribute("personalInformation", personalInformation);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateActivityRegistrationById");
 		} else {

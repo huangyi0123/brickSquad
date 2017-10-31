@@ -55,10 +55,9 @@
 		</if>
 	</select>
 	
-	<select id="findBusiness" parameterType="java.lang.String" resultType="Business">
-	select id,name,idcard,shopname,shop_material_path
+	<select id="findAllBusiness"  resultType="com.brick.squad.util.Select">
+	select id,name,idcard,shopname,shop_material_path shopMaterialPath
 		from business
-	WHERE id = #{id,jdbcType=VARCHAR}
 	</select>
 	
 	

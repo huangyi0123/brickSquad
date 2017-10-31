@@ -45,7 +45,7 @@ public class ArticleController {
 		pagination.setPageSize(pSize);
 		return  articleService.articlePagination(pagination);}
 	
-	@RequestMapping("toAddArticle")
+	@RequestMapping("/toAddArticle")
 	public String toAddArticle(HttpServletRequest request, String id) throws Exception{
 		 	if (id != null) {
 			request.setAttribute("msg", "修改");
@@ -97,6 +97,16 @@ public class ArticleController {
 		request.setAttribute("articleExpand", articleExpand);
 		return "backstage_managed/jsp/article/search_article";
 	}
+
+@RequestMapping("/findAllTypeAndBusiness")
+@ResponseBody
+	public String findAllTypeAndBusiness(){
+	System.out.println(articleService.findAllTypeAndBusiness());
+		return articleService.findAllTypeAndBusiness();
+		
+		
+	}
+	
 	
 }
 

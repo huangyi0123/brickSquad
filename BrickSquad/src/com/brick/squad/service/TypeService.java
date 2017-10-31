@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface TypeService {
 
@@ -46,4 +47,5 @@ public interface TypeService {
 	public String findAllType();
 	
 	public String findTypeByParentId(String parentId);
+	public List<Select> findType();
 }

@@ -62,6 +62,7 @@ public interface TypeMapper {
 	 * @return 民族集合
 	 */
 	public List<Select> findTypeByParentId(String parentId);
+	public List<Select> findType();
 	
 	
 }

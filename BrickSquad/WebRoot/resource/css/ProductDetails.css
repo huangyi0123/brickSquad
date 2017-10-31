@@ -2,7 +2,7 @@
 .Pro_body{
 	width: 100%;
 	height: 100%;
-	background-color: red;
+	/* background-color: red; */
 }
 
 .Pro_header{
@@ -68,6 +68,7 @@
     margin-left:100px;
 	border: 1px solid #D5FFAB;
 	background-color: white;
+	float: left;
 }
 
 .comm_img{
@@ -203,3 +204,15 @@
 	margin-top: -10px;
 }
 
+.Pro_seemore{
+	width: 240px;
+	height: 100%;
+	float: left;
+}
+
+.Pro_seemore img{
+	width: 140px;
+	height: 150px;
+	margin-left: 32px;
+	margin-top: 30px;
+}

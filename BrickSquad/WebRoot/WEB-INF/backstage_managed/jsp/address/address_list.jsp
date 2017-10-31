@@ -59,7 +59,9 @@ a:HOVER {
 <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" placeholder="Search for..." id="keyword">
+
+			<input type="text" id="keyword" class="form-control" placeholder="可輸入省、市、区、乡、地址进行查找">
+
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下

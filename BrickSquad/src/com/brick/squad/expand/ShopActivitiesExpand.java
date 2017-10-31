@@ -8,6 +8,7 @@ public class ShopActivitiesExpand extends ShopActivities{
 	private String businessName;
 	private String articleAname;
 	private String typeName;
+	
 	private String aname;
 	private String bname;
 	private String tname;

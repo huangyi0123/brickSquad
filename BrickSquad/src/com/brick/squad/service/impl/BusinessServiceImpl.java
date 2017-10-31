@@ -18,6 +18,7 @@ import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.BusinessService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 
 @Transactional
@@ -63,7 +64,7 @@ public class BusinessServiceImpl implements BusinessService{
 	
 	@Override
 	public String findAllBusiness(){
-		 List<Business> business = businessMapper.findAllBusiness();
+		 List<Select> business = businessMapper.findAllBusiness();
 		 JSONArray jsonArray=new JSONArray();
 		 String string=jsonArray.fromObject(business).toString();
 		 return string;

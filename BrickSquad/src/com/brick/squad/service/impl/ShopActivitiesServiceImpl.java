@@ -95,11 +95,13 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 	@Override
 	public String findTypeAndArticle() {
 		// TODO Auto-generated method stub
-		List<ArticleExpand> article=articleMapper.findAllArticle();
-		List<Type> type =typeMapper.findAllType();
+		List<Select> article=articleMapper.findArticle(); 
+		List<Select> type =typeMapper.findType();
+		List<Select> business = businessMapper.findAllBusiness();
 		Map<String, List> map=new HashMap<String, List>();
-		map.put("user", article);
+		map.put("article", article);
 		map.put("type", type);
+		map.put("business", business);
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(map).toString();
 		return data;
