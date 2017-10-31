@@ -11,8 +11,8 @@
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		INSERT INTO user(id,username,password,telephone,role_id)
-		VALUES(#{id},#{username},#{password},#{telephone},#{roleId})
+		INSERT INTO user(id,username,password,telephone,role_id,branch_id)
+		VALUES(#{id},#{username},#{password},#{telephone},#{roleId},#{branchId})
 
 	</insert>
 	<update id="updateUserById" parameterType="String">

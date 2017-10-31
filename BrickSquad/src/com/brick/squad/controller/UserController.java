@@ -86,6 +86,7 @@ public class UserController {
 		String passwordMD5 = SecurityUtil.strToMD5(user.getPassword());
 		user.setPassword(passwordMD5);
 		user.setRoleId("e2ebe746b86b11e78d4f5254002ec43c");
+		user.setBranchId("594cf09abc4c11e7aca65254002ec43c");
 		userService.addUser(user);
 		request.getSession().setAttribute("user", user);
 		return "redirect:/common/toIndexModal";
