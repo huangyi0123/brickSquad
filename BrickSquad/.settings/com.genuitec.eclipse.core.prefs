@@ -2,5 +2,5 @@
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://github.com/huangyi0123/brickSquad.git
 eclipse.preferences.version=1
-validator.Checked=WebRoot/resource,WebRoot/ui/frontEnd_manage/js/jquery.min.js,WebRoot/ui/frontEnd_manage,WebRoot/ui/backstage_managed/plugins/layui,WebRoot/ui/backstage_managed/plugins/wang_edit/wangEditor.min.js,WebRoot/ui/backstage_managed/plugins/layui/layui.js,WebRoot/ui/backstage_managed/plugins/angularjs/angular.min.js,WebRoot/ui/backstage_managed/js/jquery.min.js,WebRoot/ui/backstage_managed/plugins/jquery/jquery.min.js,WebRoot/ui/backstage_managed/plugins/grid_manager/GridManager.min.js
+validator.Checked=WebRoot/resource,WebRoot/ui/frontEnd_manage/js/jquery.min.js,WebRoot/ui/frontEnd_manage,WebRoot/ui/backstage_managed/plugins/wang_edit/wangEditor.min.js,WebRoot/ui/backstage_managed/plugins/layui,WebRoot/WEB-INF/frontEnd_manage/front_bootstrap,WebRoot/ui/backstage_managed/plugins/layui/layui.js,WebRoot/ui/backstage_managed/plugins/angularjs/angular.min.js,WebRoot/ui/backstage_managed/plugins/jquery/jquery.min.js,WebRoot/ui/backstage_managed/js/jquery.min.js,WebRoot/ui/backstage_managed/plugins/grid_manager/GridManager.min.js
 validator.Unchecked=
