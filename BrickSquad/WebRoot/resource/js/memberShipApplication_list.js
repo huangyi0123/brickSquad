@@ -14,14 +14,7 @@ function init(keyword) {
                          text: '会员级别'
 
                      },
-            {
-
-              
-
-                key: 'username',
-                text: '工作人员'
-
-            },
+            
             {
 
                 key: 'pname',
@@ -31,6 +24,14 @@ function init(keyword) {
             {
                 key: 'deposit',
                 text: '定金'
+            },
+            {
+
+                
+
+                key: 'username',
+                text: '工作人员'
+
             },
             {
                 key: "operation",

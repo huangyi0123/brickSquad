@@ -29,9 +29,30 @@
 <script type="text/javascript" src="resource/js/common.js"></script>
 
 <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+
+$(function() {
+		$.ajax({
+		url : 'memberShipApplication/findAllTypeAndUserAndPersonalInformation',
+		success : function(data) {
+			data = JSON.parse(data);
+			var type = data[0].type;
+			var user = data[0].user;
+			var per = data[0].per;
+			findAll(type, "#memberShipTypeId");//(impl中的list集合名，“#”中为本jsp中回显名)
+			findAll(user, "#userId");
+			findAll(per, "#perId");
+			layui.use('form', function() {
+				var form = layui.form();
+
+						});
+				layui.use('form', function() {
+					var form = layui.form();
+				});
+			}
+		});
 	});
+	
+	
 </script>
 </head>
 
@@ -41,32 +62,39 @@
 	<br>
 	<form class="layui-form" action="memberShipApplication/${url}" id="form1" method="post">
 	<input type="hidden" name="id"  value="${memberShipApplication.id}" > 
-		<div class="layui-form-item">
+		<div class="layui-form-item" style="width: 300px;">
 			<label class="layui-form-label">会员类型ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="memberShipTypeId" required lay-verify="required"
-					placeholder="会员类型ID" autocomplete="off" class="layui-input"
-					value="${memberShipApplication.memberShipTypeId }">
+			<div class="layui-input-block">
+				<select name="memberShipTypeId" id="memberShipTypeId"  lay-filter="aihao" val="${memberShipApplication.memberShipTypeId }">
+					<option value=""></option>
+				</select>
 			</div>
 		</div>
 		
-		<div class="layui-form-item">
+		
+		
+		
+		<div class="layui-form-item" style="width: 300px;">
 			<label class="layui-form-label">申请人ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="perId" required lay-verify="required"
-					placeholder="申请人ID" autocomplete="off" class="layui-input"
-					value="${memberShipApplication.perId}">
+			<div class="layui-input-block">
+				<select name="perId" id="perId"  val="${memberShipApplication.perId }">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+	
+		
+
+		<div class="layui-form-item" style="width: 300px;">
+			<label class="layui-form-label">工作人员ID</label>
+			<div class="layui-input-block">
+				<select name="userId" id="userId"  val="${memberShipApplication.userId}">
+					<option value=""></option>
+				</select>
 			</div>
 		</div>
 		
-		<div class="layui-form-item">
-			<label class="layui-form-label">工作人员ID</label>
-			<div class="layui-input-inline">
-				<input type="text" name="userId" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input"
-					value="${memberShipApplication.userId}">
-			</div>
-		</div>
+		
 		
 		<div class="layui-form-item">
 			<label class="layui-form-label">定金</label>

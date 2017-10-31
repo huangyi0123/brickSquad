@@ -35,22 +35,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	$(function() {
 		$.ajax({
-			url : 'activities/findAllActivities',
-			success : function(data) {
-				data = JSON.parse(data);
-				var id = $("#act").attr('val');
-				
-				$(data).each(
-						function() {
-							if (id == this.id) {
-								$("#act").append(
-										'<option value="'+this.id+'"  selected="selected">'
-												+ this.centent+ '</option>');
-							} else {
-								$("#act").append(
-										'<option value="'+this.id+'">'
-												+ this.centent + '</option>');
-							}
+		url : 'activities/findAllTypeAndUser',
+		success : function(data) {
+			data = JSON.parse(data);
+			var type = data[0].type;
+			var user = data[0].user;
+			findAll(type, "#typeId");
+			findAll(user, "#userId");
+			layui.use('form', function() {
+				var form = layui.form();
 
 						});
 				layui.use('form', function() {
@@ -59,16 +52,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		});
 		
-		var url="${url}"
+		var url="${url}"   //根据用户点击页面判断是否需要回显
 		if(url=='addActivities'){}
 		else{
-		var da = $("#startId").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#startTimeId").val(dat);
+		var da = $("#startTime").attr('val');//回显时间
+		dat = Format(new Date(da), "yyyy-MM-dd hh:mm");
+		$("#startTime").val(dat);
 		
-		var da = $("#endId").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#endTimeId").val(dat);
+		var da = $("#endTime").attr('val');
+		dat = Format(new Date(da), "yyyy-MM-dd hh:mm");
+		$("#endTime").val(dat);
 		}
 		
 	});
@@ -89,33 +82,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-form-item">
-			<label class="layui-form-label">活动类型id</label>
+			<label class="layui-form-label">参会人数</label>
 			<div class="layui-input-inline">
-				<input type="text" name="typeId" required lay-verify="required"
-					placeholder="活动类型id" autocomplete="off" class="layui-input"
-					value="${activities.typeId }">
+				<input type="text" name="number" required lay-verify="required"
+					placeholder="参会人数" value="${activities.number }" autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
+		
+		
+		
+	
+		
 		<div class="layui-form-item" style="width: 300px;">
-			<label class="layui-form-label">活动内容</label>
+			<label class="layui-form-label">活动类型id</label>
 			<div class="layui-input-block">
-				<select name="centent" id="act"  lay-filter="aihao" val="${activities.centent}">
+				<select name="typeId" id="typeId"  lay-filter="aihao" val="${activities.typeId }">
 					<option value=""></option>
 				</select>
 			</div>
 		</div>
 		
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动内容</label>
+			<div class="layui-input-inline">
+				<input name="centent" id="act" required lay-verify="required"
+					placeholder="本次活动内容"  val="${activities.centent}"  autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		
+		<div class="layui-form-item" style="width: 300px;">
+			<label class="layui-form-label">负责人</label>
+			<div class="layui-input-block">
+				<select name="userId" id="userId"  val="${activities.userId}">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+		
+		
+		
+		
+		
 		<div class="layui-form-item">
 			<label class="layui-form-label">开始时间</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" id="startId" name="startTime" placeholder="开始时间" val="${activities.startTime }"
+				<input class="layui-input" id="startTime" name="startTime" placeholder="开始时间" val="${activities.startTime }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
         <div class="layui-form-item">
 			<label class="layui-form-label">结束时间</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" id="endId" name="endTime" placeholder="结束时间" val="${activities.endTime }"
+				<input class="layui-input" id="endTime" name="endTime" placeholder="结束时间" val="${activities.endTime }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>

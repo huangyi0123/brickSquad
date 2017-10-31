@@ -86,10 +86,10 @@ public class ActivitiesServiceImpl implements ActivitiesService{
 	
 	@Override
 	public String findAllTypeAndUser() {
-		List<Select> users=userMapper.findAllUser();
-		List<Type> type =typeMapper.findAllType();
+		List<Select> user=userMapper.findAllUser();
+		List<Select> type =typeMapper.findTypeByParentId("lrhd");
 		Map<String, List> map=new HashMap<String, List>();
-		map.put("user", users);
+		map.put("user", user);
 		map.put("type", type);
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(map).toString();

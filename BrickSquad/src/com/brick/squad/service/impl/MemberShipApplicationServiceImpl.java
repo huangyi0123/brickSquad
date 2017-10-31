@@ -107,8 +107,8 @@ public class MemberShipApplicationServiceImpl implements
 
 	@Override
 	public String findAllTypeAndUserAndPersonalInformation() {
-		List<User> user = userMapper.findAllUsers();
-		List<Type> type = typeMapper.findAllType();
+		List<Select> user = userMapper.findAllUser();
+		List<Select> type = typeMapper.findTypeByParentId("hyjb");
 		List<Select> per = personalInformationMapper
 				.findAllPersonalInformation();
 		Map<String, List> map = new HashMap<String, List>();
