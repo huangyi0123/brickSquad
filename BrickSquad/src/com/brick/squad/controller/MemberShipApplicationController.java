@@ -88,4 +88,13 @@ public class MemberShipApplicationController {
 	}
 
 	
+	@RequestMapping("/findAllTypeAndUserAndPersonalInformation")
+	@ResponseBody
+	public String findAllTypeAndUserAndPersonalInformation(){
+		
+		return memberShipApplicationService.findAllTypeAndUserAndPersonalInformation();
+		
+		
+	}
+	
 }

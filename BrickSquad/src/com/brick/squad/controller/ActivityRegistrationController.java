@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
@@ -27,9 +29,6 @@ public class ActivityRegistrationController {
   @Autowired
   @Qualifier("activityRegistrationService")
   private ActivityRegistrationService activityRegistrationService;
-  @Autowired
-  @Qualifier("personalInformationService")
-  private PersonalInformationService personalInformationService;
   @RequestMapping("/toActivityRegistration")
   public String toActivityRegistration(){
 	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
@@ -47,12 +46,10 @@ public class ActivityRegistrationController {
 }
   
   @RequestMapping("/toAddActivityRegistration")
-  public String toAddActivityRegistration(HttpServletRequest request, String id) {
+  public String toAddActivityRegistration(HttpServletRequest request, String id) throws Exception {
 	  if (id != null) {
 			ActivityRegistration activityRegistration = activityRegistrationService.findActivityRegistrationById(id);
 			request.setAttribute("activityRegistration", activityRegistration);
-			String personalInformation = personalInformationService.findAllPersonalInformation();
-			request.setAttribute("personalInformation", personalInformation);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateActivityRegistrationById");
 		} else {
@@ -69,21 +66,17 @@ public class ActivityRegistrationController {
 	}
 
   @RequestMapping("/insertActivityRegistration")
- 
   public String insertActivityRegistration(ActivityRegistration activityRegistration ) {
-	  /*activityRegistration.setRegistrationDate(new Date());*/
 	  activityRegistrationService.insertActivityRegistration(activityRegistration);
 	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
 	
 }
   
   @RequestMapping("/updateActivityRegistrationById")
-	public String updateActivityRegistrationById(ActivityRegistration activityRegistration ) {
-		activityRegistrationService.updateActivityRegistrationById(activityRegistration);
-		return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
-		
+	public  String updateActivityRegistrationById(ActivityRegistration activityRegistration) {
+	  activityRegistrationService.updateActivityRegistrationById(activityRegistration);
+	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";		
 	}
-  
     @RequestMapping("/deleteActivityRegistrationById")
 	@ResponseBody
 	public String deleteActivityRegistrationById(String id) {

@@ -33,7 +33,7 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
 	}
 
 	@Override
-	public void updateActivityRegistrationById(ActivityRegistration activityRegistration) {
+	public void updateActivityRegistrationById(ActivityRegistration  activityRegistration) {
 		activityRegistrationMapper.updateActivityRegistrationById(activityRegistration);
 	}
 

@@ -116,5 +116,12 @@ public class ActivitiesController {
 		public String findAllActivitiesIdAndName(){
 			return activitiesService.findAllActivitiesIdAndName();
 		}
+		
+		
+		@RequestMapping("/findAllTypeAndUser")
+		@ResponseBody
+		public String findAllTypeAndUser(){
+			return activitiesService.findAllTypeAndUser();
+		}
 
 }

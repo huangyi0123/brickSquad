@@ -20,8 +20,7 @@
 <meta http-equiv="description" content="This is my page">
 
 <link rel="stylesheet" type="text/css"
-	href="ui/backstage_managed/plugins/layui/css/layui.css">
-
+	href="resource/plugins/layui/css/layui.css">
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
@@ -75,7 +74,7 @@
 		</div>
 
 		<div class="layui-form-item">
-			<label class="layui-form-label">客户姓名</label>
+			<label class="layui-form-label">沟通人姓名</label>
 			<div class="layui-input-inline">
 				<select name="userId" id="userId" val="${rapport.perId}"
 					lay-search="">

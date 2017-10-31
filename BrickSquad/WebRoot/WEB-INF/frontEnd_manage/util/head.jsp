@@ -131,6 +131,7 @@
 					<li class="layui-nav-item" ng-if="${user!=null }">
 						<a href="javascript:;">${user.username }</a>
 						<dl class="layui-nav-child" style="background-color: #95F2D3">
+
 							<!-- 二级菜单 -->
 							<dd>
 								<a href="common/toPersonal">个人信息</a>
@@ -156,8 +157,8 @@
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
 					<form>
-						<input style="background-color:  #5FB878;" class="sb-search-input"
-							placeholder="Enter your search item..." type="search" name="search" id="search">
+						<input style="background-color:  #B8E0F4;" class="sb-search-input"
+							placeholder="输入想搜索的内容" type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
 						<span class="sb-icon-search" style="background-color:  #95F2D3;"> </span>
 					</form>

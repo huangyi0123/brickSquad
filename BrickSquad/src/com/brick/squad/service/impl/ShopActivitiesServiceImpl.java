@@ -63,8 +63,7 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 
 	@Override
 	public void updateShopActivitiesById(ShopActivities shopActivities) throws Exception {
-		shopActivitiesMapper.updateShopActivitiesById(shopActivities);
-		
+		shopActivitiesMapper.updateShopActivitiesById(shopActivities);	
 	}
 
 	@Override
