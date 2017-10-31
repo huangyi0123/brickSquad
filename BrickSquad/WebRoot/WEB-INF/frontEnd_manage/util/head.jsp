@@ -102,7 +102,7 @@
 </head>
 <body>
 	<div class="">
-		<div class="header" style="height: 70px; background-color: #66CC66">
+		<div class="header" style="height: 70px; background-color: #B8E0F4">
 			<div class="logo">
 				<h1>
 					<a href="common/toIndex">
@@ -115,7 +115,7 @@
 					<img src="resource/image/menu.png" alt=" " />
 				</span>
 				<ul class="layui-nav layui-this"
-					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #66CC66;">
+					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #B8E0F4;">
 					<li class="layui-nav-item layui-this">
 						<a href="common/toIndex">首页</a>
 					</li>
@@ -130,7 +130,7 @@
 					</li>
 					<li class="layui-nav-item" ng-if="${user!=null }">
 						<a href="javascript:;">${user.username }</a>
-						<dl class="layui-nav-child" style="background-color: #66CC66">
+						<dl class="layui-nav-child" style="background-color: #B8E0F4">
 							<!-- 二级菜单 -->
 							<dd>
 								<a href="common/toPersonal">个人信息</a>
@@ -142,7 +142,7 @@
 					</li>
 					<li class="layui-nav-item" ng-if="${user==null }">
 						<a href="javascript:;" id="login">登录</a>
-						<dl class="layui-nav-child" style="background-color: #66CC66">
+						<dl class="layui-nav-child" style="background-color: #B8E0F4">
 							<!-- 二级菜单 -->
 							<dd>
 								<a href="javascript:;" id="register">注册</a>
@@ -156,10 +156,10 @@
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
 					<form>
-						<input style="background-color:  #5FB878;" class="sb-search-input"
-							placeholder="Enter your search item..." type="search" name="search" id="search">
+						<input style="background-color:  #B8E0F4;" class="sb-search-input"
+							placeholder="输入想搜索的内容" type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
-						<span class="sb-icon-search" style="background-color:  #66CC66;"> </span>
+						<span class="sb-icon-search" style="background-color:  #B8E0F4;"> </span>
 					</form>
 				</div>
 			</div>

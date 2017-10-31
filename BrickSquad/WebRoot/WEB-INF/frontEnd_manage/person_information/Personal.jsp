@@ -38,7 +38,7 @@
 			<div class="Person_left_src">
 				<img
 					style="width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;"
-					alt="" src="resource/image/2.png"> <span
+					alt="" src="resource/image/pic0.jpg"> <span
 					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">${user.username }</span>
 			</div>
 		</div>
@@ -54,12 +54,14 @@
 				</ul>
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
-						<label>亲爱的${user.username }，填写真实的资料，有助于你的好友找到你哦！</label> <label>当前头像：</label>
+						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！</label> <label>当前头像：</label>
 						<img
 							style="width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;"
-							alt="" src="resource/image/2.png">
+							alt="" src="resource/image/pic0.jpg">
 						<div class="layui-upload">
-							<button class="layui-btn" id="test1" type="button">修改图片</button>
+							<button class="layui-btn"
+								style="width: 100px;margin-left: 350px;margin-top: 10px;"
+								id="test1" type="button">修改图片</button>
 							<div class="layui-upload-list">
 								<img class="layui-upload-img" id="demo1">
 								<p id="demoText"></p>
@@ -155,7 +157,7 @@
 								name="address.detailed" lay-verify="title"
 								style="width: 350px;margin-left: 150px;margin-top: -35px;"
 								autocomplete="off" placeholder="请输入详细地址" class="layui-input">
-							<button style="width: 350px;margin-left: 350px;margin-top: 10px;"
+							<button style="width: 100px;margin-left: 350px;margin-top: 10px;"
 								type="submit" class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
 						</form>
 						<!--分割线  -->
@@ -263,12 +265,11 @@
 								value="${relativesAndAddressExpand.relatives.id}" />
 							<input type="hidden" name="address.id"
 								value="${relativesAndAddressExpand.address.id}" />
-								<input type="hidden" name="relatives.perId"
-								value="${user.id}" />
+							<input type="hidden" name="relatives.perId" value="${user.id}" />
 
 
 
-							<button style="width: 350px;margin-left: 350px;margin-top: 10px;"
+							<button style="width: 100px;margin-left: 350px;margin-top: 10px;"
 								type="submit" class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
 
 						</form>
@@ -310,132 +311,91 @@
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
 					</div>
+					<!-- 健康管理 -->
 					<div class="layui-tab-item layui-tab-item3">
 						<label
-							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">基础管理信息</label>
-						<label>国籍：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 100px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
+						<label>患有疾病：</label>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
+							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
+						
 						<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 450px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.nationName }"
+							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
+						
 
 						<label>文化程度：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 130px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
+							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 480px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
-						<label style="margin-top: 20px;">身高：</label>
-						<input type="text" name="title" lay-verify="title"
-							style="width: 100px;margin-left: 100px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							autocomplete="off" placeholder="请输入身高" class="layui-input">
-						<label style="margin-left: 200px;margin-top: -25px;">（Kg/千克）</label>
-						<label style="margin-left: 400px;margin-top: -35px;">体重：</label>
-						<input type="text" name="title" lay-verify="title"
-							style="width: 100px;margin-left: 450px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							autocomplete="off" placeholder="请输入体重" class="layui-input">
-						<label style="margin-left: 550px;margin-top: -25px;">（Kg/千克）</label>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
+							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
+						<label style="margin-top: 20px;">身高(cm)：</label>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
+							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							 class="layui-input">
+						
+						<label style="margin-left: 400px;margin-top: -35px;">体重(kg)：</label>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
+							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
+					
 						<label style="margin-top: 20px;">血栓：</label>
-						<input type="text" name="title" lay-verify="title"
-							style="width: 100px;margin-left: 100px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							autocomplete="off" placeholder="请输入血栓" class="layui-input">
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
+							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">血压：</label>
-						<input type="text" name="title" lay-verify="title"
-							style="width: 100px;margin-left: 450px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							autocomplete="off" placeholder="请输入血压" class="layui-input">
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
+							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							 class="layui-input">
 						<label>饮食状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 130px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
+							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 480px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
+							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
 						<label>情绪控制：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 130px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
+							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
-						<form class="layui-form" action=""
-							style="width: 100px;margin-left: 480px;margin-top: -35px;">
-							<select name="city" lay-verify="">
-								<option value="">请选择一个城市</option>
-								<option value="010">北京</option>
-								<option value="021">上海</option>
-								<option value="0571">杭州</option>
-							</select>
-						</form>
+						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
+							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+							class="layui-input">
 						<div
 							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-						<label
-							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">健康管理信息</label>
+
 						<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
 							<div class="layui-colla-item">
 								<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
-								<div class="layui-colla-content layui-show">内容区域</div>
+								<div class="layui-colla-content layui-show">${personalInfofmationAndHealthRecordsExpand.personalInformation.familyHistory }</div>
 							</div>
 							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">过敏史</h5>
-								<div class="layui-colla-content">内容区域</div>
+								<h5 class="layui-colla-title" style="font-weight: bold;">健康评估</h5>
+								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.healthAssessment }</div>
 							</div>
 							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">接种史</h5>
-								<div class="layui-colla-content">内容区域</div>
+								<h5 class="layui-colla-title" style="font-weight: bold;">危险提示</h5>
+								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.dangerousTips }</div>
 							</div>
 							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">病史</h5>
-								<div class="layui-colla-content">内容区域</div>
+								<h5 class="layui-colla-title" style="font-weight: bold;">结论建议 </h5>
+								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.conclusionSuggestion}</div>
+							</div>
+							<div class="layui-colla-item">
+								<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价 </h5>
+								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.evaluate }</div>
 							</div>
 						</div>
 
 					</div>
+					<!--健康管理结束  -->
 					<div class="layui-tab-item">4</div>
 
 					<div class="layui-tab-item layui-tab-item5">
@@ -881,18 +841,23 @@
 								}
 								//亲属地址回填
 								var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
-								if (relativesAddresId.length>0) {
+								if (relativesAddresId.length > 0) {
 									//回显address中的市级地址
 									var address = '${relativesallRegionResultById}';
 									address = JSON.parse(address);
 									findAll(address[0].city, "#relativescityId");
-									form.render('select', 'relativescityIdSelect');
+									form.render('select',
+											'relativescityIdSelect');
 									//回显address中的县级地址
-									findAll(address[0].county, "#relativescountyId");
-									form.render('select', 'relativescountyIdSelect');
+									findAll(address[0].county,
+											"#relativescountyId");
+									form.render('select',
+											'relativescountyIdSelect');
 									//回显address中的乡镇级地址
-									findAll(address[0].country, "#relativescountryId");
-									form.render('select', 'relativescountryIdSelect');
+									findAll(address[0].country,
+											"#relativescountryId");
+									form.render('select',
+											'relativescountryIdSelect');
 								} else {
 
 								}
