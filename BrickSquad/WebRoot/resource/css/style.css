@@ -1301,7 +1301,7 @@ input.card_logo[type="text"] {
     padding: 4em 11.7em;
 }
 .back-col2{
-background:#9398ec;	
+background:#FDB85E;	
     padding: 4em 11.7em;
 	
 }
@@ -1884,9 +1884,11 @@ ul.dropdown-menu.drp-mnu span {
 		margin-top: 13px;
 	}
 	.btm-wid {
-		margin-left:-60px;
+		height:350px;
+		margin-left:-38px;
 		padding-left:103px;
-		margin-top:-45px;
+		padding-top: 12px;
+		margin-top: -0px;
 	}
 	.back-col1, .back-col2 {
 	    padding: 4.5em 9.8em;
