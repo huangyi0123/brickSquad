@@ -338,7 +338,7 @@
 							<div class="widget-inner">
 								<ul id="menu-wishlist" class="menu">
 									<li class="menu-wishlist"><a class="item-link"
-										href="wishlist.html"> <span class="menu-title">Wishlist</span>
+										href="common/toWishlist"> <span class="menu-title">我的收藏</span>
 									</a></li>
 
 									<li class="yith-woocompare-open menu-compare"><a
@@ -1594,7 +1594,7 @@
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
-									<li><a href="home_page_1.html">Home</a> <span
+									<li><a href="common/toShop">Home</a> <span
 										class="go-page"></span></li>
 
 									<li class="active"><span>Our Stores</span></li>

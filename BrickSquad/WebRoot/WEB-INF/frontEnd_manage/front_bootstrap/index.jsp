@@ -326,8 +326,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="widget-inner">
 									<ul id="menu-wishlist" class="menu">
 										<li class="menu-wishlist">
-											<a class="item-link" href="wishlist.html">
-												<span class="menu-title">Wishlist</span>
+											<a class="item-link" href="common/toWishlist">
+												<span class="menu-title">我的收藏</span>
 											</a>
 										</li>
 										
