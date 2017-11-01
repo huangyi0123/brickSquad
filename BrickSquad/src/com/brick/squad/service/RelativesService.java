@@ -1,5 +1,6 @@
 package com.brick.squad.service;
 
+import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
 import com.brick.squad.expand.RelativesAndAddressExpand;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.util.Pagination;
@@ -24,15 +25,19 @@ public interface RelativesService {
 	 * @return 亲属关系信息
 	 */
 	public Relatives findRelativesById(String id);
-
+	
 	/**
 	 * 插入老人亲属关系信息
 	 * 
 	 * @param relatives
 	 *            老人亲属关系信息
 	 */
-	public void insertRelatives(Relatives relatives);
-
+	public void insertRelatives(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand);
+	/**
+	 * 根据拓展类中的id修改老人亲属信息
+	 * 
+	 */
+	public void updateRelativesByIdExend(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand);
 	/**
 	 * 根据id修改老人亲属关系信息
 	 * 
@@ -50,4 +55,5 @@ public interface RelativesService {
 	public void deleteRelativesById(String id);
 
 	public String relativesPagination(Pagination pagination);
+
 }

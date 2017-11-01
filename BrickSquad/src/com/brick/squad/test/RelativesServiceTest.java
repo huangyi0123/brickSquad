@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
+import com.brick.squad.pojo.Address;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.RelativesService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,15 +29,26 @@ public class RelativesServiceTest {
 
 	@Test
 	public void testInsertRelatives() {
-		for (int i = 0; i < 20; i++) {
-			Relatives relatives =new Relatives();
-			relatives.setPerId("PerId"+i);
-			relatives.setName("Name"+i);
-			relatives.setRelationshipId("RelationshipId"+i);
-			relatives.setTelephone("Telephone"+i);
-			relatives.setAddressId("AddressId"+i);
-			relativesService.insertRelatives(relatives);
-		}
+
+			RelativesAndAddressAndTypeAndPersonExpand relatives2 =new RelativesAndAddressAndTypeAndPersonExpand();
+			relatives2.setRelatives(new Relatives());
+			relatives2.setAddress(new Address());
+			relatives2.setPersonalInformation(new PersonalInformation());
+			relatives2.setType(new Type());
+			
+			try {
+				Relatives relatives =relatives2.getRelatives();
+				Address address =relatives2.getAddress();
+				relatives.setPerId("1");
+				relatives.setName("2");
+				relatives.setRelationshipId("3");
+				relatives.setTelephone("4");
+				relatives.setAddressId("5");
+				relativesService.insertRelatives(relatives2);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 	}
 
@@ -46,7 +61,7 @@ public class RelativesServiceTest {
 
 	@Test
 	public void testDeleteRelativesById() {
-		relativesService.deleteRelativesById("b9de4736b02811e78d4f5254002ec43c");
+		relativesService.deleteRelativesById("690208c8b35411e78d4f5254002ec43c");
 	}
 
 }

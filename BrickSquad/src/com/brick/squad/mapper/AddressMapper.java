@@ -6,10 +6,10 @@ import com.brick.squad.pojo.Address;
 import com.brick.squad.util.Pagination;
 
 public interface AddressMapper {
-	public void insertAddress(Address address) throws Exception;
-	public Address findAddressById(String id) throws Exception;
-	public void deleteAddressById(String id ) throws Exception;
-	public void updateAddressById(Address address) throws Exception;
-	public List<Address> addressPagination(Pagination pagination) throws Exception;
-	public int findAddressAllCount(Pagination pagination) throws Exception;
+	public void insertAddress(Address address) ;
+	public Address findAddressById(String id) ;
+	public void deleteAddressById(String id ) ;
+	public void updateAddressById(Address address);
+	public List<Address> addressPagination(Pagination pagination);
+	public int findAddressAllCount(Pagination pagination) ;
 }
