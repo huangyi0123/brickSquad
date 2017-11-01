@@ -193,4 +193,14 @@ public class UserController {
 		String data=userService.findUserByBranchId(user.getBranchId());
 		return data;
 	}
+	/**
+	 * 用户修改头像
+	 * @return
+	 */
+	@RequestMapping("/userUpdateuserPicPath")
+	public String userUpdateuserPicPath(){
+		
+		
+		return "redirect:/common/toPersonal";
+	}
 }

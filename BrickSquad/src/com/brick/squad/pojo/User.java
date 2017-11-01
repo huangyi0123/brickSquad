@@ -13,7 +13,15 @@ public class User {
 	private String telephone;
 	private String roleId;
 	private String branchId;
+	private String userPicPath;
 	
+	
+	public String getUserPicPath() {
+		return userPicPath;
+	}
+	public void setUserPicPath(String userPicPath) {
+		this.userPicPath = userPicPath;
+	}
 	public String getId() {
 		return id;
 	}
@@ -54,11 +62,9 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password="
 				+ password + ", telephone=" + telephone + ", roleId=" + roleId
-				+ ", getId()=" + getId() + ", getUsername()=" + getUsername()
-				+ ", getPassword()=" + getPassword() + ", getTelephone()="
-				+ getTelephone() + ", getRoleId()=" + getRoleId()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", branchId=" + branchId + ", userPicPath=" + userPicPath
+				+ "]";
 	}
+
 	
 }
