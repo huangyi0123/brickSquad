@@ -71,7 +71,6 @@
 				'link', // 插入链接
 				'justify', // 对齐方式
 				'quote', // 引用
-				'emoticon', // 表情
 				'image', // 插入图片
 				'table', // 表格
 				'code', // 插入代码
@@ -87,13 +86,14 @@
 		};
 		editor.create();
 		var url = '${url}';
+		var con=$("#con").html();
 		if (url != "insertNews") {
-			editor.txt.html('${news.content}');
+			editor.txt.html(con);
 		}
 
 		$("#reset").click(function() {
 			if (url != "insertNews") {
-				editor.txt.html('${news.content}');
+				editor.txt.html(con);
 			}else {
 				editor.txt.html("");
 			}
@@ -101,7 +101,7 @@
 		});
 		$("#form1").submit(function() {
 			var data = editor.txt.html();
-			$("#con").val(data);
+			$("#con1").val(data);
 		});
 	});
 </script>
@@ -122,7 +122,10 @@
 						value="${news.title }">
 				</div>
 			</div>
-			<input type="hidden" name="content" id="con">
+			<div id="con" style="display: none">
+			${news.content}
+			</div>
+			<input type="hidden" name="content" id="con1">
 			<div class="layui-form-item layui-form-text">
 				<label class="layui-form-label">编辑内容</label>
 				<div class="layui-input-block" id="editor"></div>

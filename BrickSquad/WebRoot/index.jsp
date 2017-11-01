@@ -55,7 +55,8 @@
 <style type="text/css">
 .news>li {
 	height: 13px;
-	width: 100%
+	width: 100%;
+	padding-left:20px;
 }
 
 .news>li>a {
@@ -80,14 +81,14 @@
 	<jsp:include page="WEB-INF/frontEnd_manage/util/head.jsp" />
 	<div class="content-bottom">
 	<div class="btm-grids" >
-		<div class="col-md-4 btm-grid back-col2 text-center" style="height:350px;width:935px;margin-left:12px;">
-			<div class="layui-carousel" id="test1" style="margin-left:-137px;
+		<div class="col-md-4 btm-grid back-col2 text-center" style="height:350px;width:900px;margin-left:32px;">
+			<div class="layui-carousel" id="test1" style="margin-left:-110px;
 			margin-top:-63px;">
         	<div carousel-item="">
-            <div><img src="resource/image/oder1.jpg" style="height:350px;padding:2px;"></div>
-            <div><img src="resource/image/oder2.jpg" style="height:350px;padding:2px;"></div>
-            <div><img src="resource/image/oder3.jpg" style="height:350px;padding:2px;"></div>
-            <div><img src="resource/image/oder8.jpg" style="height:350px;padding:2px;"></div>
+            <div><img src="resource/image/oder1.jpg" style="height:350px;padding:0px;"></div>
+            <div><img src="resource/image/oder2.jpg" style="height:350px;padding:0px;"></div>
+            <div><img src="resource/image/oder3.jpg" style="height:350px;padding:0px;"></div>
+            <div><img src="resource/image/oder8.jpg" style="height:350px;padding:0px;"></div>
        		</div>
     	</div>
   	</div>
@@ -100,7 +101,7 @@
 				</p>
 			</div>
 	
-			<div class="clearfix" style="margin-top:12px;"></div>
+			<div class="clearfix" style="margin-top:8px;"></div>
 		</div>
 	</div>
 	<div class="coupons">
@@ -248,7 +249,7 @@
             //建造实例
             carousel.render({
                 elem: '#test1'
-                , width: '935px'
+                , width: '850px'
                 , height: '350px'
                 , interval: 5000
             });
