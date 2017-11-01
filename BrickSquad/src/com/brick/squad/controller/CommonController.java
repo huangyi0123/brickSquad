@@ -214,6 +214,10 @@ public class CommonController {
 	@RequestMapping("/toShop")
 	public String toShop() {
 		return "frontEnd_manage/front_bootstrap/index";
-		
+	}
+	
+	@RequestMapping("/toContactUs")
+	public String toContactUs() {
+		return "frontEnd_manage/front_bootstrap/contact_us";
 	}
 }
