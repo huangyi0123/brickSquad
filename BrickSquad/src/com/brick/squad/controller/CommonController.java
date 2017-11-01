@@ -169,6 +169,13 @@ public class CommonController {
 	}
 	@RequestMapping("/toLimits")
 	public String toLimits() {
+
 		return "backstage_managed/jsp/role/limits";
+	}
+	
+	@RequestMapping("/toShop")
+	public String toShop() {
+		return "frontEnd_manage/front_bootstrap/index";
+		
 	}
 }
