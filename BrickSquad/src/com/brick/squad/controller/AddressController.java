@@ -19,7 +19,6 @@ public class AddressController {
 	@Autowired
 	@Qualifier(value = "addressService")
 	private AddressService addressService;
-
 	@RequestMapping("/toAddressList")
 	public String toAddressList() {
 		return "backstage_managed/jsp/address/address_list";

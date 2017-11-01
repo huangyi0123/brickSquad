@@ -1,5 +1,7 @@
 package com.brick.squad.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.Role;
 import com.brick.squad.service.RoleService;
+import com.brick.squad.util.Common;
 import com.brick.squad.util.Pagination;
 @Controller
 @RequestMapping("/role")
@@ -64,5 +68,12 @@ public class RoleController {
 		Role role=roleService.findRole(id);
 		request.setAttribute("role", role);
 		return "backstage_managed/jsp/role/search_role";
+	}
+	@RequestMapping("/updateLimitsByRoleId")
+	@ResponseBody
+	public String updateLimitsByRoleId(String limits,String roleId) {
+		List<Limits> limits2=Common.limitsUtil(limits);
+		System.out.println(limits2.size()+"====================================="+roleId);
+		return "backstage_managed/jsp/role/role_list";
 	}
 }
