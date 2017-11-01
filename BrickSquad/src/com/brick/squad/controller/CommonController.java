@@ -220,4 +220,10 @@ public class CommonController {
 	public String toContactUs() {
 		return "frontEnd_manage/front_bootstrap/contact_us";
 	}
+	
+	@RequestMapping("/toWishlist")
+	public String toWishlist() {
+		return "frontEnd_manage/front_bootstrap/wishlist";
+	}
 }
+

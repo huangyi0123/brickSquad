@@ -12,13 +12,15 @@
 <base href="<%=basePath%>">
 <link href="resource/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="resource/plugins/fonts/font-awesome.min.css" rel="stylesheet">
-<link href="resource/plugins/layui/css/layui.css" rel="stylesheet">
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet" media="all">
 <link href="resource/css/animate.min.css" rel="stylesheet">
 <link href="resource/css/style.min.css" rel="stylesheet">
 <script src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
+<link rel="stylesheet" href="resource/plugins/laysui/css/layui.css" media="all"> 
+
 
 <script type="text/javascript">
 	$(function() {
@@ -52,7 +54,7 @@
 </script>
 <style type="text/css">
 .news>li {
-	height: 30px;
+	height: 13px;
 	width: 100%
 }
 
@@ -68,28 +70,37 @@
 }
 
 .time {
-	line-height: 30px;
+	line-height: 20px;
 	display: block;
 	float: right;
+	padding-left:33px;
 }
 </style>
 <body>
 	<jsp:include page="WEB-INF/frontEnd_manage/util/head.jsp" />
 	<div class="content-bottom">
-		<div class="btm-grids">
-			<div class="col-md-4 btm-grid back-col1 text-center">
-				<img src="resource/image/bbbb.png" alt="" />
-			</div>
-			<div class="col-md-4 btm-grid btm-wid">
+	<div class="btm-grids" >
+		<div class="col-md-4 btm-grid back-col2 text-center" style="height:350px;width:935px;margin-left:12px;">
+			<div class="layui-carousel" id="test1" style="margin-left:-137px;
+			margin-top:-63px;">
+        	<div carousel-item="">
+            <div><img src="resource/image/oder1.jpg" style="height:350px;padding:2px;"></div>
+            <div><img src="resource/image/oder2.jpg" style="height:350px;padding:2px;"></div>
+            <div><img src="resource/image/oder3.jpg" style="height:350px;padding:2px;"></div>
+            <div><img src="resource/image/oder8.jpg" style="height:350px;padding:2px;"></div>
+       		</div>
+    	</div>
+  	</div>
+    
+			
+			<div class="col-md-4 btm-grid btm-wid"  >
 				<h3>最新动态</h3>
 				<p>
 				<ul class="news" id="news"></ul>
 				</p>
 			</div>
-			<div class="col-md-4 btm-grid back-col2 text-center">
-				<img src="resource/image/bbb1.png" alt="" />
-			</div>
-			<div class="clearfix"></div>
+	
+			<div class="clearfix" style="margin-top:12px;"></div>
 		</div>
 	</div>
 	<div class="coupons">
@@ -230,6 +241,19 @@
 		</div>
 	</div>
 	<jsp:include page="WEB-INF/frontEnd_manage/util/indexFooter.jsp" />
+	<script src="resource/plugins/laysui/layui.js"></script> 
+	<script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test1'
+                , width: '935px'
+                , height: '350px'
+                , interval: 5000
+            });
+        });
+    </script>
 </body>
 
 </html>
