@@ -13,7 +13,7 @@ function init(keyword) {
             },
             {
                 key: 'username',
-                text: '客户姓名'
+                text: '沟通人姓名'
             },
            
             {
