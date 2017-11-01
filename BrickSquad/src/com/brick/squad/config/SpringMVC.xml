@@ -63,11 +63,12 @@
 			<mvc:exclude-mapping path="/user/toUserAccountAuthentication" />
 			<mvc:exclude-mapping path="/news/findNewsExpandById" />
 			<mvc:exclude-mapping path="/news/findNews" />
-			<mvc:exclude-mapping path="/common/businessIndex" />
+			<mvc:exclude-mapping path="/common/indexBusiness" />
 			<mvc:exclude-mapping path="/common/toProductDetails" />
 			<mvc:exclude-mapping path="/common/toIndex" />
-			<mvc:exclude-mapping path="/common/toLimits" />
-			<mvc:exclude-mapping path="/limits/findAllLimitsByRoleId" />
+			<mvc:exclude-mapping path="/common/toLimits"/>
+			<mvc:exclude-mapping path="/limits/findAllLimitsByRoleId"/>
+			<mvc:exclude-mapping path="/common/toShop"/>
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
