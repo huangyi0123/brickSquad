@@ -93,7 +93,7 @@ label {
 }
 .logo a{
     font-size: 27px;
-    color: #F3EB69;
+    color: white;
     text-decoration: none;
     font-family: 'Varela Round', sans-serif;
 	text-transform:uppercase;
@@ -1881,10 +1881,12 @@ ul.dropdown-menu.drp-mnu span {
 		font-size: 26px;
 	}
 	.btm-grid p {
-		margin-top: 33px;
+		margin-top: 13px;
 	}
 	.btm-wid {
-		padding: 62px 40px;
+		margin-left:-60px;
+		padding-left:103px;
+		margin-top:-45px;
 	}
 	.back-col1, .back-col2 {
 	    padding: 4.5em 9.8em;
