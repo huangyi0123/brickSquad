@@ -24,31 +24,45 @@
 	};
 	$(function() {
 		$.ajax({
-			url:'limits/findAllLimitsByRoleId?roleId=${id}',
-			success:function(result){
-				result=JSON.parse(result);
+			url : 'limits/findAllLimitsByRoleId?roleId=${id}',
+			success : function(result) {
+				result = JSON.parse(result);
 				zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, result);
 			}
 		});
 	});
 	function test() {
-		var checkedNodes = zTreeObj.getCheckedNodes();
-		var data={};
-		$(checkedNodes).each(function() {
-			if(this.value!=""){
-				var url="id="+this.id+"&"+this.value+"=1";
-				console.log(url);
+		var nodes = zTreeObj.getNodes();
+		var data='';
+		$(nodes).each(
+				function() {
+					var da = this.children;
+					data = data + 'id:' + this.id + ',qurey:' + da[0].checked
+							+ ',dl:' + da[1].checked + ',up:' + da[2].checked
+							+ ',ad:' + da[3].checked+';';
+
+				});
+		var id=$("#id").val();
+		jsonData={'limits':data,roleId:id};
+		 $.ajax({
+			url : "role/updateLimitsByRoleId",
+			type : "post",
+			dataType : "JSON",
+			data :jsonData,
+			success : function(result) {
+				console.log("dfrgtrhgkfd");
 			}
 		});
+
 	}
 </script>
 </head>
 <body>
 	<ul id="treeDemo" class="ztree"></ul>
 	<div class="layui-form-item">
-				<div class="layui-input-block">
-					<button class="layui-btn" lay-submit lay-filter="formDemo" onclick="test()">立即提交</button>
-					<button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
-				</div>
-			</div>
+		<div class="layui-input-block">
+			<button class="layui-btn" lay-submit lay-filter="formDemo" onclick="test()">修改</button>
+		</div>
+	</div>
+	<input type="hidden" id="id" value="<%=request.getParameter("id")%>">
 </body>
