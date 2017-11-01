@@ -1,10 +1,15 @@
  package com.brick.squad.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -65,8 +70,14 @@ public class TypeController {
 	}
 
 	@RequestMapping("/insertType")
-	public String insertType(Type type) {
-
+	public String insertType(@Validated Type type,BindingResult result,HttpServletRequest request) {
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "insertType");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/type/add_type";
+		}
 		typeService.insertType(type);
 		return "backstage_managed/jsp/type/type_list";
 
