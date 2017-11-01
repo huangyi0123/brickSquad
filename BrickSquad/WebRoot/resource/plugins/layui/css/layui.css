@@ -1564,9 +1564,12 @@ a cite {
 .layui-nav .layui-nav-item a {
 	display: block;
 	padding: 0 20px;
-	color: #c2c2c2;
+	color: #F3EB69;
 	transition: all .3s;
 	-webkit-transition: all .3s
+}
+.layui-nav .layui-nav-item a:hover{
+	font-size:1.5em;
 }
 
 .layui-nav .layui-this:after,.layui-nav-bar,.layui-nav-tree .layui-nav-itemed:after
@@ -1576,7 +1579,7 @@ a cite {
 	top: 0;
 	width: 0;
 	height: 5px;
-	background-color: #5FB878;
+	background-color: red;
 	transition: all .2s;
 	-webkit-transition: all .2s
 }

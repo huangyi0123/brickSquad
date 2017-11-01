@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -19,15 +19,11 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css">
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.ajax({
@@ -35,7 +31,7 @@
 			success : function(data) {
 				data = JSON.parse(data);
 				var id = $("#parament").attr('val');
-				
+
 				$(data).each(
 						function() {
 							if (id == this.id) {
@@ -55,23 +51,34 @@
 			}
 		});
 	});
+	$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});
 </script>
 
 </head>
 
 <body>
- <br>
+	<br>
 	<div style="padding-left: 150px;font-size:16;">${msg}类别信息</div>
 	<br>
-	<form class="layui-form" action="type/${url }" id="form1"
-		method="post">
+	<form class="layui-form" action="type/${url }" id="form1" method="post">
 		<input type="hidden" name="id" value="${type.id }">
 		<div class="layui-form-item">
 			<label class="layui-form-label">名称</label>
 			<div class="layui-input-inline">
-				<input type="text" name="name" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input"
-					value="${type.name }">
+				<input type="text" name="name" required lay-verify="required" placeholder="名称"
+					autocomplete="off" class="layui-input" value="${type.name }">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -89,5 +96,9 @@
 			</div>
 		</div>
 	</form>
+	
+	<c:forEach items="${errors }" var="error">
+   		<input class="error" value="${error.defaultMessage }" type="hidden">
+   	</c:forEach>
 </body>
 </html>
