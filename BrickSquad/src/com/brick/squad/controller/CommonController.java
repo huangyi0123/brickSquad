@@ -80,9 +80,9 @@ public class CommonController {
 		return upLoadFile.toJson();
 	}
 
-	@RequestMapping("/businessIndex")
+	@RequestMapping("/indexBusiness")
 	public String businessIndex() {
-		return "frontEnd_manage/business/business";
+		return "frontEnd_manage/business/indexBusiness";
 	}
 
 	@Autowired
@@ -214,6 +214,16 @@ public class CommonController {
 	@RequestMapping("/toShop")
 	public String toShop() {
 		return "frontEnd_manage/front_bootstrap/index";
-		
+	}
+	
+	@RequestMapping("/toContactUs")
+	public String toContactUs() {
+		return "frontEnd_manage/front_bootstrap/contact_us";
+	}
+	
+	@RequestMapping("/toWishlist")
+	public String toWishlist() {
+		return "frontEnd_manage/front_bootstrap/wishlist";
 	}
 }
+

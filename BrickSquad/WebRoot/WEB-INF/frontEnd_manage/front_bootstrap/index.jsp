@@ -68,52 +68,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="widget text-3 widget_text pull-left">
 								<div class="widget-inner">
 									<div class="textwidget">
-										<div id="lang_sel">
-											<ul class="nav">
-												<li>
-													<a class="lang_sel_sel icl-en">
-														<img class="iclflag" title="English" alt="en" src="resource/front_bootstrap/images/icons/en.png" width="18" height="12" /> English
-													</a>
-													<ul>
-														<li class="icl-en">
-															<a href="#">
-																<img class="iclflag" title="English" alt="en" src="resource/front_bootstrap/images/icons/en.png" width="18" height="12" /> English
-															</a>
-														</li>
-														
-														<li class="icl-ar">
-															<a href="#">
-																<img class="iclflag" title="Arabic" alt="ar" src="resource/front_bootstrap/images/icons/ar.png" width="18" height="12" /> Arabic
-															</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
 									</div>
-								</div>
-							</div>
-							
-							<div class="widget woocommerce_currency_converter-2 widget_currency_converter pull-left">
-								<div class="widget-inner">
-									<form method="post" class="currency_converter" action="">
-										<ul class="currency_w">
-											<li>
-												<a href="#" class="">USD</a>
-												<ul class="currency_switcher">
-													<li><a href="#" class="reset default active" data-currencycode="USD">USD</a></li>
-													<li><a href="#" class="" data-currencycode="EUR">EUR</a></li>
-												</ul>
-											</li>
-										</ul>
-									</form>
 								</div>
 							</div>
 						</div>
 						
 						<div class="wrap-myacc pull-right">
 							<div class="sidebar-account pull-left">
-								<div class="account-title">My account</div>
+								<div class="account-title">我的淘宝</div>
                         
 								<div id="my-account" class="my-account">
 									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
@@ -121,25 +83,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<ul id="menu-my-account" class="menu">
 												<li class="menu-my-account">
 													<a class="item-link" href="my_account.html">
-														<span class="menu-title">My Account</span>
+														<span class="menu-title">已买到的宝贝</span>
 													</a>
 												</li>
 												
 												<li class="menu-cart">
 													<a class="item-link" href="cart.html">
-														<span class="menu-title">Cart</span>
-													</a>
-												</li>
-												
-												<li class="menu-checkout">
-													<a class="item-link" href="checkout.html">
-														<span class="menu-title">Checkout</span>
-													</a>
-												</li>
-												
-												<li class="menu-wishlist">
-													<a class="item-link" href="wishlist.html">
-														<span class="menu-title">Wishlist</span>
+														<span class="menu-title">我的足迹</span>
 													</a>
 												</li>
 											</ul>
@@ -149,16 +99,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widget-2 widget-last widget sw_top-4 sw_top">
 										<div class="widget-inner">
 											<div class="top-login">
-												<div class="div-logined">
-													<ul>
-														<li>
-															<a href="javascript:void(0);" data-toggle="modal" data-target="#login_form">
-																<span>Login</span>
-															</a>
-															<span class="wg">Welcome Guest</span>
-														</li>
-													</ul>
-												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sidebar-account pull-left">
+								<div class="account-title">登录</div>
+                        
+								<div id="my-account" class="my-account">
+									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+										<div class="widget-inner">
+											<ul id="menu-my-account" class="menu">
+												<li class="menu-my-account">
+													<a class="item-link" href="my_account.html">
+														<span class="menu-title">登录</span>
+													</a>
+												</li>
+												
+												<li class="menu-cart">
+													<a class="item-link" href="cart.html">
+														<span class="menu-title">注册</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									
+									<div class="widget-2 widget-last widget sw_top-4 sw_top">
+										<div class="widget-inner">
+											<div class="top-login">
 											</div>
 										</div>
 									</div>
@@ -170,8 +140,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widget-inner">
 										<ul id="menu-checkout" class="menu">
 											<li class="menu-checkout">
-												<a class="item-link" href="checkout.html">
-													<span class="menu-title">Checkout</span>
+												<a class="item-link" href="common/toContactUs">
+													<span class="menu-title">关于我们</span>
 												</a>
 											</li>
 										</ul>
@@ -356,8 +326,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="widget-inner">
 									<ul id="menu-wishlist" class="menu">
 										<li class="menu-wishlist">
-											<a class="item-link" href="wishlist.html">
-												<span class="menu-title">Wishlist</span>
+											<a class="item-link" href="common/toWishlist">
+												<span class="menu-title">我的收藏</span>
 											</a>
 										</li>
 										
