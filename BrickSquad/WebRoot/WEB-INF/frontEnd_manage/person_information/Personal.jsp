@@ -30,18 +30,35 @@
 <script>
 	$(function() {
 		$("#userPicUpdate").bind('change input', function(e) {
-		    var _URL = window.URL || window.webkitURL;
-		    console.log(_URL);
-		     var file, img1;
-		    if ((file = this.files[0])) {
-		        img1 = new Image();
-		        img1.onload = function() {
-		            $('.userPicPath').attr('src', this.src);
-		        };
-		        img1.src = _URL.createObjectURL(file);
-		        console.log(img1);
-		    } 
-			
+			var _URL = window.URL || window.webkitURL;
+			var file, img1;
+			if ((file = this.files[0])) {
+				img1 = new Image();
+				img1.onload = function() {
+					$('.userPicPath').attr('src', this.src);
+				};
+				img1.src = _URL.createObjectURL(file);
+				//上传文件的文件流是无法被序列化并传递的。 不过如今主流浏览器都开始支持一个叫做FormData的对象，有了这个FormData，我们就可以轻松地使用Ajax方式进行文件上传了。 
+				var formData = new FormData($("#formFileData")[0]);
+				if (formData != null) {
+					$.ajax({
+						url : 'user/userUpdateUserPicPath',
+						type : 'POST',
+						data : formData,
+						contentType : false,
+						processData : false,
+						success : function(result) {
+							
+						},
+						error : function(err) {
+							
+						}
+					});
+				}
+
+			}
+			;
+
 		});
 
 	});
@@ -75,17 +92,19 @@
 						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！</label> <label>当前头像：</label>
 						<img class="userPicPath"
 							style="border-radius:100%;width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;">
-						<form action="" enctype="multipart/form-data" method="post">
+						<form id="formFileData" action="user/userUpdateUserPicPath"
+							enctype="multipart/form-data" method="post">
 							<div
 								style="margin-bottom:20px;margin-top: 30px;margin-left: 200px;">
 								<span class="layui-btn"
 									style="display:inline-block;position:relative;width:100px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
 									修改图片 <input
 										style="height:34px;position:absolute;z-index:1;left:0px;width:100px;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;"
-										type="file" class="upload_file1" id="userPicUpdate" name="p1"
-										size="1">
+										type="file" class="upload_file1" id="userPicUpdate"
+										name="userPic" size="1">
 								</span> <span>(支持jpg、png、小于2M)</span>
 							</div>
+
 						</form>
 
 						<!--分割线  -->
@@ -301,8 +320,9 @@
 						<!-- 亲属 -->
 					</div>
 					<div class="layui-tab-item layui-tab-item2">
-						<label
+						<label 
 							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
+						
 						<label>用户名：</label> <label>绑定手机：</label> <a href="#"
 							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
 						<div
@@ -340,6 +360,7 @@
 					<div class="layui-tab-item layui-tab-item3">
 						<label
 							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
+					 	<h2  id="nullMessage"></h2> 
 						<label>患有疾病：</label>
 						<input type="text" readonly="readonly"
 							value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
@@ -853,13 +874,20 @@
 														});
 											});
 							$(function() {
+								//没有身体状况数据提示
+								var personalInfofmationAndHealthRecordsExpand='${personalInfofmationAndHealthRecordsExpand}';
+								 if (personalInfofmationAndHealthRecordsExpand==null) { 
+									$("#nullMessage").html("还没有您的身体状况数据！");
+								 } 
 								//头像图片信息
-var user = '${user}';
-if (user.userPicPath==null) {
-	$(".userPicPath").attr("src","resource/image/pic0.jpg");
-}else {
-	$(".userPicPath").attr("src",user.userPicPath);
-}
+								var user = '${user}';
+								if (user.userPicPath == null) {
+									$(".userPicPath").attr("src",
+											"resource/image/userdefaultpic.jpg");
+								} else {
+									$(".userPicPath").attr("src",
+											user.userPicPath);
+								}
 								//回显address中的省级地址
 								var provinceData = ${provinceData};
 								//个人信息地址省级地址回填
@@ -885,6 +913,7 @@ if (user.userPicPath==null) {
 
 								} else {
 								}
+								
 								//亲属地址回填
 								var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
 								if (relativesAddresId.length > 0) {

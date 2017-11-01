@@ -1,5 +1,8 @@
 package com.brick.squad.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
@@ -60,10 +64,10 @@ public class UserController {
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
 			// begin 判断登录类型
-			//如果查询出来的用户RoleId是普通用户，跳转到主页去，不能登录看到后台管理页面
+			// 如果查询出来的用户RoleId是普通用户，跳转到主页去，不能登录看到后台管理页面
 			if (type.equals("admin")
-					&& !(user.getRoleId().equals(
-							"e2ebe746b86b11e78d4f5254002ec43c"))) {
+					&& !(user.getRoleId()
+							.equals("e2ebe746b86b11e78d4f5254002ec43c"))) {
 				return "redirect:/common/toFrame";
 
 			} else {
@@ -185,22 +189,66 @@ public class UserController {
 		request.setAttribute("msg", "密码修改成功！请重新登录");
 		return "backstage_managed/jsp/user/login";
 	}
+
 	@RequestMapping("/findUserByBranch")
 	@ResponseBody
 	public String findUserByBranch(HttpServletRequest request) {
-		User user=(User) request.getSession().getAttribute("user");
-		System.out.println(user.getBranchId()+"+++++++++++++++++++++++++++++++++++++++++++++");
-		String data=userService.findUserByBranchId(user.getBranchId());
+		User user = (User) request.getSession().getAttribute("user");
+		String data = userService.findUserByBranchId(user.getBranchId());
 		return data;
 	}
+
 	/**
 	 * 用户修改头像
+	 * 
 	 * @return
 	 */
-	@RequestMapping("/userUpdateuserPicPath")
-	public String userUpdateuserPicPath(){
-		
-		
-		return "redirect:/common/toPersonal";
+	@RequestMapping("/userUpdateUserPicPath")
+	public String userUpdateUserPicPath(MultipartFile userPic,
+			HttpServletRequest request) {
+		if (userPic != null) {
+			// 获取图片要保存的到的服务器路径
+			String realPath = "resource/image/user/";
+			String path = request.getSession().getServletContext()
+					.getRealPath(realPath);
+			//获取当前文件名 
+			String filName = userPic.getOriginalFilename();
+			//获取当前文件的后缀名
+			String fileSuffixName =filName.substring(filName.lastIndexOf("."));
+			//获取当前登录的用户session
+			User user =(User) request.getSession().getAttribute("user");
+			if (user!=null) {
+				//给文件重新命名,当前用户ID+文件后缀名
+				String fileNewName =user.getId()+fileSuffixName;
+				// 创建文件类型对象: 
+				File file = new File(path, fileNewName);
+				if (!file.exists()) {
+					file.mkdirs();
+				}
+				try {
+					userPic.transferTo(file);
+					
+					//取得数据库存的路径
+					String databaseuserPicPath=realPath+fileNewName;
+					//上传成功后，将路径保存到数据库中
+					user.setUserPicPath(databaseuserPicPath);
+					if (user.getUserPicPath()!=null) {
+						userService.updateUserUserPicPathById(user);
+					}
+					
+					request.setAttribute("user", user);
+				} catch (IllegalStateException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				return "Error";
+			}
+			
+		} else {
+			return "Error";
+		}
+		return "suc";
+		/* return "redirect:/common/toPersonal"; */
 	}
 }

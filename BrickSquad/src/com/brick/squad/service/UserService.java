@@ -8,6 +8,11 @@ import com.brick.squad.util.Select;
 
 public interface UserService {
 	/**
+	 * 传对象修改User图片
+	 * @param user
+	 */
+	public void updateUserUserPicPathById(User user);
+	/**
 	 * 传对象修改User
 	 * @param user
 	 */
