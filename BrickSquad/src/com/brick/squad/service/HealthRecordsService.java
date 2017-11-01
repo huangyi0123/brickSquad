@@ -9,6 +9,12 @@ import com.brick.squad.util.Pagination;
  */
 public interface HealthRecordsService {
 	/**
+	 * 根据perid查询HealthRecords
+	 * @param perId
+	 * @return
+	 */
+	public HealthRecords findHealthRecordsByPerId(String perId);
+	/**
 	 * 查询全部的PersonalInformation返回id IDcard name
 	 * 
 	 * @return json字符串

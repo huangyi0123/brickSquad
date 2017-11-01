@@ -1,46 +1,58 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>	
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">	
 	<title>Etro Store - Premium Multipurpose HTML5/CSS3 Theme</title>
 	<meta charset="utf-8" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	
 	<!-- FAVICONS -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57-precomposed.png" />
-    <link rel="shortcut icon" href="icons/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resource/front_bootstrap/icons/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resource/front_bootstrap/icons/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="resource/front_bootstrap/icons/favicon.png" />
 	
 	<!-- GOOGLE WEB FONTS -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 	
 	<!-- BOOTSTRAP 3.3.7 CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
 	
-	<link rel="stylesheet" href="css/jquery.fancybox.css" />
-	<link rel="stylesheet" href="css/yith-woocommerce-compare/colorbox.css" />
+	<!-- SLICK v1.6.0 CSS -->
+	<link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
 	
-	<link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css" />
-	<link rel="stylesheet" href="css/owl-carousel/owl.theme.default.min.css" />
-	<link rel="stylesheet" href="css/js_composer/js_composer.min.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce.css" />
-	<link rel="stylesheet" href="css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/jquery.fancybox.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-layout.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-smallscreen.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 	
 	
-	<link rel="stylesheet" href="css/custom.css" />
-	<link rel="stylesheet" href="css/app-orange.css" id="theme_color" />
-	<link rel="stylesheet" href="" id="rtl" />
-	<link rel="stylesheet" href="css/app-responsive.css" /> 
+	<link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
+	<link rel="stylesheet" href="" id="rtl" /> 
+	<link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
 </head>
 
-<body class="page page-id-6 home-style5">
+<body class="page woocommerce-wishlist woocommerce woocommerce-page">
 
      
 
+
 	<div class="body-wrapper theme-clearfix">
-		<header id="header" class="header header-style5">
+		<header id="header" class="header header-style1">
 			<div class="header-top clearfix">
 				<div class="container">
 					<div class="rows">
@@ -61,18 +73,18 @@
 											<ul class="nav">
 												<li>
 													<a class="lang_sel_sel icl-en">
-														<img class="iclflag" title="English" alt="en" src="images/icons/en.png" width="18" height="12" /> English
+														<img class="iclflag" title="English" alt="en" src="resource/front_bootstrap/images/icons/en.png" width="18" height="12" /> English
 													</a>
 													<ul>
 														<li class="icl-en">
 															<a href="#">
-																<img class="iclflag" title="English" alt="en" src="images/icons/en.png" width="18" height="12" /> English
+																<img class="iclflag" title="English" alt="en" src="resource/front_bootstrap/images/icons/en.png" width="18" height="12" /> English
 															</a>
 														</li>
 														
 														<li class="icl-ar">
 															<a href="#">
-																<img class="iclflag" title="Arabic" alt="ar" src="images/icons/ar.png" width="18" height="12" /> Arabic
+																<img class="iclflag" title="Arabic" alt="ar" src="resource/front_bootstrap/images/icons/ar.png" width="18" height="12" /> Arabic
 															</a>
 														</li>
 													</ul>
@@ -101,17 +113,72 @@
 						</div>
 						
 						<div class="wrap-myacc pull-right">
-						   <div class="pull-left top3">
-							  <div class="widget-1 widget-first widget nav_menu-6 widget_nav_menu">
-								 <div class="widget-inner">
-									<ul id="menu-my-account-index-3" class="menu">
-									   <li class="menu-my-account"><a class="item-link" href="my_account.html"><span class="menu-title">My Account</span></a></li>
-									   <li class="menu-wishlist"><a class="item-link" href="wishlist.html" title="My Wishlist" style="cursor: auto;"><span class="menu-title">Wishlist</span></a></li>
-									   <li class="menu-checkout"><a class="item-link" href="checkout.html"><span class="menu-title">Checkout</span></a></li>
-									</ul>
-								 </div>
-							  </div>
-						   </div>
+							<div class="sidebar-account pull-left">
+								<div class="account-title">My account</div>
+                        
+								<div id="my-account" class="my-account">
+									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+										<div class="widget-inner">
+											<ul id="menu-my-account" class="menu">
+												<li class="menu-my-account">
+													<a class="item-link" href="my_account.html">
+														<span class="menu-title">My Account</span>
+													</a>
+												</li>
+												
+												<li class="menu-cart">
+													<a class="item-link" href="cart.html">
+														<span class="menu-title">Cart</span>
+													</a>
+												</li>
+												
+												<li class="menu-checkout">
+													<a class="item-link" href="checkout.html">
+														<span class="menu-title">Checkout</span>
+													</a>
+												</li>
+												
+												<li class="menu-wishlist">
+													<a class="item-link" href="common/toWishlist">
+														<span class="menu-title">我的收藏</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									
+									<div class="widget-2 widget-last widget sw_top-4 sw_top">
+										<div class="widget-inner">
+											<div class="top-login">
+												<div class="div-logined">
+													<ul>
+														<li>
+															<a href="javascript:void(0);" data-toggle="modal" data-target="#login_form">
+																<span>Login</span>
+															</a>
+															<span class="wg">Welcome Guest</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="pull-left top2">
+								<div class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+									<div class="widget-inner">
+										<ul id="menu-checkout" class="menu">
+											<li class="menu-checkout">
+												<a class="item-link" href="checkout.html">
+													<span class="menu-title">Checkout</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -123,55 +190,96 @@
 						<!-- LOGO -->
 						<div class="etrostore-logo pull-left">
 							<a href="home_page_1.html">
-								<img src="images/logos/logo-index3.png" alt="Shoopy">
+								<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
 							</a>
 						</div>
 						
 						<div class="mid-header pull-right">
-							<div class="widget-1 widget-first widget sw_top-9 sw_top">
+							<div class="widget-1 widget-first widget sw_top-2 sw_top">
 								<div class="widget-inner">
 									<div class="top-form top-search">
 										<div class="topsearch-entry">
 											<form method="get" action="">
-												<label class="hide"></label>
-												<input type="text" value="" name="s" class="search-query" placeholder="Keyword here...">
-												<button type="submit" class="button-search-pro form-button">Search</button>
+												<div>
+												   <input type="text" value="" name="s" placeholder="Enter your keyword...">	
+													<div class="cat-wrapper">
+														<label class="label-search">
+															<select name="search_category" class="s1_option">
+																<option value="">All Categories</option>
+																<option value="8">Computers & Laptops</option>
+																<option value="13">Computers & Networking</option>
+																<option value="14">Smartphones & Tablet</option>
+																<option value="15">Home Furniture</option>
+																<option value="16">Home Appliances</option>
+																<option value="17">Electronic Component</option>
+																<option value="18">Household Goods</option>
+																<option value="32">Appliances</option>
+																<option value="49">Accessories</option>
+																<option value="51">Electronics</option>
+																<option value="78">Televisions</option>
+																<option value="80">Cameras & Accessories</option>
+															</select>
+														</label>
+													</div>
+													
+													<button type="submit" title="Search" class="fa fa-search button-search-pro form-button"></button>
+												</div>
 											</form>
 										</div>
 									</div>
 								</div>
 							</div>
 							
-							<div class="widget sw_top-8 sw_top pull-left">
+							<div class="widget sw_top-3 sw_top pull-left">
 								<div class="widget-inner">
 									<div class="top-form top-form-minicart etrostore-minicart pull-right">
 										<div class="top-minicart-icon pull-right">
 											<i class="fa fa-shopping-cart"></i>
-											<a class="cart-contents" href="cart.html" title="View your shopping cart"><span class="minicart-number">2</span></a>
+											<a class="cart-contents" href="cart.html" title="View your shopping cart">
+												<span class="minicart-number">2</span>
+											</a>
 										</div>
 										
 										<div class="wrapp-minicart">
 											<div class="minicart-padding">
-												<div class="number-item">There are <span>items</span> in your cart</div>
+												<div class="number-item">
+													There are <span>items</span> in your cart
+												</div>
+												
 												<ul class="minicart-content">
 													<li>
 														<a href="simple_product.html" class="product-image">
-															<img width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" srcset="images/1903/45-150x150.jpg 150w, images/1903/45-300x300.jpg 300w, images/1903/45-180x180.jpg 180w, images/1903/45.jpg 600w" sizes="(max-width: 100px) 100vw, 100px">
+															<img 	width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+																	srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w" 
+																	sizes="(max-width: 100px) 100vw, 100px" />
 														</a>
 														
 														<div class="detail-item">
 															<div class="product-details">
-																<h4><a class="title-item" href="simple_product.html">veniam dolore</a></h4>
+																<h4>
+																	<a class="title-item" href="simple_product.html">Veniam Dolore</a>
+																</h4>
+																
 																<div class="product-price">
-																	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>190.00</span></span>	      
+																	<span class="price">
+																		<span class="woocommerce-Price-amount amount">
+																			<span class="woocommerce-Price-currencySymbol">$</span>190.00
+																		</span>
+																	</span>
+																	
 																	<div class="qty">
 																		<span class="qty-number">1</span>									
 																	</div>
 																</div>
 																
 																<div class="product-action clearfix">
-																	<a href="http://demo.smartaddons.com/templates/html/etrostore/class="btn-remove" title="Remove this item"><span class="fa fa-trash-o"></span></a>           
-																	<a class="btn-edit" href="cart.html" title="View your shopping cart"><span class="fa fa-pencil"></span></a>    
+																	<a href="#" class="btn-remove" title="Remove this item">
+																		<span class="fa fa-trash-o"></span>
+																	</a>
+																	
+																	<a class="btn-edit" href="cart.html" title="View your shopping cart">
+																		<span class="fa fa-pencil"></span>
+																	</a>    
 																</div>
 															</div>
 														</div>
@@ -179,23 +287,37 @@
 													
 													<li>
 														<a href="simple_product.html" class="product-image">
-															<img width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" srcset="images/1903/22-150x150.jpg 150w, images/1903/22-300x300.jpg 300w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" sizes="(max-width: 100px) 100vw, 100px">
+															<img 	width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+																	srcset="resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" 
+																	sizes="(max-width: 100px) 100vw, 100px" />
 														</a>
 														
 														<div class="detail-item">
 															<div class="product-details">
-																<h4><a class="title-item" href="simple_product.html">Cleaner with bag</a></h4>
+																<h4>
+																	<a class="title-item" href="simple_product.html">Cleaner with bag</a>
+																</h4>
 																
 																<div class="product-price">
-																	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>350.00</span></span>	      
+																	<span class="price">
+																		<span class="woocommerce-Price-amount amount">
+																			<span class="woocommerce-Price-currencySymbol">$</span>350.00
+																		</span>
+																	</span>
+																	
 																	<div class="qty">
 																		<span class="qty-number">1</span>									
 																	</div>
 																</div>
 																
 																<div class="product-action clearfix">
-																	<a href="" class="btn-remove" title="Remove this item"><span class="fa fa-trash-o"></span></a>           
-																	<a class="btn-edit" href="cart.html" title="View your shopping cart"><span class="fa fa-pencil"></span></a>    
+																	<a href="#" class="btn-remove" title="Remove this item">
+																		<span class="fa fa-trash-o"></span>
+																	</a>
+																	
+																	<a class="btn-edit" href="cart.html" title="View your shopping cart">
+																		<span class="fa fa-pencil"></span>
+																	</a>
 																</div>
 															</div>
 														</div>
@@ -205,32 +327,47 @@
 												<div class="cart-checkout">
 													<div class="price-total">
 														<span class="label-price-total">Total</span>
-														<span class="price-total-w"><span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>540.00</span></span></span>			
+														
+														<span class="price-total-w">
+															<span class="price">
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">$</span>540.00
+																</span>
+															</span>
+														</span>			
 													</div>
 													
 													<div class="cart-links clearfix">
-														<div class="cart-link"><a href="cart.html" title="Cart">View Cart</a></div>
-														<div class="checkout-link"><a href="checkout.html" title="Check Out">Check Out</a></div>
+														<div class="cart-link">
+															<a href="cart.html" title="Cart">View Cart</a>
+														</div>
+														
+														<div class="checkout-link">
+															<a href="checkout.html" title="Check Out">Check Out</a>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-							   </div>
+								</div>
 							</div>
 							
-							<div class="widget sw_top-7 sw_top pull-left">
+							<div class="widget nav_menu-3 widget_nav_menu pull-left">
 								<div class="widget-inner">
-									<div class="top-login">
-										<div class="div-logined">
-											<ul>
-												<li>
-													<a href="javascript:void(0);" data-toggle="modal" data-target="#login_form"><span>Login</span></a>
-													<span class="wg">Welcome Guest</span>
-												</li>
-											</ul>
-										</div>
-									</div>
+									<ul id="menu-wishlist" class="menu">
+										<li class="menu-wishlist">
+											<a class="item-link" href="wishlist.html">
+												<span class="menu-title">Wishlist</span>
+											</a>
+										</li>
+										
+										<li class="yith-woocompare-open menu-compare">
+											<a class="item-link compare" href="#">
+												<span class="menu-title">Compare</span>
+											</a>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
@@ -255,12 +392,12 @@
 										
 										<div id="ResMenuprimary_menu" class="collapse menu-responsive-wrapper">
 											<ul id="menu-primary-menu" class="etrostore_resmenu">
-												<li class="active res-dropdown menu-home">
+												<li class="res-dropdown menu-home">
 													<a class="item-link dropdown-toggle" href="home_page_1.html">Home</a>
 													<span class="show-dropdown"></span>
 													
 													<ul class="dropdown-resmenu">
-														<li class="active res-dropdown menu-home-pages">
+														<li class="res-dropdown menu-home-pages">
 															<a class="item-link dropdown-toggle" href="#">Home Pages</a>
 															<span class="show-dropdown"></span>
 															
@@ -281,16 +418,16 @@
 																	<a href="home_page_4.html">Home Page 4</a>
 																</li>
 																
-																<li class="active menu-home-page-5">
+																<li class="menu-home-page-5">
 																	<a href="home_page_5.html">Home Page 5</a>
 																</li>
 																
 																<li class="menu-home-page-boxed">
-																	<a href="http://demo.smartaddons.com/templates/html/etrostore/home_page_5_boxed.html">Home Page Boxed</a>
+																	<a href="home_page_1_boxed.html">Home Page Boxed</a>
 																</li>
 																
 																<li class="menu-home-page-full">
-																	<a href="http://demo.smartaddons.com/templates/html/etrostore/home_page_5_full.html">Home Page Full</a>
+																	<a href="home_page_1_full.html">Home Page Full</a>
 																</li>
 															</ul>
 														</li>
@@ -327,12 +464,12 @@
 													</ul>
 												</li>
 												
-												<li class="res-dropdown menu-shop">
+												<li class="active res-dropdown menu-shop">
 													<a class="item-link dropdown-toggle" href="#">Shop</a>
 													<span class="show-dropdown"></span>
 													
 													<ul class="dropdown-resmenu">
-														<li class="res-dropdown menu-shop-pages">
+														<li class="active res-dropdown menu-shop-pages">
 															<a class="item-link dropdown-toggle" href="#">Shop Pages</a>
 															<span class="show-dropdown"></span>
 															
@@ -353,7 +490,7 @@
 																	<a href="my_account.html">My Account</a>
 																</li>
 																
-																<li class="menu-wishlist">
+																<li class="active menu-wishlist">
 																	<a href="wishlist.html">Wishlist</a>
 																</li>
 															</ul>
@@ -715,7 +852,7 @@
 									</div>
 									
 									<ul id="menu-primary-menu-1" class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
-										<li class="active dropdown menu-home etrostore-mega-menu level1">
+										<li class="dropdown menu-home etrostore-mega-menu level1">
 											<a href="home_page_1.html" class="item-link dropdown-toggle">
 												<span class="have-title">
 													<span class="menu-color" data-color="#f034ca"></span>
@@ -724,7 +861,7 @@
 											</a>
 											
 											<ul class="dropdown-menu nav-level1 column-3">
-												<li class="active dropdown-submenu column-3 menu-home-pages">
+												<li class="dropdown-submenu column-3 menu-home-pages">
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-title">Home Pages</span>
@@ -764,7 +901,7 @@
 															</a>
 														</li>
 														
-														<li class="active menu-home-page-5">
+														<li class="menu-home-page-5">
 															<a href="home_page_5.html">
 																<span class="have-title">
 																	<span class="menu-title">Home Page 5</span>
@@ -773,7 +910,7 @@
 														</li>
 														
 														<li class="menu-home-page-boxed">
-															<a href="http://demo.smartaddons.com/templates/html/etrostore/home_page_5_boxed.html">
+															<a href="home_page_1_boxed.html">
 																<span class="have-title">
 																	<span class="menu-title">Home Page Boxed</span>
 																</span>
@@ -781,7 +918,7 @@
 														</li>
 														
 														<li class="menu-home-page-full">
-															<a href="http://demo.smartaddons.com/templates/html/etrostore/home_page_5_full.html">
+															<a href="home_page_1_full.html">
 																<span class="have-title">
 																	<span class="menu-title">Home Page Full</span>
 																</span>
@@ -844,13 +981,13 @@
 											</ul>
 										</li>
 										
-										<li class="dropdown menu-shop etrostore-mega-menu level1 etrostore-menu-img">
+										<li class="active dropdown menu-shop etrostore-mega-menu level1 etrostore-menu-img">
 											<a href="#" class="item-link dropdown-toggle">
 												<span class="have-title">
 													<span class="menu-color" data-color="#f03442"></span>
 													
 													<span class="menu-img">
-														<img src="images/1903/icon-new-1.png" alt="Menu Image" />
+														<img src="resource/front_bootstrap/images/1903/icon-new-1.png" alt="Menu Image" />
 													</span>
 													
 													<span class="menu-title">Shop</span>
@@ -858,7 +995,7 @@
 											</a>
 											
 											<ul class="dropdown-menu nav-level1 column-4">
-												<li class="dropdown-submenu column-4 menu-shop-pages">
+												<li class="active dropdown-submenu column-4 menu-shop-pages">
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-title">Shop Pages</span>
@@ -898,7 +1035,7 @@
 															</a>
 														</li>
 														
-														<li class="menu-wishlist">
+														<li class="active menu-wishlist">
 															<a href="wishlist.html">
 																<span class="have-title">
 																	<span class="menu-title">Wishlist</span>
@@ -1058,7 +1195,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn3.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn3.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Electronics</span>
@@ -1128,7 +1265,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn4.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn4.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Smartphone</span>
@@ -1203,7 +1340,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn5.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn5.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Tablet</span>
@@ -1265,7 +1402,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn6.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn6.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Computer</span>
@@ -1339,7 +1476,7 @@
 												</li>
 											</ul>
 										</li>
-										
+									 
 										<li class="dropdown menu-blog etrostore-mega-menu level1">
 											<a href="#" class="item-link dropdown-toggle">
 												<span class="have-title">
@@ -1504,7 +1641,7 @@
 													<a href="#">
 														<span class="">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn1.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn1.jpg" alt="Menu Image" />
 															</span>
 														</span>
 													</a>
@@ -1514,7 +1651,7 @@
 													<a href="#">
 														<span class="">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn2.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn2.jpg" alt="Menu Image" />
 															</span>
 														</span>
 													</a>
@@ -1526,7 +1663,7 @@
 											<a href="deals.html" class="item-link">
 												<span class="have-title">
 													<span class="menu-img">
-														<img src="images/1903/icon-hot.png" alt="Menu Image" />
+														<img src="resource/front_bootstrap/images/1903/icon-hot.png" alt="Menu Image" />
 													</span>
 													
 													<span class="menu-title">Deals</span>
@@ -1597,39 +1734,137 @@
 							</nav>
 						</div>
 						<!-- /Primary navbar -->
-						
+				  
 						<div class="top-form top-form-minicart etrostore-minicart pull-right">
 							<div class="top-minicart-icon pull-right">
 								<i class="fa fa-shopping-cart"></i>
-								<a class="cart-contents" href="cart.html" title="View your shopping cart"><span class="minicart-number">0</span></a>
+								<a class="cart-contents" href="cart.html" title="View your shopping cart">
+									<span class="minicart-number">2</span>
+								</a>
 							</div>
-							
+						 
 							<div class="wrapp-minicart">
 								<div class="minicart-padding">
-									<div class="number-item">There are <span>item</span> in your cart</div>
-									<ul class="minicart-content"></ul>
+									<div class="number-item">
+										There are <span>items</span> in your cart
+									</div>
+									
+									<ul class="minicart-content">
+										<li>
+											<a href="simple_product.html" class="product-image">
+												<img 	width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+														srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w" 
+														sizes="(max-width: 100px) 100vw, 100px" />
+											</a>
+											
+											<div class="detail-item">
+												<div class="product-details">
+													<h4>
+														<a class="title-item" href="simple_product.html">Veniam Dolore</a>
+													</h4>
+													
+													<div class="product-price">
+														<span class="price">														
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>190.00
+															</span>
+														</span>	      
+														
+														<div class="qty">
+															<span class="qty-number">1</span>									
+														</div>
+													</div>
+													
+													<div class="product-action clearfix">
+														<a href="#" class="btn-remove" title="Remove this item">
+															<span class="fa fa-trash-o"></span>
+														</a>
+														
+														<a class="btn-edit" href="cart.html" title="View your shopping cart">
+															<span class="fa fa-pencil"></span>
+														</a>    
+													</div>
+												</div>
+											</div>
+										</li>
+									  
+										<li>
+											<a href="simple_product.html" class="product-image">
+												<img	 width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+														srcset="resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" 
+														sizes="(max-width: 100px) 100vw, 100px" />
+											</a>
+											
+											<div class="detail-item">
+												<div class="product-details">
+													<h4>
+														<a class="title-item" href="simple_product.html">Cleaner with bag</a>
+													</h4>
+													
+													<div class="product-price">
+														<span class="price">
+															<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>350.00
+															</span>
+														</span>
+														
+														<div class="qty">
+															<span class="qty-number">1</span>									
+														</div>
+													</div>
+													
+													<div class="product-action clearfix">
+														<a href="#" class="btn-remove" title="Remove this item">
+															<span class="fa fa-trash-o"></span>
+														</a>           
+														
+														<a class="btn-edit" href="cart.html" title="View your shopping cart">
+															<span class="fa fa-pencil"></span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									
 									<div class="cart-checkout">
 										<div class="price-total">
 											<span class="label-price-total">Total</span>
-											<span class="price-total-w"><span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>0.00</span></span></span>			
+											
+											<span class="price-total-w">
+												<span class="price">
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>540.00
+													</span>
+												</span>
+											</span>			
 										</div>
+										
 										<div class="cart-links clearfix">
-											<div class="cart-link"><a href="cart.html" title="Cart">View Cart</a></div>
-											<div class="checkout-link"><a href="checkout.html" title="Check Out">Check Out</a></div>
+											<div class="cart-link">
+												<a href="cart.html" title="Cart">View Cart</a>
+											</div>
+											
+											<div class="checkout-link">
+												<a href="checkout.html" title="Check Out">Check Out</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>							
+							</div>
 						</div>
-						
+				  
 						<div class="mid-header pull-right">
 							<div class="widget sw_top">
-								<span class="stick-sr"><i class="fa fa-search" aria-hidden="true"></i></span>
+								<span class="stick-sr">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</span>
+								
 								<div class="top-form top-search">
 									<div class="topsearch-entry">
 										<form role="search" method="get" class="form-search searchform" action="">
 											<label class="hide"></label>
-											<input type="text" value="" name="s" class="search-query" placeholder="Keyword here...">
+											<input type="text" value="" name="s" class="search-query" placeholder="Keyword here..." />
 											<button type="submit" class="button-search-pro form-button">Search</button>
 										</form>
 									</div>
@@ -1644,8 +1879,7 @@
 		<div class="listings-title">
 			<div class="container">
 				<div class="wrap-title">
-					<h1>Home</h1>
-					
+					<h1>Wishlist</h1>
 					<div class="bread">
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
@@ -1656,599 +1890,122 @@
 									</li>
 									
 									<li class="active">
-										<span>Home</span>
+										<span>Wishlist</span>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 		</div>
 		
 		<div class="container">
 			<div class="row">
-				<div id="contents" role="main" class="main-page col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div id="contents" role="main" class="main-page  col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="post-6 page type-page status-publish hentry">
 						<div class="entry-content">
 							<div class="entry-summary">
-								<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid home-slider5 vc_row-no-padding">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
-										<!-- OWL SLIDER -->
-											<div class="vc_column-inner ">
-												<div class="wpb_wrapper">
-													<div class="wpb_revslider_element wpb_content_element">
-														<div id="main-slider" class="fullwidthbanner-container" style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
-															<div class="module slideshow no-margin">
-																<div class="item">
-																	<a href="simple_product.html"><img src="images/2003/slider1.jpg" alt="slider1" class="img-responsive"></a>
-																</div>
-																<div class="item">
-																	<a href="simple_product.html"><img src="images/2003/slider1-1.jpg" alt="slider2" class="img-responsive"></a>
-																</div>
-															</div>
-															<div class="loadeding"></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										<!-- OWL LIGHT SLIDER -->
+								<div id="yith-wcwl-messages"></div>
+								<form id="yith-wcwl-form" action="" method="post" class="woocommerce">
+									<!-- TITLE -->
+									<div class="wishlist-title ">
+										<h2>My wishlist on market store</h2>
 									</div>
-								</div>
-								
-								<div class="vc_row-full-width vc_clearfix"></div>
-								
-								<div class="vc_row wpb_row vc_row-fluid">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
-										<div class="vc_column-inner margin-bottom-60">
-											<div class="wpb_wrapper">
-												<div id="category_slide_01" class="category-list-child2">
-													<div class="row resp-slider-container">
-														<div class="item col-lg-3 col-md-3 col-sm-6 col-xs-6">
-															<div class="item-product-cat">
-																<div class="item-thumb">
-																	<a href="shop_right_sidebar.html">
-																		<img width="270" height="180" src="images/1903/banner1-1.jpg" class="attachment-medium size-medium" alt="">
-																	</a>
-																</div>
-																
-																<div class="item-bot">
-																	<h3><a href="shop_right_sidebar.html">Appliances</a></h3>
-																	<!-- Get child category -->
-																	<div class="childcat-product-cat">
-																		<ul>
-																			<li><a href="shop_right_sidebar.html">Blender</a></li>
-																			<li><a href="shop_right_sidebar.html">Microwave</a></li>
-																			<li><a href="shop_right_sidebar.html">Mixer</a></li>
-																			<li><a href="shop_right_sidebar.html">Vacuum Cleaner</a></li>
-																			<li class="more-cat"><a href="shop_right_sidebar.html">More categories</a></li>
-																		</ul>
-																	</div>
-																	<!-- End get child category -->	
-																</div>
-															</div>
-														</div>
-														
-														<div class="item col-lg-3 col-md-3 col-sm-6 col-xs-6">
-															<div class="item-product-cat">
-																<div class="item-thumb">
-																	<a href="shop_right_sidebar.html">
-																		<img width="270" height="180" src="images/1903/bn3-7.jpg" class="attachment-medium size-medium" alt="">
-																	</a>
-																</div>
-																
-																<div class="item-bot">
-																	<h3>
-																		<a href="shop_right_sidebar.html">Cameras &amp; Accessories</a>
-																	</h3>
-																	
-																	<!-- Get child category -->
-																	<div class="childcat-product-cat">
-																		<ul>
-																			<li><a href="shop_right_sidebar.html">Batteries &amp; Chargers</a></li>
-																			<li><a href="shop_right_sidebar.html">Cameras &amp; Camcorders</a></li>
-																			<li><a href="shop_right_sidebar.html">Mp3 Player Accessories</a></li>
-																			<li><a href="shop_right_sidebar.html">Television</a></li>
-																			<li class="more-cat"><a href="shop_right_sidebar.html">More categories</a></li>
-																		</ul>
-																	</div>
-																	<!-- End get child category -->	
-																</div>
-															</div>
-														</div>
-														
-														<div class="item col-lg-3 col-md-3 col-sm-6 col-xs-6">
-															<div class="item-product-cat">
-																<div class="item-thumb">
-																	<a href="shop_right_sidebar.html">
-																		<img width="270" height="180" src="images/1903/bn3-5.jpg" class="attachment-medium size-medium" alt="">
-																	</a>
-																</div>
-																<div class="item-bot">
-																	<h3>
-																		<a href="shop_right_sidebar.html">Computers &amp; Laptops</a>
-																	</h3>
-																	
-																	<!-- Get child category -->
-																	<div class="childcat-product-cat">
-																		<ul>
-																			<li><a href="shop_right_sidebar.html">Accessories</a></li>
-																			<li><a href="shop_right_sidebar.html">Laptop Asus</a></li>
-																			<li><a href="shop_right_sidebar.html">Laptop Dell</a></li>
-																			<li><a href="shop_right_sidebar.html">Macbook</a></li>
-																			<li class="more-cat"><a href="shop_right_sidebar.html">More categories</a></li>
-																		</ul>
-																	</div>
-																	<!-- End get child category -->	
-																</div>
-															</div>
-														</div>
-														
-														<div class="item col-lg-3 col-md-3 col-sm-6 col-xs-6">
-															<div class="item-product-cat">
-																<div class="item-thumb">
-																	<a href="shop_right_sidebar.html">
-																		<img width="270" height="180" src="images/1903/bot2.jpg" class="attachment-medium size-medium" alt="">
-																	</a>
-																</div>
-																
-																<div class="item-bot">
-																	<h3>
-																		<a href="shop_right_sidebar.html">Electronics</a>
-																	</h3>
-																	
-																	<!-- Get child category -->
-																	<div class="childcat-product-cat">
-																		<ul>
-																			<li><a href="shop_right_sidebar.html">Accessories for Tablet</a></li>
-																			<li><a href="shop_right_sidebar.html">Headphone</a></li>
-																			<li><a href="shop_right_sidebar.html">Laptops &amp; Accessories</a></li>
-																			<li><a href="shop_right_sidebar.html">Television</a></li>
-																			<li class="more-cat"><a href="shop_right_sidebar.html">More categories</a></li>
-																		</ul>
-																	</div>
-																	<!-- End get child category -->	
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="vc_row wpb_row vc_row-fluid">
-									<div class="wpb_column vc_column_container vc_col-sm-6">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center margin-bottom-30">
-													<figure class="wpb_wrapper vc_figure">
-														<a href="#" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
-															<img 	width="570" height="160" src="images/2003/banner1-2.jpg" class="vc_single_image-img attachment-full" alt="" 
-																	srcset="images/2003/banner1-2.jpg 570w, images/2003/banner1-2-370x104.jpg 370w, images/2003/banner1-2-568x160.jpg 568w" 
-																	sizes="(max-width: 570px) 100vw, 570px">
-														</a>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
+									<!-- END TITLE -->
 									
-									<div class="wpb_column vc_column_container vc_col-sm-6">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center margin-bottom-30">
-													<figure class="wpb_wrapper vc_figure">
-														<a href="#" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
-															<img 	width="570" height="160" src="images/2003/banner2.jpg" class="vc_single_image-img attachment-full" alt="" 
-																	rcset="images/2003/banner2.jpg 570w, images/2003/banner2-370x104.jpg 370w, images/2003/banner2-568x160.jpg 568w" 
-																	sizes="(max-width: 570px) 100vw, 570px">
-														</a>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="vc_row wpb_row vc_row-fluid">
-									<div class="home6-latest wpb_column vc_column_container vc_col-sm-12 vc_col-lg-9 vc_col-md-8 vc_col-xs-12">
-										<div class="vc_column-inner margin-bottom-60">
-											<div class="wpb_wrapper">
-												<div class="sw-wootab-slider sw-woo-tab-style2" id="sw_woo_tab_slider_1">
-													<div class="resp-tab" style="position:relative;">
-														<div class="top-tab-slider clearfix">
-															<ul class="nav nav-tabs">
-																<li class="active">
-																	<a href="#latest_sw_woo_tab_slider_1" data-type="so_ajax" data-layout="layout1" data-row="2" data-ajaxurl="ajax/lastesproducts.html" data-category="electronics" data-toggle="tab" data-sorder="latest" data-catload="ajax" data-number="8" data-lg="4" data-md="3" data-sm="2" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-autoplay="false">Latest Products</a>
-																</li>
-															</ul>
-														</div>
-														<div class="tab-content clearfix">
-															<!-- Product tab slider -->
-															<div class="tab-pane active in" id="latest_sw_woo_tab_slider_1"></div>
-															<!-- End product tab slider -->
-														</div>
+									<!-- WISHLIST TABLE -->
+									<table class="shop_table cart wishlist_table">
+										<thead>
+											<tr>
+												<th class="product-remove"></th>
+												
+												<th class="product-name">
+													<span class="nobr">Product Name</span>
+												</th>
+												
+												<th class="product-price">
+													<span class="nobr">Unit Price</span>
+												</th>
+												
+												<th class="product-stock-stauts">
+													<span class="nobr">Stock Status</span>
+												</th>
+												
+												<th class="product-add-to-cart"></th>
+											</tr>
+										</thead>
+										
+										<tbody>
+											<tr>
+												<td class="product-remove">
+													<div>
+														<a href="" class="remove remove_from_wishlist" title="Remove this product">&#215;</a>
 													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_col-md-4 vc_col-xs-12">
-										<div class="vc_column-inner margin-bottom-60">
-											<div class="wpb_wrapper">
-												<div id="bestsale-01" class="sw-best-seller-product vc_element">
-													<div class="box-title">
-														<h3>
-															<span>Best</span> sellers
-														</h3>
-													</div>
+												</td>
+											   
+												<td class="product-name">
+													<a href="simple_product.html">Pisan maze ikan kazen</a>
+												</td>
+												
+												<td class="product-price">
+													<del>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>5.50
+														</span>
+													</del> 
 													
-													<div class="wrap-content">
-														<div class="item clearfix">
-															<div class="item-inner">
-																<div class="item-content pull-left">
-																	<!-- rating  -->
-																	<div class="reviews-content">
-																		<div class="star"></div>
-																		<div class="item-number-rating">
-																			0 Review(s)						
-																		</div>
-																	</div>
-																	<!-- end rating  -->
-																	
-																	<h4>
-																		<a href="simple_product.html" title="corned beef enim">Corned beef enim</a>
-																	</h4>
-																	
-																	<div class="item-price">
-																		<span class="woocommerce-Price-amount amount">
-																			<span class="woocommerce-Price-currencySymbol">$</span>400.00
-																		</span>
-																	</div>
-																</div>
-																
-																<div class="item-img pull-right">
-																	<a href="simple_product.html" title="corned beef enim">
-																		<img 	width="180" height="180" src="images/1903/65-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" 
-																				srcset="images/1903/65-180x180.jpg 180w, images/1903/65-150x150.jpg 150w, images/1903/65-300x300.jpg 300w, images/1903/65.jpg 600w" 
-																				sizes="(max-width: 180px) 100vw, 180px">
-																	</a>
-																</div>
-															</div>
-														</div>
+													<ins>
+														<span class="woocommerce-Price-amount amount">
+															<span class="woocommerce-Price-currencySymbol">$</span>5.00
+														</span>
+													</ins>                            
+												</td>
+												
+												<td class="product-stock-status">
+													<span class="wishlist-in-stock">In Stock</span>                            
+												</td>
+											   
+												<td class="product-add-to-cart">
+													<a rel="nofollow" href="" class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt">Add to Cart</a>
+												</td>
+											</tr>
+										</tbody>
+										
+										<tfoot>
+										   <tr>
+											  <td colspan="6">
+												 <div class="yith-wcwl-share">
+													<h4 class="yith-wcwl-share-title">Share on:</h4>
+													<ul>
+														<li style="list-style-type: none; display: inline-block;">
+															<a target="_blank" class="facebook" href="https://www.facebook.com/" title="Facebook"></a>
+														</li>
 														
-														<div class="item clearfix">
-															<div class="item-inner">
-																<div class="item-content pull-left">
-																	<!-- rating  -->
-																	<div class="reviews-content">
-																		<div class="star"></div>
-																		<div class="item-number-rating">
-																			0 Review(s)						
-																		</div>
-																	</div>
-																	<!-- end rating  -->
-																	
-																	<h4>
-																		<a href="simple_product.html" title="philips stand">Philips stand</a>
-																	</h4>
-																	
-																	<div class="item-price">
-																		<del>
-																			<span class="woocommerce-Price-amount amount">
-																				<span class="woocommerce-Price-currencySymbol">$</span>300.00
-																			</span>
-																		</del> 
-																		
-																		<ins>
-																			<span class="woocommerce-Price-amount amount">
-																				<span class="woocommerce-Price-currencySymbol">$</span>250.00
-																			</span>
-																		</ins>
-																	</div>
-																</div>
-																
-																<div class="item-img pull-right">
-																	<a href="simple_product.html" title="philips stand">
-																		<img 	width="180" height="180" src="images/1903/62-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" 
-																				srcset="images/1903/62-180x180.jpg 180w, images/1903/62-150x150.jpg 150w, images/1903/62-300x300.jpg 300w, images/1903/62.jpg 600w" 
-																				sizes="(max-width: 180px) 100vw, 180px">
-																	</a>
-																</div>
-															</div>
-														</div>
-													  
-														<div class="item clearfix">
-															<div class="item-inner">
-																<div class="item-content pull-left">
-																	<!-- rating  -->
-																	<div class="reviews-content">
-																		<div class="star"><span style="width:52.5px"></span></div>
-																		<div class="item-number-rating">
-																			4 Review(s)						
-																		</div>
-																	</div>
-																	<!-- end rating  -->
-																	
-																	<h4>
-																		<a href="simple_product.html" title="Vacuum cleaner">Vacuum cleaner</a>
-																	</h4>
-																	
-																	<div class="item-price">
-																		<del>
-																			<span class="woocommerce-Price-amount amount">
-																				<span class="woocommerce-Price-currencySymbol">$</span>350.00
-																			</span>
-																		</del> 
-																		
-																		<ins>
-																			<span class="woocommerce-Price-amount amount">
-																				<span class="woocommerce-Price-currencySymbol">$</span>260.00
-																			</span>
-																		</ins>
-																	</div>
-																</div>
-																
-																<div class="item-img pull-right">
-																	<a href="simple_product.html" title="Vacuum cleaner">
-																		<img 	width="180" height="180" src="images/1903/26-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" 
-																				srcset="images/1903/26-180x180.jpg 180w, images/1903/26-150x150.jpg 150w, images/1903/26-300x300.jpg 300w, images/1903/26.jpg 600w" 
-																				sizes="(max-width: 180px) 100vw, 180px">
-																	</a>
-																</div>
-															</div>
-														</div>
-												  
-														<div class="item clearfix">
-															<div class="item-inner">
-																<div class="item-content pull-left">
-																	<!-- rating  -->
-																	<div class="reviews-content">
-																		<div class="star"></div>
-																		<div class="item-number-rating">
-																			0 Review(s)						
-																		</div>
-																	</div>
-																	<!-- end rating  -->
-																	
-																	<h4>
-																		<a href="simple_product.html" title="Sony BRAVIA 4K">Sony BRAVIA 4K</a>
-																	</h4>
-																	
-																	<div class="item-price">
-																		<span class="woocommerce-Price-amount amount">
-																			<span class="woocommerce-Price-currencySymbol">$</span>600.00
-																		</span>
-																	</div>
-																</div>
-																
-																<div class="item-img pull-right">
-																	<a href="simple_product.html" title="Sony BRAVIA 4K">
-																		<img 	width="180" height="180" src="images/1903/6-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" 
-																				srcset="images/1903/6-180x180.jpg 180w, images/1903/6-150x150.jpg 150w, images/1903/6-300x300.jpg 300w, images/1903/6.jpg 600w" 
-																				sizes="(max-width: 180px) 100vw, 180px">
-																	</a>
-																</div>
-															</div>
-														</div>
-													  
-														<div class="item clearfix">
-															<div class="item-inner">
-																<div class="item-content pull-left">
-																	<!-- rating  -->
-																	<div class="reviews-content">
-																		<div class="star"><span style="width:35px"></span></div>
-																		<div class="item-number-rating">
-																			2 Review(s)						
-																		</div>
-																	</div>
-																	<!-- end rating  -->
-																	
-																	<h4>
-																		<a href="simple_product.html" title="veniam dolore">veniam dolore</a>
-																	</h4>
-																	
-																	<div class="item-price">
-																		<del>
-																			<span class="woocommerce-Price-amount amount">
-																				<span class="woocommerce-Price-currencySymbol">$</span>250.00
-																			</span>
-																		</del> 
-																		
-																		<ins>
-																			<span class="woocommerce-Price-amount amount">
-																				<span class="woocommerce-Price-currencySymbol">$</span>190.00
-																			</span>
-																		</ins>
-																	</div>
-																</div>
-																<div class="item-img pull-right">
-																   <a href="simple_product.html" title="veniam dolore">
-																   <img width="180" height="180" src="images/1903/45-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="images/1903/45-180x180.jpg 180w, images/1903/45-150x150.jpg 150w, images/1903/45-300x300.jpg 300w, images/1903/45.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">					</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid margin-bottom-30 vc_row-no-padding">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
-										<!-- OWL SLIDER -->
-											<div class="vc_column-inner ">
-												<div class="wpb_wrapper">
-													<div class="wpb_revslider_element wpb_content_element">
-														<div id="main-slider" class="fullwidthbanner-container" style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
-															<div class="module slideshow no-margin">
-																<div class="item">
-																	<a href="simple_product.html"><img src="images/2003/test2.jpg" alt="slider1" class="img-responsive" ></a>
-																</div>
-																<div class="item">
-																	<a href="simple_product.html"><img src="images/2003/test2.jpg" alt="slider2" class="img-responsive" ></a>
-																</div>
-															</div>
-															<div class="loadeding"></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										<!-- OWL LIGHT SLIDER -->
-									</div>
-								</div>
-
-								<div class="vc_row-full-width vc_clearfix"></div>
-								
-								<div class="vc_row wpb_row vc_row-fluid hidden-xs">
-									<div class="wpb_column vc_column_container vc_col-sm-4">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center margin-bottom-30">
-													<figure class="wpb_wrapper vc_figure">
-														<a href="#" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
-															<img width="370" height="180" src="images/2003/bn1.jpg" class="vc_single_image-img attachment-full" alt="">
-														</a>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="wpb_column vc_column_container vc_col-sm-4">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center margin-bottom-30">
-													<figure class="wpb_wrapper vc_figure">
-														<a href="#" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
-															<img width="370" height="180" src="images/2003/bn3.jpg" class="vc_single_image-img attachment-full" alt="">
-														</a>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
-								   
-									<div class="wpb_column vc_column_container vc_col-sm-4">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center margin-bottom-30">
-													<figure class="wpb_wrapper vc_figure">
-														<a href="#" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
-															<img width="370" height="180" src="images/2003/bn2.jpg" class="vc_single_image-img attachment-full" alt="">
-														</a>
-													</figure>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="sw-wootab-slider sw-woo-tab-style2" id="sw_woo_tab_slider_2">
-													<div class="resp-tab" style="position:relative;">
-														<div class="top-tab-slider clearfix">
-															<ul class="nav nav-tabs">
-																<li class="active">
-																	<a href="#bestsales_sw_woo_tab_slider_2" data-type="so_ajax" data-layout="layout1" data-row="1" data-ajaxurl="ajax/home5/bestsellings.html" data-category="" data-toggle="tab" data-sorder="bestsales" data-catload="ajax" data-number="6" data-lg="6" data-md="4" data-sm="3" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-autoplay="false">Best Selling</a>
-																</li>
-																
-																<li>
-																	<a href="#rating_sw_woo_tab_slider_2" data-type="so_ajax" data-layout="layout1" data-row="1" data-ajaxurl="ajax/home5/toprating.html" data-category="" data-toggle="tab" data-sorder="rating" data-catload="ajax" data-number="6" data-lg="6" data-md="4" data-sm="3" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-autoplay="false">Top Rate</a>
-																</li>
-																
-																<li>
-																	<a href="#featured_sw_woo_tab_slider_2" data-type="so_ajax" data-layout="layout1" data-row="1" data-ajaxurl="ajax/home5/featured.html" data-category="" data-toggle="tab" data-sorder="featured" data-catload="ajax" data-number="6" data-lg="6" data-md="4" data-sm="3" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-autoplay="false">Featured Products</a>
-																</li>
-															</ul>
-														</div>
+														<li style="list-style-type: none; display: inline-block;">
+															<a target="_blank" class="twitter" href="https://twitter.com/" title="Twitter"></a>
+														</li>
 														
-														<div class="tab-content clearfix">
-															<!-- Product tab slider -->
-															<div class="tab-pane active in" id="bestsales_sw_woo_tab_slider_2"></div>
-															<div class="tab-pane" id="rating_sw_woo_tab_slider_2"></div>
-															<div class="tab-pane" id="featured_sw_woo_tab_slider_2"></div>
-														</div>
-														<!-- End product tab slider -->
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="vc_row wpb_row vc_row-fluid">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div id="sw_brand_01" class="responsive-slider sw-brand-container-slider clearfix" data-lg="5" data-md="4" data-sm="3" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-autoplay="false">
-													<div class="resp-slider-container">
-														<div class="slider responsive">
-															<div class="item item-brand-cat">
-																<div class="item-image">
-																	<a href="#">
-																		<img width="173" height="88" src="images/1903/Brand_1.jpg" class="attachment-173x91 size-173x91" alt="" />
-																	</a>
-																</div>
-															</div>
-															
-															<div class="item item-brand-cat">
-																<div class="item-image">
-																	<a href="#">
-																		<img width="173" height="91" src="images/1903/br1.jpg" class="attachment-173x91 size-173x91" alt="" />
-																	</a>
-																</div>
-															</div>
-															
-															<div class="item item-brand-cat">
-																<div class="item-image">
-																	<a href="#">
-																		<img width="173" height="91" src="images/1903/br2.jpg" class="attachment-173x91 size-173x91" alt="" />
-																	</a>
-																</div>
-															</div>
-															
-															<div class="item item-brand-cat">
-																<div class="item-image">
-																	<a href="#">
-																		<img width="173" height="91" src="images/1903/br4.jpg" class="attachment-173x91 size-173x91" alt="" />
-																	</a>
-																</div>
-															</div>
-															
-															<div class="item item-brand-cat">
-																<div class="item-image">
-																	<a href="#">
-																		<img width="173" height="91" src="images/1903/br5.jpg" class="attachment-173x91 size-173x91" alt="" />
-																	</a>
-																</div>
-															</div>
-															
-															<div class="item item-brand-cat">
-																<div class="item-image">
-																	<a href="#">
-																		<img width="173" height="91" src="images/1903/br3.jpg" class="attachment-173x91 size-173x91" alt="" />
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+														<li style="list-style-type: none; display: inline-block;">
+															<a target="_blank" class="pinterest" href="http://pinterest.com/" title="Pinterest" onclick="window.open(this.href); return false;"></a>
+														</li>
+														
+														<li style="list-style-type: none; display: inline-block;">
+															<a target="_blank" class="googleplus" href="https://plus.google.com/" title="Google+" onclick="javascript:window.open(this.href,&quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;"></a>
+														</li>
+														
+														<li style="list-style-type: none; display: inline-block;">
+															<a class="email" href="#" title="Email"></a>
+														</li>
+													</ul>
+												 </div>
+											  </td>
+										   </tr>
+										</tfoot>
+									</table>
+								</form>
 							</div>
 						</div>
-						
-						<div class="clearfix"></div>
 					</div>
 				</div>
 			</div>
@@ -2257,58 +2014,178 @@
 		<footer id="footer" class="footer default theme-clearfix">
 			<!-- Content footer -->
 			<div class="container">
-				<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid footer-style2 footer-style5">
+				<div class="vc_row wpb_row vc_row-fluid">
 					<div class="wpb_column vc_column_container vc_col-sm-12">
 						<div class="vc_column-inner ">
 							<div class="wpb_wrapper">
-								<div class="vc_row wpb_row vc_inner vc_row-fluid">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
+								<div id="sw_testimonial01" class="testimonial-slider client-wrapper-b carousel slide " data-interval="0">
+									<div class="carousel-cl nav-custom">
+										<a class="prev-test fa fa-angle-left" href="#sw_testimonial01" role="button" data-slide="prev"><span></span></a>
+										<a class="next-test fa fa-angle-right" href="#sw_testimonial01" role="button" data-slide="next"><span></span></a>
+									</div>
+									
+									<div class="carousel-inner">
+										<div class="item active">
+											<div class="item-inner">
+												<div class="image-client pull-left">
+													<a href="#" title="">
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+													</a>
+												</div>
+												
+												<div class="client-say-info">
+													<div class="client-comment">
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
+													</div>
+													
+													<div class="name-client">
+														<h2><a href="#" title="">Jerry</a></h2>
+														<p>Web Developer</p>
+													</div>
+												</div>
+											</div>
+											
+											<div class="item-inner">
+												<div class="image-client pull-left">
+													<a href="#" title="">
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm1.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+													</a>
+												</div>
+											
+												<div class="client-say-info">
+													<div class="client-comment">
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
+													</div>
+													
+													<div class="name-client">
+														<h2>
+															<a href="#" title="">David Gand</a>
+														</h2>
+														
+														<p>Designer</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div class="item ">
+											<div class="item-inner">
+												<div class="image-client pull-left">
+													<a href="#" title="">
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm2.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+													</a>
+												</div>
+												
+												<div class="client-say-info">
+													<div class="client-comment">
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
+													</div>
+													
+													<div class="name-client">
+														<h2>
+															<a href="#" title="">Taylor Hill</a>
+														</h2>
+														
+														<p>Developer</p>
+													</div>
+												</div>
+											</div>
+											
+											<div class="item-inner">
+												<div class="image-client pull-left">
+													<a href="#" title="">
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+													</a>
+												</div>
+												
+												<div class="client-say-info">
+													<div class="client-comment">
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
+													</div>
+													
+													<div class="name-client">
+														<h2>
+															<a href="#" title="">JOHN DOE</a>
+														</h2>
+														
+														<p>Designer</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid footer-style1 vc_row-no-padding">
+					<div class="container float wpb_column vc_column_container vc_col-sm-12">
+						<div class="vc_column-inner ">
+							<div class="wpb_wrapper">
+								<div class="vc_row wpb_row vc_inner vc_row-fluid footer-top">
+									<div class="wpb_column vc_column_container vc_col-sm-8">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<div class="wrap-newletter">
+															<h3>NEWSLETTER SIGNUP</h3>
+															
+															<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-275" method="post" data-id="275" data-name="">
+																<div class="mc4wp-form-fields">
+																	<div class="newsletter-content">
+																		<input type="email" class="newsletter-email" name="EMAIL" placeholder="Your email" required="" />
+																		<input class="newsletter-submit" type="submit" value="Subscribe" />
+																	</div>
+																</div>
+																<div class="mc4wp-response"></div>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="wpb_column vc_column_container vc_col-sm-4">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
 													<div class="wpb_wrapper">
-														<div class="wrap-transport wrap-transport-style3">
-															<div class="row">
-																<div class="item item-1 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon"><i class="fa fa-paper-plane"></i></div>
-																		<div class="content">
-																			<h3>Money Back Guarantee</h3>
-																			<p>30 Days Money Back</p>
-																		</div>
+														<div class="shop-social">
+															<ul>
+																<li>
+																	<a href="https://www.facebook.com/">
+																		<i class="fa fa-facebook"></i>
 																	</a>
-																</div>
+																</li>
 																
-																<div class="item item-3 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon"><i class="fa fa-tag"></i></div>
-																		<div class="content">
-																			<h3>Member Discount</h3>
-																			<p>Upto 70 % Discount</p>
-																		</div>
+																<li>
+																	<a href="https://twitter.com/">
+																		<i class="fa fa-twitter"></i>
 																	</a>
-																</div>
-															  
-																<div class="item item-2 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon"><i class="fa fa-map-marker"></i></div>
-																		<div class="content">
-																			<h3>Free Worldwide Shipping</h3>
-																			<p>On Order Over $100</p>
-																		</div>
+																</li>
+																
+																<li>
+																	<a href="https://plus.google.com/">
+																		<i class="fa fa-google-plus"></i>
 																	</a>
-																</div>
-															  
-																<div class="item item-4 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon"><i class="fa fa-life-ring"></i></div>
-																		<div class="content">
-																			<h3>24/7 Online Support</h3>
-																			<p>Technical Support 24/7</p>
-																		</div>
+																</li>
+																
+																<li>
+																	<a href="https://www.linkedin.com/">
+																		<i class="fa fa-linkedin"></i>
 																	</a>
-																</div>
-															</div>
+																</li>
+																
+																<li>
+																	<a href="https://www.pinterest.com/">
+																		<i class="fa fa-pinterest-p"></i>
+																	</a>
+																</li>
+															</ul>
 														</div>
 													</div>
 												</div>
@@ -2317,109 +2194,176 @@
 									</div>
 								</div>
 								
-								<div class="vc_row wpb_row vc_inner vc_row-fluid">
-									<div class="col-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
+								<div class="vc_row wpb_row vc_inner vc_row-fluid footer-bottom">
+									<div class="item-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<div class="ya-logo">
+															<a href="home_page_1.html">
+																<img src="resource/front_bootstrap/images/icons/logo-footer.png" alt="logo" />
+															</a>
+														</div>
+													</div>
+												</div>
+												
 												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
 													<div class="wpb_wrapper">
 														<div class="infomation">
-															<h2>CONTACT INFO</h2>
+															<p>
+																Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+															</p>
+															
 															<div class="info-support">
 																<ul>
-																	<li>No 1123, Marmora Road, Glasgow, D04 89GR.</li>
-																	<li>(801) 2345 - 6788 / (801) 2345 - 6789</li>
-																	<li>support@etrostore.com</li>
+																   <li>No 1123, Marmora Road, Glasgow, D04 89GR.</li>
+																   <li>(801) 2345 - 6788 / (801) 2345 - 6789</li>
+																   <li><a href="mailto:contact@etrostore.com">support@etrostore.com</a></li>
 																</ul>
 															</div>
 															
-															<div class="shop-social">
-																<ul>
-																	<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
-																	<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-																	<li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
-																	<li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-																	<li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p"></i></a></li>
-																</ul>
+															<div class="store">
+																<a href="#">
+																	<img src="resource/front_bootstrap/images/1903/app-store.png" alt="store" title="store" />
+																</a>
+																
+																<a href="#">
+																	<img src="resource/front_bootstrap/images/1903/google-store.png" alt="store" title="store" />
+																</a>
 															</div>
 														</div>
 													</div>
-											  </div>
+												</div>
 											</div>
 										</div>
 									</div>
 								 
-									<div class="col-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12">
+									<div class="item-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="vc_wp_custommenu wpb_content_element">
 													<div class="widget widget_nav_menu">
 														<h2 class="widgettitle">Support</h2>
+														
 														<ul id="menu-support" class="menu">
-															<li class="menu-product-support"><a class="item-link" href="#"><span class="menu-title">Product Support</span></a></li>
-															<li class="menu-pc-setup-support-services"><a class="item-link" href="#"><span class="menu-title">PC Setup &amp; Support Services</span></a></li>
-															<li class="menu-extended-service-plans"><a class="item-link" href="#"><span class="menu-title">Extended Service Plans</span></a></li>
-															<li class="menu-community"><a class="item-link" href="#"><span class="menu-title">Community</span></a></li>
-															<li class="menu-product-manuals"><a class="item-link" href="#"><span class="menu-title">Product Manuals</span></a></li>
-															<li class="menu-product-registration"><a class="item-link" href="#"><span class="menu-title">Product Registration</span></a></li>
+															<li class="menu-product-support">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Product Support</span>
+																</a>
+															</li>
+															
+															<li class="menu-pc-setup-support-services">
+																<a class="item-link" href="#">
+																	<span class="menu-title">PC Setup & Support Services</span>
+																</a>
+															</li>
+															
+															<li class="menu-extended-service-plans">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Extended Service Plans</span>
+																</a>
+															</li>
+															
+															<li class="menu-community">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Community</span>
+																</a>
+															</li>
+															
+															<li class="menu-product-manuals">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Product Manuals</span>
+																</a>
+															</li>
+															
+															<li class="menu-product-registration">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Product Registration</span>
+																</a>
+															</li>
 														</ul>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								 
-									<div class="col-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12">
+								  
+									<div class="item-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-2 vc_col-md-2 vc_col-xs-12">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="vc_wp_custommenu wpb_content_element">
 													<div class="widget widget_nav_menu">
 														<h2 class="widgettitle">Your Links</h2>
-														<ul id="menu-your-links-2" class="menu">
-															<li class="menu-my-account"><a class="item-link" href="my_account.html"><span class="menu-title">My Account</span></a></li>
-															<li class="menu-order-tracking"><a class="item-link" href="#"><span class="menu-title">Order Tracking</span></a></li>
-															<li class="menu-watch-list"><a class="item-link" href="#"><span class="menu-title">Watch List</span></a></li>
-															<li class="menu-customer-service"><a class="item-link" href="#"><span class="menu-title">Customer Service</span></a></li>
-															<li class="menu-returns-exchanges"><a class="item-link" href="#"><span class="menu-title">Returns / Exchanges</span></a></li>
-															<li class="menu-faqs"><a class="item-link" href="#"><span class="menu-title">FAQs</span></a></li>
+														
+														<ul id="menu-your-links" class="menu">
+															<li class="menu-my-account">
+																<a class="item-link" href="my_account.html">
+																	<span class="menu-title">My Account</span>
+																</a>
+															</li>
+															
+															<li class="menu-order-tracking">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Order Tracking</span>
+																</a>
+															</li>
+															
+															<li class="menu-watch-list">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Watch List</span>
+																</a>
+															</li>
+															
+															<li class="menu-customer-service">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Customer Service</span>
+																</a>
+															</li>
+															
+															<li class="menu-returns-exchanges">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Returns / Exchanges</span>
+																</a>
+															</li>
+															
+															<li class="menu-faqs">
+																<a class="item-link" href="#">
+																	<span class="menu-title">FAQs</span>
+																</a>
+															</li>
+															
+															<li class="menu-financing">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Financing</span>
+																</a>
+															</li>
+															
+															<li class="menu-card">
+																<a class="item-link" href="#">
+																	<span class="menu-title">Card</span>
+																</a>
+															</li>
 														</ul>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								 
-									<div class="col-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
+								   
+									<div class="item-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
-												<div class="wpb_text_column wpb_content_element ">
+												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
 													<div class="wpb_wrapper">
-														<div class="wrap-newletters">
-															<h3>Newsletter</h3>
-															
-															<div class="info-newsletter">
-																<p>Get all the best deals, sales and offers from the best online shopping store in UAE. Sign up now !</p>
-																
-																<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-275" method="post" data-id="275" data-name="">
-																	<div class="mc4wp-form-fields">
-																		<div class="newsletter-content">
-																			<input type="email" class="newsletter-email" name="EMAIL" placeholder="Your email" required="">
-																			<input class="newsletter-submit" type="submit" value="Subscribe">
-																		</div>
-																	</div>
-																	<div class="mc4wp-response"></div>
-																</form>
-																
-																<div class="store">
-																	<a href="#">
-																		<img class="alignnone wp-image-1036" src="images/1903/fot1.png" width="119" height="39">
-																	</a>
-																	
-																	<a href="#">
-																		<img class="alignnone wp-image-1037" src="images/1903/fot2.png" width="119" height="39">
-																	</a>
-																</div>
+														<div class="sp-map">
+															<div class="title">
+																<h2>find a store</h2>
 															</div>
+															
+															<img src="resource/front_bootstrap/images/1903/map.jpg" alt="map" title="map" />
+															
+															<a href="#" class="link-map">Store locator</a>
 														</div>
 													</div>
 												</div>
@@ -2427,15 +2371,46 @@
 										</div>
 									</div>
 								</div>
-							
-								<div class="wpb_text_column wpb_content_element  foot-img-style5">
-									<div class="wpb_wrapper">
-										<p>
-											<a href="#">
-												<img 	class="aligncenter wp-image-1039 size-full" src="images/1903/fot3.png" width="517" height="25" 
-														srcset="images/1903/fot3.png 517w, images/1903/fot3-370x18.png 370w" sizes="(max-width: 517px) 100vw, 517px">
-											</a>
-										</p>
+						
+								<div class="vc_wp_custommenu wpb_content_element wrap-cus">
+									<div class="widget widget_nav_menu">
+										<ul id="menu-infomation" class="menu">
+											<li class="menu-about-us">
+												<a class="item-link" href="about_us.html">
+													<span class="menu-title">About Us</span>
+												</a>
+											</li>
+											
+											<li class="menu-customer-service">
+												<a class="item-link" href="#">
+													<span class="menu-title">Customer Service</span>
+												</a>
+											</li>
+											
+											<li class="menu-privacy-policy">
+												<a class="item-link" href="#">
+													<span class="menu-title">Privacy Policy</span>
+												</a>
+											</li>
+											
+											<li class="menu-site-map">
+												<a class="item-link" href="#">
+													<span class="menu-title">Site Map</span>
+												</a>
+											</li>
+											
+											<li class="menu-orders-and-returns">
+												<a class="item-link" href="#">
+													<span class="menu-title">Orders and Returns</span>
+												</a>
+											</li>
+											
+											<li class="menu-contact-us">
+												<a class="item-link" href="contact_us.html">
+													<span class="menu-title">Contact Us</span>
+												</a>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -2445,7 +2420,7 @@
 				<div class="vc_row-full-width vc_clearfix"></div>
 			</div>
 			
-			<div class="footer-copyright style5">
+			<div class="footer-copyright style1">
 				<div class="container">
 					<!-- Copyright text -->
 					<div class="copyright-text pull-left">
@@ -2457,7 +2432,9 @@
 							<div class="widget-inner">
 								<div class="textwidget">
 									<div class="payment">
-										<a href="#"><img src="images/1903/paypal.png" alt="payment" title="payment"></a>
+										<a href="#">
+											<img src="resource/front_bootstrap/images/1903/paypal.png" alt="payment" title="payment" />
+										</a>
 									</div>
 								</div>
 							</div>
@@ -2582,25 +2559,25 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery/js.cookie.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 	
 	<!-- OPEN LIBS JS -->
-	<script type="text/javascript" src="js/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/slick-1.6.0/slick.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 	
-	<script type="text/javascript" src="js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="js/sw_core/isotope.js"></script>
-	<script type="text/javascript" src="js/sw_core/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="js/sw_woocommerce/category-ajax.js"></script>
-	<script type="text/javascript" src="js/sw_woocommerce/jquery.countdown.min.js"></script>
-	<script type="text/javascript" src="js/js_composer/js_composer_front.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 	
-	<script type="text/javascript" src="js/plugins.js"></script>
-	<script type="text/javascript" src="js/megamenu.min.js"></script>
-	<script type="text/javascript" src="js/main.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
@@ -2617,7 +2594,7 @@
 		$(window).scroll(function() {
 			sticky_navigation();
 		});
-			
+		
 		$(document).ready (function () {
 			$( ".show-dropdown" ).each(function(){
 				$(this).on("click", function(){
@@ -2629,7 +2606,7 @@
 		});
    </script>
    
-
+   <!--[if gte IE 9]><!-->
    <script type="text/javascript">
 		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
 		request = true;
@@ -2638,4 +2615,6 @@
       	// The customizer requires postMessage and CORS (if the site is cross domain)
       	b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
    </script>
-  
+   <!--<![endif]-->
+   </body>
+</html>

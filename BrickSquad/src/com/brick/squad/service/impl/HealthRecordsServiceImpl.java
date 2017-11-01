@@ -78,4 +78,10 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 		return allPersonalInformationData;
 	}
 
+	@Override
+	public HealthRecords findHealthRecordsByPerId(String perId) {
+		
+		return healthRecordsMapper.findHealthRecordsByPerId(perId);
+	}
+
 }

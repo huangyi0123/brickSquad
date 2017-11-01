@@ -63,14 +63,40 @@
 			<mvc:exclude-mapping path="/user/toUserAccountAuthentication" />
 			<mvc:exclude-mapping path="/news/findNewsExpandById" />
 			<mvc:exclude-mapping path="/news/findNews" />
-			<mvc:exclude-mapping path="/common/businessIndex" />
+			<mvc:exclude-mapping path="/common/indexBusiness" />
 			<mvc:exclude-mapping path="/common/toProductDetails" />
 			<mvc:exclude-mapping path="/common/toIndex" />
-			<mvc:exclude-mapping path="/common/toLimits"/>
-			<mvc:exclude-mapping path="/limits/findAllLimitsByRoleId"/>
+			<mvc:exclude-mapping path="/common/toLimits" />
+			<mvc:exclude-mapping path="/limits/findAllLimitsByRoleId" />
+			<mvc:exclude-mapping path="/common/toShop" />
+			<mvc:exclude-mapping path="/common/toContactUs" />
+			<mvc:exclude-mapping path="/common/toShop" />
+			<mvc:exclude-mapping path="/common/toWishlist" />
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	<!-- 创建一个自定义的binder对象 -->
+	<bean id="myBinder"
+		class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+		<!-- 校验器配置在myBinder对象中 -->
+		<property name="validator" ref="validator" />
+	</bean>
+	<!-- 配置校验器 -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<property name="validationMessageSource" ref="validateSource" />
+	</bean>
+	<!-- 校验资源文件 -->
+	<bean id="validateSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<!-- 要配置资源文件 -->
+		<property name="basenames">
+			<list>
+				<value>classpath:validateMessage</value>
+			</list>
+		</property>
+	</bean>
 </beans>

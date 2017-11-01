@@ -27,14 +27,22 @@
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/layui.js"></script>
+	<script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+		$(function() {
+		var da = '${typeData}';
+		console.log(da);
+		da=JSON.parse(da);
+		findAll(da, "#JB");
+		form.render('select', 'JB1');
+	});
 	});
 	
 	$(function() {
 		/* 从conterller获取数据打印在控制台 */
-		var allPersonalInformationdata = '${allPersonalInformationData}';
+		var allPersonalInformationdata = '${allPersonalInformationdata}';
 		allPersonalInformationdata = JSON.parse(allPersonalInformationdata);
 		/* 修改时显示身份证和名字但是不能修改 */
 			/* 遍历allPersonalInformationdata数据 */
@@ -94,17 +102,18 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">记录人员ID：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="userId" value="${healthRecords.userId }"
-					required lay-verify="required" placeholder="记录人员ID"
+				<input type="text" name="userId" value="${user.username }"
+					readonly	required lay-verify="required" placeholder="记录人员ID"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">疾病ID：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="diseaseId" required lay-verify="required"
-					value="${healthRecords.diseaseId }" placeholder="疾病ID"
-					autocomplete="off" class="layui-input">
+				<select name="diseaseId" id="JB" lay-search=""
+					lay-filter="JB1">
+					<option value="">直接选择或搜索选择</option>
+				</select>
 			</div>
 		</div>
 		<div class="layui-form-item">

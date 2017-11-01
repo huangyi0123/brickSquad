@@ -12,6 +12,17 @@
 		pureqTypeId,nation_id nationId,culture_id cultureId,marriage_id
 		marriageId,zip
 	</sql>
+	<sql id="prop2">
+	p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
+		addressId,p.retirement_unit retirementUnit,
+		p.retirement_date
+		retirementDate, p.engaged_industry engagedIndustry,
+		p.weight,p.height,p.income,p.family_history familyHistory,p.is_purchasing
+		isPurchasing,p.is_supremacy isSupremacy,p.is_pureq isPureq,p.pureq_type_id
+		pureqTypeId,p.culture_id cultureId,p.marriage_id
+		marriageId,p.zip,t.name nationId
+		FROM personal_information p JOIN type t ON p.nation_id=t.id
+	</sql>
 	<select id="findPersonalInformationById" resultType="PersonalInformation"
 		parameterType="String">
 		SELECT
@@ -56,25 +67,25 @@
 	<select id="personalInformationPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.PersonalInformation">
 		<if test="keyword!=''">
 		SELECT
-		<include refid="prop" /> 
-		FROM personal_information WHERE `name` REGEXP  #{keyword} or gender REGEXP #{keyword} or idcard REGEXP #{keyword}
+		<include refid="prop2" />
+		WHERE p.`name` REGEXP  #{keyword} or p.gender REGEXP #{keyword} or p.idcard REGEXP #{keyword}
 		LIMIT #{skipNum},#{takeNum}
 		</if>
 		
 		<if test="keyword==''">
 		SELECT
-		<include refid="prop" />
-		FROM personal_information LIMIT #{skipNum},#{takeNum}
+		<include refid="prop2" />
+		 LIMIT #{skipNum},#{takeNum}
 		</if>
 	</select>
 	
 	<select id="personalInformationCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		<if test="keyword==''">
 		
-		SELECT COUNT(*) FROM personal_information
+		SELECT COUNT(*) FROM personal_information p JOIN type t ON p.nation_id=t.id
 		</if>
 		<if test="keyword!=''">
-		SELECT COUNT(*) FROM personal_information WHERE `name` REGEXP  #{keyword} or gender REGEXP #{keyword} or idcard REGEXP #{keyword}
+		SELECT COUNT(*) FROM personal_information p JOIN type t ON p.nation_id=t.id WHERE p.`name` REGEXP  #{keyword} or p.gender REGEXP #{keyword} or p.idcard REGEXP #{keyword}
 		LIMIT #{skipNum},#{takeNum}
 		</if>
 	</select>

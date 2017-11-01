@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Rapport;
+import com.brick.squad.service.GuidanceService;
 import com.brick.squad.service.HealthRecordsService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/healthRecords")
@@ -20,7 +22,13 @@ public class HealthRecordsController {
 	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
-
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
+	@Autowired
+	@Qualifier("guidanceService")
+	private GuidanceService guidanceService;
+	
 	@RequestMapping("/toHealthRecordsList")
 	public String toHealthRecordsList() {
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
@@ -47,11 +55,12 @@ public class HealthRecordsController {
 	@RequestMapping("/toAddHealthRecords")
 	public String toAddHealthRecords(HttpServletRequest request, String id)
 			throws Exception {
-		// 获得全部的personalinformattion页面填写身份证信息用
-		String allPersonalInformationData = healthRecordsService
-				.findAllPersonalInformationGetIdAndIdCardAndName();
-		request.setAttribute("allPersonalInformationData",
-				allPersonalInformationData);
+		//得到数据库中查询的身份证 姓名 id的json数据用于页面显示出来
+				String	allPersonalInformationdata = guidanceService.findPerIdAndIdCard();
+				request.setAttribute("allPersonalInformationdata", allPersonalInformationdata);
+				String data=typeService.findTypeByParentId("jibingleixin");
+				System.out.println(data);
+				request.setAttribute("typeData", data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateHealthRecordsById");
@@ -71,7 +80,13 @@ public class HealthRecordsController {
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 
 	}
-
+	
+	@RequestMapping("/findTypeByParentId")
+	@ResponseBody
+	public String findTypeByParentId(String parentId) {
+		return typeService.findTypeByParentId(parentId);
+	}
+	
 	@RequestMapping("/updateHealthRecordsById")
 	public String updateHealthRecordsById(HealthRecords healthRecords) {
 		healthRecordsService.updateHealthRecordsById(healthRecords);

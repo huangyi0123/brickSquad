@@ -1,5 +1,6 @@
 package com.brick.squad.pojo;
 
+
 /**
  * 
  * @author Luyujing

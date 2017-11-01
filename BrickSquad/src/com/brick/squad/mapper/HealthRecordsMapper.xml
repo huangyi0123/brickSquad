@@ -2,7 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.HealthRecordsMapper">
-
+	<select id="findHealthRecordsByPerId" resultType="healthRecords"
+		parameterType="String">
+		select id, per_id perId, registr_date registrDate,
+		user_id userId,
+		disease_id diseaseId, shape, diet_situation
+		dietSituation,
+		sports_situation sportsSituation,
+		emotion_control
+		emotionControl,
+		thrombus, blood_pressure bloodPressure,
+		health_assessment
+		healthAssessment, dangerous_tips dangerousTips,
+		conclusion_suggestion
+		conclusionSuggestion, evaluate
+		from health_records
+		where per_id=#{perId}
+	</select>
 	<!-- 查询 -->
 	<select id="findHealthRecordsById" resultType="healthRecords"
 		parameterType="String">
@@ -63,7 +79,7 @@
 		<if test="keyword!=''">
 		select p.name pname, h.registr_date registrDate,
 		u.username username,
-		h.disease_id diseaseId, h.shape, h.diet_situation
+		t.name diseaseId, h.shape, h.diet_situation
 		dietSituation,
 		h.sports_situation sportsSituation,
 		h.emotion_control emotionControl,
@@ -71,13 +87,14 @@
 		h.health_assessment healthAssessment, h.dangerous_tips dangerousTips,
 		h.conclusion_suggestion conclusionSuggestion, h.evaluate
 		from health_records h JOIN personal_information p ON h.per_id=p.id
-		JOIN `user` u ON h.user_id=u.id
+		JOIN `user` u ON h.user_id=u.username
+		JOIN type t on h.disease_id=t.id
 		WHERE p.name REGEXP #{keyword} or u.username REGEXP #{keyword}
 		</if>
 		<if test="keyword==''">
 		select p.name pname, h.registr_date registrDate,
 		u.username username,
-		h.disease_id diseaseId, h.shape, h.diet_situation
+		t.name diseaseId, h.shape, h.diet_situation
 		dietSituation,
 		h.sports_situation sportsSituation,
 		h.emotion_control emotionControl,
@@ -85,20 +102,23 @@
 		h.health_assessment healthAssessment, h.dangerous_tips dangerousTips,
 		h.conclusion_suggestion conclusionSuggestion, h.evaluate
 		from health_records h JOIN personal_information p ON h.per_id=p.id
-		JOIN `user` u ON h.user_id=u.id 
+		JOIN `user` u ON h.user_id=u.username
+		JOIN type t on h.disease_id=t.id
 		</if>
 		
 		limit #{skipNum},#{takeNum}
 	</select>
 	
 	<select id="findHealthRecordsAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
-		select COUNT(*) from health_records 
+		select COUNT(*) from health_records h 
 		<if test="keyword!=''">
-		JOIN personal_information  ON health_records.per_id=personal_information.id JOIN `user`   ON health_records.user_id=`user`.id
+		JOIN personal_information  ON h.per_id=personal_information.id JOIN `user`   ON h.user_id=`user`.username 
+		JOIN type t on h.disease_id=t.id
 		WHERE personal_information.name REGEXP #{keyword} or `user`.username REGEXP #{keyword}
 		</if>
 		<if test="keyword==''">
-		JOIN personal_information  ON health_records.per_id=personal_information.id JOIN `user`   ON health_records.user_id=`user`.id
+		JOIN personal_information  ON h.per_id=personal_information.id JOIN `user`   ON h.user_id=`user`.username
+		JOIN type t on h.disease_id=t.id
 		</if>
 	</select>
 </mapper>

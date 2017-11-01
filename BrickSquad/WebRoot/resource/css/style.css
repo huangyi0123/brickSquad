@@ -36,6 +36,7 @@ label {
     color: #fff;
 }
 /*-- header --*/
+
 /* Shutter In Vertical */
 .hvr-shutter-in-vertical {
   display: inline-block;
@@ -86,9 +87,13 @@ label {
 	float:left;
 	padding: 0 20px;
 }
+.logo a:hover{
+	color:white;
+	font-size:2.2em;
+}
 .logo a{
     font-size: 27px;
-    color: rgb(255, 255, 255);
+    color: white;
     text-decoration: none;
     font-family: 'Varela Round', sans-serif;
 	text-transform:uppercase;
@@ -222,7 +227,8 @@ min-height: 670px;
 }
 .header {
     padding: 14px 0;
-    background: #48cfc1;
+    background:#FF9C3F;
+    height: 70px;
 }
 .banner-info{
 	margin-top:175px;
@@ -1875,10 +1881,12 @@ ul.dropdown-menu.drp-mnu span {
 		font-size: 26px;
 	}
 	.btm-grid p {
-		margin-top: 33px;
+		margin-top: 13px;
 	}
 	.btm-wid {
-		padding: 62px 40px;
+		margin-left:-60px;
+		padding-left:103px;
+		margin-top:-45px;
 	}
 	.back-col1, .back-col2 {
 	    padding: 4.5em 9.8em;
@@ -2024,6 +2032,9 @@ ul.dropdown-menu.drp-mnu span {
 	}
 	.logo a {
 		font-size: 23px;
+	}
+	.logo a:hover{
+  		color:red;
 	}
 	.buttons ul li a {
 		font-size: 16px;
