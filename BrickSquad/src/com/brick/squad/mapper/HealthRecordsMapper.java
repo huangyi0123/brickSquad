@@ -12,6 +12,12 @@ import com.brick.squad.util.Pagination;
  * 
  */
 public interface HealthRecordsMapper {
+	/**
+	 * 根据perid查询HealthRecords
+	 * @param perId
+	 * @return
+	 */
+	public HealthRecords findHealthRecordsByPerId(String perId);
 
 	public void insertHealthRecords(HealthRecords healthRecords);
 
@@ -21,7 +27,9 @@ public interface HealthRecordsMapper {
 
 	public void updateHealthRecordsById(HealthRecords healthRecords);
 
-	public List<HealthRecordsExpand> healthRecordsPagination(Pagination pagination);
+	public List<HealthRecordsExpand> healthRecordsPagination(
+			Pagination pagination);
+
 	public int findHealthRecordsAllCount(Pagination pagination);
 
 }

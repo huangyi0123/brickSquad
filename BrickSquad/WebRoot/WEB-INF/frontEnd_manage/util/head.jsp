@@ -105,6 +105,7 @@ color:red;
 <body>
 	<div class="">
 		<div class="header" style="height: 70px; background-color: #FF9C3F">
+
 			<div class="logo">
 				<h1>
 					<a href="common/toIndex">
@@ -133,6 +134,7 @@ color:red;
 					<li class="layui-nav-item" ng-if="${user!=null }">
 						<a href="javascript:;">${user.username }</a>
 						<dl class="layui-nav-child" style="background-color: #FF9C3F">
+
 							<!-- 二级菜单 -->
 							<dd>
 								<a href="common/toPersonal">个人信息</a>
@@ -145,6 +147,7 @@ color:red;
 					<li class="layui-nav-item" ng-if="${user==null }">
 						<a href="javascript:;" id="login">登录</a>
 						<dl class="layui-nav-child" style="background-color: #FF9C3F">
+
 							<!-- 二级菜单 -->
 							<dd>
 								<a href="javascript:;" id="register">注册</a>
@@ -162,6 +165,7 @@ color:red;
 							placeholder="Enter your search item..." type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
 						<span class="sb-icon-search" style="background-color:  #FF9C3F;"> </span>
+
 					</form>
 				</div>
 			</div>

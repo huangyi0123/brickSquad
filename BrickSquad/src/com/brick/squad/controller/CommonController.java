@@ -16,15 +16,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.RelativesAndAddressExpand;
 import com.brick.squad.pojo.Address;
+import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
+import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.util.UpLoadFile;
 
 @Controller
@@ -92,6 +97,13 @@ public class CommonController {
 	@Autowired
 	@Qualifier("relativesService")
 	private RelativesService relativesService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
+	@Autowired
+	@Qualifier("healthRecordsService")
+	private HealthRecordsService healthRecordsService;
+
 
 	@RequestMapping("/toPersonal")
 	public String toPersonal(HttpServletRequest request) throws Exception {
@@ -147,6 +159,32 @@ public class CommonController {
 			}
 			request.setAttribute("relativesAndAddressExpand", relativesAndAddressExpand);
 			//end
+			//start 查询personalinformation和healthrecords 个人身体数据显示用
+			PersonalInfofmationAndHealthRecordsExpand personalInfofmationAndHealthRecordsExpand = new PersonalInfofmationAndHealthRecordsExpand();
+			if (personalInformation!=null) {
+				personalInfofmationAndHealthRecordsExpand.setPersonalInformation(personalInformation);
+				//根据personalInformation的NationId查询type表的记录，获取民族名
+				Type type =typeService.findTypeById(personalInformation.getNationId());
+				if (type!=null) {
+					//获取民族名 存在personalInfofmationAndHealthRecordsExpand扩展类 中 
+					personalInfofmationAndHealthRecordsExpand.setNationName(type.getName());
+				}
+				
+				//根据personalInfofmation的ID查询healthRecords的数据 
+			HealthRecords healthRecords =healthRecordsService.findHealthRecordsByPerId(personalInformation.getId());
+			if (healthRecords!=null) {
+				personalInfofmationAndHealthRecordsExpand.setHealthRecords(healthRecords);
+				//如果healthRecords不为空，根据healthRecords中的DiseaseId查询Type中的疾病名
+				Type typeDiseaseName =typeService.findTypeById(healthRecords.getDiseaseId());
+			if (typeDiseaseName!=null) {
+				//如果typeDiseaseName有值，把对应疾病名存入 personalInfofmationAndHealthRecordsExpand扩展类 中 
+				personalInfofmationAndHealthRecordsExpand.setDiseaseName(typeDiseaseName.getName());
+			}
+			}
+			}
+			
+			request.setAttribute("personalInfofmationAndHealthRecordsExpand", personalInfofmationAndHealthRecordsExpand);
+			//end
 			return "frontEnd_manage/person_information/Personal";
 		}else{
 			return "redirect:/";
@@ -169,6 +207,13 @@ public class CommonController {
 	}
 	@RequestMapping("/toLimits")
 	public String toLimits() {
+
 		return "backstage_managed/jsp/role/limits";
+	}
+	
+	@RequestMapping("/toShop")
+	public String toShop() {
+		return "frontEnd_manage/front_bootstrap/index";
+		
 	}
 }
