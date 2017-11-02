@@ -151,7 +151,7 @@
 </script>
 </head>
 
-<body class="container">
+<body >
 
 	<jsp:include page="../util/head.jsp"></jsp:include>
 	<div class="Person_body">

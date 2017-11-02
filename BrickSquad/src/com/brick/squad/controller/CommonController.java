@@ -240,5 +240,13 @@ public class CommonController {
 	public String tosimple_product() {
 		return "frontEnd_manage/front_bootstrap/simple_product";
 	}
+	@RequestMapping("/toabout_us")
+	public String toabout_us() {
+		return "frontEnd_manage/front_bootstrap/about_us";
+	}
+	@RequestMapping("/todeals")
+	public String deals() {
+		return "frontEnd_manage/front_bootstrap/deals";
+	}
 }
 

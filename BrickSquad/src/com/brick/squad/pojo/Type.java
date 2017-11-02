@@ -1,7 +1,6 @@
 package com.brick.squad.pojo;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * 
@@ -11,8 +10,7 @@ import javax.validation.constraints.Size;
 public class Type {
 	private String id;
 	private String parentId;
-	@Size(min=3,max=6,message="长度")
-	@Pattern(regexp="^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$",message="非法手机号")
+	@NotBlank(message="类型名称不能为空")
 	private String name;
 	public String getId() {
 		return id;

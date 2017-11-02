@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -43,31 +43,33 @@
 		<div class="nav-close">
 			<i class="fa fa-times-circle"></i>
 		</div>
-		
+
 		<div class="sidebar-collapse">
 			<ul style="margin-top: 10px;" class="nav" id="side-menu">
 				<span>
 					<img style="margin-bottom: 10px;" alt="image" class="img-circle" src="resource/image/logo.png" />
 				</span>
-				
-				<li  >
-					<a class="J_menuItem">
-						<i class="fa fa-table"></i>
-						基本表单
-						<span class="fa arrow"></span>
-					</a>
-					<ul class="nav nav-second-level">
-						<li>
-							<a class="J_menuItem" href="region/toRegionList">区域列表</a>
-						</li>
-						<li>
-							<a class="J_menuItem" href="address/toAddressList">地址列表</a>
-						</li>
-						<li>
-							<a class="J_menuItem" href="type/toType">商品类型列表</a>
-						</li>
-					</ul>
-				</li>
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' }">
+					<li>
+						<a class="J_menuItem">
+							<i class="fa fa-table"></i>
+							基本表单
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li>
+								<a class="J_menuItem" href="region/toRegionList">区域列表</a>
+							</li>
+							<li>
+								<a class="J_menuItem" href="address/toAddressList">地址列表</a>
+							</li>
+							<li>
+								<a class="J_menuItem" href="type/toType">商品类型列表</a>
+							</li>
+						</ul>
+					</li>
+				</c:if>
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c'}">
 				<li>
 					<a class="J_menuItem">
 						<i class="fa fa-table"></i>
@@ -89,7 +91,7 @@
 
 					</ul>
 				</li>
-
+				</c:if>
 				<li>
 					<a class="J_menuItem">
 						<i class="fa fa-table"></i>
