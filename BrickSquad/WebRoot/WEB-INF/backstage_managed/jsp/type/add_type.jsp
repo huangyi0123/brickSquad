@@ -84,7 +84,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">搜索选择框</label>
 			<div class="layui-input-inline">
-				<select name="parentId" id="parament" val=${type.parentId } lay-search="" lay-filter="test">
+				<select  name="parentId" id="parament" val=${type.parentId }  lay-filter="test" lay-search="">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>

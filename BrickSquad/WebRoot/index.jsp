@@ -89,12 +89,12 @@
 <body>
 	<jsp:include page="WEB-INF/frontEnd_manage/util/head.jsp" />
 	<div class="content-bottom">
-	<div class="btm-grids" style="width:100%;">
-		<div class="col-md-4 btm-grid back-col2 text-center" style="height:350px;width:100%;">
+	<div class="btm-grids " style="width:100%;">
+		<div class="col-md-4 btm-grid back-col2 text-center"  style="height:350px;width:100%;">
 			<div class="layui-carousel" id="test1" style="
 			margin-top:-63px;magin-left:-170px;">
         	<div carousel-item="">
-            <div><img src="resource/image/oder1.jpg" style="height:350px;padding:0px;"></div>
+            <div><img src="resource/image/shijiuda.jpg" style="height:350px;padding:0px;" ></div>
             <div><img src="resource/image/oder2.jpg" style="height:350px;padding:0px;"></div>
             <div><img src="resource/image/oder3.jpg" style="height:350px;padding:0px;"></div>
             <div><img src="resource/image/oder8.jpg" style="height:350px;padding:0px;"></div>
