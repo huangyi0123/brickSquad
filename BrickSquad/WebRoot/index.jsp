@@ -109,7 +109,7 @@
 			<div class="coupons-grids text-center">
 				<div class="col-md-3 coupons-gd">
 					<h3>
-						RECHARGE IN
+						主题
 						<span>3 SIMPLE STEPS</span>
 					</h3>
 				</div>
@@ -119,7 +119,7 @@
 							<img src="resource/image/web.png" alt=" " />
 						</span>
 					</h4>
-					<p>LOGIN TO YOUR ACCOUNT</p>
+					<p>活动中心</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
@@ -127,7 +127,7 @@
 							<img src="resource/image/credit.png" alt=" " />
 						</span>
 					</h4>
-					<p>ENTER RECHARGE DETAILS</p>
+					<p>商城中心</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
@@ -135,7 +135,7 @@
 							<img src="resource/image/security.png" alt=" " />
 						</span>
 					</h4>
-					<p>MAKE PAYMENT</p>
+					<p>更多信息</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -159,82 +159,55 @@
 		<div class="container">
 			<div class="foo-grids">
 				<div class="col-md-3 foo-grid">
-					<h3>MOBILE RECHARGES</h3>
+					<h3>网站简介</h3>
 					<ul>
 						<li>
-							<a href="#">Airtel</a>
+							<a href="#">关于我们</a>
 						</li>
 						<li>
-							<a href="#">Aircel</a>
+							<a href="#">服务类型</a>
 						</li>
 						<li>
-							<a href="#">BSNL</a>
-						</li>
-						<li>
-							<a href="#">Idea</a>
-						</li>
-						<li>
-							<a href="#">MTNL</a>
-						</li>
-						<li>
-							<a href="#">MTS</a>
+							<a href="#">服务人群</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<h3>DTH RECHARGES</h3>
+					<h3>公司简介</h3>
 					<ul>
 						<li>
-							<a href="#">Airtel Digital TV Recharges</a>
+							<a href="#">开创时间</a>
 						</li>
 						<li>
-							<a href="#">Dish TV Recharges</a>
+							<a href="#">服务业务</a>
 						</li>
 						<li>
-							<a href="#">Tata Sky Recharges</a>
+							<a href="#">热门品牌</a>
 						</li>
-						<li>
-							<a href="#">Reliance Digital TV Recharges</a>
-						</li>
-						<li>
-							<a href="#">Sun Direct Recharges</a>
-						</li>
-						<li>
-							<a href="#">Videocon D2H Recharges</a>
-						</li>
+						
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<h3>DATACARD RECHARGES</h3>
+					<h3>业务类型</h3>
 					<ul>
 						<li>
-							<a href="#">Airtel 2G Service</a>
+							<a href="#">商品类型</a>
 						</li>
 						<li>
-							<a href="#">Aircel 2G Service</a>
+							<a href="#">生活类型</a>
 						</li>
 						<li>
-							<a href="#">BSNL 2G Service</a>
+							<a href="#">医疗类型</a>
 						</li>
-						<li>
-							<a href="#">MTS MBlaze Recharges</a>
-						</li>
-						<li>
-							<a href="#">Tata Photon Plus Recharges</a>
-						</li>
-						<li>
-							<a href="#">Reliance NetConnect Recharges</a>
-						</li>
+						
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<h3>PAYMENT OPTIONS</h3>
+					<h3>管理层次</h3>
 					<ul>
-						<li>Credit Cards</li>
-						<li>Debit Cards</li>
-						<li>Any Visa Debit Card (VBV)</li>
-						<li>Direct Bank Debits</li>
-						<li>Cash Cards</li>
+						<li>上层</li>
+						<li>中层</li>
+						<li>下层</li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

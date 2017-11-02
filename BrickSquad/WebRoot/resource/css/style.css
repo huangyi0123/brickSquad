@@ -1,6 +1,6 @@
 html, body{
 	font-size: 100%;
-	background:#fff;
+	background:#FCF9F2;
 	font-family: 'Open Sans', sans-serif;
 }
 body a {
@@ -1311,6 +1311,8 @@ background:#FDB85E;
 }
 .content-bottom-two{
 	position:relative;
+	margin-left:2.33%;
+	margin-right:2.33%;
 }
 .btm-pos {
     position: absolute;
@@ -1337,11 +1339,11 @@ background:#FDB85E;
     padding: 80px 0;
 }
 .content-left{
-background:#c2d468;
+background:#FCF7F;
 	
 }
 .content-right{
-background:#48cfc1;
+background:#FCF7F;
 
 }
 .content-left img,.content-right img{
@@ -1349,8 +1351,8 @@ background:#48cfc1;
 }
 /*-- footer --*/
 .footer{
-	background:#3c3d41;
-	padding:45px 0;
+	background:#F79D48;
+	padding:32px 0px 72px 0;
 	text-align:center;
 }
 .footer h2 a{
@@ -1454,7 +1456,12 @@ text-decoration:none;
 	color:#48cfc1;
 }
 .footer-top{
-    background: #f8f8f8;
+   	border-style:inset;
+	border-left:none;
+	border-right:none;
+    background:#FAFAF;
+    margin-left:2.33%;
+    margin-right:2.33%;
 	}
 /*--//flexisel--*/
 .profile-gd ul{
@@ -1895,6 +1902,13 @@ ul.dropdown-menu.drp-mnu span {
 	}
 	.coupons {
 		padding: 120px 0 90px 0;
+		background:#FCF9F2;
+		margin-left:2.33%;
+		margin-right:2.33%;
+		border-style:outset;
+		border-left:none;
+		border-right:none;
+		margin-top:10px;
 	}
 	.btm-pos {
 		padding: 2% 2%;
