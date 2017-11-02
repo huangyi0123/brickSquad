@@ -2,10 +2,18 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class News {
 	private String id;
 	private String userId;
+	
+	
+	@Pattern(regexp="<p><br><\\/p>\\w+",message="新闻内容不能为空")
 	private String content;
+	
 	private String imagePath;
 	private Date postTime;
 	private String title;

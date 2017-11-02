@@ -3,6 +3,7 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -71,10 +75,19 @@ public class NewsController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	@RequestMapping("/insertNews")
-	public String insertNews(News news,HttpServletRequest request) throws Exception{
+	public String insertNews(@Validated News news,HttpServletRequest request,BindingResult result) throws Exception{
+		System.out.println("+++++++++++++++=============================================================================="+news.getContent());
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "insertNews");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/news/add_news";
+					
+		}
 		User user=(User)request.getSession().getAttribute("user");
 		news.setUserId(user.getId());
-		news.setPostTime(new Date() );
+		news.setPostTime(new Date());
 		newsService.insertNews(news);
 		return "backstage_managed/jsp/news/news_list";
 	}
