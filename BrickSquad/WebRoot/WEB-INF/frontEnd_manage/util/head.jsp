@@ -158,17 +158,17 @@ color:red;
 				</ul>
 			</div>
 			<!-- start search-->
-			<div class="search-box">
+<!-- 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
 					<form>
 						<input style="background-color:  #5FB878;" class="sb-search-input"
 							placeholder="Enter your search item..." type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
 						<span class="sb-icon-search" style="background-color:  #FF9C3F;"> </span>
-
+						
 					</form>
 				</div>
-			</div>
+			</div> -->
 			<script src="resource/js/classie.js"></script>
 			<script src="resource/js/uisearch.js"></script>
 			<script>

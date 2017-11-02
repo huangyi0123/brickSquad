@@ -225,5 +225,9 @@ public class CommonController {
 	public String toWishlist() {
 		return "frontEnd_manage/front_bootstrap/wishlist";
 	}
+	@RequestMapping("/tosimple_product")
+	public String tosimple_product() {
+		return "frontEnd_manage/front_bootstrap/simple_product";
+	}
 }
 
