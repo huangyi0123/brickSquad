@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,9 +70,16 @@ public class ActivitiesController {
 		
 		
 		
-		
+		//验证
 		@RequestMapping("/addActivities")
-		public String addActivities(Activities activities) throws Exception{
+		public String addActivities(@Validated Activities activities,BindingResult result,HttpServletRequest request) throws Exception{
+			if (result.hasErrors()) {
+				List<ObjectError> errors = result.getAllErrors();
+				request.setAttribute("errors", errors);
+				request.setAttribute("url", "addActivities");
+				request.setAttribute("msg", "添加");
+				return "backstage_managed/jsp/activities/add_activities";
+			}
 			activitiesService.insertActivitiesById(activities);
 			return "backstage_managed/jsp/activities/activities_list";
 		}
@@ -95,7 +106,15 @@ public class ActivitiesController {
 		
 		
 		@RequestMapping("/updateActivitiesById")
-		public String updateActivitiesById(Activities activities) throws Exception{
+		public String updateActivitiesById(@Validated Activities activities,BindingResult result,HttpServletRequest request) throws Exception{
+			if (result.hasErrors()) {
+				
+				List<ObjectError> errors = result.getAllErrors();
+				request.setAttribute("errors", errors);
+				request.setAttribute("url", "updateActivitiesById");
+				request.setAttribute("msg", "修改");
+				return "backstage_managed/jsp/activities/add_activities";
+			}
 			activitiesService.updateActivitiesById(activities);
 			return "backstage_managed/jsp/activities/activities_list";
 			

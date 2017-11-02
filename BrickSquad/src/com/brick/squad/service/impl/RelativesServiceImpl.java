@@ -41,11 +41,16 @@ public class RelativesServiceImpl implements RelativesService {
 
 	@Override
 	public void insertRelatives(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand) {
-		//获取拓展类中的Address类执行插入方法
+		/*//获取拓展类中的Address类执行插入方法
 		addressMapper.insertAddress(relativesAndAddressAndTypeAndPersonExpand.getAddress());
 		//将拓展类中的Relatives类中的外键id设置成新插入的address的主键
 		relativesAndAddressAndTypeAndPersonExpand.getRelatives().setAddressId(relativesAndAddressAndTypeAndPersonExpand.getAddress().getId());;
 		//最后将拓展类中的Relatives类执行方法
+		relativesMapper.insertRelatives(relativesAndAddressAndTypeAndPersonExpand.getRelatives());*/
+		Address address=relativesAndAddressAndTypeAndPersonExpand.getAddress();
+		addressMapper.insertAddress(address);
+		String addressId = relativesAndAddressAndTypeAndPersonExpand.getAddress().getId();
+		relativesAndAddressAndTypeAndPersonExpand.getRelatives().setAddressId(addressId);
 		relativesMapper.insertRelatives(relativesAndAddressAndTypeAndPersonExpand.getRelatives());
 	}
 
