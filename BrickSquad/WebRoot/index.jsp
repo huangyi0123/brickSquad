@@ -32,8 +32,8 @@
 						$(result)
 								.each(
 										function() {
-											var title = this.title.length > 16 ? this.title
-													.substring(0, 17)
+											var title = this.title.length > 8 ? this.title
+													.substring(0, 10)
 													+ "..."
 													: this.title;
 											$("#news")
@@ -54,36 +54,44 @@
 </script>
 <style type="text/css">
 .news>li {
-	height: 13px;
+	height: 23px;
 	width: 100%;
-	padding-left:20px;
-}
+	padding-left:30px; 
+} 
 
 .news>li>a {
 	display: block;
 }
 
 .title {
+	 margin-top:-22px;
 	font-size: 15px;
 	line-height: 30px;
 	display: block;
 	float: left;
+	margin-left:-50px; 
+	
 }
 
+
 .time {
+	 margin-top:-22px;
 	line-height: 20px;
 	display: block;
 	float: right;
-	padding-left:33px;
+	padding-left:-133px; 
+}
+.coupons-gd h3{
+	margin-top:-80px;
 }
 </style>
 <body>
 	<jsp:include page="WEB-INF/frontEnd_manage/util/head.jsp" />
 	<div class="content-bottom">
-	<div class="btm-grids" >
-		<div class="col-md-4 btm-grid back-col2 text-center" style="height:350px;width:900px;margin-left:32px;">
-			<div class="layui-carousel" id="test1" style="margin-left:-110px;
-			margin-top:-63px;">
+	<div class="btm-grids" style="width:100%;">
+		<div class="col-md-4 btm-grid back-col2 text-center" style="height:350px;width:100%;">
+			<div class="layui-carousel" id="test1" style="
+			margin-top:-63px;magin-left:-170px;">
         	<div carousel-item="">
             <div><img src="resource/image/oder1.jpg" style="height:350px;padding:0px;"></div>
             <div><img src="resource/image/oder2.jpg" style="height:350px;padding:0px;"></div>
@@ -93,13 +101,6 @@
     	</div>
   	</div>
     
-			
-			<div class="col-md-4 btm-grid btm-wid"  >
-				<h3>最新动态</h3>
-				<p>
-				<ul class="news" id="news"></ul>
-				</p>
-			</div>
 	
 			<div class="clearfix" style="margin-top:8px;"></div>
 		</div>
@@ -108,10 +109,10 @@
 		<div class="container">
 			<div class="coupons-grids text-center">
 				<div class="col-md-3 coupons-gd">
-					<h3>
-						主题
-						<span>3 SIMPLE STEPS</span>
-					</h3>
+					<h3>最新动态</h3>
+				<p>
+				<ul class="news" id="news"></ul>
+				</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
@@ -206,7 +207,7 @@
 					<h3>管理层次</h3>
 					<ul>
 						<li>上层</li>
-						<li>中层</li>
+						<li>下=z层</li>
 						<li>下层</li>
 					</ul>
 				</div>
@@ -222,9 +223,9 @@
             //建造实例
             carousel.render({
                 elem: '#test1'
-                , width: '850px'
+                , width: '100%'
                 , height: '350px'
-                , interval: 5000
+                , interval: 4000
             });
         });
     </script>
