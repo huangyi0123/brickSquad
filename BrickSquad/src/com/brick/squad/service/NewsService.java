@@ -53,4 +53,5 @@ public interface NewsService {
 	 * @return 新闻详情
 	 */
 	public NewsExpand findNewsExpandById(String id);
+
 }

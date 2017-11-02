@@ -21,7 +21,7 @@
 		isPurchasing,p.is_supremacy isSupremacy,p.is_pureq isPureq,p.pureq_type_id
 		pureqTypeId,p.culture_id cultureId,p.marriage_id
 		marriageId,p.zip,t.name nationId
-		FROM personal_information p JOIN type t ON p.nation_id=t.id
+		FROM personal_information p LEFT JOIN type t ON p.nation_id=t.id
 	</sql>
 	<select id="findPersonalInformationById" resultType="PersonalInformation"
 		parameterType="String">
