@@ -108,7 +108,7 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">疾病ID：</label>
+			<label class="layui-form-label" style="width: 100px;">疾病类型：</label>
 			<div class="layui-input-inline">
 				<select name="diseaseId" id="JB" lay-search=""
 					lay-filter="JB1">
