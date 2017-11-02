@@ -32,6 +32,16 @@
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+		//获取老人信息表
+		$.ajax({
+			url : 'personalInformation/findAllPersonalInformation',
+			success : function(result) {
+				result = JSON.parse(result);
+				findAll(result, "#perid");
+				form.render('select', 'perid');
+			}
+		});
+		//地址
 		form.on('select(prIds)', function(data) {
 			$.ajax({
 				url : 'address/findRegionsByParentId?pid=' + data.value,
@@ -102,6 +112,16 @@
 	<form action="buyers/${url} " class="layui-form" method="post">
 		<input type="hidden" name="buyers.id" value="${addressAndBuyersExpand.buyers.id }">
 		<input type="hidden" name="address.id" value="${addressAndBuyersExpand.address.id }">
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">老人姓名：</label>
+			<div class="layui-input-inline">
+				<select lay-filter="perid" name="buyers.informationId" id="perid"
+					val="${addressAndBuyersExpand.buyers.informationId}">
+					<option value="">选择老人姓名</option>
+				</select>
+			</div>
+		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">积分：</label>
 			<div class="layui-input-inline">

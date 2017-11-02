@@ -37,15 +37,6 @@
 	<delete id="deleteActivityRegistrationById" parameterType="String">
 		DELETE FROM activity_registration WHERE id=#{id}
 	</delete>
-	<!-- <select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="ActivityRegistration">
-		SELECT
-		id,per_id perId,activities_id
-		activitiesId,registration_date
-		registrationDate,appointment
-		FROM activity_registration LIMIT #{skipNum},#{takeNum}
-	</select> -->
-	
 	<select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ActivityRegistrationExpand">
 		SELECT  personal_information.name personalInformationName,activities.name activitiesName,activity_registration.registration_date registrationDate,activity_registration.id,activity_registration.appointment 
