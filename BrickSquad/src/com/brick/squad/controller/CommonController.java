@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,12 +21,14 @@ import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.RelativesAndAddressExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.HealthRecords;
+import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.HealthRecordsService;
+import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
@@ -35,8 +38,16 @@ import com.brick.squad.util.UpLoadFile;
 @Controller
 @RequestMapping("/common")
 public class CommonController {
+	@Autowired
+	@Qualifier("limitsService")
+	private LimitsService limitsService;
 	@RequestMapping("/toFrame")
-	public String toFrame() {
+	public String toFrame(HttpServletRequest request) {
+		//begin 通过权限id查询权限
+		String roleId=((User)(request.getSession().getAttribute("user"))).getRoleId();
+		Map<String, Limits> limits=limitsService.findAllLimitsByRoleId(roleId);
+		request.setAttribute("limite", limits);
+		//end
 		return "backstage_managed/jsp/frame";
 	}
 
@@ -224,6 +235,10 @@ public class CommonController {
 	@RequestMapping("/toWishlist")
 	public String toWishlist() {
 		return "frontEnd_manage/front_bootstrap/wishlist";
+	}
+	@RequestMapping("/tosimple_product")
+	public String tosimple_product() {
+		return "frontEnd_manage/front_bootstrap/simple_product";
 	}
 }
 

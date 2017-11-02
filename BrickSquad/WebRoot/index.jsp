@@ -24,9 +24,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$
-				.ajax({
-					url : 'news/findNews',
+		$.ajax({
+					url : 'news/findNewsReturnIndex',
 					success : function(result) {
 						result = JSON.parse(result);
 						$(result)
@@ -84,7 +83,9 @@
 .coupons-gd h3{
 	margin-top:-80px;
 }
+
 </style>
+</head>
 <body>
 	<jsp:include page="WEB-INF/frontEnd_manage/util/head.jsp" />
 	<div class="content-bottom">
@@ -100,7 +101,6 @@
        		</div>
     	</div>
   	</div>
-    
 	
 			<div class="clearfix" style="margin-top:8px;"></div>
 		</div>

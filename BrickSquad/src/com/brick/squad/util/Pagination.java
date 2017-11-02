@@ -1,6 +1,5 @@
 package com.brick.squad.util;
 
-import com.brick.squad.pojo.User;
 
 public class Pagination {
 	private int skipNum;//当前第几条记录开始
