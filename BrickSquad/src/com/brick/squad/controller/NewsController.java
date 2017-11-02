@@ -12,6 +12,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -94,11 +95,26 @@ public class NewsController {
 		newsService.updateNewsById(news);
 		return "backstage_managed/jsp/news/news_list";
 	}
+	
 	@RequestMapping("/findNews")
-	@ResponseBody
-	public String findNews() {
-		return newsService.findNewsList();
+	public String findNews(HttpServletRequest request,String id) throws Exception {
+		News news = newsService.findNewsById(id);
+		request.setAttribute("news", news);
+		return "backstage_managed/jsp/news/search_news";
 	}
+	/**
+	 * 返回主页新闻列表
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findNewsReturnIndex")
+	@ResponseBody
+	public String findNewsReturnIndex(HttpServletRequest request) throws Exception {
+		String newString=newsService.findNewsList();
+		return newString;
+	}
+	
 	@RequestMapping("/findNewsExpandById")
 	public String findNewsExpandById(HttpServletRequest request,String id){
 		NewsExpand newsExpand=newsService.findNewsExpandById(id);

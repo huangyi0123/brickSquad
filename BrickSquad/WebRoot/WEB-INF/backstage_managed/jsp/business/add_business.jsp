@@ -40,7 +40,7 @@
 	<form class="layui-form" action="business/${url }" id="form1" method="post">
 		<input type="hidden" name="id" value="${business.id }">
 		<div class="layui-form-item">
-			<label class="layui-form-label">商家名称：</label>
+			<label class="layui-form-label">店主姓名：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
 					placeholder="商家名称" autocomplete="off" class="layui-input" value="${business.name}">

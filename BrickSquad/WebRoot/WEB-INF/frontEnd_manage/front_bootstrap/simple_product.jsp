@@ -1,43 +1,50 @@
-﻿<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
-<head>	
+  <head>
+    <base href="<%=basePath%>">
 	<title>商品详情</title>
 	<meta charset="utf-8" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	
 	<!-- FAVICONS -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57-precomposed.png" />
-    <link rel="shortcut icon" href="icons/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resource/front_bootstrap/icons/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resource/front_bootstrap/icons/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="resource/front_bootstrap/icons/favicon.png" />
 	
 	<!-- GOOGLE WEB FONTS -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 	
 	<!-- BOOTSTRAP 3.3.7 CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
 	
 	<!-- SLICK v1.6.0 CSS -->
-	<link rel="stylesheet" href="css/slick-1.6.0/slick.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
 	
-	<link rel="stylesheet" href="css/jquery.fancybox.css" />
-	<link rel="stylesheet" href="css/yith-woocommerce-compare/colorbox.css" />
-	<link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css" />
-	<link rel="stylesheet" href="css/owl-carousel/owl.theme.default.min.css" />
-	<link rel="stylesheet" href="css/js_composer/js_composer.min.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce-layout.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce-smallscreen.css" />
-	<link rel="stylesheet" href="css/woocommerce/prettyPhoto.css" />
-	<link rel="stylesheet" href="css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/jquery.fancybox.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-layout.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-smallscreen.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/prettyPhoto.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 	
 	
-	<link rel="stylesheet" href="css/custom.css" />
-	<link rel="stylesheet" href="css/app-orange.css" id="theme_color" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" /> 
-	<link rel="stylesheet" href="css/app-responsive.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
 </head>
 
 <body class="product-template-default single single-product woocommerce woocommerce-page">
@@ -57,56 +64,11 @@
 									</div>
 								</div>
 							</div>
-							
-							<div class="widget text-3 widget_text pull-left">
-								<div class="widget-inner">
-									<div class="textwidget">
-										<div id="lang_sel">
-											<ul class="nav">
-												<li>
-													<a class="lang_sel_sel icl-en">
-														<img class="iclflag" title="English" alt="en" src="images/icons/en.png" width="18" height="12" /> English
-													</a>
-													<ul>
-														<li class="icl-en">
-															<a href="#">
-																<img class="iclflag" title="English" alt="en" src="images/icons/en.png" width="18" height="12" /> English
-															</a>
-														</li>
-														
-														<li class="icl-ar">
-															<a href="#">
-																<img class="iclflag" title="Arabic" alt="ar" src="images/icons/ar.png" width="18" height="12" /> Arabic
-															</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="widget woocommerce_currency_converter-2 widget_currency_converter pull-left">
-								<div class="widget-inner">
-									<form method="post" class="currency_converter" action="">
-										<ul class="currency_w">
-											<li>
-												<a href="#" class="">USD</a>
-												<ul class="currency_switcher">
-													<li><a href="#" class="reset default active" data-currencycode="USD">USD</a></li>
-													<li><a href="#" class="" data-currencycode="EUR">EUR</a></li>
-												</ul>
-											</li>
-										</ul>
-									</form>
-								</div>
-							</div>
 						</div>
 						
 						<div class="wrap-myacc pull-right">
 							<div class="sidebar-account pull-left">
-								<div class="account-title">My account</div>
+								<div class="account-title">我的淘宝</div>
                         
 								<div id="my-account" class="my-account">
 									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
@@ -114,25 +76,13 @@
 											<ul id="menu-my-account" class="menu">
 												<li class="menu-my-account">
 													<a class="item-link" href="my_account.html">
-														<span class="menu-title">My Account</span>
+														<span class="menu-title">已买到的宝贝</span>
 													</a>
 												</li>
 												
 												<li class="menu-cart">
 													<a class="item-link" href="cart.html">
-														<span class="menu-title">Cart</span>
-													</a>
-												</li>
-												
-												<li class="menu-checkout">
-													<a class="item-link" href="checkout.html">
-														<span class="menu-title">Checkout</span>
-													</a>
-												</li>
-												
-												<li class="menu-wishlist">
-													<a class="item-link" href="wishlist.html">
-														<span class="menu-title">Wishlist</span>
+														<span class="menu-title">我的足迹</span>
 													</a>
 												</li>
 											</ul>
@@ -142,16 +92,36 @@
 									<div class="widget-2 widget-last widget sw_top-4 sw_top">
 										<div class="widget-inner">
 											<div class="top-login">
-												<div class="div-logined">
-													<ul>
-														<li>
-															<a href="javascript:void(0);" data-toggle="modal" data-target="#login_form">
-																<span>Login</span>
-															</a>
-															<span class="wg">Welcome Guest</span>
-														</li>
-													</ul>
-												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sidebar-account pull-left">
+								<div class="account-title">登录</div>
+                        
+								<div id="my-account" class="my-account">
+									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+										<div class="widget-inner">
+											<ul id="menu-my-account" class="menu">
+												<li class="menu-my-account">
+													<a class="item-link" href="my_account.html">
+														<span class="menu-title">登录</span>
+													</a>
+												</li>
+												
+												<li class="menu-cart">
+													<a class="item-link" href="cart.html">
+														<span class="menu-title">注册</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									
+									<div class="widget-2 widget-last widget sw_top-4 sw_top">
+										<div class="widget-inner">
+											<div class="top-login">
 											</div>
 										</div>
 									</div>
@@ -163,8 +133,8 @@
 									<div class="widget-inner">
 										<ul id="menu-checkout" class="menu">
 											<li class="menu-checkout">
-												<a class="item-link" href="checkout.html">
-													<span class="menu-title">Checkout</span>
+												<a class="item-link" href="common/toContactUs">
+													<span class="menu-title">关于我们</span>
 												</a>
 											</li>
 										</ul>
@@ -172,6 +142,8 @@
 								</div>
 							</div>
 						</div>
+						
+						
 					</div>
 				</div>
 			</div>
@@ -182,7 +154,7 @@
 						<!-- LOGO -->
 						<div class="etrostore-logo pull-left">
 							<a href="home_page_1.html">
-								<img src="images/icons/logo-orange.png" alt="Shoopy">
+								<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
 							</a>
 						</div>
 						
@@ -241,8 +213,8 @@
 												<ul class="minicart-content">
 													<li>
 														<a href="simple_product.html" class="product-image">
-															<img 	width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-																	srcset="images/1903/45-150x150.jpg 150w, images/1903/45-300x300.jpg 300w, images/1903/45-180x180.jpg 180w, images/1903/45.jpg 600w" 
+															<img 	width="100" height="100" src="resource/front_bootstrap/images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+																	srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w" 
 																	sizes="(max-width: 100px) 100vw, 100px" />
 														</a>
 														
@@ -279,8 +251,8 @@
 													
 													<li>
 														<a href="simple_product.html" class="product-image">
-															<img 	width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-																	srcset="images/1903/22-150x150.jpg 150w, images/1903/22-300x300.jpg 300w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" 
+															<img 	width="100" height="100" src="resource/front_bootstrap/images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+																	srcset="resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" 
 																	sizes="(max-width: 100px) 100vw, 100px" />
 														</a>
 														
@@ -979,7 +951,7 @@
 													<span class="menu-color" data-color="#f03442"></span>
 													
 													<span class="menu-img">
-														<img src="images/1903/icon-new-1.png" alt="Menu Image" />
+														<img src="resource/front_bootstrap/images/1903/icon-new-1.png" alt="Menu Image" />
 													</span>
 													
 													<span class="menu-title">Shop</span>
@@ -1187,7 +1159,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn3.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn3.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Electronics</span>
@@ -1257,7 +1229,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn4.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn4.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Smartphone</span>
@@ -1332,7 +1304,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn5.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn5.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Tablet</span>
@@ -1394,7 +1366,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn6.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn6.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Computer</span>
@@ -1633,7 +1605,7 @@
 													<a href="#">
 														<span class="">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn1.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn1.jpg" alt="Menu Image" />
 															</span>
 														</span>
 													</a>
@@ -1643,7 +1615,7 @@
 													<a href="#">
 														<span class="">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn2.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn2.jpg" alt="Menu Image" />
 															</span>
 														</span>
 													</a>
@@ -1655,7 +1627,7 @@
 											<a href="deals.html" class="item-link">
 												<span class="have-title">
 													<span class="menu-img">
-														<img src="images/1903/icon-hot.png" alt="Menu Image" />
+														<img src="resource/front_bootstrap/images/1903/icon-hot.png" alt="Menu Image" />
 													</span>
 													
 													<span class="menu-title">Deals</span>
@@ -1744,8 +1716,8 @@
 									<ul class="minicart-content">
 										<li>
 											<a href="simple_product.html" class="product-image">
-												<img 	width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-														srcset="images/1903/45-150x150.jpg 150w, images/1903/45-300x300.jpg 300w, images/1903/45-180x180.jpg 180w, images/1903/45.jpg 600w" 
+												<img 	width="100" height="100" src="resource/front_bootstrap/images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+														srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w" 
 														sizes="(max-width: 100px) 100vw, 100px" />
 											</a>
 											
@@ -1782,8 +1754,8 @@
 									  
 										<li>
 											<a href="simple_product.html" class="product-image">
-												<img	 width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-														srcset="images/1903/22-150x150.jpg 150w, images/1903/22-300x300.jpg 300w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" 
+												<img	 width="100" height="100" src="resource/front_bootstrap/images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+														srcset="resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" 
 														sizes="(max-width: 100px) 100vw, 100px" />
 											</a>
 											
@@ -1821,7 +1793,7 @@
 									
 									<div class="cart-checkout">
 										<div class="price-total">
-											<span class="label-price-total">Total</span>
+											<span class="label-price-total">总计</span>
 											
 											<span class="price-total-w">
 												<span class="price">
@@ -1857,7 +1829,7 @@
 										<form role="search" method="get" class="form-search searchform" action="">
 											<label class="hide"></label>
 											<input type="text" value="" name="s" class="search-query" placeholder="Keyword here..." />
-											<button type="submit" class="button-search-pro form-button">Search</button>
+											<button type="submit" class="button-search-pro form-button">搜索</button>
 										</form>
 									</div>
 								</div>
@@ -1876,7 +1848,7 @@
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
-									<li><a href="home_page_1.html">Home</a><span class="go-page"></span></li>
+									<li><a href="home_page_1.html">首页</a><span class="go-page"></span></li>
 									<li><a href="group_product.html">Group Product</a><span class="go-page"></span></li>
 									<li class="active"><span>Turkey Qui</span></li>
 								</ul>
@@ -1897,55 +1869,55 @@
 									<div class="product_detail row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
 											<div class="slider_img_productd">
-												<!-- woocommerce_show_product_images -->
-												<div id="product_img_01" class="product-images loading" data-rtl="false">
-													<div class="product-images-container clearfix thumbnail-bottom">
+												<!-- woocommerce_show_product_resource/front_bootstrap/images -->
+												<div id="product_img_01" class="product-resource/front_bootstrap/images loading" data-rtl="false">
+													<div class="product-resource/front_bootstrap/images-container clearfix thumbnail-bottom">
 														<!-- Image Slider -->
 														<div class="slider product-responsive">
 															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/49.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/49.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/49.jpg 600w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
+																<div class="resource/front_bootstrap/images">					
+																	<a href="resource/front_bootstrap/images/1903/49.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
+																		<img width="600" height="600" src="resource/front_bootstrap/images/1903/49.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="resource/front_bootstrap/images/1903/49.jpg 600w, resource/front_bootstrap/images/1903/49-150x150.jpg 150w, resource/front_bootstrap/images/1903/49-300x300.jpg 300w, resource/front_bootstrap/images/1903/49-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
 																	</a>
 																</div>
 															</div>
 															
 															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/48.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/48.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/48.jpg 600w, images/1903/48-150x150.jpg 150w, images/1903/48-300x300.jpg 300w, images/1903/48-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
+																<div class="resource/front_bootstrap/images">					
+																	<a href="resource/front_bootstrap/images/1903/48.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
+																		<img width="600" height="600" src="resource/front_bootstrap/images/1903/48.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="resource/front_bootstrap/images/1903/48.jpg 600w, resource/front_bootstrap/images/1903/48-150x150.jpg 150w, resource/front_bootstrap/images/1903/48-300x300.jpg 300w, resource/front_bootstrap/images/1903/48-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
 																	</a>
 																</div>
 															</div>
 														 
 															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/47.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/47.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/47.jpg 600w, images/1903/47-150x150.jpg 150w, images/1903/47-300x300.jpg 300w, images/1903/47-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
+																<div class="resource/front_bootstrap/images">					
+																	<a href="resource/front_bootstrap/images/1903/47.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
+																		<img width="600" height="600" src="resource/front_bootstrap/images/1903/47.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="resource/front_bootstrap/images/1903/47.jpg 600w, resource/front_bootstrap/images/1903/47-150x150.jpg 150w, resource/front_bootstrap/images/1903/47-300x300.jpg 300w, resource/front_bootstrap/images/1903/47-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
 																	</a>
 																</div>
 															</div>
 														 
 															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/46.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/46.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/46.jpg 600w, images/1903/46-150x150.jpg 150w, images/1903/46-300x300.jpg 300w, images/1903/46-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
+																<div class="resource/front_bootstrap/images">					
+																	<a href="resource/front_bootstrap/images/1903/46.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
+																		<img width="600" height="600" src="resource/front_bootstrap/images/1903/46.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="resource/front_bootstrap/images/1903/46.jpg 600w, resource/front_bootstrap/images/1903/46-150x150.jpg 150w, resource/front_bootstrap/images/1903/46-300x300.jpg 300w, resource/front_bootstrap/images/1903/46-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
 																	</a>
 																</div>
 															</div>
 														 
 															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/49.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/49.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/49.jpg 600w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
+																<div class="resource/front_bootstrap/images">					
+																	<a href="resource/front_bootstrap/images/1903/49.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
+																		<img width="600" height="600" src="resource/front_bootstrap/images/1903/49.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="resource/front_bootstrap/images/1903/49.jpg 600w, resource/front_bootstrap/images/1903/49-150x150.jpg 150w, resource/front_bootstrap/images/1903/49-300x300.jpg 300w, resource/front_bootstrap/images/1903/49-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
 																	</a>
 																</div>
 															</div>
 														 
 															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/43.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/43.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/43.jpg 600w, images/1903/43-150x150.jpg 150w, images/1903/43-300x300.jpg 300w, images/1903/43-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
+																<div class="resource/front_bootstrap/images">					
+																	<a href="resource/front_bootstrap/images/1903/43.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
+																		<img width="600" height="600" src="resource/front_bootstrap/images/1903/43.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="resource/front_bootstrap/images/1903/43.jpg 600w, resource/front_bootstrap/images/1903/43-150x150.jpg 150w, resource/front_bootstrap/images/1903/43-300x300.jpg 300w, resource/front_bootstrap/images/1903/43-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
 																	</a>
 																</div>
 															</div>
@@ -1955,37 +1927,37 @@
 														<div class="slider product-responsive-thumbnail" id="product_thumbnail_247">
 															<div class="item-thumbnail-product">
 																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/49-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/49-180x180.jpg 180w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">
+																	<img width="180" height="180" src="resource/front_bootstrap/images/1903/49-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="resource/front_bootstrap/images/1903/49-180x180.jpg 180w, resource/front_bootstrap/images/1903/49-150x150.jpg 150w, resource/front_bootstrap/images/1903/49-300x300.jpg 300w, resource/front_bootstrap/images/1903/49.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">
 																</div>
 															</div>
 															
 															<div class="item-thumbnail-product">
 																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/48-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/48-180x180.jpg 180w, images/1903/48-150x150.jpg 150w, images/1903/48-300x300.jpg 300w, images/1903/48.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
+																	<img width="180" height="180" src="resource/front_bootstrap/images/1903/48-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="resource/front_bootstrap/images/1903/48-180x180.jpg 180w, resource/front_bootstrap/images/1903/48-150x150.jpg 150w, resource/front_bootstrap/images/1903/48-300x300.jpg 300w, resource/front_bootstrap/images/1903/48.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
 																</div>
 															</div>
 															
 															<div class="item-thumbnail-product">
 																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/47-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/47-180x180.jpg 180w, images/1903/47-150x150.jpg 150w, images/1903/47-300x300.jpg 300w, images/1903/47.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
+																	<img width="180" height="180" src="resource/front_bootstrap/images/1903/47-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="resource/front_bootstrap/images/1903/47-180x180.jpg 180w, resource/front_bootstrap/images/1903/47-150x150.jpg 150w, resource/front_bootstrap/images/1903/47-300x300.jpg 300w, resource/front_bootstrap/images/1903/47.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
 																</div>
 															</div>
 															
 															<div class="item-thumbnail-product">
 																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/46-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/46-180x180.jpg 180w, images/1903/46-150x150.jpg 150w, images/1903/46-300x300.jpg 300w, images/1903/46.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
+																	<img width="180" height="180" src="resource/front_bootstrap/images/1903/46-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="resource/front_bootstrap/images/1903/46-180x180.jpg 180w, resource/front_bootstrap/images/1903/46-150x150.jpg 150w, resource/front_bootstrap/images/1903/46-300x300.jpg 300w, resource/front_bootstrap/images/1903/46.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
 																</div>
 															</div>
 															
 															<div class="item-thumbnail-product">
 																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/49-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/49-180x180.jpg 180w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
+																	<img width="180" height="180" src="resource/front_bootstrap/images/1903/49-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="resource/front_bootstrap/images/1903/49-180x180.jpg 180w, resource/front_bootstrap/images/1903/49-150x150.jpg 150w, resource/front_bootstrap/images/1903/49-300x300.jpg 300w, resource/front_bootstrap/images/1903/49.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
 																</div>
 															</div>
 															
 															<div class="item-thumbnail-product">
 																<div class="thumbnail-wrapper">
-																<img width="180" height="180" src="images/1903/43-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/43-180x180.jpg 180w, images/1903/43-150x150.jpg 150w, images/1903/43-300x300.jpg 300w, images/1903/43.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
+																<img width="180" height="180" src="resource/front_bootstrap/images/1903/43-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="resource/front_bootstrap/images/1903/43-180x180.jpg 180w, resource/front_bootstrap/images/1903/43-150x150.jpg 150w, resource/front_bootstrap/images/1903/43-300x300.jpg 300w, resource/front_bootstrap/images/1903/43.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
 																</div>
 															</div>
 														</div>
@@ -2020,7 +1992,7 @@
 												<p class="stock out-of-stock">Out of stock</p>
 												
 												<div class="social-share">
-													<div class="title-share">Share</div>
+													<div class="title-share">分享</div>
 													<div class="wrap-content">
 														<a href="http://www.facebook.com/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook"></i></a>
 														<a href="http://twitter.com/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
@@ -2038,11 +2010,11 @@
 									<div class="tabbable">
 										<ul class="nav nav-tabs">
 											<li class="description_tab active">
-												<a href="#tab-description" data-toggle="tab">Description</a>
+												<a href="#tab-description" data-toggle="tab">商品描述</a>
 											</li>
 											
 											<li class="reviews_tab ">
-												<a href="#tab-reviews" data-toggle="tab">Reviews (0)</a>
+												<a href="#tab-reviews" data-toggle="tab">评论 (0)</a>
 											</li>
 										</ul>
 										
@@ -2121,7 +2093,7 @@
 																	<div class="item-img products-thumb">
 																		<a href="simple_product.html">
 																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/49-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/49-300x300.jpg 300w, images/1903/49-150x150.jpg 150w, images/1903/49-180x180.jpg 180w, images/1903/49.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
+																				<img width="300" height="300" src="resource/front_bootstrap/images/1903/49-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/49-300x300.jpg 300w, resource/front_bootstrap/images/1903/49-150x150.jpg 150w, resource/front_bootstrap/images/1903/49-180x180.jpg 180w, resource/front_bootstrap/images/1903/49.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
 																			</div>
 																		</a>																
 																				
@@ -2134,7 +2106,7 @@
 																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																				<div class="yith-wcwl-add-button show" style="display:block">
 																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
+																					<img src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
 																				</div>
 																			   
 																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -2188,7 +2160,7 @@
 																		<span class="onsale">Sale!</span>
 																		<a href="simple_product.html">
 																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/39-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/39-300x300.jpg 300w, images/1903/39-150x150.jpg 150w, images/1903/39-180x180.jpg 180w, images/1903/39.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
+																				<img width="300" height="300" src="resource/front_bootstrap/images/1903/39-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/39-300x300.jpg 300w, resource/front_bootstrap/images/1903/39-150x150.jpg 150w, resource/front_bootstrap/images/1903/39-180x180.jpg 180w, resource/front_bootstrap/images/1903/39.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
 																			</div>
 																		</a>
 																				
@@ -2201,7 +2173,7 @@
 																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																				<div class="yith-wcwl-add-button show" style="display:block">
 																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
+																					<img src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
 																				</div>
 																			   
 																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -2262,7 +2234,7 @@
 																	<div class="item-img products-thumb">
 																		<a href="simple_product.html">
 																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/22-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/22-300x300.jpg 300w, images/1903/22-150x150.jpg 150w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
+																				<img width="300" height="300" src="resource/front_bootstrap/images/1903/22-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
 																			</div>
 																		</a>
 																				
@@ -2275,7 +2247,7 @@
 																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																				<div class="yith-wcwl-add-button show" style="display:block">
 																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
+																					<img src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
 																				</div>
 																			   
 																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -2328,7 +2300,7 @@
 																	<div class="item-img products-thumb">
 																		<a href="simple_product.html">
 																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/14-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/14-300x300.jpg 300w, images/1903/14-150x150.jpg 150w, images/1903/14-180x180.jpg 180w, images/1903/14.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
+																				<img width="300" height="300" src="resource/front_bootstrap/images/1903/14-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/14-300x300.jpg 300w, resource/front_bootstrap/images/1903/14-150x150.jpg 150w, resource/front_bootstrap/images/1903/14-180x180.jpg 180w, resource/front_bootstrap/images/1903/14.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
 																			</div>
 																		</a>
 																				
@@ -2341,7 +2313,7 @@
 																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																				<div class="yith-wcwl-add-button show" style="display:block">
 																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
+																					<img src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
 																				</div>
 																			   
 																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -2394,7 +2366,7 @@
 																	<div class="item-img products-thumb">
 																		<a href="simple_product.html">
 																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/58-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/58-300x300.jpg 300w, images/1903/58-150x150.jpg 150w, images/1903/58-180x180.jpg 180w, images/1903/58.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
+																				<img width="300" height="300" src="resource/front_bootstrap/images/1903/58-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/58-300x300.jpg 300w, resource/front_bootstrap/images/1903/58-150x150.jpg 150w, resource/front_bootstrap/images/1903/58-180x180.jpg 180w, resource/front_bootstrap/images/1903/58.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
 																			</div>
 																		</a>
 																				
@@ -2407,7 +2379,7 @@
 																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																				<div class="yith-wcwl-add-button show" style="display:block">
 																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
+																					<img src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
 																				</div>
 																			   
 																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -2488,7 +2460,7 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 												
@@ -2507,7 +2479,7 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm1.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm1.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 											
@@ -2531,7 +2503,7 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm2.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm2.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 												
@@ -2553,7 +2525,7 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 												
@@ -2661,7 +2633,7 @@
 													<div class="wpb_wrapper">
 														<div class="ya-logo">
 															<a href="home_page_1.html">
-																<img src="images/icons/logo-footer.png" alt="logo" />
+																<img src="resource/front_bootstrap/images/icons/logo-footer.png" alt="logo" />
 															</a>
 														</div>
 													</div>
@@ -2684,11 +2656,11 @@
 															
 															<div class="store">
 																<a href="#">
-																	<img src="images/1903/app-store.png" alt="store" title="store" />
+																	<img src="resource/front_bootstrap/images/1903/app-store.png" alt="store" title="store" />
 																</a>
 																
 																<a href="#">
-																	<img src="images/1903/google-store.png" alt="store" title="store" />
+																	<img src="resource/front_bootstrap/images/1903/google-store.png" alt="store" title="store" />
 																</a>
 															</div>
 														</div>
@@ -2820,7 +2792,7 @@
 																<h2>find a store</h2>
 															</div>
 															
-															<img src="images/1903/map.jpg" alt="map" title="map" />
+															<img src="resource/front_bootstrap/images/1903/map.jpg" alt="map" title="map" />
 															
 															<a href="#" class="link-map">Store locator</a>
 														</div>
@@ -2892,7 +2864,7 @@
 								<div class="textwidget">
 									<div class="payment">
 										<a href="#">
-											<img src="images/1903/paypal.png" alt="payment" title="payment" />
+											<img src="resource/front_bootstrap/images/1903/paypal.png" alt="payment" title="payment" />
 										</a>
 									</div>
 								</div>
@@ -2970,7 +2942,7 @@
 	
 	<a id="etrostore-totop" href="#"></a>	
 	
-	<div id="subscribe_popup" class="subscribe-popup" style="background: url(images/icons/bg_newsletter.jpg)">
+	<div id="subscribe_popup" class="subscribe-popup" style="background: url(resource/front_bootstrap/images/icons/bg_newsletter.jpg)">
 		<div class="subscribe-popup-container">
 			<h2>Join our newsletter</h2>
 			<div class="description">Subscribe now to get 40% of on any product!</div>
@@ -3018,14 +2990,14 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery/js.cookie.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 	
 	<!-- OPEN LIBS JS -->
-	<script type="text/javascript" src="js/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/slick-1.6.0/slick.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 	
 	<script type="text/javascript">
 		/* <![CDATA[ */
@@ -3034,24 +3006,24 @@
 		/* ]]> */
 	</script>
 	
-	<script type="text/javascript" src="js/widget.min.js"></script>
-	<script type="text/javascript" src="js/mouse.min.js"></script>
-	<script type="text/javascript" src="js/slider.min.js"></script>
-	<script type="text/javascript" src="js/js_composer/js_composer_front.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/widget.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/mouse.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/slider.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 	
-	<script type="text/javascript" src="js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="js/sw_core/isotope.js"></script>
-	<script type="text/javascript" src="js/sw_core/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="js/sw_woocommerce/category-ajax.js"></script>
-	<script type="text/javascript" src="js/sw_woocommerce/jquery.countdown.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/price-slider.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/single-product.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/prettyPhoto/jquery.prettyPhoto.init.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/prettyPhoto/jquery.prettyPhoto.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/price-slider.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/single-product.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/prettyPhoto/jquery.prettyPhoto.init.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/prettyPhoto/jquery.prettyPhoto.min.js"></script>
 	
-	<script type="text/javascript" src="js/plugins.js"></script>
-	<script type="text/javascript" src="js/megamenu.min.js"></script>
-	<script type="text/javascript" src="js/main.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;

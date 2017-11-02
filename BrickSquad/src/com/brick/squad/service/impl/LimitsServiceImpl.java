@@ -1,7 +1,9 @@
 package com.brick.squad.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -126,6 +128,15 @@ public class LimitsServiceImpl implements LimitsService {
 			limitsMapper.updateLimitsById(item);
 		}
 		
+	}
+	@Override
+	public Map<String, Limits> findAllLimitsByRoleId(String roleId) {
+		List<Limits> limits=limitsMapper.findLimitsByRoleId(roleId);
+		Map<String, Limits> map=new HashMap<String, Limits>();
+		for (Limits item : limits) {
+			map.put(item.getTablename(), item);
+		}
+		return map;
 	}
 
 }
