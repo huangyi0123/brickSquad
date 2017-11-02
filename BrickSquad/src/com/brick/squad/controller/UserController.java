@@ -204,50 +204,71 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/userUpdateUserPicPath")
+	@ResponseBody
 	public String userUpdateUserPicPath(MultipartFile userPic,
 			HttpServletRequest request) {
-		if (userPic != null) {
-			// 获取图片要保存的到的服务器路径
-			String realPath = "resource/image/user/";
-			String path = request.getSession().getServletContext()
-					.getRealPath(realPath);
-			//获取当前文件名 
-			String filName = userPic.getOriginalFilename();
-			//获取当前文件的后缀名
-			String fileSuffixName =filName.substring(filName.lastIndexOf("."));
-			//获取当前登录的用户session
-			User user =(User) request.getSession().getAttribute("user");
-			if (user!=null) {
-				//给文件重新命名,当前用户ID+文件后缀名
-				String fileNewName =user.getId()+fileSuffixName;
-				// 创建文件类型对象: 
-				File file = new File(path, fileNewName);
-				if (!file.exists()) {
-					file.mkdirs();
-				}
-				try {
-					userPic.transferTo(file);
-					
-					//取得数据库存的路径
-					String databaseuserPicPath=realPath+fileNewName;
-					//上传成功后，将路径保存到数据库中
-					user.setUserPicPath(databaseuserPicPath);
-					if (user.getUserPicPath()!=null) {
-						userService.updateUserUserPicPathById(user);
+		// 图片大小超过5M，不能上传
+		if (userPic.getSize() < 5242880) {
+			if (userPic != null) {
+				// 获取图片要保存的到的服务器路径
+				String realPath = "resource/image/user/";
+				String path = request.getSession().getServletContext()
+						.getRealPath(realPath);
+				// 获取当前文件名
+				String filName = userPic.getOriginalFilename();
+				// 获取当前文件的后缀名
+				String fileSuffixName = filName.substring(filName
+						.lastIndexOf("."));
+				// 如果后缀名为png\jpg\gif\icon\jpeg,才允许上传
+				if (fileSuffixName.equals(".JPG")
+						|| fileSuffixName.equals(".PNG")
+						|| fileSuffixName.equals(".png")
+						|| fileSuffixName.equals(".jpg")
+						|| fileSuffixName.equals(".jpeg")
+						|| fileSuffixName.equals(".gif")) {
+					// 获取当前登录的用户session
+					User user = (User) request.getSession()
+							.getAttribute("user");
+					if (user != null) {
+						// 给文件重新命名,当前用户ID+文件后缀名
+						String fileNewName = user.getId() + fileSuffixName;
+
+						//  创建文件类型对象: 
+						File file = new File(path, fileNewName);
+						if (!file.exists()) {
+							file.mkdirs();
+						}
+						try {
+							userPic.transferTo(file);
+
+							// 取得数据库存的路径
+							String databaseuserPicPath = realPath + fileNewName;
+							// 上传成功后，将路径保存到数据库中
+							user.setUserPicPath(databaseuserPicPath);
+							if (user.getUserPicPath() != null) {
+								userService.updateUserUserPicPathById(user);
+							}
+
+							request.getSession().setAttribute("user", user);
+						} catch (IllegalStateException | IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} else {
+						return "getUserError";
 					}
-					
-					request.setAttribute("user", user);
-				} catch (IllegalStateException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				} else {
+					return "fileSuffixNameError";
+
 				}
-			}else {
-				return "Error";
+
+			} else {
+				return "userPicNUllError";
 			}
-			
 		} else {
-			return "Error";
+			return "fileSizeError";
 		}
+
 		return "suc";
 		/* return "redirect:/common/toPersonal"; */
 	}

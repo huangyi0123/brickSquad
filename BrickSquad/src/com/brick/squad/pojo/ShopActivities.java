@@ -2,13 +2,19 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class ShopActivities {
-	
 	private String id;
+	@NotEmpty(message="活动类型不能为空！")
 	private String typeId;
 	private Date startTime;
 	private Date endTime;
+	@NotEmpty(message="店铺名不能为空！")
 	private String businessId;
+	@NotEmpty(message="商品名不能为空！")
 	private String articleId;
 	public String getId() {
 		return id;

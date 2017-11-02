@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat; 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,8 +73,16 @@ public class ShopActivitiesController {
 	}
 	
 	@RequestMapping("/addShopActivities")
-	public String addShopActivities(ShopActivities shopActivities) throws Exception{
-
+	public String addShopActivities(@Validated ShopActivities shopActivities,BindingResult result,HttpServletRequest request) throws Exception{
+		System.out.println(shopActivities.getTypeId()+"-----------------");
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addShopActivities");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/shopActivities/add_shopActivities";
+		}
+		
 		shopActivitiesService.insertShopActivitiesById(shopActivities);
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
 	}

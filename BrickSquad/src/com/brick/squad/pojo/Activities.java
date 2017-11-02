@@ -2,6 +2,12 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author 谭超
@@ -17,6 +23,8 @@ public class Activities {
 	private Date startTime;
 	private Date endTime;
 	private String userId;
+	@Min(value=3,message="人数不足")
+	@Max(value=20,message="人数过多")
 	private int number;
 	
 	public String getId() {

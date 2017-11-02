@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -51,7 +51,19 @@ $(function() {
 			}
 		});
 	});
-	
+$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});	
 	
 </script>
 </head>
@@ -111,12 +123,14 @@ $(function() {
       <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
-  </div>
-			
-					
-				
+  </div>		
 			</div>
 		</div>
 	</form>
+	
+	
+	<c:forEach items="${errors}" var="error">
+   		<input class="error" value="${error.defaultMessage}" type="hidden">
+   	</c:forEach>
 </body>
 </html>
