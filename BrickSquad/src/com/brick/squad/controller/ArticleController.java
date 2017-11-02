@@ -32,7 +32,6 @@ public class ArticleController {
 	@Autowired
 	@Qualifier("articleService")
 	private  ArticalService articleService;
-	
 	@RequestMapping("/toArticleList")
 	public String toArticleList(){
 		return "backstage_managed/jsp/article/article_list";

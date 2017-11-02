@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,14 +10,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
+import com.brick.squad.service.RoleService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
+import com.brick.squad.util.Select;
 
 @Controller
 @RequestMapping("/user")
@@ -24,7 +32,12 @@ public class UserController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
-
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
+	@Autowired
+	@Qualifier("roleService")
+	private RoleService roleService;
 	@RequestMapping("/toUserList")
 	public String toUserList() {
 		return "backstage_managed/jsp/user/user_list";
@@ -197,7 +210,33 @@ public class UserController {
 		String data = userService.findUserByBranchId(user.getBranchId());
 		return data;
 	}
+	/**
+	 * 跳转到添加页面
+	 */
+	@RequestMapping("/toJumpUser")
+	public String toJumpUser( HttpServletRequest request){
 
+		String branch =typeService.findTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("branch", branch);
+		String role = roleService.findAllRole();
+		request.setAttribute("role", role);
+		return "backstage_managed/jsp/user/AddJumpUser";
+	}
+	/**
+	 * 添加user信息
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toAddJumpUser")
+	public String toAddJumpUser(@Validated User user,BindingResult bindingResult,HttpServletRequest request){
+		if(bindingResult.hasErrors()){
+			List<ObjectError> errors = bindingResult.getAllErrors();
+			request.setAttribute("errors", errors);
+			return "backstage_managed/jsp/user/AddJumpUser";
+		}
+		userService.addUser(user);
+		return "backstage_managed/jsp/user/user_list";
+	}
 	/**
 	 * 用户修改头像
 	 * 
@@ -272,4 +311,5 @@ public class UserController {
 		return "suc";
 		/* return "redirect:/common/toPersonal"; */
 	}
+	
 }
