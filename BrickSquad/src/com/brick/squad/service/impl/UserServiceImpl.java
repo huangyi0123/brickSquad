@@ -117,6 +117,16 @@ public class UserServiceImpl implements UserService {
 		JSONArray jsonArray=JSONArray.fromObject(list);
 		return jsonArray.toString();
 	}
+	@Override
+	public void updateUserUserPicPathById(User user) {
+		User newUser =userMapper.findUserById(user.getId());
+		if (newUser!=null) {
+			newUser.setUserPicPath(user.getUserPicPath());
+			userMapper.updateUserByIdByWWX(newUser);
+		}
+		
+		
+	}
 
 }
 

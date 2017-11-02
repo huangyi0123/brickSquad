@@ -66,7 +66,6 @@ public class BuyersController {
 	}
 	@RequestMapping(value="/insertBuyres")
 	public String insertBuyres(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception{
-
 		buyersService.insertBuyers(addressAndBuyersExpand);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}

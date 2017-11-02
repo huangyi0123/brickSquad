@@ -12,7 +12,7 @@ function init(keyword) {
 		supportCheckbox : false,
 		columnData : [ {
 			key : 'name',
-			text : '姓名'
+			text : '亲属姓名'
 		}, {
 			key : 'telephone',
 			text : '联系方式'
@@ -25,14 +25,17 @@ function init(keyword) {
 		},  {
 			key : "operation",
 			text : "操作",
-			template : function(noteData, rowData)  {
-				return '<a href="'
+			template : function(noteData, rowData)   {
+				return '<a href="relatives/toAddRelatives?id='
 				+ rowData.id
 
-				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a href="'
+				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
 
 				+ rowData.id
-				+ '"><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+				+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="buyers/findBuyersByIdString?id='
+
+				+ rowData.id
+				+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
 	}
 		} ]
 	});
@@ -52,4 +55,23 @@ function serach() {
 		RefreshGridManagerList(keyword);
 	});
 	
+}
+function deleteById(id) {
+	layui.use('layer', function() {
+		var layer = layui.layer;
+		layer.open({
+			title : '警告',
+			content : '是否删除？',
+			btn:["确认","取消"],
+			yes:function(index){
+				$.ajax({
+					url:'relatives/deleteRelativesById?id='+id,
+					success:function(data){
+						RefreshGridManagerList("");
+						layer.close(index);
+					}
+				});
+			}
+		});
+	});
 }
