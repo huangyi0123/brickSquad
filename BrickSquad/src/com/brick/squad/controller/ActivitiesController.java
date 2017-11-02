@@ -108,7 +108,6 @@ public class ActivitiesController {
 		@RequestMapping("/updateActivitiesById")
 		public String updateActivitiesById(@Validated Activities activities,BindingResult result,HttpServletRequest request) throws Exception{
 			if (result.hasErrors()) {
-				
 				List<ObjectError> errors = result.getAllErrors();
 				request.setAttribute("errors", errors);
 				request.setAttribute("url", "updateActivitiesById");
