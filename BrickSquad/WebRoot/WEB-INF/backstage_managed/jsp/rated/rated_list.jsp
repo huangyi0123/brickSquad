@@ -43,7 +43,7 @@
 	$(function() {
 		init("");
 		serach();
-		addRated("");
+		$(".table-div").css('height','calc(100% - 90px)');
 		
 	});
 </script>

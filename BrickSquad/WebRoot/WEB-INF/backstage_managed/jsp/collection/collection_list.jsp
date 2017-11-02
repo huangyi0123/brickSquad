@@ -32,6 +32,7 @@
 	$(function() {
 		init("");
 		serach();
+		$(".table-div").css('height','calc(100% - 90px)');
 	});
 </script>
 <style type="text/css">
