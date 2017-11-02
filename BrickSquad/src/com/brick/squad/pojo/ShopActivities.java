@@ -2,9 +2,11 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 public class ShopActivities {
-	
 	private String id;
+	@NotNull(message="不能为空！")
 	private String typeId;
 	private Date startTime;
 	private Date endTime;
