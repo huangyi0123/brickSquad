@@ -22,11 +22,10 @@
 	<update id="updateLimitsById" parameterType="Limits">
 		UPDATE limits SET
 		role_id=#{roleId},
-		tablename=#{tablename},
 		ad=#{ad},
 		dl=#{dl},
 		up=#{up},
-		`query`=#{query}
+		query=#{query}
 		WHERE id=#{id}
 	</update>
 	<delete id="deleteLimitsById" parameterType="String">

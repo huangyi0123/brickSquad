@@ -80,6 +80,7 @@ public class LimitsServiceImpl implements LimitsService {
 			ZTree zTreePerant=new ZTree();
 			zTreePerant.setId(item.getId());
 			zTreePerant.setName(item.getTablename());
+			zTreePerant.setChecked((item.isAd()&&item.isDl()&&item.isQuery()&&item.isUp()));
 			List<ZTree> childrens=new ArrayList<ZTree>();
 			//end 
 			//begin 添加操作
@@ -116,6 +117,15 @@ public class LimitsServiceImpl implements LimitsService {
 		JSONArray jsonArray=JSONArray.fromObject(zTrees);
 		//end
 		return jsonArray.toString();
+	}
+
+	@Override
+	public void updateLimitsByRoleId(List<Limits> limits, String roleId) {
+		for (Limits item : limits) {
+			item.setRoleId(roleId);
+			limitsMapper.updateLimitsById(item);
+		}
+		
 	}
 
 }

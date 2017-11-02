@@ -100,7 +100,7 @@ $(function() {
 			<label class="layui-form-label">定金</label>
 			<div class="layui-input-inline">
 				<input type="text" name="deposit" required lay-verify="required"
-					placeholder="名称" autocomplete="off" class="layui-input"
+					placeholder="金额" autocomplete="off" class="layui-input"
 					value="${memberShipApplication.deposit}">
 			</div>
 		</div>

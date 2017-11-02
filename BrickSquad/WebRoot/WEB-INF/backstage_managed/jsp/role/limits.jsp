@@ -10,34 +10,49 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<link href="resource/plugins/layui/css/layui.css">
+
 <link href="resource/plugins/ztree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+<link href="resource/plugins/laysui/css/layui.css">
 <script src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/ztree/jquery.ztree.core.min.js"></script>
 <script src="resource/plugins/ztree/jquery.ztree.excheck.min.js"></script>
+<script src="resource/plugins/laysui/layui.js"></script>
 <script>
+layui.use('layer', function() {
+	layer.load(1, {shade: [0.8, '#393D49']});
+});
+
 	var zTreeObj;
 	var setting = {
 		check : {
 			enable : true
 		},
 	};
+	
 	$(function() {
+		var id=$("#id").val();
 		$.ajax({
-			url : 'limits/findAllLimitsByRoleId?roleId=${id}',
+			url : 'limits/findAllLimitsByRoleId?roleId='+id,
 			success : function(result) {
 				result = JSON.parse(result);
 				zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, result);
+				layui.use('layer', function() {
+					var layer = layui.layer;
+					layer.closeAll();
+				});
 			}
 		});
 	});
 	function test() {
+		layui.use('layer', function() {
+			layer.load(3, {shade: [0.8, '#393D49']});
+		});
 		var nodes = zTreeObj.getNodes();
 		var data='';
 		$(nodes).each(
 				function() {
 					var da = this.children;
-					data = data + 'id:' + this.id + ',qurey:' + da[0].checked
+					data = data + 'id:' + this.id + ',query:' + da[0].checked
 							+ ',dl:' + da[1].checked + ',up:' + da[2].checked
 							+ ',ad:' + da[3].checked+';';
 
@@ -47,10 +62,13 @@
 		 $.ajax({
 			url : "role/updateLimitsByRoleId",
 			type : "post",
-			dataType : "JSON",
 			data :jsonData,
 			success : function(result) {
-				console.log("dfrgtrhgkfd");
+				layui.use('layer', function() {
+					var layer = layui.layer;
+					layer.closeAll();
+				});
+				window.location.href=result;
 			}
 		});
 
