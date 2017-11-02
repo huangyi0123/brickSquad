@@ -24,9 +24,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$
-				.ajax({
-					url : 'news/findNews',
+		$.ajax({
+					url : 'news/findNewsReturnIndex',
 					success : function(result) {
 						result = JSON.parse(result);
 						$(result)
