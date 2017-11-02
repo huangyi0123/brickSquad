@@ -69,7 +69,7 @@
 						</ul>
 					</li>
 				</c:if>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' and 1 eq 2}">
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c'}">
 				<li>
 					<a class="J_menuItem">
 						<i class="fa fa-table"></i>
