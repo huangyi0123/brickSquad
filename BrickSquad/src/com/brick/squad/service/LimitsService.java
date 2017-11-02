@@ -1,5 +1,7 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.util.Pagination;
 
@@ -37,4 +39,5 @@ public interface LimitsService {
 	 * @return 权限
 	 */
 	public String findAllTableName(String roleId);
+	public void updateLimitsByRoleId(List<Limits> limits,String roleId);
 }
