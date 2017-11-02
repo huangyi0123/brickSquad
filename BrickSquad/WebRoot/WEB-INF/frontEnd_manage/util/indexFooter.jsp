@@ -21,9 +21,6 @@
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
 
 <script type="text/javascript"
@@ -32,13 +29,17 @@
 <script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 </head>
 
-<body>
+<body >
 	<div class="footer">
+
+		<div style="font-size: 15px; color: white" class="row">
+		
 		<h2>
 			<a href="adminLogin.jsp">后台管理登录</a>
 		</h2>
-		<div style="font-size: 15px; color: white">Copyright &copy;
-			2017.搬砖小分队</div>
+		Copyright
+			&copy; 2017.搬砖小分队</div>
 	</div>
+	
 </body>
 </html>

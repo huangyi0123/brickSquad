@@ -27,9 +27,7 @@
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
 
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
@@ -41,6 +39,15 @@
 		var element = layui.element;
 	});
 	$(function() {
+		//头像图片信息
+		var imagepath = $("#imagepath").val();
+		if (imagepath =="") {
+			$("#indexUserPic").attr("src",
+					"resource/image/userdefaultpic.jpg");
+		} else {
+			$("#indexUserPic").attr("src",
+					imagepath);
+		}
 		layui.use('layer', function() {
 			var layer = layui.layer;
 			$("#register").click(function() {
@@ -102,23 +109,19 @@ color:red;
 }
 </style>
 </head>
-<body>
-	<div class="">
-		<div class="header" style="height: 70px; background-color: #FF9C3F">
+<body >
+		<div class="header" style="height: 70px;width:100%; background-color: #FF9C3F">
 
 			<div class="logo">
 				<h1>
 					<a href="common/toIndex">
-						<i><img src="resource/image/cell.png" alt=" " /></i>养乐堡
+						养乐堡
 					</a>
 				</h1>
 			</div>
 			<div class="top-nav" ng-app="">
-				<span class="menu">
-					<img src="resource/image/menu.png" alt="" />
-				</span>
 				<ul class="layui-nav layui-this"
-					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #FF9C3F;">
+					style=" margin-top:-22px; margin-left: -200px;background-color: #FF9C3F">
 					<li class="layui-nav-item layui-this">
 						<a href="common/toIndex">首页</a>
 					</li>
@@ -131,8 +134,16 @@ color:red;
 					<li class="layui-nav-item">
 						<a href="">社区</a>
 					</li>
-					<li class="layui-nav-item" ng-if="${user!=null }">
-						<a href="javascript:;">${user.username }</a>
+					<li class="layui-nav-item" ng-if="${user!=null }" style="background-color: #FF9C3F"> 
+					<a href="javascript:;">	 <span>
+					<input type="hidden" id="imagepath" value="${user.userPicPath }">
+						  <img 
+					style="border-radius:100%;width: 40px;height: 40px;"
+					alt="还没有图片" src="" id="indexUserPic">
+						  ${user.username }
+						 </span>
+						</a> 
+					
 						<dl class="layui-nav-child" style="background-color: #FF9C3F">
 
 							<!-- 二级菜单 -->
@@ -157,24 +168,6 @@ color:red;
 
 				</ul>
 			</div>
-			<!-- start search-->
-			<div class="search-box">
-				<div id="sb-search" class="sb-search">
-					<form>
-						<input style="background-color:  #5FB878;" class="sb-search-input"
-							placeholder="Enter your search item..." type="search" name="search" id="search">
-						<input class="sb-search-submit" type="submit" value="">
-						<span class="sb-icon-search" style="background-color:  #FF9C3F;"> </span>
-
-					</form>
-				</div>
-			</div>
-			<script src="resource/js/classie.js"></script>
-			<script src="resource/js/uisearch.js"></script>
-			<script>
-				new UISearch(document.getElementById('sb-search'));
-			</script>
-			<div class="clearfix"></div>
 		</div>
 </body>
 </html>
