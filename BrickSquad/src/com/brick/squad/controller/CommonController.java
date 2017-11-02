@@ -244,5 +244,9 @@ public class CommonController {
 	public String toabout_us() {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
+	@RequestMapping("/todeals")
+	public String deals() {
+		return "frontEnd_manage/front_bootstrap/deals";
+	}
 }
 

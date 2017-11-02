@@ -74,6 +74,7 @@
 			<mvc:exclude-mapping path="/common/toWishlist" />
 			<mvc:exclude-mapping path="/common/tosimple_product" />
 			<mvc:exclude-mapping path="/common/toabout_us" />
+			<mvc:exclude-mapping path="/common/todeals" />
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>

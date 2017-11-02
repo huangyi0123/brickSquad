@@ -47,9 +47,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body class="page page-id-6 home-style1">
 
-     
-
-
 	<div class="body-wrapper theme-clearfix">
 		<header id="header" class="header header-style1">
 			<div class="header-top clearfix">
