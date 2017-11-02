@@ -66,7 +66,7 @@ public class MemberShipApplicationController {
 			request.setAttribute("errors", errors);
 			request.setAttribute("url", "addMemberShipApplication");
 			request.setAttribute("msg", "添加");
-			return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
+			return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
 		}
 		memberShipApplicationService.insertMemberShipApplicationById(memberShipApplication);
 		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";

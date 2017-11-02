@@ -74,6 +74,7 @@ public class ShopActivitiesController {
 	
 	@RequestMapping("/addShopActivities")
 	public String addShopActivities(@Validated ShopActivities shopActivities,BindingResult result,HttpServletRequest request) throws Exception{
+		System.out.println(shopActivities.getTypeId()+"-----------------");
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);

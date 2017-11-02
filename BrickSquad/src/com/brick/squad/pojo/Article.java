@@ -1,5 +1,7 @@
 package com.brick.squad.pojo;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Article {
 	
 /**
@@ -10,7 +12,9 @@ public class Article {
 	
 	private String id;
 	private String aname;
+	@NotEmpty(message="商品类型还没有填写呢！")
 	private String typeId;
+	@NotEmpty(message="店铺名还没有写啊 哥哥！")
 	private String businessId;
 	private String price;
 	private int stock;
