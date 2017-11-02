@@ -41,7 +41,6 @@
 		<if test="keyword==''">
 		select count(*) from buyers  JOIN personal_information ON buyers.id=personal_information.id
 		</if>
-		
 		<if test="keyword!=''">
 		select count(*) from buyers  
 		JOIN personal_information ON buyers.id=personal_information.id 
