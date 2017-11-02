@@ -29,6 +29,15 @@
 <script type="text/javascript" src="resource/js/common.js"></script>
 <script>
 	$(function() {
+		//头像图片信息
+		var imagepath = $("#imagepath").val();
+		if (imagepath =="") {
+			$(".userPicPath").attr("src",
+					"resource/image/userdefaultpic.jpg");
+		} else {
+			$(".userPicPath").attr("src",
+					imagepath);
+		}
 		$("#userPicUpdate").bind('change input', function(e) {
 			var _URL = window.URL || window.webkitURL;
 			var file, img1;
@@ -53,7 +62,7 @@
 									var layer = layui.layer;
 									var msg = '修改成功';
 									layer.msg(msg);
-																	});
+									window.location.href("toPersonal");								});
 							}else if (result=="fileSizeError") {
 								$(".userPicPath").attr("src",
 								"resource/image/userdefaultpic.jpg");
@@ -142,15 +151,15 @@
 </script>
 </head>
 
-<body>
+<body >
 
 	<jsp:include page="../util/head.jsp"></jsp:include>
 	<div class="Person_body">
 		<div class="Person_left">
 			<div class="Person_left_src">
 				<img class="userPicPath"
-					style="border-radius:100%;width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;"
-					alt="" src="resource/image/pic0.jpg">
+					style="border-radius:100%;width: 100px;height: 100px;margin-top: 30px;margin-left: 150px;"
+					alt="还没有图片" src="">
 					<input type="hidden" id="imagepath" value="${user.userPicPath }"> <span
 					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">${user.username }</span>
 			</div>
@@ -168,7 +177,7 @@
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
 						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！</label> <label>当前头像：</label>
-						<img class="userPicPath"
+						<img class="userPicPath" alt="还没有图片"
 							style="border-radius:100%;width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;">
 						<form id="formFileData" action="user/userUpdateUserPicPath"
 							enctype="multipart/form-data" method="post">
@@ -736,7 +745,7 @@
 
 		</div>
 	</div>
-	<jsp:include page="../util/indexFooter.jsp"></jsp:include>
+	
 	<script>
 		layui
 				.use(
@@ -954,19 +963,10 @@
 							$(function() {
 								//没有身体状况数据提示
 								var healthRecords='${personalInfofmationAndHealthRecordsExpand.healthRecords}';
-								 console.log(healthRecords);
 								if (healthRecords=="") { 
 									$("#nullMessage").html("还没有您的身体状况数据！");
 								 } 
-								//头像图片信息
-								var imagepath = $("#imagepath").val();
-								if (imagepath =="") {
-									$(".userPicPath").attr("src",
-											"resource/image/userdefaultpic.jpg");
-								} else {
-									$(".userPicPath").attr("src",
-											imagepath);
-								}
+								
 								//回显address中的省级地址
 								var provinceData = ${provinceData};
 								//个人信息地址省级地址回填
@@ -1023,10 +1023,9 @@
 								$("#birthdayId").val(birthdayId);
 							});
 						});
-		/* 	layui.use('element', function() {
-		 var element = layui.element;
-		 }); */
+	
 	</script>
+	<jsp:include page="../util/indexFooter.jsp"></jsp:include>
 </body>
 
 </html>

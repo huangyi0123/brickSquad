@@ -1,11 +1,9 @@
 package com.brick.squad.service;
 
 
-import java.util.List;
 
 import com.brick.squad.pojo.Role;
 import com.brick.squad.util.Pagination;
-import com.brick.squad.util.Select;
 
 public interface RoleService {
 	public void addRole(String id, String name);

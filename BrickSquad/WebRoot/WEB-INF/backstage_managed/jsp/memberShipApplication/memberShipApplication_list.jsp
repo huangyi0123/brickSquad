@@ -43,7 +43,7 @@
 	$(function() {
 		init("");
 		serach();
-		addMemberShipApplication("");
+		$(".table-div").css('height','calc(100% - 90px)');
 	});
 </script>
 <style type="text/css">
