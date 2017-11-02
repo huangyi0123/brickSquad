@@ -58,7 +58,6 @@
 					$("#countryId").empty();
 					$("#countryId").append('<option value="">选择乡镇</option>');
 					findAll(result, "#countyId");
-
 					console.log(result);
 					form.render('select', 'countyIdSelect');
 				}
@@ -92,7 +91,6 @@
 			findAll(regions[0].country, "#countryId");
 			var detailed = $("#detailedId").attr('val');
 			$("#detailedId").val(detailed);
-
 		}
 	});
 </script>

@@ -107,8 +107,7 @@ layui.use('layer', function(){
 				<input type="text" id="perId"  name="perId"  value="${medical.perId }" required lay-verify="required"
 					placeholder="身份证号" autocomplete="off" class="layui-input">
 				<input type="hidden" name="perId" value="${medical.perId }"
-					id="perId" required lay-verify="required" placeholder="ID存入"
-					autocomplete="off" class="layui-input">
+					id="perId"  placeholder="ID存入">
 			</div>
 		</div>
 		<div class="layui-form-item">

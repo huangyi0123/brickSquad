@@ -27,7 +27,42 @@
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
+<script>
+	$(function() {
+		$("#userPicUpdate").bind('change input', function(e) {
+			var _URL = window.URL || window.webkitURL;
+			var file, img1;
+			if ((file = this.files[0])) {
+				img1 = new Image();
+				img1.onload = function() {
+					$('.userPicPath').attr('src', this.src);
+				};
+				img1.src = _URL.createObjectURL(file);
+				//上传文件的文件流是无法被序列化并传递的。 不过如今主流浏览器都开始支持一个叫做FormData的对象，有了这个FormData，我们就可以轻松地使用Ajax方式进行文件上传了。 
+				var formData = new FormData($("#formFileData")[0]);
+				if (formData != null) {
+					$.ajax({
+						url : 'user/userUpdateUserPicPath',
+						type : 'POST',
+						data : formData,
+						contentType : false,
+						processData : false,
+						success : function(result) {
+							
+						},
+						error : function(err) {
+							
+						}
+					});
+				}
 
+			}
+			;
+
+		});
+
+	});
+</script>
 </head>
 
 <body>
@@ -36,8 +71,8 @@
 	<div class="Person_body">
 		<div class="Person_left">
 			<div class="Person_left_src">
-				<img
-					style="width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;"
+				<img class="userPicPath"
+					style="border-radius:100%;width: 100px;height: 100px;margin-top: 30px;margin-left: 180px;"
 					alt="" src="resource/image/pic0.jpg"> <span
 					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">${user.username }</span>
 			</div>
@@ -55,18 +90,27 @@
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
 						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！</label> <label>当前头像：</label>
-						<img
-							style="width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;"
-							alt="" src="resource/image/pic0.jpg">
-						<div class="layui-upload">
-							<button class="layui-btn"
-								style="width: 100px;margin-left: 350px;margin-top: 10px;"
-								id="test1" type="button">修改图片</button>
-							<div class="layui-upload-list">
-								<img class="layui-upload-img" id="demo1">
-								<p id="demoText"></p>
+						<img class="userPicPath"
+							style="border-radius:100%;width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;">
+						<form id="formFileData" action="user/userUpdateUserPicPath"
+							enctype="multipart/form-data" method="post">
+							<div
+								style="margin-bottom:20px;margin-top: 30px;margin-left: 200px;">
+								<span class="layui-btn"
+									style="display:inline-block;position:relative;width:100px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
+									修改图片 <input
+										style="height:34px;position:absolute;z-index:1;left:0px;width:100px;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;"
+										type="file" class="upload_file1" id="userPicUpdate"
+										name="userPic" size="1">
+								</span> <span>(支持jpg、png、小于2M)</span>
 							</div>
-						</div>
+
+						</form>
+
+						<!--分割线  -->
+						<div
+							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
+						<!--分割线  -->
 						<!-- 个人信息开始 -->
 						<form class="layui-form"
 							action="personalInformation/userUpdatePersonalInformation"
@@ -276,8 +320,9 @@
 						<!-- 亲属 -->
 					</div>
 					<div class="layui-tab-item layui-tab-item2">
-						<label
+						<label 
 							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
+						
 						<label>用户名：</label> <label>绑定手机：</label> <a href="#"
 							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
 						<div
@@ -315,57 +360,70 @@
 					<div class="layui-tab-item layui-tab-item3">
 						<label
 							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
+					 	<h2  id="nullMessage"></h2> 
 						<label>患有疾病：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
 							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
-						
+
 						<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.nationName }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.nationName }"
 							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
-						
+
 
 						<label>文化程度：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
 							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
 							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<label style="margin-top: 20px;">身高(cm)：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
 							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							 class="layui-input">
-						
+							class="layui-input">
+
 						<label style="margin-left: 400px;margin-top: -35px;">体重(kg)：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
 							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
-					
+
 						<label style="margin-top: 20px;">血栓：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
 							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">血压：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
 							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							 class="layui-input">
+							class="layui-input">
 						<label>饮食状况：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
 							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
 							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<label>情绪控制：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
 							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
-						<input type="text" readonly="readonly" value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
+						<input type="text" readonly="readonly"
+							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
 							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
 							class="layui-input">
 						<div
@@ -385,11 +443,13 @@
 								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.dangerousTips }</div>
 							</div>
 							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">结论建议 </h5>
+								<h5 class="layui-colla-title" style="font-weight: bold;">结论建议
+								</h5>
 								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.conclusionSuggestion}</div>
 							</div>
 							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价 </h5>
+								<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价
+								</h5>
 								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.evaluate }</div>
 							</div>
 						</div>
@@ -814,6 +874,20 @@
 														});
 											});
 							$(function() {
+								//没有身体状况数据提示
+								var personalInfofmationAndHealthRecordsExpand='${personalInfofmationAndHealthRecordsExpand}';
+								 if (personalInfofmationAndHealthRecordsExpand==null) { 
+									$("#nullMessage").html("还没有您的身体状况数据！");
+								 } 
+								//头像图片信息
+								var user = '${user}';
+								if (user.userPicPath == null) {
+									$(".userPicPath").attr("src",
+											"resource/image/userdefaultpic.jpg");
+								} else {
+									$(".userPicPath").attr("src",
+											user.userPicPath);
+								}
 								//回显address中的省级地址
 								var provinceData = ${provinceData};
 								//个人信息地址省级地址回填
@@ -839,6 +913,7 @@
 
 								} else {
 								}
+								
 								//亲属地址回填
 								var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
 								if (relativesAddresId.length > 0) {
