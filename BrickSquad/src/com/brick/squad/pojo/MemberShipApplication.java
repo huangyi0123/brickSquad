@@ -1,11 +1,16 @@
 package com.brick.squad.pojo;
 
+import javax.validation.constraints.NotNull;
+
 public class MemberShipApplication {
 
-	
+	@NotNull
 	private String id;
+	@NotNull
 	private String memberShipTypeId;
+	@NotNull
 	private String userId;
+	@NotNull
 	private String perId;
 	private double deposit;
 	
