@@ -104,9 +104,10 @@ layui.use('layer', function(){
 			<label class="layui-form-label">身份证号</label>
 
 			<div class="layui-input-inline">
-				<input type="text" id="perId"  name="perId"  value="${medical.perId }" required lay-verify="required"
+				<input type="text" id="perIdCardId"  value="${medical.perId }" required lay-verify="required"
 					placeholder="身份证号" autocomplete="off" class="layui-input">
-				<input type="hidden" name="perId" value="${medical.perId }"
+				
+				<input type="hidden" name="perId" value="${medical.perId }" 
 					id="perId"  placeholder="ID存入">
 			</div>
 		</div>
@@ -114,7 +115,7 @@ layui.use('layer', function(){
 			<label class="layui-form-label">姓名</label>
 
 			<div class="layui-input-inline">
-				<input type="text" id="IdName" required lay-verify="required"
+				<input type="text" id="IdName" name="IdName" required lay-verify="required"
 					placeholder="姓名" autocomplete="off" class="layui-input">
 			</div>
 		</div>

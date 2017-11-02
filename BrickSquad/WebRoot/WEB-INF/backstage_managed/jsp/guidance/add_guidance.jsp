@@ -63,6 +63,7 @@
 			/*定义一个变量d，让perIdCardId的输入值传进去  */
 					var d=$("#perIdCardId").val();
 					$("#IdName").val("");
+					$("#perId").val("");
 					/* 遍历allPersonalInformationdata数据 */
 					for(var i=0;i<allPersonalInformationdata.length;i++){
 						if(d==allPersonalInformationdata[i].idCard){
