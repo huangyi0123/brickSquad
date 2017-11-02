@@ -248,5 +248,9 @@ public class CommonController {
 	public String deals() {
 		return "frontEnd_manage/front_bootstrap/deals";
 	}
+	@RequestMapping("/toShop_right_sidebar")
+	public String toShop_right_sidebar() {
+		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
+	}
 }
 
