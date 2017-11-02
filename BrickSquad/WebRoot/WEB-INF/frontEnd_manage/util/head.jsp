@@ -115,7 +115,7 @@ color:red;
 			</div>
 			<div class="top-nav" ng-app="">
 				<span class="menu">
-					<img src="resource/image/menu.png" alt=" " />
+					<img src="resource/image/menu.png" alt="" />
 				</span>
 				<ul class="layui-nav layui-this"
 					style="width: 770px; margin-top:-22px; margin-left: -120px;background-color:  #FF9C3F;">
