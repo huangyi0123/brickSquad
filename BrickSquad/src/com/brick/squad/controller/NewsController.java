@@ -115,6 +115,18 @@ public class NewsController {
 		request.setAttribute("news", news);
 		return "backstage_managed/jsp/news/search_news";
 	}
+	/**
+	 * 返回主页新闻列表
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findNewsReturnIndex")
+	@ResponseBody
+	public String findNewsReturnIndex(HttpServletRequest request) throws Exception {
+		String newString=newsService.findNewsList();
+		return newString;
+	}
 	
 	@RequestMapping("/findNewsExpandById")
 	public String findNewsExpandById(HttpServletRequest request,String id){

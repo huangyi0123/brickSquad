@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-	<title>Etro Store - Premium Multipurpose HTML5/CSS3 Theme</title>
+	<title>老人商城</title>
 	<meta charset="utf-8" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -46,9 +46,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body class="page page-id-6 home-style1">
-
-     
-
 
 	<div class="body-wrapper theme-clearfix">
 		<header id="header" class="header header-style1">

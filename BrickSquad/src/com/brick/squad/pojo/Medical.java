@@ -37,6 +37,15 @@ private String content;
  * 主治医师
  */
 private String attendingSurgeon;
+
+
+
+
+
+
+
+
+
 /**
  * @return the id
  */
