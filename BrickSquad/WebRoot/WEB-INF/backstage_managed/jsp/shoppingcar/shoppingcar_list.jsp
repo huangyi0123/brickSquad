@@ -35,7 +35,7 @@
 	$(function() {
 		init("");
 		serach();
-		addShoppingCar("");
+		$(".table-div").css('height','calc(100% - 90px)');
 		
 	});
 	 layui.use('form', function() {
