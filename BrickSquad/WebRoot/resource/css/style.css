@@ -1,6 +1,6 @@
 html, body{
 	font-size: 100%;
-	background:#FCF9F2;
+	background:#FFF6C3;
 	font-family: 'Open Sans', sans-serif;
 }
 body a {
@@ -1301,7 +1301,7 @@ input.card_logo[type="text"] {
     padding: 4em 11.7em;
 }
 .back-col2{
-background:#FDB85E;	
+
     padding: 4em 11.7em;
 	
 }
@@ -1339,11 +1339,17 @@ background:#FDB85E;
     padding: 80px 0;
 }
 .content-left{
+margin-top:1%;
 background:#FCF7F;
+border:1px solid #FF710C;
+border-right:none;
 	
 }
 .content-right{
+margin-top:1%;
 background:#FCF7F;
+border:1px solid #FF710C;
+border-left:none;
 
 }
 .content-left img,.content-right img{
@@ -1430,8 +1436,11 @@ background:#FCF7F;
     display: block;
 }
 .coupons {
-    padding: 150px 0 120px 0;
-    background: #f8f8f8;
+       padding: 150px 0 120px 0;
+    margin-left:2.4%;
+    margin-right:2.4%;
+    background: #FFF6C3;
+    border:1px solid #FF710C
 }
 .foo-grids h3{
 	color: #48cfc1;
@@ -1456,12 +1465,12 @@ text-decoration:none;
 	color:#48cfc1;
 }
 .footer-top{
-   	border-style:inset;
+   	margin-top:1%;
+   	border-top-color:#FF710C;
 	border-left:none;
 	border-right:none;
-    background:#FAFAF;
-    margin-left:2.33%;
-    margin-right:2.33%;
+	border-bottom:none;
+    background:#FFF9D1;
 	}
 /*--//flexisel--*/
 .profile-gd ul{
@@ -1901,13 +1910,11 @@ ul.dropdown-menu.drp-mnu span {
 	    padding: 4.5em 9.8em;
 	}
 	.coupons {
-		padding: 120px 0 90px 0;
-		background:#FCF9F2;
+			padding: 120px 0 90px 0;
+		background:#FFF6C3;
 		margin-left:2.33%;
 		margin-right:2.33%;
-		border-style:outset;
-		border-left:none;
-		border-right:none;
+		border: 1px solid #FF710C;
 		margin-top:10px;
 	}
 	.btm-pos {
