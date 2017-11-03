@@ -33,7 +33,13 @@
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-		
+		$(function() {
+		var da = '${collectionData}';
+		console.log(da);
+		da=JSON.parse(da);
+		findAll(da, "#JB");
+		form.render('select', 'JB1');
+	});
 	});
 </script>
 <script>
@@ -57,11 +63,26 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">买家姓名：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="perId" required lay-verify="required"
+				<%-- <input type="text" name="perId" required lay-verify="required"
 					placeholder="老人ID" autocomplete="off" class="layui-input"
-					value="${collection.perId }">
+					value="${collection.perId }"> --%>
+					
+				<select name="perId"  id="JB" lay-search=""
+					lay-filter="JB1">
+					<option value="">直接选择或搜索选择</option>
+				</select>
 			</div>
 		</div>
+		
+		<!-- <div class="layui-form-item">
+			<label class="layui-form-label" style="width: 100px;">买家姓名：</label>
+			<div class="layui-input-inline">
+				<select name="diseaseId" id="JB" lay-search=""
+					lay-filter="JB1">
+					<option value="">直接选择或搜索选择</option>
+				</select>
+			</div>
+		</div> -->
 		<div class="layui-form-item" style="width: 450px;">
 			<label class="layui-form-label" style="width: 100px;">收藏商品：</label>
 			<div class="layui-input-inline">
@@ -80,7 +101,7 @@
 		</div>
 			<div class="layui-form-item">
     <div class="layui-input-block">
-      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button class="layui-btn" lay-submit lay-filter="formDemo" >立即提交</button>
       <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
   </div>

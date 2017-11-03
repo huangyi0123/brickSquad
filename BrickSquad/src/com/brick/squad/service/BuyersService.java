@@ -27,4 +27,5 @@ public interface BuyersService {
 	public void deleteBuyersById(String id) throws Exception;
 	public String buyersPagination(Pagination pagination) throws Exception;
 	//public int findBuyersAllCount() throws Exception;
+	public String findPnameByBuyersId();
 }
