@@ -6,6 +6,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -19,9 +20,13 @@ public class Activities {
 	private String id;
 	private String name;
 	private String centent;
+	@NotEmpty(message="请选择活动类型")
 	private String typeId;
+	
 	private Date startTime;
+
 	private Date endTime;
+	@NotEmpty(message="请添加本次活动负责人")
 	private String userId;
 	@Min(value=3,message="人数不足")
 	@Max(value=20,message="人数过多")

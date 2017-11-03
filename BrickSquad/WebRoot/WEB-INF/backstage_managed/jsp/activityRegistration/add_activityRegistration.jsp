@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -60,6 +60,19 @@
 			findAll(result, "#perid");
 			form.render('select', 'prIdSelect');  */
 	});
+	$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});	
 </script>
 <script>
 	layui.use('laydate', function() {
@@ -101,10 +114,11 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" name="registrationDate"
+		 <input class="layui-input" name="registrationDate" 
 					id="registrationDate"
 					val="${activityRegistration.registrationDate}" placeholder="活动日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">  
+				 
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -125,5 +139,8 @@
 			</div>
 		</div>
 	</form>
+	<c:forEach items="${errors}" var="error">
+   		<input class="error" value="${error.defaultMessage}" type="hidden">
+   	</c:forEach>
 </body>
 </html>

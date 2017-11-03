@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -107,7 +107,19 @@
 		});
 
 	});
-
+$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});	
 	
 </script>
 </head>
@@ -115,7 +127,7 @@
 	<br>
 	<div style="padding-left: 120px;font-size:16;font-style: oblique;">添加老人详细信息</div>
 	<br>
-	<form class="layui-form" action="personalInformation/addPersonalInformation" id="form1"
+	<form class="layui-form" action="personalInformation/updatePersonalInformationById" id="form1"
 		method="post">
 		<div class="layui-form-item ">
 			<label class="layui-form-label ">老人用户</label>
@@ -306,5 +318,9 @@
 		</div>
 		</div>
 	</form>
+	
+	<c:forEach items="${errors}" var="error">
+   		<input class="error" value="${error.defaultMessage}" type="hidden">
+   	</c:forEach>
 </body>
 </html>

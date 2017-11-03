@@ -50,7 +50,7 @@ public interface TypeMapper {
 	 * 查询记录数
 	 * @return 记录数
 	 */
-	public int typeCount();
+	public int typeCount(Pagination pagination);
 	
 	/**
 	 * 查询所有的类型
