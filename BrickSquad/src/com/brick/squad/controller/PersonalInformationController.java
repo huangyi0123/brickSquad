@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -152,7 +156,15 @@ public class PersonalInformationController {
 	 */
 	@RequestMapping("/addPersonalInformation")
 	public String addPersonalInformation(
-			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) {
+			@Validated AddressAndPersonaInformationExpand addressAndPersonaInformationExpand,BindingResult result,HttpServletRequest request) {
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addPersonalInformation");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/personal_Information/add_personal_Information";
+		 
+		}
 		personalInformationService
 				.insertPersonalInformation(addressAndPersonaInformationExpand);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";

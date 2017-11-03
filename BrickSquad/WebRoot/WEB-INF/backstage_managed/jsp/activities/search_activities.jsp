@@ -39,22 +39,38 @@
 
 
 <script type="text/javascript">
+
 	$(function() {
-		layui.use('form', function() {
-			var form = layui.form();
+		$.ajax({
+		url : 'activities/findAllTypeAndUser',
+		success : function(data) {
+			data = JSON.parse(data);
+			var type = data[0].type;
+			var user = data[0].user;
+			findAll(type, "#typeId");
+			findAll(user, "#userId");
+			layui.use('form', function() {
+				var form = layui.form();
+
+						});
+				layui.use('form', function() {
+					var form = layui.form();
+				});
+			}
 		});
 		
-	var url="${url}"
+	var url="${url}"   //根据用户点击页面判断是否需要回显
 		if(url=='addActivities'){}
 		else{
-		var da = $("#startId").attr('val');
+		var da = $("#startTime").attr('val');//回显时间
 		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#startId").val(dat);
+		$("#startTime").val(dat);
 		
-		var da = $("#endId").attr('val');
+		var da = $("#endTime").attr('val');
 		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#endId").val(dat);
+		$("#endTime").val(dat);
 		}
+		
 	});
 </script>
 </head>
@@ -62,37 +78,77 @@
 <body>
 
 	 <br>
-	<div style="padding-left: 130px;font-size:22;">查看商家详细信息</div>
+	<div style="padding-left: 130px;font-size:22;">查看活动详细信息</div>
 	<br>
 	
 
-       <div class="layui-form-item">
-			<label class="layui-form-label">商家名称：</label>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="name" required lay-verify="required"
-					placeholder="商家名称" autocomplete="off" class="layui-input" value="${business.name}" readonly="readonly">
+					placeholder="活动名称" value="${activitiesExpand.name }"  readonly="readonly" autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label">身份证号：</label>
+			<label class="layui-form-label">参会人数</label>
 			<div class="layui-input-inline">
-				<input type="text" name="idcard" required lay-verify="required"
-					placeholder="身份证号" autocomplete="off" class="layui-input" value="${business.idcard }" readonly="readonly">
+				<input type="text" name="number" required lay-verify="required"
+					placeholder="参会人数" value="${activitiesExpand.number }"  readonly="readonly" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">店铺名称：</label>
-			<div class="layui-input-inline">
-				<input type="text" name="shopname" required lay-verify="required"
-					placeholder="店铺名称" autocomplete="off" class="layui-input" value="${business.shopname }" readonly="readonly">
+		
+		
+		
+		
+	
+		
+		<div class="layui-form-item" style="width: 300px;">
+			<label class="layui-form-label">活动类型</label>
+			<div class="layui-input-block">
+				<select name="typeId" id="typeId"   readonly="readonly" val="${activities.typeId}">
+					<option value=""></option>
+				</select>
 			</div>
 		</div>
+		
+		
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label">商品来源：</label>
+			<label class="layui-form-label">活动内容</label>
 			<div class="layui-input-inline">
-				<input type="text" name="shopMaterialPath" required
-					lay-verify="required" placeholder="商品来源" autocomplete="off"
-					class="layui-input" value="${business.shopMaterialPath }" readonly="readonly">
+				<input name="centent" id="act" required lay-verify="required"
+					placeholder="本次活动内容"   readonly="readonly" value="${activitiesExpand.centent}"  autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		
+		<div class="layui-form-item" style="width: 300px;">
+			<label class="layui-form-label">负责人</label>
+			<div class="layui-input-block">
+				<select name="userId" id="userId"   readonly="readonly" val="${activities.userId}">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+		
+		
+		
+		
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">开始时间</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" id="startTime" name="startTime" placeholder="开始时间" val="${activitiesExpand.startTime }"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"  readonly="readonly">
+			</div>
+		</div>
+        <div class="layui-form-item">
+			<label class="layui-form-label">结束时间</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" id="endTime" name="endTime" placeholder="结束时间" val="${activitiesExpand.endTime }"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"  readonly="readonly">
 			</div>
 		</div>
 		

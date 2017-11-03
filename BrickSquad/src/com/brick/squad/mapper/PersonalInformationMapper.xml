@@ -13,15 +13,22 @@
 		marriageId,zip
 	</sql>
 	<sql id="prop2">
-	p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
+		p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
 		addressId,p.retirement_unit retirementUnit,
 		p.retirement_date
 		retirementDate, p.engaged_industry engagedIndustry,
-		p.weight,p.height,p.income,p.family_history familyHistory,p.is_purchasing
-		isPurchasing,p.is_supremacy isSupremacy,p.is_pureq isPureq,p.pureq_type_id
+		p.weight,p.height,p.income,p.family_history
+		familyHistory,p.is_purchasing
+		isPurchasing,p.is_supremacy
+		isSupremacy,p.is_pureq isPureq,p.pureq_type_id
 		pureqTypeId,p.culture_id cultureId,p.marriage_id
 		marriageId,p.zip,t.name nationId
-		FROM personal_information p LEFT JOIN type t ON p.nation_id=t.id
+		FROM personal_information p LEFT JOIN
+		type t ON p.nation_id=t.id
+	</sql>
+	<sql id="serach">
+		p.`name` REGEXP #{keyword} or
+		p.gender REGEXP #{keyword}
 	</sql>
 	<select id="findPersonalInformationById" resultType="PersonalInformation"
 		parameterType="String">
@@ -30,7 +37,8 @@
 		from personal_information WHERE id=#{id}
 	</select>
 	<insert id="insertPersonalInformation" parameterType="personalInformation">
-		INSERT INTO personal_information
+		INSERT INTO
+		personal_information
 		(id,name,birthday,gender,idcard,address_id,retirement_unit,retirement_date,engaged_industry,weight,height,income,family_history,is_purchasing,is_supremacy,is_pureq,pureq_type_id,nation_id,culture_id,marriage_id,zip)
 		VALUES(#{id},#{name},#{birthday},#{gender},#{idCard},#{addressId},#{retirementUnit},#{retirementDate},#{engagedIndustry},#{weight},#{height},#{income},#{familyHistory},#{isPurchasing},#{isSupremacy},#{isPureq},#{pureqTypeId},#{nationId},#{cultureId},#{marriageId},#{zip})
 	</insert>
@@ -64,48 +72,49 @@
 		DELETE
 		FROM personal_information WHERE id=#{id}
 	</delete>
-	<select id="personalInformationPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.PersonalInformation">
+	<select id="personalInformationPagination" resultType="PersonalInformation"
+		parameterType="com.brick.squad.util.Pagination">
+		select
+		<include refid="prop" />
+		from personal_information p
+		where p.name not in ('')
 		<if test="keyword!=''">
-		SELECT
-		<include refid="prop2" />
-		WHERE p.`name` REGEXP  #{keyword} or p.gender REGEXP #{keyword} or p.idcard REGEXP #{keyword}
-		LIMIT #{skipNum},#{takeNum}
+			and (
+			<include refid="serach" />
+			)
 		</if>
-		
-		<if test="keyword==''">
-		SELECT
-		<include refid="prop2" />
-		 LIMIT #{skipNum},#{takeNum}
-		</if>
+		limit #{skipNum},#{takeNum}
 	</select>
-	
-	<select id="personalInformationCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
-		<if test="keyword==''">
-		
-		SELECT COUNT(*) FROM personal_information p JOIN type t ON p.nation_id=t.id
-		</if>
+	<select id="personalInformationCount" parameterType="com.brick.squad.util.Pagination"
+		resultType="int">
+		select
+		count(*)
+		from personal_information p
+		where p.name not in ('')
 		<if test="keyword!=''">
-		SELECT COUNT(*) FROM personal_information p JOIN type t ON p.nation_id=t.id WHERE p.`name` REGEXP  #{keyword} or p.gender REGEXP #{keyword} or p.idcard REGEXP #{keyword}
-		LIMIT #{skipNum},#{takeNum}
+			and (
+			<include refid="serach" />
+			)
 		</if>
+		limit #{skipNum},#{takeNum}
 	</select>
-	
 	<select id="findAllPersonalInformation1" resultType="personalInformation">
-	SELECT 
-	<include refid="prop" />
-	FROM personal_information
+		SELECT
+		<include refid="prop" />
+		FROM personal_information
 	</select>
 
-	
+
 	<!-- 查询老人姓名和id -->
-	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select">
-	SELECT id ,name
-	FROM personal_information
+	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select"> SELECT id
+		,name
+		FROM personal_information
 	</select>
 	<!-- 用于guidance表的回显 -->
 	<select id="findPerIdAndIdCard" resultType="PersonalInformation">
-		select id,idcard idCard,name from personal_information
+		select id,idcard
+		idCard,name from personal_information
 	</select>
-	
-	
+
+
 </mapper>

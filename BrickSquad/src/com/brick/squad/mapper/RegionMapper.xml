@@ -3,47 +3,50 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RegionMapper">
 
-	<select id="findRegionById" resultType="region" parameterType="String" >
-		select id,isleaf,name,parent_id perantId  from region where id=#{id}
+	<select id="findRegionById" resultType="region" parameterType="String">
+		select id,isleaf,name,parent_id perantId from region where id=#{id}
 	</select>
 
 	<insert id="insertRegionById" parameterType="region">
-		insert into region (id,isleaf,name,parent_id,level)  values (#{id},#{isleaf},#{name}
+		insert into region
+		(id,isleaf,name,parent_id,level) values (#{id},#{isleaf},#{name}
 		,#{perantId},#{level})
 	</insert>
 	<delete id="deleteRegionById" parameterType="String">
-		delete from region where id=#{id}
+		delete from region
+		where id=#{id}
 	</delete>
-	<update id="updateRegion"  parameterType="region" >
-		update region set name=#{name}	where id=#{id} 
+	<update id="updateRegion" parameterType="region">
+		update region
+		set name=#{name} where id=#{id}
 	</update>
-	<select id="regionPagination" parameterType="com.brick.squad.util.Pagination" resultType="region">
-		
+	<select id="regionPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="region">
+
 		select id,isleaf,name,parent_id perantId from region
 		<if test="keyword!=''">
-		 WHERE name  REGEXP #{keyword}  
-		 </if>
-		 limit #{skipNum},#{takeNum}
-		
-<!-- 		<if test="keyword==''">
-		select id,isleaf,name,parent_id perantId from region  limit #{skipNum},#{takeNum}
+			WHERE name REGEXP #{keyword}
 		</if>
-		 -->
+		limit #{skipNum},#{takeNum}
 	</select>
-	<select id="regionCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+	<select id="regionCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select count(*) from region
-	<!-- 	<if test="keyword!=''">
-		WHERE name  REGEXP #{keyword}  limit #{skipNum},#{takeNum}
-		</if> -->
+		<if test="keyword!=''">
+			WHERE name REGEXP #{keyword}
+		</if>
 	</select>
 	<!-- 用于数据回显 -->
 	<select id="findAllRegion" resultType="region">
-		select id,isleaf,name,parent_id perantId,level from region
+		select
+		id,isleaf,name,parent_id perantId,level from region
 	</select>
-	<select id="findRegionsByLevel" parameterType="int" resultType="com.brick.squad.util.Select">
+	<select id="findRegionsByLevel" parameterType="int"
+		resultType="com.brick.squad.util.Select">
 		SELECT id,name FROM region WHERE level=#{level}
 	</select>
-	<select id="findRegionsByParentId" parameterType="String" resultType="com.brick.squad.util.Select">
+	<select id="findRegionsByParentId" parameterType="String"
+		resultType="com.brick.squad.util.Select">
 		SELECT id,name FROM region WHERE parent_id=#{parentId}
 	</select>
 </mapper>
