@@ -15,13 +15,13 @@ function init(keyword) {
 			text : '登记时间'
 		}, {
 			key : 'username',
-			text : '登记人ID'
+			text : '登记人'
 		}, {
 			key : 'pname',
-			text : '老人ID'
+			text : '老人'
 		}, {
 			key : 'diseaseId',
-			text : '所患疾病ID'
+			text : '所患疾病'
 		}, {
 			key : 'shape',
 			text : '身体状况'
