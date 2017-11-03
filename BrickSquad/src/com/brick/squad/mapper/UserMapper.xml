@@ -5,7 +5,7 @@
 	<!-- Luyujing User表 增删改查 -->
 	<sql id="prop">
 		id,username,password ,telephone, role_id roleId,branch_id
-		branchId,userPicPath 
+		branchId,userPicPath
 	</sql>
 	<insert id="addUser" parameterType="com.brick.squad.pojo.User">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -100,10 +100,10 @@
 	</select>
 	<select id="findUserByBranchId" resultType="com.brick.squad.util.Select"
 		parameterType="String">
-		SELECT id,username name FROM user u
-		WHERE
+		SELECT u.id,u.username name FROM `user` u
+		left JOIN personal_information p ON p.id=u.id
+		WHERE p.`name` is NULL and
+		u.role_id='e2ebe746b86b11e78d4f5254002ec43c' AND
 		u.branch_id=#{branchId}
-		and
-		u.role_id='e2ebe746b86b11e78d4f5254002ec43c'
 	</select>
 </mapper>
