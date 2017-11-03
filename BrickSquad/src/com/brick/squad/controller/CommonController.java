@@ -259,5 +259,6 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 		
 	}
+
 }
 

@@ -5782,8 +5782,9 @@
 				</div>
 			</div>
 		</div>
-
-		<footer id="footer" class="footer default theme-clearfix"> <!-- Content footer -->
+	<jsp:include page="shop_footer.jsp"></jsp:include>
+	<!-- <footer id="footer" class="footer default theme-clearfix">
+		 Content footer
 		<div class="container">
 			<div class="vc_row wpb_row vc_row-fluid">
 				<div class="wpb_column vc_column_container vc_col-sm-12">
@@ -6179,7 +6180,7 @@
 
 		<div class="footer-copyright style1">
 			<div class="container">
-				<!-- Copyright text -->
+				Copyright text
 				<div class="copyright-text pull-left">
 					<p>
 						Etro Store - Premium Multipurpose HTML5/CSS3 Theme - Designed by <a
@@ -6203,7 +6204,7 @@
 				</div>
 			</div>
 		</div>
-		</footer>
+		</footer> -->
 	</div>
 
 	<!-- DIALOGS -->
