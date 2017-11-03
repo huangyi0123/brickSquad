@@ -12,7 +12,7 @@ public interface RelativesMapper {
 	 * @param PerId
 	 * @return
 	 */
-	public Relatives selectRelativesByPerId(String perId);
+	public List<Relatives> selectRelativesByPerId(String perId);
 	/**
 	 * 根据id查询亲属关系
 	 * 

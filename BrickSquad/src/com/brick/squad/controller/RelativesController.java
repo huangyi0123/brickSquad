@@ -4,17 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.objenesis.instantiator.perc.PercSerializationInstantiator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
-import com.brick.squad.expand.RelativesAndAddressExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
@@ -56,7 +55,21 @@ public class RelativesController {
 		return relativesService.relativesPagination(pagination);
 
 	}
+	/**
+	 * 普通用户查看自己的亲属联系人
+	 * @param pSize
+	 * @param cPage
+	 * @param keyword
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping("/usergetRelativesList")
+	@ResponseBody
+	public String usergetRelativesList(HttpServletRequest request) throws Exception {
+		User user =(User) request.getSession().getAttribute("user");
+		return relativesService.usergetrelativesPagination(user.getId());
 
+	}
 	@RequestMapping("/toAddRelatives")
 	public String toAddRelatives(HttpServletRequest request,String id) throws Exception {
 		//查询出region中的所有省份
@@ -105,6 +118,13 @@ public class RelativesController {
 		relativesService.deleteRelativesById(id);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
+	@RequestMapping("/userDeleteRelativesById")
+	@ResponseBody
+	public String userDeleteRelativesById(String id){
+		relativesService.deleteRelativesById(id);
+		return "suc";
+	} 
+	
 	/**
 	 * 根据拓展类id修改Relatives表
 	 * @return
@@ -115,15 +135,5 @@ public class RelativesController {
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 
-	/**
-	 * 用户完善亲属联系信息
-	 * 
-	 * @return
-	 * @throws Exception 
-	 */
-	@RequestMapping("/userUpdateRelatives")
-	public String userUpdateRelatives(RelativesAndAddressExpand relativesAndAddressExpand) throws Exception {
-		relativesService.userUpdateRelatives(relativesAndAddressExpand);
-		return "redirect:/common/toPersonal";
-	}
+
 }

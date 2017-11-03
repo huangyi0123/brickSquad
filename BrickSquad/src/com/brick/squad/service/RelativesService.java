@@ -1,7 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
-import com.brick.squad.expand.RelativesAndAddressExpand;
+import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.util.Pagination;
 
@@ -11,12 +13,7 @@ public interface RelativesService {
 	 * @param PerId
 	 * @return
 	 */
-	public Relatives selectRelativesByPerId(String PerId);
-	/**
-	 * 用户完善亲属联系信息
-	 * @param relativesAndAddressExpand
-	 */
-	public void userUpdateRelatives(RelativesAndAddressExpand relativesAndAddressExpand)throws Exception;
+	public List<Relatives> selectRelativesByPerId(String PerId);
 	/**
 	 * 根据id查询亲属关系
 	 * 
@@ -53,7 +50,18 @@ public interface RelativesService {
 	 *            老人亲属关系id
 	 */
 	public void deleteRelativesById(String id);
-
+	/**
+	 * 普通用户删除亲属联系人，要把与之关联的地址也删掉
+	 * @param id
+	 */
+	public void userDeleteRelativesById(String id);
 	public String relativesPagination(Pagination pagination);
+	/**
+	 * 普通用户查看自己的亲属联系人
+	 * @param pagination
+	 * @return
+	 */
+	public String usergetrelativesPagination(String id)throws Exception;
+	
 
 }
