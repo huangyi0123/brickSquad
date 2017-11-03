@@ -37,4 +37,8 @@ public interface AddressService {
 	 * @return 区域信息
 	 */
 	public String getAllRegion(Address address);
+	/**
+	 * 拼接地址所有字段
+	 */
+	public String findByIdAllAddress(String id);
 }
