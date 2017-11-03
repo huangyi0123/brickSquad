@@ -54,6 +54,7 @@ public class ActivitiesController {
 			if (id != null) {
 				request.setAttribute("msg", "修改");
 				request.setAttribute("url", "updateActivitiesById");
+				
 				Activities activities = activitiesService.findActivitiesById(id);
 				request.setAttribute("activities", activities);
 			} else {

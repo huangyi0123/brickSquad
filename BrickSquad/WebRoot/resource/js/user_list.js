@@ -8,14 +8,6 @@ function init(keyword) {
         supportCheckbox: false,
         columnData: [
             {
-                key: 'id',
-                text: '用户ID'
-            },
-            {
-                key: 'password',
-                text: '用户密码'
-            },
-            {
                 key: 'username',
                 text: '用户名'
             },
