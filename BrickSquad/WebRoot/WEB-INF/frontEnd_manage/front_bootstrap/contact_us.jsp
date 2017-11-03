@@ -150,7 +150,7 @@
 								<div class="widget-inner">
 									<ul id="menu-checkout" class="menu">
 										<li class="menu-checkout"><a class="item-link"
-											href="common/toContactUs"> <span class="menu-title">关于我们</span>
+											href="common/toContactUs"> <span class="menu-title">联系我们</span>
 										</a></li>
 									</ul>
 								</div>
@@ -723,7 +723,7 @@
 											</ul></li>
 
 										<li class="menu-about-us"><a class="item-link"
-											href="about_us.html">About Us</a></li>
+											href="common/toabout_us">关于我们</a></li>
 
 										<li class="active menu-contact-us"><a class="item-link"
 											href="contact_us.html">Contact Us</a></li>
@@ -734,7 +734,7 @@
 							<ul id="menu-primary-menu-1"
 								class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
 								<li class="dropdown menu-home etrostore-mega-menu level1">
-									<a href="home_page_1.html" class="item-link dropdown-toggle">
+									<a href="common/toShop" class="item-link dropdown-toggle">
 										<span class="have-title"> <span class="menu-color"
 											data-color="#f034ca"></span> <span class="menu-title">Home</span>
 									</span>
@@ -748,8 +748,8 @@
 										</a>
 
 											<ul class="dropdown-sub nav-level2">
-												<li class="menu-home-page-1"><a href="home_page_1.html">
-														<span class="have-title"> <span class="menu-title">Home
+												<li class="menu-home-page-1"><a href="common/toShop">
+														<span class="have-title"> <span class="menu-title">首页
 																Page 1</span>
 													</span>
 												</a></li>
@@ -1594,10 +1594,10 @@
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
-									<li><a href="common/toShop">Home</a> <span
+									<li><a href="common/toShop">首页</a> <span
 										class="go-page"></span></li>
 
-									<li class="active"><span>Our Stores</span></li>
+									<li class="active"><span>我们的故事</span></li>
 								</ul>
 							</div>
 						</div>
@@ -2112,8 +2112,7 @@
 								<div class="widget widget_nav_menu">
 									<ul id="menu-infomation" class="menu">
 										<li class="menu-about-us"><a class="item-link"
-											href="about_us.html"> <span class="menu-title">About
-													Us</span>
+											href="common/toabout_us"> <span class="menu-title">关于我们</span>
 										</a></li>
 
 										<li class="menu-customer-service"><a class="item-link"
@@ -2135,8 +2134,7 @@
 										</a></li>
 
 										<li class="menu-contact-us"><a class="item-link"
-											href="contact_us.html"> <span class="menu-title">Contact
-													Us</span>
+											href="common/toContactUs"> <span class="menu-title">联系我们</span>
 										</a></li>
 									</ul>
 								</div>

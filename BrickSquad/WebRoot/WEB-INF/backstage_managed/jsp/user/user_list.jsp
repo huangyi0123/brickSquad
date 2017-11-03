@@ -35,15 +35,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		init("");
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
-
 	});
 	</script>
+	<style type="text/css">
+.search {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+a:HOVER {
+	text-decoration: none;
+}
+</style>
   </head>
   
   <body>
-  	<div class="search">
+	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" placeholder="Search for..." id="keyword">
+
+			<input type="text" id="keyword" class="form-control" placeholder="查找">
+
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
@@ -51,7 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</span>
 		</div>
 		<!-- /input-group -->
-		<div class="input-group"
+	</div>
+	<div class="input-group"
 		style="float: right;margin-right: 30px;margin-top: 5px; ">
 		<div class="input-group-btn" style="width:100px;">
 			<button type="button" style="width: 170px;"
@@ -70,9 +83,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 	</div>
-	</div>
 	<div style="clear: both;"></div>
 	<div class="cls"></div>
-    <table grid-manager="demo-ajaxPageCode"></table>
+	<table grid-manager="demo-ajaxPageCode"></table>
   </body>
 </html>

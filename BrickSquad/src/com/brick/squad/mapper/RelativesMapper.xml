@@ -2,10 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RelativesMapper">
-<select id="selectRelativesByPerId" parameterType="String"
+	<select id="selectRelativesByPerId" parameterType="String"
 		resultType="Relatives">
 		SELECT id,per_id perId, name,telephone,address_id
-		addressId,relationship_id relationshipId FROM relatives WHERE per_id=#{perId}
+		addressId,relationship_id relationshipId FROM relatives WHERE
+		per_id=#{perId}
 	</select>
 	<select id="findRelativesById" parameterType="String"
 		resultType="Relatives">
@@ -36,31 +37,26 @@
 		DELETE FROM
 		relatives WHERE id=#{id}
 	</delete>
-	<select id="relativesPagination" parameterType="com.brick.squad.util.Pagination" resultType="relatives">
-	<if test="keyword!=''">
-	select
-		id,per_id perId, name,telephone,address_id
-		addressId,relationship_id relationshipId
-		from relatives WHERE name REGEXP #{keyword} or address_id REGEXP #{keyword} limit #{skipNum},#{takeNum}
-	</if>
-	<if test="keyword==''">
-	select
-		id,per_id perId, name,telephone,address_id
-		addressId,relationship_id relationshipId
-		from relatives
-		limit
-		#{skipNum},#{takeNum}
-	</if>
-		
-
+	<select id="relativesPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand">
+			SELECT relatives.name relName,personal_information.name perName,type.`name`
+			tyName,
+			relatives.telephone relPhone,relatives.id,
+			relatives.address_id,relatives.per_id,relatives.relationship_id
+			FROM relatives
+			JOIN personal_information ON relatives.per_id=personal_information.id
+			JOIN type ON relatives.relationship_id = type.id
+			<if test="keyword!=''">
+			WHERE relatives.name REGEXP#{keyword} or 
+			personal_information.name  REGEXP #{keyword} or
+			type.`name`  REGEXP #{keyword} or
+			relatives.telephone  REGEXP #{keyword} 
+			</if>
+			limit #{skipNum},#{takeNum}
 	</select>
-	<select id="findRelativesAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
-		
+	<select id="findRelativesAllCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select count(*)
 		from relatives
-		
-		<if test="keyword!=''">
-		 WHERE name REGEXP #{keyword} or address_id REGEXP #{keyword} limit #{skipNum},#{takeNum}
-	</if>
 	</select>
 </mapper>
