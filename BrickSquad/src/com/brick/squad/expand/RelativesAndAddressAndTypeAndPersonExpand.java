@@ -18,7 +18,15 @@ public class RelativesAndAddressAndTypeAndPersonExpand{
 	private Type type;
 	private PersonalInformation personalInformation;
 	private Relatives relatives;
-
+	@Pattern(regexp="^((13\\d{9}$)|(15[0,1,2,3,5,6,7,8,9]\\d{8}$)|(18[0,2,5,6,7,8,9]\\d{8}$)|(147\\d{8})$)",message="请您输入正确的手机号码")
+	private String relphone;
+	
+	public String getRelphone() {
+		return relphone;
+	}
+	public void setRelphone(String relphone) {
+		this.relphone = relphone;
+	}
 	public Address getAddress() {
 		return address;
 	}

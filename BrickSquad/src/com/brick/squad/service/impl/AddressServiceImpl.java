@@ -104,6 +104,12 @@ public class AddressServiceImpl implements AddressService{
 		return jsonArray.toString();
 	}
 
+	@Override
+	public String findByIdAllAddress(String id) {
+		// TODO Auto-generated method stub
+		return addressMapper.findByIdAllAddress(id);
+	}
+
 
 	
 

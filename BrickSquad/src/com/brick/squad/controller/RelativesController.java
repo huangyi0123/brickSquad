@@ -50,7 +50,6 @@ public class RelativesController {
 
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
-
 	@RequestMapping("/getRelativesList")
 	@ResponseBody
 	public String getRelativesList(int pSize, int cPage, String keyword) {
@@ -61,7 +60,33 @@ public class RelativesController {
 		return relativesService.relativesPagination(pagination);
 
 	}
-
+	@RequestMapping("/searchRelatives")
+	public String searchRelatives(HttpServletRequest request,String id) throws Exception{
+				//查询出Type中的所有亲属关系
+				Relatives relatives = relativesService.findRelativesById(id);
+				Type type = typeService.findTypeById(relatives.getRelationshipId());
+				String dataType = type.getName();
+				request.setAttribute("dataType", dataType);
+				//先将relatives中的所有信息查询出来
+				
+				//优先获取relatives中的AddressId,再执行Address中的查询，这样就能实现通过AddressId查询地址信息用于回显
+				String address = addressService.findByIdAllAddress(relatives.getAddressId());
+				request.setAttribute("address", address);
+				//同理type表
+			
+				//同理person表
+				PersonalInformation personalInformation=personalInformationService.findPersonalInformationById(relatives.getPerId());
+				String perString = personalInformation.getName();
+				request.setAttribute("perString", perString);
+				RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson
+				= new RelativesAndAddressAndTypeAndPersonExpand();
+				relaAddressTypePerson.setRelatives(relatives);
+				//将对象放入request中传入jsp
+				request.setAttribute("relaAddressTypePerson", relaAddressTypePerson);
+				//查询出所有省信息用于回显
+		return "backstage_managed/jsp/relatives/search_relatives";
+	}
+	
 	@RequestMapping("/toAddRelatives")
 	public String toAddRelatives(HttpServletRequest request,String id) throws Exception {
 		//查询出region中的所有省份
@@ -101,15 +126,13 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/insertRelatives")
-	public String insertRelatives(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand,BindingResult bindingResult,
+	public String insertRelatives(@Validated RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand,BindingResult bindingResult,
 			HttpServletRequest request) {
-		if( relativesAndAddressAndTypeAndPersonExpand.getRelatives()!=null){
 			if(bindingResult.hasErrors()){
 				List<ObjectError> errors = bindingResult.getAllErrors();
 				request.setAttribute("errors", errors);
 				return "backstage_managed/jsp/relatives/add_relatives";
 			}
-		}
 		relativesService.insertRelatives(relativesAndAddressAndTypeAndPersonExpand);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}

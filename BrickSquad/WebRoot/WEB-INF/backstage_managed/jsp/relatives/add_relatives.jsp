@@ -45,6 +45,9 @@
 	});
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+		
+	
+		
 		//获取老人信息表
 		$.ajax({
 			url : 'personalInformation/findAllPersonalInformation',
@@ -123,6 +126,10 @@
 			});
 		});
 	});
+	function sub(){
+		var relphone = $("#telephone").value();
+		$("#relphone").value(relphone);
+	}
 </script>
 </head>
 
@@ -174,7 +181,8 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">联系电话：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="relatives.telephone" required
+				<input type="hidden" name="relphone" id="relphone"> 
+				<input type="text" name="relatives.telephone" required id="telephone" onchange="sub()"
 					lay-verify="required"
 					value="${relaAddressTypePerson.relatives.telephone}"
 					placeholder="联系电话" autocomplete="off" class="layui-input">

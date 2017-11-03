@@ -43,8 +43,10 @@
 		JOIN region rcot ON
 		a.county_id=rcot.id
 		<if test="keyword!=''and keyword!=null">
-			WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP #{keyword} or
-			rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP #{keyword} or
+			WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP
+			#{keyword} or
+			rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP
+			#{keyword} or
 			a.detailed REGEXP #{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
@@ -63,9 +65,30 @@
 
 		JOIN region rcot ON a.county_id=rcot.id
 		<if test="keyword!=''and keyword!=null">
-			WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP #{keyword} or
-			rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP #{keyword} or
+			WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP
+			#{keyword} or
+			rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP
+			#{keyword} or
 			a.detailed REGEXP #{keyword}
 		</if>
 	</select>
+	<!--通用拼接查询地址sql -->
+	<select id="findByIdAllAddress" parameterType="String" resultType="String">
+		SELECT
+		CONCAT(pro.`name`,city.`name`,county.`name`,country.`name`,a.detailed)
+		address FROM address a JOIN
+		region pro ON a.province_id=pro.id
+
+		JOIN
+		region city ON a.city_id=city.id
+
+		JOIN
+		region county on a.country_id=county.id
+
+		JOIN
+		region country on a.country_id=country.id
+
+		WHERE a.id=#{id}
+	</select>
+
 </mapper>
