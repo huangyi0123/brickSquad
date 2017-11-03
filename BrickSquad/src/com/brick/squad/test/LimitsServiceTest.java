@@ -1,5 +1,10 @@
 package com.brick.squad.test;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,14 +52,14 @@ public class LimitsServiceTest {
 
 	@Test
 	public void testUpdateLimitsById() {
-		Limits limits=limitsService.findLimitsById("b97a0794b0aa11e78d4f5254002ec43c");
-		limits.setAd(false);
+		Limits limits=limitsService.findLimitsById("66741fd4bf7411e7aca65254002ec43c");
+		limits.setAd(true);
 		limitsService.updateLimitsById(limits);
 	}
 
 	@Test
 	public void testDeleteLimitsById() {
-		limitsService.deleteLimitsById("b97a0794b0aa11e78d4f5254002ec43c");
+		limitsService.deleteLimitsById("12");
 	}
 	@Test
 	public void testLimitsPagination() {
@@ -66,5 +71,20 @@ public class LimitsServiceTest {
 	@Test
 	public void testFindAllTableName() {
 		System.out.println(limitsService.findAllTableName("1"));
+	}
+	@Test
+	public void updateLimitsByRoleId(){
+		List<Limits> list=new ArrayList<Limits>();
+		Limits limits=limitsService.findLimitsById("de6ba706bf6911e7aca65254002ec43c");
+		limits.setTablename("xiaobiao");
+		list.add(limits);
+		limitsService.updateLimitsByRoleId(list, limits.getRoleId());
+	}
+	@Test
+	public void findAllLimitsByRoleId(){
+		Map<String , Limits> map=limitsService.findAllLimitsByRoleId("12");
+		for(Map.Entry<String, Limits>  entry:map.entrySet()){
+			System.out.println("key:"+entry.getKey()+"=====value:"+entry.getValue().getTablename());
+		}
 	}
 }

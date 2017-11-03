@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -22,13 +22,11 @@
 	href="resource/plugins/layui/css/layui.css">
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-<script type="text/javascript"
-	src="resource/js/buyers_list.js"></script>
+<script type="text/javascript" src="resource/js/buyers_list.js"></script>
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
@@ -37,6 +35,7 @@
 			url : 'personalInformation/findAllPersonalInformation',
 			success : function(result) {
 				result = JSON.parse(result);
+				console.log(result);
 				findAll(result, "#perid");
 				form.render('select', 'perid');
 			}
@@ -110,16 +109,24 @@
 	<div style="padding-left: 150px;font-size:16;">${msg}买家信息</div>
 	<br>
 	<form action="buyers/${url} " class="layui-form" method="post">
-		<input type="hidden" name="buyers.id" value="${addressAndBuyersExpand.buyers.id }">
-		<input type="hidden" name="address.id" value="${addressAndBuyersExpand.address.id }">
-		
+		<input type="hidden" name="address.id"
+			value="${addressAndBuyersExpand.address.id }">
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">买家姓名：</label>
 			<div class="layui-input-inline">
-				<select lay-filter="perid" name="buyers.informationId" id="perid"
-					val="${addressAndBuyersExpand.buyers.informationId}">
+			<c:if test="${url eq 'updateBuyersById'}">
+				<select disabled="disabled" lay-filter="perid" name="buyers.id" id="perid"
+					val="${addressAndBuyersExpand.buyers.id}">
 					<option value="">选择买家姓名</option>
 				</select>
+				</c:if>
+				<c:if test="${url ne 'updateBuyersById'}">
+				<select  lay-filter="perid" name="buyers.id" id="perid"
+					val="${addressAndBuyersExpand.buyers.id}">
+					<option value="">选择买家姓名</option>
+				</select>
+				</c:if>
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -152,28 +159,32 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.provinceId}"
+				<select required lay-verify="required"
+					val="${addressAndBuyersExpand.address.provinceId}"
 					name="address.provinceId" id="prId" lay-filter="prIds"
 					lay-search="">
 					<option value="">选择省份</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.cityId}"
+				<select required lay-verify="required"
+					val="${addressAndBuyersExpand.address.cityId}"
 					name="address.cityId" id="cityId" lay-filter="cityIdSelect"
 					lay-search="">
 					<option value="">选择城市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.countyId}"
+				<select required lay-verify="required"
+					val="${addressAndBuyersExpand.address.countyId}"
 					name="address.countyId" id="countyId" lay-filter="countyIdSelect"
 					lay-search="">
 					<option value="">选择县市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.countryId}"
+				<select required lay-verify="required"
+					val="${addressAndBuyersExpand.address.countryId}"
 					name="address.countryId" id="countryId"
 					lay-filter="countryIdSelect" lay-search="">
 					<option value="">选择乡镇</option>

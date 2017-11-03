@@ -23,15 +23,14 @@ public class RegionServiceTest {
 	private RegionService regionService;
 	@Test
 	public void testFindRegionById() throws Exception{
-		Region region = regionService.findRegionById("4");
+		Region region = regionService.findRegionById("110105001");
 		System.out.print(region);
 	}
 	@Test
 	//根据Level字段查询
 	public void testFindRegionByLevel() {
-		
-		regionService.findRegionByLevel(2);
-		System.out.print(regionService);
+		String data=regionService.findRegionByLevel(2);
+		System.out.print(data);
 	}
 	//插入字段的测试方法
 	@Test
@@ -62,5 +61,15 @@ public class RegionServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(8);
 		System.out.println(regionService.regionPagination(pagination));
+	}
+	@Test
+	public void findRegionByParentId(){
+		String data=regionService.findRegionByParentId("110101");
+		System.out.println(data);
+	}
+	@Test
+	public void findAllRegion(){
+		String data=regionService.findAllRegion();
+		System.out.println(data);
 	}
 }

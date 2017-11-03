@@ -1866,7 +1866,7 @@
 																			class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																			<li
 																				class="menu-computers-laptops etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#7ac143"></span> <span
 																						class="menu-title">女装</span>
@@ -1878,7 +1878,7 @@
 
 																			<li
 																				class="menu-cameras-camcorders etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#fe9901"></span> <span
 																						class="menu-title">男装</span>
@@ -1890,7 +1890,7 @@
 
 																			<li
 																				class="menu-home-appliances etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#f034ca"></span> <span
 																						class="menu-title">女鞋</span>
@@ -1900,7 +1900,7 @@
 
 																			<li
 																				class="menu-home-furniture etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#7745bc"></span> <span
 																						class="menu-title">男鞋</span>
@@ -1910,7 +1910,7 @@
 
 																			<li
 																				class="menu-household-goods etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#42b8d1"></span> <span
 																						class="menu-title">配件配饰</span>
@@ -1919,7 +1919,7 @@
 																			</li>
 																			<li
 																				class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="simple_product.html"
+																				<a href="common/tosimple_product"
 																				class="item-link dropdown-toggle"> <span
 																					class="have-title"> <span class="menu-color"
 																						data-color="#efc73a"></span> <span
@@ -2127,7 +2127,7 @@
 
 																			<li
 																				class="menu-television etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#3f5eca"></span> <span
 																						class="menu-title">食品</span>
@@ -2137,7 +2137,7 @@
 
 																			<li
 																				class="menu-accessories-for-tablet etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#13528c"></span> <span
 																						class="menu-title">滋补养生</span>
@@ -2146,7 +2146,7 @@
 																			</li>
 																			<li
 																				class="dropdown menu-electronic-component etrostore-mega-menu level1">
-																				<a href="simple_product.html"
+																				<a href="common/tosimple_product"
 																				class="item-link dropdown-toggle"> <span
 																					class="have-title"> <span class="menu-color"
 																						data-color="#f03442"></span> <span
@@ -2323,7 +2323,7 @@
 																			</li>
 																			<li
 																				class="menu-laptops-accessories etrostore-menu-custom level1">
-																				<a href="simple_product.html" class="item-link">
+																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title"> <span
 																						class="menu-color" data-color="#2f2e2e"></span> <span
 																						class="menu-title">保健器械</span>
@@ -2333,7 +2333,7 @@
 
 																			<li class="menu-blender etrostore-menu-custom level1"
 																				style="display: none;"><a
-																				href="simple_product.html" class="item-link"> <span
+																				href="common/tosimple_product" class="item-link"> <span
 																					class="have-title"> <span class="menu-color"
 																						data-color="#e93434"></span> <span
 																						class="menu-title">眼镜服务</span>
@@ -2343,7 +2343,7 @@
 																			<li
 																				class="menu-vacuum-cleaner etrostore-menu-custom level1"
 																				style="display: none;"><a
-																				href="simple_product.html" class="item-link"> <span
+																				href="common/tosimple_product" class="item-link"> <span
 																					class="have-title"> <span class="menu-color"
 																						data-color="#f034ca"></span> <span
 																						class="menu-title">护理护具</span>
@@ -5782,8 +5782,9 @@
 				</div>
 			</div>
 		</div>
-
-		<footer id="footer" class="footer default theme-clearfix"> <!-- Content footer -->
+	<jsp:include page="shop_footer.jsp"></jsp:include>
+	<!-- <footer id="footer" class="footer default theme-clearfix">
+		 Content footer
 		<div class="container">
 			<div class="vc_row wpb_row vc_row-fluid">
 				<div class="wpb_column vc_column_container vc_col-sm-12">
@@ -6179,7 +6180,7 @@
 
 		<div class="footer-copyright style1">
 			<div class="container">
-				<!-- Copyright text -->
+				Copyright text
 				<div class="copyright-text pull-left">
 					<p>
 						Etro Store - Premium Multipurpose HTML5/CSS3 Theme - Designed by <a
@@ -6203,7 +6204,7 @@
 				</div>
 			</div>
 		</div>
-		</footer>
+		</footer> -->
 	</div>
 
 	<!-- DIALOGS -->

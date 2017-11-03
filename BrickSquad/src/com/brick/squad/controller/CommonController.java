@@ -250,7 +250,15 @@ public class CommonController {
 	}
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
+
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
+	
+	@RequestMapping("/toShop_left_sidebar")
+	public String toShop_left_sidebar() {
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+		
+	}
+
 }
 
