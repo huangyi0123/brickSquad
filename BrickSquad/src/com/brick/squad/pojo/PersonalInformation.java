@@ -2,6 +2,7 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 public class PersonalInformation {
 	private String id;
+	@NotEmpty(message="姓名不能为空")
 	private String name;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
