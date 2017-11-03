@@ -115,7 +115,7 @@
 		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit lay-filter="formDemo"
+				<button class="layui-btn" lay-submit lay-filter="form Demo"
 					onclick="javascript:history.back(-1);">返回</button>
 			</div>
 		</div>

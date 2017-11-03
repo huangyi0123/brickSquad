@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.mapper.AddressMapper;
 import com.brick.squad.mapper.BuyersMapper;
+import com.brick.squad.mapper.CollectionMapper;
 import com.brick.squad.mapper.RegionMapper;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Buyers;
@@ -29,6 +30,10 @@ public class BuyersServiceImpl implements BuyersService {
 	@Autowired
 	@Qualifier("addressMapper")
 	private AddressMapper addressMapper;
+	@Autowired
+	@Qualifier("collectionMapper")
+	private CollectionMapper collectionMapper;
+	 
 	/**
 	 * 将address的id获取到buyers对象中
 	 */
@@ -84,6 +89,14 @@ public class BuyersServiceImpl implements BuyersService {
 		JSONArray jsonArray=JSONArray.fromObject(selects);
 		String data=jsonArray.toString();
 		return data;
+	}
+	
+	@Override
+	public String findPnameByBuyersId() {
+		List<Select> Bnames =collectionMapper.findPnameByBuyersId();
+		JSONArray jsonArray = new JSONArray();
+		String dataBnames =jsonArray.fromObject(Bnames).toString();
+		return dataBnames;
 	}
 
 }
