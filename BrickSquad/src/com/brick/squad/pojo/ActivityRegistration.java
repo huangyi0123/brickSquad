@@ -16,8 +16,10 @@ public class ActivityRegistration {
 	private String perId;
 	@NotEmpty(message="请选择活动类型")
 	private String activitiesId;
+	//@NotEmpty(message="请选择活动时间")
 	private Date registrationDate;
 	/*@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")*/
+	//@NotEmpty(message="请选择预约类型")
 	private int appointment;
 	public String getId() {
 		return id;

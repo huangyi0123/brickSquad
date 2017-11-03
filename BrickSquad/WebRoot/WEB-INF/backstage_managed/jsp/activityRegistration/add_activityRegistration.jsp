@@ -114,10 +114,11 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" name="registrationDate"
+		 <input class="layui-input" name="registrationDate" 
 					id="registrationDate"
 					val="${activityRegistration.registrationDate}" placeholder="活动日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">  
+				 
 			</div>
 		</div>
 		<div class="layui-form-item">
