@@ -13,12 +13,13 @@ function init(keyword) {
 				supportCheckbox : false,
 				columnData : [
 						{
-							key : 'parentId',
-							text : '所属类别id'
-						},
-						{
 							key : 'name',
 							text : '类别名称'
+						},
+
+						{
+							key : 'parentId',
+							text : '所属类别'
 						},
 						{
 							key : "operation",

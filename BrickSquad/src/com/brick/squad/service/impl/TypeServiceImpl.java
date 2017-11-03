@@ -48,7 +48,7 @@ public class TypeServiceImpl implements TypeService{
 	@Override
 	public String typePagination(Pagination pagination) {
 		List<Type> datas=typeMapper.typePagination(pagination);
-		int n=typeMapper.typeCount();
+		int n=typeMapper.typeCount(pagination);
 		Util<Type> util=new Util<Type>();
 		String data=util.SplitPage(datas, n);
 		return data;
