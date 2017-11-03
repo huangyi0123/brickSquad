@@ -55,7 +55,12 @@
 		 LIMIT #{skipNum},#{takeNum}
 		
 	</select>
-	
+	<!-- 收藏列表用户名下拉列表 -->
+	<select id="findPnameByBuyersId" resultType="com.brick.squad.util.Select">
+		SELECT personal_information.name FROM collection
+				JOIN buyers ON collection.per_id=buyers.id
+				JOIN personal_information ON buyers.id=personal_information.id
+	</select>
 	<select id="collectionCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		SELECT
 		COUNT(*) FROM collection
