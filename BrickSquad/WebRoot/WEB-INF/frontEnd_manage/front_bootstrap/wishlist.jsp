@@ -205,19 +205,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<div class="cat-wrapper">
 														<label class="label-search">
 															<select name="search_category" class="s1_option">
-																<option value="">All Categories</option>
-																<option value="8">Computers & Laptops</option>
-																<option value="13">Computers & Networking</option>
-																<option value="14">Smartphones & Tablet</option>
-																<option value="15">Home Furniture</option>
-																<option value="16">Home Appliances</option>
-																<option value="17">Electronic Component</option>
-																<option value="18">Household Goods</option>
-																<option value="32">Appliances</option>
-																<option value="49">Accessories</option>
-																<option value="51">Electronics</option>
-																<option value="78">Televisions</option>
-																<option value="80">Cameras & Accessories</option>
+																<option value="">所有类别</option>
+															<option value="8">女装</option>
+															<option value="14">男装</option>
+															<option value="16">女鞋</option>
+															<option value="17">男鞋</option>
+															<option value="18">配件配饰</option>
+															<option value="15">运动用品</option>
+															<option value="32">食品</option>
+															<option value="49">滋补养生</option>
+															<option value="13">中西药品</option>
+															<option value="51">保健器械</option>
+															<option value="78">眼镜服务</option>
+															<option value="80">护理护具</option>
 															</select>
 														</label>
 													</div>
