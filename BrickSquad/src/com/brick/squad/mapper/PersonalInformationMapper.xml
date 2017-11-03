@@ -98,7 +98,7 @@
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
-	<select id="findAllPersonalInformation1" resultType="personalInformation">
+	<select id="findAllPersonalInformations" resultType="personalInformation">
 		SELECT
 		<include refid="prop" />
 		FROM personal_information
@@ -106,8 +106,8 @@
 
 
 	<!-- 查询老人姓名和id -->
-	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select"> SELECT id
-		,name
+	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select"> 
+	SELECT id,name
 		FROM personal_information
 	</select>
 	<!-- 用于guidance表的回显 -->
