@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<ul id="menu-checkout" class="menu">
 											<li class="menu-checkout">
 												<a class="item-link" href="common/toContactUs">
-													<span class="menu-title">关于我们</span>
+													<span class="menu-title">联系我们</span>
 												</a>
 											</li>
 										</ul>
@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="rows">
 						<!-- LOGO -->
 						<div class="etrostore-logo pull-left">
-							<a href="home_page_1.html">
+							<a href="common/toShop">
 								<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
 							</a>
 						</div>
@@ -357,7 +357,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div id="ResMenuprimary_menu" class="collapse menu-responsive-wrapper">
 											<ul id="menu-primary-menu" class="etrostore_resmenu">
 												<li class="res-dropdown menu-home">
-													<a class="item-link dropdown-toggle" href="home_page_1.html">Home</a>
+													<a class="item-link dropdown-toggle" href="common/toShop">首页</a>
 													<span class="show-dropdown"></span>
 													
 													<ul class="dropdown-resmenu">
@@ -805,11 +805,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</li>
 												
 												<li class="active menu-about-us">
-													<a class="item-link" href="about_us.html">About Us</a>
+													<a class="item-link" href="common/toabout_us">关于我们</a>
 												</li>
 												
 												<li class="menu-contact-us">
-													<a class="item-link" href="contact_us.html">Contact Us</a>
+													<a class="item-link" href="common/toContactUs">联系我们</a>
 												</li>
 											</ul>
 										</div>
@@ -1687,9 +1687,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</li>
 										
 										<li class="menu-contact-us etrostore-menu-custom level1">
-											<a href="contact_us.html" class="item-link">
+											<a href="common/toContactUs" class="item-link">
 												<span class="have-title">
-													<span class="menu-title">Contact Us</span>
+													<span class="menu-title">联系我们</span>
 												</span>
 											</a>
 										</li>
@@ -1843,14 +1843,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="listings-title">
 			<div class="container">
 				<div class="wrap-title">
-					<h1>About us</h1>
+					<h1>关于我们</h1>
 					
 					<div class="bread">
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
 									<li>
-										<a href="home_page_1.html">首页</a>
+										<a href="common/toShop">首页</a>
 										<span class="go-page"></span>
 									</li>
 									
@@ -2368,7 +2368,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<div class="wpb_text_column wpb_content_element ">
 													<div class="wpb_wrapper">
 														<div class="ya-logo">
-															<a href="home_page_1.html">
+															<a href="common/toShop">
 																<img src="resource/front_bootstrap/images/icons/logo-footer.png" alt="logo" />
 															</a>
 														</div>
@@ -2543,8 +2543,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widget widget_nav_menu">
 										<ul id="menu-infomation" class="menu">
 											<li class="menu-about-us">
-												<a class="item-link" href="about_us.html">
-													<span class="menu-title">About Us</span>
+												<a class="item-link" href="common/toabout_us">
+													<span class="menu-title">关于我们</span>
 												</a>
 											</li>
 											
@@ -2573,8 +2573,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											
 											<li class="menu-contact-us">
-												<a class="item-link" href="contact_us.html">
-													<span class="menu-title">Contact Us</span>
+												<a class="item-link" href="common/toContactUs">
+													<span class="menu-title">联系我们</span>
 												</a>
 											</li>
 										</ul>

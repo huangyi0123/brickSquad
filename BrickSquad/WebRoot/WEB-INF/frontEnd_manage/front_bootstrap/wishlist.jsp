@@ -841,7 +841,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</li>
 												
 												<li class="menu-about-us">
-													<a class="item-link" href="about_us.html">About Us</a>
+													<a class="item-link" href="common/toabout_us">关于我们</a>
 												</li>
 												
 												<li class="menu-contact-us">
