@@ -75,8 +75,8 @@ layui.use('form', function() {
 		<div class="layui-form-item">
 			<label class="layui-form-label">用户密码</label>
 			<div class="layui-input-inline">
-				<input type="text" name="password" required lay-verify="required"
-					placeholder="用户名" autocomplete="off" class="layui-input">
+				<input type="password" name="password" required lay-verify="required"
+					placeholder="用户密码" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
