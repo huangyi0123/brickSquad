@@ -64,7 +64,7 @@
 								<a class="J_menuItem" href="address/toAddressList">地址列表</a>
 							</li>
 							<li>
-								<a class="J_menuItem" href="type/toType">商品类型列表</a>
+								<a class="J_menuItem" href="type/toType">类型列表</a>
 							</li>
 						</ul>
 					</li>
@@ -215,7 +215,7 @@
 					<ul class="nav nav-second-level">
 						<li>
 							<a class="J_menuItem" href="limits/toLimitsList">权限</a>
-							<a class="J_menuItem" href="role/toRoleList">角色名称</a>
+							<a class="J_menuItem" href="role/toRoleList">角色列表</a>
 						</li>
 					</ul>
 				</li>

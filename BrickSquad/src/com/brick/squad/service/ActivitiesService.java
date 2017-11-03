@@ -34,6 +34,7 @@ public interface ActivitiesService {
 	 * 查询出所有活动的需求字段
 	 */
 	public String findAllActivitiesIdAndName();
+
 	
 
 
