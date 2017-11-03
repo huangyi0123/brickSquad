@@ -52,6 +52,5 @@ public User findUserByusername(String username) ;
 	public List<Select> findUserByBranchId(String branchId);
 	
 
-	
 
 }
