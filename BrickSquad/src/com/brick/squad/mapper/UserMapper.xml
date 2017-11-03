@@ -13,7 +13,6 @@
 		</selectKey>
 		INSERT INTO user(id,username,password,telephone,role_id,branch_id)
 		VALUES(#{id},#{username},#{password},#{telephone},#{roleId},#{branchId})
-
 	</insert>
 	<update id="updateUserById" parameterType="String">
 		UPDATE user SET
@@ -27,7 +26,7 @@
 	</update>
 	<delete id="deleteUser" parameterType="String">
 		delete from user where
-		username=#{username};
+		id=#{id}
 
 	</delete>
 

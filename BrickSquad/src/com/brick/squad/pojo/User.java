@@ -1,5 +1,7 @@
 package com.brick.squad.pojo;
 
+import javax.validation.constraints.Pattern;
+
 
 /**
  * 
@@ -11,6 +13,7 @@ public class User {
 	private String id;
 	private String username;
 	private String password;
+	@Pattern(regexp="^((13\\d{9}$)|(15[0,1,2,3,5,6,7,8,9]\\d{8}$)|(18[0,2,5,6,7,8,9]\\d{8}$)|(147\\d{8})$)",message="请您输入正确的手机号码")
 	private String telephone;
 	private String roleId;
 	private String branchId;

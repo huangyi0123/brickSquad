@@ -11,6 +11,7 @@ import com.brick.squad.mapper.RoleMapper;
 import com.brick.squad.pojo.Role;
 import com.brick.squad.service.RoleService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 /**
  * 
@@ -82,6 +83,16 @@ public class RoleServiceImpl implements RoleService{
 	public void updateRoleById(Role role) throws Exception {
 		roleMapper.updateRoleById(role);
 	}
-	
+	/**
+	 * 查询所有role表中信息
+	 */
+	@Override
+	public String findAllRole() {
+		// TODO Auto-generated method stub
+		List<Select> list = roleMapper.findAllRole();
+		JSONArray jsonArray = new JSONArray();
+		String dataTytes =jsonArray.fromObject(list).toString();
+		return dataTytes;
+	}
 	
 }

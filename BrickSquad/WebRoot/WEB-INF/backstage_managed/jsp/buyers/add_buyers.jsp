@@ -114,11 +114,11 @@
 		<input type="hidden" name="address.id" value="${addressAndBuyersExpand.address.id }">
 		
 		<div class="layui-form-item">
-			<label class="layui-form-label">老人姓名：</label>
+			<label class="layui-form-label">买家姓名：</label>
 			<div class="layui-input-inline">
 				<select lay-filter="perid" name="buyers.informationId" id="perid"
 					val="${addressAndBuyersExpand.buyers.informationId}">
-					<option value="">选择老人姓名</option>
+					<option value="">选择买家姓名</option>
 				</select>
 			</div>
 		</div>

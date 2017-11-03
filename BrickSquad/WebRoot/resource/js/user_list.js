@@ -48,35 +48,6 @@ function RefreshGridManagerList(keyword) {
 	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
 	init(keyword);
 }
-function addUser(id) {
-	$("#addUser").click(function() {
-		layui.use('layer', function() {
-			var layer = layui.layer;
-			$.ajax({
-				url : "toAddUser",
-				data:{"id":id},
-				success : function(data) {
-					layer.open({
-						btn : [ '添加'],
-						title : '添加用户',
-						content : data,
-						yes : function(index) {
-							$.ajax({
-								type : 'post',
-								url : 'addUser',
-								data : $("form").serialize(),
-								success:function(){
-									layer.close(index);
-									RefreshGridManagerList("");
-								}
-							});
-						}
-					});
-				}
-			});
-		});
-	});
-}
 function serach() {
 	$("#serach").click(function() {
 		var keyword=$("#keyword").val();
