@@ -6,6 +6,7 @@ import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 /**
  * 收藏表
@@ -51,5 +52,7 @@ public interface CollectionMapper {
 	 * @return 记录数
 	 */
 	public int collectionCount(Pagination pagination);
+
+	public List<Select> findPnameByBuyersId();
 	
 }
