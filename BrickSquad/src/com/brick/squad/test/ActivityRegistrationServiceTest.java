@@ -46,6 +46,9 @@ public class ActivityRegistrationServiceTest {
 	public void testUpdateActivityRegistrationById() {
 		ActivityRegistration activityRegistration=activityRegistrationService.findActivityRegistrationById("123");
 		activityRegistration.setActivitiesId("3");
+		activityRegistration.setRegistrationDate(new Date());
+		activityRegistration.setAppointment(3);
+		activityRegistration.setPerId("3");
 		activityRegistrationService.updateActivityRegistrationById(activityRegistration);
 		
 	}
