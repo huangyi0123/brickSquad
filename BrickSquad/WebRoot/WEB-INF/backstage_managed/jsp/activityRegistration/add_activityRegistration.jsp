@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -60,6 +60,19 @@
 			findAll(result, "#perid");
 			form.render('select', 'prIdSelect');  */
 	});
+	$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});	
 </script>
 <script>
 	layui.use('laydate', function() {
@@ -125,5 +138,8 @@
 			</div>
 		</div>
 	</form>
+	<c:forEach items="${errors}" var="error">
+   		<input class="error" value="${error.defaultMessage}" type="hidden">
+   	</c:forEach>
 </body>
 </html>

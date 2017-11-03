@@ -75,8 +75,8 @@ public class NewsController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	@RequestMapping("/insertNews")
-	public String insertNews(@Validated News news,HttpServletRequest request,BindingResult result) throws Exception{
-		System.out.println("+++++++++++++++=============================================================================="+news.getContent());
+	public String insertNews(@Validated News news,BindingResult result,HttpServletRequest request) throws Exception{
+		
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
