@@ -44,6 +44,9 @@
 	<select id="findRoleAll" resultType="Role">
 		SELECT name FROM role
 	</select>
+	<select id="findAllRole" resultType="com.brick.squad.util.Select">
+		SELECT id,name FROM role
+	</select>
 	<update id="updateRoleById" parameterType="Role">
 		UPDATE role
 		SET name=#{name}

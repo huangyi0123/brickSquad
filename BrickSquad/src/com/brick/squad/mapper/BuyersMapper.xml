@@ -26,8 +26,9 @@
 		select buyers.id,personal_information.name pname,current_integral currentIntegral,
 		historical_integral historicalIntegral,
 		grade grade,delivery_address_id deliveryAddressId,information_id informationId
-		<if test="keyword==''">
-		from buyers,personal_information
+		from buyers LEFT JOIN personal_information ON buyers.information_id=personal_information.id 
+		<if test="keyword!=''and keyword!=null">
+		WHERE personal_information.name REGEXP #{keyword}
 		</if>
 		<if test="keyword!=''">
 		from buyers 
@@ -40,7 +41,6 @@
 		<if test="keyword==''">
 		select count(*) from buyers  JOIN personal_information ON buyers.id=personal_information.id
 		</if>
-		
 		<if test="keyword!=''">
 		select count(*) from buyers  
 		JOIN personal_information ON buyers.id=personal_information.id 

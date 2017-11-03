@@ -1,11 +1,19 @@
 package com.brick.squad.pojo;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class MemberShipApplication {
 
 	
 	private String id;
+	@NotEmpty(message="会员类型还没有填")
 	private String memberShipTypeId;
+	@NotEmpty(message="申请人还没有填写")
 	private String userId;
+	@NotEmpty(message="工作人员是谁还没有填")
 	private String perId;
 	private double deposit;
 	

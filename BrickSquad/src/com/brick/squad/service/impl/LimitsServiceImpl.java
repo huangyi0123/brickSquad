@@ -1,7 +1,9 @@
 package com.brick.squad.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -80,6 +82,7 @@ public class LimitsServiceImpl implements LimitsService {
 			ZTree zTreePerant=new ZTree();
 			zTreePerant.setId(item.getId());
 			zTreePerant.setName(item.getTablename());
+			zTreePerant.setChecked((item.isAd()&&item.isDl()&&item.isQuery()&&item.isUp()));
 			List<ZTree> childrens=new ArrayList<ZTree>();
 			//end 
 			//begin 添加操作
@@ -116,6 +119,24 @@ public class LimitsServiceImpl implements LimitsService {
 		JSONArray jsonArray=JSONArray.fromObject(zTrees);
 		//end
 		return jsonArray.toString();
+	}
+
+	@Override
+	public void updateLimitsByRoleId(List<Limits> limits, String roleId) {
+		for (Limits item : limits) {
+			item.setRoleId(roleId);
+			limitsMapper.updateLimitsById(item);
+		}
+		
+	}
+	@Override
+	public Map<String, Limits> findAllLimitsByRoleId(String roleId) {
+		List<Limits> limits=limitsMapper.findLimitsByRoleId(roleId);
+		Map<String, Limits> map=new HashMap<String, Limits>();
+		for (Limits item : limits) {
+			map.put(item.getTablename(), item);
+		}
+		return map;
 	}
 
 }

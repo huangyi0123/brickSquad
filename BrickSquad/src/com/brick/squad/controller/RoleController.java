@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.Role;
+import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.RoleService;
 import com.brick.squad.util.Common;
 import com.brick.squad.util.Pagination;
@@ -21,6 +22,9 @@ public class RoleController {
 	@Autowired
 	@Qualifier("roleService")
 	private RoleService roleService;
+	@Autowired
+	@Qualifier("limitsService")
+	private LimitsService limitsService;
 	@RequestMapping("/toRoleList")
 	public String toRoleList() {
 		return "backstage_managed/jsp/role/role_list";
@@ -73,7 +77,7 @@ public class RoleController {
 	@ResponseBody
 	public String updateLimitsByRoleId(String limits,String roleId) {
 		List<Limits> limits2=Common.limitsUtil(limits);
-		System.out.println(limits2.size()+"====================================="+roleId);
-		return "backstage_managed/jsp/role/role_list";
+		limitsService.updateLimitsByRoleId(limits2, roleId);
+		return "role/toRoleList";
 	}
 }

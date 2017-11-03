@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.brick.squad.pojo.Role;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface RoleMapper {
 	
@@ -17,7 +18,8 @@ public interface RoleMapper {
 	public void updateRole(@Param("id")String id,@Param("name")String name);
 	//查询用户
 	public Role findRole(String id);
-	
+	//查询role表中所有字段
+	public List<Select> findAllRole();
 	//新闻分页查询
 	public List<Role> rolePagination(Pagination pagination);
 	

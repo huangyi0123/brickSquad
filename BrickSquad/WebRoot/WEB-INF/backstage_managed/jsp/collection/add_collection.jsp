@@ -26,9 +26,14 @@
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/layui/lay/modules/laydate.js"></script>
+
+<script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+		
 	});
 </script>
 <script>
@@ -50,7 +55,7 @@
 	<form class="layui-form" action="collection/${url }" id="form1" method="post">
 		<input type="hidden" name="id" value="${collection.id }">
 		<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">老人ID：</label>
+			<label class="layui-form-label" style="width: 100px;">买家姓名：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="perId" required lay-verify="required"
 					placeholder="老人ID" autocomplete="off" class="layui-input"
@@ -58,7 +63,7 @@
 			</div>
 		</div>
 		<div class="layui-form-item" style="width: 450px;">
-			<label class="layui-form-label" style="width: 100px;">收藏商品ID：</label>
+			<label class="layui-form-label" style="width: 100px;">收藏商品：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="articleId" required lay-verify="required"
 					placeholder="收藏商品ID" autocomplete="off" class="layui-input"

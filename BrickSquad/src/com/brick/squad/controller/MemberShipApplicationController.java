@@ -1,10 +1,15 @@
 package com.brick.squad.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -54,7 +59,15 @@ public class MemberShipApplicationController {
 	}
 	
 	@RequestMapping("/addMemberShipApplication")
-	public String addMemberShipApplication(MemberShipApplication memberShipApplication){
+	public String addMemberShipApplication(@Validated MemberShipApplication memberShipApplication,BindingResult result,HttpServletRequest request){
+		
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addMemberShipApplication");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
+		}
 		memberShipApplicationService.insertMemberShipApplicationById(memberShipApplication);
 		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
 		

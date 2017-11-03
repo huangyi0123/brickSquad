@@ -1,48 +1,49 @@
-﻿<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
-<head>	
-	<title>商品详情</title>
+  <head>
+    <base href="<%=basePath%>">
+	<title>关于我们</title>
 	<meta charset="utf-8" />
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	
 	<!-- FAVICONS -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57-precomposed.png" />
-    <link rel="shortcut icon" href="icons/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="resource/front_bootstrap/icons/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="resource/front_bootstrap/icons/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="resource/front_bootstrap/icons/favicon.png" />
 	
 	<!-- GOOGLE WEB FONTS -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 	
 	<!-- BOOTSTRAP 3.3.7 CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
 	
 	<!-- SLICK v1.6.0 CSS -->
-	<link rel="stylesheet" href="css/slick-1.6.0/slick.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
 	
-	<link rel="stylesheet" href="css/jquery.fancybox.css" />
-	<link rel="stylesheet" href="css/yith-woocommerce-compare/colorbox.css" />
-	<link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css" />
-	<link rel="stylesheet" href="css/owl-carousel/owl.theme.default.min.css" />
-	<link rel="stylesheet" href="css/js_composer/js_composer.min.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce-layout.css" />
-	<link rel="stylesheet" href="css/woocommerce/woocommerce-smallscreen.css" />
-	<link rel="stylesheet" href="css/woocommerce/prettyPhoto.css" />
-	<link rel="stylesheet" href="css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/jquery.fancybox.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 	
 	
-	<link rel="stylesheet" href="css/custom.css" />
-	<link rel="stylesheet" href="css/app-orange.css" id="theme_color" />
-	<link rel="stylesheet" href="" id="rtl" /> 
-	<link rel="stylesheet" href="css/app-responsive.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
+	<link rel="stylesheet" href="" id="rtl" />
+	<link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" /> 
 </head>
 
-<body class="product-template-default single single-product woocommerce woocommerce-page">
-     
-
+<body class="page has-right-sidebar has-right-product-sidebar">
+  
 	<div class="body-wrapper theme-clearfix">
 		<header id="header" class="header header-style1">
 			<div class="header-top clearfix">
@@ -61,52 +62,15 @@
 							<div class="widget text-3 widget_text pull-left">
 								<div class="widget-inner">
 									<div class="textwidget">
-										<div id="lang_sel">
-											<ul class="nav">
-												<li>
-													<a class="lang_sel_sel icl-en">
-														<img class="iclflag" title="English" alt="en" src="images/icons/en.png" width="18" height="12" /> English
-													</a>
-													<ul>
-														<li class="icl-en">
-															<a href="#">
-																<img class="iclflag" title="English" alt="en" src="images/icons/en.png" width="18" height="12" /> English
-															</a>
-														</li>
-														
-														<li class="icl-ar">
-															<a href="#">
-																<img class="iclflag" title="Arabic" alt="ar" src="images/icons/ar.png" width="18" height="12" /> Arabic
-															</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
 									</div>
 								</div>
 							</div>
-							
-							<div class="widget woocommerce_currency_converter-2 widget_currency_converter pull-left">
-								<div class="widget-inner">
-									<form method="post" class="currency_converter" action="">
-										<ul class="currency_w">
-											<li>
-												<a href="#" class="">USD</a>
-												<ul class="currency_switcher">
-													<li><a href="#" class="reset default active" data-currencycode="USD">USD</a></li>
-													<li><a href="#" class="" data-currencycode="EUR">EUR</a></li>
-												</ul>
-											</li>
-										</ul>
-									</form>
-								</div>
-							</div>
+						
 						</div>
 						
-						<div class="wrap-myacc pull-right">
+							<div class="wrap-myacc pull-right">
 							<div class="sidebar-account pull-left">
-								<div class="account-title">My account</div>
+								<div class="account-title">我的淘宝</div>
                         
 								<div id="my-account" class="my-account">
 									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
@@ -114,25 +78,13 @@
 											<ul id="menu-my-account" class="menu">
 												<li class="menu-my-account">
 													<a class="item-link" href="my_account.html">
-														<span class="menu-title">My Account</span>
+														<span class="menu-title">已买到的宝贝</span>
 													</a>
 												</li>
 												
 												<li class="menu-cart">
 													<a class="item-link" href="cart.html">
-														<span class="menu-title">Cart</span>
-													</a>
-												</li>
-												
-												<li class="menu-checkout">
-													<a class="item-link" href="checkout.html">
-														<span class="menu-title">Checkout</span>
-													</a>
-												</li>
-												
-												<li class="menu-wishlist">
-													<a class="item-link" href="wishlist.html">
-														<span class="menu-title">Wishlist</span>
+														<span class="menu-title">我的足迹</span>
 													</a>
 												</li>
 											</ul>
@@ -142,16 +94,36 @@
 									<div class="widget-2 widget-last widget sw_top-4 sw_top">
 										<div class="widget-inner">
 											<div class="top-login">
-												<div class="div-logined">
-													<ul>
-														<li>
-															<a href="javascript:void(0);" data-toggle="modal" data-target="#login_form">
-																<span>Login</span>
-															</a>
-															<span class="wg">Welcome Guest</span>
-														</li>
-													</ul>
-												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sidebar-account pull-left">
+								<div class="account-title">登录</div>
+                        
+								<div id="my-account" class="my-account">
+									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+										<div class="widget-inner">
+											<ul id="menu-my-account" class="menu">
+												<li class="menu-my-account">
+													<a class="item-link" href="my_account.html">
+														<span class="menu-title">登录</span>
+													</a>
+												</li>
+												
+												<li class="menu-cart">
+													<a class="item-link" href="cart.html">
+														<span class="menu-title">注册</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									
+									<div class="widget-2 widget-last widget sw_top-4 sw_top">
+										<div class="widget-inner">
+											<div class="top-login">
 											</div>
 										</div>
 									</div>
@@ -163,8 +135,8 @@
 									<div class="widget-inner">
 										<ul id="menu-checkout" class="menu">
 											<li class="menu-checkout">
-												<a class="item-link" href="checkout.html">
-													<span class="menu-title">Checkout</span>
+												<a class="item-link" href="common/toContactUs">
+													<span class="menu-title">关于我们</span>
 												</a>
 											</li>
 										</ul>
@@ -182,7 +154,7 @@
 						<!-- LOGO -->
 						<div class="etrostore-logo pull-left">
 							<a href="home_page_1.html">
-								<img src="images/icons/logo-orange.png" alt="Shoopy">
+								<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
 							</a>
 						</div>
 						
@@ -241,8 +213,8 @@
 												<ul class="minicart-content">
 													<li>
 														<a href="simple_product.html" class="product-image">
-															<img 	width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-																	srcset="images/1903/45-150x150.jpg 150w, images/1903/45-300x300.jpg 300w, images/1903/45-180x180.jpg 180w, images/1903/45.jpg 600w" 
+															<img 	width="100" height="100" src="resource/front_bootstrap/images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+																	srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w" 
 																	sizes="(max-width: 100px) 100vw, 100px" />
 														</a>
 														
@@ -279,8 +251,8 @@
 													
 													<li>
 														<a href="simple_product.html" class="product-image">
-															<img 	width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-																	srcset="images/1903/22-150x150.jpg 150w, images/1903/22-300x300.jpg 300w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" 
+															<img 	width="100" height="100" src="resource/front_bootstrap/images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+																	srcset="resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" 
 																	sizes="(max-width: 100px) 100vw, 100px" />
 														</a>
 														
@@ -456,7 +428,7 @@
 													</ul>
 												</li>
 												
-												<li class="active res-dropdown menu-shop">
+												<li class="res-dropdown menu-shop">
 													<a class="item-link dropdown-toggle" href="#">Shop</a>
 													<span class="show-dropdown"></span>
 													
@@ -519,12 +491,12 @@
 															</ul>
 														</li>
 													  
-														<li class="active res-dropdown menu-product-types">
+														<li class="res-dropdown menu-product-types">
 															<a class="item-link dropdown-toggle" href="#">Product Types</a>
 															<span class="show-dropdown"></span>
 															
 															<ul class="dropdown-resmenu">
-																<li class="active menu-simple-product">
+																<li class="menu-simple-product">
 																	<a href="simple_product.html">Simple Product</a>
 																</li>
 																
@@ -832,7 +804,7 @@
 													</ul>
 												</li>
 												
-												<li class="menu-about-us">
+												<li class="active menu-about-us">
 													<a class="item-link" href="about_us.html">About Us</a>
 												</li>
 												
@@ -973,13 +945,13 @@
 											</ul>
 										</li>
 										
-										<li class="active dropdown menu-shop etrostore-mega-menu level1 etrostore-menu-img">
+										<li class="dropdown menu-shop etrostore-mega-menu level1 etrostore-menu-img">
 											<a href="#" class="item-link dropdown-toggle">
 												<span class="have-title">
 													<span class="menu-color" data-color="#f03442"></span>
 													
 													<span class="menu-img">
-														<img src="images/1903/icon-new-1.png" alt="Menu Image" />
+														<img src="resource/front_bootstrap/images/1903/icon-new-1.png" alt="Menu Image" />
 													</span>
 													
 													<span class="menu-title">Shop</span>
@@ -1095,7 +1067,7 @@
 													</ul>
 												</li>
 												
-												<li class="active dropdown-submenu column-4 menu-product-types">
+												<li class="dropdown-submenu column-4 menu-product-types">
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-title">Product Types</span>
@@ -1103,7 +1075,7 @@
 													</a>
 													
 													<ul class="dropdown-sub nav-level2">
-														<li class="active menu-simple-product">
+														<li class="menu-simple-product">
 															<a href="simple_product.html">
 																<span class="have-title">
 																	<span class="menu-title">Simple Product</span>
@@ -1187,7 +1159,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn3.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn3.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Electronics</span>
@@ -1257,7 +1229,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn4.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn4.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Smartphone</span>
@@ -1332,7 +1304,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn5.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn5.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Tablet</span>
@@ -1394,7 +1366,7 @@
 													<a href="#">
 														<span class="have-title">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn6.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn6.jpg" alt="Menu Image" />
 															</span>
 															
 															<span class="menu-title">Computer</span>
@@ -1633,7 +1605,7 @@
 													<a href="#">
 														<span class="">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn1.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn1.jpg" alt="Menu Image" />
 															</span>
 														</span>
 													</a>
@@ -1643,7 +1615,7 @@
 													<a href="#">
 														<span class="">
 															<span class="menu-img">
-																<img src="images/1903/menu-bn2.jpg" alt="Menu Image" />
+																<img src="resource/front_bootstrap/images/1903/menu-bn2.jpg" alt="Menu Image" />
 															</span>
 														</span>
 													</a>
@@ -1655,7 +1627,7 @@
 											<a href="deals.html" class="item-link">
 												<span class="have-title">
 													<span class="menu-img">
-														<img src="images/1903/icon-hot.png" alt="Menu Image" />
+														<img src="resource/front_bootstrap/images/1903/icon-hot.png" alt="Menu Image" />
 													</span>
 													
 													<span class="menu-title">Deals</span>
@@ -1705,10 +1677,10 @@
 											</ul>
 										</li>
 									  
-										<li class="menu-about-us etrostore-menu-custom level1">
+										<li class="active menu-about-us etrostore-menu-custom level1">
 											<a href="about_us.html" class="item-link">
 												<span class="have-title">
-													<span class="menu-title">About Us</span>
+													<span class="menu-title">关于我们</span>
 												</span>
 											</a>
 											
@@ -1744,8 +1716,8 @@
 									<ul class="minicart-content">
 										<li>
 											<a href="simple_product.html" class="product-image">
-												<img 	width="100" height="100" src="images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-														srcset="images/1903/45-150x150.jpg 150w, images/1903/45-300x300.jpg 300w, images/1903/45-180x180.jpg 180w, images/1903/45.jpg 600w" 
+												<img 	width="100" height="100" src="resource/front_bootstrap/images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+														srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w" 
 														sizes="(max-width: 100px) 100vw, 100px" />
 											</a>
 											
@@ -1782,8 +1754,8 @@
 									  
 										<li>
 											<a href="simple_product.html" class="product-image">
-												<img	 width="100" height="100" src="images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-														srcset="images/1903/22-150x150.jpg 150w, images/1903/22-300x300.jpg 300w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" 
+												<img	 width="100" height="100" src="resource/front_bootstrap/images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
+														srcset="resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w" 
 														sizes="(max-width: 100px) 100vw, 100px" />
 											</a>
 											
@@ -1871,14 +1843,20 @@
 		<div class="listings-title">
 			<div class="container">
 				<div class="wrap-title">
-					<h1>Turkey Qui</h1>
+					<h1>About us</h1>
+					
 					<div class="bread">
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
-									<li><a href="home_page_1.html">Home</a><span class="go-page"></span></li>
-									<li><a href="group_product.html">Group Product</a><span class="go-page"></span></li>
-									<li class="active"><span>Turkey Qui</span></li>
+									<li>
+										<a href="home_page_1.html">首页</a>
+										<span class="go-page"></span>
+									</li>
+									
+									<li class="active">
+										<span>关于我们</span>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -1889,566 +1867,142 @@
 		
 		<div class="container">
 			<div class="row">
-				<div id="contents-detail" class="content col-lg-12 col-md-12 col-sm-12" role="main">
-					<div id="container">
-						<div id="content" role="main">
-							<div class="single-product clearfix">
-								<div id="product-01" class="product type-product status-publish has-post-thumbnail product_cat-accessories product_brand-global-voices first outofstock featured shipping-taxable purchasable product-type-simple">
-									<div class="product_detail row">
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
-											<div class="slider_img_productd">
-												<!-- woocommerce_show_product_images -->
-												<div id="product_img_01" class="product-images loading" data-rtl="false">
-													<div class="product-images-container clearfix thumbnail-bottom">
-														<!-- Image Slider -->
-														<div class="slider product-responsive">
-															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/49.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/49.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/49.jpg 600w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
-																	</a>
-																</div>
-															</div>
-															
-															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/48.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/48.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/48.jpg 600w, images/1903/48-150x150.jpg 150w, images/1903/48-300x300.jpg 300w, images/1903/48-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
-																	</a>
-																</div>
-															</div>
-														 
-															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/47.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/47.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/47.jpg 600w, images/1903/47-150x150.jpg 150w, images/1903/47-300x300.jpg 300w, images/1903/47-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
-																	</a>
-																</div>
-															</div>
-														 
-															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/46.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/46.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/46.jpg 600w, images/1903/46-150x150.jpg 150w, images/1903/46-300x300.jpg 300w, images/1903/46-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
-																	</a>
-																</div>
-															</div>
-														 
-															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/49.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/49.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/49.jpg 600w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
-																	</a>
-																</div>
-															</div>
-														 
-															<div class="item-img-slider">
-																<div class="images">					
-																	<a href="images/1903/43.jpg " data-rel="prettyPhoto[product-gallery]" class="zoom">
-																		<img width="600" height="600" src="images/1903/43.jpg" class="attachment-shop_single size-shop_single" alt="" srcset="images/1903/43.jpg 600w, images/1903/43-150x150.jpg 150w, images/1903/43-300x300.jpg 300w, images/1903/43-180x180.jpg 180w" sizes="(max-width: 600px) 100vw, 600px">
-																	</a>
-																</div>
-															</div>
-														</div>
+				<div id="contents" role="main" class="main-page  col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="post-6 page type-page status-publish hentry">
+						<div class="entry-content">
+							<div class="entry-summary">
+								<div class="vc_row wpb_row vc_row-fluid top-about margin-30">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<p>
+															<img class="alignnone size-full wp-image-454" src="resource/front_bootstrap/images/1903/aboutus.jpg" alt="aboutus" width="1170" height="450" srcset="resource/front_bootstrap/images/1903/aboutus.jpg 1170w, resource/front_bootstrap/images/1903/aboutus-300x115.jpg 300w, resource/front_bootstrap/images/1903/aboutus-768x295.jpg 768w, resource/front_bootstrap/images/1903/aboutus-1024x394.jpg 1024w" sizes="(max-width: 1170px) 100vw, 1170px">
+														</p>
 														
-														<!-- Thumbnail Slider -->
-														<div class="slider product-responsive-thumbnail" id="product_thumbnail_247">
-															<div class="item-thumbnail-product">
-																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/49-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/49-180x180.jpg 180w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">
-																</div>
-															</div>
-															
-															<div class="item-thumbnail-product">
-																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/48-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/48-180x180.jpg 180w, images/1903/48-150x150.jpg 150w, images/1903/48-300x300.jpg 300w, images/1903/48.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
-																</div>
-															</div>
-															
-															<div class="item-thumbnail-product">
-																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/47-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/47-180x180.jpg 180w, images/1903/47-150x150.jpg 150w, images/1903/47-300x300.jpg 300w, images/1903/47.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
-																</div>
-															</div>
-															
-															<div class="item-thumbnail-product">
-																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/46-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/46-180x180.jpg 180w, images/1903/46-150x150.jpg 150w, images/1903/46-300x300.jpg 300w, images/1903/46.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
-																</div>
-															</div>
-															
-															<div class="item-thumbnail-product">
-																<div class="thumbnail-wrapper">
-																	<img width="180" height="180" src="images/1903/49-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/49-180x180.jpg 180w, images/1903/49-150x150.jpg 150w, images/1903/49-300x300.jpg 300w, images/1903/49.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
-																</div>
-															</div>
-															
-															<div class="item-thumbnail-product">
-																<div class="thumbnail-wrapper">
-																<img width="180" height="180" src="images/1903/43-180x180.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" srcset="images/1903/43-180x180.jpg 180w, images/1903/43-150x150.jpg 150w, images/1903/43-300x300.jpg 300w, images/1903/43.jpg 600w" sizes="(max-width: 180px) 100vw, 180px">			
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
-											<div class="content_product_detail">
-												<h1 class="product_title entry-title">Turkey Qui</h1>
-												
-												<div class="reviews-content">
-													<div class="star"></div>
-													<a href="#reviews" class="woocommerce-review-link" rel="nofollow"><span class="count">0</span> Review(s)</a>
-												</div>
-												
-												<div>
-													<p class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>300.00</span></p>
-												</div>
-												
-												<div class="product-info clearfix">
-													<div class="product-stock pull-left out-stock">
-														<span>Out stock</span>
-													</div>
-												</div>
-												
-												<div class="description" itemprop="description">
-													<p>Proin nunc nibh, adipiscing eu nisi id, ultrices suscipit augue. Sed rhoncus hendrerit lacus, et venenatis felis. Donec ut fringilla magna ultrices suscipit augue. Proin nunc nibh, adipiscing eu nisi id, ultrices suscipit augue. Sed rhoncus hendrerit lacus, et venenatis felis. Donec ut fringilla magna ultrices suscipit augue.</p>
-												</div>
-												
-												<p class="stock out-of-stock">Out of stock</p>
-												
-												<div class="social-share">
-													<div class="title-share">Share</div>
-													<div class="wrap-content">
-														<a href="http://www.facebook.com/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook"></i></a>
-														<a href="http://twitter.com/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
-														<a href="https://plus.google.com/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus"></i></a>
-														<a href="#"><i class="fa fa-dribbble"></i></a>
-														<a href="#"><i class="fa fa-instagram"></i></a>
+														<h3>欢迎来到电子商城</h3>
+														
+														<p>
+															Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,<br>
+															nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+														</p>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								
-								<div class="tabs clearfix">
-									<div class="tabbable">
-										<ul class="nav nav-tabs">
-											<li class="description_tab active">
-												<a href="#tab-description" data-toggle="tab">Description</a>
-											</li>
-											
-											<li class="reviews_tab ">
-												<a href="#tab-reviews" data-toggle="tab">Reviews (0)</a>
-											</li>
-										</ul>
-										
-										<div class="clear"></div>
-										
-										<div class=" tab-content">
-											<div class="tab-pane active" id="tab-description">
-												<h2>Product Description</h2>
-												<p>Proident adipisicing laborum beef ribs tri-tip dolore meatball tempor rump flank prosciutto elit do. Duis tenderloin culpa excepteur. Fugiat irure est cupim dolor, ut nulla id andouille chicken spare ribs eiusmod brisket biltong. Eiusmod minim tail cupim labore ad filet mignon, andouille esse enim. Sausage salami dolor ex adipisicing consequat. Ground round nostrud ut fatback voluptate consequat in minim drumstick culpa dolore. Ea beef prosciutto in sirloin fatback enim velit consectetur in pork belly pancetta culpa shank.</p>
-												<p>Shank quis in duis, id officia nulla. Pancetta sunt filet mignon porchetta doner turkey occaecat. Meatball corned beef elit ut fugiat. Hamburger biltong tail beef in cupim proident turducken picanha. Sausage chicken incididunt ad occaecat porchetta pancetta corned beef ham hock laborum nisi ullamco pork loin kielbasa aliqua.</p>
-												<p>In jerky minim chicken duis ground round nostrud pork belly occaecat pastrami commodo adipisicing tongue doner short loin. Officia est do, filet mignon shank pork loin anim esse quis kevin corned beef enim. Magna sint sirloin ham hock cupidatat laboris. Boudin spare ribs kevin meatloaf id short loin swine flank brisket aute. Reprehenderit turkey qui, boudin swine voluptate ipsum fugiat.</p>
-												<p>Salami in ball tip pig eiusmod occaecat pork chop, consequat excepteur incididunt. Ground round picanha ut boudin exercitation jerky meatball strip steak ipsum labore spare ribs turducken ribeye ut aliquip. Id ipsum esse nisi ball tip chuck adipisicing sint culpa t-bone brisket bresaola mollit. Enim eu kevin, tail in nisi nulla sirloin adipisicing veniam dolore.</p>
+							  
+								<div class="vc_row wpb_row vc_row-fluid mid-about margin-bottom-60">
+									<div class="wpb_column vc_column_container vc_col-sm-4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<p>
+															<img class="alignnone size-full wp-image-455" src="resource/front_bootstrap/images/1903/icon-ab1.png" alt="icon-ab1" width="38" height="34">
+														</p>
+														
+														<h3>交付护理</h3>
+														
+														<p>在出现EtroStore之前，仔细检查每个产品项目。</p>
+													</div>
+												</div>
 											</div>
-											
-											<div class="tab-pane " id="tab-reviews">
-												<div id="reviews">
-													<div id="comments">
-														<h2>Reviews</h2>
-														<p class="woocommerce-noreviews">There are no reviews yet.</p>
+										</div>
+									</div>
+									
+									<div class="wpb_column vc_column_container vc_col-sm-4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<p>
+															<img class="alignnone size-full wp-image-457" src="resource/front_bootstrap/images/1903/icon-ab2.png" alt="icon-ab2" width="30" height="36">
+														</p>
+														
+														<h3>优质的品质</h3>
+														
+														<p>所有这些产品都处于品牌声誉之下，具有明确的起源，有竞争力的价格，保修和维护的产品非常仔细。</p>
 													</div>
-													
-													<div id="review_form_wrapper">
-														<div id="review_form">
-															<div id="respond" class="comment-respond">
-																<h3 id="reply-title" class="comment-reply-title">
-																	Be the first to review "turkey qui" 
-																	<small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a></small>
-																</h3>
-																
-																<form action="" method="post" id="commentform" class="comment-form">
-																	<p class="comment-form-rating">
-																		<label for="rating">Your Rating</label>
-																		<select name="rating" id="rating">
-																			<option value="">Rate ...</option>
-																			<option value="5">Perfect</option>
-																			<option value="4">Good</option>
-																			<option value="3">Average</option>
-																			<option value="2">Not that bad</option>
-																			<option value="1">Very Poor</option>
-																		</select>
-																	</p>
-																	
-																	<p class="comment-form-comment">
-																		<label for="comment">Your Review</label>
-																		<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
-																	</p>
-																	
-																	<p class="form-submit">
-																		<input name="submit" type="submit" id="submit" class="submit" value="Submit">
-																	</p>
-																</form>
-															</div>
-														</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="wpb_column vc_column_container vc_col-sm-4">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<p>
+															<img class="alignnone size-full wp-image-456" src="resource/front_bootstrap/images/1903/icon-ab3.png" alt="icon-ab3" width="40" height="32">
+														</p>
+														
+														<h3>更快的交货</h3>
+														
+														<p>所有这些产品都有品牌声誉，具有明确的起源，具有竞争力的价格。</p>
 													</div>
-													
-													<div class="clear"></div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								
-								<div class="bottom-single-product theme-clearfix">
-									<div class="widget-1 widget-first widget sw_related_upsell_widget-2 sw_related_upsell_widget" data-scroll-reveal="enter bottom move 20px wait 0.2s">
-										<div class="widget-inner">
-											<div id="slider_sw_related_upsell_widget-2" class="sw-woo-container-slider related-products responsive-slider clearfix loading" data-lg="4" data-md="3" data-sm="2" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-autoplay="false">
-												<div class="resp-slider-container">
-													<div class="box-slider-title">
-														<h2><span>Related Products</span></h2>
+							  
+								<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid bg-about margin-bottom-60 vc_row-no-padding">
+									<div class="container float wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="vc_row wpb_row vc_inner vc_row-fluid row">
+													<div class="wpb_column vc_column_container vc_col-sm-4">
+														<div class="vc_column-inner vc_custom_1487238877455">
+															<div class="wpb_wrapper">
+																<div class="wpb_text_column wpb_content_element ">
+																	<div class="wpb_wrapper">
+																		<p>
+																			<img class="size-full wp-image-451 aligncenter" src="resource/front_bootstrap/images/1903/ab1.jpg" alt="ab1" width="370" height="210" srcset="resource/front_bootstrap/images/1903/ab1.jpg 370w, resource/front_bootstrap/images/1903/ab1-300x170.jpg 300w" sizes="(max-width: 370px) 100vw, 370px">
+																		</p>
+																		
+																		<h3>我们真正做什么?</h3>
+																		
+																		<p>从阿联酋最好的网上购物商店获得所有最好的交易，销售和优惠。立即注册 ！</p>
+																	</div>
+																</div>
+															</div>
+														</div>
 													</div>
-													
-													<div class="slider responsive">
-														<div class="item ">
-															<div class="item-wrap">
-																<div class="item-detail">
-																	<div class="item-img products-thumb">
-																		<a href="simple_product.html">
-																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/49-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/49-300x300.jpg 300w, images/1903/49-150x150.jpg 150w, images/1903/49-180x180.jpg 180w, images/1903/49.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
-																			</div>
-																		</a>																
-																				
-																		<!-- add to cart, wishlist, compare -->
-																		<div class="item-bottom clearfix">
-																			<a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" title="Add to Cart">Add to cart</a>
-																			
-																			<a href="javascript:void(0)" class="compare button" rel="nofollow" title="Add to Compare">Compare</a>
-																			
-																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																				<div class="yith-wcwl-add-button show" style="display:block">
-																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
-																				</div>
-																			   
-																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																					<span class="feedback">Product added!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																					<span class="feedback">The product is already in the wishlist!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div style="clear:both"></div>
-																				<div class="yith-wcwl-wishlistaddresponse"></div>
-																			</div>
-																			
-																			<div class="clear"></div>
-																			<a href="ajax/fancybox/example.html" data-fancybox-type="ajax" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
-																		</div>
-																	</div>
-																	
-																	<div class="item-content">
-																		<!-- rating  -->
-																		<div class="reviews-content">
-																			<div class="star"></div>
-																			<div class="item-number-rating">
-																				0 Review(s)				
-																			</div>
-																		</div>
-																		<!-- end rating  -->
+											 
+													<div class="wpb_column vc_column_container vc_col-sm-4">
+														<div class="vc_column-inner vc_custom_1487238887060">
+															<div class="wpb_wrapper">
+																<div class="wpb_text_column wpb_content_element ">
+																	<div class="wpb_wrapper">
+																		<p>
+																			<img class="size-full wp-image-452 aligncenter" src="resource/front_bootstrap/images/1903/ab2.jpg" alt="ab2" width="370" height="210" srcset="resource/front_bootstrap/images/1903/ab2.jpg 370w, resource/front_bootstrap/images/1903/ab2-300x170.jpg 300w" sizes="(max-width: 370px) 100vw, 370px">
+																		</p>
 																		
-																		<h4><a href="simple_product.html" title="turkey qui">Turkey Qui</a></h4>
+																		<h3>我们的版本n</h3>
 																		
-																		<!-- price -->
-																		<div class="item-price">
-																			<span>
-																				<span class="woocommerce-Price-amount amount">
-																					<span class="woocommerce-Price-currencySymbol">$</span>300.00
-																				</span>
-																			</span>
-																		</div>
+																		<p>从阿联酋最好的网上购物商店获得所有最好的交易，销售和优惠。立即注册 !</p>
 																	</div>
 																</div>
 															</div>
 														</div>
-														 
-														<div class="item ">
-															<div class="item-wrap">
-																<div class="item-detail">
-																	<div class="item-img products-thumb">
-																		<span class="onsale">Sale!</span>
-																		<a href="simple_product.html">
-																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/39-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/39-300x300.jpg 300w, images/1903/39-150x150.jpg 150w, images/1903/39-180x180.jpg 180w, images/1903/39.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
-																			</div>
-																		</a>
-																				
-																		<!-- add to cart, wishlist, compare -->
-																		<div class="item-bottom clearfix">
-																			<a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" title="Add to Cart">Add to cart</a>
-																			
-																			<a href="javascript:void(0)" class="compare button" rel="nofollow" title="Add to Compare">Compare</a>
-																			
-																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																				<div class="yith-wcwl-add-button show" style="display:block">
-																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
-																				</div>
-																			   
-																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																					<span class="feedback">Product added!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																					<span class="feedback">The product is already in the wishlist!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div style="clear:both"></div>
-																				<div class="yith-wcwl-wishlistaddresponse"></div>
-																			</div>
-																			
-																			<div class="clear"></div>
-																			<a href="ajax/fancybox/example.html" data-fancybox-type="ajax" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
-																		</div>
-																	</div>
-																	
-																	<div class="item-content">
-																		<!-- rating  -->
-																		<div class="reviews-content">
-																			<div class="star"></div>
-																			<div class="item-number-rating">
-																				0 Review(s)				
-																			</div>
-																		</div>
-																		<!-- end rating  -->
+													</div>
+											 
+													<div class="wpb_column vc_column_container vc_col-sm-4">
+														<div class="vc_column-inner vc_custom_1487238887060">
+															<div class="wpb_wrapper">
+																<div class="wpb_text_column wpb_content_element ">
+																	<div class="wpb_wrapper">
+																		<p>
+																			<img class="size-full wp-image-453 aligncenter" src="resource/front_bootstrap/images/1903/ab3.jpg" alt="ab3" width="370" height="210" srcset="resource/front_bootstrap/images/1903/ab3.jpg 370w, resource/front_bootstrap/images/1903/ab3-300x170.jpg 300w" sizes="(max-width: 370px) 100vw, 370px">
+																		</p>
 																		
-																		<h4><a href="simple_product.html" title="iPad Mini 2 Retina">iPad Mini 2 Retina</a></h4>
+																		<h3>开始的历史</h3>
 																		
-																		<!-- price -->
-																		<div class="item-price">
-																			<span>
-																				<del>
-																					<span class="woocommerce-Price-amount amount">
-																						<span class="woocommerce-Price-currencySymbol">$</span>300.00
-																					</span>
-																				</del> 
-																				
-																				<ins>
-																					<span class="woocommerce-Price-amount amount">
-																						<span class="woocommerce-Price-currencySymbol">$</span>290.00
-																					</span>
-																				</ins>
-																			</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="item ">
-															<div class="item-wrap">
-																<div class="item-detail">
-																	<div class="item-img products-thumb">
-																		<a href="simple_product.html">
-																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/22-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/22-300x300.jpg 300w, images/1903/22-150x150.jpg 150w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
-																			</div>
-																		</a>
-																				
-																		<!-- add to cart, wishlist, compare -->
-																		<div class="item-bottom clearfix">
-																			<a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" title="Add to Cart">Add to cart</a>
-																			
-																			<a href="javascript:void(0)" class="compare button" rel="nofollow" title="Add to Compare">Compare</a>
-																			
-																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																				<div class="yith-wcwl-add-button show" style="display:block">
-																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
-																				</div>
-																			   
-																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																					<span class="feedback">Product added!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																					<span class="feedback">The product is already in the wishlist!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div style="clear:both"></div>
-																				<div class="yith-wcwl-wishlistaddresponse"></div>
-																			</div>
-																			
-																			<div class="clear"></div>
-																			<a href="ajax/fancybox/example.html" data-fancybox-type="ajax" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
-																		</div>
-																	</div>
-																	
-																	<div class="item-content">
-																		<!-- rating  -->
-																		<div class="reviews-content">
-																			<div class="star"></div>
-																			<div class="item-number-rating">
-																				0 Review(s)				
-																			</div>
-																		</div>
-																		<!-- end rating  -->
-																		
-																		<h4><a href="simple_product.html" title="Philips HR2195">Philips HR2195</a></h4>
-																		
-																		<!-- price -->
-																		<div class="item-price">
-																			<span>
-																				<span class="woocommerce-Price-amount amount">
-																					<span class="woocommerce-Price-currencySymbol">$</span>200.00
-																				</span>
-																			</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="item ">
-															<div class="item-wrap">
-																<div class="item-detail">
-																	<div class="item-img products-thumb">
-																		<a href="simple_product.html">
-																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/14-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/14-300x300.jpg 300w, images/1903/14-150x150.jpg 150w, images/1903/14-180x180.jpg 180w, images/1903/14.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
-																			</div>
-																		</a>
-																				
-																		<!-- add to cart, wishlist, compare -->
-																		<div class="item-bottom clearfix">
-																			<a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" title="Add to Cart">Add to cart</a>
-																			
-																			<a href="javascript:void(0)" class="compare button" rel="nofollow" title="Add to Compare">Compare</a>
-																			
-																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																				<div class="yith-wcwl-add-button show" style="display:block">
-																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
-																				</div>
-																			   
-																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																					<span class="feedback">Product added!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																					<span class="feedback">The product is already in the wishlist!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div style="clear:both"></div>
-																				<div class="yith-wcwl-wishlistaddresponse"></div>
-																			</div>
-																			
-																			<div class="clear"></div>
-																			<a href="ajax/fancybox/example.html" data-fancybox-type="ajax" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
-																		</div>
-																	</div>
-																	
-																	<div class="item-content">
-																		<!-- rating  -->
-																		<div class="reviews-content">
-																			<div class="star"></div>
-																			<div class="item-number-rating">
-																				0 Review(s)				
-																			</div>
-																		</div>
-																		<!-- end rating  -->
-																	 
-																		<h4><a href="simple_product.html" title="sony xperia s">sony xperia s</a></h4>
-																		
-																		<!-- price -->
-																		<div class="item-price">
-																			<span>
-																				<span class="woocommerce-Price-amount amount">
-																					<span class="woocommerce-Price-currencySymbol">$</span>300.00
-																				</span>
-																			</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="item ">
-															<div class="item-wrap">
-																<div class="item-detail">
-																	<div class="item-img products-thumb">
-																		<a href="simple_product.html">
-																			<div class="product-thumb-hover">
-																				<img width="300" height="300" src="images/1903/58-300x300.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="images/1903/58-300x300.jpg 300w, images/1903/58-150x150.jpg 150w, images/1903/58-180x180.jpg 180w, images/1903/58.jpg 600w" sizes="(max-width: 300px) 100vw, 300px">
-																			</div>
-																		</a>
-																				
-																		<!-- add to cart, wishlist, compare -->
-																		<div class="item-bottom clearfix">
-																			<a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" title="Add to Cart">Add to cart</a>
-																			
-																			<a href="javascript:void(0)" class="compare button" rel="nofollow" title="Add to Compare">Compare</a>
-																			
-																			<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																				<div class="yith-wcwl-add-button show" style="display:block">
-																					<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																					<img src="images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
-																				</div>
-																			   
-																				<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																					<span class="feedback">Product added!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																					<span class="feedback">The product is already in the wishlist!</span>
-																					<a href="#" rel="nofollow">Browse Wishlist</a>
-																				</div>
-																				
-																				<div style="clear:both"></div>
-																				<div class="yith-wcwl-wishlistaddresponse"></div>
-																			</div>
-																			
-																			<div class="clear"></div>
-																			<a href="ajax/fancybox/example.html" data-fancybox-type="ajax" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
-																		</div>
-																	</div>
-																	
-																	<div class="item-content">
-																		<!-- rating  -->
-																			<div class="reviews-content">
-																			<div class="star"></div>
-																			<div class="item-number-rating">
-																				0 Review(s)				
-																			</div>
-																		</div>
-																		<!-- end rating  -->
-																		
-																		<h4><a href="simple_product.html" title="nikon d7000">nikon d7000</a></h4>
-																	
-																		<!-- price -->
-																		<div class="item-price">
-																			<span>
-																				<span class="woocommerce-Price-amount amount">
-																					<span class="woocommerce-Price-currencySymbol">$</span>300.00
-																				</span>
-																			</span>
-																		</div>
+																		<p>从阿联酋最好的网上购物商店获得所有最好的交易，销售和优惠。立即注册 ！</p>
 																	</div>
 																</div>
 															</div>
@@ -2458,9 +2012,163 @@
 											</div>
 										</div>
 									</div>
-								   
-									<div class="widget-2 widget-last widget sw_related_upsell_widget-3 sw_related_upsell_widget" data-scroll-reveal="enter bottom move 20px wait 0.2s">
-										<div class="widget-inner"></div>
+								</div>
+							  
+								<div class="vc_row-full-width vc_clearfix"></div>
+							  
+								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div id="sw_testimonial01" class="responsive-slider sw-ourteam-slider default loading clearfix" data-lg="4" data-md="4" data-sm="3" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1" data-interval="5000" data-rtl="false" data-autoplay="false">
+													<div class="box-title">
+														<h2>认识我们的团队</h2>
+														<div class="slider-description">我们正在努力工作，激情一天天为您提供最好的厨房用品。除了工作，我们喜欢背包，烘烤，玩耍，天空等等。</div>
+													</div>
+											 
+													<div class="resp-slider-container">
+														<div class="slider responsive">
+															<div class="item">
+																<div class="item-wrap">
+																	<div class="item-img item-height">
+																		<div class="item-img-info">				
+																			<img width="270" height="310" src="resource/front_bootstrap/images/1903/ot4.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/ot4.jpg 270w, resource/front_bootstrap/images/1903/ot4-261x300.jpg 261w" sizes="(max-width: 270px) 100vw, 270px">								
+																		</div>
+																	</div>
+																	
+																	<div class="item-content">
+																		<h3>雪彪</h3>
+																		<div class="team-info">护理人员</div>
+																		<div class="item-desc"></div>
+																	</div>
+																	
+																	<div class="item-social">
+																		<div class="team-linkedin">
+																			<a href="#"><i class="fa fa-linkedin"></i></a>
+																		</div>
+																		
+																		<div class="team-facebook">
+																			<a href="#"><i class="fa fa-facebook"></i></a>
+																		</div>
+																		
+																		<div class="team-twitter">
+																			<a href="#"><i class="fa fa-twitter"></i></a>
+																		</div>
+																		
+																		<div class="team-gplus">
+																			<a href="#"><i class="fa fa-google-plus"></i></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														   
+														   <div class="item">
+																<div class="item-wrap">
+																	<div class="item-img item-height">
+																		<div class="item-img-info">				
+																		   <img width="270" height="310" src="resource/front_bootstrap/images/1903/ot3.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/ot3.jpg 270w, resource/front_bootstrap/images/1903/ot3-261x300.jpg 261w" sizes="(max-width: 270px) 100vw, 270px">								
+																		</div>
+																	</div>
+																	
+																	<div class="item-content">
+																		<h3>超哥</h3>
+																		<div class="team-info">项目管理人员</div>
+																		<div class="item-desc"></div>
+																	</div>
+																	
+																	<div class="item-social">
+																		<div class="team-linkedin">
+																			<a href="#"><i class="fa fa-linkedin"></i></a>
+																		</div>
+																		
+																		<div class="team-facebook">
+																			<a href="#"><i class="fa fa-facebook"></i></a>
+																		</div>
+																		
+																		<div class="team-twitter">
+																			<a href="#"><i class="fa fa-twitter"></i></a>
+																		</div>
+																		
+																		<div class="team-gplus">
+																			<a href="#"><i class="fa fa-google-plus"></i></a>
+																		</div>
+																	</div>
+																</div>
+														   </div>
+														   
+														   <div class="item">
+																<div class="item-wrap">
+																	<div class="item-img item-height">
+																		<div class="item-img-info">				
+																			<img width="270" height="310" src="resource/front_bootstrap/images/1903/ot2.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/ot2.jpg 270w, resource/front_bootstrap/images/1903/ot2-261x300.jpg 261w" sizes="(max-width: 270px) 100vw, 270px">								
+																		</div>
+																	</div>
+																 
+																	<div class="item-content">
+																		<h3>老二</h3>
+																		<div class="team-info">经理</div>
+																		<div class="item-desc"></div>
+																	</div>
+																 
+																	<div class="item-social">
+																		<div class="team-linkedin">
+																			<a href="#"><i class="fa fa-linkedin"></i></a>
+																		</div>
+																		
+																		<div class="team-facebook">
+																			<a href="#"><i class="fa fa-facebook"></i></a>
+																		</div>
+																		
+																		<div class="team-twitter">
+																			<a href="#"><i class="fa fa-twitter"></i></a>
+																		</div>
+																		
+																		<div class="team-gplus">
+																			<a href="#"><i class="fa fa-google-plus"></i></a>
+																		</div>
+																	</div>
+																</div>
+														   </div>
+														   
+														   <div class="item">
+																<div class="item-wrap">
+																	<div class="item-img item-height">
+																		<div class="item-img-info">				
+																			<img width="270" height="310" src="resource/front_bootstrap/images/1903/ot1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="resource/front_bootstrap/images/1903/ot1.jpg 270w, resource/front_bootstrap/images/1903/ot1-261x300.jpg 261w" sizes="(max-width: 270px) 100vw, 270px">								
+																		</div>
+																	</div>
+																 
+																	<div class="item-content">
+																		<h3>肖东升</h3>
+																		<div class="team-info">经纪人</div>
+																		<div class="item-desc">
+																		</div>
+																	</div>
+																 
+																	<div class="item-social">
+																		<div class="team-linkedin">
+																			<a href="#"><i class="fa fa-linkedin"></i></a>
+																		</div>
+																		
+																		<div class="team-facebook">
+																			<a href="#"><i class="fa fa-facebook"></i></a>
+																		</div>
+																		
+																		<div class="team-twitter">
+																			<a href="#"><i class="fa fa-twitter"></i></a>
+																		</div>
+																		
+																		<div class="team-gplus">
+																			<a href="#"><i class="fa fa-google-plus"></i></a>
+																		</div>
+																	</div>
+																</div>
+														   </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -2488,18 +2196,18 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 												
 												<div class="client-say-info">
 													<div class="client-comment">
-														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.�						
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
 													</div>
 													
 													<div class="name-client">
-														<h2><a href="#" title="">Jerry</a></h2>
-														<p>Web Developer</p>
+														<h2><a href="#" title="">搬砖团队</a></h2>
+														<p>Web 团队开发r</p>
 													</div>
 												</div>
 											</div>
@@ -2507,21 +2215,21 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm1.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm1.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 											
 												<div class="client-say-info">
 													<div class="client-comment">
-														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.�						
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
 													</div>
 													
 													<div class="name-client">
 														<h2>
-															<a href="#" title="">David Gand</a>
+															<a href="#" title="">雪彪</a>
 														</h2>
 														
-														<p>Designer</p>
+														<p>设计师</p>
 													</div>
 												</div>
 											</div>
@@ -2531,13 +2239,13 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm2.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm2.png" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 												
 												<div class="client-say-info">
 													<div class="client-comment">
-														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.�						
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
 													</div>
 													
 													<div class="name-client">
@@ -2553,13 +2261,13 @@
 											<div class="item-inner">
 												<div class="image-client pull-left">
 													<a href="#" title="">
-														<img width="127" height="127" src="images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
+														<img width="127" height="127" src="resource/front_bootstrap/images/1903/tm3.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="" />
 													</a>
 												</div>
 												
 												<div class="client-say-info">
 													<div class="client-comment">
-														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.�						
+														In auctor ex id urna faucibus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit....						
 													</div>
 													
 													<div class="name-client">
@@ -2590,13 +2298,13 @@
 												<div class="wpb_text_column wpb_content_element ">
 													<div class="wpb_wrapper">
 														<div class="wrap-newletter">
-															<h3>NEWSLETTER SIGNUP</h3>
+															<h3>信息搜索</h3>
 															
 															<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-275" method="post" data-id="275" data-name="">
 																<div class="mc4wp-form-fields">
 																	<div class="newsletter-content">
-																		<input type="email" class="newsletter-email" name="EMAIL" placeholder="Your email" required="" />
-																		<input class="newsletter-submit" type="submit" value="Subscribe" />
+																		<input type="email" class="newsletter-email" name="EMAIL" placeholder=" email" required="" />
+																		<input class="newsletter-submit" type="submit" value="提交" />
 																	</div>
 																</div>
 																<div class="mc4wp-response"></div>
@@ -2661,7 +2369,7 @@
 													<div class="wpb_wrapper">
 														<div class="ya-logo">
 															<a href="home_page_1.html">
-																<img src="images/icons/logo-footer.png" alt="logo" />
+																<img src="resource/front_bootstrap/images/icons/logo-footer.png" alt="logo" />
 															</a>
 														</div>
 													</div>
@@ -2684,11 +2392,11 @@
 															
 															<div class="store">
 																<a href="#">
-																	<img src="images/1903/app-store.png" alt="store" title="store" />
+																	<img src="resource/front_bootstrap/images/1903/app-store.png" alt="store" title="store" />
 																</a>
 																
 																<a href="#">
-																	<img src="images/1903/google-store.png" alt="store" title="store" />
+																	<img src="resource/front_bootstrap/images/1903/google-store.png" alt="store" title="store" />
 																</a>
 															</div>
 														</div>
@@ -2820,7 +2528,7 @@
 																<h2>find a store</h2>
 															</div>
 															
-															<img src="images/1903/map.jpg" alt="map" title="map" />
+															<img src="resource/front_bootstrap/images/1903/map.jpg" alt="map" title="map" />
 															
 															<a href="#" class="link-map">Store locator</a>
 														</div>
@@ -2892,7 +2600,7 @@
 								<div class="textwidget">
 									<div class="payment">
 										<a href="#">
-											<img src="images/1903/paypal.png" alt="payment" title="payment" />
+											<img src="resource/front_bootstrap/images/1903/paypal.png" alt="payment" title="payment" />
 										</a>
 									</div>
 								</div>
@@ -2970,7 +2678,7 @@
 	
 	<a id="etrostore-totop" href="#"></a>	
 	
-	<div id="subscribe_popup" class="subscribe-popup" style="background: url(images/icons/bg_newsletter.jpg)">
+	<div id="subscribe_popup" class="subscribe-popup" style="background: url(resource/front_bootstrap/images/icons/bg_newsletter.jpg)">
 		<div class="subscribe-popup-container">
 			<h2>Join our newsletter</h2>
 			<div class="description">Subscribe now to get 40% of on any product!</div>
@@ -3018,40 +2726,25 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery/js.cookie.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 	
 	<!-- OPEN LIBS JS -->
-	<script type="text/javascript" src="js/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="js/slick-1.6.0/slick.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 	
-	<script type="text/javascript">
-		/* <![CDATA[ */
-			var woocommerce_price_slider_params = {"currency_symbol":"$","currency_pos":"left","min_price":"100","max_price":"500"};
-			var wc_single_product_params = {"i18n_required_rating_text":"Please select a rating","review_rating_required":"yes"};
-		/* ]]> */
-	</script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 	
-	<script type="text/javascript" src="js/widget.min.js"></script>
-	<script type="text/javascript" src="js/mouse.min.js"></script>
-	<script type="text/javascript" src="js/slider.min.js"></script>
-	<script type="text/javascript" src="js/js_composer/js_composer_front.min.js"></script>
-	
-	<script type="text/javascript" src="js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="js/sw_core/isotope.js"></script>
-	<script type="text/javascript" src="js/sw_core/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="js/sw_woocommerce/category-ajax.js"></script>
-	<script type="text/javascript" src="js/sw_woocommerce/jquery.countdown.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/price-slider.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/single-product.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/prettyPhoto/jquery.prettyPhoto.init.min.js"></script>
-	<script type="text/javascript" src="js/woocommerce/prettyPhoto/jquery.prettyPhoto.min.js"></script>
-	
-	<script type="text/javascript" src="js/plugins.js"></script>
-	<script type="text/javascript" src="js/megamenu.min.js"></script>
-	<script type="text/javascript" src="js/main.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;

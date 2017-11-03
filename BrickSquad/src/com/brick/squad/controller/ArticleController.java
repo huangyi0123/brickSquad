@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +32,6 @@ public class ArticleController {
 	@Autowired
 	@Qualifier("articleService")
 	private  ArticalService articleService;
-	
 	@RequestMapping("/toArticleList")
 	public String toArticleList(){
 		return "backstage_managed/jsp/article/article_list";
@@ -62,9 +64,15 @@ public class ArticleController {
 	
 	
 	@RequestMapping("/addArticle")
-	public String addArticle(Article article) throws Exception{
+	public String addArticle(@Validated Article article,BindingResult result,HttpServletRequest request) throws Exception{
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addArticle");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/article/add_article";
+		}
 		articleService.insertArticleById(article);
-		
 		return "backstage_managed/jsp/article/article_list";}
 	
 	

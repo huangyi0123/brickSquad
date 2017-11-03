@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,14 +10,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
+import com.brick.squad.service.RoleService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
+import com.brick.squad.util.Select;
 
 @Controller
 @RequestMapping("/user")
@@ -24,7 +32,12 @@ public class UserController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
-
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
+	@Autowired
+	@Qualifier("roleService")
+	private RoleService roleService;
 	@RequestMapping("/toUserList")
 	public String toUserList() {
 		return "backstage_managed/jsp/user/user_list";
@@ -197,58 +210,106 @@ public class UserController {
 		String data = userService.findUserByBranchId(user.getBranchId());
 		return data;
 	}
+	/**
+	 * 跳转到添加页面
+	 */
+	@RequestMapping("/toJumpUser")
+	public String toJumpUser( HttpServletRequest request){
 
+		String branch =typeService.findTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("branch", branch);
+		String role = roleService.findAllRole();
+		request.setAttribute("role", role);
+		return "backstage_managed/jsp/user/AddJumpUser";
+	}
+	/**
+	 * 添加user信息
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toAddJumpUser")
+	public String toAddJumpUser(@Validated User user,BindingResult bindingResult,HttpServletRequest request){
+		if(bindingResult.hasErrors()){
+			List<ObjectError> errors = bindingResult.getAllErrors();
+			request.setAttribute("errors", errors);
+			return "backstage_managed/jsp/user/AddJumpUser";
+		}
+		userService.addUser(user);
+		return "backstage_managed/jsp/user/user_list";
+	}
 	/**
 	 * 用户修改头像
 	 * 
 	 * @return
 	 */
 	@RequestMapping("/userUpdateUserPicPath")
+	@ResponseBody
 	public String userUpdateUserPicPath(MultipartFile userPic,
 			HttpServletRequest request) {
-		if (userPic != null) {
-			// 获取图片要保存的到的服务器路径
-			String realPath = "resource/image/user/";
-			String path = request.getSession().getServletContext()
-					.getRealPath(realPath);
-			//获取当前文件名 
-			String filName = userPic.getOriginalFilename();
-			//获取当前文件的后缀名
-			String fileSuffixName =filName.substring(filName.lastIndexOf("."));
-			//获取当前登录的用户session
-			User user =(User) request.getSession().getAttribute("user");
-			if (user!=null) {
-				//给文件重新命名,当前用户ID+文件后缀名
-				String fileNewName =user.getId()+fileSuffixName;
-				// 创建文件类型对象: 
-				File file = new File(path, fileNewName);
-				if (!file.exists()) {
-					file.mkdirs();
-				}
-				try {
-					userPic.transferTo(file);
-					
-					//取得数据库存的路径
-					String databaseuserPicPath=realPath+fileNewName;
-					//上传成功后，将路径保存到数据库中
-					user.setUserPicPath(databaseuserPicPath);
-					if (user.getUserPicPath()!=null) {
-						userService.updateUserUserPicPathById(user);
+		// 图片大小超过5M，不能上传
+		if (userPic.getSize() < 5242880) {
+			if (userPic != null) {
+				// 获取图片要保存的到的服务器路径
+				String realPath = "resource/image/user/";
+				String path = request.getSession().getServletContext()
+						.getRealPath(realPath);
+				// 获取当前文件名
+				String filName = userPic.getOriginalFilename();
+				// 获取当前文件的后缀名
+				String fileSuffixName = filName.substring(filName
+						.lastIndexOf("."));
+				// 如果后缀名为png\jpg\gif\icon\jpeg,才允许上传
+				if (fileSuffixName.equals(".JPG")
+						|| fileSuffixName.equals(".PNG")
+						|| fileSuffixName.equals(".png")
+						|| fileSuffixName.equals(".jpg")
+						|| fileSuffixName.equals(".jpeg")
+						|| fileSuffixName.equals(".gif")) {
+					// 获取当前登录的用户session
+					User user = (User) request.getSession()
+							.getAttribute("user");
+					if (user != null) {
+						// 给文件重新命名,当前用户ID+文件后缀名
+						String fileNewName = user.getId() + fileSuffixName;
+
+						//  创建文件类型对象: 
+						File file = new File(path, fileNewName);
+						if (!file.exists()) {
+							file.mkdirs();
+						}
+						try {
+							userPic.transferTo(file);
+
+							// 取得数据库存的路径
+							String databaseuserPicPath = realPath + fileNewName;
+							// 上传成功后，将路径保存到数据库中
+							user.setUserPicPath(databaseuserPicPath);
+							if (user.getUserPicPath() != null) {
+								userService.updateUserUserPicPathById(user);
+							}
+
+							request.getSession().setAttribute("user", user);
+						} catch (IllegalStateException | IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} else {
+						return "getUserError";
 					}
-					
-					request.setAttribute("user", user);
-				} catch (IllegalStateException | IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				} else {
+					return "fileSuffixNameError";
+
 				}
-			}else {
-				return "Error";
+
+			} else {
+				return "userPicNUllError";
 			}
-			
 		} else {
-			return "Error";
+			return "fileSizeError";
 		}
+
 		return "suc";
 		/* return "redirect:/common/toPersonal"; */
 	}
+	
 }

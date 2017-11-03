@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -56,17 +56,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		if(url=='addActivities'){}
 		else{
 		var da = $("#startTime").attr('val');//回显时间
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm");
+		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$("#startTime").val(dat);
 		
 		var da = $("#endTime").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm");
+		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$("#endTime").val(dat);
 		}
 		
 	});
-	
-	
+	$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});
 </script>
   </head>
   <body>
@@ -97,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-form-item" style="width: 300px;">
 			<label class="layui-form-label">活动类型id</label>
 			<div class="layui-input-block">
-				<select name="typeId" id="typeId"  lay-filter="aihao" val="${activities.typeId }">
+				<select name="typeId" id="typeId"  lay-filter="aihao" val="${activities.typeId}">
 					<option value=""></option>
 				</select>
 			</div>
@@ -126,7 +137,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		
 		
-		
+
 		<div class="layui-form-item">
 			<label class="layui-form-label">开始时间</label>
 			<div class="layui-input-inline logstart_time">
@@ -141,6 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
     <div class="layui-input-block">
       <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
@@ -148,5 +160,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
   </div>
 	</form>
+	
+		<c:forEach items="${errors}" var="error">
+   		<input class="error" value="${error.defaultMessage}" type="hidden">
+   	</c:forEach>
   </body>
 </html>
