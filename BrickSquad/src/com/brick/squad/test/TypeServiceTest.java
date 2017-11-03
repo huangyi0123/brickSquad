@@ -27,13 +27,11 @@ public class TypeServiceTest {
 		String data=typeService.findTypeByParentId("xuebiao");
 		System.out.println(data);
 	}
-	
 	@Test
 	public void testFindTypeById() {
 		Type type= typeService.findTypeById("32cacadac0a411e7aca65254002ec43c");
 		System.out.println(type.getName());
 	}
-
 	@Test
 	public void testInsertType() {
 		Type type = new Type();
