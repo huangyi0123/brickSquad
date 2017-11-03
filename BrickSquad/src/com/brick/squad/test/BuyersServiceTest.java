@@ -43,18 +43,17 @@ public class BuyersServiceTest {
 	public void testfindBuyersByUUID () throws Exception{
 /*		Buyers buyers = new Buyers();
 		buyers.setId("1");*/
-		 buyersService.findBuyersByUUID("ab1595b6b0bd11e78d4f5254002ec43c");
+		 Buyers buyers=buyersService.findBuyersByUUID("ab1595b6b0bd11e78d4f5254002ec43c");
+		 System.out.println(buyers.getPersonalInformation().getFamilyHistory());
 	}
 	@Test
 	public void testUpdateBuyersById() throws Exception{
 		AddressAndBuyersExpand addressAndBuyersExpand = new AddressAndBuyersExpand();
-
 		buyersService.updateBuyersById(addressAndBuyersExpand);	
 	}
 	@Test
 	public void testDeleteBuyersById() throws Exception{
-
-		buyersService.deleteBuyersById("ab1595b6b0bd11e78d4f5254002ec43c");
+		buyersService.deleteBuyersById("21");
 	}
 	@Test
 	public void testBuyersPagination() throws Exception{
@@ -63,10 +62,21 @@ public class BuyersServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(6);
 		/*lBuyers = buyersService.buyersPagination(pagination);*/
-		buyersService.buyersPagination(pagination);
+		String data=buyersService.buyersPagination(pagination);
+		System.out.println(data);
 	}
 	/*@Test
 	public void testFindBuyersAllCount() throws Exception{
 		buyersService.findBuyersAllCount();
 	}*/
+	@Test
+	public void findAddressById() throws Exception{
+		Address address=buyersService.findAddressById("9ea6cab4b86211e78d4f5254002ec43c");
+		System.out.println(address.getProvinceId());
+	}
+	@Test
+	public void findRegionsByLevel(){
+		String data=buyersService.findRegionsByLevel();
+		System.out.println(data);
+	}
 }

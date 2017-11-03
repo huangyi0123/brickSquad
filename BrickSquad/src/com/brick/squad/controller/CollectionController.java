@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Collection;
+import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.Pagination;
 
@@ -24,6 +25,9 @@ public class CollectionController {
 	@Autowired
 	@Qualifier("collectionService")
 	private CollectionService collectionService;
+	@Autowired
+	@Qualifier("buyersService")
+	private BuyersService buyersService;
 
 	@RequestMapping("/toCollection")
 	public String toCollection() {
@@ -44,6 +48,9 @@ public class CollectionController {
 	
 	@RequestMapping("/toAddCollection")
 	  public String toAddCollection(HttpServletRequest request, String id) {
+		   
+		String data=buyersService.findPnameByBuyersId();
+		request.setAttribute("collectionData", data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateCollectionById");

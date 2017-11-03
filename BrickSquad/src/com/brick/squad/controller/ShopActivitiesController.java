@@ -116,6 +116,7 @@ public class ShopActivitiesController {
 	@RequestMapping("/findShopActivitiesById")
 	public String findShopActivitiesById(HttpServletRequest request,String id){
 		ShopActivitiesExpand shopActivitiesExpand = shopActivitiesService.findShopActivitiesAndTypeAndArticle(id);
+		//System.out.println("+++++++++"+shopActivitiesExpand);
 		request.setAttribute("shopActivitiesExpand", shopActivitiesExpand);
 		return "backstage_managed/jsp/shopActivities/search_shopActivities";
 		
@@ -125,10 +126,6 @@ public class ShopActivitiesController {
 	@RequestMapping("/findTypeAndArticle")
 	@ResponseBody
 	public String findTypeAndArticle(){
-		System.out.println(shopActivitiesService.findTypeAndArticle());
 		return shopActivitiesService.findTypeAndArticle();
-		}
-	
-	
-	
+		}	
 }
