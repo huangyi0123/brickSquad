@@ -139,7 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													placeholder="Enter your keyword...">
 												<div class="cat-wrapper" ">
 													<label class="label-search"> <select
-														name="search_category" class="s1_option" style="width: 120px;>
+														name="search_category" class="s1_option" style="width: 150px;>
 															<option value="">所有类别</option>
 															<option value="8">女装</option>
 															<option value="14">男装</option>
@@ -381,7 +381,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														<li class="menu-orange"><a data-advanced="rtl">Right
 																to left</a></li>
 													</ul></li>
-											</ul></li>
+											</ul>
+											
+											</li>
 
 										<li class="res-dropdown menu-shop"><a
 											class="item-link dropdown-toggle" href="#">Shop</a> <span
