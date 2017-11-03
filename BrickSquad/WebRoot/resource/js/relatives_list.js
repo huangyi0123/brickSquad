@@ -11,16 +11,16 @@ function init(keyword) {
 		supportAjaxPage : true,
 		supportCheckbox : false,
 		columnData : [ {
-			key : 'relName',
+			key : 'name',
 			text : '亲属姓名'
 		}, {
-			key : 'perName',
+			key : 'perId',
 			text : '老人姓名'
 		}, {
-			key : 'tyName',
+			key : 'relationshipId',
 			text : '亲属关系'
 		}, {
-			key : 'relPhone',
+			key : 'telephone',
 			text : '亲属电话号码'
 		},  {
 			key : "operation",
