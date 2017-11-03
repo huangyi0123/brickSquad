@@ -14,7 +14,36 @@ public class RelativesAndAddressAndTypeAndPersonExpand{
 	private Address address;
 	private Type type;
 	private PersonalInformation personalInformation;
+	private String perName;
 	private Relatives relatives;
+	private String relName;
+	private String tyName;
+	private String relPhone;
+	
+	public String getTyName() {
+		return tyName;
+	}
+	public void setTyName(String tyName) {
+		this.tyName = tyName;
+	}
+	public String getRelPhone() {
+		return relPhone;
+	}
+	public void setRelPhone(String relPhone) {
+		this.relPhone = relPhone;
+	}
+	public String getRelName() {
+		return relName;
+	}
+	public void setRelName(String relName) {
+		this.relName = relName;
+	}
+	public String getPerName() {
+		return perName;
+	}
+	public void setPerName(String perName) {
+		this.perName = perName;
+	}
 	public Address getAddress() {
 		return address;
 	}

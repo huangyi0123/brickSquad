@@ -2,39 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.OrderDetailsMapper">
-<sql id="Base_Column_List">
- id, article_id articleId, orders_id ordersId, number, subtotal
-</sql>
+	<sql id="Base_Column_List">
+		id, article_id articleId, orders_id ordersId, number, subtotal
+	</sql>
 	<select id="findOrderDetails" resultType="OrderDetails">
-  SELECT 
- <include refid="Base_Column_List"></include>
-  FROM order_details
- 	 </select>
- 	 <select id="findOrderDetailsById" resultType="OrderDetails">
- 	 SELECT 
- 	 <include refid="Base_Column_List"/>
- 	 FROM order_details
- 	 WHERE id=#{id,jdbcType=VARCHAR}
- 	 </select>
- 	 
- 	 <update id="updateOrderDetails" parameterType="java.lang.String">
- 	 UPDATE order_details
- 	 SET id = #{id,jdbcType=VARCHAR},
-      article_id = #{articleId,jdbcType=VARCHAR},
-      orders_id = #{ordersId,jdbcType=VARCHAR},
-      number = #{number,jdbcType=INTEGER},
-      subtotal = #{subtotal,jdbcType=REAL}
-      WHERE id = #{id,jdbcType=VARCHAR}
- 	 </update>
- 	 <delete id="deleteOrderDetails" parameterType="java.lang.String">
- 	 DELETE FROM order_details
- 	 WHERE id = #{id,jdbcType=VARCHAR}
- 	 </delete>
- 	 <select id="countOrderDetails" resultType="Integer">
- 	 SELECT COUNT(*) FROM order_details
- 	 </select>
- 	 <select id="orderDetailsPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.OrderDetailsExpand">
-	SELECT  order_details.id,article.aname articleAname, order_details.orders_id ordersId,order_details.number,order_details.subtotal 
-				FROM order_details  JOIN article ON order_details.article_id=article.id  limit #{skipNum},#{takeNum}
+		SELECT
+		<include refid="Base_Column_List"></include>
+		FROM order_details
+	</select>
+	<select id="findOrderDetailsById" resultType="OrderDetails">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM order_details
+		WHERE id=#{id,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateOrderDetails" parameterType="java.lang.String">
+		UPDATE order_details
+		SET id = #{id,jdbcType=VARCHAR},
+		article_id = #{articleId,jdbcType=VARCHAR},
+		orders_id = #{ordersId,jdbcType=VARCHAR},
+		number = #{number,jdbcType=INTEGER},
+		subtotal = #{subtotal,jdbcType=REAL}
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</update>
+	<delete id="deleteOrderDetails" parameterType="java.lang.String">
+		DELETE FROM order_details
+		WHERE id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<select id="countOrderDetails" resultType="Integer">
+		SELECT count(*)
+		FROM order_details JOIN article ON order_details.article_id=article.id
+	</select>
+	<select id="orderDetailsPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.OrderDetailsExpand">
+		SELECT order_details.id,article.aname articleAname, order_details.orders_id
+		ordersId,order_details.number,order_details.subtotal
+		FROM order_details JOIN article ON order_details.article_id=article.id
+		limit #{skipNum},#{takeNum}
 	</select>
 </mapper>

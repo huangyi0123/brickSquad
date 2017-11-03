@@ -4,7 +4,8 @@
 <mapper namespace="com.brick.squad.mapper.AddressMapper">
 	<select id="findAddressById" parameterType="String" resultType="Address">
 		select
-		id,province_id provinceId,city_id cityId,county_id countyId,country_id
+		id,province_id provinceId,city_id cityId,county_id
+		countyId,country_id
 		countryId,detailed
 		from address where id=#{id}
 	</select>
@@ -28,23 +29,43 @@
 	<select id="addressPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.pojo.Address">
 		SELECT a.id, rPro.`name` provinceId ,rCit.`name`
-		cityId,rcot.`name` countyId,rCo.`name` countryId,a.detailed
+		cityId,rcot.`name`
+		countyId,rCo.`name` countryId,a.detailed
+		FROM address a
+		JOIN region rPro
+		ON a.province_id=rPro.id
+
+		JOIN region rCit ON a.city_id=rCit.id
+
+		JOIN
+		region rCo on a.country_id=rCo.id
+
+		JOIN region rcot ON
+		a.county_id=rcot.id
+		<if test="keyword!=''and keyword!=null">
+			WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP #{keyword} or
+			rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP #{keyword} or
+			a.detailed REGEXP #{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findAddressAllCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
+
+		SELECT count(*)
 		FROM address a
 		JOIN region rPro ON a.province_id=rPro.id
 
 		JOIN region rCit ON a.city_id=rCit.id
 
-		JOIN region rCo on a.country_id=rCo.id
+		JOIN region rCo on
+		a.country_id=rCo.id
 
-		JOIN region rcot ON a.county_id=rcot.id 
+		JOIN region rcot ON a.county_id=rcot.id
 		<if test="keyword!=''and keyword!=null">
-		WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP #{keyword} or
-		rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP #{keyword} or a.detailed REGEXP #{keyword}
+			WHERE rPro.`name` REGEXP #{keyword} or rCit.`name` REGEXP #{keyword} or
+			rcot.`name` REGEXP #{keyword} or rCo.`name` REGEXP #{keyword} or
+			a.detailed REGEXP #{keyword}
 		</if>
-		limit #{skipNum},#{takeNum}
-	</select>
-	<select id="findAddressAllCount" resultType="int">
-		select count(*) from
-		address
 	</select>
 </mapper>

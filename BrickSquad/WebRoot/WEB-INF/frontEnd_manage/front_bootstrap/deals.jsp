@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<ul id="menu-checkout" class="menu">
 											<li class="menu-checkout">
 												<a class="item-link" href="common/toContactUs">
-													<span class="menu-title">关于我们</span>
+													<span class="menu-title">联系我们</span>
 												</a>
 											</li>
 										</ul>
@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="rows">
 						<!-- LOGO -->
 						<div class="etrostore-logo pull-left">
-							<a href="home_page_1.html">
+							<a href="common/toShop">
 								<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
 							</a>
 						</div>
@@ -169,19 +169,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<div class="cat-wrapper">
 														<label class="label-search">
 															<select name="search_category" class="s1_option">
-																<option value="">All Categories</option>
-																<option value="8">Computers & Laptops</option>
-																<option value="13">Computers & Networking</option>
-																<option value="14">Smartphones & Tablet</option>
-																<option value="15">Home Furniture</option>
-																<option value="16">Home Appliances</option>
-																<option value="17">Electronic Component</option>
-																<option value="18">Household Goods</option>
-																<option value="32">Appliances</option>
-																<option value="49">Accessories</option>
-																<option value="51">Electronics</option>
-																<option value="78">Televisions</option>
-																<option value="80">Cameras & Accessories</option>
+																<option value="">所有类别</option>
+															<option value="8">女装</option>
+															<option value="14">男装</option>
+															<option value="16">女鞋</option>
+															<option value="17">男鞋</option>
+															<option value="18">配件配饰</option>
+															<option value="15">运动用品</option>
+															<option value="32">食品</option>
+															<option value="49">滋补养生</option>
+															<option value="13">中西药品</option>
+															<option value="51">保健器械</option>
+															<option value="78">眼镜服务</option>
+															<option value="80">护理护具</option>
 															</select>
 														</label>
 													</div>
@@ -805,7 +805,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</li>
 												
 												<li class="menu-about-us">
-													<a class="item-link" href="about_us.html">About Us</a>
+													<a class="item-link" href="common/tpabout_us">关于我们</a>
 												</li>
 												
 												<li class="menu-contact-us">
@@ -817,10 +817,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									
 									<ul id="menu-primary-menu-1" class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
 										<li class="dropdown menu-home etrostore-mega-menu level1">
-											<a href="home_page_1.html" class="item-link dropdown-toggle">
+											<a href="common/toShop" class="item-link dropdown-toggle">
 												<span class="have-title">
 													<span class="menu-color" data-color="#f034ca"></span>
-													<span class="menu-title">Home</span>
+													<span class="menu-title">首页</span>
 												</span>
 											</a>
 											
@@ -1678,9 +1678,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</li>
 									  
 										<li class="menu-about-us etrostore-menu-custom level1">
-											<a href="about_us.html" class="item-link">
+											<a href="common/toabout_us" class="item-link">
 												<span class="have-title">
-													<span class="menu-title">About Us</span>
+													<span class="menu-title">关于我们</span>
 												</span>
 											</a>
 											
@@ -2837,8 +2837,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="widget widget_nav_menu">
 										<ul id="menu-infomation" class="menu">
 											<li class="menu-about-us">
-												<a class="item-link" href="about_us.html">
-													<span class="menu-title">About Us</span>
+												<a class="item-link" href="common/toabout_us">
+													<span class="menu-title">关于我们</span>
 												</a>
 											</li>
 											
@@ -2867,8 +2867,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</li>
 											
 											<li class="menu-contact-us">
-												<a class="item-link" href="contact_us.html">
-													<span class="menu-title">Contact Us</span>
+												<a class="item-link" href="common/toContactUs">
+													<span class="menu-title">联系我们</span>
 												</a>
 											</li>
 										</ul>
