@@ -3,11 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.BuyersMapper">
 	<insert id="insertBuyers" parameterType="com.brick.squad.pojo.Buyers">
-		<selectKey resultType="String" keyProperty="id" order="BEFORE">
-			select replace(uuid(),'-','') from dual
-		</selectKey>
-		insert into buyers(id,current_integral,historical_integral,grade,delivery_address_id,information_id)
-		 values (#{id},#{currentIntegral},#{historicalIntegral},#{grade},#{deliveryAddressId},#{informationId})
+		insert into buyers(id,current_integral,historical_integral,grade,delivery_address_id)
+		 values (#{id},#{currentIntegral},#{historicalIntegral},#{grade},#{deliveryAddressId})
 	</insert>
 	<select id="findBuyersByUUID" parameterType="String" resultType="com.brick.squad.pojo.Buyers">
 	select id,current_integral currentIntegral,historical_integral historicalIntegral,grade grade,delivery_address_id deliveryAddressId 
@@ -16,7 +13,7 @@
 	<update id="updateBuyersById" parameterType="com.brick.squad.pojo.Buyers">
 		update buyers set 
 		current_integral=#{currentIntegral},historical_integral=#{historicalIntegral}
-		,grade=#{grade},delivery_address_id=#{deliveryAddressId},information_id=#{informationId} where id=#{id}
+		,grade=#{grade},delivery_address_id=#{deliveryAddressId} where id=#{id}
 	</update>
 	<delete id="deleteBuyersById" parameterType="String">
 		delete from buyers where id=#{id}
@@ -25,8 +22,8 @@
 	<select id="buyersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.BuyersExpand">
 		select buyers.id,personal_information.name pname,current_integral currentIntegral,
 		historical_integral historicalIntegral,
-		grade grade,delivery_address_id deliveryAddressId,information_id informationId
-		from buyers LEFT JOIN personal_information ON buyers.information_id=personal_information.id 
+		grade grade,delivery_address_id deliveryAddressId
+		from buyers JOIN personal_information ON buyers.id=personal_information.id 
 		<if test="keyword!=''and keyword!=null">
 		WHERE personal_information.name REGEXP #{keyword}
 		</if>

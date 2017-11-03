@@ -1,11 +1,16 @@
 package com.brick.squad.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.objenesis.instantiator.perc.PercSerializationInstantiator;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -96,7 +101,15 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/insertRelatives")
-	public String insertRelatives(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand) {	
+	public String insertRelatives(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand,BindingResult bindingResult,
+			HttpServletRequest request) {
+		if( relativesAndAddressAndTypeAndPersonExpand.getRelatives()!=null){
+			if(bindingResult.hasErrors()){
+				List<ObjectError> errors = bindingResult.getAllErrors();
+				request.setAttribute("errors", errors);
+				return "backstage_managed/jsp/relatives/add_relatives";
+			}
+		}
 		relativesService.insertRelatives(relativesAndAddressAndTypeAndPersonExpand);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
