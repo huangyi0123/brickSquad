@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
@@ -218,6 +219,17 @@ public class PersonalInformationController {
 	public String deletePersonalInformationById(String id) {
 		personalInformationService.deletePersonalInformationById(id);
 		return "success";
+	}
+	
+	/**
+	 * 级联查询获得数据后显示在老人个人信息详细列表页
+	 */
+	@RequestMapping("/findAllThereById")
+	public String findAllThereById(HttpServletRequest request,String id){
+		PersonalInformation personalInformation = personalInformationService.findThereAllById(id);
+		request.setAttribute("personalInformation", personalInformation);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+personalInformation);
+		return "backstage_managed/jsp/personal_Information/search_personal_Information";
 	}
 
 }
