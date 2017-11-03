@@ -83,6 +83,28 @@
 .coupons-gd h3{
 	margin-top:-80px;
 }
+.activite {
+	line-height:22px;
+	float:left;
+	padding-top:10px;
+	width:100%;
+}
+.activite li{
+	width:100%;
+	height:25px;
+}
+.activite li a{
+	display:block;
+}
+.title1{
+	float:left;
+	dispaly:block;
+	font-size: 15px;
+}
+.time1{
+	dispaly:display:block;float:right;
+}
+
 
 </style>
 </head>
@@ -117,26 +139,26 @@
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<img src="resource/image/web.png" alt=" " />
+							<a href="" title="活动中心"><img src="resource/image/web.png" alt=" " /></a>
 						</span>
 					</h4>
-					<p>活动中心</p>
+					<a href="" ><p>活动中心</p></a>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<img src="resource/image/credit.png" alt=" " />
+							<a href="" title="商城中心"><img src="resource/image/credit.png" alt=" " /></a>
 						</span>
 					</h4>
-					<p>商城中心</p>
+					<a href=""><p>商城中心</p></a>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<img src="resource/image/security.png" alt=" " />
+							<a href="" title="更多信息"><img src="resource/image/security.png" alt=" " /></a>
 						</span>
 					</h4>
-					<p>更多信息</p>
+					<a href=""><p>更多信息</p></a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -151,9 +173,16 @@
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
-			<h3>Exclusive Offers</h3>
-			<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
-				quod maxime placeat facere possimus, omnis voluptas assumenda est.</p>
+			<h3>近期活动</h3>
+			<ul class="activite">
+			<li ><a href="" title="生活常识"> <span	class="title1">生活常识</span><span class="time1">2015-12-04</span></a></li>
+			<li ><a href="" title="生活常识,教育讲座"><span  class="title1">生活常识,教育讲座</span><span class="time1">2015-12-04</span></a></li>
+			<li ><a href="" title="生活常识，知识讲座"><span  class="title1">生活常识，知识讲座</span><span class="time1">2015-12-04</span></a></li>
+			<li ><a href="" title="生活常识，健康教育"><span  class="title1">生活常识，健康教育</span><span class="time1">2015-12-04</span></a></li>
+			<li ><a href="" title="生活常识，生活常识影视"><span  class="title1">生活常识，生活常识影视</span><span class="time1">2015-12-04</span></a></li>
+			<li ><a href="" title="生活常识，娱乐爱好交流会"><span  class="title1">生活常识，娱乐爱好交流会</span><span class="time1">2015-12-04</span></a></li>
+			<li ><a href="" title="生活常识，运动会"><span  class="title1">生活常识，运动会</span><span class="time1">2015-12-04</span></a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="footer-top">

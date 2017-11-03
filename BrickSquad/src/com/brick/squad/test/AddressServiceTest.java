@@ -52,10 +52,28 @@ public class AddressServiceTest {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(7);
-		addressService.addressPagination(pagination);
+		System.out.println(addressService.addressPagination(pagination));
 	}
 	/*@Test
 	public void testfindAddressAllCount() throws Exception{
 		addressService.findAddressAllCount();
 	}*/
+	@Test
+	/**测试：查询省级区域*/
+	public void findRegionsByLevel(){
+		String data=addressService.findRegionsByLevel();
+		System.out.println(data);
+	}
+	@Test
+	/**测试：根据父id查询区域*/
+	public void findRegionsByParentId(){
+		String data=addressService.findRegionsByParentId("37");
+		System.out.println(data);
+	}
+	@Test
+	/**测试：根据地址信息查询相关区域*/
+	public void getAllRegion() throws Exception{
+		Address address= addressService.findAddressById("8e938ce0b7a211e78d4f5254002ec43c");
+		System.out.println(addressService.getAllRegion(address));
+	}
 }
