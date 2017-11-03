@@ -1323,10 +1323,12 @@ input.card_logo[type="text"] {
     padding: 3% 3%;
 }
 .btm-pos h3{
-	color:#fff;
-    font-size: 32px;
+	color:#B1C4BC;
+    font-size: 28px;
     font-family: 'Varela Round', sans-serif;
     text-align: center;	
+    margin-bottom:10px;
+    margin-top:-5px;
 }
 .btm-pos p {
     line-height: 2em;
@@ -1341,15 +1343,21 @@ input.card_logo[type="text"] {
 .content-left{
 margin-top:1%;
 background:#FCF7F;
-border:1px solid #FF710C;
+border-style:outset;
 border-right:none;
+border-left:none;
+border-top-color:#fae7c9;
+border-bottom:none;
 	
 }
 .content-right{
 margin-top:1%;
 background:#FCF7F;
-border:1px solid #FF710C;
+border-style:outset;
+border-top-color:#fae7c9;
 border-left:none;
+border-right:none;
+border-bottom:none;
 
 }
 .content-left img,.content-right img{
@@ -1910,15 +1918,16 @@ ul.dropdown-menu.drp-mnu span {
 	    padding: 4.5em 9.8em;
 	}
 	.coupons {
-			padding: 120px 0 90px 0;
+		padding: 120px 0 90px 0;
 		background:#FFF6C3;
 		margin-left:2.33%;
 		margin-right:2.33%;
-		border: 1px solid #FF710C;
+		border:none;
 		margin-top:10px;
 	}
 	.btm-pos {
 		padding: 2% 2%;
+		background:#FAF5C6;
 	}	
 }
 @media (max-width: 1280px){
