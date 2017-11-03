@@ -18,7 +18,7 @@
 	href="resource/plugins/layui/css/layui.css" media="all">
 <link href="resource/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" type="text/css" media="all" />
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="resource/plugins/grid_manager/GridManager.min.css">
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/fonts/font-awesome.min.css">
@@ -33,10 +33,7 @@
 <script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/grid_manager/GridManager.min.js"></script>
-	<script type="text/javascript"
-	src="resource/js/user_relatives_list.js"></script>
-	
-
+<script type="text/javascript" src="resource/js/user_relatives_list.js"></script>
 <script>
 	$(function() {
 		//头像图片信息
@@ -350,6 +347,8 @@
 						<label> * 亲属联系人：
 							<button type="button" class="layui-btn">添加亲属联系人</button>
 						</label> <label>亲爱的${user.username }，填写真实有效的亲属联系方式，联系不到你本人情况下可以更方便的找到您！</label>
+						<div class="cls"></div>
+	<table grid-manager="demo-ajaxPageCode"></table>
 					</div>
 
 					<!-- 健康管理 -->
@@ -916,8 +915,6 @@
 											});
 							$(function() {
 
-						
-
 								//没有身体状况数据提示
 								var healthRecords = '${personalInfofmationAndHealthRecordsExpand.healthRecords}';
 								if (healthRecords == "") {
@@ -983,15 +980,14 @@
 									var layer = layui.layer;
 									layer.closeAll();
 								});
-								
-								layui.use('element', function(){
-									  var element = layui.element();  
-									  //一些事件监听
-									  element.on('tab(demo)', function(data){
-										  init("");
-									    console.log(data);
-									  });
+
+								layui.use('element', function() {
+									var element = layui.element();
+									//一些事件监听
+									element.on('tab(demo)', function(data) {
+										 init(""); 
 									});
+								});
 
 							});
 						});
