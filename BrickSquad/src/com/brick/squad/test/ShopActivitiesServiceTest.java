@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.JunitClassRunner;
@@ -30,9 +31,7 @@ public class ShopActivitiesServiceTest {
 	 */
 	@Test
 	public void findShopActivitiesById() throws Exception{
-		
-		System.out.println(shopActivitiesService.findShopActivitiesById("2").getTypeId());
-
+		System.out.println(shopActivitiesService.findShopActivitiesById("22a7b356bf8d11e7aca65254002ec43c").getTypeId());
 	}
 	
 	/**
@@ -44,17 +43,14 @@ public class ShopActivitiesServiceTest {
 		/**
 		 * 如果要修改，先查询再修改。
 		 */
-		ShopActivities s = shopActivitiesService.findShopActivitiesById("8b1b72d6b70611e78d4f5254002ec43c");
+		ShopActivities s = shopActivitiesService.findShopActivitiesById("12");
 		s.setTypeId("舞狮");
 		shopActivitiesService.updateShopActivitiesById(s);
-		
 	}
 	@Test
 	public void DeleteShopActivitiesById() throws Exception{
-		 
-		shopActivitiesService.delectShopActivitiesById("1");
+		shopActivitiesService.delectShopActivitiesById("12");
 	}
-	
 	@Test
 	public void InsertShopActivitiesById() throws Exception{
 			ShopActivities s = new ShopActivities();
@@ -91,10 +87,27 @@ public class ShopActivitiesServiceTest {
 		System.out.println(shopActivitiesService.findShopActivitiesAllCount());
 	}
 	*/
-	
+	@Test
+	public void shopActivitiesPagination(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		String data=shopActivitiesService.shopActivitiesPagination(pagination);
+		System.out.println(data);
+	}
 	@Test
 	public void findAllShopActivities(){
 		
 		System.out.println("11111111111111111111111"+shopActivitiesService.findAllShopActivities());
+	}
+	@Test
+	public void findTypeAndArticle(){
+	String data=shopActivitiesService.findTypeAndArticle();
+	System.out.println(data);
+	}
+	@Test
+	public void findShopActivitiesAndTypeAndArticle(){
+		ShopActivitiesExpand shopActivitiesExpand=shopActivitiesService.findShopActivitiesAndTypeAndArticle("12");
+		System.out.println(shopActivitiesExpand.getAname());
 	}
 }
