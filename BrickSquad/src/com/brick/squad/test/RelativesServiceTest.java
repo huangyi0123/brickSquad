@@ -13,8 +13,9 @@ import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.RelativesService;
+import com.brick.squad.util.JunitClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class RelativesServiceTest {
 	@Autowired
@@ -62,6 +63,17 @@ public class RelativesServiceTest {
 	@Test
 	public void testDeleteRelativesById() {
 		relativesService.deleteRelativesById("690208c8b35411e78d4f5254002ec43c");
+	}
+	@Test
+	public void selectRelativesByPerId(){
+		Relatives relatives=relativesService.selectRelativesByPerId("1195777ebf8d11e7aca65254002ec43c");
+		System.out.println(relatives.getName());
+	}
+	@Test
+	public void updateRelativesByIdExend(){
+		RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand=
+				new RelativesAndAddressAndTypeAndPersonExpand();
+		relativesService.updateRelativesByIdExend(relativesAndAddressAndTypeAndPersonExpand);
 	}
 
 }

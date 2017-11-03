@@ -1,5 +1,7 @@
 package com.brick.squad.test;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -58,5 +61,12 @@ public class TypeServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
 		System.out.println(typeService.typePagination(pagination));
+	}
+	@Test
+	public void findType(){
+		List<Select> list=typeService.findType();
+		for(Select s:list){
+			System.out.println(s.getName());
+		}
 	}
 }

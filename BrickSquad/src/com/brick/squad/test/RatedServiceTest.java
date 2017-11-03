@@ -19,11 +19,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Rated;
 import com.brick.squad.service.RatedService;
+import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
 import com.brick.squad.util.Util;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class RatedServiceTest {
 	@Autowired
@@ -40,17 +41,16 @@ public class RatedServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		String listRateds =ratedService.ratedPagination(pagination);
+		System.out.println(listRateds);
 		
 	}
-	
-	
 	/**
 	 * 测试Rated的根据ID查询方法
 	 */
 	@Test
 	public void testfindRatedById() {
 		Rated rated = ratedService
-				.findRatedById("29dc1a73aff011e7ae5d8cdcd49043a9");
+				.findRatedById("fedac162b47311e78d4f5254002ec43c");
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
 				"yyyy-MM-dd hh:mm:ss:SSS");
 		System.out.println("**" + rated.getCentent()
@@ -72,7 +72,7 @@ public class RatedServiceTest {
 	 */
 	@Test
 	public void deleteRatedById() {
-		ratedService.deleteRatedById("11");
+		ratedService.deleteRatedById("0fb0387eb47811e78d4f5254002ec43c");
 	}
 	/**
 	 * 测试Rated的根据ID修改centent方法
@@ -81,7 +81,12 @@ public class RatedServiceTest {
 	public void updateRatedCententById(){
 		Rated rated = new Rated();
 		rated.setCentent("修改后的内容");
-		rated.setId("1154");
+		rated.setId("fedac162b47311e78d4f5254002ec43c");
 		ratedService.updateRatedCententById(rated);
+	}
+	@Test
+	public void findAllRated(){
+		String data=ratedService.findAllRated();
+		System.out.println(data);
 	}
 }

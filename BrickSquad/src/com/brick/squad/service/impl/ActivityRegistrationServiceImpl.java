@@ -52,4 +52,12 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
 		return data;
 	}
 
+	
+	@Override
+	public ActivityRegistrationExpand findActivityRegistrationAndPersonalInformationAndActivities(
+			String id) {
+		 ActivityRegistrationExpand activityRegistrationExpand = activityRegistrationMapper.findActivityRegistrationAndPersonalInformationAndActivities(id);
+		 return activityRegistrationExpand;
+	}
+
 }

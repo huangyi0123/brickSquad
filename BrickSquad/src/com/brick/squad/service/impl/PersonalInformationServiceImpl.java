@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.mapper.AddressMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.RegionMapper;
@@ -169,6 +170,15 @@ public class PersonalInformationServiceImpl implements
 
 	}
 
+	@Override
+	public PersonalInformation findThereAllById(String id) {
+		PersonalInformation PersonalInformation = personalInformationMapper.findThereAllById(id);
+		return PersonalInformation;
+	}
+
+	
+	//为老人个人详细信息一面做铺垫
+	
 
 
 }
