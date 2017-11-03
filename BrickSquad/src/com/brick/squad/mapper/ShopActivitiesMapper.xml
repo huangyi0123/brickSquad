@@ -73,7 +73,7 @@
 		select
 		count(*) from shop_activities
 		<if test="keyword!=''">
-			,article,business,type
+			article,business,type
 			WHERE article.aname REGEXP
 			#{keyword} or business.name REGEXP #{keyword}
 			or type.name REGEXP
@@ -91,15 +91,12 @@
 
 	<select id="findShopActivitiesAndTypeAndArticle" parameterType="java.lang.String"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
-		SELECT shop_activities.id,article.aname
-		aname,business.`name`
-		bname,type.`name` tname,
-		shop_activities.start_time startTime,shop_activities.end_time endTime
-
-		from shop_activities JOIN type ON shop_activities.type_id=type.id JOIN
-
-		business ON shop_activities.business_id = business.id JOIN article ON
-		shop_activities.type_id =article.id
+		SELECT  s.id,a.aname aname,
+		b.`name`bname,t.`name` tname,
+		s.start_time startTime,s.end_time endTime
+ 		FROM shop_activities s JOIN article a ON s.article_id=a.id JOIN type t ON s.type_id=t.id
+		JOIN business b ON s.business_id =b.id 
+		where s.id =#{id} 
 	</select>
 
 </mapper>
