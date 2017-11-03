@@ -5,9 +5,10 @@
 	<sql id="prop">
 		id,parent_id parentId,name
 	</sql>
-	<select id="findTypeByParentId" resultType="com.brick.squad.util.Select" parameterType="String">
+	<select id="findTypeByParentId" resultType="com.brick.squad.util.Select"
+		parameterType="String">
 		SELECT
-		id ,name 
+		id ,name
 		FROM type
 		WHERE
 		parent_id=#{parentId}
@@ -43,18 +44,21 @@
 
 	<select id="typePagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="Type">
-		SELECT
-		<include refid="prop" />
-		FROM type
+		SELECT c.id id,c.`name` name,p.`name` parentId FROM type c
+		LEFT JOIN type p on c.parent_id=p.id
 		<if test="keyword!=''">
-		where name REGEXP #{keyword}
+			where c.name REGEXP #{keyword} or p.name REGEXP #{keyword}
 		</if>
-		 LIMIT #{skipNum},#{takeNum}
+		LIMIT #{skipNum},#{takeNum}
 	</select>
-	
-	<select id="typeCount" resultType="int">
-		SELECT
-		COUNT(*) FROM type
+
+	<select id="typeCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT count(1) FROM type c
+		LEFT JOIN type p on c.parent_id=p.id
+		<if test="keyword!=''">
+			where c.name REGEXP #{keyword} or p.name REGEXP #{keyword}
+		</if>
 	</select>
 
 	<select id="findAllType" resultType="Type">

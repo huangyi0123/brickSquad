@@ -12,13 +12,15 @@ function init(keyword) {
 				supportAjaxPage : true,
 				supportCheckbox : false,
 				columnData : [
-						{
-							key : 'parentId',
-							text : '所属类别'
-						},
+
 						{
 							key : 'name',
 							text : '类别名称'
+						},
+
+						{
+							key : 'parentId',
+							text : '所属类别'
 						},
 						{
 							key : "operation",
