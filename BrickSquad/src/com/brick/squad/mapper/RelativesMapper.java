@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.util.Pagination;
 
@@ -45,7 +46,7 @@ public interface RelativesMapper {
 	 */
 	public void deleteRelativesById(String id);
 
-	public List<Relatives> relativesPagination(Pagination pagination);
+	public List<RelativesAndAddressAndTypeAndPersonExpand> relativesPagination(Pagination pagination);
 
 	public int findRelativesAllCount(Pagination pagination);
 }
