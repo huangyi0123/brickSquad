@@ -235,6 +235,17 @@ public class PersonalInformationController {
 		personalInformationService.deletePersonalInformationById(id);
 		return "success";
 	}
+	
+	/**
+	 * 级联查询获得数据后显示在老人个人信息详细列表页
+	 */
+	@RequestMapping("/findAllThereById")
+	public String findAllThereById(HttpServletRequest request,String id){
+		PersonalInformation personalInformation = personalInformationService.findThereAllById(id);
+		request.setAttribute("personalInformation", personalInformation);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+personalInformation);
+		return "backstage_managed/jsp/personal_Information/search_personal_Information";
+	}
 
 
 }

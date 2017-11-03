@@ -43,21 +43,13 @@
 		layui.use('form', function() {
 			var form = layui.form();
 		});
-		
-		
-			var url="${url}"
-		if(url=='addActivities'){}
-		else{
-		var da = $("#startTime").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#startTime").val(dat);
-		
-		var da = $("#endTime").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#endTime").val(dat);
-		}
+		var da = $("#startId").attr('val');
+		dat = Format(new Date(da), "yyyy-MM-dd HH:mm:ss");
+		$("#startId").val(dat);
+		var da = $("#endId").attr('val');
+		dat = Format(new Date(da), "yyyy-MM-dd HH:mm:ss");
+		$("#endId").val(dat);
 	});
-
 </script>
 </head>
 
@@ -68,11 +60,10 @@
 	<br>
 	
 
-
 		<div class="layui-form-item">   
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
-				<input type="text" name="id" required lay-verify="required"
+				<input type="text" name="id" id="articleId" required lay-verify="required"
 					placeholder="商品名称" autocomplete="off" class="layui-input"
 					value="${shopActivitiesExpand.aname}" readonly="readonly">
 			</div>
@@ -81,7 +72,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
-				<input type="text" name="id" required lay-verify="required"
+				<input type="text" name="id" id="businessId" required lay-verify="required"
 					placeholder="店铺名" autocomplete="off" class="layui-input"
 					value="${shopActivitiesExpand.bname}" readonly="readonly">
 			</div>
@@ -92,7 +83,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">活动类型</label>
 			<div class="layui-input-inline">
-				<input type="text" name="typeId" required lay-verify="required"
+				<input type="text" name="typeId" id="typeId" required lay-verify="required"
 					placeholder="活动类型" autocomplete="off" class="layui-input"
 					value="${shopActivitiesExpand.tname}"  readonly="readonly">
 			</div>
@@ -106,7 +97,8 @@
 			<label class="layui-form-label">开始时间：</label>
 			<div class="layui-input-inline logstart_time">
 				<input class="layui-input" val="${shopActivitiesExpand.startTime }"
-					id="startTime" name="startTime" placeholder="开始时间"
+					id="startId" name="startTime" 
+					placeholder="yyyy-MM-dd HH:mm:ss"
 					 readonly="readonly">
 			</div>
 		</div>
@@ -115,14 +107,15 @@
 			<label class="layui-form-label">结束时间：</label>
 			<div class="layui-input-inline logstart_time">
 				<input class="layui-input" name="endTime"
-					val="${shopActivitiesExpand.endTime }" id="endTime" placeholder="结束时间"
+					val="${shopActivitiesExpand.endTime }" id="endId" 
+					placeholder="yyyy-MM-dd HH:mm:ss"
 					 readonly="readonly">
 			</div>
 		</div>
 		
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit lay-filter="formDemo"
+				<button class="layui-btn" lay-submit lay-filter="form Demo"
 					onclick="javascript:history.back(-1);">返回</button>
 			</div>
 		</div>

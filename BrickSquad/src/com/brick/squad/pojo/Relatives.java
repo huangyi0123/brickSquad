@@ -1,4 +1,7 @@
 package com.brick.squad.pojo;
+
+import javax.validation.constraints.Pattern;
+
 /**
  * 老人亲属关系
  * @author 梁城月

@@ -37,15 +37,15 @@ public class GuidanceServiceTest {
 	}
 	@Test
 	public void testQueryGuidanceById() throws Exception{
-		System.out.println(guidanceService.queryGuidanceById("47343c9ab86b11e78d4f5254002ec43c"));
+		System.out.println(guidanceService.queryGuidanceById("ddbe2328b89411e78d4f5254002ec43c"));
 	}
 	@Test
 	public void testDeleteGuidanceById() throws Exception{
-		guidanceService.deleteGuidanceById("42b1c7fcb26511e78d4f5254002ec43c");
+		guidanceService.deleteGuidanceById("21");
 	}
 	@Test
 	public void testUpdateGuidanceById() throws Exception{
-		Guidance guidance = guidanceService.queryGuidanceById("5f82a01eb26911e78d4f5254002ec43c");
+		Guidance guidance = guidanceService.queryGuidanceById("30cdf642bd3111e7aca65254002ec43c");
 		guidance.setAssessment("wocao");
 		guidance.setDisease("520");
 		guidance.setPerId("562400");
@@ -59,7 +59,8 @@ public class GuidanceServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		/*lGuidances = guidanceService.guidancePagination(pagination);*/
-		guidanceService.guidancePagination(pagination);
+		String data=guidanceService.guidancePagination(pagination);
+		System.out.println(data);
 	}
 /*	@Test
 	public void testFindGuidanceAllCount() throws Exception{
@@ -68,5 +69,10 @@ public class GuidanceServiceTest {
 	@Test 
 	public void test(){
 		guidanceService.findPerIdAndIdCard();
+	}
+	@Test
+	public void findPerIdAndIdCard(){
+		String data=guidanceService.findPerIdAndIdCard();
+		System.out.println(data);
 	}
 }

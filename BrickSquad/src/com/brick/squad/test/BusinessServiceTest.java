@@ -1,13 +1,11 @@
 package com.brick.squad.test;
 
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Business;
 import com.brick.squad.service.BusinessService;
@@ -24,7 +22,8 @@ public class BusinessServiceTest {
 
 	@Test
 	public void testFindBusinessById() {
-		businessService.findBusinessById("1");
+		Business business= businessService.findBusinessById("1");
+		System.out.println(business.getName());
 	}
 
 	@Test
@@ -39,14 +38,14 @@ public class BusinessServiceTest {
 
 	@Test
 	public void testUpdateBusinessById() {
-		Business business=businessService.findBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
+		Business business=businessService.findBusinessById("2");
 		business.setName("夏目");
 		businessService.updateBusinessById(business);
 	}
 
 	@Test
 	public void testDeleteBusinessById() {
-		businessService.deleteBusinessById("48b2a4d4b0a611e78d4f5254002ec43c");
+		businessService.deleteBusinessById("121");
 	}
 	
 	@Test
@@ -60,5 +59,10 @@ public class BusinessServiceTest {
 	@Test
 	public void findAllBusiness(){
 		System.out.println(businessService.findAllBusiness());
+	}
+	@Test
+	public void findBusiness(){
+		String data=businessService.findAllBusiness();
+		System.out.println(data);
 	}
 }

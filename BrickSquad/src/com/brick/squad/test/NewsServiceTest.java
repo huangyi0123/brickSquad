@@ -9,10 +9,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.pojo.News;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
 
@@ -22,7 +23,7 @@ import com.brick.squad.util.Pagination;
  * @author Luyujing
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations={"classpath:com/brick/squad/config/applicationContext.xml"})
 public class NewsServiceTest {
 	
@@ -30,18 +31,19 @@ public class NewsServiceTest {
 	@Qualifier("newsService")
 	private NewsService newsService;
 	//添加新闻
+	
 	@Test
 	public void addNews(){
 		newsService.addNews("4","4","Nike","/image/4.png",Calendar.getInstance().getTime());
 	}
 	//删除新闻
-	//@Test
+	@Test
 	public void deleteNews(){
-		newsService.deleteNews("1");
+		newsService.deleteNews("5ad8f86abdfe11e7aca65254002ec43c");
 	}
-	//@Test
+	@Test
 	public void updateNews(){
-		newsService.updateNews("2","白天头条");
+		newsService.updateNews("4","白天头条");
 	}
 	//查询新闻
 	//@Test
@@ -69,7 +71,6 @@ public class NewsServiceTest {
 	@Test
 	public void insertNews() throws Exception{
 		News news=new News();
-		news.setId("5");
 		news.setContent("阿里云信息发布中心");
 		news.setImagePath("img/map4.jpg");
 		news.setPostTime(new Date());
@@ -83,21 +84,30 @@ public class NewsServiceTest {
 	@Test
 	public void updateNewsById() throws Exception{
 		News news=new News();
-		news.setId("5");
+		news.setId("2b8d972abbb311e78d4f5254002ec43c");
 		news.setContent("阿里云信息发布中心");
 		news.setImagePath("xuebiao.jpg");
 		news.setPostTime(new Date());
 		news.setUserId("555");
 		newsService.updateNewsById(news);
 	}
+	@Test
+	public void findNewsExpandById(){
+		NewsExpand newsExpand=newsService.findNewsExpandById("12e109b4bbb311e78d4f5254002ec43c");
+		System.out.println(newsExpand);
+	}
 	/**
 	 * 根据新闻的ID查询新闻信息测试
 	 * @throws Exception 
 	 * */
-	
+	@Test
+	public void findNewsList(){
+		String data=newsService.findNewsList();
+		System.out.println(data);
+	}
 	@Test
 	public void findNewsById() throws Exception{
-		System.out.println(newsService.findNewsById("5"));
+		System.out.println(newsService.findNewsById("12e109b4bbb311e78d4f5254002ec43c"));
 	}
 	
 }

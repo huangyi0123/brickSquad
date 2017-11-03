@@ -81,6 +81,18 @@ public class RelativesServiceImpl implements RelativesService {
 		relativesMapper.deleteRelativesById(id);
 
 	}
+	/**
+	 * 分页查询
+	 */
+	@Override
+	public String relativesPagination(Pagination pagination) {
+		List<Relatives> relatives = relativesMapper .relativesPagination(pagination);
+		int row = relativesMapper.findRelativesAllCount(pagination);
+		Util<Relatives> util = new Util<Relatives>();
+		
+		String data = util.SplitPage(relatives, row);
+		return data;
+	}
 
 
 
@@ -158,18 +170,6 @@ public class RelativesServiceImpl implements RelativesService {
 			
 		}
 		
-	}
-	/**
-	 * 分页查询
-	 */
-	@Override
-	public String relativesPagination(Pagination pagination) {
-		List<RelativesAndAddressAndTypeAndPersonExpand> relatives = relativesMapper
-				.relativesPagination(pagination);
-		int row = relativesMapper.findRelativesAllCount(pagination);
-		Util<RelativesAndAddressAndTypeAndPersonExpand> util = new Util<>();
-		String data = util.SplitPage(relatives, row);
-		return data;
 	}
 	@Override
 	public String usergetrelativesPagination(String id) throws Exception {

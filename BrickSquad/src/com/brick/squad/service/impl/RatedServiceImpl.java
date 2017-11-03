@@ -77,7 +77,6 @@ public class RatedServiceImpl implements RatedService {
 		List<Rated> rateds = ratedMapper.findAllRated();
 		JSONArray jsonArray = new JSONArray();
 		String datarated = jsonArray.fromObject(rateds).toString();
-
 		return datarated;
 	}
 

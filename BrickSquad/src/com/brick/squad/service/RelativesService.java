@@ -3,7 +3,6 @@ package com.brick.squad.service;
 import java.util.List;
 
 import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
-import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.util.Pagination;
 

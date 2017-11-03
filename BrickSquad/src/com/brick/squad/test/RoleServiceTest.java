@@ -82,6 +82,11 @@ public class RoleServiceTest {
 		roleService.insertRole(role);
 	}
 	@Test
+	public void findRoleAll(){
+		Role role=roleService.findRole("2");
+		System.out.println(role);
+	}
+	@Test
 	public void findAllRole() throws Exception{
 		System.out.println(roleService.findRoleAll());
 	}
@@ -92,4 +97,5 @@ public class RoleServiceTest {
 		role.setName("超级CEO");
 		roleService.updateRoleById(role);
 	}
+	
 }

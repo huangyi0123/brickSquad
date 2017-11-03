@@ -101,7 +101,6 @@ public class MedicalServiceImpl implements MedicalService {
 
 	@Override
 	public MedicalExpand findPersonalInformationAndType(String id) {
-
 		MedicalExpand medicalExpand = medicalMapper.findPersonalInformationAndType(id);
 		return medicalExpand;
 	}

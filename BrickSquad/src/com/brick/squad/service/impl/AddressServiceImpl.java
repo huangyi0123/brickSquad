@@ -134,6 +134,7 @@ public class AddressServiceImpl implements AddressService {
 				detailed = address.getDetailed();
 			}
 
+
 			if (address.getProvinceId() != null) {
 				// 如果传过来的地址省份ID不为空，根据省份id查询region相应的地区
 				Region region = regionMapper.findRegionById(address
@@ -172,5 +173,9 @@ public class AddressServiceImpl implements AddressService {
 				+ countryName + detailed;
 		return addressString;
 	}
-
+	@Override
+	public String findByIdAllAddress(String id) {
+		// TODO Auto-generated method stub
+		return addressMapper.findByIdAllAddress(id);
+	}
 }

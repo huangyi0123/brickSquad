@@ -50,5 +50,9 @@ public interface ActivityRegistrationMapper {
 	 */
 	public int activityRegistrationCount();
 	
+	
+	
+	public ActivityRegistrationExpand findActivityRegistrationAndPersonalInformationAndActivities(String id);
+	
 
 }
