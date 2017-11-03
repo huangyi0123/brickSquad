@@ -49,4 +49,8 @@
 		resultType="com.brick.squad.util.Select">
 		SELECT id,name FROM region WHERE parent_id=#{parentId}
 	</select>
+	<select id="findRegionByParentId" parameterType="String"
+		resultType="com.brick.squad.util.Select">
+		SELECT id,name FROM region WHERE parent_id=#{parentId}
+	</select>
 </mapper>
