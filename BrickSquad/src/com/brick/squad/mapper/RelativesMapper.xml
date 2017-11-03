@@ -38,25 +38,36 @@
 		relatives WHERE id=#{id}
 	</delete>
 	<select id="relativesPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand">
-			SELECT relatives.name relName,personal_information.name perName,type.`name`
-			tyName,
-			relatives.telephone relPhone,relatives.id,
-			relatives.address_id,relatives.per_id,relatives.relationship_id
-			FROM relatives
-			JOIN personal_information ON relatives.per_id=personal_information.id
-			JOIN type ON relatives.relationship_id = type.id
-			<if test="keyword!=''">
-			WHERE relatives.name REGEXP#{keyword} or 
-			personal_information.name  REGEXP #{keyword} or
-			type.`name`  REGEXP #{keyword} or
-			relatives.telephone  REGEXP #{keyword} 
-			</if>
-			limit #{skipNum},#{takeNum}
+		resultType="Relatives">
+		SELECT r.id id,p.`name` perId,r.`name` name,r.telephone
+		telephone,t.`name` relationshipId FROM relatives r
+		JOIN personal_information p on r.per_id=p.id
+		JOIN type t on r.relationship_id=t.id
+		<if test="keyword!=''">
+			WHERE r.name REGEXP#{keyword} or
+			p.name REGEXP #{keyword}
+			or
+			t.`name` REGEXP
+			#{keyword} or
+			relatives.telephone REGEXP #{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
 	</select>
 	<select id="findRelativesAllCount" resultType="int"
 		parameterType="com.brick.squad.util.Pagination">
-		select count(*)
-		from relatives
+		SELECT count(*)
+		FROM relatives r
+		JOIN personal_information p on
+		r.per_id=p.id
+		JOIN type t on r.relationship_id=t.id
+		<if test="keyword!=''">
+			WHERE r.name REGEXP#{keyword} or
+			p.name REGEXP #{keyword}
+			or
+			t.`name` REGEXP
+			#{keyword} or
+			relatives.telephone REGEXP #{keyword}
+		</if>
+
 	</select>
 </mapper>

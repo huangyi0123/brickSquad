@@ -44,8 +44,6 @@
 					$("#countryId").append('<option value="">选择乡镇</option>');
 					$("select").hide();
 					findAll(result, "#countyId");
-
-					console.log(result);
 					form.render('select', 'countyIdSelect');
 				}
 			});
@@ -89,9 +87,6 @@
 	<div style="padding-left: 150px;font-size:16;"></div>
 	<br>
 	<form action="buyers/findBuyersByIdString" class="layui-form" method="post">
-		<input type="hidden" name="buyers.id" value="${addressAndBuyersExpand.buyers.id}" >
-		<input type="hidden" name="address.id" value="${addressAndBuyersExpand.address.id }">
-		
 		<div class="layui-form-item">
 			<label class="layui-form-label">积分：</label>
 			<div class="layui-input-inline">
@@ -124,9 +119,9 @@
 	
 		<!-- 显示地址表信息 -->
 		<div class="layui-form-item">
-			<label class="layui-form-label">地址</label>
+			<label class="layui-form-label">地址：</label>
 			<div class="layui-input-inline">
-				<select  val="${addressAndBuyersExpand.address.provinceId}"
+				<select  disabled="disabled" val="${addressAndBuyersExpand.address.provinceId}"
 					name="address.provinceId" id="prId" lay-filter="prIds"
 					lay-verify="required"
 					autocomplete="off" class="layui-input"
@@ -136,21 +131,21 @@
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.cityId}"
+				<select disabled="disabled" required lay-verify="required" val="${addressAndBuyersExpand.address.cityId}"
 					name="address.cityId" id="cityId" lay-filter="cityIdSelect"
 					lay-search="">
 					<option value="">选择城市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.countyId}"
+				<select disabled="disabled" required lay-verify="required" val="${addressAndBuyersExpand.address.countyId}"
 					name="address.countyId" id="countyId" lay-filter="countyIdSelect"
 					lay-search="">
 					<option value="">选择县市</option>
 				</select>
 			</div>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndBuyersExpand.address.countryId}"
+				<select disabled="disabled" required lay-verify="required" val="${addressAndBuyersExpand.address.countryId}"
 					name="address.countryId" id="countryId"
 					lay-filter="countryIdSelect" lay-search="">
 					<option value="">选择乡镇</option>
