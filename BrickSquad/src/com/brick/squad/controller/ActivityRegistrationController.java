@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ActivityRegistrationExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Business;
@@ -98,4 +99,11 @@ public class ActivityRegistrationController {
 		return "success";
 				
 	}
+    
+    @RequestMapping("/findActivityRegistrationById")
+    public String findActivityRegistrationById(HttpServletRequest request,String id){
+    	ActivityRegistrationExpand activityRegistrationExpand =activityRegistrationService.findActivityRegistrationAndPersonalInformationAndActivities(id);
+		request.setAttribute("activityRegistrationExpand", activityRegistrationExpand);
+		  return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
+    }
 }

@@ -117,4 +117,22 @@
 	</select>
 
 
+
+	<select id="findThereAllById" parameterType="String" resultType="PersonalInformation">
+	SELECT p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
+		addressId,p.retirement_unit retirementUnit,
+		p.retirement_date
+		retirementDate, p.engaged_industry engagedIndustry,
+		p.weight,p.height,p.income,p.family_history
+		familyHistory,p.is_purchasing
+		isPurchasing,p.is_supremacy
+		isSupremacy,p.is_pureq isPureq,p.pureq_type_id
+		pureqTypeId,p.culture_id cultureId,p.marriage_id
+		marriageId,p.zip,t.name nationId
+		FROM personal_information p LEFT JOIN
+		type t ON p.nation_id=t.id
+		where p.id=#{id}
+	</select>
+
+
 </mapper>
