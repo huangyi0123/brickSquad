@@ -72,11 +72,9 @@ public class UserServiceImpl implements UserService {
 		
 		return userMapper.findUsername(username);
 	}
-	
 	public User findUserById(String id){
 		return userMapper.findUserById(id);
 	}
-	
 	public void updateUserById(String username, String telephone,String id){
 		userMapper.updateUserById(username,telephone,id);
 	}
@@ -124,7 +122,7 @@ public class UserServiceImpl implements UserService {
 			newUser.setUserPicPath(user.getUserPicPath());
 			userMapper.updateUserByIdByWWX(newUser);
 		}
-		
+	
 		
 	}
 
