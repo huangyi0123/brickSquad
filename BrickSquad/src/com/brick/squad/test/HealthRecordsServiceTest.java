@@ -32,40 +32,30 @@ public class HealthRecordsServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		String healthRecordslist =healthRecordsService.healthRecordsPagination(pagination); 
-		
-		
 	}
-	
-	
 	@Test
 	public void findHealthRecordsByIdTest() {
 		HealthRecords healthRecords = healthRecordsService
-				.findHealthRecordsById("478f8fd4b26f11e78d4f5254002ec43c");
+				.findHealthRecordsById("21");
 		System.out.println(healthRecords+"****");
 	}
 
 	@Test
 	public void updateHealthRecordsByIdTest() {
-		
 		HealthRecords healthRecords = new HealthRecords();
-		healthRecords.setId("46fa08a6b26f11e78d4f5254002ec43c");
+		healthRecords.setId("21");
 		healthRecords.setBloodPressure("修改后的BloodPressure");
-		
 		healthRecordsService.updateHealthRecordsById(healthRecords);
-
-		
 	}
-	
 	@Test
 	public void deleteHealthRecordsByIdTest() {
-
 		healthRecordsService
-				.deleteHealthRecordsById("48b79320b26f11e78d4f5254002ec43c");
+				.deleteHealthRecordsById("21");
 	}
 
 	@Test
 	public void insertHealthRecords() {
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 2; i++) {
 			HealthRecords healthRecords = new HealthRecords();
 			healthRecords.setPerId("perId" + i);
 			healthRecords.setUserId("setUserId" + i);
@@ -85,5 +75,23 @@ public class HealthRecordsServiceTest {
 
 			healthRecordsService.insertHealthRecords(healthRecords);
 		}
+	}
+	@Test
+	public void healthRecordsPagination(){
+		Pagination pagination=new Pagination();
+		pagination.setCurentPage(1);
+		pagination.setPageSize(4);
+		String data=healthRecordsService.healthRecordsPagination(pagination);
+		System.out.println(data);
+	}
+	@Test
+	public void findAllPersonalInformationGetIdAndIdCardAndName(){
+		String data=healthRecordsService.findAllPersonalInformationGetIdAndIdCardAndName();
+		System.out.println(data);
+	}
+	@Test
+	public void findHealthRecordsByPerId(){
+		HealthRecords healthRecords=healthRecordsService.findHealthRecordsByPerId("1ede1858bddc11e7aca65254002ec43c");
+		System.out.println(healthRecords.toString());
 	}
 }
