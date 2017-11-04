@@ -48,7 +48,7 @@ public interface ActivityRegistrationMapper {
 	 * 查询记录数
 	 * @return 记录数
 	 */
-	public int activityRegistrationCount();
+	public int activityRegistrationCount(Pagination pagination);
 	
 	
 	
