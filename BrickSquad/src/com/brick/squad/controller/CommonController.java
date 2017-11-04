@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
-import com.brick.squad.expand.RelativesAndAddressExpand;
+import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
@@ -151,25 +151,11 @@ public class CommonController {
 					addressAndPersonaInformationExpand);
 			
 			//start 查询亲属信息放在request，回填用
-			RelativesAndAddressExpand relativesAndAddressExpand =new RelativesAndAddressExpand();
-			//查询用户是否已经填写了亲属
-			Relatives relatives =relativesService.selectRelativesByPerId(id);
-			if (relatives!=null) {
-				relativesAndAddressExpand.setRelatives(relatives);
-				if (relatives.getAddressId()!=null&&relatives.getAddressId().length()>0) {
-					Address address = addressService.findAddressById(relatives.getAddressId());
-					if (address!=null) {
-						relativesAndAddressExpand.setAddress(address);
-						String relativesallRegionResultById = addressService
-								.getAllRegion(address);
-						request.setAttribute("relativesallRegionResultById", relativesallRegionResultById);
-					}
-				
-					
-				}
-			}
-			request.setAttribute("relativesAndAddressExpand", relativesAndAddressExpand);
+/*			List<RelativesAndAddressAndTypeExpand> relativesAndAddressAndTypeExpandList =relativesService.getRelativesAndAddressAndTypeExpandMessage(id);
+			request.setAttribute("relativesAndAddressAndTypeExpandList", relativesAndAddressAndTypeExpandList);*/
 			//end
+			
+			
 			//start 查询personalinformation和healthrecords 个人身体数据显示用
 			PersonalInfofmationAndHealthRecordsExpand personalInfofmationAndHealthRecordsExpand = new PersonalInfofmationAndHealthRecordsExpand();
 			if (personalInformation!=null) {

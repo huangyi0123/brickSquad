@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.json.JsonObject;
 import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONObject;
@@ -23,10 +24,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.Address;
-import com.brick.squad.pojo.Medical;
+import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
+import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.PersonalInformationService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
 
 /**
@@ -38,6 +43,12 @@ import com.brick.squad.util.Pagination;
 @Controller
 @RequestMapping("/personalInformation")
 public class PersonalInformationController {
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
+	@Autowired
+	@Qualifier("healthRecordsService")
+	private HealthRecordsService healthRecordsService;
 	@Autowired
 	@Qualifier("personalInformationService")
 	private PersonalInformationService personalInformationService;
@@ -157,14 +168,15 @@ public class PersonalInformationController {
 	 */
 	@RequestMapping("/addPersonalInformation")
 	public String addPersonalInformation(
-			@Validated AddressAndPersonaInformationExpand addressAndPersonaInformationExpand,BindingResult result,HttpServletRequest request) {
+			@Validated AddressAndPersonaInformationExpand addressAndPersonaInformationExpand,
+			BindingResult result, HttpServletRequest request) {
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
 			request.setAttribute("url", "addPersonalInformation");
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/personal_Information/add_personal_Information";
-		 
+
 		}
 		personalInformationService
 				.insertPersonalInformation(addressAndPersonaInformationExpand);
@@ -176,12 +188,15 @@ public class PersonalInformationController {
 	 * 
 	 * @param userUpdatePersonalInformation
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@RequestMapping("/userUpdatePersonalInformation")
-	public String userUpdatePersonalInformation(HttpServletRequest request,
-			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) throws Exception {
-		personalInformationService.updatePersonalInformationById(addressAndPersonaInformationExpand);
+	public String userUpdatePersonalInformation(
+			HttpServletRequest request,
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand)
+			throws Exception {
+		personalInformationService
+				.updatePersonalInformationById(addressAndPersonaInformationExpand);
 		return "redirect:/common/toPersonal";
 	}
 
@@ -231,5 +246,6 @@ public class PersonalInformationController {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+personalInformation);
 		return "backstage_managed/jsp/personal_Information/search_personal_Information";
 	}
+
 
 }
