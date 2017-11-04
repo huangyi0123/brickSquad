@@ -39,7 +39,7 @@
 	<!-- 分页查询 -->
 	<select id="businessPagination" parameterType="com.brick.squad.util.Pagination" resultType="Business">
 	
-		select id,name,idcard,shopname,shop_material_path
+		select id,name,idcard,shopname,shop_material_path shopMaterialPath
 		from business
 	   
 		<if test="keyword!=''">
