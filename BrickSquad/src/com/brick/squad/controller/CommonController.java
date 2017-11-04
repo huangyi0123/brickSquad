@@ -57,7 +57,8 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal() {
+	public String toIndexModal(HttpServletRequest request) {
+		request.setAttribute("indexFlag", "userLogin");
 		return "frontEnd_manage/util/turn";
 	}
 

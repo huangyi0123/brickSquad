@@ -226,17 +226,8 @@
 		</div>
 	</form>
 	<c:forEach items="${errors }" var="error">
-		<input class="error" value="${error.defaultMessage }" id="reeorId" type="hidden">
+		<input class="error" value="${error.defaultMessage }" type="hidden">
 	</c:forEach>
-	<input type="hidden" value="${flag }" id="flag">
-	<script type="text/javascript">
-	var flag=$("#flag").val();
-	if (flag=="suc") {
-		RefreshGridManagerList("");
-	}else if (flag=="fail") {
-	}else {
-		
-	}
-	</script>
+
 </body>
 </html>

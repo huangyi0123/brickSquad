@@ -31,6 +31,15 @@
 </head>
  <%  
         //转向语句  
-        response.setHeader("Refresh", "0;URL=/BrickSquad/common/toIndex");  
+       /*  response.setHeader("Refresh", "0;URL=/BrickSquad/common/toIndex");  */
+      int tabflag = request.getAttribute("tabflag");
+       if(tabflag==2){
+    	   String url=request.getAttribute("url");
+    	   response.setHeader("Refresh", "0;URL=/BrickSquad/"+url);
+       }
+       String indexFlag=request.getAttribute("indexFlag");
+       if(indexFlag.equals("userLogin")){
+    	   response.setHeader("Refresh", "0;URL=/BrickSquad/common/toIndex");
+       }
     %> 
 </html>

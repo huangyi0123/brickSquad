@@ -46,7 +46,6 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function deleteById(id) {
-	alert(id);
 	layui.use('layer', function() {
 		var layer = layui.layer;
 		layer.open({
