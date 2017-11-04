@@ -193,6 +193,23 @@
 
 	});
 </script>
+<script type="text/javascript">
+	function toAddRelatveOnclick() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer = layer.open({
+				type : 2,
+				content : "relatives/userToAddRelatives",
+				offset : '100px',
+				area : [ '1000px', '600px' ],
+				end : function() {
+					init("");
+				}
+					 
+			});
+		});
+	}
+</script>
 </head>
 
 <body>
@@ -345,10 +362,13 @@
 					</div>
 					<div class="layui-tab-item layui-tab-item2">
 						<label> * 亲属联系人：
-							<button type="button" class="layui-btn">添加亲属联系人</button>
+							<button type="button" class="layui-btn"
+								onclick="toAddRelatveOnclick()">添加亲属联系人</button>
 						</label> <label>亲爱的${user.username }，填写真实有效的亲属联系方式，联系不到你本人情况下可以更方便的找到您！</label>
+						<!--  引用分页框架开始-->
 						<div class="cls"></div>
-	<table grid-manager="demo-ajaxPageCode"></table>
+						<table grid-manager="demo-ajaxPageCode"></table>
+						<!-- 引用分页框架结束 -->
 					</div>
 
 					<!-- 健康管理 -->
@@ -985,7 +1005,7 @@
 									var element = layui.element();
 									//一些事件监听
 									element.on('tab(demo)', function(data) {
-										 init(""); 
+										init("");
 									});
 								});
 

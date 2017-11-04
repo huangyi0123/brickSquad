@@ -1,6 +1,5 @@
 package com.brick.squad.expand;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.brick.squad.pojo.Address;

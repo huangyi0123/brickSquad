@@ -28,12 +28,12 @@ function init(keyword) {
 			key : "operation",
 			text : "操作",
 			template : function(noteData, rowData)   {
-				return '<a href="relatives/toAddRelatives?id='
-				+ rowData.id
+				return '<a href="relatives/userToAddRelatives?id='
+				+ rowData.relativesId
 
 				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
 
-				+ rowData.id
+				+ rowData.relativesId
 				+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 	}
 		} ]
@@ -46,6 +46,7 @@ function RefreshGridManagerList(keyword) {
 	init(keyword);
 }
 function deleteById(id) {
+	alert(id);
 	layui.use('layer', function() {
 		var layer = layui.layer;
 		layer.open({
@@ -54,7 +55,7 @@ function deleteById(id) {
 			btn:["确认","取消"],
 			yes:function(index){
 				$.ajax({
-					url:'relatives/deleteRelativesById?id='+id,
+					url:'relatives/userDeleteRelativesById?id='+id,
 					success:function(data){
 						RefreshGridManagerList("");
 						layer.close(index);
