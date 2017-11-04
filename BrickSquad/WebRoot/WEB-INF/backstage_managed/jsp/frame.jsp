@@ -45,7 +45,6 @@
 		</div>
 
 		<div class="sidebar-collapse">
-		<input type="text" value="${limiterole.type.ad }">
 			<ul style="margin-top: 10px;" class="nav" id="side-menu">
 				<span>
 					<img style="margin-bottom: 10px;" alt="image" class="img-circle" src="resource/image/logo.png" />
