@@ -69,13 +69,13 @@ a:HOVER {
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li>
+				<!-- <li>
 					<i class="fa fa-plus"></i><font
-						style="margin-left: 10px;">添加（已隐藏）</font></li>
-				<li><a href="#">导出</a></li>
+						style="margin-left: 10px;">添加（已隐藏）</font></li> -->
+				<!-- <li><a href="#">导出</a></li>
 				<li><a href="#">Something else here</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
+				<li><a href="#">Separated link</a></li> -->
 			</ul>
 		</div>
 	</div>

@@ -70,27 +70,25 @@
 					</li>
 				</c:if>
 				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c'}">
-				<li>
-					<a class="J_menuItem">
-						<i class="fa fa-table"></i>
-						老人信息管理
-						<span class="fa arrow"></span>
-					</a>
-					<ul class="nav nav-second-level">
-						<li>
-							<a class="J_menuItem" href="relatives/toRelativesList">老人亲属关系列表</a>
-						</li>
+					<li>
+						<a class="J_menuItem">
+							<i class="fa fa-table"></i>
+							老人信息管理
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li>
+								<a class="J_menuItem" href="relatives/toRelativesList">老人亲属关系列表</a>
+							</li>
 
 
-						<li>
-							<a class="J_menuItem" href="user/toUserList">用户信息列表</a>
-						</li>
-						<li>
-							<a class="J_menuItem" href="personalInformation/toPersonalInformation">老人信息列表</a>
-						</li>
 
-					</ul>
-				</li>
+							<li>
+								<a class="J_menuItem" href="personalInformation/toPersonalInformation">老人信息列表</a>
+							</li>
+
+						</ul>
+					</li>
 				</c:if>
 				<li>
 					<a class="J_menuItem">
@@ -103,7 +101,6 @@
 							<a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a>
 					</ul>
 				</li>
-
 				<li>
 					<a class="J_menuItem">
 						<i class="fa fa-table"></i>
@@ -194,31 +191,41 @@
 					</a>
 					<ul class="nav nav-second-level"></ul>
 				</li>
-				<li>
-					<a class="J_menuItem">
-						<i class="fa fa-table"></i>
-						分店管理
-						<span class="fa arrow"></span>
-					</a>
-					<ul class="nav nav-second-level">
-						<li>
-							<a class="J_menuItem" href="memberShipApplication/toMemberShipApplicationList">会员申请列表</a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a class="J_menuItem">
-						<i class="fa fa-table"></i>
-						权限管理
-						<span class="fa arrow"></span>
-					</a>
-					<ul class="nav nav-second-level">
-						<li>
-							<a class="J_menuItem" href="limits/toLimitsList">权限</a>
-							<a class="J_menuItem" href="role/toRoleList">角色列表</a>
-						</li>
-					</ul>
-				</li>
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' }">
+					<li>
+						<a class="J_menuItem">
+							<i class="fa fa-table"></i>
+							分店管理
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li>
+								<a class="J_menuItem" href="memberShipApplication/toMemberShipApplicationList">会员申请列表</a>
+							</li>
+						</ul>
+					</li>
+				</c:if>
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' }">
+
+					<li>
+						<a class="J_menuItem">
+							<i class="fa fa-table"></i>
+							权限管理
+							<span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li>
+								<a class="J_menuItem" href="user/toUserList">用户信息列表</a>
+							</li>
+							<li>
+								<a class="J_menuItem" href="limits/toLimitsList">权限</a>
+							</li>
+							<li>
+								<a class="J_menuItem" href="role/toRoleList">角色列表</a>
+							</li>
+						</ul>
+					</li>
+				</c:if>
 			</ul>
 		</div>
 		</nav>

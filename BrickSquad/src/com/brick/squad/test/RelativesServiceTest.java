@@ -64,11 +64,11 @@ public class RelativesServiceTest {
 	public void testDeleteRelativesById() {
 		relativesService.deleteRelativesById("690208c8b35411e78d4f5254002ec43c");
 	}
-	@Test
+/*	@Test
 	public void selectRelativesByPerId(){
 		Relatives relatives=relativesService.selectRelativesByPerId("1195777ebf8d11e7aca65254002ec43c");
 		System.out.println(relatives.getName());
-	}
+	}*/
 	@Test
 	public void updateRelativesByIdExend(){
 		RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand=
