@@ -41,13 +41,16 @@ public class CommonController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
-		//begin 通过权限id查询权限
-		String roleId=((User)(request.getSession().getAttribute("user"))).getRoleId();
-		Map<String, Limits> limits=limitsService.findAllLimitsByRoleId(roleId);
+		// begin 通过权限id查询权限
+		String roleId = ((User) (request.getSession().getAttribute("user")))
+				.getRoleId();
+		Map<String, Limits> limits = limitsService
+				.findAllLimitsByRoleId(roleId);
 		request.getSession().setAttribute("limiterole", limits);
-		//end
+		// end
 		return "backstage_managed/jsp/frame";
 	}
 
@@ -117,7 +120,6 @@ public class CommonController {
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
 
-
 	@RequestMapping("/toPersonal")
 	public String toPersonal(HttpServletRequest request) throws Exception {
 		User user = (User) request.getSession().getAttribute("user");
@@ -136,7 +138,8 @@ public class CommonController {
 					.findPersonalInformationById(id);
 			addressAndPersonaInformationExpand
 					.setPersonalInformation(personalInformation);
-			if (personalInformation.getAddressId() != null&&personalInformation.getAddressId().length()>0) {
+			if (personalInformation.getAddressId() != null
+					&& personalInformation.getAddressId().length() > 0) {
 				// start
 				// 根据ID查询信息，得到信息中的地址ID，再根据ID查询address，分别用address中存的ID去region中查询相对应的地区，封装成json字符串，用页面地址回填
 				Address address = personalInformationService
@@ -146,44 +149,51 @@ public class CommonController {
 						.getAllRegion(address);
 				request.setAttribute("allRegionResultById", allRegionResultById);
 				// end
-				
+
 			}
 
 			request.setAttribute("addressAndPersonaInformationExpand",
 					addressAndPersonaInformationExpand);
-			
-			//start 查询personalinformation和healthrecords 个人身体数据显示用
+
+			// start 查询personalinformation和healthrecords 个人身体数据显示用
 			PersonalInfofmationAndHealthRecordsExpand personalInfofmationAndHealthRecordsExpand = new PersonalInfofmationAndHealthRecordsExpand();
-			if (personalInformation!=null) {
-				personalInfofmationAndHealthRecordsExpand.setPersonalInformation(personalInformation);
-				//根据personalInformation的NationId查询type表的记录，获取民族名
-				Type type =typeService.findTypeById(personalInformation.getNationId());
-				if (type!=null) {
-					//获取民族名 存在personalInfofmationAndHealthRecordsExpand扩展类 中 
-					personalInfofmationAndHealthRecordsExpand.setNationName(type.getName());
+			if (personalInformation != null) {
+				personalInfofmationAndHealthRecordsExpand
+						.setPersonalInformation(personalInformation);
+				// 根据personalInformation的NationId查询type表的记录，获取民族名
+				Type type = typeService.findTypeById(personalInformation
+						.getNationId());
+				if (type != null) {
+					// 获取民族名 存在personalInfofmationAndHealthRecordsExpand扩展类 中
+					personalInfofmationAndHealthRecordsExpand
+							.setNationName(type.getName());
 				}
-				
-				//根据personalInfofmation的ID查询healthRecords的数据 
-			HealthRecords healthRecords =healthRecordsService.findHealthRecordsByPerId(personalInformation.getId());
-			if (healthRecords!=null) {
-				personalInfofmationAndHealthRecordsExpand.setHealthRecords(healthRecords);
-				//如果healthRecords不为空，根据healthRecords中的DiseaseId查询Type中的疾病名
-				Type typeDiseaseName =typeService.findTypeById(healthRecords.getDiseaseId());
-			if (typeDiseaseName!=null) {
-				//如果typeDiseaseName有值，把对应疾病名存入 personalInfofmationAndHealthRecordsExpand扩展类 中 
-				personalInfofmationAndHealthRecordsExpand.setDiseaseName(typeDiseaseName.getName());
+
+				// 根据personalInfofmation的ID查询healthRecords的数据
+				HealthRecords healthRecords = healthRecordsService
+						.findHealthRecordsByPerId(personalInformation.getId());
+				if (healthRecords != null) {
+					personalInfofmationAndHealthRecordsExpand
+							.setHealthRecords(healthRecords);
+					// 如果healthRecords不为空，根据healthRecords中的DiseaseId查询Type中的疾病名
+					Type typeDiseaseName = typeService
+							.findTypeById(healthRecords.getDiseaseId());
+					if (typeDiseaseName != null) {
+						// 如果typeDiseaseName有值，把对应疾病名存入
+						// personalInfofmationAndHealthRecordsExpand扩展类 中
+						personalInfofmationAndHealthRecordsExpand
+								.setDiseaseName(typeDiseaseName.getName());
+					}
+				}
 			}
-			}
-			}
-			
-			request.setAttribute("personalInfofmationAndHealthRecordsExpand", personalInfofmationAndHealthRecordsExpand);
-			//end
+
+			request.setAttribute("personalInfofmationAndHealthRecordsExpand",
+					personalInfofmationAndHealthRecordsExpand);
+			// end
 			return "frontEnd_manage/person_information/Personal";
-		}else{
+		} else {
 			return "redirect:/";
 		}
-
-		
 
 	}
 
@@ -198,54 +208,58 @@ public class CommonController {
 
 		return "frontEnd_manage/person_information/PersonalInformation";
 	}
+
 	@RequestMapping("/toLimits")
 	public String toLimits() {
 
 		return "backstage_managed/jsp/role/limits";
 	}
-	
+
 	@RequestMapping("/toShop")
 	public String toShop() {
 		return "frontEnd_manage/front_bootstrap/index";
 	}
-	
+
 	@RequestMapping("/toContactUs")
 	public String toContactUs() {
 		return "frontEnd_manage/front_bootstrap/contact_us";
 	}
-	
+
 	@RequestMapping("/toWishlist")
 	public String toWishlist() {
 		return "frontEnd_manage/front_bootstrap/wishlist";
 	}
+
 	@RequestMapping("/tosimple_product")
 	public String tosimple_product() {
 		return "frontEnd_manage/front_bootstrap/simple_product";
 	}
+
 	@RequestMapping("/toabout_us")
 	public String toabout_us() {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
+
 	@RequestMapping("/todeals")
 	public String deals() {
 		return "frontEnd_manage/front_bootstrap/deals";
 	}
+
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
-	
+
 	@RequestMapping("/toShop_left_sidebar")
 	public String toShop_left_sidebar() {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
-		
+
 	}
 
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
-		
+
 	}
 }
-

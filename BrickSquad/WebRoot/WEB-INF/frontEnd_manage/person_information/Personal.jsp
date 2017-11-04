@@ -336,6 +336,7 @@
 						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
 						<!--分割线  -->
 						<div style="clear:both;"></div>
+						<!--亲属信息  -->
 						<div>
 							<label>* 亲属联系人1：</label> <label>* 联系人姓名：</label>
 							<input type="text" name="title" lay-verify="title"
@@ -392,6 +393,7 @@
 								</div>
 							</form>
 						</div>
+						<!-- 亲属信息 -->
 					</div>
 					<div class="layui-tab-item layui-tab-item2">
 						<label style="width: 100px;display: inline-block;"> * 亲属联系人：</label>
@@ -511,7 +513,7 @@
 						<i class="layui-icon"
 							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
 						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
-							style="margin-left: 200px;margin-top: -60px;">身份验证</label>
+							style="margin-left: 0;margin-top: -60px;">身份验证</label>
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
 						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
@@ -519,7 +521,7 @@
 						<i class="layui-icon"
 							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
 						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
-							style="margin-left: 200px;margin-top: -60px;">登录密码</label>
+							style="margin-left: 0px;margin-top: -60px;">登录密码</label>
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
 						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
@@ -528,7 +530,7 @@
 						<i class="layui-icon"
 							style="font-size: 35px;color: red;margin-left: 100px;margin-top: 20px;display: block;">&#x1006;</i>
 						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label> <label
-							style="margin-left: 200px;margin-top: -60px;">绑定手机</label>
+							style="margin-left:0px;margin-top: -60px;">绑定手机</label>
 						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
 						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
 					</div>
