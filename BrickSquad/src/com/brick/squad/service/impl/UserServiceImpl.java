@@ -122,8 +122,6 @@ public class UserServiceImpl implements UserService {
 			newUser.setUserPicPath(user.getUserPicPath());
 			userMapper.updateUserByIdByWWX(newUser);
 		}
-	
-		
 	}
 
 }
