@@ -40,7 +40,7 @@
 	src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
-		init("");
+		init("",!${limiterole.type.ad},!${limiterole.type.dl},false);
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
@@ -54,6 +54,10 @@
 
 a:HOVER {
 	text-decoration: none;
+}
+.optron{
+display: block;
+text-align: center;
 }
 </style>
 </head>

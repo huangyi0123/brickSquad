@@ -46,7 +46,7 @@ public class CommonController {
 		//begin 通过权限id查询权限
 		String roleId=((User)(request.getSession().getAttribute("user"))).getRoleId();
 		Map<String, Limits> limits=limitsService.findAllLimitsByRoleId(roleId);
-		request.setAttribute("limite", limits);
+		request.getSession().setAttribute("limiterole", limits);
 		//end
 		return "backstage_managed/jsp/frame";
 	}
