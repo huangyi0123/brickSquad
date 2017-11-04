@@ -60,7 +60,7 @@
 			form.render('select', 'prId');
 			//回显省市区县
 			var url = "${url}";
-			if (url == 'insertRelatives') {
+			if (url == 'userInsertRelatives') {
 
 			} else {
 				var regions = '${allRegionResultById}';
@@ -73,6 +73,7 @@
 			}
 		});
 		form.on('select(prIds)', function(data) {
+			console.log("1234332");
 			$.ajax({
 				url : 'address/findRegionsByParentId?pid=' + data.value,
 				success : function(result) {

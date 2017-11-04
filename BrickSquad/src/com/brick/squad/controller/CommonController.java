@@ -242,5 +242,10 @@ public class CommonController {
 		
 	}
 
+	@RequestMapping("/toCart")
+	public String toCart() {
+		return "frontEnd_manage/front_bootstrap/cart";
+		
+	}
 }
 
