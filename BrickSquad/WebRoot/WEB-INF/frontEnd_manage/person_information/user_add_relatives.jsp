@@ -29,7 +29,6 @@
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-<script type="text/javascript" src="resource/js/user_relatives_list.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var data = "";

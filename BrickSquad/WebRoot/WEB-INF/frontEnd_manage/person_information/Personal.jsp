@@ -201,7 +201,7 @@
 				type : 2,
 				content : "relatives/userToAddRelatives",
 				offset : '100px',
-				area : [ '1000px', '600px' ],
+				area : [ '800px', '500px' ],
 				end : function() {
 					init("");
 				}

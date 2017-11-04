@@ -229,7 +229,7 @@ public class RelativesController {
 				return "frontEnd_manage/person_information/user_add_relatives";
 			}
 		relativesService.insertRelatives(relativesAndAddressAndTypeAndPersonExpand);
-		request.setAttribute("tabflag", 2);
+		request.setAttribute("tabflag", "2");
 		request.setAttribute("url", "common/toPersonal");
 		return "frontEnd_manage/util/turn";
 	}
