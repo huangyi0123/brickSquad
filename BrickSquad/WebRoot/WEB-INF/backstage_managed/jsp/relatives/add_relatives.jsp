@@ -146,17 +146,15 @@
 			value="${relaAddressTypePerson.address.id }"> <input
 			type="hidden" name="type.id"
 			value="${relaAddressTypePerson.type.id }"> <input
-			type="hidden" name="personalInformation.id"
+			type="hidden" name="relatives.perId"
 			value="${relaAddressTypePerson.personalInformation.id }">
 
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名：</label>
 			<div class="layui-input-inline">
 			<c:if test="${url eq 'updateRelativesByIdExend'}">
-				<select disabled="disabled" lay-filter="perid" name="relatives.perId" id="perid"
-					val="${relaAddressTypePerson.relatives.perId}">
-					<option value="">选择老人姓名</option>
-				</select>
+				<input value="${perData}" lay-verify="required" autocomplete="off" class="layui-input"
+					readonly="readonly" style="border: none;background: #F3F3F4;">
 				</c:if>
 				<c:if test="${url ne 'updateRelativesByIdExend'}">
 				<select lay-filter="perid" name="relatives.perId" id="perid"
