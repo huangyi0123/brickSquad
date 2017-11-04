@@ -189,6 +189,7 @@ public class RelativesServiceImpl implements RelativesService {
 				relativesAndAddressAndTypeExpand.setRelativesPeopleName(relatives.getName());
 				relativesAndAddressAndTypeExpand.setRelativesTelephone(relatives.getTelephone());
 				relativesAndAddressAndTypeExpand.setRelatives(relatives);
+				relativesAndAddressAndTypeExpand.setRelativesId(relatives.getId());
 			//如果亲属的地址ID不为空 
 				if (relatives.getAddressId()!=null) {
 					//取得亲属的地址ID

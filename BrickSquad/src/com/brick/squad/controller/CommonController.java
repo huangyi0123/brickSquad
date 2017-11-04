@@ -57,7 +57,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal() {
+	public String toIndexModal(HttpServletRequest request) {
+		request.setAttribute("indexFlag", "userLogin");
+		request.setAttribute("url", "common/toIndex");
 		return "frontEnd_manage/util/turn";
 	}
 
@@ -149,12 +151,6 @@ public class CommonController {
 
 			request.setAttribute("addressAndPersonaInformationExpand",
 					addressAndPersonaInformationExpand);
-			
-			//start 查询亲属信息放在request，回填用
-/*			List<RelativesAndAddressAndTypeExpand> relativesAndAddressAndTypeExpandList =relativesService.getRelativesAndAddressAndTypeExpandMessage(id);
-			request.setAttribute("relativesAndAddressAndTypeExpandList", relativesAndAddressAndTypeExpandList);*/
-			//end
-			
 			
 			//start 查询personalinformation和healthrecords 个人身体数据显示用
 			PersonalInfofmationAndHealthRecordsExpand personalInfofmationAndHealthRecordsExpand = new PersonalInfofmationAndHealthRecordsExpand();

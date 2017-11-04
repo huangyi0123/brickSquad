@@ -9,10 +9,14 @@ import com.brick.squad.pojo.Type;
  * @author 吴文鑫
  * 
  */
-public class RelativesAndAddressAndTypeExpand {
+public class RelativesAndAddressAndTypeExpand   {
 	private Type type;
 	private Relatives relatives;
 	private Address address;
+	/**
+	 * relatives的Id
+	 */
+	private String relativesId;
 	/**
 	 * 亲属关系类别名 
 	 */
@@ -29,6 +33,13 @@ public class RelativesAndAddressAndTypeExpand {
 	 * 亲属联系电话
 	 */
 	private String relativesTelephone;
+	
+	public String getRelativesId() {
+		return relativesId;
+	}
+	public void setRelativesId(String relativesId) {
+		this.relativesId = relativesId;
+	}
 	public Type getType() {
 		return type;
 	}
@@ -70,15 +81,6 @@ public class RelativesAndAddressAndTypeExpand {
 	}
 	public void setRelativesTelephone(String relativesTelephone) {
 		this.relativesTelephone = relativesTelephone;
-	}
-	@Override
-	public String toString() {
-		return "RelativesAndAddressAndTypeExpand [type=" + type
-				+ ", relatives=" + relatives + ", address=" + address
-				+ ", relativesName=" + relativesName
-				+ ", relativesPeopleAddressName=" + relativesPeopleAddressName
-				+ ", relativesPeopleName=" + relativesPeopleName
-				+ ", relativesTelephone=" + relativesTelephone + "]";
 	}
 
 }
