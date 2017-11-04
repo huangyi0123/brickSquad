@@ -189,6 +189,12 @@ public class RelativesController {
 	public String insertRelatives(@Validated RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand,BindingResult bindingResult,
 			HttpServletRequest request) {
 			if(bindingResult.hasErrors()){
+				//查询出region中的所有省份
+				String dataRegion = regionService.findRegionByLevel(1);
+				request.setAttribute("dataRegion", dataRegion);
+				//查询出Type中的所有亲属关系
+				String dataType = typeService.findTypeByParentId("qinshuguanxi");
+				request.setAttribute("dataType", dataType);
 				List<ObjectError> errors = bindingResult.getAllErrors();
 				request.setAttribute("errors", errors);
 				//查询出region中的所有省份
@@ -226,7 +232,7 @@ public class RelativesController {
 	}
 	@RequestMapping("/deleteRelativesById")
 	public String deleteRelativesById(String id){
-		relativesService.deleteRelativesById(id);
+		relativesService.userDeleteRelativesById(id);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 	/**
@@ -237,7 +243,7 @@ public class RelativesController {
 	@RequestMapping("/userDeleteRelativesById")
 	@ResponseBody
 	public String userDeleteRelativesById(String id){
-		relativesService.deleteRelativesById(id);
+		relativesService.userDeleteRelativesById(id);
 		return "suc";
 	} 
 	

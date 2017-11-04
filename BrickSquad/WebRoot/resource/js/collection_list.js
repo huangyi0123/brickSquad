@@ -26,7 +26,7 @@ function init(keyword) {
 					return '<a href="collection/toAddCollection?id='
 					+ rowData.id
 
-					+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
+					+ '"><i tit le="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
 
 					+ rowData.id
 					+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';

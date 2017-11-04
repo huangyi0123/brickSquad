@@ -77,10 +77,10 @@ a:HOVER {
 				<li><a href="medical/toAddMedical" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
-				<li><a href="#">导出</a></li>
+				<!-- <li><a href="#">导出</a></li>
 				<li><a href="#">Something else here</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
+				<li><a href="#">Separated link</a></li> -->
 			</ul>
 		</div>
 	</div>

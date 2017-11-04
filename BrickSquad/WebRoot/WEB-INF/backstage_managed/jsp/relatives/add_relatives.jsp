@@ -127,8 +127,8 @@
 		});
 	});
 	function sub(){
-		var relphone = $("#telephone").value();
-		$("#relphone").value(relphone);
+		var relphone = $("#telephone").val();
+		$("#relphone").val(relphone);
 	}
 </script>
 </head>
@@ -182,7 +182,7 @@
 			<label class="layui-form-label">联系电话：</label>
 			<div class="layui-input-inline">
 				<input type="hidden" name="relphone" id="relphone"> 
-				<input type="text" name="relatives.telephone" required id="telephone" onchange="sub()"
+				<input type="text" name="relatives.telephone"  required id="telephone" onchange="sub()"
 					lay-verify="required"
 					value="${relaAddressTypePerson.relatives.telephone}"
 					placeholder="联系电话" autocomplete="off" class="layui-input">

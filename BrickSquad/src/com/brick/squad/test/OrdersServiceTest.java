@@ -66,11 +66,11 @@ public class OrdersServiceTest {
 	}
 	@Test
 	public void findBuyserAndPersonalInformation() throws Exception{
-		System.out.println(ordersService.findBuyserAndPersonalInformation("7"));
+		System.out.println(ordersService.findBuyserAndPersonalInformation("12"));
 	}
 	@Test
 	public void findOrdersAndBuyserById() throws Exception{
-		System.out.println(ordersService.findOrdersAndBuyserById("1").getName());
+		System.out.println(ordersService.findOrdersAndBuyserById("12").getName());
 	}
 	
 }

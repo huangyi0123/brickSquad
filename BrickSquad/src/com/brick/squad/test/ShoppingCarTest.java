@@ -64,6 +64,11 @@ public class ShoppingCarTest {
 		System.out.println(count);
 	}*/
 	@Test
+	public void findArticleAndPersonalInformation() throws Exception{
+		String data=shoppingCarService.findArticleAndPersonalInformation();
+		System.out.println(data);
+	}
+	@Test
 	public void shoppingCarPagination() throws Exception{
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);

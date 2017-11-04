@@ -1,11 +1,16 @@
 package com.brick.squad.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.Spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -52,7 +57,15 @@ public class BusinessController {
 	}
 	
 	@RequestMapping("/insertBusiness")
-	  public String insertBusiness(Business business ) {
+	  public String insertBusiness(@Validated Business business,BindingResult result,HttpServletRequest request) {
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "insertBusiness");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/business/add_business";
+					
+		}
 		  businessService.insertBusiness(business);
 		  return "backstage_managed/jsp/business/business_list";
 		

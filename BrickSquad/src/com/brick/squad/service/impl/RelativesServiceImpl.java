@@ -78,6 +78,7 @@ public class RelativesServiceImpl implements RelativesService {
 
 	@Override
 	public void deleteRelativesById(String id) {
+		
 		relativesMapper.deleteRelativesById(id);
 
 	}
@@ -89,7 +90,6 @@ public class RelativesServiceImpl implements RelativesService {
 		List<Relatives> relatives = relativesMapper .relativesPagination(pagination);
 		int row = relativesMapper.findRelativesAllCount(pagination);
 		Util<Relatives> util = new Util<Relatives>();
-		
 		String data = util.SplitPage(relatives, row);
 		return data;
 	}
