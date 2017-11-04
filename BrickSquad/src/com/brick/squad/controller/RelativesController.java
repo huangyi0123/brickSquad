@@ -155,13 +155,14 @@ public class RelativesController {
 	}
 	@RequestMapping("/deleteRelativesById")
 	public String deleteRelativesById(String id){
-		relativesService.deleteRelativesById(id);
+		relativesService.userDeleteRelativesById(id);
+		
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 	@RequestMapping("/userDeleteRelativesById")
 	@ResponseBody
 	public String userDeleteRelativesById(String id){
-		relativesService.deleteRelativesById(id);
+		relativesService.userDeleteRelativesById(id);
 		return "suc";
 	} 
 	

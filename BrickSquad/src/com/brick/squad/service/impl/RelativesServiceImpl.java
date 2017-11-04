@@ -78,6 +78,7 @@ public class RelativesServiceImpl implements RelativesService {
 
 	@Override
 	public void deleteRelativesById(String id) {
+		
 		relativesMapper.deleteRelativesById(id);
 
 	}
