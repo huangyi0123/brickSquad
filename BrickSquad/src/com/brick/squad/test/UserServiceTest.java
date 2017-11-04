@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
+import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
 
@@ -21,7 +22,7 @@ import com.brick.squad.util.Pagination;
  *	
  *	用户表测试方法
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 
 public class UserServiceTest {
@@ -32,30 +33,30 @@ public class UserServiceTest {
 	private UserService userService;
 	@Test
 	public void testfindUserByusername(){
-		System.out.println(userService.findUserByusername("1400170316").toString());
+		System.out.println(userService.findUserByusername("xuebiao").toString());
 		
 	}
 	//User表插入数据
 	@Test
 	public void addUserTest(){
-
 		User user = new User();
 		user.setPassword("admin");
 		user.setRoleId("4");
+		user.setBranchId("2121");
 		user.setTelephone("8808628");
 		user.setUsername("吴老狗");
 		userService.addUser(user);
 	}
 	//User表删除数据
-	//@Test
+	@Test
 	public void deleteUserTest(){
-		userService.deleteUser("luyujing");
+		userService.deleteUser("7a284856c0a611e7aca65254002ec43c");
 	}
 	//User表修改密码
-	//@Test
+	/*//@Test
 	public void updateUserTest(){
 		userService.updateUser("lyj","222222");
-	}
+	}*/
 	//用户分页查询
 	/*@Test
 	public void userPaginationTest(){
@@ -85,7 +86,28 @@ public class UserServiceTest {
 		System.out.println(list.size());
 	}*/
 	@Test
+	public void findAllUser() throws Exception{
+		String data=userService.findAllUser();
+		System.out.println(data);
+	}
+	@Test
 	public void findAllUsers() throws Exception{
 		System.out.println(userService.findAllUsers());
 		}
+	@Test
+	public void updateUserById(){
+		userService.updateUserById("xuebiao", "13078507782", "3");
+	}
+	@Test
+	public void findUserByBranchId(){
+		String data=userService.findUserByBranchId("594cf09abc4c11e7aca65254002ec43c");
+		System.out.println(data);
+	}
+	@Test
+	public void updateUserUserPicPathById(){
+		User user=new User();
+		user.setId("3");
+		user.setUserPicPath("xuebiao/deee");
+		userService.updateUserUserPicPathById(user);
+	}
 	}

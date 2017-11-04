@@ -18,6 +18,10 @@
 	href="resource/plugins/layui/css/layui.css" media="all">
 <link href="resource/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/grid_manager/GridManager.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/fonts/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="resource/css/Personal.css">
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
@@ -27,131 +31,171 @@
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/grid_manager/GridManager.min.js"></script>
+<script type="text/javascript" src="resource/js/user_relatives_list.js"></script>
 <script>
 	$(function() {
 		//头像图片信息
 		var imagepath = $("#imagepath").val();
-		if (imagepath =="") {
-			$(".userPicPath").attr("src",
-					"resource/image/userdefaultpic.jpg");
+		if (imagepath == "") {
+			$(".userPicPath").attr("src", "resource/image/userdefaultpic.jpg");
 		} else {
-			$(".userPicPath").attr("src",
-					imagepath);
+			$(".userPicPath").attr("src", imagepath);
 		}
-		$("#userPicUpdate").bind('change input', function(e) {
-			var _URL = window.URL || window.webkitURL;
-			var file, img1;
-			if ((file = this.files[0])) {
-				img1 = new Image();
-				img1.onload = function() {
-					$('.userPicPath').attr('src', this.src);
-				};
-				img1.src = _URL.createObjectURL(file);
-				//上传文件的文件流是无法被序列化并传递的。 不过如今主流浏览器都开始支持一个叫做FormData的对象，有了这个FormData，我们就可以轻松地使用Ajax方式进行文件上传了。 
-				var formData = new FormData($("#formFileData")[0]);
-				if (formData != null) {
-					$.ajax({
-						url : 'user/userUpdateUserPicPath',
-						type : 'POST',
-						data : formData,
-						contentType : false,
-						processData : false,
-						success : function(result) {
-							if (result=="suc") {
-								layui.use('layer', function() {
-									var layer = layui.layer;
-									var msg = '修改成功';
-									layer.msg(msg);
-									window.location.href("toPersonal");								});
-							}else if (result=="fileSizeError") {
-								$(".userPicPath").attr("src",
-								"resource/image/userdefaultpic.jpg");
-								layui.use('layer', function() {
-									
-									var layer = layui.layer;
-									var msg = '上传失败：图片太大，不能上传！';
-									layer.msg(msg);
-								});
-							}
-							else if (result=="getUserError") {
-								$(".userPicPath").attr("src",
-								"resource/image/userdefaultpic.jpg");
-								layui.use('layer', function() {
-									
-									var layer = layui.layer;
-									var msg = '上传失败：服务器内部错误，获用户信息失败！';
-									layer.msg(msg);
-								});
-							}
-							else if (result=="fileSuffixNameError") {
-								$(".userPicPath").attr("src",
-								"resource/image/userdefaultpic.jpg");
-								layui.use('layer', function() {
-									var layer = layui.layer;
-									var msg = '上传失败：上传的图片不符合要求，请上传符合格式的图片！';
-									layer.msg(msg);
-								});
-							}
-							else if (result=="userPicNUllError") {
-								$(".userPicPath").attr("src",
-								"resource/image/userdefaultpic.jpg");
-								layui.use('layer', function() {
-									var layer = layui.layer;
-									var msg = '上传失败：获取图片信息错误！';
-									layer.msg(msg);
-								});
-							}else{
-								layui.use('layer', function() {
-									$(".userPicPath").attr("src",
-									"resource/image/userdefaultpic.jpg");
-									var layer = layui.layer;
-									var msg = '调用服务器接口异常，请重试！';
-									layer.msg(msg);
-								});
-							}
-							
-						},
-						error : function(err) {
-							$(".userPicPath").attr("src",
-							"resource/image/userdefaultpic.jpg");
-							layui.use('layer', function() {
-								var layer = layui.layer;
-								var msg = '调用服务器接口异常，请重试！';
-								layer.msg(msg);
-							});
-						}
-					});
-				}
-				else{
-					$(".userPicPath").attr("src",
-					"resource/image/userdefaultpic.jpg");
-					layui.use('layer', function() {
-						
-						var layer = layui.layer;
-						var msg = '调用服务器接口异常，请重试！';
-						layer.msg(msg);
-					});
-				}
+		$("#userPicUpdate")
+				.bind(
+						'change input',
+						function(e) {
+							var _URL = window.URL || window.webkitURL;
+							var file, img1;
+							if ((file = this.files[0])) {
+								img1 = new Image();
+								img1.onload = function() {
+									$('.userPicPath').attr('src', this.src);
+								};
+								img1.src = _URL.createObjectURL(file);
+								//上传文件的文件流是无法被序列化并传递的。 不过如今主流浏览器都开始支持一个叫做FormData的对象，有了这个FormData，我们就可以轻松地使用Ajax方式进行文件上传了。 
+								var formData = new FormData(
+										$("#formFileData")[0]);
+								if (formData != null) {
+									$
+											.ajax({
+												url : 'user/userUpdateUserPicPath',
+												type : 'POST',
+												data : formData,
+												contentType : false,
+												processData : false,
+												success : function(result) {
+													if (result == "suc") {
+														layui
+																.use(
+																		'layer',
+																		function() {
+																			var layer = layui.layer;
+																			var msg = '修改成功';
+																			layer
+																					.msg(msg);
+																			window.location
+																					.href("toPersonal");
+																		});
+													} else if (result == "fileSizeError") {
+														$(".userPicPath")
+																.attr("src",
+																		"resource/image/userdefaultpic.jpg");
+														layui
+																.use(
+																		'layer',
+																		function() {
 
-			}
-			else{
-				$(".userPicPath").attr("src",
-				"resource/image/userdefaultpic.jpg");
-				layui.use('layer', function() {
-					var layer = layui.layer;
-					var msg = '调用接口异常，请重试！';
-					layer.msg(msg);
-				});
-			}
-			;
+																			var layer = layui.layer;
+																			var msg = '上传失败：图片太大，不能上传！';
+																			layer
+																					.msg(msg);
+																		});
+													} else if (result == "getUserError") {
+														$(".userPicPath")
+																.attr("src",
+																		"resource/image/userdefaultpic.jpg");
+														layui
+																.use(
+																		'layer',
+																		function() {
 
-		});
+																			var layer = layui.layer;
+																			var msg = '上传失败：服务器内部错误，获用户信息失败！';
+																			layer
+																					.msg(msg);
+																		});
+													} else if (result == "fileSuffixNameError") {
+														$(".userPicPath")
+																.attr("src",
+																		"resource/image/userdefaultpic.jpg");
+														layui
+																.use(
+																		'layer',
+																		function() {
+																			var layer = layui.layer;
+																			var msg = '上传失败：上传的图片不符合要求，请上传符合格式的图片！';
+																			layer
+																					.msg(msg);
+																		});
+													} else if (result == "userPicNUllError") {
+														$(".userPicPath")
+																.attr("src",
+																		"resource/image/userdefaultpic.jpg");
+														layui
+																.use(
+																		'layer',
+																		function() {
+																			var layer = layui.layer;
+																			var msg = '上传失败：获取图片信息错误！';
+																			layer
+																					.msg(msg);
+																		});
+													} else {
+														layui
+																.use(
+																		'layer',
+																		function() {
+																			$(
+																					".userPicPath")
+																					.attr(
+																							"src",
+																							"resource/image/userdefaultpic.jpg");
+																			var layer = layui.layer;
+																			var msg = '调用服务器接口异常，请重试！';
+																			layer
+																					.msg(msg);
+																		});
+													}
+
+												},
+												error : function(err) {
+													$(".userPicPath")
+															.attr("src",
+																	"resource/image/userdefaultpic.jpg");
+													layui
+															.use(
+																	'layer',
+																	function() {
+																		var layer = layui.layer;
+																		var msg = '调用服务器接口异常，请重试！';
+																		layer
+																				.msg(msg);
+																	});
+												}
+											});
+								} else {
+									$(".userPicPath")
+											.attr("src",
+													"resource/image/userdefaultpic.jpg");
+									layui.use('layer', function() {
+
+										var layer = layui.layer;
+										var msg = '调用服务器接口异常，请重试！';
+										layer.msg(msg);
+									});
+								}
+
+							} else {
+								$(".userPicPath").attr("src",
+										"resource/image/userdefaultpic.jpg");
+								layui.use('layer', function() {
+									var layer = layui.layer;
+									var msg = '调用接口异常，请重试！';
+									layer.msg(msg);
+								});
+							}
+							;
+
+						});
 
 	});
 </script>
 </head>
 
-<body >
+<body>
 
 	<jsp:include page="../util/head.jsp"></jsp:include>
 	<div class="Person_body">
@@ -160,17 +204,20 @@
 				<img class="userPicPath"
 					style="border-radius:100%;width: 100px;height: 100px;margin-top: 30px;margin-left: 150px;"
 					alt="还没有图片" src="">
-					<input type="hidden" id="imagepath" value="${user.userPicPath }"> <span
+				<input type="hidden" id="imagepath" value="${user.userPicPath }">
+				<span
 					style="width:200px;height:20px;border-color:green; text-align:center; float:left; margin-top: 10px;margin-left: 130px;">${user.username }</span>
 			</div>
 		</div>
 		<div class="Person_right">
-			<div class="layui-tab layui-tab-card"
-				style="height:1100px; margin-top: 40px;margin-left: 10px;">
+			<div class="layui-tab layui-tab-card" lay-filter="demo"
+				style="height:1100px; margin-top: 40px;margin-left: 10px;"
+				lay-filter="demo">
 				<ul class="layui-tab-title">
 					<li class="layui-this">个人资料</li>
-					<li>安全设置</li>
+					<li>亲属联系人</li>
 					<li>健康管理</li>
+					<li>安全设置</li>
 					<li>活动管理</li>
 					<li>订单管理</li>
 				</ul>
@@ -295,159 +342,20 @@
 						<div
 							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
 						<!--分割线  -->
-						<!-- 亲属 -->
-						<form class="layui-form" action="relatives/userUpdateRelatives"
-							method="post">
-							<label>* 亲属联系人：</label> <label>亲爱的${user.username }，填写真实有效的亲属联系方式，联系不到你本人情况下可以更方便的找到您！</label>
-							<label>* 联系人姓名：</label>
-
-							<input type="text" name="relatives.name"
-								value="${relativesAndAddressExpand.relatives.name}" required
-								lay-verify="required"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;"
-								autocomplete="off" placeholder="请输入联系人姓名" class="layui-input">
-							<label>* 联系人电话：</label>
-							<input type="text" name="relatives.telephone"
-								value="${relativesAndAddressExpand.relatives.telephone}"
-								required lay-verify="required"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;"
-								autocomplete="off" placeholder="请输入联系人电话" class="layui-input">
-							<label>* 亲属关系：</label>
-							<div class="layui-inline"
-								style="margin-left: 150px;margin-top: -35px;">
-								<div class="layui-input-inline">
-									<select name="relatives.relationshipId"
-										val="${relativesAndAddressExpand.relatives.relationshipId}"
-										required lay-verify="required" lay-search="">
-										<option value="">直接选择或搜索选择</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'1'}">selected</c:if>
-											value="1">父女</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'2'}">selected</c:if>
-											value="2">母女</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'3'}">selected</c:if>
-											value="3">父子</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'4'}">selected</c:if>
-											value="4">母子</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'5'}">selected</c:if>
-											value="5">姐弟</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'6'}">selected</c:if>
-											value="6">姐妹</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'7'}">selected</c:if>
-											value="7">兄弟</option>
-										<option
-											<c:if test="${relativesAndAddressExpand.relatives.relationshipId eq'8'}">selected</c:if>
-											value="8">兄妹</option>
-									</select>
-								</div>
-							</div>
-							<label>* 现居住地：</label>
-							<div class="layui-form-item"
-								style="margin-left: 150px;margin-top: -35px;">
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${relativesAndAddressExpand.address.provinceId}"
-										name="address.provinceId" id="relativesprIds"
-										lay-filter="relativesprIds" lay-search="">
-										<option value="">选择省份</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${relativesAndAddressExpand.address.cityId}"
-										name="address.cityId" id="relativescityId"
-										lay-filter="relativescityIdSelect" lay-search="">
-										<option value="">选择城市</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${relativesAndAddressExpand.address.countyId}"
-										name="address.countyId" id="relativescountyId"
-										lay-filter="relativescountyIdSelect" lay-search="">
-										<option value="">选择县市</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${relativesAndAddressExpand.address.countryId}"
-										name="address.countryId" id="relativescountryId"
-										lay-filter="relativescountryIdSelect" lay-search="">
-										<option value="">选择乡镇</option>
-									</select>
-								</div>
-							</div>
-							<label>详细地址：</label>
-							<input required lay-verify="required" type="text"
-								value="${relativesAndAddressExpand.address.detailed}"
-								name="address.detailed" lay-verify="title"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;"
-								autocomplete="off" placeholder="请输入详细地址" class="layui-input">
-
-							<input type="hidden" name="relatives.addressId"
-								value="${relativesAndAddressExpand.relatives.addressId}" />
-							<input type="hidden" name="relatives.id"
-								value="${relativesAndAddressExpand.relatives.id}" />
-							<input type="hidden" name="address.id"
-								value="${relativesAndAddressExpand.address.id}" />
-							<input type="hidden" name="relatives.perId" value="${user.id}" />
-
-
-
-							<button style="width: 100px;margin-left: 350px;margin-top: 10px;"
-								type="submit" class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
-
-						</form>
-						<!-- 亲属 -->
 					</div>
 					<div class="layui-tab-item layui-tab-item2">
-						<label 
-							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
-						
-						<label>用户名：</label> <label>绑定手机：</label> <a href="#"
-							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
-						<div
-							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-						<label
-							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
-						<!-------------------------------- 身份验证 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label>
-						<label style="margin-left: 200px;margin-top: -60px;">身份验证</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div
-							style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
-						<!-------------------------------- 登录密码 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label>
-						<label style="margin-left: 200px;margin-top: -60px;">登录密码</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div
-							style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
-
-						<!-------------------------------- 绑定手机 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 35px;color: red;margin-left: 100px;margin-top: 20px;display: block;">&#x1006;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label>
-						<label style="margin-left: 200px;margin-top: -60px;">绑定手机</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
+						<label> * 亲属联系人：
+							<button type="button" class="layui-btn">添加亲属联系人</button>
+						</label> <label>亲爱的${user.username }，填写真实有效的亲属联系方式，联系不到你本人情况下可以更方便的找到您！</label>
+						<div class="cls"></div>
+	<table grid-manager="demo-ajaxPageCode"></table>
 					</div>
+
 					<!-- 健康管理 -->
 					<div class="layui-tab-item layui-tab-item3">
 						<label
 							style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
-					 	<h2  id="nullMessage"></h2> 
+						<h2 id="nullMessage"></h2>
 						<label>患有疾病：</label>
 						<input type="text" readonly="readonly"
 							value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
@@ -543,9 +451,47 @@
 
 					</div>
 					<!--健康管理结束  -->
-					<div class="layui-tab-item">4</div>
+					<div class="layui-tab-item layui-tab-item4">
+						<label
+							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
 
-					<div class="layui-tab-item layui-tab-item5">
+						<label>用户名：</label> <label>绑定手机：</label> <a href="#"
+							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
+						<div
+							style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+						<label
+							style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
+						<!-------------------------------- 身份验证 ---------------------------------->
+						<i class="layui-icon"
+							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
+						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label>
+						<label style="margin-left: 200px;margin-top: -60px;">身份验证</label>
+						<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
+						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
+						<div
+							style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+						<!-------------------------------- 登录密码 ---------------------------------->
+						<i class="layui-icon"
+							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
+						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label>
+						<label style="margin-left: 200px;margin-top: -60px;">登录密码</label>
+						<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
+						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
+						<div
+							style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+
+						<!-------------------------------- 绑定手机 ---------------------------------->
+						<i class="layui-icon"
+							style="font-size: 35px;color: red;margin-left: 100px;margin-top: 20px;display: block;">&#x1006;</i>
+						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label>
+						<label style="margin-left: 200px;margin-top: -60px;">绑定手机</label>
+						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
+						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
+					</div>
+
+					<div class="layui-tab-item layui-tab-item5">5</div>
+
+					<div class="layui-tab-item layui-tab-item6">
 						<div class="layui-tab layui-tab-brief"
 							lay-filter="docDemoTabBrief">
 							<ul class="layui-tab-title">
@@ -738,15 +684,22 @@
 
 					</div>
 
-					<div class="layui-tab-item">6</div>
+
 				</div>
 			</div>
 
 
 		</div>
 	</div>
-	
+
 	<script>
+		/* 开启遮罩 */
+		layui.use('layer', function() {
+			layer.load(1, {
+				shade : [ 0.8, '#393D49' ]
+			});
+		});
+
 		layui
 				.use(
 						'form',
@@ -961,12 +914,13 @@
 														});
 											});
 							$(function() {
+
 								//没有身体状况数据提示
-								var healthRecords='${personalInfofmationAndHealthRecordsExpand.healthRecords}';
-								if (healthRecords=="") { 
+								var healthRecords = '${personalInfofmationAndHealthRecordsExpand.healthRecords}';
+								if (healthRecords == "") {
 									$("#nullMessage").html("还没有您的身体状况数据！");
-								 } 
-								
+								}
+
 								//回显address中的省级地址
 								var provinceData = ${provinceData};
 								//个人信息地址省级地址回填
@@ -992,7 +946,7 @@
 
 								} else {
 								}
-								
+
 								//亲属地址回填
 								var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
 								if (relativesAddresId.length > 0) {
@@ -1021,10 +975,24 @@
 								birthdayId = Format(new Date(birthdayId),
 										"yyyy-MM-dd");
 								$("#birthdayId").val(birthdayId);
+								/* 关闭遮罩 */
+								layui.use('layer', function() {
+									var layer = layui.layer;
+									layer.closeAll();
+								});
+
+								layui.use('element', function() {
+									var element = layui.element();
+									//一些事件监听
+									element.on('tab(demo)', function(data) {
+										 init(""); 
+									});
+								});
+
 							});
 						});
-	
 	</script>
+
 	<jsp:include page="../util/indexFooter.jsp"></jsp:include>
 </body>
 

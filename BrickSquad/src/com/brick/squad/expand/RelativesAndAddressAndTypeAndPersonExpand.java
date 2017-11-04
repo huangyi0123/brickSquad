@@ -1,5 +1,8 @@
 package com.brick.squad.expand;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
@@ -14,35 +17,15 @@ public class RelativesAndAddressAndTypeAndPersonExpand{
 	private Address address;
 	private Type type;
 	private PersonalInformation personalInformation;
-	private String perName;
 	private Relatives relatives;
-	private String relName;
-	private String tyName;
-	private String relPhone;
+	@Pattern(regexp="^((13\\d{9}$)|(15[0,1,2,3,5,6,7,8,9]\\d{8}$)|(18[0,2,5,6,7,8,9]\\d{8}$)|(147\\d{8})$)",message="请您输入正确的手机号码")
+	private String relphone;
 	
-	public String getTyName() {
-		return tyName;
+	public String getRelphone() {
+		return relphone;
 	}
-	public void setTyName(String tyName) {
-		this.tyName = tyName;
-	}
-	public String getRelPhone() {
-		return relPhone;
-	}
-	public void setRelPhone(String relPhone) {
-		this.relPhone = relPhone;
-	}
-	public String getRelName() {
-		return relName;
-	}
-	public void setRelName(String relName) {
-		this.relName = relName;
-	}
-	public String getPerName() {
-		return perName;
-	}
-	public void setPerName(String perName) {
-		this.perName = perName;
+	public void setRelphone(String relphone) {
+		this.relphone = relphone;
 	}
 	public Address getAddress() {
 		return address;

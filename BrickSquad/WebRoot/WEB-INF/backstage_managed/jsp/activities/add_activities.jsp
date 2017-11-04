@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<label class="layui-form-label">活动内容</label>
 			<div class="layui-input-inline">
 				<input name="centent" id="centent" required lay-verify="required"
-					placeholder="本次活动内容"  value="${activities.centent}" readonly="readonly" autocomplete="off" class="layui-input">
+					placeholder="本次活动内容"  value="${activities.centent}"  autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		

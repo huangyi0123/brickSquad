@@ -234,6 +234,7 @@ public class UserController {
 			request.setAttribute("errors", errors);
 			return "backstage_managed/jsp/user/AddJumpUser";
 		}
+		user.setPassword(SecurityUtil.strToMD5(user.getPassword()));
 		userService.addUser(user);
 		return "backstage_managed/jsp/user/user_list";
 	}

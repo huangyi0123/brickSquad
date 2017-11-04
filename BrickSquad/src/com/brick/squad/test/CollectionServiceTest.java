@@ -1,6 +1,5 @@
 package com.brick.squad.test;
 
-import static org.junit.Assert.*;
 
 import java.util.Date;
 
@@ -9,13 +8,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.service.CollectionService;
+import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
 
 public class CollectionServiceTest {
@@ -25,7 +24,8 @@ public class CollectionServiceTest {
 	private CollectionService collectionService;
 	@Test
 	public void testFindCollectionById() {
-		collectionService.findCollectionById("5799c9c4b0af11e78d4f5254002ec43c");
+		Collection collection=collectionService.findCollectionById("499e0cbabfad11e7aca65254002ec43c");
+		System.out.println(collection.getColDate());
 	}
 
 	@Test
@@ -40,14 +40,16 @@ public class CollectionServiceTest {
 
 	@Test
 	public void testUpdateCollectionById() {
-		Collection collection=collectionService.findCollectionById("5799c9c4b0af11e78d4f5254002ec43c");
+		Collection collection=collectionService.findCollectionById("499e0cbabfad11e7aca65254002ec43c");
 		collection.setArticleId("4");
+		collection.setColDate(new Date());
+		collection.setPerId("4");
 		collectionService.updateCollectionById(collection);
 	}
 
 	@Test
 	public void testDeleteCollectionById() {
-		collectionService.deleteCollectionById("5799c9c4b0af11e78d4f5254002ec43c");
+		collectionService.deleteCollectionById("1");
 	}
 	
 	@Test

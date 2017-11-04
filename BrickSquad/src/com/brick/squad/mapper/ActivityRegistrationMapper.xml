@@ -53,4 +53,12 @@
 		COUNT(*) FROM activity_registration
 	</select>
 	
+	<select id="findActivityRegistrationAndPersonalInformationAndActivities" resultType="com.brick.squad.expand.ActivityRegistrationExpand" parameterType="String">
+	SELECT  personal_information.name personalInformationName,activities.name activitiesName,activity_registration.registration_date registrationDate,activity_registration.id,activity_registration.appointment 
+				FROM activity_registration JOIN personal_information ON activity_registration.per_id=personal_information.id
+				JOIN activities ON activity_registration.activities_id=activities.id 
+	where activity_registration.id=#{id}		
+	
+	</select>
+	
 </mapper>

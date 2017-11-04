@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.ActivityRegistrationExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.util.Pagination;
 
@@ -38,6 +39,14 @@ public interface ActivityRegistrationService {
 	 * @return 活动信息
 	 */
 	public String activityRegistrationPagination(Pagination pagination);
+	
+	
+	/**
+	 * 根据id查询ActivityRegistration关联的表的内容
+	 * @param id
+	 * @return
+	 */
+	public ActivityRegistrationExpand findActivityRegistrationAndPersonalInformationAndActivities(String id);
 	
 	
 }

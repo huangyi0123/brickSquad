@@ -1,20 +1,24 @@
 package com.brick.squad.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.objenesis.instantiator.perc.PercSerializationInstantiator;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.RelativesAndAddressAndTypeAndPersonExpand;
-import com.brick.squad.expand.RelativesAndAddressExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
@@ -45,7 +49,6 @@ public class RelativesController {
 
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
-
 	@RequestMapping("/getRelativesList")
 	@ResponseBody
 	public String getRelativesList(int pSize, int cPage, String keyword) {
@@ -56,6 +59,50 @@ public class RelativesController {
 		return relativesService.relativesPagination(pagination);
 
 	}
+
+	/**
+	 * 普通用户查看自己的亲属联系人
+	 * @param pSize
+	 * @param cPage
+	 * @param keyword
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping("/usergetRelativesList")
+	@ResponseBody
+	public String usergetRelativesList(HttpServletRequest request) throws Exception {
+		User user =(User) request.getSession().getAttribute("user");
+		return relativesService.usergetrelativesPagination(user.getId());
+
+	}
+
+	@RequestMapping("/searchRelatives")
+	public String searchRelatives(HttpServletRequest request,String id) throws Exception{
+				//查询出Type中的所有亲属关系
+				Relatives relatives = relativesService.findRelativesById(id);
+				Type type = typeService.findTypeById(relatives.getRelationshipId());
+				String dataType = type.getName();
+				request.setAttribute("dataType", dataType);
+				//先将relatives中的所有信息查询出来
+				
+				//优先获取relatives中的AddressId,再执行Address中的查询，这样就能实现通过AddressId查询地址信息用于回显
+				String address = addressService.findByIdAllAddress(relatives.getAddressId());
+				request.setAttribute("address", address);
+				//同理type表
+			
+				//同理person表
+				PersonalInformation personalInformation=personalInformationService.findPersonalInformationById(relatives.getPerId());
+				String perString = personalInformation.getName();
+				request.setAttribute("perString", perString);
+				RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson
+				= new RelativesAndAddressAndTypeAndPersonExpand();
+				relaAddressTypePerson.setRelatives(relatives);
+				//将对象放入request中传入jsp
+				request.setAttribute("relaAddressTypePerson", relaAddressTypePerson);
+				//查询出所有省信息用于回显
+		return "backstage_managed/jsp/relatives/search_relatives";
+	}
+	
 
 	@RequestMapping("/toAddRelatives")
 	public String toAddRelatives(HttpServletRequest request,String id) throws Exception {
@@ -96,7 +143,13 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/insertRelatives")
-	public String insertRelatives(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand) {	
+	public String insertRelatives(@Validated RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand,BindingResult bindingResult,
+			HttpServletRequest request) {
+			if(bindingResult.hasErrors()){
+				List<ObjectError> errors = bindingResult.getAllErrors();
+				request.setAttribute("errors", errors);
+				return "backstage_managed/jsp/relatives/add_relatives";
+			}
 		relativesService.insertRelatives(relativesAndAddressAndTypeAndPersonExpand);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
@@ -105,6 +158,13 @@ public class RelativesController {
 		relativesService.deleteRelativesById(id);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
+	@RequestMapping("/userDeleteRelativesById")
+	@ResponseBody
+	public String userDeleteRelativesById(String id){
+		relativesService.deleteRelativesById(id);
+		return "suc";
+	} 
+	
 	/**
 	 * 根据拓展类id修改Relatives表
 	 * @return
@@ -115,15 +175,5 @@ public class RelativesController {
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 
-	/**
-	 * 用户完善亲属联系信息
-	 * 
-	 * @return
-	 * @throws Exception 
-	 */
-	@RequestMapping("/userUpdateRelatives")
-	public String userUpdateRelatives(RelativesAndAddressExpand relativesAndAddressExpand) throws Exception {
-		relativesService.userUpdateRelatives(relativesAndAddressExpand);
-		return "redirect:/common/toPersonal";
-	}
+
 }

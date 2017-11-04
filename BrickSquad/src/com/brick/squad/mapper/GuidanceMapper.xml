@@ -5,30 +5,45 @@
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		insert into guidance (id,per_id,guidance_date,disease,assessment,suggest,per_idCard,per_idName)
-		 values (#{id},#{perId},#{guidanceDate},#{disease},#{assessment},#{suggest},#{perIdCard},#{perIdName})
+		insert into guidance
+		(id,per_id,guidance_date,disease,assessment,suggest,per_idCard,per_idName)
+		values
+		(#{id},#{perId},#{guidanceDate},#{disease},#{assessment},#{suggest},#{perIdCard},#{perIdName})
 	</insert>
-	<select id="queryGuidanceById" parameterType="String" resultType="com.brick.squad.pojo.Guidance">
-		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest,per_idCard perIdCard,per_idName perIdName
-		from  guidance where id=#{id}
+	<select id="queryGuidanceById" parameterType="String"
+		resultType="com.brick.squad.pojo.Guidance">
+		select id,per_id perId,guidance_date
+		guidanceDate,disease,assessment,suggest,per_idCard
+		perIdCard,per_idName perIdName
+		from guidance where id=#{id}
 	</select>
 	<delete id="deleteGuidanceById" parameterType="String">
-		delete from guidance where id=#{id}
+		delete from
+		guidance where id=#{id}
 	</delete>
 	<update id="updateGuidanceById" parameterType="com.brick.squad.pojo.Guidance">
-		update guidance set
-		 per_id=#{perId},disease=#{disease},assessment=#{assessment},suggest=#{suggest},per_idCard=#{perIdCard},per_idName=#{perIdName} where id=#{id}
+		update guidance
+		set
+		per_id=#{perId},disease=#{disease},assessment=#{assessment},suggest=#{suggest},per_idCard=#{perIdCard},per_idName=#{perIdName}
+		where id=#{id}
 	</update>
-	<select id="guidancePagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.pojo.Guidance">
-		select id,per_id perId,guidance_date guidanceDate,disease,assessment,suggest,per_idCard perIdCard,per_idName perIdName
-		from  guidance 
+	<select id="guidancePagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.pojo.Guidance">
+		select id,per_id perId,guidance_date
+		guidanceDate,disease,assessment,suggest,per_idCard
+		perIdCard,per_idName perIdName
+		from guidance
 		<if test="keyword!=''and keyword!=null">
-		WHERE per_idName REGEXP #{keyword} or per_idCard=#{keyword}
+			WHERE per_idName REGEXP #{keyword} or per_idCard=#{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
-	<select id="findGuidanceAllCount" resultType="int">
-		select count(*) from guidance
+	<select id="findGuidanceAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+		select count(1)
+		from guidance
+		<if test="keyword!=''and keyword!=null">
+			WHERE per_idName REGEXP #{keyword} or per_idCard=#{keyword}
+		</if>
 	</select>
-	
+
 </mapper>

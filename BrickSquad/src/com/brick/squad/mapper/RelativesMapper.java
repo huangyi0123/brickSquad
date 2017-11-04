@@ -12,7 +12,7 @@ public interface RelativesMapper {
 	 * @param PerId
 	 * @return
 	 */
-	public Relatives selectRelativesByPerId(String perId);
+	public List<Relatives> selectRelativesByPerId(String perId);
 	/**
 	 * 根据id查询亲属关系
 	 * 
@@ -46,7 +46,7 @@ public interface RelativesMapper {
 	 */
 	public void deleteRelativesById(String id);
 
-	public List<RelativesAndAddressAndTypeAndPersonExpand> relativesPagination(Pagination pagination);
+	public List<Relatives> relativesPagination(Pagination pagination);
 
 	public int findRelativesAllCount(Pagination pagination);
 }

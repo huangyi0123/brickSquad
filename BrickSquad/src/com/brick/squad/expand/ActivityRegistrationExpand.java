@@ -5,6 +5,8 @@ import com.brick.squad.pojo.ActivityRegistration;
 public class ActivityRegistrationExpand extends ActivityRegistration{
 	private String personalInformationName;
 	private String activitiesName;
+	
+	
 	public String getPersonalInformationName() {
 		return personalInformationName;
 	}

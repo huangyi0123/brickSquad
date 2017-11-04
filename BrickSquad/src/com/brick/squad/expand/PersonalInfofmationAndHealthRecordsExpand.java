@@ -3,7 +3,7 @@ package com.brick.squad.expand;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.PersonalInformation;
 
-public class PersonalInfofmationAndHealthRecordsExpand {
+public class PersonalInfofmationAndHealthRecordsExpand{
 private PersonalInformation personalInformation;
 private HealthRecords healthRecords;
 private String nationName;

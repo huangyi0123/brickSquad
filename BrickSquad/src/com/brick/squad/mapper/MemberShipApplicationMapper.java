@@ -23,7 +23,6 @@ public interface MemberShipApplicationMapper {
 	public int findMemberShipApplicationAllCount(Pagination pagination);
 
 	public List<MemberShipApplication> findAllMemberShipApplication();
-
 	
 	public MemberShipApplicationExpand findMemberShipApplicationAndTypeAndUserAndPersonalInformation(String id);
 

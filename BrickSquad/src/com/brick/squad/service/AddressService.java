@@ -1,12 +1,16 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
 import com.brick.squad.pojo.Address;
 import com.brick.squad.util.Pagination;
-import com.brick.squad.util.Select;
 
 public interface AddressService {
+	/**
+	 * 在addresssever中写封装地址成字符串的方法，参数为address对象，返回类型为字符串
+	 * @param address
+	 * @return
+	 * @throws Exception
+	 */
+	public String getAddressStringByAddress(Address address)throws Exception;
 	public void insertAddress(Address address) throws Exception;
 	public Address findAddressById(String id) throws Exception;
 	public void deleteAddressById(String id ) throws Exception;
@@ -37,4 +41,8 @@ public interface AddressService {
 	 * @return 区域信息
 	 */
 	public String getAllRegion(Address address);
+	/**
+	 * 拼接地址所有字段
+	 */
+	public String findByIdAllAddress(String id);
 }

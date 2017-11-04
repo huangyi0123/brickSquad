@@ -44,10 +44,10 @@ public class NewsServiceImpl implements NewsService {
 	// 添加新闻
 	public void addNews(String id, String userId, String content,
 			String imagePath, Date postTime) {
-
 		newsMapper.addNews(id, userId, content, imagePath, postTime);
 
 	}
+
 
 	// 根据新闻ID删除新闻
 	public void deleteNews(String id) {
@@ -120,7 +120,8 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public NewsExpand findNewsExpandById(String id) {
-		
 		return newsMapper.findNewsExpandById(id);
 	}
+
+
 }
