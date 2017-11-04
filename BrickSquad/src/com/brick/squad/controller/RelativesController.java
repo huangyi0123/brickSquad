@@ -148,7 +148,8 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/toAddRelatives")
-	public String toAddRelatives(HttpServletRequest request,String id) throws Exception {
+	public String toAddRelatives(@Validated RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson,HttpServletRequest request,String id) throws Exception {
+		
 		//查询出region中的所有省份
 		String dataRegion = regionService.findRegionByLevel(1);
 		request.setAttribute("dataRegion", dataRegion);
@@ -164,8 +165,8 @@ public class RelativesController {
 			Type type = typeService.findTypeById(relatives.getRelationshipId());
 			//同理person表
 			PersonalInformation personalInformation=personalInformationService.findPersonalInformationById(relatives.getPerId());
-			RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson
-			= new RelativesAndAddressAndTypeAndPersonExpand();
+			String perData = personalInformation.getName();
+			request.setAttribute("perData", perData);
 			//将上述查询出来的信息设置到拓展对象中
 			relaAddressTypePerson.setAddress(address);
 			relaAddressTypePerson.setPersonalInformation(personalInformation);
@@ -302,7 +303,7 @@ public class RelativesController {
 	 * @return
 	 */
 	@RequestMapping("updateRelativesByIdExend")
-	public String updateRelativesByIdExend(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand){
+	public String updateRelativesByIdExend(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand) throws Exception{
 		relativesService.updateRelativesByIdExend(relativesAndAddressAndTypeAndPersonExpand);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
