@@ -77,6 +77,7 @@
 			<mvc:exclude-mapping path="/common/todeals" />
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
 			<mvc:exclude-mapping path="/common/toShop_left_sidebar" />
+			<mvc:exclude-mapping path="/common/toCart" />
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
