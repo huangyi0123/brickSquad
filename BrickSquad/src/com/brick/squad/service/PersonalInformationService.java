@@ -1,6 +1,7 @@
 package com.brick.squad.service;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
@@ -58,5 +59,10 @@ public interface PersonalInformationService {
 	 * 查询老人所有信息，需求字段
 	 * */
 	public String findAllPersonalInformation();
+	
+	/**
+	 * 级联查询后得到数据回显到老人个人信息详情列表
+	 */
+	public PersonalInformation findThereAllById(String id);
 	
 }

@@ -1,5 +1,7 @@
 package com.brick.squad.test;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -21,16 +24,14 @@ public class TypeServiceTest {
 
 	@Test
 	public void findTypeByParentIdTest(){
-		typeService.findTypeByParentId("0");
+		String data=typeService.findTypeByParentId("xuebiao");
+		System.out.println(data);
 	}
-	
-	
-	
 	@Test
 	public void testFindTypeById() {
-		typeService.findTypeById("c6158d3cb0b611e78d4f5254002ec43c");
+		Type type= typeService.findTypeById("32cacadac0a411e7aca65254002ec43c");
+		System.out.println(type.getName());
 	}
-
 	@Test
 	public void testInsertType() {
 		Type type = new Type();
@@ -42,14 +43,14 @@ public class TypeServiceTest {
 	@Test
 	public void testUpdateTypeById() {
 		Type type = typeService
-				.findTypeById("c6158d3cb0b611e78d4f5254002ec43c");
+				.findTypeById("weiwuerzu");
 		type.setName("食品");
 		typeService.updateTypeById(type);
 	}
 
 	@Test
 	public void testDeleteTypeById() {
-		typeService.deleteTypeById("c6158d3cb0b611e78d4f5254002ec43c");
+		typeService.deleteTypeById("weiwuerzu");
 	}
 
 	@Test
@@ -58,5 +59,22 @@ public class TypeServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
 		System.out.println(typeService.typePagination(pagination));
+	}
+	@Test
+	public void findAllType(){
+		String data=typeService.findAllType();
+		System.out.println(data);
+	}
+	@Test
+	public void findTypeByParentId(){
+		String data=typeService.findTypeByParentId("mz");
+		System.out.println(data);
+	}
+	@Test
+	public void findType(){
+		List<Select> list=typeService.findType();
+		for(Select s:list){
+			System.out.println(s.getName());
+		}
 	}
 }

@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Buyers;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.BuyersService;
+import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.util.Pagination;
 
@@ -25,6 +27,9 @@ public class BuyersController {
 	@Autowired
 	@Qualifier("addressService")
 	private AddressService addressService;
+	@Autowired
+	@Qualifier("personalInformationService")
+	private PersonalInformationService personalInformationService;
 	@Autowired
 	@Qualifier("regionService")
 	private RegionService regionService;
@@ -82,16 +87,17 @@ public class BuyersController {
 	}
 	@RequestMapping("/findBuyersByIdString")
 	public String findBuyersByIdString(HttpServletRequest request,String id) throws Exception{
-		String regionDataString = buyersService.findRegionsByLevel();
-		request.setAttribute("regionDataString", regionDataString);
+
 		Buyers buyers = buyersService.findBuyersByUUID(id);
-		Address address = addressService.findAddressById(buyers.getDeliveryAddressId());
+		PersonalInformation personalInformation=personalInformationService.findPersonalInformationById(buyers.getId());
+		String perString = personalInformation.getName();
+		request.setAttribute("perString", perString);
+		String address = addressService.findByIdAllAddress(buyers.getDeliveryAddressId());
 		AddressAndBuyersExpand addressAndBuyersExpand=new AddressAndBuyersExpand();
-		addressAndBuyersExpand.setAddress(address);
+		request.setAttribute("address", address);
 		addressAndBuyersExpand.setBuyers(buyers);
 		request.setAttribute("addressAndBuyersExpand",addressAndBuyersExpand );
-		String allRegionResultById = addressService.getAllRegion(address);
-		request.setAttribute("allRegionResultById", allRegionResultById);
+
 		return "backstage_managed/jsp/buyers/search_buyers";
 	}
 }

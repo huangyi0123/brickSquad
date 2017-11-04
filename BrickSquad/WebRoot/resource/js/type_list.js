@@ -1,4 +1,4 @@
-function init(keyword) {
+function init(keyword, up, del, query) {
 	var table = document
 			.querySelector('table[grid-manager="demo-ajaxPageCode"]');
 	table
@@ -26,13 +26,34 @@ function init(keyword) {
 							key : "operation",
 							text : "操作",
 							template : function(noteData, rowData) {
-								return '<a href="type/toAddType?id='
-										+ rowData.id
+								var s = '<span class="optron">';
+								if (up) {
+									s = s
+											+ '<a href="type/toAddType?id='
+											+ rowData.id
+											+ '"><i title="修改" class="fa fa-pencil-square-o"></i></a>';
+								}
+								if (del) {
+									if (up) {
+										s = s + '&nbsp;|&nbsp; ';
+									}
+									s = s
+											+ '<a href="javascript:;" onclick=deleteById("'
+											+ rowData.id
+											+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
+								}
+								if (query) {
+									if (up || del) {
+										s = s + '&nbsp;|&nbsp; ';
+									}
+									s = s
+											+ '<a href="type/findTypeById?id='
 
-										+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
-
-										+ rowData.id
-										+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a></i></a>';
+											+ rowData.id
+											+ '"><i title="查看详情" class="fa fa-eye""></i></a>';
+								}
+								s = s + "</span>"
+								return s;
 							}
 						} ]
 			});
@@ -45,15 +66,15 @@ function RefreshGridManagerList(keyword) {
 }
 
 function serach() {
-	$("#serach").click(function () {
+	$("#serach").click(function() {
 		var keyword = $("#keyword").val();
 		console.log(keyword);
-		if (keyword.trim()=='') {
+		if (keyword.trim() == '') {
 			RefreshGridManagerList('');
 		}
 		RefreshGridManagerList(keyword);
 	});
-	
+
 }
 function deleteById(id) {
 	layui.use('layer', function() {
@@ -61,11 +82,11 @@ function deleteById(id) {
 		layer.open({
 			title : '警告',
 			content : '是否删除？',
-			btn:["确认","取消"],
-			yes:function(index){
+			btn : [ "确认", "取消" ],
+			yes : function(index) {
 				$.ajax({
-					url:'type/deleteTypeById?id='+id,
-					success:function(data){
+					url : 'type/deleteTypeById?id=' + id,
+					success : function(data) {
 						RefreshGridManagerList("");
 						layer.close(index);
 					}

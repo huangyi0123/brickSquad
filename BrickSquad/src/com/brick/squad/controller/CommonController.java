@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
-import com.brick.squad.expand.RelativesAndAddressExpand;
+import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
@@ -46,7 +46,7 @@ public class CommonController {
 		//begin 通过权限id查询权限
 		String roleId=((User)(request.getSession().getAttribute("user"))).getRoleId();
 		Map<String, Limits> limits=limitsService.findAllLimitsByRoleId(roleId);
-		request.setAttribute("limite", limits);
+		request.getSession().setAttribute("limiterole", limits);
 		//end
 		return "backstage_managed/jsp/frame";
 	}
@@ -57,7 +57,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal() {
+	public String toIndexModal(HttpServletRequest request) {
+		request.setAttribute("indexFlag", "userLogin");
+		request.setAttribute("url", "common/toIndex");
 		return "frontEnd_manage/util/turn";
 	}
 
@@ -150,26 +152,6 @@ public class CommonController {
 			request.setAttribute("addressAndPersonaInformationExpand",
 					addressAndPersonaInformationExpand);
 			
-			//start 查询亲属信息放在request，回填用
-			RelativesAndAddressExpand relativesAndAddressExpand =new RelativesAndAddressExpand();
-			//查询用户是否已经填写了亲属
-			Relatives relatives =relativesService.selectRelativesByPerId(id);
-			if (relatives!=null) {
-				relativesAndAddressExpand.setRelatives(relatives);
-				if (relatives.getAddressId()!=null&&relatives.getAddressId().length()>0) {
-					Address address = addressService.findAddressById(relatives.getAddressId());
-					if (address!=null) {
-						relativesAndAddressExpand.setAddress(address);
-						String relativesallRegionResultById = addressService
-								.getAllRegion(address);
-						request.setAttribute("relativesallRegionResultById", relativesallRegionResultById);
-					}
-				
-					
-				}
-			}
-			request.setAttribute("relativesAndAddressExpand", relativesAndAddressExpand);
-			//end
 			//start 查询personalinformation和healthrecords 个人身体数据显示用
 			PersonalInfofmationAndHealthRecordsExpand personalInfofmationAndHealthRecordsExpand = new PersonalInfofmationAndHealthRecordsExpand();
 			if (personalInformation!=null) {

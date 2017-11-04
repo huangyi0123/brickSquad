@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -55,4 +56,8 @@ public interface PersonalInformationMapper {
 	 * 查询老人姓名 身份证用于guidance的回显
 	 */
 	public List<PersonalInformation> findPerIdAndIdCard();
+	/**
+	 * 级联查询后得到数据回显到老人个人信息详情列表
+	 */
+	public PersonalInformation findThereAllById(String id);
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.JunitClassRunner;
@@ -18,9 +19,9 @@ public class PersonalInformationServiceImplTest {
 	private PersonalInformationService personalInformationService;
 	@Test
 	public void testFindPersonalInformationById() {
-		personalInformationService.findPersonalInformationById("1");
+		PersonalInformation personalInformation=personalInformationService.findPersonalInformationById("12");
+		System.out.println(personalInformation);
 	}
-
 	@Test
 	public void testInsertPersonalInformation() {
 			/*PersonalInformation personalInformation=new PersonalInformation();
@@ -44,8 +45,7 @@ public class PersonalInformationServiceImplTest {
 */
 	@Test
 	public void testDeletePersonalInformationById() {
-			personalInformationService.deletePersonalInformationById("765c3378b08811e78d4f5254002ec43c");
-	
+			personalInformationService.deletePersonalInformationById("12");
 	}
 	@Test
 	public void testPersonalInformationPagination() {
@@ -54,9 +54,23 @@ public class PersonalInformationServiceImplTest {
 		pagination.setPageSize(4);
 		System.out.println(personalInformationService.personalInformationPagination(pagination));
 	}
-	
 	@Test
-	public void findAllPersonalInformation() {
+	public void findAllPersonalInformation(){
+		String data=personalInformationService.findAllPersonalInformation();
+		System.out.println(data);
+	}
+	@Test
+	public void findAllPersonalInformations() {
 		System.out.println(personalInformationService.findAllPersonalInformations());
+	}
+	@Test
+	public void findTypesByParentId(){
+		String data=personalInformationService.findTypesByParentId();
+		System.out.println(data);
+	}
+	@Test
+	public void findAddressById() throws Exception{
+		Address address=personalInformationService.findAddressById("4d8ef7aac04611e7aca65254002ec43c");
+		System.out.println(address.getProvinceId());
 	}
 }

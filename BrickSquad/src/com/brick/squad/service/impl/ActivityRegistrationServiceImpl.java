@@ -46,10 +46,18 @@ public class ActivityRegistrationServiceImpl implements ActivityRegistrationServ
 	public String activityRegistrationPagination(
 			Pagination pagination) {
 		List<ActivityRegistrationExpand> datas=activityRegistrationMapper.activityRegistrationPagination(pagination);
-		int n=activityRegistrationMapper.activityRegistrationCount();
+		int n=activityRegistrationMapper.activityRegistrationCount(pagination);
 		Util<ActivityRegistrationExpand> util=new Util<ActivityRegistrationExpand>();
 		String data=util.SplitPage(datas, n);
 		return data;
+	}
+
+	
+	@Override
+	public ActivityRegistrationExpand findActivityRegistrationAndPersonalInformationAndActivities(
+			String id) {
+		 ActivityRegistrationExpand activityRegistrationExpand = activityRegistrationMapper.findActivityRegistrationAndPersonalInformationAndActivities(id);
+		 return activityRegistrationExpand;
 	}
 
 }

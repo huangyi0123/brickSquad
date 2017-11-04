@@ -45,18 +45,7 @@
 	});
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-		
-	
-		
-		//获取老人信息表
-		$.ajax({
-			url : 'personalInformation/findAllPersonalInformation',
-			success : function(result) {
-				result = JSON.parse(result);
-				findAll(result, "#perid");
-				form.render('select', 'perid');
-			}
-		});
+
 		//获取type中的
 		var dataType = '${dataType}';
 		dataType = JSON.parse(dataType);
@@ -126,7 +115,7 @@
 			});
 		});
 	});
-	function sub(){
+	function sub() {
 		var relphone = $("#telephone").val();
 		$("#relphone").val(relphone);
 	}
@@ -141,32 +130,16 @@
 		method="post">
 
 		<input type="hidden" name="relatives.id"
-			value="${relaAddressTypePerson.relatives.id }"> <input
-			type="hidden" name="address.id"
-			value="${relaAddressTypePerson.address.id }"> <input
-			type="hidden" name="type.id"
-			value="${relaAddressTypePerson.type.id }"> <input
-			type="hidden" name="personalInformation.id"
+			value="${relaAddressTypePerson.relatives.id }">
+		<input type="hidden" name="address.id"
+			value="${relaAddressTypePerson.address.id }">
+		<input type="hidden" name="type.id"
+			value="${relaAddressTypePerson.type.id }">
+		<input type="hidden" name="personalInformation.id"
 			value="${relaAddressTypePerson.personalInformation.id }">
 
-		<div class="layui-form-item">
-			<label class="layui-form-label">老人姓名：</label>
-			<div class="layui-input-inline">
-			<c:if test="${url eq 'updateRelativesByIdExend'}">
-				<select disabled="disabled" lay-filter="perid" name="relatives.perId" id="perid"
-					val="${relaAddressTypePerson.relatives.perId}">
-					<option value="">选择老人姓名</option>
-				</select>
-				</c:if>
-				<c:if test="${url ne 'updateRelativesByIdExend'}">
-				<select lay-filter="perid" name="relatives.perId" id="perid"
-					val="${relaAddressTypePerson.relatives.perId}">
-					<option value="">选择老人姓名</option>
-				</select>
-				</c:if>
-			</div>
-		</div>
-
+		<input type="hidden" name="relatives.perId"
+			value="${user.id }">
 		<div class="layui-form-item">
 			<label class="layui-form-label">亲属姓名：</label>
 			<div class="layui-input-inline">
@@ -181,9 +154,9 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">联系电话：</label>
 			<div class="layui-input-inline">
-				<input type="hidden" name="relphone" id="relphone"> 
-				<input type="text" name="relatives.telephone"  required id="telephone" onchange="sub()"
-					lay-verify="required"
+				<input type="hidden" name="relphone" id="relphone">
+				<input type="text" name="relatives.telephone" required
+					id="telephone" onchange="sub()" lay-verify="required"
 					value="${relaAddressTypePerson.relatives.telephone}"
 					placeholder="联系电话" autocomplete="off" class="layui-input">
 			</div>
@@ -254,5 +227,6 @@
 	<c:forEach items="${errors }" var="error">
 		<input class="error" value="${error.defaultMessage }" type="hidden">
 	</c:forEach>
+
 </body>
 </html>

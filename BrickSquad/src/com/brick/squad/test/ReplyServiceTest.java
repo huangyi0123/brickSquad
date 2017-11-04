@@ -34,13 +34,12 @@ public void findReplyAllCount(){
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		String listReply = replyService.replyPagination(pagination);
-		
-		
+		System.out.println(listReply);
 	}
 	
 	@Test
 	public void findReplyById() {
-	Reply reply =  replyService.findReplyById("b7a32865b00c11e7ae5d8cdcd49043a9");
+	Reply reply =  replyService.findReplyById("e9809af8b4e111e78d4f5254002ec43c");
 	System.out.println(reply.getCentent());
 	}
 
@@ -51,7 +50,6 @@ public void findReplyAllCount(){
 			reply.setRatedId("setRatedId"+i);
 			reply.setReplyDate(new Date());
 			reply.setCentent("回复内容："+i);
-			
 			replyService.insertReply(reply);
 		}
 		
@@ -65,10 +63,13 @@ public void findReplyAllCount(){
 	@Test
 	public void updateReplyCententById() {
 		Reply reply = new Reply();
-		reply.setId("1");
+		reply.setId("5e01c2d4b8a811e78d4f5254002ec43c");
 		reply.setCentent("修改後的回复");
 		replyService.updateReplyCententById(reply);
-		
-		
+	}
+	@Test
+	public void findAllReply(){
+		String data=replyService.findAllReply();
+		System.out.println(data);
 	}
 }

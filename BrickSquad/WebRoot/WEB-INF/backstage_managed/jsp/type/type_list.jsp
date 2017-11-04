@@ -40,7 +40,7 @@
 	src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
-		init("");
+		init("",!${limiterole.type.ad},!${limiterole.type.dl},false);
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
@@ -54,6 +54,10 @@
 
 a:HOVER {
 	text-decoration: none;
+}
+.optron{
+display: block;
+text-align: center;
 }
 </style>
 </head>
@@ -82,10 +86,10 @@ a:HOVER {
 				<li><a href="type/toAddType" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
-				<li><a href="#">导出</a></li>
+				<!-- <li><a href="#">导出</a></li>
 				<li><a href="#">Something else here</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li>
+				<li><a href="#">Separated link</a></li> -->
 			</ul>
 		</div>
 	</div>

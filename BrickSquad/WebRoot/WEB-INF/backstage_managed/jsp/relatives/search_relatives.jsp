@@ -24,21 +24,19 @@
 
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript">
-
 </script>
 </head>
 <body>
-<br>
+	<br>
 	<div style="padding-left: 150px;font-size:16;"></div>
 	<br>
-	<form  class="layui-form" >
-	<div class="layui-form-item">
+	<form class="layui-form">
+		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名：</label>
 			<div class="layui-input-inline">
 				<input value="${perString}"
@@ -47,35 +45,25 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">积分：</label>
+			<label class="layui-form-label">亲属姓名：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.currentIntegral}" required lay-verify="required"
-					autocomplete="off" class="layui-input"
-					readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+				<input type="text" value="${relaAddressTypePerson.relatives.name}"
+					lay-verify="required" autocomplete="off" class="layui-input"
+					readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 		</div>
-		
+
+
 		<div class="layui-form-item">
-			<label class="layui-form-label">历史积分：</label>
+			<label class="layui-form-label">联系电话：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.historicalIntegral}" required lay-verify="required"
-					autocomplete="off" class="layui-input"
-					readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+				<input type="text"
+					value="${relaAddressTypePerson.relatives.telephone}"
+					lay-verify="required" autocomplete="off" class="layui-input"
+					readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 		</div>
-		
-	<div class="layui-form-item">
-			<label class="layui-form-label">等级：</label>
-			<div class="layui-input-inline">
-				<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.grade}"  lay-verify="required"
-					autocomplete="off" class="layui-input"
-					readonly="readonly"
-					style="border: none;background: #F3F3F4;">
-			</div>
-		</div>
-	
+
 		<!-- 显示地址表信息 -->
 		<div class="layui-form-item layui-form-text">
 			<label class="layui-form-label">详细地址：</label>
@@ -85,12 +73,22 @@
 					style="border: none;background: #F3F3F4;">
 			</div>
 		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">亲属关系：</label>
+			<div class="layui-input-inline">
+				<input value="${dataType}" lay-verify="required" autocomplete="off"
+					class="layui-input" readonly="readonly"
+					style="border: none;background: #F3F3F4;" />
+
+			</div>
+		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit lay-filter="formDemo"
 					onclick="javascript:history.back(-1);">返回</button>
 			</div>
 		</div>
-	</div>
+		</div>
 </body>
 </html>
