@@ -79,15 +79,15 @@
 
 		<div class="container">
 			<div class="wrap-title">
-				<h1>Wishlist</h1>
+				<h1>我的收藏</h1>
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
 							<ul class="breadcrumb">
-								<li><a href="common/toShop">Home</a> <span class="go-page"></span>
+								<li><a href="common/toShop">首页</a> <span class="go-page"></span>
 								</li>
 
-								<li class="active"><span>Wishlist</span></li>
+								<li class="active"><span>我的收藏</span></li>
 							</ul>
 						</div>
 					</div>
@@ -119,15 +119,15 @@
 											<th class="product-remove"></th>
 
 											<th class="product-name">
-												<span class="nobr">Product Name</span>
+												<span class="nobr">宝贝信息</span>
 											</th>
 
 											<th class="product-price">
-												<span class="nobr">Unit Price</span>
+												<span class="nobr">单价</span>
 											</th>
 
 											<th class="product-stock-stauts">
-												<span class="nobr">Stock Status</span>
+												<span class="nobr">库存量</span>
 											</th>
 
 											<th class="product-add-to-cart"></th>
@@ -162,13 +162,12 @@
 											</td>
 
 											<td class="product-stock-status">
-												<span class="wishlist-in-stock">In Stock</span>
+												<span class="wishlist-in-stock">有存货的</span>
 											</td>
 
 											<td class="product-add-to-cart">
 												<a rel="nofollow" href=""
-													class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt">Add
-													to Cart</a>
+													class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt">添加至购物车</a>
 											</td>
 										</tr>
 									</tbody>

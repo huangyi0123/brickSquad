@@ -276,11 +276,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 												<div class="cart-links clearfix">
 													<div class="cart-link">
-														<a href="cart.html" title="Cart">View Cart</a>
+														<a href="common/toCart" title="Cart">我的购物车</a>
 													</div>
 
 													<div class="checkout-link">
-														<a href="checkout.html" title="Check Out">Check Out</a>
+														<a href="checkout.html" title="Check Out">注销</a>
 													</div>
 												</div>
 											</div>

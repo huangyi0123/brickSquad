@@ -64,7 +64,7 @@
 		<div class="listings-title">
 			<div class="container">
 				<div class="wrap-title">
-					<h1>Cart</h1>
+					<h1>购物车</h1>
 					<div class="bread">
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
@@ -72,7 +72,7 @@
 									<li><a href="common/toShop">首页</a> <span
 										class="go-page"></span></li>
 
-									<li class="active"><span>Cart</span></li>
+									<li class="active"><span>购物车</span></li>
 								</ul>
 							</div>
 						</div>
@@ -96,10 +96,10 @@
 												<tr>
 													<th class="product-remove">&nbsp;</th>
 													<th class="product-thumbnail">&nbsp;</th>
-													<th class="product-name">Product</th>
-													<th class="product-price">Price</th>
-													<th class="product-quantity">Quantity</th>
-													<th class="product-subtotal">Total</th>
+													<th class="product-name">宝贝信息</th>
+													<th class="product-price">单价</th>
+													<th class="product-quantity">数量</th>
+													<th class="product-subtotal">总价</th>
 												</tr>
 											</thead>
 
