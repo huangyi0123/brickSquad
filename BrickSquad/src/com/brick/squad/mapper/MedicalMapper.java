@@ -20,5 +20,5 @@ public interface MedicalMapper {
 	public int findMedicalAllCount(Pagination pagination);
 	public String findAllPersonalInformationAndType();
 	public MedicalExpand findPersonalInformationAndType(String id);
-
+	public void deleteMedicalByPerId(String perId);
 }

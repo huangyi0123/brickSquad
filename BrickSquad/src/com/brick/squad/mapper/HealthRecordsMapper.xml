@@ -113,4 +113,9 @@
 			#{keyword}
 		</if>
 	</select>
+	<!--根据perId删除整条信息  -->
+	<delete id="deleteByPerIdHealth" parameterType="String">
+		delete from
+		health_records where per_id=#{perId}
+	</delete>
 </mapper>
