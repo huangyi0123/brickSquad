@@ -148,7 +148,7 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/toAddRelatives")
-	public String toAddRelatives(@Validated RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson,HttpServletRequest request,String id) throws Exception {
+	public String toAddRelatives(RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson,HttpServletRequest request,String id) throws Exception {
 		
 		//查询出region中的所有省份
 		String dataRegion = regionService.findRegionByLevel(1);
@@ -200,11 +200,10 @@ public class RelativesController {
 				request.setAttribute("dataType", dataType);
 				request.setAttribute("msg", "添加");
 				request.setAttribute("url", "insertRelatives");
-				return "frontEnd_manage/person_information/add_relatives";
+				return "backstage_managed/jsp/relatives/add_relatives";
 			}
 		relativesService.insertRelatives(relativesAndAddressAndTypeAndPersonExpand);
-		request.setAttribute("flag", "suc");
-		return "frontEnd_manage/person_information/user_add_relatives";
+		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 	/**
 	 * 普通用户添加亲属联系人
