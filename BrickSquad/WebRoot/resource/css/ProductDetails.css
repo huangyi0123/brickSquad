@@ -183,7 +183,7 @@
 	float: left;
 	color: black;
 	border: 1px solid #B8B7BD;
-	margin-top: 15px;
+	margin-top: 20px;
 	margin-left: 10px;
 	text-align: center;
 	line-height: 30px;
@@ -220,3 +220,18 @@
 .pro_det {
 }
 
+
+.layui-table th{
+	text-align: center;
+	background-color: white;
+}
+
+.details th{
+	width: 150px;
+	background-color: #F2F2F2;
+}
+
+.details td{
+	width: 300px;
+	background-color: white;
+}
