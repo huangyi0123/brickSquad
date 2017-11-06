@@ -13,4 +13,6 @@ public interface GuidanceMapper {
 	public void updateGuidanceById(Guidance guidance) throws Exception;
 	public List<Guidance> guidancePagination(Pagination pagination) throws Exception;
 	public int findGuidanceAllCount (Pagination pagination) throws Exception;
+	//根据per_id删除整条信息
+	public void deleteByIdGuidance(String perId);
 }

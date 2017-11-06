@@ -65,5 +65,7 @@
 	where activity_registration.id=#{id}		
 	
 	</select>
-	
+	<delete id="deleteByPerIdActivityRegistration" parameterType="String">
+		DELETE FROM activity_registration WHERE per_id=#{perId}
+	</delete>
 </mapper>

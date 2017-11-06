@@ -87,4 +87,9 @@
 		ON s.article_id=a.id
 		WHERE s.id = #{id,jdbcType=VARCHAR}
 		</select>
+		<delete id="deleteShoppingCarByPerId" parameterType="java.lang.String">
+		DELETE FROM
+		shopping_car
+		WHERE per_id = #{perId,jdbcType=VARCHAR}
+	</delete>
 </mapper>

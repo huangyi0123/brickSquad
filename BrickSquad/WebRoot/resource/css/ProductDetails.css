@@ -63,24 +63,23 @@
 }
 
 .Pro_info {
-	width: 70%;
-	height: 600px;
-	margin-left: 100px;
+	width: 100%;
+	height: 700px;
 	border: 1px solid #D5FFAB;
 	background-color: white;
 	float: left;
 }
 
 .comm_img {
-	width: 400px;
+	width: 600px;
 	height: 100%;
 	float: left;
 	/* 	background-color: gray; */
 }
 
 .comm_imgs img {
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	display: block;
 	margin: 0;
 	padding: 0;
@@ -89,7 +88,7 @@
 .comm_imgs a {
 	display: block;
 	float: left;
-	margin-left: 20px;
+	margin-left: 10px;
 	margin-top: 20px;
 	border: 2px solid white;
 }
@@ -198,10 +197,12 @@
 }
 
 .layui-input-block img {
+	display:block;
 	width: 50px;
 	height: 50px;
-	margin-left: 10px;
-	margin-top: -10px;
+	/* margin-left: 70px;
+	 */
+	 margin-top: -50px;
 }
 
 .Pro_seemore {

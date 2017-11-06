@@ -37,7 +37,7 @@
 			$(".uinfo").hide();
 			$(".info").show();
 		}//js
-	});
+	})
 </script>
 <script type="text/javascript">
 	function toAddRelatveOnclick() {

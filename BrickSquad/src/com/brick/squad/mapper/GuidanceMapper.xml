@@ -45,5 +45,8 @@
 			WHERE per_idName REGEXP #{keyword} or per_idCard=#{keyword}
 		</if>
 	</select>
-
+	<delete id="deleteByIdGuidance" parameterType="String">
+		delete from
+		guidance where per_id=#{perId}
+	</delete>
 </mapper>

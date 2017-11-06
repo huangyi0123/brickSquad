@@ -31,5 +31,7 @@ public interface HealthRecordsMapper {
 			Pagination pagination);
 
 	public int findHealthRecordsAllCount(Pagination pagination);
+	
+	public void deleteByPerIdHealth(String perId);
 
 }
