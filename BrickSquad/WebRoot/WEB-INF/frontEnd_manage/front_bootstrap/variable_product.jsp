@@ -600,10 +600,6 @@
 									<ul class="nav nav-tabs">
 										<li class="description_tab active"><a
 											href="#tab-description" data-toggle="tab">商品详情</a></li>
-
-										<li class="additional_information_tab "><a
-											href="#tab-additional_information" data-toggle="tab">商品咨询</a></li>
-
 										<li class="reviews_tab "><a href="#tab-reviews"
 											data-toggle="tab">商品评价（0）</a></li>
 									</ul>
@@ -611,7 +607,7 @@
 									<div class="clear"></div>
 
 									<div class=" tab-content">
-										<div class="tab-pane active" id="tab-description">
+										<div class="tab-pane tab1" id="tab-description">
 											<h2>商品详情</h2>
 
 											<i class="glyphicon glyphicon-bookmark"
@@ -704,46 +700,27 @@
 												style="display:block; width: 120px;height: 40px;border-radius:10px;border-color:#E5E5E5; text-align: center;margin: 30 auto;"
 												value="模特展示">
 
-											<img alt="" src="resource/image/3.png">
-											<img alt="" src="resource/image/3.png">
-											<img alt="" src="resource/image/3.png" style="display: block;margin: 20 auto;">
-											<img alt="" src="resource/image/3.png">
-											<img alt="" src="resource/image/3.png">
-											<img alt="" src="resource/image/3.png">
-											<img alt="" src="resource/image/3.png">
-											<img alt="" src="resource/image/3.png" style="display: block;margin: 20 auto;">
+											<img alt="" src="resource/image/3.png"> <img alt=""
+												src="resource/image/3.png"> <img alt=""
+												src="resource/image/3.png"
+												style="display: block;margin: 20 auto;"> <img alt=""
+												src="resource/image/3.png"> <img alt=""
+												src="resource/image/3.png"> <img alt=""
+												src="resource/image/3.png"> <img alt=""
+												src="resource/image/3.png"> <img alt=""
+												src="resource/image/3.png"
+												style="display: block;margin: 20 auto;">
 
 										</div>
 
-										<div class="tab-pane " id="tab-additional_information">
-											<h2>商品咨询</h2>
-											<table class="shop_attributes">
-												<tbody>
-													<tr class="">
-														<th>Color</th>
-														<td>
-															<p>Black, Blue, Orange, White, Yellow</p>
-														</td>
-													</tr>
-
-													<tr class="alt">
-														<th>Size</th>
-														<td>
-															<p>L, M, S, XL, XS</p>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-
-										<div class="tab-pane" id="tab-reviews">
+										<div class="tab-pane active" id="tab-reviews">
+										
 											<div id="reviews">
 												<div id="comments">
 													<h2>商品评价（0）</h2>
-													<p class="woocommerce-noreviews">There are no reviews
-														yet.</p>
-												</div>
 
+												</div>
+												
 												<div id="review_form_wrapper">
 													<div id="review_form">
 														<div id="respond" class="comment-respond">
@@ -785,7 +762,10 @@
 												<div class="clear"></div>
 											</div>
 										</div>
-									</div>
+										
+									</div><div class="describe" style="width:100%;height:100px; border:1px solid orange;">
+												<label>与描述相符</label>
+												</div>
 								</div>
 							</div>
 
