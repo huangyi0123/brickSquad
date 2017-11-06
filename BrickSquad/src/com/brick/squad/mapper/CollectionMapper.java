@@ -54,5 +54,5 @@ public interface CollectionMapper {
 	public int collectionCount(Pagination pagination);
 
 	public List<Select> findPnameByBuyersId();
-	
+	public void deleteCollectionByPerId(String perId);
 }

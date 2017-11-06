@@ -60,6 +60,13 @@ public class BuyersServiceImpl implements BuyersService {
 	@Override
 	public void deleteBuyersById(String id) throws Exception {
 		// TODO Auto-generated method stub
+		//先查询出buyers表中的数据
+		Buyers buyers = buyersMapper.findBuyersByUUID(id);
+		if(buyers.getDeliveryAddressId()!=null){
+			addressMapper.deleteAddressById(buyers.getDeliveryAddressId());
+			buyersMapper.deleteBuyersById(id);
+		}
+	
 		buyersMapper.deleteBuyersById(id);
 	}
 	@Override

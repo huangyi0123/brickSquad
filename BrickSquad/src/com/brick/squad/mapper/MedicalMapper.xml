@@ -73,6 +73,8 @@
 				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
 		where medical.id=#{id,jdbcType=VARCHAR}
 	</select>
-	
+	<delete id="deleteMedicalByPerId" parameterType="String"> 
+	delete from medical where per_id=#{perId}
+	</delete>
 	
 </mapper>
