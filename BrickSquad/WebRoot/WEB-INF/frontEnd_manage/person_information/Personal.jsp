@@ -69,7 +69,7 @@
 																			var msg = '修改成功';
 																			layer
 																					.msg(msg);
-																			window.location.href = "common/toPersonal";
+																			window.location.href = "toPersonal";
 																		});
 													} else if (result == "fileSizeError") {
 														$(".userPicPath")
