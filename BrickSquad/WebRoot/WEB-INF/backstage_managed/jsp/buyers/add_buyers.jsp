@@ -195,7 +195,8 @@
 				<div class="layui-input-block">
 					<textarea name="address.detailed" placeholder="请输入详细地址"
 						id="detailedId" val="${addressAndBuyersExpand.address.detailed }"
-						lay-filter="detailedSelect" class="layui-textarea"></textarea>
+						lay-filter="detailedSelect" class="layui-textarea"
+						style="width:66.5%"></textarea>
 				</div>
 			</div>
 

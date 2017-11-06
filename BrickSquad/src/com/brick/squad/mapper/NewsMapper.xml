@@ -29,7 +29,7 @@
 		SELECT n.id,u.username,n.content,n.imgs_path
 		imagePath,n.post_time postTime,n.title
 		FROM news n INNER JOIN `user` u
-		ON n.user_id=u.id where n.user_id=#{userId} AND (u.username REGEXP #{keyword} or n.content REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+		ON n.user_id=u.id where n.user_id=#{userId} AND (u.username REGEXP #{keyword} or n.title REGEXP #{keyword}) limit #{skipNum},#{takeNum}
 		</if>
 		<if test="keyword==''">
 		SELECT n.id,u.username,n.content,n.imgs_path
@@ -47,7 +47,7 @@
 		<if test="keyword!=''">
 		SELECT COUNT(*) from news n INNER JOIN `user` u
 		ON n.user_id=u.id where user_id=#{userId}
-		AND (u.username REGEXP #{keyword} or n.content REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+		AND (u.username REGEXP #{keyword} or n.title REGEXP #{keyword}) limit #{skipNum},#{takeNum}
 
 		</if>
 	</select>

@@ -10,8 +10,8 @@ function init(keyword) {
             {
                 key: 'name',
                 text: '名称'
-            },
-            {
+            }
+        /*    {
                 key: "operation",
                 text: "操作",
                 template : function(noteData, rowData) {
@@ -23,7 +23,7 @@ function init(keyword) {
 							+ rowData.id
 							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
 				}
-            }
+            }*/
         ]
     });
 }

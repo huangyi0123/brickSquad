@@ -45,18 +45,22 @@ public class OrderDetailsServiceImpl implements OrderDetailsService{
 	}
 	@Override
 	/**查询订单项总数*/
-	public Integer countOrderDetails() throws Exception {
-		Integer countOrderDetails=orderDetailsMapper.countOrderDetails();
+	public Integer countOrderDetails(Pagination pagination) throws Exception {
+		Integer countOrderDetails=orderDetailsMapper.countOrderDetails(pagination);
 		return countOrderDetails;
 	}
 	@Override
 	/**分页查询订单项*/
 	public String orderDetailsPagination(Pagination pagination) {
 		List<OrderDetailsExpand> regions=orderDetailsMapper.orderDetailsPagination(pagination);
-		int row=orderDetailsMapper.countOrderDetails();
+		int row=orderDetailsMapper.countOrderDetails(pagination);
 		Util<OrderDetailsExpand> util=new Util<OrderDetailsExpand>();
 		String data=util.SplitPage(regions, row);
 		return data;
+	}
+	@Override
+	public OrderDetails findOrderDetailsByIdName(String id) {
+		return orderDetailsMapper.findOrderDetailsByIdName(id);
 	}
 
 }

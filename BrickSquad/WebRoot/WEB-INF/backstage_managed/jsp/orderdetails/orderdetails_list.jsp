@@ -42,6 +42,7 @@
 <script type="text/javascript">
 	$(function() {
 		init("");
+		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
 	layui.use('form', function() {
@@ -58,14 +59,18 @@
 a:HOVER {
 	text-decoration: none;
 }
+.optron{
+display: block;
+text-align: center;
+}
 </style>
 </head>
 <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" placeholder="Search for...">
+			<input type="text" class="form-control" placeholder="商品" id="keyword">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">
+				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
 				</button>
 			</span>
@@ -75,7 +80,7 @@ a:HOVER {
 	<div class="input-group"
 		style="float: right;margin-right: 30px;margin-top: 5px; ">
 		<div class="input-group-btn" style="width:100px;">
-			<button type="button" style="width: 170px;"
+			<%-- <button type="button" style="width: 170px;"
 				class="btn btn-default dropdown-toggle" data-toggle="dropdown"
 				aria-haspopup="true" aria-expanded="false">
 				选项<span class="caret" style="margin-left: 80px;"></span>
@@ -83,7 +88,7 @@ a:HOVER {
 			<ul class="dropdown-menu">
 				<li><a href="${pageContext.request.contextPath}/orderDetails/toAddOrdersDetails" id="addOrdersDetails"
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
-						style="margin-left: 10px;">添加</font></a></li>
+						style="margin-left: 10px;">添加</font></a></li> --%>
 				<!-- <li><a href="#">导出</a></li>
 				<li><a href="#">Something else here</a></li>
 				<li role="separator" class="divider"></li>
