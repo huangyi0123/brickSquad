@@ -27,162 +27,16 @@
 <script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript" src="resource/plugins/grid_manager/GridManager.min.js"></script>
 <script type="text/javascript" src="resource/js/user_relatives_list.js"></script>
+<script type="text/javascript" src="resource/js/Personal.js"></script>
 <script>
 	$(function() {
-		//头像图片信息
-		var imagepath = $("#imagepath").val();
-		if (imagepath == "") {
-			$(".userPicPath").attr("src", "resource/image/userdefaultpic.jpg");
-		} else {
-			$(".userPicPath").attr("src", imagepath);
-		}
-		$("#userPicUpdate")
-				.bind(
-						'change input',
-						function(e) {
-							var _URL = window.URL || window.webkitURL;
-							var file, img1;
-							if ((file = this.files[0])) {
-								img1 = new Image();
-								img1.onload = function() {
-									$('.userPicPath').attr('src', this.src);
-								};
-								img1.src = _URL.createObjectURL(file);
-								//上传文件的文件流是无法被序列化并传递的。 不过如今主流浏览器都开始支持一个叫做FormData的对象，有了这个FormData，我们就可以轻松地使用Ajax方式进行文件上传了。 
-								var formData = new FormData(
-										$("#formFileData")[0]);
-								if (formData != null) {
-									$
-											.ajax({
-												url : 'user/userUpdateUserPicPath',
-												type : 'POST',
-												data : formData,
-												contentType : false,
-												processData : false,
-												success : function(result) {
-													if (result == "suc") {
-														layui
-																.use(
-																		'layer',
-																		function() {
-																			var layer = layui.layer;
-																			var msg = '修改成功';
-																			layer
-																					.msg(msg);
-																			window.location.href = "common/toPersonal";
-																		});
-													} else if (result == "fileSizeError") {
-														$(".userPicPath")
-																.attr("src",
-																		"resource/image/userdefaultpic.jpg");
-														layui
-																.use(
-																		'layer',
-																		function() {
-
-																			var layer = layui.layer;
-																			var msg = '上传失败：图片太大，不能上传！';
-																			layer
-																					.msg(msg);
-																		});
-													} else if (result == "getUserError") {
-														$(".userPicPath")
-																.attr("src",
-																		"resource/image/userdefaultpic.jpg");
-														layui
-																.use(
-																		'layer',
-																		function() {
-
-																			var layer = layui.layer;
-																			var msg = '上传失败：服务器内部错误，获用户信息失败！';
-																			layer
-																					.msg(msg);
-																		});
-													} else if (result == "fileSuffixNameError") {
-														$(".userPicPath")
-																.attr("src",
-																		"resource/image/userdefaultpic.jpg");
-														layui
-																.use(
-																		'layer',
-																		function() {
-																			var layer = layui.layer;
-																			var msg = '上传失败：上传的图片不符合要求，请上传符合格式的图片！';
-																			layer
-																					.msg(msg);
-																		});
-													} else if (result == "userPicNUllError") {
-														$(".userPicPath")
-																.attr("src",
-																		"resource/image/userdefaultpic.jpg");
-														layui
-																.use(
-																		'layer',
-																		function() {
-																			var layer = layui.layer;
-																			var msg = '上传失败：获取图片信息错误！';
-																			layer
-																					.msg(msg);
-																		});
-													} else {
-														layui
-																.use(
-																		'layer',
-																		function() {
-																			$(
-																					".userPicPath")
-																					.attr(
-																							"src",
-																							"resource/image/userdefaultpic.jpg");
-																			var layer = layui.layer;
-																			var msg = '调用服务器接口异常，请重试！';
-																			layer
-																					.msg(msg);
-																		});
-													}
-
-												},
-												error : function(err) {
-													$(".userPicPath")
-															.attr("src",
-																	"resource/image/userdefaultpic.jpg");
-													layui
-															.use(
-																	'layer',
-																	function() {
-																		var layer = layui.layer;
-																		var msg = '调用服务器接口异常，请重试！';
-																		layer
-																				.msg(msg);
-																	});
-												}
-											});
-								} else {
-									$(".userPicPath")
-											.attr("src",
-													"resource/image/userdefaultpic.jpg");
-									layui.use('layer', function() {
-
-										var layer = layui.layer;
-										var msg = '调用服务器接口异常，请重试！';
-										layer.msg(msg);
-									});
-								}
-
-							} else {
-								$(".userPicPath").attr("src",
-										"resource/image/userdefaultpic.jpg");
-								layui.use('layer', function() {
-									var layer = layui.layer;
-									var msg = '调用接口异常，请重试！';
-									layer.msg(msg);
-								});
-							}
-							;
-
-						});
-
+		uploadImage();
+		//判断用户信息是否完善
+		var name = $("#pername").val();
+		if (name == "") {
+			$(".uinfo").hide();
+			$(".info").show();
+		}//js
 	});
 </script>
 <script type="text/javascript">
@@ -205,7 +59,6 @@
 </head>
 
 <body>
-
 	<jsp:include page="../util/head.jsp"></jsp:include>
 	<div class="Person_body">
 		<div class="Person_left">
@@ -231,12 +84,13 @@
 				</ul>
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
-						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！</label> <label>当前头像：</label>
+						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！<a class="info" href="javascript:;"
+								onclick="updatePinfo()">修改信息</a></label> <label style="display: inline-block;">当前头像：</label>
 						<img class="userPicPath" alt="还没有图片"
-							style="border-radius:100%;width: 100px;height: 100px;margin-left: 150px;margin-top: -20px;">
+							style="border-radius:100%;width: 100px;height: 100px;margin-left:50px;margin-top: 0px;">
 						<form id="formFileData" action="user/userUpdateUserPicPath" enctype="multipart/form-data"
-							method="post">
-							<div style="margin-bottom:20px;margin-top: 30px;margin-left: 200px;">
+							style="display: inline-block;" method="post">
+							<div style="margin-bottom:20px;margin-top: 30px;margin-left: 20px;">
 								<span class="layui-btn"
 									style="display:inline-block;position:relative;width:100px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
 									修改图片
@@ -262,74 +116,92 @@
 								name="personalInformation.addressId ">
 							<input type="hidden" value="${addressAndPersonaInformationExpand.address.id }"
 								name="address.id">
-							<label>* 真实姓名：</label>
-
-							<input type="text" value="${addressAndPersonaInformationExpand.personalInformation.name }"
-								name="personalInformation.name" required lay-verify="required"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入真实姓名" class="layui-input">
-							<label>* 性别：</label>
+							<input type="hidden" value="${addressAndPersonaInformationExpand.personalInformation.name }"
+								name="" id="pername">
+							<div class="layui-form-item">
+								<label style="width: 100px ;float: left;">* 真实姓名：</label>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">男</span>
+								<input type="text" value="${addressAndPersonaInformationExpand.personalInformation.name }"
+									name="personalInformation.name" required lay-verify="required"
+									style="width: 350px;margin-left:0px;margin-top: 10px;" autocomplete="off"
+									placeholder="请输入真实姓名" class="layui-input uinfo">
+							</div>
 
 							<div class="layui-form-item">
-								<div class="layui-input-block" style="margin-left: 150px;margin-top: -35px">
-									<input type="radio" required lay-verify="required"
+								<label style="width: 100px ;float: left;">* 性别：</label>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px">男</span>
+								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px">
+									<%-- <input type="radio" required lay-verify="required"
 										<c:if test="${addressAndPersonaInformationExpand.personalInformation.gender eq'男'}">checked</c:if>
-										name="personalInformation.gender" value="男" title="男">
+										name="
+								personalInformation.gender" value="男" title="男">
 									<input type="radio" required lay-verify="required"
 										<c:if test="${addressAndPersonaInformationExpand.personalInformation.gender eq'女'}">checked</c:if>
-										name="personalInformation.gender" value="女" title="女">
+										name="personalInformation.gender" value="女" title="女"> --%>
+									<input type="radio" name="sex" value="男" title="男" checked="">
+									<input type="radio" name="sex" value="女" title="女">
 								</div>
 							</div>
-							<label>* 身份证号：</label>
-							<input type="text" name="personalInformation.idCard"
-								value="${addressAndPersonaInformationExpand.personalInformation.idCard }"
-								lay-verify="identity" required lay-verify="required"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入身份证号" class="layui-input">
-							<label>出生年月：</label>
-							<input id="birthdayId" type="date" name="personalInformation.birthday"
-								val="${addressAndPersonaInformationExpand.personalInformation.birthday }" lay-verify="title"
-								required lay-verify="required" style="width: 350px;margin-left: 150px;margin-top: -35px;"
-								autocomplete="off" placeholder="出生年月" class="layui-input">
-
-							<label>* 现居住地：</label>
-
-							<div class="layui-form-item" style="margin-left: 150px;margin-top: -35px;">
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${addressAndPersonaInformationExpand.address.provinceId}" name="address.provinceId"
-										id="prId" lay-filter="prIds" lay-search="">
-										<option value="">选择省份</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${addressAndPersonaInformationExpand.address.cityId}" name="address.cityId"
-										id="cityId" lay-filter="cityIdSelect" lay-search="">
-										<option value="">选择城市</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${addressAndPersonaInformationExpand.address.countyId}" name="address.countyId"
-										id="countyId" lay-filter="countyIdSelect" lay-search="">
-										<option value="">选择县市</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select required lay-verify="required"
-										val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
-										id="countryId" lay-filter="countryIdSelect" lay-search="">
-										<option value="">选择乡镇</option>
-									</select>
+							<div class="layui-form-item">
+								<label style="width: 100px ;float: left;">* 身份证号：</label>
+								<input type="text" name="personalInformation.idCard"
+									value="${addressAndPersonaInformationExpand.personalInformation.idCard }"
+									lay-verify="identity" required lay-verify="required"
+									style="width: 350px;margin-left:0px;margin-top: 10px;display:inline-block;"
+									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo">
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">520122199508310031</span>
+							</div>
+							<div class="layui-form-item">
+								<label style="width: 100px ;float: left;">出生年月：</label>
+								<input id="birthdayId" type="date" name="personalInformation.birthday"
+									val="${addressAndPersonaInformationExpand.personalInformation.birthday }"
+									lay-verify="title" required lay-verify="required"
+									style="width: 350px;margin-left:0px;margin-top: 10px; display:inline-block"
+									autocomplete="off" placeholder="出生年月" class="layui-input uinfo">
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">520122199508310031</span>
+							</div>
+							<div class="layui-inline">
+								<label style="width: 100px ;float: left;">* 现居住地：</label>
+								<span class="info" style="font-size: 17px;display:block;float: left;margin-top: 25px">520122199508310031</span>
+								<div class="uinfo">
+									<div class="layui-input-inline">
+										<select required lay-verify="required"
+											val="${addressAndPersonaInformationExpand.address.provinceId}" name="address.provinceId"
+											id="prId" lay-filter="prIds" lay-search="">
+											<option value="">选择省份</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select required lay-verify="required"
+											val="${addressAndPersonaInformationExpand.address.cityId}" name="address.cityId"
+											id="cityId" lay-filter="cityIdSelect" lay-search="">
+											<option value="">选择城市</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select required lay-verify="required"
+											val="${addressAndPersonaInformationExpand.address.countyId}" name="address.countyId"
+											id="countyId" lay-filter="countyIdSelect" lay-search="">
+											<option value="">选择县市</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select required lay-verify="required"
+											val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
+											id="countryId" lay-filter="countryIdSelect" lay-search="">
+											<option value="">选择乡镇</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<input required lay-verify="required" type="text"
+											value="${addressAndPersonaInformationExpand.address.detailed}" name="address.detailed"
+											lay-verify="title" style="width: 350px;margin-left: 30px;margin-top:10px;"
+											autocomplete="off" placeholder="请输入详细地址" class="layui-input">
+									</div>
 								</div>
 							</div>
-							<label>详细地址：</label>
-							<input required lay-verify="required" type="text"
-								value="${addressAndPersonaInformationExpand.address.detailed}" name="address.detailed"
-								lay-verify="title" style="width: 350px;margin-left: 150px;margin-top: -35px;"
-								autocomplete="off" placeholder="请输入详细地址" class="layui-input">
-							<button style="width: 100px;margin-left: 350px;margin-top: 10px;" type="submit"
+
+							<button style="width: 100px;margin-left: 350px;margin-top: 10px;" type="button" onclick=""
 								class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
 						</form>
 						<!--分割线  -->
