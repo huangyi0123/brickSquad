@@ -14,19 +14,19 @@ function init(keyword) {
 				columnData : [
 						{
 							key : 'name',
-							text : '商家姓名'
+							text : '姓名'
 						},
 						{
 							key : 'idcard',
-							text : '商家信息id'
+							text : '身份证信息'
 						},
 						{
 							key : 'shopname',
-							text : '商家店铺名称'
+							text : '店铺名称'
 						},
 						{
 							key : 'shopMaterialPath',
-							text : '商家材料来源'
+							text : '材料来源'
 						},
 						{
 							key : "operation",
@@ -38,10 +38,7 @@ function init(keyword) {
 										+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'
 
 										+ rowData.id
-										+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="business/findBusinessById?id='
-								
-										+ rowData.id
-										+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
+										+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;'
 					}  
 						} ]
 			});
