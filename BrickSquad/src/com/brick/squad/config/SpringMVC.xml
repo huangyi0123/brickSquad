@@ -57,7 +57,6 @@
 			<mvc:exclude-mapping path="/user/toRegister" />
 			<mvc:exclude-mapping path="/user/usernameCheck" />
 			<mvc:exclude-mapping path="/user/toUpdatePassword" />
-			<mvc:exclude-mapping path="/user/logout" />
 			<mvc:exclude-mapping path="/user/toLogin" />
 			<mvc:exclude-mapping path="/user/login" />
 			<mvc:exclude-mapping path="/user/toUserAccountAuthentication" />
@@ -66,8 +65,6 @@
 			<mvc:exclude-mapping path="/common/indexBusiness" />
 			<mvc:exclude-mapping path="/common/toProductDetails" />
 			<mvc:exclude-mapping path="/common/toIndex" />
-			<mvc:exclude-mapping path="/common/toLimits" />
-			<mvc:exclude-mapping path="/limits/findAllLimitsByRoleId" />
 			<mvc:exclude-mapping path="/common/toShop" />
 			<mvc:exclude-mapping path="/common/toContactUs" />
 			<mvc:exclude-mapping path="/common/toShop" />
@@ -79,7 +76,6 @@
 			<mvc:exclude-mapping path="/common/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/common/toCart" />
 			<mvc:exclude-mapping path="/common/toVariable_product" />
-
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>

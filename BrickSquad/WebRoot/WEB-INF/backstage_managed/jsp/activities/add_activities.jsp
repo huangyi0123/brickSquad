@@ -81,7 +81,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
   </head>
   <body>
-
+<br>
+	<div style="padding-left: 130px;font-size:16;">${msg }添加活动信息</div>
+	<br>
    <form class="layui-form" action="activities/${url }" id="form1" method="post">
   <input type="hidden" name="id" value="${activities.id}">
 		<div class="layui-form-item">

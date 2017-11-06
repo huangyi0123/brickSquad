@@ -33,6 +33,19 @@
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var userNoLogion = '${userNoLogion}';
+		if (userNoLogion == '0') {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = '${msg}';
+				layer.msg(msg);
+			});
+		}
+
+	});
+</script>
 <script>
 	//注意：导航 依赖 element 模块，否则无法进行功能性操作
 	layui.use('element', function() {
