@@ -159,10 +159,9 @@ public class UserController {
 	public String toAddUser2(HttpServletRequest request, User user, Model model) {
 		userService.updateUserById(user.getUsername(), user.getTelephone(),
 				user.getId());
-		return "backstage_managed/jsp/user/user_list.jsp";
+		return "backstage_managed/jsp/user/user_list";
 
 	}
-
 	@RequestMapping("/logout")
 	@ResponseBody
 	public String logout(HttpServletRequest request) {
