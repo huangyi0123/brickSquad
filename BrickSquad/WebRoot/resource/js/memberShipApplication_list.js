@@ -30,7 +30,7 @@ function init(keyword) {
                 
 
                 key: 'username',
-                text: '工作人员'
+                text: '审核人员'
 
             },
             {

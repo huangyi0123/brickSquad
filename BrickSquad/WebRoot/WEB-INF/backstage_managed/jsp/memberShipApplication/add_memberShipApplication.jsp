@@ -75,7 +75,7 @@ $(function() {
 	<form class="layui-form" action="memberShipApplication/${url}" id="form1" method="post">
 	<input type="hidden" name="id"  value="${memberShipApplication.id}" > 
 		<div class="layui-form-item" style="width: 300px;">
-			<label class="layui-form-label">会员类型ID</label>
+			<label class="layui-form-label">会员类型</label>
 			<div class="layui-input-block">
 				<select name="memberShipTypeId" id="memberShipTypeId"  lay-filter="aihao" val="${memberShipApplication.memberShipTypeId }">
 					<option value=""></option>
@@ -87,7 +87,7 @@ $(function() {
 		
 		
 		<div class="layui-form-item" style="width: 300px;">
-			<label class="layui-form-label">申请人ID</label>
+			<label class="layui-form-label">申请人</label>
 			<div class="layui-input-block">
 				<select name="perId" id="perId"  val="${memberShipApplication.perId }">
 					<option value=""></option>
@@ -98,7 +98,7 @@ $(function() {
 		
 
 		<div class="layui-form-item" style="width: 300px;">
-			<label class="layui-form-label">工作人员ID</label>
+			<label class="layui-form-label">审核人员</label>
 			<div class="layui-input-block">
 				<select name="userId" id="userId"  val="${memberShipApplication.userId}">
 					<option value=""></option>
