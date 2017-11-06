@@ -80,30 +80,30 @@
 	<div style="padding-left: 140px;font-size:16;">${msg}老人健康档案信息</div>
 	<br>
 	<form class="layui-form" style="margin-right: 30px"
-		action="healthRecords/insertHealthRecords" id="form1" method="post">
+		action="healthRecords/${url }" id="form1" method="post">
 			<div class="layui-form-item">
-			<label class="layui-form-label">身份证号</label>
+			<label class="layui-form-label">身份证号：</label>
 
 			<div class="layui-input-inline">
 				<input type="text" id="perIdCardId" required lay-verify="required"
 					placeholder="身份证号" autocomplete="off" class="layui-input">
+					
 				 <input type="hidden" name="perId" value="${healthRecords.perId}"
 					id="perId" required lay-verify="required" placeholder="ID存入"
 					autocomplete="off" class="layui-input"> 
 			</div>
-			<label class="layui-form-label">姓名</label>
-
+			<label class="layui-form-label">老人姓名：</label>
 			<div class="layui-input-inline">
 				<input type="text" id="IdName" required lay-verify="required"
-					placeholder="姓名" autocomplete="off" class="layui-input">
+					placeholder="老人姓名" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 			
 		<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">记录人员ID：</label>
+			<label class="layui-form-label" style="width: 100px;">记录人员：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="userId" value="${user.username }"
-					readonly	required lay-verify="required" placeholder="记录人员ID"
+					required lay-verify="required" placeholder="记录人员ID"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
