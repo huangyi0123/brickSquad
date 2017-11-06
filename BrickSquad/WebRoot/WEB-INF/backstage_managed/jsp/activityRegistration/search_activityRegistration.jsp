@@ -65,6 +65,13 @@
 				dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 				$("#registrationDate").val(dat);
 				}
+			var d=document.getElementById("appointment");
+			var dv=document.getElementById("appointment").value;
+			if(dv=="0"){
+				d.value="是";
+			}else{
+				d.value="否";
+			}
 			});
 
 
@@ -95,7 +102,9 @@
 			<label class="layui-form-label">活动名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="activitiesId" id="actityId"  required lay-verify="required"
-					placeholder="老人姓名：" value="${activityRegistrationExpand.activitiesName }"  readonly="readonly" autocomplete="off" class="layui-input">
+					placeholder="老人姓名："   
+					value="${activityRegistrationExpand.activitiesName }"
+					readonly="readonly" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		
@@ -108,7 +117,7 @@
 		</div>
 		
 		
-		
+	<%-- 	
 		<div class="layui-form-item">
 			<label class="layui-form-label">是否预约：</label>
 			<div class="layui-input-inline">
@@ -118,6 +127,17 @@
 					<option value="0">是</option>
 					<option value="1">否</option>
 				</select>
+			</div>
+		</div>
+		 --%>
+		
+		
+			<div class="layui-form-item">
+			<label class="layui-form-label">是否预约：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="appointment" id="appointment"  required lay-verify="required"
+					placeholder="是否预约：" value="${activityRegistrationExpand.appointment }"  
+					readonly="readonly" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		

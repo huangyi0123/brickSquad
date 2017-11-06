@@ -51,7 +51,7 @@
 		a.user_id=u.id
 		<if test="keyword!=''and keyword!=null">
 		WHERE u.username REGEXP #{keyword} or t.`name` REGEXP #{keyword}
-		 or a.centent REGEXP #{keyword} or a.centent REGEXP #{keyword}
+		 or a.`name` REGEXP #{keyword} or a.centent REGEXP #{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>

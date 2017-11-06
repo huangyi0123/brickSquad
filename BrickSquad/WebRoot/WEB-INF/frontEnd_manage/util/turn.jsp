@@ -29,23 +29,4 @@
 	
 </script>
 </head>
-<%-- <%
-	//转向语句  
-	/*  response.setHeader("Refresh", "0;URL=/BrickSquad/common/toIndex");  */
-	String tabflag = request.getAttribute("tabflag");
-	if (tabflag != null) {
-		if (tabflag.equals("2")) {
-			String url = request.getAttribute("url");
-			response.setHeader("Refresh", "0;URL=/BrickSquad/" + url);
-		}
-	}
-
-	String indexFlag = request.getAttribute("indexFlag");
-	if (indexFlag != null) {
-		if (indexFlag.equals("userLogin")) {
-			response.setHeader("Refresh",
-					"0;URL=/BrickSquad/common/toIndex");
-		}
-	}
-%> --%>
 </html>

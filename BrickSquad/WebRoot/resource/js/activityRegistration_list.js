@@ -39,6 +39,8 @@ function init(keyword) {
 		} ]
 	});
 }
+
+
 function RefreshGridManagerList(keyword) {
 	$(".table-div").remove();
 	$(".page-toolbar").remove();
