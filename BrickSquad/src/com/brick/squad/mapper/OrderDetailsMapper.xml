@@ -3,7 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.OrderDetailsMapper">
 	<sql id="Base_Column_List">
-		id, article_id articleId, orders_id ordersId, number, subtotal
+		id, article_id articleId, orders_id ordersId, number,
+		subtotal
 	</sql>
 	<select id="findOrderDetails" resultType="OrderDetails">
 		SELECT
@@ -18,27 +19,49 @@
 	</select>
 
 	<update id="updateOrderDetails" parameterType="java.lang.String">
-		UPDATE order_details
+		UPDATE
+		order_details
 		SET id = #{id,jdbcType=VARCHAR},
-		article_id = #{articleId,jdbcType=VARCHAR},
-		orders_id = #{ordersId,jdbcType=VARCHAR},
+		article_id =
+		#{articleId,jdbcType=VARCHAR},
+		orders_id =
+		#{ordersId,jdbcType=VARCHAR},
 		number = #{number,jdbcType=INTEGER},
 		subtotal = #{subtotal,jdbcType=REAL}
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
 	<delete id="deleteOrderDetails" parameterType="java.lang.String">
-		DELETE FROM order_details
+		DELETE FROM
+		order_details
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
-	<select id="countOrderDetails" resultType="Integer">
-		SELECT count(*)
-		FROM order_details JOIN article ON order_details.article_id=article.id
+	<select id="countOrderDetails" resultType="Integer"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT count(1)
+		FROM order_details
+		JOIN article ON
+		order_details.article_id=article.id
+		<if test="keyword!=''">
+			WHERE article.aname REGEXP #{keyword}
+		</if>
 	</select>
 	<select id="orderDetailsPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.OrderDetailsExpand">
-		SELECT order_details.id,article.aname articleAname, order_details.orders_id
+		SELECT order_details.id,article.aname articleAname,
+		order_details.orders_id
 		ordersId,order_details.number,order_details.subtotal
-		FROM order_details JOIN article ON order_details.article_id=article.id
+		FROM order_details
+		JOIN article ON order_details.article_id=article.id
+		<if test="keyword!=''">
+			WHERE article.aname REGEXP #{keyword}
+		</if>
 		limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findOrderDetailsByIdName" resultType="OrderDetails">
+		SELECT a.aname
+		articleId,o.`no` ordersId,od.number,od.subtotal FROM
+		order_details od
+		JOIN orders o on od.orders_id=o.id
+		JOIN article a ON od.article_id=a.id
 	</select>
 </mapper>

@@ -24,10 +24,16 @@ public interface OrderDetailsMapper  {
 	/**
 	 * 查询订单项总数
 	 * */
-	public Integer countOrderDetails();
+	public Integer countOrderDetails(Pagination pagination);
 	/**
 	 * 分页查询订单项
 	 * */
 	public List<OrderDetailsExpand> orderDetailsPagination(Pagination pagination);
+	/**
+	 * 根据id查询订单详情的信息
+	 * @param id 订单详情id
+	 * @return 订单详情
+	 */
+	public OrderDetails findOrderDetailsByIdName(String id);
 }
 
