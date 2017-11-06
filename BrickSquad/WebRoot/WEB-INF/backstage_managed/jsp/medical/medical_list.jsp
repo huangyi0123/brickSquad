@@ -56,7 +56,7 @@ a:HOVER {
 <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" placeholder="Search for..." id="keyword">
+			<input type="text" class="form-control" placeholder="老人姓名，检查医院，检查类型,病历详情" id="keyword">
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
