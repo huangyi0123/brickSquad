@@ -13,13 +13,6 @@ class LoginInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-	
-		String urlString = request.getRequestURI();// 取得当前请求
-		/*// 直接放行
-		if (urlString.indexOf("toIndex") > 0) {
-			return true;
-		}*/
-		// 每有一次请求，判断用户是否登录
 		HttpSession session = request.getSession();
 		User user = null;
 		user = (User) session.getAttribute("user");
@@ -29,7 +22,7 @@ class LoginInterceptor implements HandlerInterceptor {
 		}
 		//拦截后跳转
 		else {
-			request.setAttribute("flag", "2");
+			request.setAttribute("userNoLogion", "0");
 			request.setAttribute("msg", "请先登录");
 			 request.getRequestDispatcher("/index.jsp").forward( request, response);
 			return false;
