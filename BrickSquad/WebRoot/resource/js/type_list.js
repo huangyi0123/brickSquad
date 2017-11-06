@@ -1,3 +1,4 @@
+
 function init(keyword, up, del, query) {
 	var table = document
 			.querySelector('table[grid-manager="demo-ajaxPageCode"]');
@@ -58,13 +59,6 @@ function init(keyword, up, del, query) {
 						} ]
 			});
 }
-function RefreshGridManagerList(keyword) {
-	$(".table-div").remove();
-	$(".page-toolbar").remove();
-	$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
-	init(keyword);
-}
-
 function serach() {
 	$("#serach").click(function() {
 		var keyword = $("#keyword").val();
@@ -95,3 +89,4 @@ function deleteById(id) {
 		});
 	});
 }
+

@@ -64,7 +64,7 @@
 			<label class="layui-form-label" style="width: 100px;">买家姓名：</label>
 			<div class="layui-input-inline">
 				<%-- <input type="text" name="perId" required lay-verify="required"
-					placeholder="老人ID" autocomplete="off" class="layui-input"
+					placeholder="老人姓名" autocomplete="off" class="layui-input"
 					value="${collection.perId }"> --%>
 					
 				<select name="perId"  id="JB" lay-search=""
@@ -87,7 +87,7 @@
 			<label class="layui-form-label" style="width: 100px;">收藏商品：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="articleId" required lay-verify="required"
-					placeholder="收藏商品ID" autocomplete="off" class="layui-input"
+					placeholder="收藏商品" autocomplete="off" class="layui-input"
 					value="${collection. articleId}">
 			</div>
 		</div>

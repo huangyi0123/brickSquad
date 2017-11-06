@@ -41,7 +41,6 @@
 	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
 		
 	$(function() {
-		
 		//日期格式回填
 		var guidanceDateId = $("#guidanceDateId").attr('val');
 		 guidanceDate = Format(new Date(guidanceDateId),
@@ -56,6 +55,7 @@
 		$("#assessment").val(guidance);
 		var guidance = $("#disease").attr('val');
 		$("#disease").val(guidance);
+		
 		/*$绑定从输入框身份证号码id的监听事件，change input设置监听事件的实现方式，鼠标点击输入就启动 */
 		$("#perIdCardId").bind('change input',
 				/*  */
@@ -70,8 +70,10 @@
 							$("#IdName").val(allPersonalInformationdata[i].name);
 							$("#perId").val(allPersonalInformationdata[i].id);
 						}
+						
 					}
 				});
+		
 	});
 </script>
 </head>
@@ -80,13 +82,14 @@
   <br>
 	<div style="padding-left: 120px;font-size:16;">${msg}老人健康指导信息</div>
 	<br>
-  <form action="guidance/insertGuidance" method="post" id="form">
+  <form action="guidance/${url }" method="post" id="form">
+  <input type="hidden" value="${ selectGuidanceId.id}">
    <div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
 				<input class="layui-input" val="${selectGuidanceId.guidanceDate}" 
 				name="guidanceDate" id="guidanceDateId" placeholder="活动日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					onclick="layui.laydate({elem: this, istime: true, format: 'yyyy-MM-dd hh:mm:ss'})">
 			</div>
 		</div>
   

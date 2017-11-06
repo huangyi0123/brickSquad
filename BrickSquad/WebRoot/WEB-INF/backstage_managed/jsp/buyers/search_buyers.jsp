@@ -37,7 +37,7 @@
 		<label class="layui-form-label">老人姓名：</label>
 		<div class="layui-input-inline">
 			<input value="${perString}" lay-verify="required" autocomplete="off" class="layui-input"
-				readonly="readonly" style="border: none;background: #F3F3F4;">
+				readonly="readonly"  >
 		</div>
 	</div>
 	<div class="layui-form-item">
@@ -45,7 +45,7 @@
 		<div class="layui-input-inline">
 			<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.currentIntegral}"
 				required lay-verify="required" autocomplete="off" class="layui-input" readonly="readonly"
-				style="border: none;background: #F3F3F4;">
+				 >
 		</div>
 	</div>
 
@@ -54,7 +54,7 @@
 		<div class="layui-input-inline">
 			<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.historicalIntegral}"
 				required lay-verify="required" autocomplete="off" class="layui-input" readonly="readonly"
-				style="border: none;background: #F3F3F4;">
+				 >
 		</div>
 	</div>
 
@@ -63,7 +63,7 @@
 		<div class="layui-input-inline">
 			<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.grade}"
 				lay-verify="required" autocomplete="off" class="layui-input" readonly="readonly"
-				style="border: none;background: #F3F3F4;">
+				 >
 		</div>
 	</div>
 
@@ -72,7 +72,7 @@
 		<label class="layui-form-label">详细地址：</label>
 		<div class="layui-input-block">
 			<input type="text" value="${address}" lay-verify="required" autocomplete="off"
-				class="layui-input" readonly="readonly" style="border: none;background: #F3F3F4;">
+				class="layui-input" readonly="readonly" style="width:50%" >
 		</div>
 	</div>
 	<div class="layui-form-item">
