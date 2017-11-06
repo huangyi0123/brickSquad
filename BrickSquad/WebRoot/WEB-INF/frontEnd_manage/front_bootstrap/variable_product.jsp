@@ -664,12 +664,11 @@
 													</tr>
 												</thead>
 											</table>
-
-
 											<i class="glyphicon glyphicon-bookmark"
 												style="color: orange;font-size: 1.2em;margin-top: 30px;"></i>
 											<h3
 												style="margin-left: 25px;margin-top: -20px;color: orange;">商品参数DETAILS</h3>
+
 											<table class="layui-table details">
 												<tr>
 													<th>品牌名称
@@ -695,6 +694,25 @@
 												</tr>
 
 											</table>
+											<i class="glyphicon glyphicon-bookmark"
+												style="color: orange;font-size: 1.2em;margin-top: 30px;"></i>
+											<h3
+												style="margin-left: 25px;margin-top: -20px;color: orange;">商品展示IMAGES</h3>
+											<div style="width: 100%; border-top: 1px dashed #E8E8E8 ;"></div>
+
+											<input
+												style="display:block; width: 120px;height: 40px;border-radius:10px;border-color:#E5E5E5; text-align: center;margin: 30 auto;"
+												value="模特展示">
+
+											<img alt="" src="resource/image/3.png">
+											<img alt="" src="resource/image/3.png">
+											<img alt="" src="resource/image/3.png" style="display: block;margin: 20 auto;">
+											<img alt="" src="resource/image/3.png">
+											<img alt="" src="resource/image/3.png">
+											<img alt="" src="resource/image/3.png">
+											<img alt="" src="resource/image/3.png">
+											<img alt="" src="resource/image/3.png" style="display: block;margin: 20 auto;">
+
 										</div>
 
 										<div class="tab-pane " id="tab-additional_information">

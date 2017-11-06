@@ -220,6 +220,13 @@
 .pro_det {
 }
 
+.active img{
+	width:500px;
+	height:500px;
+    margin-left: 35px;
+    margin-top:20px;
+    display: inline;
+}
 
 .layui-table th{
 	text-align: center;
