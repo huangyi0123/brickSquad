@@ -59,7 +59,6 @@
 	</delete>
 	<update id="updateHealthRecordsById" parameterType="healthRecords"> UPDATE
 		health_records set
-
 		per_id=#{perId}, registr_date=#{registrDate},
 		user_id=#{userId},
 		disease_id=#{diseaseId}, shape=#{shape},
@@ -78,7 +77,7 @@
 		resultType="com.brick.squad.expand.HealthRecordsExpand">
 
 		select p.name pname, h.registr_date registrDate,
-		u.username username,
+		u.username username,h.id,
 		t.name diseaseId, h.shape, h.diet_situation
 		dietSituation,
 		h.sports_situation sportsSituation,
@@ -90,7 +89,7 @@
 		from
 		health_records h JOIN personal_information p ON h.per_id=p.id
 		JOIN
-		`user` u ON h.user_id=u.username
+		`user` u ON h.user_id=u.id
 		JOIN type t on h.disease_id=t.id
 		<if test="keyword!=''">
 			WHERE p.name REGEXP #{keyword} or u.username REGEXP

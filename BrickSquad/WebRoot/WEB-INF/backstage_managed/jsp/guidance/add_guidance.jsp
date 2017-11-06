@@ -46,7 +46,6 @@
 		 guidanceDate = Format(new Date(guidanceDateId),
 				"yyyy-MM-dd hh:mm:ss");
 		$("#guidanceDateId").val(guidanceDate);
-		
 		/* 从conterller获取数据打印在控制台 */
 		var allPersonalInformationdata='${allPersonalInformationdata}';
 		allPersonalInformationdata=JSON.parse(allPersonalInformationdata);
@@ -56,6 +55,7 @@
 		$("#assessment").val(guidance);
 		var guidance = $("#disease").attr('val');
 		$("#disease").val(guidance);
+		
 		/*$绑定从输入框身份证号码id的监听事件，change input设置监听事件的实现方式，鼠标点击输入就启动 */
 		$("#perIdCardId").bind('change input',
 				/*  */
@@ -73,6 +73,7 @@
 						
 					}
 				});
+		
 	});
 </script>
 </head>
@@ -82,12 +83,13 @@
 	<div style="padding-left: 120px;font-size:16;">${msg}老人健康指导信息</div>
 	<br>
   <form action="guidance/${url }" method="post" id="form">
+  <input type="hidden" value="${ selectGuidanceId.id}">
    <div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
 				<input class="layui-input" val="${selectGuidanceId.guidanceDate}" 
 				name="guidanceDate" id="guidanceDateId" placeholder="活动日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+					onclick="layui.laydate({elem: this, istime: true, format: 'yyyy-MM-dd hh:mm:ss'})">
 			</div>
 		</div>
   
