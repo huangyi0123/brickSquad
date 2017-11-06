@@ -34,6 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript"
 	src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript">
+
+
+
 	$(function() {
 		init("");
 		serach();

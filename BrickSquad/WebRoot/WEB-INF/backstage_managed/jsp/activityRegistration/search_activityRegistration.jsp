@@ -68,9 +68,9 @@
 			var d=document.getElementById("appointment");
 			var dv=document.getElementById("appointment").value;
 			if(dv=="0"){
-				d.value="否";
-			}else{
 				d.value="是";
+			}else{
+				d.value="否";
 			}
 			});
 
@@ -102,7 +102,9 @@
 			<label class="layui-form-label">活动名称：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="activitiesId" id="actityId"  required lay-verify="required"
-					placeholder="老人姓名："   readonly="readonly" autocomplete="off" class="layui-input">
+					placeholder="老人姓名："   
+					value="${activityRegistrationExpand.activitiesName }"
+					readonly="readonly" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		

@@ -47,8 +47,11 @@
 		});
 	});
 	$(function() {
+		var url="${url}";
+		if(url=="insertActivityRegistration"){}
 		//日期格式回填
-		var registrationDate = $("#registrationDate").attr('val');
+		else{	
+			var registrationDate = $("#registrationDate").attr('val');
 		registrationDate = Format(new Date(registrationDate),
 				"yyyy-MM-dd hh:mm:ss");
 		$("#registrationDate").val(registrationDate);
@@ -59,6 +62,7 @@
 		/* 	var result = ${result};
 			findAll(result, "#perid");
 			form.render('select', 'prIdSelect');  */
+		}
 	});
 	$(function() {
 		var data="";
