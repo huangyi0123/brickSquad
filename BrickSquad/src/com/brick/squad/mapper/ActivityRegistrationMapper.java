@@ -53,6 +53,9 @@ public interface ActivityRegistrationMapper {
 	
 	
 	public ActivityRegistrationExpand findActivityRegistrationAndPersonalInformationAndActivities(String id);
-	
-
+	/**
+	 * 根据老人id查询perid删除信息
+	 * @param perId
+	 */
+	public void deleteByPerIdActivityRegistration(String perId);
 }

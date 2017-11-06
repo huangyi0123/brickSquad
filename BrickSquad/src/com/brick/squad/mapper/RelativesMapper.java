@@ -49,4 +49,5 @@ public interface RelativesMapper {
 	public List<Relatives> relativesPagination(Pagination pagination);
 
 	public int findRelativesAllCount(Pagination pagination);
+	public void deleteRelativesByPerId(String perId);
 }

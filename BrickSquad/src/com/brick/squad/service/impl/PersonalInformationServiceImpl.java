@@ -10,12 +10,25 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
+import com.brick.squad.mapper.ActivityRegistrationMapper;
 import com.brick.squad.mapper.AddressMapper;
+import com.brick.squad.mapper.BuyersMapper;
+import com.brick.squad.mapper.CollectionMapper;
+import com.brick.squad.mapper.GuidanceMapper;
+import com.brick.squad.mapper.HealthRecordsMapper;
+import com.brick.squad.mapper.MedicalMapper;
+import com.brick.squad.mapper.MemberShipApplicationMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
+import com.brick.squad.mapper.RapportMapper;
 import com.brick.squad.mapper.RegionMapper;
+import com.brick.squad.mapper.RelativesMapper;
+import com.brick.squad.mapper.ShopActivitiesMapper;
+import com.brick.squad.mapper.ShoppingCarMapper;
 import com.brick.squad.mapper.TypeMapper;
+import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.service.GuidanceService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -41,7 +54,43 @@ public class PersonalInformationServiceImpl implements
 	@Autowired
 	@Qualifier("addressMapper")
 	private AddressMapper addressMapper;
-
+	/**
+	 * 根据person表的id删除其余11张表的全部信息
+	 */
+	@Autowired
+	@Qualifier("guidanceMapper")
+	private GuidanceMapper guidanceMapper;
+	@Autowired
+	@Qualifier("healthRecordsMapper")
+	private HealthRecordsMapper healthRecordsMapper;
+	@Autowired
+	@Qualifier("rapportMapper")
+	private RapportMapper rapportMapper;
+	@Autowired
+	@Qualifier("activityRegistrationMapper")
+	private ActivityRegistrationMapper activityRegistrationMapper;
+	@Autowired
+	@Qualifier("medicalMapper")
+	private MedicalMapper medicalMapper;
+	@Autowired
+	@Qualifier ("shoppingCarMapper")
+	private ShoppingCarMapper shoppingCarMapper;
+	@Autowired
+	@Qualifier("memberShipApplicationMapper")
+	private MemberShipApplicationMapper memberShipApplicationMapper;
+	@Autowired
+	@Qualifier("userMapper")
+	private UserMapper userMapper;
+	@Autowired
+	@Qualifier("relativesMapper")
+	private RelativesMapper relativesMapper;
+	@Autowired
+	@Qualifier("collectionMapper")
+	private CollectionMapper collectionMapper;
+	@Autowired
+	@Qualifier("buyersMapper")
+	private BuyersMapper buyersMapper;
+	
 	@Override
 	public String findRegionsByLevel() {
 		List<Select> selects = regionMapper.findRegionsByLevel(1);
@@ -112,6 +161,18 @@ public class PersonalInformationServiceImpl implements
 						.getAddressId());
 				// 地址删除成功后，再删除信息表的记录
 				personalInformationMapper.deletePersonalInformationById(id);
+				//删除信息表记录以后再删除其余表的数据
+				guidanceMapper.deleteByIdGuidance(personalInformation.getId());
+				healthRecordsMapper.deleteByPerIdHealth(personalInformation.getId());
+				rapportMapper.deleteByPerIdRapport(personalInformation.getId());
+				activityRegistrationMapper.deleteByPerIdActivityRegistration(personalInformation.getId());
+				medicalMapper.deleteMedicalByPerId(personalInformation.getId());
+				shoppingCarMapper.deleteShoppingCarByPerId(personalInformation.getId());
+				memberShipApplicationMapper.deleteMemberShipApplicationByPerId(personalInformation.getId());
+				userMapper.deleteUser(personalInformation.getId());
+				relativesMapper.deleteRelativesByPerId(personalInformation.getId());
+				collectionMapper.deleteCollectionByPerId(personalInformation.getId());
+				buyersMapper.deleteBuyersById(personalInformation.getId());	
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
