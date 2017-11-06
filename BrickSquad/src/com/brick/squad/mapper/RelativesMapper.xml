@@ -70,4 +70,8 @@
 		</if>
 
 	</select>
+		<delete id="deleteRelativesByPerId" parameterType="String">
+		DELETE FROM
+		relatives WHERE per_id=#{perId}
+	</delete>
 </mapper>

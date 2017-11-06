@@ -103,5 +103,7 @@
 		personal_information p ON m.per_id = p.id	
 		WHERE m.id = #{id,jdbcType=VARCHAR}
 	</select>
-
+	<delete id="deleteMemberShipApplicationByPerId" parameterType="String">
+		delete from membership_application where per_id=#{perId}
+	</delete>
 </mapper>

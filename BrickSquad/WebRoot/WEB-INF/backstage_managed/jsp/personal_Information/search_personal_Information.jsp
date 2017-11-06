@@ -58,188 +58,149 @@
 	 <br>
 	<div style="padding-left: 130px;font-size:22;">查看老人个人详细信息</div>
 	<br>
-	
-
+	 
 		<div class="layui-form-item ">
-			<label class="layui-form-label ">老人用户</label>
+			<label class="layui-form-label ">姓名</label>
+			
 			<div class="layui-input-inline">
-				<select name="personalInformation.id" value="${personalInformation.id }" id="perid" lay-filter="perid">
-					<option value="">选择老人用户</option>
-				</select>
+			<input value="${personalInformation.name}" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
-			<label class="layui-form-label">老人姓名</label>
+			
+			<label class="layui-form-label ">性别</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.name }" name="personalInformation.name" required
-					lay-verify="required" placeholder="老人姓名" autocomplete="off" class="layui-input">
+				<input value="${personalInformation.gender}" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 			<label class="layui-form-label">身份证号</label>
 			<div class="layui-input-inline">
-				<input value="${personalInformation.idCard }" type="text" lay-verify="identity" name="personalInformation.idCard"
-					required lay-verify="required" placeholder="身份证号" autocomplete="off" class="layui-input">
+			<input value="${personalInformation.idCard}" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 			<label class="layui-form-label">出生日期 </label>
 			<div class="layui-input-inline">
-				<!--  -->
-				<input type="date" id="birthdayId" val="${personalInformation.birthday }" name="personalInformation.birthday"
-					required lay-verify="required" placeholder="出生日期" class="layui-input">
+				 
+			<input value="${birthday}" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
-
 		</div>
 
+		
+
 		<div class="layui-form-item">
-			<label class="layui-form-label ">性别</label>
-			<div class="layui-input-inline">
-				<select name="personalInformation.gender" value="${personalInformation.gender }">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
-			</div>
+			
 			<label class="layui-form-label">体重</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.weight }" name="personalInformation.weight" required
-					lay-verify="required" placeholder="体重" autocomplete="off" class="layui-input">
+				<input type="text" value="${personalInformation.weight }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 			<label class="layui-form-label">身高</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.height }" name="personalInformation.height" required
-					lay-verify="required" placeholder="身高" autocomplete="off" class="layui-input">
+				<input type="text" value="${personalInformation.height }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 
 			<label class="layui-form-label">民族</label>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" name="personalInformation.nationId" val="${personalInformation.nationId }"
-					id="paramentNationId" lay-search="">
-					<option value="">直接选择或搜索选择</option>
-				</select>
+				<div class="layui-input-inline">
+				<input type="text" value="${personalInformation.nationId }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+				</div>
 			</div>
-
+			<label class="layui-form-label">婚姻情况</label>
+			<div class="layui-input-inline">
+				<div class="layui-input-inline">
+				<input type="text" value="${personalInformation.marriageId }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+				</div>
+			</div>
 
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">婚姻情况</label>
-
-			<div class="layui-input-inline">
-				<select value="${personalInformation.marriageId }" name="personalInformation.marriageId">
-					<option value="未婚">未婚</option>
-					<option value="已婚">已婚</option>
-					<option value="离异">离异</option>
-					<option value="丧偶">丧偶</option>
-					<option value="其他">其他</option>
-				</select>
-			</div>
-
 			<label class="layui-form-label">收入</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.income }" name="personalInformation.income" required
-					lay-verify="required" placeholder="收入" autocomplete="off" class="layui-input">
+				<input type="text" value="${personalInformation.income }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 			<label class="layui-form-label">邮编</label>
+			
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.zip }" name="personalInformation.zip" required lay-verify="required"
-					placeholder="邮编" autocomplete="off" class="layui-input">
+				<input type="text" value="${personalInformation.zip }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
+			
 			<label class="layui-form-label">文化程度</label>
 			<div class="layui-input-inline">
-				<select value="${personalInformation.cultureId }" name="personalInformation.cultureId">
-					<option value="小学">小学</option>
-					<option value="初中">初中</option>
-					<option value="高中">高中</option>
-					<option value="本科">本科</option>
-					<option value="专科">专科</option>
-					<option value="硕士研究生">硕士研究生</option>
-					<option value="博士">博士</option>
-					<option value="其他">其他</option>
-				</select>
-			</div>
-
-		</div>
-		<div class="layui-form-item">
-
-			<label class="layui-form-label">是否具有购买能力</label>
-			<div class="layui-input-inline">
-				<select value="${personalInformation.isPurchasing }" name="personalInformation.isPurchasing">
-					<option value="是">是</option>
-					<option value="否">否</option>
-				</select>
-			</div>
-			<label class="layui-form-label">是否具有决策能力</label>
-			<div class="layui-input-inline">
-				<select value="${personalInformation.isSupremacy }" name="personalInformation.isSupremacy">
-					<option value="是">是</option>
-					<option value="否">否</option>
-				</select>
-
-			</div>
-			<label class="layui-form-label">是否有购买需求</label>
-			<div class="layui-input-inline">
-				<select value="${personalInformation.isPureq }" name="personalInformation.isPureq">
-					<option value="是">是</option>
-					<option value="否">否</option>
-				</select>
-
-			</div>
-			<label class="layui-form-label">购买意愿分类</label>
-			<div class="layui-input-inline">
-				<select value="${personalInformation.pureqTypeId }" name="personalInformation.pureqTypeId">
-					<option value="是">是</option>
-					<option value="否">否</option>
-				</select>
-
-			</div>
-
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">从事行业</label>
-			<div class="layui-input-inline">
-				<input value="${personalInformation.engagedIndustry }" type="text" name="personalInformation.engagedIndustry"
-					placeholder="从事行业" autocomplete="off" class="layui-input">
-			</div>
-			<label class="layui-form-label">退休单位</label>
-			<div class="layui-input-inline">
-				<input value="${personalInformation.retirementUnit }" type="text" name="personalInformation.retirementUnit"
-					placeholder="退休单位" autocomplete="off" class="layui-input">
-			</div>
-			<label class="layui-form-label">退休日期 </label>
-			<div class="layui-input-inline">
-				<input id="retirementDateId" val="${personalInformation.retirementDate }" type="date"
-					name="personalInformation.retirementDate" placeholder="退休日期" class="layui-input">
+				<input type="text" value="${personalInformation.cultureId }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 			<label class="layui-form-label">家族遗传病史</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${personalInformation.familyHistory }" name="personalInformation.familyHistory" required
-					lay-verify="required" placeholder="家族遗传病史" autocomplete="off" class="layui-input">
+				<input type="text" value="${personalInformation.familyHistory }"  lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+				 
 			</div>
+			
+
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">是否具有购买能力</label>
+			<div class="layui-input-inline">
+				<input type="text" value="${personalInformation.isPurchasing}" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+			</div>
+		
+			<label class="layui-form-label">是否具有决策能力</label>
+			<div class="layui-input-inline">
+				<input type="text" value="${personalInformation.isSupremacy }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+			</div>
+			
+			<label class="layui-form-label">是否有购买需求</label>
+			<div class="layui-input-inline">
+				<input type="text" value="${personalInformation.isPureq}" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+			</div>
+			
+			
+			<label class="layui-form-label">购买意愿分类</label>
+			
+			<div class="layui-input-inline">
+				<input type="text" value="${personalInformation.pureqTypeId }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+			</div>
+			
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">从事行业</label>
+			<div class="layui-input-inline">
+			<input type="text" value="${personalInformation.engagedIndustry }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+				 
+			</div>
+			<label class="layui-form-label">退休单位</label>
+			<div class="layui-input-inline">
+			<input type="text" value="${personalInformation.retirementUnit  }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+				 
+			</div>
+			<label class="layui-form-label">退休日期 </label>
+			<div class="layui-input-inline">
+			<input type="text" value="${personalInformation.retirementDate   }" lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
+				 
+			</div>
+			
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
 			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndPersonaInformationExpand.address.provinceId}" name="address.provinceId" id="prId"
-					lay-filter="prIdSelect" lay-search="">
-					<option value="">选择省份</option>
-				</select>
+				<input type="text" value="${address}"  lay-verify="required" autocomplete="off" class="layui-input"
+				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
-			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndPersonaInformationExpand.address.cityId}" name="address.cityId" id="cityId"
-					lay-filter="cityIdSelect" lay-search="">
-					<option value="">选择城市</option>
-				</select>
-			</div>
-			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndPersonaInformationExpand.address.countyId}" name="address.countyId" id="countyId"
-					lay-filter="countyIdSelect" lay-search="">
-					<option value="">选择县市</option>
-				</select>
-			</div>
-			<div class="layui-input-inline">
-				<select required lay-verify="required" val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
-					id="countryId" lay-filter="countryIdSelect" lay-search="">
-					<option value="">选择乡镇</option>
-				</select>
-			</div>
-			<div class="layui-input-inline ">
-				<input value="${addressAndPersonaInformationExpand.address.detailed}" type="text" id="detailedId" name="address.detailed" required
-					lay-verify="required" placeholder="具体地址，详细到街道门牌号" class="layui-input">
-			</div>
+			
 		</div>
 		
 		<div class="layui-form-item">
