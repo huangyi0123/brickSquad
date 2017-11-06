@@ -54,6 +54,12 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css"
+	href="resource/css/ProductDetails.css">
 </head>
 
 <body
@@ -90,17 +96,17 @@
 				<div id="container">
 					<div id="content" role="main">
 						<div class="single-product clearfix">
-							<div id="product-01"
+							<!-- <div id="product-01"
 								class="post-01 product type-product status-publish has-post-thumbnail product_cat-batteries-chargers product_cat-cameras-camcorders product_cat-mp3-player-accessories product_cat-television-cameras-accessories first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
 								<div class="product_detail row">
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
 										<div class="slider_img_productd">
-											<!-- woocommerce_show_product_images -->
+											woocommerce_show_product_images
 											<div id="product_img_01" class="product-images loading"
 												data-rtl="false">
 												<div
 													class="product-images-container clearfix thumbnail-bottom">
-													<!-- Image Slider -->
+													Image Slider
 													<div class="slider product-responsive">
 														<div class="item-img-slider">
 															<div class="images">
@@ -175,7 +181,7 @@
 														</div>
 													</div>
 
-													<!-- Thumbnail Slider -->
+													Thumbnail Slider
 													<div class="slider product-responsive-thumbnail"
 														id="product_thumbnail_427">
 														<div class="item-thumbnail-product">
@@ -251,13 +257,12 @@
 
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
 										<div class="content_product_detail">
-											<h1 itemprop="name" class="product_title entry-title">Variable
-												Product</h1>
+											<h1 itemprop="name" class="product_title entry-title">数码相机</h1>
 
 											<div class="reviews-content">
 												<div class="star"></div>
 												<a href="#reviews" class="woocommerce-review-link"
-													rel="nofollow"><span class="count">0</span> Review(s)</a>
+													rel="nofollow">评论<span class="count">（0）</span></a>
 											</div>
 
 											<div>
@@ -271,9 +276,9 @@
 
 											<div class="product-info clearfix">
 												<div class="product-stock pull-left in-stock">
-													<span>in stock</span>
+													<span>库存量：</span>
 												</div>
-												<span class="sku_wrapper pull-left">product code :
+												<span class="sku_wrapper pull-left">货号 ：
 													sku - <span class="sku" itemprop="sku">123465</span>
 												</span>
 											</div>
@@ -293,30 +298,30 @@
 													<tbody>
 														<tr>
 															<td class="label">
-																<label for="pa_color">Color</label>
+																<label for="pa_color">颜色</label>
 															</td>
 															<td class="value">
 																<select id="pa_color" class="" name="attribute_pa_color"
 																	data-attribute_name="attribute_pa_color"
 																	"="" data-show_option_none="yes">
-																	<option value="">Choose an option</option>
-																	<option value="black">Black</option>
-																	<option value="blue">Blue</option>
-																	<option value="orange">Orange</option>
-																	<option value="white">White</option>
-																	<option value="yellow">Yellow</option>
+																	<option value="">请选择</option>
+																	<option value="black">黑色</option>
+																	<option value="blue">蓝色</option>
+																	<option value="orange">橘色</option>
+																	<option value="white">白色</option>
+																	<option value="yellow">黄色</option>
 																</select>
 															</td>
 														</tr>
 														<tr>
 															<td class="label">
-																<label for="pa_size">Size</label>
+																<label for="pa_size">尺寸</label>
 															</td>
 															<td class="value">
 																<select id="pa_size" class="" name="attribute_pa_size"
 																	data-attribute_name="attribute_pa_size"
 																	"="" data-show_option_none="yes">
-																	<option value="">Choose an option</option>
+																	<option value="">请选择</option>
 																	<option value="l">L</option>
 																	<option value="m">M</option>
 																	<option value="s">S</option>
@@ -341,11 +346,10 @@
 																	inputmode="numeric">
 															</div>
 															<button type="submit"
-																class="single_add_to_cart_button button alt">Add
-																to cart</button>
+																class="single_add_to_cart_button button alt">添加至购物车</button>
 														</div>
 
-														<!-- add to cart, wishlist, compare -->
+														add to cart, wishlist, compare
 														<div class="item-bottom">
 															<a href="javascript:void(0)" class="compare button"
 																rel="nofollow" title="Add to Compare">Compare</a>
@@ -355,7 +359,7 @@
 																<div class="yith-wcwl-add-button show"
 																	style="display:block">
 																	<a href="wishlist.html" rel="nofollow"
-																		class="add_to_wishlist">Add to Wishlist</a> <img
+																		class="add_to_wishlist">添加至我的收藏</a> <img
 																		src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
 																		alt="loading" width="16" height="16"
 																		style="visibility:hidden" />
@@ -402,7 +406,175 @@
 										</div>
 									</div>
 								</div>
+							</div> -->
+							
+							<div class="Pro_info">
+				<div class="comm_img">
+					<a href="#"><img alt="" src="resource/image/3.png"
+						style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
+					<div class="comm_imgs">
+						<a href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a> <a
+							href="#"><img alt="" src="resource/image/3.png"></a>
+						<div>
+							<div style="float: left;">
+								<a href="#"
+									style="color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
+									<i class="glyphicon glyphicon-share"></i> <label
+									style="cursor: pointer;">分享</label>
+								</a> <a href="#"
+									style="display:block; color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
+									<i class="glyphicon glyphicon-star"></i> <label
+									style="cursor: pointer;">收藏商品</label>
+								</a> <label style="font-size: 0.1px;margin-top: 42px;color:#BAAA99;">（1762人气）</label>
 							</div>
+							<div style="float: left;">
+								<a href="#"
+									style="display: block; margin-left:285px;margin-top: 38px;border: none;color: #BAAA99;">举报</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="comm_info">
+					<p
+						style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">珂卡芙2017新款冬季女鞋韩版圆头粗跟长筒靴女中跟女靴964186621@</p>
+					<label
+						style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label>
+					<div class="comm_backimg">
+						<dl>
+							<dd>
+								<label>价格</label> <label style="margin-left: 50px;">78</label>
+							</dd>
+							<dd>
+								<label>促销价</label> <label style="margin-left: 36px;">60</label>
+							</dd>
+							<dd>
+								<label>本店活动</label> <label style="margin-left: 22px;">满2件，包邮</label>
+							</dd>
+						</dl>
+					</div>
+					<label style="display:block; margin-left:30px;margin-top:15px;">运费</label>
+					<label style="display:block; margin-left:110px;margin-top: -25px;">浙江温州
+						至 </label>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle"
+							style="display:block; border: none;margin-left:190px;margin-top: -32px;font-weight: bold;"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="ture">
+							南通 <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" style="width: 280px;">
+							<li><ul>
+									<li class="layui-this"><a href="#">北京</a></li>
+									<li><a href="#">天津</a></li>
+									<li><a href="#">上海</a></li>
+									<li><a href="#">重庆</a></li>
+								</ul></li>
+							<li><ul>
+									<li class="layui-this"><a href="#">河北</a></li>
+									<li><a href="#">山西</a></li>
+									<li><a href="#">内蒙古</a></li>
+									<li><a href="#">辽宁</a></li>
+									<li><a href="#">吉林</a></li>
+									<li><a href="#">黑龙江</a></li>
+								</ul></li>
+							<li><ul>
+									<li class="layui-this"><a href="#">江苏</a></li>
+									<li><a href="#">浙江</a></li>
+									<li><a href="#">安徽</a></li>
+									<li><a href="#">福建</a></li>
+									<li><a href="#">江西</a></li>
+									<li><a href="#">山东</a></li>
+								</ul></li>
+							<li><ul>
+									<li class="layui-this"><a href="#">河南</a></li>
+									<li><a href="#">湖北</a></li>
+									<li><a href="#">湖南</a></li>
+									<li><a href="#">广东</a></li>
+									<li><a href="#">广西</a></li>
+									<li><a href="#">海南</a></li>
+								</ul></li>
+							<li><ul>
+									<li class="layui-this"><a href="#">四川</a></li>
+									<li><a href="#">贵州</a></li>
+									<li><a href="#">云南</a></li>
+									<li><a href="#">西藏</a></li>
+									<li><a href="#">陕西</a></li>
+									<li><a href="#">甘肃</a></li>
+								</ul></li>
+							<li><ul>
+									<li class="layui-this"><a href="#">青海</a></li>
+									<li><a href="#">宁夏</a></li>
+									<li><a href="#">新疆</a></li>
+									<li><a href="#">台湾</a></li>
+									<li><a href="#">香港</a></li>
+									<li><a href="#">澳门</a></li>
+								</ul></li>
+						</ul>
+					</div>
+					<div
+						style="margin-top:8px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
+					<label style="margin-left: 50px;margin-top: 10px;">月销量</label> <label>1235</label>
+					<p style="display:block; margin-top: -26px;margin-left: 180px;">|</p>
+					<label style="display:block; margin-left: 220px;margin-top: -29px;">累计评价</label>
+					<label style="margin-left: 290px;margin-top: -25px;">235</label>
+					<p style="margin-top: -26px;margin-left: 350px;">|</p>
+					<label style="display:block; margin-left: 390px;margin-top: -29px;">天猫积分</label>
+					<label style="margin-left: 460px;margin-top: -25px;">123</label>
+					<div
+						style="margin-top:7px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<label class="layui-form-label"
+								style="font-weight: bold;margin-top: 12px;margin-left: -5px;">尺码</label>
+							<div class="layui-input-block myInput">
+								<a href="javascript:;" style="margin-left: -1px;" name="size"
+									title="S">S</a> <a href="#" name="size" title="M">M</a> <a
+									href="#" name="size" title="L">L</a> <a href="#" name="size"
+									title="XL">XL</a>
+							</div>
+						</div>
+					</form>
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<label class="layui-form-label"
+								style="width:100px; font-weight: bold;margin-top: -5px;margin-left: 2px;">颜色分类</label>
+							<div class="layui-input-block">
+								<a><img src="resource/image/2.png"
+									style="margin-left: -1px;" name="color" title="红色"></a> <a><img
+									style="margin-left: 70px;" src="resource/image/2.png" name="color" title="黄色"></a> <a><img
+									style="margin-left: 140px;" src="resource/image/2.png" name="color" title="绿色"></a> <a><img
+									style="margin-left: 210px;" src="resource/image/2.png" name="color" title="蓝色"></a>
+							</div>
+						</div>
+					</form>
+					<label style="margin-left: 30px;">数量</label>
+					<input type="number" class="layui-input"
+						style=" width: 70px;margin-left: 100px;margin-top: -35px;">
+					<label style="display:block; margin-top: -30px;margin-left: 180px;">件</label>
+					<label style="display:block; margin-top: -25px;margin-left: 200px;">库存189件</label>
+					<input type="submit" value="立即购买"
+						style="width: 120px;height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
+					<input type="submit" value="加入购物车"
+						style="width: 120px;height: 40px;background-color: white;margin-top: 40px;margin-left: 40px;">
+
+
+				</div>
+
+			</div>
+			<!-- <div class="Pro_seemore">
+				<div
+					style="width: 45px;border-top: 1px dashed #CCFF99 ;margin-left: 30px;margin-top: 10px;"></div>
+				<label style="margin-left: 80px; margin-top: -10px;">看了又看</label>
+				<div
+					style="width: 45px;border-top: 1px dashed #CCFF99 ;margin-left: 142px;margin-top: -16px;"></div>
+				<a href="#"> <img src="resource/image/2.png"></a> <a href="#">
+					<img src="resource/image/2.png">
+				</a> <a href="#"> <img src="resource/image/2.png"></a>
+
+			</div>  -->
+			<div style="clear: both;"></div>
 
 							<div class="tabs clearfix">
 								<div class="tabbable">
@@ -572,7 +744,7 @@
 																	<div class="item-bottom clearfix">
 																		<a rel="nofollow" href="#"
 																			class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																			title="Add to Cart">Add to cart</a> <a
+																			title="Add to Cart">添加至购物车</a> <a
 																			href="javascript:void(0)" class="compare button"
 																			rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -581,7 +753,7 @@
 																			<div class="yith-wcwl-add-button show"
 																				style="display:block">
 																				<a href="wishlist.html" rel="nofollow"
-																					class="add_to_wishlist">Add to Wishlist</a> <img
+																					class="add_to_wishlist">添加至我的收藏</a> <img
 																					src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
 																					alt="loading" width="16" height="16"
 																					style="visibility:hidden" />
@@ -595,9 +767,7 @@
 
 																			<div class="yith-wcwl-wishlistexistsbrowse hide"
 																				style="display:none">
-																				<span class="feedback">The product is already
-																					in the wishlist!</span> <a href="#" rel="nofollow">Browse
-																					Wishlist</a>
+																				<span class="feedback">商品已经添加</span> <a href="#" rel="nofollow">查看我的收藏</a>
 																			</div>
 
 																			<div style="clear:both"></div>
@@ -1171,7 +1341,9 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
-
+<script type="text/javascript"
+	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
