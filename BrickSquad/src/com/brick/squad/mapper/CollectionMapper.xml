@@ -70,4 +70,8 @@
 		 WHERE personal_information.name REGEXP #{keyword} or article.aname REGEXP #{keyword}
 		</if>
 	</select>
+		<delete id="deleteCollectionByPerId" parameterType="String">
+		DELETE FROM
+		collection WHERE per_id=#{perId}
+	</delete>
 </mapper>

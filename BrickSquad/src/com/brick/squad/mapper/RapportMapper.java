@@ -40,5 +40,8 @@ public interface RapportMapper {
 	 * 根据老人客户ID关联查询需要字段以及老人客户所有信息
 	 */
 	public RapportExpand findRapportAndUserAndPersonalInformation(String id);
-	
+	/**
+	 * 根据老人id查询perid删除信息
+	 */
+	public void deleteByPerIdRapport(String perId);
 }

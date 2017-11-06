@@ -63,7 +63,9 @@ layui.use('form', function() {
 </head>
 
 <body>
-	<h1 style="margin-left: 120px">添加客户信息</h1>
+	<br>
+	<div style="padding-left: 120px;font-size:16;font-style: oblique;">修改用户信息</div>
+	<br>
 	<form class="layui-form" action="user/toAddJumpUser" id="form1"method="post">
 		<div class="layui-form-item">
 			<label class="layui-form-label">用户名</label>

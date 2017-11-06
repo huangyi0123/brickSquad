@@ -56,7 +56,9 @@
 </head>
 
 <body>
-	<h1 style="margin-left: 120px">修改客户信息</h1>
+	<br>
+	<div style="padding-left: 120px;font-size:16;font-style: oblique;">修改用户信息</div>
+	<br>
 	<form class="layui-form" action="user/toAddUser2" id="form1"
 		method="post">
 		<div class="layui-form-item">

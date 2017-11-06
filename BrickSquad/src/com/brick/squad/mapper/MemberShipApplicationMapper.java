@@ -25,5 +25,6 @@ public interface MemberShipApplicationMapper {
 	public List<MemberShipApplication> findAllMemberShipApplication();
 	
 	public MemberShipApplicationExpand findMemberShipApplicationAndTypeAndUserAndPersonalInformation(String id);
-
+	
+	public void deleteMemberShipApplicationByPerId(String perId);
 }
