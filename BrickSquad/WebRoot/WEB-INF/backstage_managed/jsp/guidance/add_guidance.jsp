@@ -41,12 +41,12 @@
 	//查询type中parentId为0，即疾病检查类型的集合（检查类型分类）
 		
 	$(function() {
-		
 		//日期格式回填
 		var guidanceDateId = $("#guidanceDateId").attr('val');
 		 guidanceDate = Format(new Date(guidanceDateId),
 				"yyyy-MM-dd hh:mm:ss");
 		$("#guidanceDateId").val(guidanceDate);
+		
 		/* 从conterller获取数据打印在控制台 */
 		var allPersonalInformationdata='${allPersonalInformationdata}';
 		allPersonalInformationdata=JSON.parse(allPersonalInformationdata);
@@ -70,6 +70,7 @@
 							$("#IdName").val(allPersonalInformationdata[i].name);
 							$("#perId").val(allPersonalInformationdata[i].id);
 						}
+						
 					}
 				});
 	});
@@ -80,7 +81,7 @@
   <br>
 	<div style="padding-left: 120px;font-size:16;">${msg}老人健康指导信息</div>
 	<br>
-  <form action="guidance/insertGuidance" method="post" id="form">
+  <form action="guidance/${url }" method="post" id="form">
    <div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
