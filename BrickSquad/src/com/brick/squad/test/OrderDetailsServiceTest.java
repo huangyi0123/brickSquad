@@ -46,7 +46,7 @@ public class OrderDetailsServiceTest {
 	}
 	@Test
 	public void countOrderDetails() throws Exception{
-		System.out.println(orderDetailsService.countOrderDetails());
+		//System.out.println(orderDetailsService.countOrderDetails());
 	}
 	@Test
 	public void orderDetailsPagination(){
