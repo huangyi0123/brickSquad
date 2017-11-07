@@ -39,4 +39,9 @@ public interface ArticalService {
 	public String findAllTypeAndBusiness();
 	
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
+	
+	/**
+	 * 获取商品订单数量
+	 */
+	public List<ArticleExpand> findArticleBuyNumber();
 }

@@ -81,5 +81,14 @@ public class ArticleServiceTest {
 		ArticleExpand  articleExpand=articleService.findArticleAndTypeAndBusiness("12");
 		System.out.println(articleExpand.getBname());
 	}
+	
+	@Test
+	public void findArticleBuyNubmer(){
+		List<ArticleExpand> articleExpand = articleService.findArticleBuyNumber();
+		for (ArticleExpand articleExpand2 : articleExpand) {
+			System.out.println(articleExpand2.getAname());
+		}
+		
+	}
 
 }

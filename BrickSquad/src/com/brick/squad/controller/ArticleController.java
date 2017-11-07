@@ -207,5 +207,13 @@ public class ArticleController {
 		return articleService.findAllTypeAndBusiness();
 
 	}
+	
+	@RequestMapping("/findArticleBuyNumber")
+	public String findArticleBuyNumber(HttpServletRequest request){
+		List<ArticleExpand> articleExpandList =articleService.findArticleBuyNumber();
+		request.setAttribute("articleExpandList", articleExpandList);
+		return null;
+		
+	}
 
 }

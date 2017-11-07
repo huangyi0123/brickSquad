@@ -130,5 +130,11 @@ public class ArticleServiceImpl implements ArticalService{
 		ArticleExpand articleExpand = articleMapper.findArticleAndTypeAndBusiness(id);
 		return articleExpand;
 	}
+	//获取商品订单数量
+	@Override
+	public List<ArticleExpand> findArticleBuyNumber() {
+		List<ArticleExpand> articleExpand  = articleMapper.findArticleBuyNumber();
+		return articleExpand;
+	}
 	
 }
