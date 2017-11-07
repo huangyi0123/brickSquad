@@ -81,5 +81,15 @@ public class ArticleServiceTest {
 		ArticleExpand  articleExpand=articleService.findArticleAndTypeAndBusiness("12");
 		System.out.println(articleExpand.getBname());
 	}
+	/***
+	 * 医疗器械查询商品信息测试
+	 * @throws Exception 
+	 * 
+	 */
+	@Test
+	public void findArticleImgAndName() throws Exception{
+		List<Article> listArticle=articleService.findArticleImgAndName("laorenjianfuyongpin");
+		System.out.println("========"+listArticle);
+	}
 
 }

@@ -32,5 +32,9 @@ public interface ArticleMapper {
 	public String findAllTypeAndBusiness();
 	
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
+	/***
+	 * 医疗器械查询商品信息
+	 */
+	public List<Article> findArticleImgAndName(String typeId);
 }
 
