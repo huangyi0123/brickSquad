@@ -30,21 +30,13 @@
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-
-<!-- <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
-</script>	 -->
-
-
 <script type="text/javascript">
 	$(function() {
 		layui.use('form', function() {
 			var form = layui.form();
 		});
 		
-	var url="${url}"
+	var url="${url}";
 		if(url=='addActivities'){}
 		else{
 		var da = $("#startId").attr('val');
@@ -123,17 +115,13 @@
 					value="${articleExpand.tname }" readonly="readonly">
 			</div>
 		</div>
-		
-		
-			
-			
-			
-			<div class="layui-form-item">
+	<div class="layui-form-item">
 			<label class="layui-form-label">商品图片</label>
 			<div class="layui-input-inline">
-				<input type="text" name="image" required lay-verify="required"
-					placeholder="商品图片" autocomplete="off" class="layui-input">
+				<input type="text" id="imgId"  value="${articleExpand.image }"
+					placeholder="商品图片" autocomplete="off" class="layui-input" readonly="readonly">
 			</div>
+			<div id="showImg"></div>
 		</div>
 		
 		<div class="layui-form-item">
@@ -142,8 +130,6 @@
 					onclick="javascript:history.back(-1);">返回</button>
 			</div>
 		</div>
-		
-		
 		
 </body>
 </html>
