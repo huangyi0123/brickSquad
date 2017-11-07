@@ -192,7 +192,7 @@
 									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c7.jpg"
 										alt="Accessories" width="300" height="300">
 										<h3>
-											Accessories
+											老人专属
 											<mark class="count">(1)</mark>
 										</h3>
 								</a>
@@ -302,9 +302,8 @@
 								<div class="view-mode-wrap pull-left clearfix">
 									<div class="view-mode">
 										<a href="javascript:void(0)" class="grid-view active"
-											title="Grid view"><span>Grid view</span></a> <a
-											href="javascript:void(0)" class="list-view" title="List view"><span>List
-												view</span></a>
+											title="模块视图"><span>模块视图</span></a> <a
+											href="javascript:void(0)" class="list-view" title="列表视图"><span>列表视图</span></a>
 									</div>
 								</div>
 
@@ -312,13 +311,13 @@
 									<div class="orderby-order-container clearfix">
 										<ul class="orderby order-dropdown pull-left">
 											<li><span class="current-li"><span
-													class="current-li-content"><a>Sort by Default</a></span></span>
+													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
-													<li class="current"><a href="#">Sort by Default</a></li>
-													<li class=""><a href="#">Sort by Popularity</a></li>
-													<li class=""><a href="#">Sort by Rating</a></li>
-													<li class=""><a href="#">Sort by Date</a></li>
-													<li class=""><a href="#">Sort by Price</a></li>
+													<li class="current"><a href="#">默认排序</a></li>
+													<li class=""><a href="#">人气排序</a></li>
+													<li class=""><a href="#">分类级别排序</a></li>
+													<li class=""><a href="#">日期排序</a></li>
+													<li class=""><a href="#">价格排序</a></li>
 												</ul></li>
 										</ul>
 
@@ -328,7 +327,7 @@
 										</ul>
 
 										<div class="product-number pull-left clearfix">
-											<span class="show-product pull-left">Show </span>
+											<span class="show-product pull-left">显示 </span>
 											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
 													<ul>
@@ -342,7 +341,7 @@
 								</div>
 
 								<nav class="woocommerce-pagination pull-right"> <span
-									class="note">Page:</span>
+									class="note">页数:</span>
 								<ul class="page-numbers">
 									<li><span class="page-numbers current">1</span></li>
 									<li><a class="page-numbers" href="#">2</a></li>
@@ -372,11 +371,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -443,11 +442,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -505,11 +504,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -570,11 +569,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -632,11 +631,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -697,11 +696,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -759,11 +758,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -826,11 +825,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -888,11 +887,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -955,11 +954,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1018,11 +1017,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1067,8 +1066,9 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="Group Product">Group
-														Product</a>
+													<a href="simple_product.html" title="Group Product">老年人Group
+														
+														</a>
 												</h4>
 
 												<span class="item-price"><span
@@ -1085,11 +1085,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1148,11 +1148,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1197,8 +1197,9 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="iMac Retina 4K">iMac
-														Retina 4K</a>
+													<a href="simple_product.html" title="iMac Retina 4K">老年iMac
+														Retina
+														</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -1217,11 +1218,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1280,11 +1281,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1329,8 +1330,8 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="iPad Mini 2 Retina">iPad
-														Mini 2 Retina</a>
+													<a href="simple_product.html" title="iPad Mini 2 Retina">老年专属iPad
+														Mini 2</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -1349,11 +1350,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1411,11 +1412,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1460,7 +1461,7 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="iphone 6 plus">Iphone
+													<a href="simple_product.html" title="iphone 6 plus">老年人Iphone
 														6 plus</a>
 												</h4>
 
@@ -1476,11 +1477,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1539,11 +1540,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1588,8 +1589,7 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="ipsum esse nisi">Ipsum
-														esse nisi</a>
+													<a href="simple_product.html" title="ipsum esse nisi">老人iPhone</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -1608,11 +1608,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1670,11 +1670,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1719,8 +1719,7 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="ipsum fugiat">Ipsum
-														fugiat</a>
+													<a href="simple_product.html" title="ipsum fugiat">老人用品</a>
 												</h4>
 
 												<span class="item-price"><span
@@ -1735,11 +1734,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1797,11 +1796,11 @@
 													</div>
 												</a>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1846,8 +1845,8 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="macbook air">Macbook
-														air</a>
+													<a href="simple_product.html" title="macbook air">老人Macbook
+														</a>
 												</h4>
 
 												<span class="item-price"><span
@@ -1862,11 +1861,11 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- add to cart, wishlist, compare -->
+												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="Add to Cart">Add to cart</a> <a
+														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
 														rel="nofollow" title="Add to Compare">Compare</a>
 
@@ -1915,9 +1914,8 @@
 								<div class="view-mode-wrap pull-left clearfix">
 									<div class="view-mode">
 										<a href="javascript:void(0)" class="grid-view active"
-											title="Grid view"><span>Grid view</span></a> <a
-											href="javascript:void(0)" class="list-view" title="List view"><span>List
-												view</span></a>
+											title="模块视图"><span>模块视图</span></a> <a
+											href="javascript:void(0)" class="list-view" title="列表视图"><span>列表视图</span></a>
 									</div>
 								</div>
 
@@ -1925,13 +1923,13 @@
 									<div class="orderby-order-container clearfix">
 										<ul class="orderby order-dropdown pull-left">
 											<li><span class="current-li"><span
-													class="current-li-content"><a>Sort by Default</a></span></span>
+													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
-													<li class="current"><a href="#">Sort by Default</a></li>
-													<li class=""><a href="#">Sort by Popularity</a></li>
-													<li class=""><a href="#">Sort by Rating</a></li>
-													<li class=""><a href="#">Sort by Date</a></li>
-													<li class=""><a href="#">Sort by Price</a></li>
+													<li class="current"><a href="#">默认排序</a></li>
+													<li class=""><a href="#">人气排序</a></li>
+													<li class=""><a href="#">分类级别排序</a></li>
+													<li class=""><a href="#">日期排序</a></li>
+													<li class=""><a href="#">价格排序</a></li>
 												</ul></li>
 										</ul>
 
@@ -1941,7 +1939,7 @@
 										</ul>
 
 										<div class="product-number pull-left clearfix">
-											<span class="show-product pull-left">Show </span>
+											<span class="show-product pull-left">显示 </span>
 											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
 													<ul>
@@ -1955,7 +1953,7 @@
 								</div>
 
 								<nav class="woocommerce-pagination pull-right"> <span
-									class="note">Page:</span>
+									class="note">页数:</span>
 								<ul class="page-numbers">
 									<li><span class="page-numbers current">1</span></li>
 									<li><a class="page-numbers" href="#">2</a></li>
@@ -1975,77 +1973,33 @@
 				<div class="widget-inner">
 					<div class="block-title-widget">
 						<h2>
-							<span>Categories</span>
+							<span>类别</span>
 						</h2>
 					</div>
 
 					<ul class="product-categories">
-						<li class="cat-item"><a href="shop.html">Accessories</a> <span
-							class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Accessories</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Accessories for
-								Tablet</a> <span class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Air Conditional</a>
-							<span class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Appliances</a> <span
-							class="count">(6)</span></li>
-						<li class="cat-item"><a href="shop.html">Batteries &amp;
-								Chargers</a> <span class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Blender</a> <span
-							class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Cameras &amp;
-								Accessories</a> <span class="count">(3)</span></li>
-						<li class="cat-item"><a href="shop.html">Cameras &amp;
-								Camcorders</a> <span class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Computers &amp;
-								Laptops</a> <span class="count">(6)</span></li>
-						<li class="cat-item"><a href="shop.html">Computers &amp;
-								Networking</a> <span class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Electronic
-								Component</a> <span class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Electronics</a> <span
-							class="count">(8)</span></li>
-						<li class="cat-item"><a href="shop.html">Headphone</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Home Appliances</a>
-							<span class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Home Furniture</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Household Goods</a>
-							<span class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Laptop Asus</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Laptop Dell</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Laptop HP</a> <span
-							class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Laptop MSI</a> <span
-							class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Laptops &amp;
-								Accessories</a> <span class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Macbook</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Microwave</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Mixer</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Mp3 Player
-								Accessories</a> <span class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Paper Towel</a> <span
-							class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Smartphones
-								&amp; Tablet</a> <span class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Sponge</a> <span
-							class="count">(0)</span></li>
-						<li class="cat-item"><a href="shop.html">Television</a> <span
-							class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Television</a> <span
-							class="count">(1)</span></li>
-						<li class="cat-item"><a href="shop.html">Televisions</a> <span
-							class="count">(2)</span></li>
-						<li class="cat-item"><a href="shop.html">Vacuum Cleaner</a> <span
-							class="count">(2)</span></li>
+						<li class="cat-item"><a href="shop.html">老年健复用品</a> <span
+							class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人养生保健用品</a> <span
+							class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人护理用品
+								</a> <span class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人代步用品</a>
+							<span class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">养老机构用品</a> <span
+							class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人视听辅助用品
+								</a> <span class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人日常生活用品</a> <span
+							class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人娱乐用品
+								</a> <span class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人旅游装备用品
+								</a> <span class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老年人健康自测仪器
+						</a> <span class="count">></span></li>
+						<li class="cat-item"><a href="shop.html">老人煎药器
+						</a> <span class="count">></span></li>
 					</ul>
 				</div>
 			</div>
@@ -2055,20 +2009,22 @@
 				<div class="widget-inner">
 					<div class="block-title-widget">
 						<h2>
-							<span>Colors</span>
+							<span>
+							颜色
+							</span>
 						</h2>
 					</div>
 
 					<ul>
-						<li class="wc-layered-nav-term "><a href="shop.html">Black</a>
+						<li class="wc-layered-nav-term "><a href="shop.html">黑色</a>
 							<span class="count">(3)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">Blue</a>
+						<li class="wc-layered-nav-term "><a href="shop.html">绿色</a>
 							<span class="count">(2)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">Orange</a>
+						<li class="wc-layered-nav-term "><a href="shop.html">橙色</a>
 							<span class="count">(1)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">White</a>
+						<li class="wc-layered-nav-term "><a href="shop.html">白色</a>
 							<span class="count">(3)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">Yellow</a>
+						<li class="wc-layered-nav-term "><a href="shop.html">黄色</a>
 							<span class="count">(1)</span></li>
 					</ul>
 				</div>
@@ -2079,7 +2035,7 @@
 				<div class="widget-inner">
 					<div class="block-title-widget">
 						<h2>
-							<span>Size</span>
+							<span>尺寸大小</span>
 						</h2>
 					</div>
 
@@ -2103,7 +2059,7 @@
 				<div class="widget-inner">
 					<div class="block-title-widget">
 						<h2>
-							<span>price</span>
+							<span>价格</span>
 						</h2>
 					</div>
 
@@ -2116,7 +2072,7 @@
 								<input type="text" id="max_price" name="max_price" value=""
 									data-max="700" placeholder="Max price">
 
-								<button type="submit" class="button">Filter</button>
+								<button type="submit" class="button">确定</button>
 
 								<div class="price_label" style="display:none;">
 									Price: <span class="from"></span> � <span class="to"></span>
@@ -2133,7 +2089,7 @@
 				<div class="widget-inner">
 					<div class="block-title-widget">
 						<h2>
-							<span>Best Sellers</span>
+							<span>热销商品</span>
 						</h2>
 					</div>
 
