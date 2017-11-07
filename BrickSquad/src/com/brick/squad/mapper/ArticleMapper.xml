@@ -14,7 +14,7 @@
 		</selectKey>
 		insert into
 		article(id,aname,type_id,business_id,price,stock,describes,image)
-		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{image})
+		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id})
 	</insert>
 
 	<delete id="deleteArticleById" parameterType="String">
@@ -83,11 +83,14 @@
 	
 	<select id="findArticleAndTypeAndBusiness" parameterType="java.lang.String" resultType="com.brick.squad.expand.ArticleExpand">
 	SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
-		bname,a.describes
+		bname,a.describes,a.image
 		FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
 		ON a.business_id = b.id
 		WHERE a.id = #{id,jdbcType=VARCHAR}
 	
 	</select>
-
+	<!-- 医疗器械查询 -->
+	<select id="findArticleImgAndName" resultType="article">
+	
+	</select>
 </mapper>

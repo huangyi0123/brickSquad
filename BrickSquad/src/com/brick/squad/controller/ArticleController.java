@@ -1,7 +1,9 @@
 package com.brick.squad.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -76,11 +78,11 @@ public class ArticleController {
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/article/add_article";
 		}
-
-		if (files != null) {
-			// 把当前商品的所有图片存到一个文件夹下，文件夹命名为当前时间+三位随机数
-			Random random = new Random();
-			String newPath = (new Date()).getTime() + "" + random.nextInt(999);
+		if(!(files[0].isEmpty())) {
+			//先插入数据，得到UUID作为图片路径文件夹
+			articleService.insertArticleById(article);
+			// 把当前商品的所有图片存到一个文件夹下，文件夹命名为商品id
+			String newPath = article.getId();
 			// 获取图片要保存的到的服务器路径
 			String realPath = "resource/image/articleImg/" + newPath + "/";
 			String path = request.getSession().getServletContext()
@@ -103,23 +105,83 @@ public class ArticleController {
 					file.mkdirs();
 				}
 				multipartFile.transferTo(file);
-				article.setImage(realPath);
+				
 			}
+		}else {
+			List<ObjectError> errors = new ArrayList<>();
+			ObjectError oError =new ObjectError("nullImg", "请选择图片");
+			errors.add(oError);
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addArticle");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/article/add_article";
 		}
-		articleService.insertArticleById(article);
+		
 		return "backstage_managed/jsp/article/article_list";
 	}
 
 	@RequestMapping("/deleteArticleById")
 	@ResponseBody
-	public String deleteArticleById(String id) throws Exception {
-		articleService.deleteArticleById(id);
+	public String deleteArticleById(String id,HttpServletRequest request) throws Exception {
+		articleService.deleteArticleById(id,request);
 		return "success";
 	}
 
 	@RequestMapping("/updateArticleById")
-	public String updateArticleById(Article article) throws Exception {
-
+	public String updateArticleById(@Validated Article article, BindingResult result,@RequestParam MultipartFile[] files,HttpServletRequest request) throws Exception {
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateArticleById");
+			 article = articleService.findArticleById(article.getId());
+			request.setAttribute("article", article);
+			return "backstage_managed/jsp/article/add_article";
+		}
+		if (!(files[0].isEmpty())) {
+			// 把当前商品的所有图片存到一个文件夹下，文件夹命名为商品id
+			String newPath = article.getId();
+			// 获取图片要保存的到的服务器路径
+			String realPath = "resource/image/articleImg/" + newPath + "/";
+			String path = request.getSession().getServletContext()
+					.getRealPath(realPath);
+			
+			File f = new File(path);
+			if (f.exists()) {
+				
+				   String[] tempList = f.list(); 
+				   for (int i = 0; i < tempList.length; i++) {
+					   	File file =new File(path+"/"+tempList[i]);
+					   	if (file.isFile()) {
+							file.delete();
+						}
+				}
+				
+			}
+			// 初始化文件名的序号
+			int i = 1;
+				for (MultipartFile multipartFile : files) {
+				// 获取当前文件名
+				String filName = multipartFile.getOriginalFilename();
+				// 获取当前文件的后缀名
+				String fileSuffixName = filName.substring(filName
+						.lastIndexOf("."));
+				// 给文件重新命名,序号+文件后缀名
+				String fileNewName = i + fileSuffixName;
+				// 序号累加
+				i++;
+				
+				//  创建文件类型对象: 
+				File file = new File(path, fileNewName);
+				
+				if (!file.exists()) {
+					file.mkdirs();
+				}
+				multipartFile.transferTo(file);
+				
+			}
+		}
+		article.setImage(article.getId());
 		articleService.updateArticleById(article);
 		return "backstage_managed/jsp/article/article_list";
 	}

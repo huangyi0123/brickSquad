@@ -72,4 +72,11 @@
 		resultType="com.brick.squad.util.Select">
 		select id,name from type where parent_id=#{perantId}
 	</select>
+	<!-- 医疗器械一级分类查询 -->
+	<select id="findIdAndTypeNmae" parameterType="java.lang.String"
+		resultType="Type">
+		SELECT type.id,type.`name`
+		FROM type
+		WHERE type.parent_id=#{parentId}
+	</select>
 </mapper>
