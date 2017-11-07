@@ -89,5 +89,8 @@
 		WHERE a.id = #{id,jdbcType=VARCHAR}
 	
 	</select>
-
+	<!-- 医疗器械查询 -->
+	<select id="findArticleImgAndName" resultType="article">
+	
+	</select>
 </mapper>
