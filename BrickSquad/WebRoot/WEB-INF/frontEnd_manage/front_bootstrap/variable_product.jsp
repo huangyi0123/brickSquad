@@ -732,26 +732,26 @@
 															</h3>
 															<form class="layui-form" action="">
 															<div class="layui-form-item layui-form-text">
-																<label class="layui-form-label">评价商品</label>
-																<div class="layui-input-block" style="width: 420px;height: 300px;">
-																	<textarea placeholder="请输入内容" class="layui-textarea"class="layui-textarea" style="margin: 0;padding: 0;min-height: 10px; height: 150px;"></textarea>
+																<label class="layui-form-label" style="display:block;">评价商品</label>
+																<div class="layui-input-block" style=" width: 420px;height: 300px;">
+																	<textarea placeholder="请输入内容" class="layui-textarea"class="layui-textarea" style="display:block; padding: 0;min-height: 10px; height: 150px;margin-left: 50px;margin-top: -50px;"></textarea>
 																</div>
-																<label class="layui-form-label" style="display:block; margin-top: -150px;">评价服务</label>
+																<!-- <label class="layui-form-label" style="display:block; margin-top: -150px;">评价服务</label>
 																<div class="layui-input-block" style="width:420px; height: 150px;margin-top: -150px;">
 																	<textarea placeholder="请输入内容" class="layui-textarea" style="margin: 0;padding: 0;min-height: 10px; height: 80px;"></textarea>
 																</div>
 																<label class="layui-form-label"style="display:block; margin-top: -70px;">晒图片</label>
 																<div class="layui-input-block" style="width: 420px;height: 100px;margin-top: -70px;">
 																	<textarea placeholder="请输入内容" class="layui-textarea" style="margin: 0;padding: 0;min-height: 10px; height: 60px;"></textarea>
-															</div>
+															</div> -->
 															</div>
 															</form>
 															<form action="" method="post" id="commentform"
 																class="comment-form" style="margin-left: 600px;margin-top: -300px;">
 																<p class="comment-form-rating">
-																	<label for="rating">描述相符</label> <select
-																		name="rating" id="rating"  style="font-size: 10em;">
-																		<option value="" style="font-size: 10em;">Rate ...</option>
+																	<label for="rating" style="font-size: 16px;margin-left: 100px;">描述相符</label> <select
+																		name="rating" id="rating"  style="margin-left: 100px;margin-top: -50px;">
+																		<option value="">Rate ...</option>
 																		<option value="5">Perfect</option>
 																		<option value="4">Good</option>
 																		<option value="3">Average</option>
@@ -768,7 +768,7 @@
 
 																<p class="form-submit">
 																	<input name="submit" type="submit" id="submit"
-																		class="submit" value="Submit">
+																		class="submit" value="Submit" style="margin-top: 300px;">
 																</p>
 															</form>
 														</div>

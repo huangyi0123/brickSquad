@@ -253,3 +253,20 @@
 	border-color: orange;
 	color: orange;
 }
+
+.single-product .tabs .tabbable .tab-content .tab-pane p{
+	font-size: 20px;
+	margin-left: 100px;
+}
+
+.woocommerce p.stars a{
+	margin-left: 10px;
+}
+.woocommerce #review_form #respond p{
+	margin-left: 30px;
+	margin-top: -28px;
+}
+
+.layui-form-label{
+	width:150px;
+}
