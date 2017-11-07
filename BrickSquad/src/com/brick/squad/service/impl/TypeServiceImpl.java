@@ -75,4 +75,13 @@ public class TypeServiceImpl implements TypeService{
 		return typeMapper.findType();
 	}
 
+	@Override
+	/***
+	 * 医疗器械一级分类查询
+	 */
+	public List<Type> findIdAndTypeNmae(String parentId) throws Exception {
+		List<Type> listType=typeMapper.findIdAndTypeNmae(parentId);
+		return listType;
+	}
+
 }

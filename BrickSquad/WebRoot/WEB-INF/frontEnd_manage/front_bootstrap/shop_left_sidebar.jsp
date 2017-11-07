@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -1978,8 +1979,13 @@
 					</div>
 
 					<ul class="product-categories">
-						<li class="cat-item"><a href="shop.html">老年健复用品</a> <span
+						
+						<c:forEach var="type" items="#{listType}">
+						<li class="cat-item"><a href="${pageContext.request.contextPath }/find?id=${type.id}">${type.name}</a> <span
 							class="count">></span></li>
+							</c:forEach>
+							
+					<!-- 		
 						<li class="cat-item"><a href="shop.html">老年人养生保健用品</a> <span
 							class="count">></span></li>
 						<li class="cat-item"><a href="shop.html">老年人护理用品
@@ -1997,9 +2003,7 @@
 						<li class="cat-item"><a href="shop.html">老年人旅游装备用品
 								</a> <span class="count">></span></li>
 						<li class="cat-item"><a href="shop.html">老年人健康自测仪器
-						</a> <span class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老人煎药器
-						</a> <span class="count">></span></li>
+						</a> <span class="count">></span></li> -->
 					</ul>
 				</div>
 			</div>

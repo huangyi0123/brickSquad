@@ -63,6 +63,9 @@ public interface TypeMapper {
 	 */
 	public List<Select> findTypeByParentId(String parentId);
 	public List<Select> findType();
-	
+	/***
+	 * 医疗器械一级分类查询
+	 */
+	public List<Type> findIdAndTypeNmae(String parentId);
 	
 }
