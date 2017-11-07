@@ -78,6 +78,7 @@ public class UserController {
 		User user = userService.checkLogin(user1);
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
+			request.getSession().setAttribute("userId", user.getId());
 			// begin 判断登录类型
 			// 如果查询出来的用户RoleId是普通用户，跳转到主页去，不能登录看到后台管理页面
 			if (type.equals("admin")

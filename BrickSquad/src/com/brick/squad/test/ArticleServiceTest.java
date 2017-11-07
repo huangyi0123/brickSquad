@@ -91,5 +91,13 @@ public class ArticleServiceTest {
 		List<Article> listArticle=articleService.findArticleImgAndName("laorenjianfuyongpin");
 		System.out.println("========"+listArticle);
 	}
+	@Test
+	public void findArticleBuyNubmer(){
+		List<ArticleExpand> articleExpand = articleService.findArticleBuyNumber();
+		for (ArticleExpand articleExpand2 : articleExpand) {
+			System.out.println(articleExpand2.getAname());
+		}
+		
+	}
 
 }

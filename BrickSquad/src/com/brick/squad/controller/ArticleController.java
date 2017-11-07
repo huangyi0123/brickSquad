@@ -57,6 +57,17 @@ public class ArticleController {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateArticleById");
 			Article article = articleService.findArticleById(id);
+			String imgpath=article.getImage();
+			imgpath="resource/image/articleImg/"+imgpath+"/";
+			imgpath=request.getSession().getServletContext()
+			.getRealPath(imgpath);
+			List<String> imgpathlList=new ArrayList<String>();
+			File file=new File(imgpath);
+			File[] files=file.listFiles();
+			for (File file2 : files) {
+				imgpathlList.add(file2.getName());
+			}
+			request.setAttribute("images", imgpathlList);
 			request.setAttribute("article", article);
 		} else {
 			request.setAttribute("url", "addArticle");
@@ -133,6 +144,17 @@ public class ArticleController {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
 			request.setAttribute("msg", "修改");
+			String imgpath=article.getImage();
+			imgpath="resource/image/articleImg/"+imgpath+"/";
+			imgpath=request.getSession().getServletContext()
+			.getRealPath(imgpath);
+			List<String> imgpathlList=new ArrayList<String>();
+			File file=new File(imgpath);
+			File[] filess=file.listFiles();
+			for (File file2 : filess) {
+				imgpathlList.add(file2.getName());
+			}
+			request.setAttribute("images", imgpathlList);
 			request.setAttribute("url", "updateArticleById");
 			 article = articleService.findArticleById(article.getId());
 			request.setAttribute("article", article);
@@ -197,6 +219,17 @@ public class ArticleController {
 		ArticleExpand articleExpand = articleService
 				.findArticleAndTypeAndBusiness(id);
 		request.setAttribute("articleExpand", articleExpand);
+		String imgpath=articleExpand.getImage();
+		imgpath="resource/image/articleImg/"+imgpath+"/";
+		imgpath=request.getSession().getServletContext()
+		.getRealPath(imgpath);
+		List<String> imgpathlList=new ArrayList<String>();
+		File file=new File(imgpath);
+		File[] filess=file.listFiles();
+		for (File file2 : filess) {
+			imgpathlList.add(file2.getName());
+		}
+		request.setAttribute("images", imgpathlList);
 		return "backstage_managed/jsp/article/search_article";
 	}
 
@@ -206,6 +239,14 @@ public class ArticleController {
 		System.out.println(articleService.findAllTypeAndBusiness());
 		return articleService.findAllTypeAndBusiness();
 
+	}
+	
+	@RequestMapping("/findArticleBuyNumber")
+	public String findArticleBuyNumber(HttpServletRequest request){
+		List<ArticleExpand> articleExpandList =articleService.findArticleBuyNumber();
+		request.setAttribute("articleExpandList", articleExpandList);
+		return null;
+		
 	}
 
 }

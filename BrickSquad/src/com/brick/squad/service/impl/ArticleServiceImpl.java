@@ -139,6 +139,12 @@ public class ArticleServiceImpl implements ArticalService{
 	public List<Article> findArticleImgAndName(String typeId) throws Exception {
 		List<Article> listArticle=articleMapper.findArticleImgAndName(typeId);
 		return listArticle;
+}
+	//获取商品订单数量
+	@Override
+	public List<ArticleExpand> findArticleBuyNumber() {
+		List<ArticleExpand> articleExpand  = articleMapper.findArticleBuyNumber();
+		return articleExpand;
 	}
 	
 }

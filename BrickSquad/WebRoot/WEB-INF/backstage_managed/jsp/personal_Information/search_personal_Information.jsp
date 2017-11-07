@@ -31,13 +31,6 @@
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
 
-<!-- <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
-</script>	 -->
-
-
 <script type="text/javascript">
 	$(function() {
 		layui.use('form', function() {
@@ -56,7 +49,7 @@
 <body>
 
 	 <br>
-	<div style="padding-left: 130px;font-size:22;">查看老人个人详细信息</div>
+	<div style="padding-left: 130px;font-size:22;">查看老人健康档案详细信息</div>
 	<br>
 	 
 		<div class="layui-form-item ">
@@ -187,8 +180,8 @@
 				 
 			</div>
 			<label class="layui-form-label">退休日期 </label>
-			<div class="layui-input-inline">
-			<input type="text" value="${personalInformation.retirementDate   }" lay-verify="required" autocomplete="off" class="layui-input"
+			<div class="layui-input-inline" >
+			<input type="text" value="${retirementDate}" lay-verify="required" autocomplete="off" class="layui-input"
 				readonly="readonly" style="border: none;background: #F3F3F4;">
 				 
 			</div>
@@ -196,7 +189,7 @@
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">地址</label>
-			<div class="layui-input-inline">
+			<div class="layui-input-inline" style="width: 500px">
 				<input type="text" value="${address}"  lay-verify="required" autocomplete="off" class="layui-input"
 				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>

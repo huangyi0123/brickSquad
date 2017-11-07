@@ -244,8 +244,8 @@ public class PersonalInformationController {
 		PersonalInformation personalInformation = personalInformationService.findThereAllById(id);
 		request.setAttribute("personalInformation", personalInformation);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
+		request.setAttribute("retirementDate",df.format(personalInformation.getRetirementDate()).toString());
 		request.setAttribute("birthday",df.format(personalInformation.getBirthday()).toString());
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+personalInformation);
 		String address = addressService.findByIdAllAddress(personalInformation.getAddressId());
 		request.setAttribute("address", address);
 		return "backstage_managed/jsp/personal_Information/search_personal_Information";

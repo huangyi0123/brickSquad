@@ -35,6 +35,7 @@ import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
 
 @Controller
@@ -68,10 +69,10 @@ public class CommonController {
 
 	@RequestMapping("/uploadImg")
 	@ResponseBody
-	public String uploadImg(MultipartFile file, HttpServletRequest request) {
+	public String uploadImg(MultipartFile file, HttpServletRequest request,String imgPath) {
 		UpLoadFile upLoadFile = new UpLoadFile();
 		List<String> list = new ArrayList<String>();
-		String realPath = "resource/image/news/";
+		String realPath = "resource/image/"+imgPath+"/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name = file.getOriginalFilename();
@@ -220,6 +221,7 @@ public class CommonController {
 
 	@RequestMapping("/toShop")
 	public String toShop() {
+		
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
