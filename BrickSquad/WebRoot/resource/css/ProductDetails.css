@@ -256,17 +256,21 @@
 
 .single-product .tabs .tabbable .tab-content .tab-pane p{
 	font-size: 20px;
-	margin-left: 100px;
+	margin-left: 150px;
 }
 
 .woocommerce p.stars a{
 	margin-left: 10px;
 }
-.woocommerce #review_form #respond p{
-	margin-left: 30px;
-	margin-top: -28px;
-}
+
 
 .layui-form-label{
 	width:150px;
+}
+.comment-form-rating1>p{
+	display:inline-block;
+}
+.woocommerce #review_form #respond p{
+	display: block;
+	margin-left: 80px;
 }

@@ -31,12 +31,13 @@ function init(keyword) {
 							template : function(noteData, rowData) {
 								return '<span class="optron"><a href="orderDetails/findOrdersDetailsById?id='
 
-										+ rowData.id
-										+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a></span>';
+
+							+ rowData.id
+							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;';
 							}
 						} ]
-			});
-}
+					});
+				}
 function RefreshGridManagerList(keyword) {
 	$(".table-div").remove();
 	$(".page-toolbar").remove();

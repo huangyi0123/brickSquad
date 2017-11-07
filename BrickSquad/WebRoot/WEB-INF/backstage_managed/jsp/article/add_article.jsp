@@ -6,6 +6,7 @@
 			+ path + "/";
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -30,6 +31,8 @@
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 	<script type="text/javascript" src="resource/js/common.js"></script>
 		<script type="text/javascript" src="resource/js/add_article.js"></script>
+		<script type="text/javascript"
+	src="resource/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
 $(function() {
 	$.ajax({
@@ -45,7 +48,50 @@ $(function() {
 			});
 		}
 	});
-	
+	//添加wangedit
+	var E = window.wangEditor;
+	var editor = new E('#editor');
+	editor.customConfig.showLinkImg = false;
+	editor.customConfig.menus = [ 'bold', 'italic', 'underline',
+			'strikeThrough', // 删除线
+			'foreColor', // 文字颜色
+			'backColor', // 背景颜色
+			'link', // 插入链接
+			'justify', // 对齐方式
+			'quote', // 引用
+			'image', // 插入图片
+			'table', // 表格
+			'code', // 插入代码
+			'undo', // 撤销
+			'redo' // 重复
+	];
+	editor.customConfig.uploadImgParamsWithUrl = true;
+	editor.customConfig.uploadImgServer = 'common/uploadImg?imgPath=article';
+	editor.customConfig.uploadFileName = 'file';
+	editor.customConfig.uploadImgHeaders = {
+
+		'Accept' : 'multipart/form-data'
+
+	};
+	editor.create();
+	var url = '${url}';
+	var con=$("#con").html();
+	if (url != "insertNews") {
+		editor.txt.html(con);
+	}
+
+	$("#reset").click(function() {
+		if (url != "addArticle") {
+			editor.txt.html(con);
+		}else {
+			editor.txt.html("");
+		}
+		
+	});
+	$("#form1").submit(function() {
+		var data = editor.txt.html();
+		$("#con1").val(data);
+	});
 });
 $(function() {
 		var data="";
@@ -110,19 +156,6 @@ $(function() {
 			</div>
 		</div>
 		
-		<div class="layui-form-item">
-			<label class="layui-form-label">商品描述</label>
-			<div class="layui-input-inline">
-				<input type="text" name="describes" required lay-verify="required"
-					placeholder="商品描述" autocomplete="off" class="layui-input"
-					value="${article.describes}">
-			</div>
-		</div>
-		
-		
-	
-		
-		
 			<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
@@ -143,9 +176,17 @@ $(function() {
 						style="position:absolute;z-index:1;left:0px;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;"
 					>
 			</div>
-			<div id="showImg"></div>
+			<div id="showImg">
+			<c:forEach var="a" items="${images }">
+			<img style="width: 80px" alt="" src="resource/image/articleImg/${ article.image}/${a}">
+			</c:forEach>
+			</div>
 		</div>
-		
+			<div class="layui-form-item">
+			<label class="layui-form-label">商品描述</label>
+			<input type="hidden" name="describes" id="con1">
+			<div class="layui-input-block" id="editor"></div>
+		</div>
 		
 			<div class="layui-form-item">
     <div class="layui-input-block">

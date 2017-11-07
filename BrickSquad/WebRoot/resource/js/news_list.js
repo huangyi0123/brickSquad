@@ -9,7 +9,7 @@ function init(keyword) {
         columnData: [
             {
                 key: 'username',
-                text: '信息发布人员'
+                text: '作者'
             },
             {
                 key: 'title',
@@ -32,7 +32,7 @@ function init(keyword) {
 							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a> &nbsp;|&nbsp; <a href="news/findNews?id='
 					+ rowData.id
 					+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
-		}  
+                }  
             }
         ]
     });
