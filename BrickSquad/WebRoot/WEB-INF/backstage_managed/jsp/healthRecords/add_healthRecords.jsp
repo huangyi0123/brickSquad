@@ -107,6 +107,18 @@
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
+	<%-- 	
+		<div class="layui-form-item">
+			<label class="layui-form-label">沟通人姓名</label>
+			<div class="layui-input-inline">
+				<select name="userId" id="userId" val="${rapport.perId}"
+					lay-search="">
+					<option value="">直接选择或搜索选择</option>
+				</select>
+			</div>
+		</div> --%>
+		
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">疾病类型：</label>
 			<div class="layui-input-inline">
