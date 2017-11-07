@@ -77,7 +77,8 @@
 				'undo', // 撤销
 				'redo' // 重复
 		];
-		editor.customConfig.uploadImgServer = 'common/uploadImg';
+		editor.customConfig.uploadImgParamsWithUrl = true;
+		editor.customConfig.uploadImgServer = 'common/uploadImg?imgPath=news';
 		editor.customConfig.uploadFileName = 'file';
 		editor.customConfig.uploadImgHeaders = {
 

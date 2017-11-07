@@ -18,8 +18,6 @@ $(function() {
 				if ((file = this.files[int])) {
 					img1 = new Image();				
 					img1.onload = function() {
-						console.log("515");
-						console.log(this.src);
 						$("#showImg").append('<img style="width:80px;" src="'+this.src+'">');
 					};
 					img1.src = _URL.createObjectURL(file);

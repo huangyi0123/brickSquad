@@ -31,10 +31,6 @@ function init(keyword) {
 						{
 							key : 'bname',
 							text : '店铺名'
-						},
-						{
-							key : 'describes',
-							text : '描述内容'
 						},					
 						{
 							key : "operation",
