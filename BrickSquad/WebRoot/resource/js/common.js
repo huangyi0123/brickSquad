@@ -110,7 +110,26 @@ function findAll(data, id) {
 				}
 			});
 }
-
+/**
+ * 查询老人id idcard 
+ */
+function findAllIdCard(data, id) {
+	var pid = $(id).attr('val');
+	
+	$(data).each( 
+			function() {
+				if (pid == this.id) {
+					$(id).append(
+							'<option value="' + this.id
+									+ '" selected="selected">' + this.idCard
+									+ '</option>');
+				} else {
+					$(id).append(
+							'<option value="' + this.id + '">' + this.idCard
+									+ '</option>');
+				}
+			});
+}
 function vlidata(){
 	$(function() {
 		var data="";

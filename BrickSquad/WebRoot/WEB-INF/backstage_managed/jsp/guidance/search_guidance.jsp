@@ -54,7 +54,7 @@
 				<input type="text" name="guidanceDate" id="rda" required lay-verify="required"
 					autocomplete="off" class="layui-input" placeholder="yyyy-MM-dd hh:mm:ss"
 					val="${guidance.guidanceDate}" readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+					>
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -63,7 +63,7 @@
 				<input type="text" name="disease" value="${guidance.disease}" required lay-verify="required"
 					autocomplete="off" class="layui-input"
 					readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+					>
 			</div>
 		</div>
 		
@@ -73,7 +73,7 @@
 				<input type="text" name="assessment" required lay-verify="required"
 					autocomplete="off" class="layui-input"
 					value="${guidance.assessment}" readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+					>
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -82,7 +82,7 @@
 				<input type="text" name="suggest" required lay-verify="required"
 					 autocomplete="off" class="layui-input"
 				 value="${guidance.suggest}"
-					readonly="readonly" style="border: none;background: #F3F3F4;">
+					readonly="readonly" >
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -91,7 +91,7 @@
 				<input type="text" name="perIdCard" required lay-verify="required"
 					autocomplete="off" class="layui-input"
 					value="${guidance.perIdCard}" readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+					>
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -100,7 +100,7 @@
 				<input type="text" name="perIdName" required lay-verify="required"
 					autocomplete="off" class="layui-input"
 					value="${guidance.perIdName}" readonly="readonly"
-					style="border: none;background: #F3F3F4;">
+					>
 			</div>
 		</div>
 		<input type="hidden" name="guidance.id" value="${guidance.id}">

@@ -41,7 +41,6 @@ public class CommonController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
-
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		// begin 通过权限id查询权限

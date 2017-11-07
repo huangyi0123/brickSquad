@@ -5,13 +5,28 @@ import java.util.Date;
 public class HealthRecords {
 	private String id;
 	private String perId;
-	//查看详情页的性别
+	private String pid;
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	//为了方便就不写拓展类了，查看详情页的性别,身份证号
 	private String pgender;
 	public String getPgender() {
 		return pgender;
 	}
 	public void setPgender(String pgender) {
 		this.pgender = pgender;
+	}
+	private String idCard;
+	
+	public String getIdCard() {
+		return idCard;
+	}
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 	private Date registrDate;
 	private String userId;

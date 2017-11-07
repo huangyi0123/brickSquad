@@ -80,47 +80,50 @@
 	<div style="padding-left: 140px;font-size:16;">${msg}老人健康档案信息</div>
 	<br>
 	<form class="layui-form" style="margin-right: 30px"
-		action="healthRecords/insertHealthRecords" id="form1" method="post">
+		action="healthRecords/${url}" id="form1" method="post">
 			<div class="layui-form-item">
-			<label class="layui-form-label">身份证号</label>
-
+			<label class="layui-form-label">身份证号：</label>
+			<input type="hidden" name="id" value="${healthRecords.id}"> 
 			<div class="layui-input-inline">
-				<input type="text" id="perIdCardId" required lay-verify="required"
+				<input type="text" id="perIdCardId" required lay-verify="required"  value="${healthRecords.idCard}"
 					placeholder="身份证号" autocomplete="off" class="layui-input">
-				 <input type="hidden" name="perId" value="${healthRecords.perId}"
+				
+			</div>
+			<label class="layui-form-label">老人姓名：</label>
+			<div class="layui-input-inline">
+				<input type="text" id="IdName"  required lay-verify="required" value="${healthRecords.perId}"
+					placeholder="老人姓名" autocomplete="off" class="layui-input">
+			</div>
+			<input type="hidden" name="perId" value="${healthRecords.pid}"
 					id="perId" required lay-verify="required" placeholder="ID存入"
 					autocomplete="off" class="layui-input"> 
-			</div>
-			<label class="layui-form-label">姓名</label>
-
-			<div class="layui-input-inline">
-				<input type="text" id="IdName" required lay-verify="required"
-					placeholder="姓名" autocomplete="off" class="layui-input">
-			</div>
 		</div>
 			
 		<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">记录人员ID：</label>
+			<label class="layui-form-label" style="width: 100px;">记录人员：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="userId" value="${user.username }"
-					readonly	required lay-verify="required" placeholder="记录人员ID"
+			<input type="hidden" name="userId" value="${healthRecords.userId}"> 
+				<input type="text"  value="${user.username }"
+					required lay-verify="required" placeholder="记录人员ID"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
 			<label class="layui-form-label" style="width: 100px;">疾病类型：</label>
 			<div class="layui-input-inline">
-				<select name="diseaseId" id="JB" lay-search=""
+				<select name="diseaseId" id="JB" lay-search="" val="${healthRecords.diseaseId}"
 					lay-filter="JB1">
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
 		</div>
+		
 		<div class="layui-form-item">
-			<label class="layui-form-label" style="width: 100px;">症状：</label>
+			<label class="layui-form-label" style="width: 100px;">身体情况：</label>
 			<div class="layui-input-inline">
 				<input type="text" name="shape" required lay-verify="required"
-					value="${healthRecords.shape }" placeholder="症状" autocomplete="off"
+					value="${healthRecords.shape }" placeholder="身体情况" autocomplete="off"
 					class="layui-input">
 			</div>
 		</div>

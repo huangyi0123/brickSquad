@@ -27,6 +27,7 @@ public class OrderDetailsController {
 		Pagination pagination=new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		pagination.setKeyword(keyword);
 		return orderDetailsService.orderDetailsPagination(pagination);
 	}
 	@RequestMapping("/toAddOrdersDetails")
@@ -55,7 +56,7 @@ public class OrderDetailsController {
 	}
 	@RequestMapping("/findOrdersDetailsById")
 	public String findOrdersDetailsById(HttpServletRequest request,String id) throws Exception{
-		OrderDetails orderDetails=orderDetailsService.findOrderDetailsById(id);
+		OrderDetails orderDetails=orderDetailsService.findOrderDetailsByIdName(id);
 		request.setAttribute("orderDetails", orderDetails);
 		return "backstage_managed/jsp/orderdetails/search_orderdetails";
 	}

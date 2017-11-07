@@ -26,8 +26,6 @@
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/grid_manager/GridManager.min.js"></script>
-<script type="text/javascript"
-	src="resource/js/type_list.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/layui/css/layui.css">
 <link rel="stylesheet" type="text/css"
@@ -38,12 +36,20 @@
 	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/layui.js"></script>
+	<script type="text/javascript"
+	src="resource/js/type_list.js"></script>
 <script type="text/javascript">
 	$(function() {
 		init("",!${limiterole.type.ad},!${limiterole.type.dl},false);
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
+	function RefreshGridManagerList(keyword) {
+		$(".table-div").remove();
+		$(".page-toolbar").remove();
+		$(".cls").append('<table grid-manager="demo-ajaxPageCode"></table>');
+		init(keyword,!${limiterole.type.ad},!${limiterole.type.dl},false);
+	}
 </script>
 <style type="text/css">
 .search {
@@ -65,7 +71,7 @@ text-align: center;
 <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" id="keyword" placeholder="Search for...">
+			<input type="text" class="form-control" id="keyword" placeholder="根据类型名搜索">
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下

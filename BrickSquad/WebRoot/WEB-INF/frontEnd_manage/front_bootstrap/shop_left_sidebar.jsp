@@ -124,12 +124,12 @@
 								class="responsive-slider sw-brand-container-slider clearfix"
 								data-lg="5" data-md="4" data-sm="3" data-xs="2" data-mobile="1"
 								data-speed="1000" data-scroll="1" data-interval="5000"
-								data-autoplay="false">
+								data-autoplay="false" style="height:98px;">
 								<div class="resp-slider-container">
 									<div class="slider responsive">
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" height="88"
+												<a href="shop.html"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -146,7 +146,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" height="91"
+												<a href="shop.html"><img width="173"
 													src="resource/front_bootstrap/images/1903/br2.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -154,7 +154,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" height="88"
+												<a href="shop.html"><img width="173"
 													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -162,7 +162,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" height="88"
+												<a href="shop.html"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_10.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -170,7 +170,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" height="88"
+												<a href="shop.html"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>

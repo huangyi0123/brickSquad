@@ -38,10 +38,12 @@ public class UserController {
 	@Autowired
 	@Qualifier("roleService")
 	private RoleService roleService;
+
 	@RequestMapping("/toUserList")
 	public String toUserList() {
 		return "backstage_managed/jsp/user/user_list";
 	}
+
 
 	@RequestMapping("/getUserList")
 	@ResponseBody
@@ -76,6 +78,7 @@ public class UserController {
 		User user = userService.checkLogin(user1);
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
+			request.getSession().setAttribute("userId", user.getId());
 			// begin 判断登录类型
 			// 如果查询出来的用户RoleId是普通用户，跳转到主页去，不能登录看到后台管理页面
 			if (type.equals("admin")
@@ -162,6 +165,7 @@ public class UserController {
 		return "backstage_managed/jsp/user/user_list";
 
 	}
+
 	@RequestMapping("/logout")
 	@ResponseBody
 	public String logout(HttpServletRequest request) {
@@ -209,26 +213,31 @@ public class UserController {
 		String data = userService.findUserByBranchId(user.getBranchId());
 		return data;
 	}
+
 	/**
 	 * 跳转到添加页面
 	 */
 	@RequestMapping("/toJumpUser")
-	public String toJumpUser( HttpServletRequest request){
+	public String toJumpUser(HttpServletRequest request) {
 
-		String branch =typeService.findTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		String branch = typeService
+				.findTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
 		request.setAttribute("branch", branch);
 		String role = roleService.findAllRole();
 		request.setAttribute("role", role);
 		return "backstage_managed/jsp/user/AddJumpUser";
 	}
+
 	/**
 	 * 添加user信息
+	 * 
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/toAddJumpUser")
-	public String toAddJumpUser(@Validated User user,BindingResult bindingResult,HttpServletRequest request){
-		if(bindingResult.hasErrors()){
+	public String toAddJumpUser(@Validated User user,
+			BindingResult bindingResult, HttpServletRequest request) {
+		if (bindingResult.hasErrors()) {
 			List<ObjectError> errors = bindingResult.getAllErrors();
 			request.setAttribute("errors", errors);
 			return "backstage_managed/jsp/user/AddJumpUser";
@@ -237,6 +246,7 @@ public class UserController {
 		userService.addUser(user);
 		return "backstage_managed/jsp/user/user_list";
 	}
+
 	/**
 	 * 用户修改头像
 	 * 
@@ -311,5 +321,5 @@ public class UserController {
 		return "suc";
 		/* return "redirect:/common/toPersonal"; */
 	}
-	
+
 }

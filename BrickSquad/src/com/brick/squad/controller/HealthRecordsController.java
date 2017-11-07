@@ -1,6 +1,8 @@
 package com.brick.squad.controller;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,9 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Rapport;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.GuidanceService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/healthRecords")
@@ -30,6 +34,9 @@ public class HealthRecordsController {
 	@Autowired
 	@Qualifier("guidanceService")
 	private GuidanceService guidanceService;
+	@Autowired
+	@Qualifier("userService")
+	private UserService userService;
 	
 	@RequestMapping("/toHealthRecordsList")
 	public String toHealthRecordsList() {
@@ -45,11 +52,13 @@ public class HealthRecordsController {
 
 	@RequestMapping("/getHealthRecordsList")
 	@ResponseBody
-	public String getHealthRecordsList(int pSize, int cPage, String keyword) {
+	public String getHealthRecordsList(int pSize, int cPage, String keyword,HttpServletRequest request) {
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		//userService.findUserByusername(request.getSession().getAttribute("userId").toString());
+		//pagination.setUserId(request.getSession().getAttribute("userId").toString());
 		return healthRecordsService.healthRecordsPagination(pagination);
 
 	}
@@ -61,14 +70,15 @@ public class HealthRecordsController {
 				String	allPersonalInformationdata = guidanceService.findPerIdAndIdCard();
 				request.setAttribute("allPersonalInformationdata", allPersonalInformationdata);
 				String data=typeService.findTypeByParentId("jibingleixin");
-				System.out.println(data);
+				//System.out.println(data);
 				request.setAttribute("typeData", data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateHealthRecordsById");
-			HealthRecords healthRecords = healthRecordsService
-					.findHealthRecordsById(id);
-			request.setAttribute("healthRecords", healthRecords);
+			HealthRecords healthRecords = healthRecordsService.findHealthRecordsById(id);
+			request.setAttribute("healthRecords",healthRecords);
+			
+			System.out.println(healthRecords+"111111111111111111111111111");
 		} else {
 			request.setAttribute("url", "insertHealthRecords");
 			request.setAttribute("msg", "添加");
@@ -77,7 +87,9 @@ public class HealthRecordsController {
 	}
 
 	@RequestMapping("/insertHealthRecords")
-	public String insertHealthRecords(HealthRecords healthRecords) {
+	public String insertHealthRecords(HealthRecords healthRecords,HttpServletRequest request) {
+		
+		healthRecords.setUserId(request.getSession().getAttribute("userId").toString());
 		healthRecordsService.insertHealthRecords(healthRecords);
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 
@@ -90,7 +102,8 @@ public class HealthRecordsController {
 	}
 	
 	@RequestMapping("/updateHealthRecordsById")
-	public String updateHealthRecordsById(HealthRecords healthRecords) {
+	public String updateHealthRecordsById(HealthRecords healthRecords,HttpServletRequest request) {
+		healthRecords.setUserId(request.getSession().getAttribute("userId").toString());
 		healthRecordsService.updateHealthRecordsById(healthRecords);
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 	}
@@ -102,7 +115,7 @@ public class HealthRecordsController {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
 		request.setAttribute("registrDate",df.format(healthRecords.getRegistrDate()));
 		request.setAttribute("healthRecords",healthRecords);
-		return "backstage_managed/jsp/healthRecords/serach_healthRecords";
+		return "backstage_managed/jsp/healthRecords/search_healthRecords";
 	
 	}
 }

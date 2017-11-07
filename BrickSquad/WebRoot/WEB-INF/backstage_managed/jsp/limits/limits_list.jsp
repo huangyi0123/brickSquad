@@ -65,7 +65,7 @@ a:HOVER {
 		</div>
 		<!-- /input-group -->
 	</div>
-	<div class="input-group"
+	<!-- <div class="input-group"
 		style="float: right;margin-right: 30px;margin-top: 5px; ">
 		<div class="input-group-btn" style="width:100px;">
 			<button type="button" style="width: 170px;"
@@ -77,13 +77,13 @@ a:HOVER {
 				<li><a href="limits/toAddLimits" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
-				<!-- <li><a href="#">导出</a></li>
+				<li><a href="#">导出</a></li>
 				<li><a href="#">Something else here</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Separated link</a></li> -->
+				<li><a href="#">Separated link</a></li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<div style="clear: both;"></div>
 	<div class="cls"></div>
 	<table grid-manager="demo-ajaxPageCode"></table>

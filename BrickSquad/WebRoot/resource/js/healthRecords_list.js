@@ -10,10 +10,9 @@ function init(keyword) {
 		},
 		supportAjaxPage : true,
 		supportCheckbox : false,
-		columnData : [
-		              {
+		columnData : [ {
 			key : 'pname',
-			text : '老人'
+			text : '老人姓名'
 		},
 		{
 			key : 'pgender',
@@ -24,7 +23,8 @@ function init(keyword) {
 		},{
 			key : 'registrDate',
 			text : '登记时间'
-		},{
+		}, {
+
 			key : 'diseaseId',
 			text : '所患疾病'
 		}, {
@@ -42,7 +42,7 @@ function init(keyword) {
 				return '<a href="healthRecords/toAddHealthRecords?id='
 				+ rowData.id
 
-				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteHealthRecordsById("'
+				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:75px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteHealthRecordsById("'
 
 				+ rowData.id
 				+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a> &nbsp;|&nbsp;<a href="healthRecords/serachHealthRecords?id='

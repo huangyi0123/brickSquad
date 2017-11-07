@@ -148,8 +148,7 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/toAddRelatives")
-	public String toAddRelatives(@Validated RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson,HttpServletRequest request,String id) throws Exception {
-		
+	public String toAddRelatives(RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson,HttpServletRequest request,String id) throws Exception {
 		//查询出region中的所有省份
 		String dataRegion = regionService.findRegionByLevel(1);
 		request.setAttribute("dataRegion", dataRegion);
@@ -179,6 +178,7 @@ public class RelativesController {
 			request.setAttribute("allRegionResultById", allRegionResultById);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateRelativesByIdExend");
+		
 		}else{
 			request.setAttribute("msg", "添加");
 			request.setAttribute("url", "insertRelatives");
@@ -200,11 +200,10 @@ public class RelativesController {
 				request.setAttribute("dataType", dataType);
 				request.setAttribute("msg", "添加");
 				request.setAttribute("url", "insertRelatives");
-				return "frontEnd_manage/person_information/add_relatives";
+				return "backstage_managed/jsp/relatives/add_relatives";
 			}
 		relativesService.insertRelatives(relativesAndAddressAndTypeAndPersonExpand);
-		request.setAttribute("flag", "suc");
-		return "frontEnd_manage/person_information/user_add_relatives";
+		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 	/**
 	 * 普通用户添加亲属联系人
@@ -303,8 +302,48 @@ public class RelativesController {
 	 * @return
 	 */
 	@RequestMapping("updateRelativesByIdExend")
-	public String updateRelativesByIdExend(RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand) throws Exception{
-		relativesService.updateRelativesByIdExend(relativesAndAddressAndTypeAndPersonExpand);
+	public String updateRelativesByIdExend(@Validated RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson,
+			BindingResult bindingResult,HttpServletRequest request) throws Exception{
+		if(bindingResult.hasErrors()){
+			List<ObjectError> errors = bindingResult.getAllErrors();
+			request.setAttribute("errors", errors);
+			String id =relaAddressTypePerson.getRelatives().getId();
+			String dataRegion = regionService.findRegionByLevel(1);
+			request.setAttribute("dataRegion", dataRegion);
+			//查询出Type中的所有亲属关系
+			String dataType = typeService.findTypeByParentId("qinshuguanxi");
+			request.setAttribute("dataType", dataType);
+			if (id!=null) {
+				//先将relatives中的所有信息查询出来
+				Relatives relatives = relativesService.findRelativesById(id);
+				//优先获取relatives中的AddressId,再执行Address中的查询，这样就能实现通过AddressId查询地址信息用于回显
+				Address address = addressService.findAddressById(relatives.getAddressId());
+				//同理type表
+				Type type = typeService.findTypeById(relatives.getRelationshipId());
+				//同理person表
+				PersonalInformation personalInformation=personalInformationService.findPersonalInformationById(relatives.getPerId());
+				String perData = personalInformation.getName();
+				request.setAttribute("perData", perData);
+				//将上述查询出来的信息设置到拓展对象中
+				relaAddressTypePerson.setAddress(address);
+				relaAddressTypePerson.setPersonalInformation(personalInformation);
+				relaAddressTypePerson.setRelatives(relatives);
+				relaAddressTypePerson.setType(type);
+				//将对象放入request中传入jsp
+				request.setAttribute("relaAddressTypePerson", relaAddressTypePerson);
+				//查询出所有省信息用于回显
+				String allRegionResultById = addressService.getAllRegion(address);
+				request.setAttribute("allRegionResultById", allRegionResultById);
+				request.setAttribute("msg", "修改");
+				request.setAttribute("url", "updateRelativesByIdExend");
+			
+			}else{
+				request.setAttribute("msg", "添加");
+				request.setAttribute("url", "insertRelatives");
+			}
+			return "backstage_managed/jsp/relatives/add_relatives";
+		}
+		relativesService.updateRelativesByIdExend(relaAddressTypePerson);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}
 
