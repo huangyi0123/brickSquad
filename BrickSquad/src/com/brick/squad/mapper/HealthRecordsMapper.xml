@@ -22,20 +22,22 @@
 	<!-- 查询 -->
 	<select id="findHealthRecordsById" resultType="healthRecords"
 		parameterType="String">
-		select id, per_id perId, registr_date registrDate,
-		user_id userId,
-		disease_id diseaseId, shape, diet_situation
+		select h.id, p.name perId,p.gender pgender,h.registr_date registrDate,
+		u.username userId,
+		t.name diseaseId,h.shape, h.diet_situation
 		dietSituation,
-		sports_situation sportsSituation,
-		emotion_control
+		h.sports_situation sportsSituation,
+		h.emotion_control
 		emotionControl,
-		thrombus, blood_pressure bloodPressure,
-		health_assessment
-		healthAssessment, dangerous_tips dangerousTips,
-		conclusion_suggestion
-		conclusionSuggestion, evaluate
-		from health_records
-		where id=#{id}
+		h.thrombus, h.blood_pressure bloodPressure,
+		h.health_assessment
+		healthAssessment, h.dangerous_tips dangerousTips,
+		h.conclusion_suggestion
+		conclusionSuggestion, h.evaluate
+		from health_records h JOIN personal_information p ON h.per_id=p.id 
+		JOIN `user` u ON h.user_id=u.username
+		JOIN type t on h.disease_id=t.id
+		where h.id=#{id}
 	</select>
 	<insert id="insertHealthRecords" parameterType="healthRecords">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -77,7 +79,7 @@
 	<select id="healthRecordsPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.HealthRecordsExpand">
 
-		select p.name pname, h.registr_date registrDate,
+		select h.id,p.name pname,p.gender pgender, h.registr_date registrDate,
 		u.username username,
 		t.name diseaseId, h.shape, h.diet_situation
 		dietSituation,

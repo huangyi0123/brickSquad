@@ -133,6 +133,7 @@
 					<input type="text" name="title" required lay-verify="required"
 						placeholder="标题" autocomplete="off" class="layui-input"
 						value="${news.title }">
+						
 				</div>
 			</div>
 			<div id="con" style="display: none">

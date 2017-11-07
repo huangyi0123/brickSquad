@@ -5,6 +5,14 @@ import java.util.Date;
 public class HealthRecords {
 	private String id;
 	private String perId;
+	//查看详情页的性别
+	private String pgender;
+	public String getPgender() {
+		return pgender;
+	}
+	public void setPgender(String pgender) {
+		this.pgender = pgender;
+	}
 	private Date registrDate;
 	private String userId;
 	private String diseaseId;

@@ -9,7 +9,7 @@ function init(keyword) {
         columnData: [
             {
                 key: 'username',
-                text: '信息发布人员'
+                text: '作者'
             },
             {
                 key: 'title',

@@ -10,48 +10,29 @@ function init(keyword) {
 		},
 		supportAjaxPage : true,
 		supportCheckbox : false,
-		columnData : [ {
-			key : 'registrDate',
-			text : '登记时间'
-		}, {
-			key : 'username',
-			text : '登记人'
-		}, {
+		columnData : [
+		              {
 			key : 'pname',
 			text : '老人'
-		}, {
+		},
+		{
+			key : 'pgender',
+			text : '性别'
+		},{
+			key : 'username',
+			text : '登记人'
+		},{
+			key : 'registrDate',
+			text : '登记时间'
+		},{
 			key : 'diseaseId',
 			text : '所患疾病'
 		}, {
 			key : 'shape',
 			text : '身体状况'
-		}, {
-			key : 'dietSituation',
-			text : '饮食情况'
-		}, {
-			key : 'sportsSituation',
-			text : '运动情况'
-		}, {
-			key : 'emotionControl',
-			text : '情绪控制'
-		}, {
-			key : 'thrombus',
-			text : '血栓检测'
-		}, {
-			key : 'bloodPressure',
-			text : '血压'
-		}, {
-			key : 'healthAssessment',
-			text : '健康评估'
-		}, {
-			key : 'dangerousTips',
-			text : '危险提示'
-		}, {
+		},  {
 			key : 'conclusionSuggestion',
 			text : '结论建议'
-		}, {
-			key : 'evaluate',
-			text : '治疗效果评价'
 		},
 
 		{
@@ -64,7 +45,10 @@ function init(keyword) {
 				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteHealthRecordsById("'
 
 				+ rowData.id
-				+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>';
+				+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a> &nbsp;|&nbsp;<a href="healthRecords/serachHealthRecords?id='
+
+				+ rowData.id
+				+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
 	}
 		} ]
 	});

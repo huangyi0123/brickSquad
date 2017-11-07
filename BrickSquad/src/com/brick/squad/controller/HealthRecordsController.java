@@ -1,5 +1,7 @@
 package com.brick.squad.controller;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,5 +93,16 @@ public class HealthRecordsController {
 	public String updateHealthRecordsById(HealthRecords healthRecords) {
 		healthRecordsService.updateHealthRecordsById(healthRecords);
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
+	}
+	//查看详情
+	@RequestMapping("/serachHealthRecords")
+	public String serachHealthRecords(HttpServletRequest request,String id){
+		HealthRecords healthRecords=healthRecordsService.findHealthRecordsById(id);
+		System.out.println(healthRecords+"11111111111111111111111111111111111");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
+		request.setAttribute("registrDate",df.format(healthRecords.getRegistrDate()));
+		request.setAttribute("healthRecords",healthRecords);
+		return "backstage_managed/jsp/healthRecords/serach_healthRecords";
+	
 	}
 }

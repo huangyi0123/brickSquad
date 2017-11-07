@@ -83,5 +83,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 		
 		return healthRecordsMapper.findHealthRecordsByPerId(perId);
 	}
+	
+	
 
 }
