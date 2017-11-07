@@ -14,7 +14,7 @@
 		</selectKey>
 		insert into
 		article(id,aname,type_id,business_id,price,stock,describes,image)
-		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{image})
+		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id})
 	</insert>
 
 	<delete id="deleteArticleById" parameterType="String">
