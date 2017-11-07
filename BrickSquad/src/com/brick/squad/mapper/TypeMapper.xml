@@ -45,7 +45,8 @@
 	<select id="typePagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="Type">
 		SELECT c.id id,c.`name` name,p.`name` parentId FROM type c
-		LEFT JOIN type p on c.parent_id=p.id
+		LEFT JOIN
+		type p on c.parent_id=p.id
 		<if test="keyword!=''">
 			where c.name REGEXP #{keyword} or p.name REGEXP #{keyword}
 		</if>
@@ -66,5 +67,9 @@
 	</select>
 	<select id="findType" resultType="com.brick.squad.util.Select">
 		select id,name from type
+	</select>
+	<select id="findTyepByParentId" parameterType="string"
+		resultType="com.brick.squad.util.Select">
+		select id,name from type where parent_id=#{perantId}
 	</select>
 </mapper>
