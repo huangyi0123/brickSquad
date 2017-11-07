@@ -27,12 +27,14 @@ import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
+import com.brick.squad.service.ArticalService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
 
 @Controller
@@ -66,10 +68,10 @@ public class CommonController {
 
 	@RequestMapping("/uploadImg")
 	@ResponseBody
-	public String uploadImg(MultipartFile file, HttpServletRequest request) {
+	public String uploadImg(MultipartFile file, HttpServletRequest request,String imgPath) {
 		UpLoadFile upLoadFile = new UpLoadFile();
 		List<String> list = new ArrayList<String>();
-		String realPath = "resource/image/news/";
+		String realPath = "resource/image/"+imgPath+"/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name = file.getOriginalFilename();
@@ -117,6 +119,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
+	@Autowired
+	@Qualifier("articleService")
+	private ArticalService articleService;
 
 	@RequestMapping("/toPersonal")
 	public String toPersonal(HttpServletRequest request) throws Exception {
@@ -215,6 +220,7 @@ public class CommonController {
 
 	@RequestMapping("/toShop")
 	public String toShop() {
+		
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -248,11 +254,17 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
-
+	/***
+	 * 医疗器械页面controller
+	 * @throws Exception 
+	 */
 	@RequestMapping("/toShop_left_sidebar")
-	public String toShop_left_sidebar() {
+	public String toShop_left_sidebar(HttpServletRequest request) throws Exception {
+		/**医疗器械一级分类查询*/
+		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		request.setAttribute("listType", listType);
+		/**医疗器械查询商品图片和商品名称*/
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
-
 	}
 
 	@RequestMapping("/toCart")
@@ -264,6 +276,6 @@ public class CommonController {
 	@RequestMapping("/toVariable_product")
     public String toVariable_product() {
 		return "frontEnd_manage/front_bootstrap/variable_product";
-		
 	}
+	
 }
