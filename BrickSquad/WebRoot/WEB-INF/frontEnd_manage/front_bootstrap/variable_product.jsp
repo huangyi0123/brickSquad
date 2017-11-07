@@ -68,7 +68,7 @@
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet"
 	href="resource/front_bootstrap/css/app-responsive.css" />
-<link href="resource/plugins/layui/css/layui.css" rel="stylesheet"
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet"
 	type="text/css" media="all" />
 <link href="resource/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" type="text/css" media="all" />
@@ -843,7 +843,23 @@
 												style="border-color: green;color: green;">
 										</div>
 									</div>
-								
+									<div class="content"
+										style="width: 100%;height: 500px;border: 1px solid orange;">
+										<div
+											style="background-color: #EFEFEF;width: 100%;height: 40px;">
+											<form class="layui-form" action="">
+												<div class="layui-form-item">
+													<div class="layui-input-block layui-input-blocksa">
+														<input type="radio" name="sex" value="" title="全部(11)" style="font-size: 10px;"
+															checked="">
+														<input type="radio" name="sex" value="" title="追评(4)" style="font-size: 10px;">
+														<input type="radio" name="sex" value="" title="图片(7)" style="font-size: 10px;"
+															>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
 								</div>
 							</div>
 
@@ -1506,7 +1522,7 @@
 		src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
@@ -1547,6 +1563,11 @@
 		b[c] = b[c].replace(rcs, ' ');
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
+	</script>
+	<script>
+		layui.use([ 'form', 'layedit', 'laydate' ], function() {
+			var form = layui.form, layer = layui.layer;
+		})
 	</script>
 	<!--<![endif]-->
 </body>
