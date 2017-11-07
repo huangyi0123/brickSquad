@@ -20,6 +20,7 @@ import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
@@ -68,10 +69,10 @@ public class CommonController {
 
 	@RequestMapping("/uploadImg")
 	@ResponseBody
-	public String uploadImg(MultipartFile file, HttpServletRequest request) {
+	public String uploadImg(MultipartFile file, HttpServletRequest request,String imgPath) {
 		UpLoadFile upLoadFile = new UpLoadFile();
 		List<String> list = new ArrayList<String>();
-		String realPath = "resource/image/news/";
+		String realPath = "resource/image/"+imgPath+"/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name = file.getOriginalFilename();
@@ -264,6 +265,34 @@ public class CommonController {
 		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
+		List<Article> listArticle=articleService.findArticleImgAndName("laorenjianfuyongpin");
+		List<String> imgPath=new ArrayList<String>();
+		for(Article article:listArticle){
+			String path = request.getSession().getServletContext().
+				getRealPath("resource/image/articleImg/"+article.getImage());
+		  imgPath.add(path);
+		String p;
+		for(String realPath:imgPath){
+			File file=new File(realPath);
+			if(file.exists()){
+				File[] files=file.listFiles();
+				if(files.length==0){
+				}else{
+					for(File file2:files){
+						if(file2.isDirectory()){
+							
+						}else{
+							p=file2.getName();
+							article.setImage(article.getImage()+"/"+p);
+							break;
+						}
+					}
+				}
+			}
+		}
+		
+		}
+		request.setAttribute("listArticle", listArticle);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 

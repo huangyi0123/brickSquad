@@ -13,22 +13,19 @@
 		marriageId,zip
 	</sql>
 	<sql id="prop2">
-		p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
+		p.id,p.`name`,p.birthday,p.gender,idcard, p.address_id
 		addressId,p.retirement_unit retirementUnit,
 		p.retirement_date
 		retirementDate, p.engaged_industry engagedIndustry,
-		p.weight,p.height,p.income,p.family_history
-		familyHistory,p.is_purchasing
-		isPurchasing,p.is_supremacy
-		isSupremacy,p.is_pureq isPureq,p.pureq_type_id
-		pureqTypeId,p.culture_id cultureId,p.marriage_id
-		marriageId,p.zip,t.name nationId
-		FROM personal_information p LEFT JOIN
-		type t ON p.nation_id=t.id
+		p.weight,p.height,p.income,p.family_history familyHistory,p.is_purchasing
+		isPurchasing,p.is_supremacy isSupremacy,p.is_pureq isPureq,pureq_type_id
+		pureqTypeId,t.`name` nationId,p.culture_id cultureId,p.marriage_id
+		marriageId,p.zip
+		from personal_information p JOIN type t ON p.nation_id=t.id 
 	</sql>
 	<sql id="serach">
 		p.`name` REGEXP #{keyword} or
-		p.gender REGEXP #{keyword}
+		p.idcard REGEXP #{keyword}
 	</sql>
 	<select id="findPersonalInformationById" resultType="PersonalInformation"
 		parameterType="String">
@@ -75,8 +72,7 @@
 	<select id="personalInformationPagination" resultType="PersonalInformation"
 		parameterType="com.brick.squad.util.Pagination">
 		select
-		<include refid="prop" />
-		from personal_information p
+		<include refid="prop2" />
 		where p.name not in ('')
 		<if test="keyword!=''">
 			and (

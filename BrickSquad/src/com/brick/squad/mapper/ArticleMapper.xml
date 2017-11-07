@@ -5,7 +5,8 @@
 
 	<!-- 查询 -->
 	<select id="findArticleById" resultType="article" parameterType="String">
-		select id,aname aname,type_id typeId,business_id businessId,describes,price,stock,image from article where id=#{id}
+		select id,aname aname,type_id typeId,business_id
+		businessId,describes,price,stock,image from article where id=#{id}
 	</select>
 
 	<insert id="insertArticle" parameterType="article">
@@ -24,7 +25,7 @@
 
 	<update id="updateArticleById" parameterType="article">
 		update article set
-		
+
 		aname=#{aname},
 		type_id=#{typeId},
 		business_id=#{businessId},
@@ -36,24 +37,31 @@
 	</update>
 
 
-	<select id="articlePagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.ArticleExpand">
-		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name` bname,a.describes
-		FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
+	<select id="articlePagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.ArticleExpand">
+		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
+		bname,a.describes
+		FROM article a INNER JOIN type t ON a.type_id = t.id
+		INNER JOIN business b
 		ON a.business_id = b.id
 		<if test="keyword!=''">
-		where a.aname REGEXP #{keyword} or t.`name` REGEXP #{keyword} or b.`name` REGEXP #{keyword} or a.describes REGEXP #{keyword}
+			where a.aname REGEXP #{keyword} or t.`name` REGEXP #{keyword} or b.`name`
+			REGEXP #{keyword} or a.describes REGEXP #{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
 
 	</select>
 
 
-	<select id="findArticleAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+	<select id="findArticleAllCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select
-		count(*) FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
+		count(*) FROM article a INNER JOIN type t ON a.type_id = t.id
+		INNER JOIN business b
 		ON a.business_id = b.id
 		<if test="keyword!=''">
-		where a.aname REGEXP #{keyword} or t.`name` REGEXP #{keyword} or b.`name` REGEXP #{keyword} or a.describes REGEXP #{keyword}
+			where a.aname REGEXP #{keyword} or t.`name` REGEXP #{keyword} or b.`name`
+			REGEXP #{keyword} or a.describes REGEXP #{keyword}
 		</if>
 	</select>
 	<select id="findArticle" resultType="com.brick.squad.util.Select">
@@ -62,35 +70,50 @@
 		article
 	</select>
 
-	<!-- <select id="findAllArticle" resultType="article">
-		select article.type_id typeId
-		from article
-	</select> -->
-		<select id="findAllTypeAndBusiness" resultType="article">
-	SELECT a.id,a.aname,a.type_id typeId,a.business_id businessId,t.`name` tname,a.price,a.stock,b.`name`
+	<!-- <select id="findAllArticle" resultType="article"> select article.type_id 
+		typeId from article </select> -->
+	<select id="findAllTypeAndBusiness" resultType="article">
+		SELECT a.id,a.aname,a.type_id typeId,a.business_id businessId,t.`name`
+		tname,a.price,a.stock,b.`name`
 		bname,a.describes
-		FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
-		ON a.business_id = b.id
+		FROM article a INNER
+		JOIN type t ON a.type_id = t.id INNER JOIN business b
+		ON a.business_id
+		= b.id
 	</select>
-	
+
 	<select id="findAllArticle" resultType="com.brick.squad.expand.ArticleExpand">
-	SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
+		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
 		bname,a.describes
-		FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
+		FROM article a INNER JOIN type t ON a.type_id = t.id
+		INNER JOIN business b
 		ON a.business_id = b.id
 	</select>
-	
-	
-	<select id="findArticleAndTypeAndBusiness" parameterType="java.lang.String" resultType="com.brick.squad.expand.ArticleExpand">
-	SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
+
+
+	<select id="findArticleAndTypeAndBusiness" parameterType="java.lang.String"
+		resultType="com.brick.squad.expand.ArticleExpand">
+		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
 		bname,a.describes,a.image
-		FROM article a INNER JOIN type t ON a.type_id = t.id INNER JOIN business b
+		FROM article a INNER JOIN type t ON a.type_id
+		= t.id INNER JOIN business b
 		ON a.business_id = b.id
-		WHERE a.id = #{id,jdbcType=VARCHAR}
-	
+		WHERE a.id =
+		#{id,jdbcType=VARCHAR}
+
+	</select>
+
+
+	<select id="findArticleBuyNumber"  resultType="com.brick.squad.expand.ArticleExpand">
+		SELECT id,aname,buyNumber,price,image from article a JOIN 
+(select count(*) buyNumber,article_id
+FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.article_id
+
 	</select>
 	<!-- 医疗器械查询 -->
-	<select id="findArticleImgAndName" resultType="article">
-	
+	<select id="findArticleImgAndName" resultType="article" parameterType="java.lang.String">
+	SELECT id ,aname ,image 
+	FROM article 
+	WHERE article.type_id=#{typeId}
 	</select>
 </mapper>

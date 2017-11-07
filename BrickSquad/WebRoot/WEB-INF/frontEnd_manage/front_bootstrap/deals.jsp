@@ -91,7 +91,7 @@
 
 					<div class="wrap-myacc pull-right">
 						<div class="sidebar-account pull-left">
-							<div class="account-title">我的淘宝</div>
+							<div class="account-title">我的养乐堡</div>
 
 							<div id="my-account" class="my-account">
 								<div

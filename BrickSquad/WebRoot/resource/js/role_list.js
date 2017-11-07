@@ -21,10 +21,7 @@ function init(keyword) {
 							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:270px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteRole("'
 
 							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="role/findRoleById?id='
-
-							+ rowData.id
-							+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="common/toLimits?id='
+							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="common/toLimits?id='
 
 							+ rowData.id
 							+ '"><i title="权限分配" class="fa fa-user" style="margin-right:5px;"></i></a>';

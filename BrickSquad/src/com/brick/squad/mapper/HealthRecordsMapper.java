@@ -34,4 +34,6 @@ public interface HealthRecordsMapper {
 	
 	public void deleteByPerIdHealth(String perId);
 
+	public HealthRecords serachHealthRecords(String id);
+
 }

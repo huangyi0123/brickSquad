@@ -22,31 +22,33 @@
 	<!-- 查询 -->
 	<select id="findHealthRecordsById" resultType="healthRecords"
 		parameterType="String">
-		select id, per_id perId, registr_date registrDate,
-		user_id userId,
-		disease_id diseaseId, shape, diet_situation
+		select h.id,p.id pid,p.name perId,p.gender pgender,p.idcard idCard,h.registr_date registrDate,
+		u.username userId,
+		disease_id diseaseId,h.shape, h.diet_situation
 		dietSituation,
-		sports_situation sportsSituation,
-		emotion_control
+		h.sports_situation sportsSituation,
+		h.emotion_control
 		emotionControl,
-		thrombus, blood_pressure bloodPressure,
-		health_assessment
-		healthAssessment, dangerous_tips dangerousTips,
-		conclusion_suggestion
-		conclusionSuggestion, evaluate
-		from health_records
-		where id=#{id}
+		h.thrombus, h.blood_pressure bloodPressure,
+		h.health_assessment
+		healthAssessment, h.dangerous_tips dangerousTips,
+		h.conclusion_suggestion
+		conclusionSuggestion, h.evaluate
+		from health_records h JOIN personal_information p ON h.per_id=p.id 
+		JOIN `user` u ON h.user_id=u.id
+		JOIN type t on h.disease_id=t.id
+		where h.id=#{id}
 	</select>
 	<insert id="insertHealthRecords" parameterType="healthRecords">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
-		INSERT INTO health_records (id, per_id, registr_date, user_id,
-		disease_id, shape, diet_situation, sports_situation,
+		INSERT INTO health_records (id, per_id, registr_date,user_id,
+		disease_id,shape, diet_situation, sports_situation,
 		emotion_control,
 		thrombus, blood_pressure, health_assessment, dangerous_tips,
-		conclusion_suggestion, evaluate) VALUES (#{id}, #{perId},
-		#{registrDate}, #{userId}, #{diseaseId},
+		conclusion_suggestion,evaluate) VALUES (#{id}, #{perId},
+		#{registrDate},#{userId}, #{diseaseId},
 		#{shape}, #{dietSituation},
 		#{sportsSituation}, #{emotionControl}, #{thrombus},
 		#{bloodPressure},
@@ -76,8 +78,10 @@
 	<select id="healthRecordsPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.HealthRecordsExpand">
 
-		select p.name pname, h.registr_date registrDate,
-		u.username username,h.id,
+
+		select h.id,p.id pid,p.name pname,p.gender pgender, h.registr_date registrDate,
+		u.username username,
+
 		t.name diseaseId, h.shape, h.diet_situation
 		dietSituation,
 		h.sports_situation sportsSituation,

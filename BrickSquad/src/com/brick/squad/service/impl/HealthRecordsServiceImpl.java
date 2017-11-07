@@ -30,6 +30,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 	@Override
 	public void insertHealthRecords(HealthRecords healthRecords) {
 		healthRecords.setRegistrDate(new Date());
+		//System.out.println(healthRecords.getRegistrDate()+"555555555555555555");
 		healthRecordsMapper.insertHealthRecords(healthRecords);
 
 	}
@@ -48,7 +49,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 
 	@Override
 	public void updateHealthRecordsById(HealthRecords healthRecords) {
-
+		healthRecords.setRegistrDate(new Date());
 		healthRecordsMapper.updateHealthRecordsById(healthRecords);
 	}
 
@@ -83,5 +84,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 		
 		return healthRecordsMapper.findHealthRecordsByPerId(perId);
 	}
+	
+	
 
 }

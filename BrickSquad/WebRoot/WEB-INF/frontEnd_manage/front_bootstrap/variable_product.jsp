@@ -68,7 +68,7 @@
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet"
 	href="resource/front_bootstrap/css/app-responsive.css" />
-<link href="resource/plugins/layui/css/layui.css" rel="stylesheet"
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet"
 	type="text/css" media="all" />
 <link href="resource/plugins/bootstrap/bootstrap.min.css"
 	rel="stylesheet" type="text/css" media="all" />
@@ -606,7 +606,8 @@
 
 									<div class="clear"></div>
 
-									<div class=" tab-content">
+									<div class=" tab-content"
+										style="margin-top: 100px;height: 500px;">
 										<div class="tab-pane tab1" id="tab-description">
 											<h2>商品详情</h2>
 
@@ -755,20 +756,21 @@
 																	</div>
 																</div>
 															</form>
+
+															<label style="margin-left: 665px;margin-top: -330px;">店铺动态评分</label>
+															<div
+																style="width: 40%;border: 1px dashed #EAEAEA ;margin-left: 665px;margin-top: -300px;"></div>
 															<form action="" method="post" id="commentform"
 																class="comment-form"
 																style="margin-left: 600px;margin-top: -300px;">
 																<label
-																	style="position:relative; top:-42px;left: 88px;font-size: 16px">描述相符</label>
+																	style="position:relative; top:327px;left: 88px;font-size: 14px;font-weight: normal;">描述相符</label>
 																<label
-																	style="position:relative; top:-12px;left: 20px;font-size: 16px">卖家服务</label>
-																	<label
-																	style="position:relative; top:18px;left: -47px;font-size: 16px">物流服务</label>
+																	style="position:relative; top:357px;left: 28px;font-size: 14px;font-weight: normal;">卖家服务</label>
+																<label
+																	style="position:relative; top:388px;left: -32px;font-size: 14px;font-weight: normal;">物流服务</label>
 																<p class="comment-form-rating comment-form-rating1"
-																	style="margin-top: -70px;">
-																	<!-- <label for="rating"
-																		style=" font-size: 16px;margin-left: 70px;margin-top: 30px;"><font
-																		color="orange">*</font> 描述相符</label>  -->
+																	style="margin-top: 300px;">
 																	<select name="rating" id="rating"
 																		style="display:block; margin-left: 150px;margin-top: -50px; ">
 																		<option value="">Rate ...</option>
@@ -795,33 +797,18 @@
 																		<option value="1">Very Poor</option>
 																	</select>
 																</p>
-																<!-- <!-- <p class="comment-form-rating" style="margin-top: 20px;">
-																	<label for="rating" style="font-size: 16px;margin-left: 20px;"><font color="orange">*</font> 物流服务</label> <select
-																		name="rating" id="rating"  style="margin-left: 150px;">
-																		<option value="">Rate ...</option>
-																		<option value="5">Perfect</option>
-																		<option value="4">Good</option>
-																		<option value="3">Average</option>
-																		<option value="2">Not that bad</option>
-																		<option value="1">Very Poor</option>
-																	</select>
-																</p> --> -->
 
-
-																<!-- <p class="comment-form-comment">
-																	<label for="comment">Your Review</label>
-																	<textarea id="comment" name="comment" cols="45"
-																		rows="8" aria-required="true"></textarea>
-																</p> -->
 
 																<p class="form-submit">
 																	<input name="submit" type="submit" id="submit"
 																		class="submit" value="Submit"
-																		style="margin-top: 300px;">
+																		style="width:150px;height:40px;border-radius:5px; margin-top: 200px;margin-left: -180px;background-color: orange;">
 																</p>
 															</form>
+
+
 														</div>
-														
+
 													</div>
 												</div>
 												<div class="clear"></div>
@@ -830,7 +817,7 @@
 
 									</div>
 									<div class="describe"
-										style="width:100%;height:100px; border:1px solid orange;float: left;">
+										style="width:100%;height:100px; border:1px solid orange;float: left;margin-top: -600px;">
 										<div style="display: block;float: left;">
 											<label style="margin-left: 60px;margin-top: 10px;">与描述相符</label>
 											<label
@@ -854,6 +841,23 @@
 											<input value="质量不错（67）">
 											<input value="掉色严重（7）"
 												style="border-color: green;color: green;">
+										</div>
+									</div>
+									<div class="content"
+										style="width: 100%;height: 500px;border: 1px solid orange;">
+										<div
+											style="background-color: #EFEFEF;width: 100%;height: 40px;">
+											<form class="layui-form" action="">
+												<div class="layui-form-item">
+													<div class="layui-input-block layui-input-blocksa">
+														<input type="radio" name="sex" value="" title="全部(11)" style="font-size: 10px;"
+															checked="">
+														<input type="radio" name="sex" value="" title="追评(4)" style="font-size: 10px;">
+														<input type="radio" name="sex" value="" title="图片(7)" style="font-size: 10px;"
+															>
+													</div>
+												</div>
+											</form>
 										</div>
 									</div>
 								</div>
@@ -1518,7 +1522,7 @@
 		src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
@@ -1559,6 +1563,11 @@
 		b[c] = b[c].replace(rcs, ' ');
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
+	</script>
+	<script>
+		layui.use([ 'form', 'layedit', 'laydate' ], function() {
+			var form = layui.form, layer = layui.layer;
+		})
 	</script>
 	<!--<![endif]-->
 </body>
