@@ -34,6 +34,7 @@ import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
 
 @Controller
@@ -219,6 +220,7 @@ public class CommonController {
 
 	@RequestMapping("/toShop")
 	public String toShop() {
+		
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
