@@ -154,7 +154,7 @@
 			<div class="layui-input-inline">
 			<c:if test="${url eq 'updateRelativesByIdExend'}">
 				<input value="${perData}" lay-verify="required" autocomplete="off" class="layui-input"
-					readonly="readonly" style="border: none;background: #F3F3F4;">
+					readonly="readonly" background: #F3F3F4;">
 				</c:if>
 				<c:if test="${url ne 'updateRelativesByIdExend'}">
 				<select lay-filter="perid" name="relatives.perId" id="perid"
