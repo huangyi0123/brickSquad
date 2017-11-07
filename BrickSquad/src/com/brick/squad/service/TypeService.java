@@ -48,4 +48,8 @@ public interface TypeService {
 	
 	public String findTypeByParentId(String parentId);
 	public List<Select> findType();
+	/***
+	 * 医疗器械一级分类查询
+	 */
+	public List<Type> findIdAndTypeNmae(String parentId)throws Exception;
 }

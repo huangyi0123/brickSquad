@@ -2,6 +2,8 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.Pagination;
@@ -18,7 +20,7 @@ public interface ArticalService {
 	
 	public void insertArticleById(Article article)throws Exception;
 	
-	public void deleteArticleById(String id)throws Exception;
+	public void deleteArticleById(String id,HttpServletRequest request)throws Exception;
 	
 	public void updateArticleById(Article article)throws Exception;
 	

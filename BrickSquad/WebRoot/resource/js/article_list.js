@@ -35,12 +35,7 @@ function init(keyword) {
 						{
 							key : 'describes',
 							text : '描述内容'
-						},
-						{
-							key : 'image',
-							text : '图片'
-						},
-						
+						},					
 						{
 							key : "operation",
 							text : "操作",

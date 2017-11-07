@@ -26,10 +26,10 @@ public class ArticleServiceTest {
 		System.out.println(articleService.findArticleById("2").getAname());
 		
 	}
-	@Test
+/*	@Test
 	public void deleteArticleById()throws Exception{
 		articleService.deleteArticleById("de46677cc06b11e7aca65254002ec43c");
-	} 
+	} */
 	
 	@Test
 	public void insertArticleById() throws Exception{

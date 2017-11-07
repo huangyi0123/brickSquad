@@ -93,7 +93,6 @@ public class TypeController {
 	@ResponseBody
 	public String deleteTypeById(String id) {
 		typeService.deleteTypeById(id);
-		return "success";
-				
+		return "success";		
 	}
 }

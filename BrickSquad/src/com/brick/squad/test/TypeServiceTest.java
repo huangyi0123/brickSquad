@@ -77,4 +77,15 @@ public class TypeServiceTest {
 			System.out.println(s.getName());
 		}
 	}
+	/***
+	 * 医疗器械一级分类查询测试
+	 * @throws Exception 
+	 */
+	@Test
+	public void findIdAndTypeNmae() throws Exception{
+		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		for(Type type:listType){
+			System.out.println(type.getId()+"====="+type.getName());
+		}
+	}
 }

@@ -27,6 +27,7 @@ import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
+import com.brick.squad.service.ArticalService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.PersonalInformationService;
@@ -117,6 +118,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
+	@Autowired
+	@Qualifier("articleService")
+	private ArticalService articleService;
 
 	@RequestMapping("/toPersonal")
 	public String toPersonal(HttpServletRequest request) throws Exception {
@@ -248,11 +252,17 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
-
+	/***
+	 * 医疗器械页面controller
+	 * @throws Exception 
+	 */
 	@RequestMapping("/toShop_left_sidebar")
-	public String toShop_left_sidebar() {
+	public String toShop_left_sidebar(HttpServletRequest request) throws Exception {
+		/**医疗器械一级分类查询*/
+		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		request.setAttribute("listType", listType);
+		/**医疗器械查询商品图片和商品名称*/
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
-
 	}
 
 	@RequestMapping("/toCart")
@@ -264,6 +274,6 @@ public class CommonController {
 	@RequestMapping("/toVariable_product")
     public String toVariable_product() {
 		return "frontEnd_manage/front_bootstrap/variable_product";
-		
 	}
+	
 }

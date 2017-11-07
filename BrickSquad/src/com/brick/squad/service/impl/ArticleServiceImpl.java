@@ -1,9 +1,12 @@
 package com.brick.squad.service.impl;
 
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
 
@@ -49,7 +52,25 @@ public class ArticleServiceImpl implements ArticalService{
 		articleMapper.insertArticle(article);
 	}
 	@Override
-	public void deleteArticleById(String id) {
+	public void deleteArticleById(String id ,HttpServletRequest request) {
+		
+		// 获取图片要保存的到的服务器路径
+		String realPath = "resource/image/articleImg/" + id + "/";
+		String path = request.getSession().getServletContext()
+				.getRealPath(realPath);
+		File f = new File(path);
+		if (f.exists()) {
+			
+			   String[] tempList = f.list(); 
+			   for (int i = 0; i < tempList.length; i++) {
+				   	File file =new File(path+"/"+tempList[i]);
+				   	if (file.isFile()) {
+						file.delete();
+						f.delete();
+					}
+			}
+			
+		}
 		// TODO Auto-generated method stub
 		articleMapper.deleteArticleById(id);
 	}
