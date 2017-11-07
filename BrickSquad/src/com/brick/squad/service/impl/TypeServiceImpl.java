@@ -84,4 +84,11 @@ public class TypeServiceImpl implements TypeService{
 		return listType;
 	}
 
+	@Override
+	public List<Type> getArctre() {
+		List<Type> arcrte=typeMapper.findTyepByParentId("splx");
+		
+		return null;
+	}
+
 }

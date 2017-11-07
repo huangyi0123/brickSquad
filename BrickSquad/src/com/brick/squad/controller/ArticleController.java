@@ -203,7 +203,6 @@ public class ArticleController {
 	@RequestMapping("/findAllTypeAndBusiness")
 	@ResponseBody
 	public String findAllTypeAndBusiness() {
-		System.out.println(articleService.findAllTypeAndBusiness());
 		return articleService.findAllTypeAndBusiness();
 
 	}

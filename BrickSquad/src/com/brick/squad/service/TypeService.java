@@ -52,4 +52,9 @@ public interface TypeService {
 	 * 医疗器械一级分类查询
 	 */
 	public List<Type> findIdAndTypeNmae(String parentId)throws Exception;
+	/**
+	 * 查询商品类型
+	 * @return 商品类型列表
+	 */
+	public List<Type> getArctre() ;
 }

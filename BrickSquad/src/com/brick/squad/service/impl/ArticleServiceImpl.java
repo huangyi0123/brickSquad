@@ -116,7 +116,7 @@ public class ArticleServiceImpl implements ArticalService{
 	@Override
 	public String findAllTypeAndBusiness() {
 		List<Select> business=businessMapper.findAllBusiness();
-		List<Select> type =typeMapper.findTypeByParentId("splb");
+		List<Select> type =typeMapper.findTypeByArticl();
 		Map<String, List> map=new HashMap<String, List>();
 		map.put("business", business);
 		map.put("type", type);
