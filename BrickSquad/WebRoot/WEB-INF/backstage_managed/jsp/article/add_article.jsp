@@ -68,9 +68,11 @@ $(function() {
  <br>
 	<div style="padding-left: 130px;font-size:20;">${msg}商品信息</div>
 	<br>
-	<form class="layui-form" action="article/${url}" id="form1" method="post">
-<input type="hidden" name="id"  value="${article.id}">
-		<div class="layui-form-item">
+	<form class="layui-form" action="article/${url}" id="form1" method="post" enctype="multipart/form-data">
+
+
+			<input type="hidden" name="id"  value="${article.id}">
+		 <div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
 				<input type="text" name="aname" required lay-verify="required"
@@ -129,14 +131,17 @@ $(function() {
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
-		</div>
+		</div> 
 			
 			
 			<div class="layui-form-item">
 			<label class="layui-form-label">商品图片</label>
-			<div class="layui-input-inline">
-				<input type="text" name="image" required lay-verify="required"
-					placeholder="商品图片" autocomplete="off" class="layui-input">
+			<div class="layui-input-inline" style="color:white; display:inline-block;position:relative;width:190px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
+				上传商品图片
+				<input type="file" name="files" multiple="multiple" required lay-verify="required"
+					placeholder="商品图片" autocomplete="off" class="layui-input" 
+						style="position:absolute;z-index:1;left:0px;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;"
+					>
 			</div>
 		</div>
 		
