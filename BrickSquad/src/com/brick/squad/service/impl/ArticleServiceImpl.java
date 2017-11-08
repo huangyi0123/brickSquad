@@ -146,6 +146,14 @@ public class ArticleServiceImpl implements ArticalService{
 		List<ArticleExpand> articleExpand  = articleMapper.findArticleBuyNumber();
 		return articleExpand;
 	}
+	/**
+	 * 医疗器械类获取商品订单数量
+	 * */
+	@Override
+	public List<ArticleExpand> findArticleBuyNumberAndMedicle(String parentId) {
+		List<ArticleExpand> articleExpand  = articleMapper.findArticleBuyNumberAndMedicle(parentId);
+		return articleExpand;
+	}
 	@Override
 	public int selectArticleSalesNumberTotalById(String id) {
 		

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticalService;
@@ -36,12 +37,14 @@ public class MedicalInstrumentsController {
 		/**医疗器械查询商品图片和商品名称*/
 		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
 		List<Article> list1=articleService.findArticleImgAndName("zuixin");
+		List<ArticleExpand> list2=articleService.findArticleBuyNumberAndMedicle("yiliaoqixie");
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
 		List<Article> listArticle= yiLiaoUtile.findArticleImgAndName(request, list);
 		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
+		List<ArticleExpand> listArticle2= yiLiaoUtile.findArticleImgAndName(request, list2);
 		request.setAttribute("listArticle", listArticle);
 		request.setAttribute("listArticle1", listArticle1);
-		
+		request.setAttribute("listArticle2", listArticle2);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 }
