@@ -3,8 +3,10 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 import com.brick.squad.expand.ShopActivitiesExpand;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.Select;
 
 public interface ShopActivitiesMapper {
 	/**
@@ -28,4 +30,6 @@ public interface ShopActivitiesMapper {
 	
 	
 	public ShopActivitiesExpand findShopActivitiesAndTypeAndArticle(String id);
+
+	public List<Select> findArticle(String businessId);
 }

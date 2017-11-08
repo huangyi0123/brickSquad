@@ -47,6 +47,9 @@ public class VariableProductController {
 			imgpathlList.add(file2.getName());
 		}
 		request.setAttribute("images", imgpathlList);
+		//根据商品ID查询销售总量
+		int SalesNumberTotal =articleService.selectArticleSalesNumberTotalById(productId)+500;
+		request.setAttribute("SalesNumberTotal", SalesNumberTotal);
 		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
 }

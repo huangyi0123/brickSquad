@@ -43,6 +43,11 @@ public interface ArticleMapper {
 	 * 获取商品订单数量
 	 */
 	public List<ArticleExpand> findArticleBuyNumber();
-
+	/**
+	 * 根据商品ID在订单明细表中查询该商品的销售总量
+	 * @param id
+	 * @return
+	 */
+	public int selectArticleSalesNumberTotalById(String id);
 }
 

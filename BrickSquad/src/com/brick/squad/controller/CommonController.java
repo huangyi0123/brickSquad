@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
@@ -34,6 +35,7 @@ import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.UpLoadFile;
+import com.brick.squad.util.YiLiaoUtile;
 
 @Controller
 @RequestMapping("/common")
@@ -41,6 +43,7 @@ public class CommonController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		// begin 通过权限id查询权限
@@ -66,10 +69,11 @@ public class CommonController {
 
 	@RequestMapping("/uploadImg")
 	@ResponseBody
-	public String uploadImg(MultipartFile file, HttpServletRequest request,String imgPath) {
+	public String uploadImg(MultipartFile file, HttpServletRequest request,
+			String imgPath) {
 		UpLoadFile upLoadFile = new UpLoadFile();
 		List<String> list = new ArrayList<String>();
-		String realPath = "resource/image/"+imgPath+"/";
+		String realPath = "resource/image/" + imgPath + "/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name = file.getOriginalFilename();
@@ -217,8 +221,11 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toShop")
-	public String toShop() {
-		
+
+	public String toShop(HttpServletRequest request) {
+		List<Type> aList=typeService.getArctre();
+		System.out.println(aList);
+		request.setAttribute("alist", aList);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -242,63 +249,39 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 
-	@RequestMapping("/todeals")
-	public String deals() {
-		return "frontEnd_manage/front_bootstrap/deals";
-	}
+	
 
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
+
 	/***
 	 * 医疗器械页面controller
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	@RequestMapping("/toShop_left_sidebar")
-	public String toShop_left_sidebar(HttpServletRequest request) throws Exception {
-		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+	public String toShop_left_sidebar(HttpServletRequest request)
+			throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<Type> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
-		List<Article> listArticle=articleService.findArticleImgAndName("laorenjianfuyongpin");
-		List<String> imgPath=new ArrayList<String>();
-		for(Article article:listArticle){
-			String path = request.getSession().getServletContext().
-				getRealPath("resource/image/articleImg/"+article.getImage());
-		  imgPath.add(path);
-		String p;
-		for(String realPath:imgPath){
-			File file=new File(realPath);
-			if(file.exists()){
-				File[] files=file.listFiles();
-				if(files.length==0){
-				}else{
-					for(File file2:files){
-						if(file2.isDirectory()){
-							
-						}else{
-							p=file2.getName();
-							article.setImage(article.getImage()+"/"+p);
-							break;
-						}
-					}
-				}
-			}
-		}
-		
-		}
+		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
+		List<Article> list1=articleService.findArticleImgAndName("zuixin");
+		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
+		List<Article> listArticle= yiLiaoUtile.findArticleImgAndName(request, list);
+		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
 		request.setAttribute("listArticle", listArticle);
+		request.setAttribute("listArticle1", listArticle1);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
-
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
 
 	}
 
-	
-	
 }

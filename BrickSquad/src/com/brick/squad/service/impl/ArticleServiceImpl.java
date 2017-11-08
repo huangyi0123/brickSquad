@@ -146,5 +146,10 @@ public class ArticleServiceImpl implements ArticalService{
 		List<ArticleExpand> articleExpand  = articleMapper.findArticleBuyNumber();
 		return articleExpand;
 	}
+	@Override
+	public int selectArticleSalesNumberTotalById(String id) {
+		
+		return articleMapper.selectArticleSalesNumberTotalById(id);
+	}
 	
 }
