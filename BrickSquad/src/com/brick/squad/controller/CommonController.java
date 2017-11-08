@@ -270,8 +270,9 @@ public class CommonController {
 		for(Article article:listArticle){
 			String path = request.getSession().getServletContext().
 				getRealPath("resource/image/articleImg/"+article.getImage());
+			String imgp=article.getImage();
 		  imgPath.add(path);
-		String p;
+		String p=null;
 		for(String realPath:imgPath){
 			File file=new File(realPath);
 			if(file.exists()){
@@ -279,13 +280,13 @@ public class CommonController {
 				if(files.length==0){
 				}else{
 					for(File file2:files){
+						
 						if(file2.isDirectory()){
-							
 						}else{
 							p=file2.getName();
-							article.setImage(article.getImage()+"/"+p);
-							break;
+							article.setImage(imgp+"/"+p);
 						}
+						
 					}
 				}
 			}
