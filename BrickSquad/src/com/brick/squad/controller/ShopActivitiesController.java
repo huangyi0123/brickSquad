@@ -128,4 +128,12 @@ public class ShopActivitiesController {
 	public String findTypeAndArticle(){
 		return shopActivitiesService.findTypeAndArticle();
 		}	
+	
+	@RequestMapping("/findArticle")
+	@ResponseBody
+	public String  findArticle(String businessId,HttpServletRequest request){
+		return shopActivitiesService.findArticle(businessId);
+		
+		  
+	}	
 }
