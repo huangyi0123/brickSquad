@@ -23,9 +23,14 @@ public class ArticleServiceTest {
 	private ArticalService articleService;
 	@Test
 	public void findArticleById() throws Exception{
-		System.out.println(articleService.findArticleById("2").getAname());
+		System.out.println(articleService.findArticleById("afdfddacc3bb11e7aca65254002ec43c").toString());
 		
 	}
+	@Test
+	public void selectArticleSalesNumberTotalByIdTest(){
+		System.out.println(articleService.selectArticleSalesNumberTotalById("afdfddacc3bb11e7aca65254002ec43c"));
+	}
+	
 /*	@Test
 	public void deleteArticleById()throws Exception{
 		articleService.deleteArticleById("de46677cc06b11e7aca65254002ec43c");
@@ -98,6 +103,16 @@ public class ArticleServiceTest {
 			System.out.println(articleExpand2.getAname());
 		}
 		
+	}
+	/**
+	 * 医疗器械类获取商品订单数量测试
+	 * */
+	@Test
+	public void findArticleBuyNumberAndMedicle() throws Exception{
+		List<ArticleExpand> articleExpand=articleService.findArticleBuyNumberAndMedicle("yiliaoqixie");
+		for (ArticleExpand articleExpand2 : articleExpand) {
+			System.out.println(articleExpand2.getAname());
+		}
 	}
 
 }
