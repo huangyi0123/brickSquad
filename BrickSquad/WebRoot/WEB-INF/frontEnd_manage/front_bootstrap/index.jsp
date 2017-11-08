@@ -353,12 +353,21 @@
 																	<ul id="menu-vertical-menu-1"
 																		class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
+<<<<<<< HEAD
+=======
+																				<input class="typeId" type="hidden" value="${type.id }" val="${n.index  }">
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#cac14a"></span>
 																						<span class="menu-title">女装</span>
 																					</span>
 																				</a>
+<<<<<<< HEAD
+=======
+																				<span id="type${n.index }"></span>
+																				
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 																			</li>
 
 
