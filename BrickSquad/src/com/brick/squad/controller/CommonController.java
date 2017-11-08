@@ -256,25 +256,6 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
-	/***
-	 * 医疗器械页面controller
-	 * @throws Exception 
-	 */
-	@RequestMapping("/toShop_left_sidebar")
-	public String toShop_left_sidebar(HttpServletRequest request) throws Exception {
-		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
-		request.setAttribute("listType", listType);
-		/**医疗器械查询商品图片和商品名称*/
-		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
-		List<Article> list1=articleService.findArticleImgAndName("zuixin");
-		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
-		List<Article> listArticle= yiLiaoUtile.findArticleImgAndName(request, list);
-		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
-		request.setAttribute("listArticle", listArticle);
-		request.setAttribute("listArticle1", listArticle1);
-		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
-	}
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";

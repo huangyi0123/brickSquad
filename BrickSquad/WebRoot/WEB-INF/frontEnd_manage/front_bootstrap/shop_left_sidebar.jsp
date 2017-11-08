@@ -111,7 +111,7 @@ $(function() {
 												<div class="module slideshow no-margin">
 												<c:forEach var="article1" items="${listArticle1 }">
 													<div class="item">
-														<a href="simple_product.html"><img
+														<a href="${pageContext.request.contextPath }/find?id=${article1.id}"><img
 															src="resource/image/articleImg/${article1.image }" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
@@ -164,7 +164,7 @@ $(function() {
 										<div class="item item-brand-cat">
 											<div class="item-image">
 												<a href="shop.html"><img width="173"
-													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
+													src="resource/front_bootstrap/images/1903/Brand_11.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
 										</div>
@@ -180,7 +180,7 @@ $(function() {
 										<div class="item item-brand-cat">
 											<div class="item-image">
 												<a href="shop.html"><img width="173" 
-													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
+													src="resource/front_bootstrap/images/1903/Brand_111.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
 										</div>
@@ -200,7 +200,7 @@ $(function() {
 							
 								<li
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/image/articleImg/${article.image }"
+									<a href="${pageContext.request.contextPath }/find?id=${article.id}"> <img src="resource/image/articleImg/${article.image }"
 										alt="Accessories" width="300" height="300">
 										<h3>
 											${article.aname }
@@ -211,104 +211,7 @@ $(function() {
 								
 								</c:forEach>
 
-							<!-- 	<li
-									class="product-category product product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c10.jpg"
-										alt="Appliances" width="300" height="300">
-										<h3>
-											Appliances
-											<mark class="count">(6)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c5.jpg"
-										alt="Cameras &amp; Accessories" width="300" height="300">
-										<h3>
-											Cameras &amp; Accessories
-											<mark class="count">(3)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product last product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c3.jpg"
-										alt="Computers &amp; Laptops" width="300" height="300">
-										<h3>
-											Computers &amp; Laptops
-											<mark class="count">(6)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c4.jpg"
-										alt="Computers &amp; Networking" width="300" height="300">
-										<h3>
-											Computers &amp; Networking
-											<mark class="count">(1)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c2.jpg"
-										alt="Electronics" width="300" height="300">
-										<h3>
-											Electronics
-											<mark class="count">(8)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c8.jpg"
-										alt="Home Appliances" width="300" height="300">
-										<h3>
-											Home Appliances
-											<mark class="count">(1)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product last product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c9.jpg"
-										alt="Home Furniture" width="300" height="300">
-										<h3>
-											Home Furniture
-											<mark class="count">(1)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c1.jpg"
-										alt="Smartphones &amp; Tablet" width="300" height="300">
-										<h3>
-											Smartphones &amp; Tablet
-											<mark class="count">(2)</mark>
-										</h3>
-								</a>
-								</li>
-
-								<li
-									class="product-category product product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c6.jpg"
-										alt="Televisions" width="300" height="300">
-										<h3>
-											Televisions
-											<mark class="count">(2)</mark>
-										</h3>
-								</a>
-								</li> -->
+	
 							</div>
 
 							<div class="products-nav clearfix">
