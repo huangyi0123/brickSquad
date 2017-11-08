@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -1612,96 +1612,98 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
-										<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
-											<div class="item-detail">
-												<div class="item-img products-thumb">
-													<span class="onsale">Sale!</span> <a
-														href="simple_product.html">
-														<div class="product-thumb-hover">
-															<img width="300" height="300"
-																src="resource/front_bootstrap/images/1903/11-300x300.jpg"
-																class="attachment-shop_catalog size-shop_catalog wp-post-image"
-																alt=""
-																srcset="resource/front_bootstrap/images/1903/11-300x300.jpg 300w, resource/front_bootstrap/images/1903/11-150x150.jpg 150w, resource/front_bootstrap/images/1903/11-180x180.jpg 180w, resource/front_bootstrap/images/1903/11.jpg 600w"
-																sizes="(max-width: 300px) 100vw, 300px">
+										<c:forEach items="${articleExpandList }" var="a">
+											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+												<div class="item-detail">
+													<div class="item-img products-thumb">
+														<span class="onsale">Sale!</span> <a
+															href="simple_product.html?id=${a.id}">
+															<div class="product-thumb-hover">
+																<img width="300" height="300"
+																	src="${a.image }"
+																	class="attachment-shop_catalog size-shop_catalog wp-post-image"
+																	alt=""
+																	srcset="${a.image } 300w, ${a.image } 150w, ${a.image } 180w, ${a.image } 600w"
+																	sizes="(max-width: 300px) 100vw, 300px">
+															</div>
+														</a>
+
+														<!-- add to cart, wishlist, compare -->
+														<div class="item-bottom clearfix">
+															<a rel="nofollow" href="#"
+																class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+																title="加入购物车">加入购物车</a> <a href="javascript:void(0)"
+																class="compare button" rel="nofollow"
+																title="Add to Compare">Compare</a>
+
+															<div
+																class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																<div class="yith-wcwl-add-button show"
+																	style="display:block">
+																	<a href="wishlist.html" rel="nofollow"
+																		class="add_to_wishlist">加入收藏</a> <img
+																		src="resource/front_bootstrap/images/wpspin_light.gif"
+																		class="ajax-loading" alt="loading" width="16"
+																		height="16" style="visibility:hidden" />
+																</div>
+
+																<div class="yith-wcwl-wishlistaddedbrowse hide"
+																	style="display:none;">
+																	<span class="feedback">Product added!</span> <a
+																		href="#" rel="nofollow">Browse Wishlist</a>
+																</div>
+
+																<div class="yith-wcwl-wishlistexistsbrowse hide"
+																	style="display:none">
+																	<span class="feedback">The product is already in
+																		the wishlist!</span> <a href="#" rel="nofollow">Browse
+																		Wishlist</a>
+																</div>
+
+																<div style="clear:both"></div>
+																<div class="yith-wcwl-wishlistaddresponse"></div>
+															</div>
+
+															<div class="clear"></div>
+															<a href="ajax/fancybox/example.html"
+																data-fancybox-type="ajax"
+																class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
+																View </a>
 														</div>
-													</a>
 
-													<!-- add to cart, wishlist, compare -->
-													<div class="item-bottom clearfix">
-														<a rel="nofollow" href="#"
-															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-															title="加入购物车">加入购物车</a> <a href="javascript:void(0)"
-															class="compare button" rel="nofollow"
-															title="Add to Compare">Compare</a>
-
-														<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-															<div class="yith-wcwl-add-button show"
-																style="display:block">
-																<a href="wishlist.html" rel="nofollow"
-																	class="add_to_wishlist">加入收藏</a> <img
-																	src="resource/front_bootstrap/images/wpspin_light.gif"
-																	class="ajax-loading" alt="loading" width="16"
-																	height="16" style="visibility:hidden" />
-															</div>
-
-															<div class="yith-wcwl-wishlistaddedbrowse hide"
-																style="display:none;">
-																<span class="feedback">Product added!</span> <a href="#"
-																	rel="nofollow">Browse Wishlist</a>
-															</div>
-
-															<div class="yith-wcwl-wishlistexistsbrowse hide"
-																style="display:none">
-																<span class="feedback">The product is already in
-																	the wishlist!</span> <a href="#" rel="nofollow">Browse
-																	Wishlist</a>
-															</div>
-
-															<div style="clear:both"></div>
-															<div class="yith-wcwl-wishlistaddresponse"></div>
-														</div>
-
-														<div class="clear"></div>
-														<a href="ajax/fancybox/example.html"
-															data-fancybox-type="ajax"
-															class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-															View </a>
+													<!-- 	<div class="sale-off">-13%</div> -->
 													</div>
 
-													<div class="sale-off">-13%</div>
-												</div>
+													<div class="item-content">
+														<!-- rating  -->
+														<div class="reviews-content">
+															<div class="star"></div>
+															<div class="item-number-rating">${a.buyNumber } Review(s)</div>
+														</div>
+														<!-- end rating  -->
 
-												<div class="item-content">
-													<!-- rating  -->
-													<div class="reviews-content">
-														<div class="star"></div>
-														<div class="item-number-rating">0 Review(s)</div>
-													</div>
-													<!-- end rating  -->
+														<h4>
+															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
+														</h4>
 
-													<h4>
-														<a href="simple_product.html" title="高音炮">高音炮</a>
-													</h4>
-
-													<!-- price -->
-													<div class="item-price">
-														<span> <del>
-																<span class="woocommerce-Price-amount amount"> <span
-																	class="woocommerce-Price-currencySymbol">$</span>460.00
-																</span>
-															</del> <ins>
-																<span class="woocommerce-Price-amount amount"> <span
-																	class="woocommerce-Price-currencySymbol">$</span>400.00
-																</span>
-															</ins>
-														</span>
+														<!-- price -->
+														<div class="item-price">
+															<!-- <span> <del>
+																	<span class="woocommerce-Price-amount amount"> <span
+																		class="woocommerce-Price-currencySymbol">￥</span>460.00
+																	</span> -->
+																</del> <ins>
+																	<span class="woocommerce-Price-amount amount"> <span
+																		class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+																	</span>
+																</ins>
+															</span>
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-
-										<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+										</c:forEach>
+										<!--  <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 											<div class="item-detail">
 												<div class="item-img products-thumb">
 													<span class="onsale">Sale!</span> <a
@@ -1715,8 +1717,7 @@
 																sizes="(max-width: 300px) 100vw, 300px">
 														</div>
 													</a>
-
-													<!-- add to cart, wishlist, compare -->
+ 													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1760,23 +1761,23 @@
 
 													<div class="sale-off">-10%</div>
 												</div>
-
+ 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star">
 															<span style="width:63px"></span>
 														</div>
 														<div class="item-number-rating">2 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="Cleaner with bag">Cleaner
 															with bag</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"> <span
@@ -1792,8 +1793,8 @@
 												</div>
 											</div>
 										</div>
-
-										<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+ -->
+										<!-- <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 											<div class="item-detail">
 												<div class="item-img products-thumb">
 													<span class="onsale">Sale!</span> <a
@@ -1808,7 +1809,7 @@
 														</div>
 													</a>
 
-													<!-- add to cart, wishlist, compare -->
+													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1854,21 +1855,21 @@
 												</div>
 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star">
 															<span style="width:52.5px"></span>
 														</div>
 														<div class="item-number-rating">4 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="Vacuum cleaner">Vacuum
 															cleaner</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"> <span
@@ -1900,7 +1901,7 @@
 														</div>
 													</a>
 
-													<!-- add to cart, wishlist, compare -->
+													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1946,19 +1947,19 @@
 												</div>
 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star"></div>
 														<div class="item-number-rating">0 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="philips stand">philips
 															stand</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"> <span
@@ -1990,7 +1991,7 @@
 														</div>
 													</a>
 
-													<!-- add to cart, wishlist, compare -->
+													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -2036,19 +2037,19 @@
 												</div>
 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star"></div>
 														<div class="item-number-rating">0 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="MacBook Air">MacBook
 															Air</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"> <span
@@ -2080,7 +2081,7 @@
 														</div>
 													</a>
 
-													<!-- add to cart, wishlist, compare -->
+													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -2126,21 +2127,21 @@
 												</div>
 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star">
 															<span style="width:35px"></span>
 														</div>
 														<div class="item-number-rating">2 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="veniam dolore">veniam
 															dolore</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"> <span
@@ -2172,7 +2173,7 @@
 														</div>
 													</a>
 
-													<!-- add to cart, wishlist, compare -->
+													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -2218,19 +2219,19 @@
 												</div>
 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star"></div>
 														<div class="item-number-rating">0 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="ipsum esse nisi">ipsum
 															esse nisi</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"><span
@@ -2260,7 +2261,7 @@
 														</div>
 													</a>
 
-													<!-- add to cart, wishlist, compare -->
+													add to cart, wishlist, compare
 													<div class="item-bottom clearfix">
 														<a rel="nofollow" href="#"
 															class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -2306,19 +2307,19 @@
 												</div>
 
 												<div class="item-content">
-													<!-- rating  -->
+													rating 
 													<div class="reviews-content">
 														<div class="star"></div>
 														<div class="item-number-rating">0 Review(s)</div>
 													</div>
-													<!-- end rating  -->
+													end rating 
 
 													<h4>
 														<a href="simple_product.html" title="iPad Mini 2 Retina">iPad
 															Mini 2 Retina</a>
 													</h4>
 
-													<!-- price -->
+													price
 													<div class="item-price">
 														<span> <del>
 																<span class="woocommerce-Price-amount amount"> <span
@@ -2337,216 +2338,221 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<jsp:include page="shop_footer.jsp"></jsp:include>
-
-	</div>
-
-	<!-- DIALOGS -->
-	<div class="modal fade" id="search_form" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog block-popup-search-form">
-			<form role="search" method="get" class="form-search searchform"
-				action="">
-				<input type="text" value="" name="s" class="search-query"
-					placeholder="Enter your keyword..." />
-
-				<button type="submit"
-					class="fa fa-search button-search-pro form-button"></button>
-
-				<a href="javascript:void(0)" title="Close"
-					class="close close-search" data-dismiss="modal">X</a>
-			</form>
-		</div>
-	</div>
-
-	<div class="modal fade" id="login_form" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog block-popup-login">
-			<a href="javascript:void(0)" title="Close" class="close close-login"
-				data-dismiss="modal">Close</a>
-
-			<div class="tt_popup_login">
-				<strong>Sign in Or Register</strong>
-			</div>
-
-			<form action="" method="post" class="login">
-				<div class="block-content">
-					<div class="col-reg registered-account">
-						<div class="email-input">
-							<input type="text" class="form-control input-text username"
-								name="username" id="username" placeholder="Username" />
-						</div>
-
-						<div class="pass-input">
-							<input class="form-control input-text password" type="password"
-								placeholder="Password" name="password" id="password" />
-						</div>
-
-						<div class="ft-link-p">
-							<a href="lost_password.html" title="Forgot your password">Forgot
-								your password?</a>
-						</div>
-
-						<div class="actions">
-							<div class="submit-login">
-								<input type="submit" class="button btn-submit-login"
-									name="login" value="Login" />
+ -->
+										<div class="clearfix"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-reg login-customer">
-						<h2>NEW HERE?</h2>
 
-						<p class="note-reg">Registration is free and easy!</p>
+					<jsp:include page="shop_footer.jsp"></jsp:include>
 
-						<ul class="list-log">
-							<li>Faster checkout</li>
+				</div>
 
-							<li>Save multiple shipping addresses</li>
+				<!-- DIALOGS -->
+				<div class="modal fade" id="search_form" tabindex="-1" role="dialog"
+					aria-hidden="true">
+					<div class="modal-dialog block-popup-search-form">
+						<form role="search" method="get" class="form-search searchform"
+							action="">
+							<input type="text" value="" name="s" class="search-query"
+								placeholder="Enter your keyword..." />
 
-							<li>View and track orders and more</li>
-						</ul>
+							<button type="submit"
+								class="fa fa-search button-search-pro form-button"></button>
 
-						<a href="create_account.html" title="Register"
-							class="btn-reg-popup">Create an account</a>
+							<a href="javascript:void(0)" title="Close"
+								class="close close-search" data-dismiss="modal">X</a>
+						</form>
 					</div>
 				</div>
-			</form>
-			<div class="clear"></div>
-		</div>
-	</div>
 
-	<a id="etrostore-totop" href="#"></a>
+				<div class="modal fade" id="login_form" tabindex="-1" role="dialog"
+					aria-hidden="true">
+					<div class="modal-dialog block-popup-login">
+						<a href="javascript:void(0)" title="Close"
+							class="close close-login" data-dismiss="modal">Close</a>
 
-	<div id="subscribe_popup" class="subscribe-popup"
-		style="background: url(resource/front_bootstrap/images/icons/bg_newsletter.jpg)">
-		<div class="subscribe-popup-container">
-			<h2>Join our newsletter</h2>
-			<div class="description">Subscribe now to get 40% of on any
-				product!</div>
-			<div class="subscribe-form">
-				<form id="mc4wp-form-2" class="mc4wp-form mc4wp-form-275"
-					method="post" data-id="275" data-name="">
-					<div class="mc4wp-form-fields">
-						<div class="newsletter-content">
-							<input type="email" class="newsletter-email" name="EMAIL"
-								placeholder="Your email" required="" />
-							<input class="newsletter-submit" type="submit" value="Subscribe" />
+						<div class="tt_popup_login">
+							<strong>Sign in Or Register</strong>
+						</div>
+
+						<form action="" method="post" class="login">
+							<div class="block-content">
+								<div class="col-reg registered-account">
+									<div class="email-input">
+										<input type="text" class="form-control input-text username"
+											name="username" id="username" placeholder="Username" />
+									</div>
+
+									<div class="pass-input">
+										<input class="form-control input-text password"
+											type="password" placeholder="Password" name="password"
+											id="password" />
+									</div>
+
+									<div class="ft-link-p">
+										<a href="lost_password.html" title="Forgot your password">Forgot
+											your password?</a>
+									</div>
+
+									<div class="actions">
+										<div class="submit-login">
+											<input type="submit" class="button btn-submit-login"
+												name="login" value="Login" />
+										</div>
+									</div>
+								</div>
+
+								<div class="col-reg login-customer">
+									<h2>NEW HERE?</h2>
+
+									<p class="note-reg">Registration is free and easy!</p>
+
+									<ul class="list-log">
+										<li>Faster checkout</li>
+
+										<li>Save multiple shipping addresses</li>
+
+										<li>View and track orders and more</li>
+									</ul>
+
+									<a href="create_account.html" title="Register"
+										class="btn-reg-popup">Create an account</a>
+								</div>
+							</div>
+						</form>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+				<a id="etrostore-totop" href="#"></a>
+
+				<div id="subscribe_popup" class="subscribe-popup"
+					style="background: url(resource/front_bootstrap/images/icons/bg_newsletter.jpg)">
+					<div class="subscribe-popup-container">
+						<h2>Join our newsletter</h2>
+						<div class="description">Subscribe now to get 40% of on any
+							product!</div>
+						<div class="subscribe-form">
+							<form id="mc4wp-form-2" class="mc4wp-form mc4wp-form-275"
+								method="post" data-id="275" data-name="">
+								<div class="mc4wp-form-fields">
+									<div class="newsletter-content">
+										<input type="email" class="newsletter-email" name="EMAIL"
+											placeholder="Your email" required="" />
+										<input class="newsletter-submit" type="submit"
+											value="Subscribe" />
+									</div>
+								</div>
+								<div class="mc4wp-response"></div>
+							</form>
+						</div>
+
+						<div class="subscribe-checkbox">
+							<label for="popup_check"> <input id="popup_check"
+									name="popup_check" type="checkbox" /> <span>Don't show
+									this popup again!</span>
+							</label>
+						</div>
+
+						<div class="subscribe-social">
+							<div class="subscribe-social-inner">
+								<a href="http://www.facebook.com/" class="social-fb"> <span
+									class="fa fa-facebook"></span>
+								</a> <a href="https://twitter.com/" class="social-tw"> <span
+									class="fa fa-twitter"></span>
+								</a> <a href="https://plus.google.com/" class="social-gplus"> <span
+									class="fa fa-google-plus"></span>
+								</a> <a href="#" class="social-pin"> <span
+									class="fa fa-instagram"></span>
+								</a> <a href="http://www.pinterest.com/" class="social-linkedin">
+									<span class="fa fa-pinterest-p"></span>
+								</a>
+							</div>
 						</div>
 					</div>
-					<div class="mc4wp-response"></div>
-				</form>
-			</div>
-
-			<div class="subscribe-checkbox">
-				<label for="popup_check"> <input id="popup_check"
-						name="popup_check" type="checkbox" /> <span>Don't show
-						this popup again!</span>
-				</label>
-			</div>
-
-			<div class="subscribe-social">
-				<div class="subscribe-social-inner">
-					<a href="http://www.facebook.com/" class="social-fb"> <span
-						class="fa fa-facebook"></span>
-					</a> <a href="https://twitter.com/" class="social-tw"> <span
-						class="fa fa-twitter"></span>
-					</a> <a href="https://plus.google.com/" class="social-gplus"> <span
-						class="fa fa-google-plus"></span>
-					</a> <a href="#" class="social-pin"> <span class="fa fa-instagram"></span>
-					</a> <a href="http://www.pinterest.com/" class="social-linkedin"> <span
-						class="fa fa-pinterest-p"></span>
-					</a>
 				</div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 
-	<!-- OPEN LIBS JS -->
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
+				<!-- OPEN LIBS JS -->
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/plugins.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/megamenu.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/main.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/plugins.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/megamenu.min.js"></script>
+				<script type="text/javascript"
+					src="resource/front_bootstrap/js/main.min.js"></script>
 
-	<script type="text/javascript">
-		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
-		var sticky_navigation = function() {
-			var scroll_top = $(window).scrollTop();
-			if (scroll_top > sticky_navigation_offset_top) {
-				$("#header .header-bottom").addClass("sticky-menu");
-				$("#header .header-bottom").css({
-					"top" : 0,
-					"left" : 0,
-					"right" : 0
-				});
-			} else {
-				$("#header .header-bottom").removeClass("sticky-menu");
-			}
-		};
-		sticky_navigation();
-		$(window).scroll(function() {
-			sticky_navigation();
-		});
+				<script type="text/javascript">
+					var sticky_navigation_offset_top = $(
+							"#header .header-bottom").offset().top;
+					var sticky_navigation = function() {
+						var scroll_top = $(window).scrollTop();
+						if (scroll_top > sticky_navigation_offset_top) {
+							$("#header .header-bottom").addClass("sticky-menu");
+							$("#header .header-bottom").css({
+								"top" : 0,
+								"left" : 0,
+								"right" : 0
+							});
+						} else {
+							$("#header .header-bottom").removeClass(
+									"sticky-menu");
+						}
+					};
+					sticky_navigation();
+					$(window).scroll(function() {
+						sticky_navigation();
+					});
 
-		$(document).ready(function() {
-			$(".show-dropdown").each(function() {
-				$(this).on("click", function() {
-					$(this).toggleClass("show");
-					var $element = $(this).parent().find("> ul");
-					$element.toggle(300);
-				});
-			});
-		});
-	</script>
+					$(document).ready(function() {
+						$(".show-dropdown").each(function() {
+							$(this).on("click", function() {
+								$(this).toggleClass("show");
+								var $element = $(this).parent().find("> ul");
+								$element.toggle(300);
+							});
+						});
+					});
+				</script>
 
-	<!--[if gte IE 9]><!-->
-	<script type="text/javascript">
-		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
-				'(^|\\s+)(no-)?' + cs + '(\\s+|$)');
-		request = true;
+				<!--[if gte IE 9]><!-->
+				<script type="text/javascript">
+					var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
+							'(^|\\s+)(no-)?' + cs + '(\\s+|$)');
+					request = true;
 
-		b[c] = b[c].replace(rcs, ' ');
-		// The customizer requires postMessage and CORS (if the site is cross domain)
-		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
-	</script>
-	<!--<![endif]-->
+					b[c] = b[c].replace(rcs, ' ');
+					// The customizer requires postMessage and CORS (if the site is cross domain)
+					b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
+				</script>
+				<!--<![endif]-->
 </body>
 </html>

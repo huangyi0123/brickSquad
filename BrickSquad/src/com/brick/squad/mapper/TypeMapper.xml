@@ -69,7 +69,7 @@
 		select id,name from type
 	</select>
 	<select id="findTyepByParentId" parameterType="string"
-		resultType="com.brick.squad.util.Select">
+		resultType="type">
 		select id,name from type where parent_id=#{perantId}
 	</select>
 	<!-- 医疗器械一级分类查询 -->

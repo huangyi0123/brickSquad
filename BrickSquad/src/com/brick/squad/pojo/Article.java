@@ -74,5 +74,12 @@ public class Article {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", aname=" + aname + ", typeId=" + typeId
+				+ ", businessId=" + businessId + ", price=" + price
+				+ ", stock=" + stock + ", describes=" + describes + ", image="
+				+ image + "]";
+	}
 
 }

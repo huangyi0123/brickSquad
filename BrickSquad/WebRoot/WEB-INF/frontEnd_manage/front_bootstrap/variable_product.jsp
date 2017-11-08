@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -109,332 +110,17 @@
 				<div id="container">
 					<div id="content" role="main">
 						<div class="single-product clearfix">
-							<!-- <div id="product-01"
-								class="post-01 product type-product status-publish has-post-thumbnail product_cat-batteries-chargers product_cat-cameras-camcorders product_cat-mp3-player-accessories product_cat-television-cameras-accessories first instock shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-								<div class="product_detail row">
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
-										<div class="slider_img_productd">
-											woocommerce_show_product_images
-											<div id="product_img_01" class="product-images loading"
-												data-rtl="false">
-												<div
-													class="product-images-container clearfix thumbnail-bottom">
-													Image Slider
-													<div class="slider product-responsive">
-														<div class="item-img-slider">
-															<div class="images">
-																<a href="resource/front_bootstrap/images/1903/54.jpg "
-																	data-rel="prettyPhoto[product-gallery]" class="zoom">
-																	<img width="600" height="600"
-																	src="resource/front_bootstrap/images/1903/54.jpg"
-																	class="attachment-shop_single size-shop_single" alt=""
-																	srcset="resource/front_bootstrap/images/1903/54.jpg 600w, resource/front_bootstrap/images/1903/54-150x150.jpg 150w, resource/front_bootstrap/images/1903/54-300x300.jpg 300w, resource/front_bootstrap/images/1903/54-180x180.jpg 180w"
-																	sizes="(max-width: 600px) 100vw, 600px">
-																</a>
-															</div>
-														</div>
-
-														<div class="item-img-slider">
-															<div class="images">
-																<a href="resource/front_bootstrap/images/1903/58.jpg "
-																	data-rel="prettyPhoto[product-gallery]" class="zoom">
-																	<img width="600" height="600"
-																	src="resource/front_bootstrap/images/1903/58.jpg"
-																	class="attachment-shop_single size-shop_single" alt=""
-																	srcset="resource/front_bootstrap/images/1903/58.jpg 600w, resource/front_bootstrap/images/1903/58-150x150.jpg 150w, resource/front_bootstrap/images/1903/58-300x300.jpg 300w, resource/front_bootstrap/images/1903/58-180x180.jpg 180w"
-																	sizes="(max-width: 600px) 100vw, 600px">
-																</a>
-															</div>
-														</div>
-
-														<div class="item-img-slider">
-															<div class="images">
-																<a href="resource/front_bootstrap/images/1903/56.jpg "
-																	data-rel="prettyPhoto[product-gallery]" class="zoom">
-																	<img width="600" height="600"
-																	src="resource/front_bootstrap/images/1903/56.jpg"
-																	class="attachment-shop_single size-shop_single" alt=""
-																	srcset="resource/front_bootstrap/images/1903/56.jpg 600w, resource/front_bootstrap/images/1903/56-150x150.jpg 150w, resource/front_bootstrap/images/1903/56-300x300.jpg 300w, resource/front_bootstrap/images/1903/56-180x180.jpg 180w"
-																	sizes="(max-width: 600px) 100vw, 600px">
-																</a>
-															</div>
-														</div>
-
-														<div class="item-img-slider">
-															<div class="images">
-																<a href="resource/front_bootstrap/images/1903/55.jpg "
-																	data-rel="prettyPhoto[product-gallery]" class="zoom">
-																	<img width="600" height="600"
-																	src="resource/front_bootstrap/images/1903/55.jpg"
-																	class="attachment-shop_single size-shop_single" alt=""
-																	srcset="resource/front_bootstrap/images/1903/55.jpg 600w, resource/front_bootstrap/images/1903/55-150x150.jpg 150w, resource/front_bootstrap/images/1903/55-300x300.jpg 300w, resource/front_bootstrap/images/1903/55-180x180.jpg 180w"
-																	sizes="(max-width: 600px) 100vw, 600px">
-																</a>
-															</div>
-														</div>
-
-														<div class="item-img-slider">
-															<div class="images">
-																<a href="resource/front_bootstrap/images/1903/54.jpg "
-																	data-rel="prettyPhoto[product-gallery]" class="zoom">
-																	<img width="600" height="600" src="images/1903/54.jpg"
-																	class="attachment-shop_single size-shop_single" alt=""
-																	srcset="resource/front_bootstrap/images/1903/54.jpg 600w, resource/front_bootstrap/images/1903/54-150x150.jpg 150w, resource/front_bootstrap/images/1903/54-300x300.jpg 300w, resource/front_bootstrap/images/1903/54-180x180.jpg 180w"
-																	sizes="(max-width: 600px) 100vw, 600px">
-																</a>
-															</div>
-														</div>
-
-														<div class="item-img-slider">
-															<div class="images">
-																<a href="resource/front_bootstrap/images/1903/18.jpg "
-																	data-rel="prettyPhoto[product-gallery]" class="zoom">
-																	<img width="600" height="600" src="images/1903/18.jpg"
-																	class="attachment-shop_single size-shop_single" alt=""
-																	srcset="resource/front_bootstrap/images/1903/18.jpg 600w, resource/front_bootstrap/images/1903/18-150x150.jpg 150w, resource/front_bootstrap/images/1903/18-300x300.jpg 300w, resource/front_bootstrap/images/1903/18-180x180.jpg 180w"
-																	sizes="(max-width: 600px) 100vw, 600px">
-																</a>
-															</div>
-														</div>
-													</div>
-
-													Thumbnail Slider
-													<div class="slider product-responsive-thumbnail"
-														id="product_thumbnail_427">
-														<div class="item-thumbnail-product">
-															<div class="thumbnail-wrapper">
-																<img width="180" height="180"
-																	src="resource/front_bootstrap/images/1903/54-180x180.jpg"
-																	class="attachment-shop_thumbnail size-shop_thumbnail"
-																	alt=""
-																	srcset="resource/front_bootstrap/images/1903/54-180x180.jpg 180w, resource/front_bootstrap/images/1903/54-150x150.jpg 150w, resource/front_bootstrap/images/1903/54-300x300.jpg 300w, resource/front_bootstrap/images/1903/54.jpg 600w"
-																	sizes="(max-width: 180px) 100vw, 180px">
-															</div>
-														</div>
-
-														<div class="item-thumbnail-product">
-															<div class="thumbnail-wrapper">
-																<img width="180" height="180"
-																	src="resource/front_bootstrap/images/1903/58-180x180.jpg"
-																	class="attachment-shop_thumbnail size-shop_thumbnail"
-																	alt=""
-																	srcset="resource/front_bootstrap/images/1903/58-180x180.jpg 180w, resource/front_bootstrap/images/1903/58-150x150.jpg 150w, resource/front_bootstrap/images/1903/58-300x300.jpg 300w, resource/front_bootstrap/images/1903/58.jpg 600w"
-																	sizes="(max-width: 180px) 100vw, 180px">
-															</div>
-														</div>
-
-														<div class="item-thumbnail-product">
-															<div class="thumbnail-wrapper">
-																<img width="180" height="180"
-																	src="resource/front_bootstrap/images/1903/56-180x180.jpg"
-																	class="attachment-shop_thumbnail size-shop_thumbnail"
-																	alt=""
-																	srcset="resource/front_bootstrap/images/1903/56-180x180.jpg 180w, resource/front_bootstrap/images/1903/56-150x150.jpg 150w, resource/front_bootstrap/images/1903/56-300x300.jpg 300w, resource/front_bootstrap/images/1903/56.jpg 600w"
-																	sizes="(max-width: 180px) 100vw, 180px">
-															</div>
-														</div>
-
-														<div class="item-thumbnail-product">
-															<div class="thumbnail-wrapper">
-																<img width="180" height="180"
-																	src="resource/front_bootstrap/images/1903/55-180x180.jpg"
-																	class="attachment-shop_thumbnail size-shop_thumbnail"
-																	alt=""
-																	srcset="resource/front_bootstrap/images/1903/55-180x180.jpg 180w, resource/front_bootstrap/images/1903/55-150x150.jpg 150w, resource/front_bootstrap/images/1903/55-300x300.jpg 300w, resource/front_bootstrap/images/1903/55.jpg 600w"
-																	sizes="(max-width: 180px) 100vw, 180px">
-															</div>
-														</div>
-
-														<div class="item-thumbnail-product">
-															<div class="thumbnail-wrapper">
-																<img width="180" height="180"
-																	src="resource/front_bootstrap/images/1903/54-180x180.jpg"
-																	class="attachment-shop_thumbnail size-shop_thumbnail"
-																	alt=""
-																	srcset="resource/front_bootstrap/images/1903/54-180x180.jpg 180w, resource/front_bootstrap/images/1903/54-150x150.jpg 150w, resource/front_bootstrap/images/1903/54-300x300.jpg 300w, resource/front_bootstrap/images/1903/54.jpg 600w"
-																	sizes="(max-width: 180px) 100vw, 180px">
-															</div>
-														</div>
-
-														<div class="item-thumbnail-product">
-															<div class="thumbnail-wrapper">
-																<img width="180" height="180"
-																	src="resource/front_bootstrap/images/1903/18-180x180.jpg"
-																	class="attachment-shop_thumbnail size-shop_thumbnail"
-																	alt=""
-																	srcset="resource/front_bootstrap/images/1903/18-180x180.jpg 180w, resource/front_bootstrap/images/1903/18-150x150.jpg 150w, resource/front_bootstrap/images/1903/18-300x300.jpg 300w, resource/front_bootstrap/images/1903/18.jpg 600w"
-																	sizes="(max-width: 180px) 100vw, 180px">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 clear_xs">
-										<div class="content_product_detail">
-											<h1 itemprop="name" class="product_title entry-title">数码相机</h1>
-
-											<div class="reviews-content">
-												<div class="star"></div>
-												<a href="#reviews" class="woocommerce-review-link"
-													rel="nofollow">评论<span class="count">（0）</span></a>
-											</div>
-
-											<div>
-												<p class="price">
-													<span class="woocommerce-Price-amount amount"><span
-														class="woocommerce-Price-currencySymbol">$</span>150.00</span>-<span
-														class="woocommerce-Price-amount amount"><span
-														class="woocommerce-Price-currencySymbol">$</span>310.00</span>
-												</p>
-											</div>
-
-											<div class="product-info clearfix">
-												<div class="product-stock pull-left in-stock">
-													<span>库存量：</span>
-												</div>
-												<span class="sku_wrapper pull-left">货号 ： sku - <span
-													class="sku" itemprop="sku">123465</span>
-												</span>
-											</div>
-
-											<div class="description" itemprop="description">
-												<p>Proin nunc nibh, adipiscing eu nisi id, ultrices
-													suscipit augue. Sed rhoncus hendrerit lacus, et venenatis
-													felis. Donec ut fringilla magna ultrices suscipit augue.
-													Proin nunc nibh, adipiscing eu nisi id, ultrices suscipit
-													augue. Sed rhoncus hendrerit lacus, et venenatis felis.
-													Donec ut fringilla magna ultrices suscipit augue.</p>
-											</div>
-
-											<form class="variations_form cart" method="post"
-												enctype="multipart/form-data">
-												<table class="variations" cellspacing="0">
-													<tbody>
-														<tr>
-															<td class="label">
-																<label for="pa_color">颜色</label>
-															</td>
-															<td class="value">
-																<select id="pa_color" class="" name="attribute_pa_color"
-																	data-attribute_name="attribute_pa_color"
-																	"="" data-show_option_none="yes">
-																	<option value="">请选择</option>
-																	<option value="black">黑色</option>
-																	<option value="blue">蓝色</option>
-																	<option value="orange">橘色</option>
-																	<option value="white">白色</option>
-																	<option value="yellow">黄色</option>
-																</select>
-															</td>
-														</tr>
-														<tr>
-															<td class="label">
-																<label for="pa_size">尺寸</label>
-															</td>
-															<td class="value">
-																<select id="pa_size" class="" name="attribute_pa_size"
-																	data-attribute_name="attribute_pa_size"
-																	"="" data-show_option_none="yes">
-																	<option value="">请选择</option>
-																	<option value="l">L</option>
-																	<option value="m">M</option>
-																	<option value="s">S</option>
-																	<option value="xl">XL</option>
-																	<option value="xs">XS</option>
-																</select> <a class="reset_variations" href="#">Clear</a>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-
-												<div class="addcart-wrapper clearfix">
-													<div class="single_variation_wrap">
-														<div class="woocommerce-variation single_variation"></div>
-
-														<div
-															class="woocommerce-variation-add-to-cart variations_button">
-															<div class="quantity">
-																<input type="number" step="1" min="" max=""
-																	name="quantity" value="1" title="Qty"
-																	class="input-text qty text" size="4" pattern="[0-9]*"
-																	inputmode="numeric">
-															</div>
-															<button type="submit"
-																class="single_add_to_cart_button button alt">添加至购物车</button>
-														</div>
-
-														add to cart, wishlist, compare
-														<div class="item-bottom">
-															<a href="javascript:void(0)" class="compare button"
-																rel="nofollow" title="Add to Compare">Compare</a>
-
-															<div
-																class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																<div class="yith-wcwl-add-button show"
-																	style="display:block">
-																	<a href="wishlist.html" rel="nofollow"
-																		class="add_to_wishlist">添加至我的收藏</a> <img
-																		src="resource/front_bootstrap/images/wpspin_light.gif"
-																		class="ajax-loading" alt="loading" width="16"
-																		height="16" style="visibility:hidden" />
-																</div>
-
-																<div class="yith-wcwl-wishlistaddedbrowse hide"
-																	style="display:none;">
-																	<span class="feedback">Product added!</span> <a
-																		href="#" rel="nofollow">Browse Wishlist</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistexistsbrowse hide"
-																	style="display:none">
-																	<span class="feedback">The product is already in
-																		the wishlist!</span> <a href="#" rel="nofollow">Browse
-																		Wishlist</a>
-																</div>
-
-																<div style="clear:both"></div>
-																<div class="yith-wcwl-wishlistaddresponse"></div>
-															</div>
-
-															<div class="clear"></div>
-														</div>
-													</div>
-												</div>
-											</form>
-
-											<div class="social-share">
-												<div class="title-share">Share</div>
-												<div class="wrap-content">
-													<a href="http://www.facebook.com/"
-														onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i
-														class="fa fa-facebook"></i></a> <a href="http://twitter.com/"
-														onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i
-														class="fa fa-twitter"></i></a> <a
-														href="https://plus.google.com/"
-														onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i
-														class="fa fa-google-plus"></i></a> <a href="#"> <i
-														class="fa fa-dribbble"></i></a> <a href="#"><i
-														class="fa fa-instagram"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
-
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="#"><img alt="" src="resource/image/3.png"
+									<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
 										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
 									<div class="comm_imgs">
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
+									
+										<c:forEach var="a" items="${images }">
+										
+										<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
+											
+										</c:forEach>
 										<div>
 											<div style="float: left;">
 												<a href="#"
@@ -457,16 +143,16 @@
 								</div>
 								<div class="comm_info">
 									<p
-										style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">珂卡芙2017新款冬季女鞋韩版圆头粗跟长筒靴女中跟女靴964186621@</p>
+										style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">${ article.aname}</p>
 									<label
 										style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label>
 									<div class="comm_backimg">
 										<dl>
 											<dd>
-												<label>价格</label> <label style="margin-left: 50px;">78</label>
+												<label>价格</label> <label style="margin-left: 50px;">${ article.price}</label>
 											</dd>
 											<dd>
-												<label>促销价</label> <label style="margin-left: 36px;">60</label>
+												<label>促销价</label> <label style="margin-left: 36px;">${ article.price}</label>
 											</dd>
 											<dd>
 												<label>本店活动</label> <label style="margin-left: 22px;">满2件，包邮</label>
@@ -536,11 +222,11 @@
 									<div
 										style="margin-top:8px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
 									<label style="margin-left: 50px;margin-top: 10px;">月销量</label>
-									<label>1235</label>
+									<label>${SalesNumberTotal }</label>
 									<p style="display:block; margin-top: -26px;margin-left: 180px;">|</p>
 									<label
 										style="display:block; margin-left: 220px;margin-top: -29px;">累计评价</label>
-									<label style="margin-left: 290px;margin-top: -25px;">235</label>
+									<label style="margin-left: 290px;margin-top: -25px;">${ratedTotal }</label>
 									<p style="margin-top: -26px;margin-left: 350px;">|</p>
 									<label
 										style="display:block; margin-left: 390px;margin-top: -29px;">天猫积分</label>
@@ -577,12 +263,12 @@
 									</form>
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
-										<input type="number" class="layui-input"
+										<input  type="number" class="layui-input" 
 											style=" width: 70px;margin-left: 110px;margin-top: -35px;">
 										<label
 											style="display:block; margin-top: -30px;margin-left: 185px;">件</label>
 										<label
-											style="display:block; margin-top: -25px;margin-left: 210px;">库存189件</label>
+											style="display:block; margin-top: -25px;margin-left: 210px;">库存${ article.stock}件</label>
 									</div>
 									<input type="submit" value="立即购买"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
@@ -608,9 +294,9 @@
 
 									<div class=" tab-content">
 										<div class="tab-pane tab1 active" id="tab-description">
-											<h2>商品详情</h2>
+											<h2>商品详情</h2>${ article.describes}
 
-											<i class="glyphicon glyphicon-bookmark"
+			<!-- 								<i class="glyphicon glyphicon-bookmark"
 												style="color: orange;font-size: 1.2em;"></i>
 											<h3
 												style="margin-left: 25px;margin-top: -20px;color: orange;">商品尺码SIZE</h3>
@@ -711,16 +397,14 @@
 												src="resource/image/3.png"
 												style="display: block;margin: 20 auto;">
 
-										</div>
+										</div> -->
 
 										<div class="tab-pane" id="tab-reviews">
 
 											<div id="reviews">
 												<div id="comments">
 													<h2>商品评价（0）</h2>
-
 												</div>
-
 												<div id="review_form_wrapper">
 													<div id="review_form">
 														<div id="respond" class="comment-respond">
