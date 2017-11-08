@@ -154,5 +154,10 @@ public class ArticleServiceImpl implements ArticalService{
 		List<ArticleExpand> articleExpand  = articleMapper.findArticleBuyNumberAndMedicle(parentId);
 		return articleExpand;
 	}
+	@Override
+	public int selectArticleSalesNumberTotalById(String id) {
+		
+		return articleMapper.selectArticleSalesNumberTotalById(id);
+	}
 	
 }

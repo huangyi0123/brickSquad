@@ -19,13 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
-import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
-import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
@@ -36,7 +34,6 @@ import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
-import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
 import com.brick.squad.util.YiLiaoUtile;
 
@@ -222,16 +219,6 @@ public class CommonController {
 
 		return "backstage_managed/jsp/role/limits";
 	}
-
-	@RequestMapping("/toShop")
-
-	public String toShop(HttpServletRequest request) {
-		List<Type> aList=typeService.getArctre();
-		System.out.println(aList);
-		request.setAttribute("alist", aList);
-		return "frontEnd_manage/front_bootstrap/index";
-	}
-
 	@RequestMapping("/toContactUs")
 	public String toContactUs() {
 		return "frontEnd_manage/front_bootstrap/contact_us";
@@ -263,11 +250,6 @@ public class CommonController {
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
 
-	}
-
-	@RequestMapping("/toVariable_product")
-	public String toVariable_product() {
-		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
 
 }
