@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -118,10 +119,11 @@ public class ShoppingCarController {
 	 * @throws Exception 
 	 */
 	@RequestMapping("/detailsShoppingCar")
-	public String detailsShoppingCar(ShoppingCar shoppingCar) throws Exception{
-		String data =shoppingCarService.findArticIdAllArtic(shoppingCar);
-	
-		System.out.println("-------------------"+data);
+	public String detailsShoppingCar() throws Exception{
+		List<ShoppingCar> list = shoppingCarService.findArticIdAllArtic();
+		for (ShoppingCar shoppingCar : list) {
+			System.out.println(list.toString());
+		}
 		return "frontEnd_manage/front_bootstrap/cart";
 	}
 }

@@ -17,7 +17,7 @@
 		FROM shopping_car
 	</select>
 	<insert id="insertShoppingCar" parameterType="ShoppingCar">
-	<selectKey resultType="String" keyProperty="id" order="BEFORE">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		INSERT INTO
@@ -45,51 +45,59 @@
 		#{date,jdbcType=TIMESTAMP}
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</update>
-	<select id="findShoppingCarCount" resultType="Integer" parameterType="com.brick.squad.util.Pagination">
-		SELECT COUNT(*) 
-		FROM personal_information p,article a,shopping_car s 
-		WHERE s.article_id=a.id 
+	<select id="findShoppingCarCount" resultType="Integer"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT COUNT(*)
+		FROM personal_information p,article a,shopping_car s
+		WHERE s.article_id=a.id
 		AND s.per_id=p.id
 		<if test="keyword!=''">
-		 
-		AND p.`name` REGEXP #{keyword} OR a.aname REGEXP #{keyword}
-	
+
+			AND p.`name` REGEXP #{keyword} OR a.aname REGEXP #{keyword}
+
 		</if>
 	</select>
-		<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
+	<select id="shoppingCarPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShoppingCarExpand">
-		
+
 		<if test="keyword!=''">
-		SELECT p.`name`,a.aname,s.number,s.date,s.id
-		from shopping_car s 
-		INNER JOIN personal_information p 
-		ON s.per_id =p.id 
-		INNER JOIN article a 
-		ON s.article_id=a.id WHERE p.`name` REGEXP #{keyword} OR a.aname REGEXP #{keyword}
-		limit #{skipNum},#{takeNum}
-		</if>
-		<if test="keyword==''"> 
 			SELECT p.`name`,a.aname,s.number,s.date,s.id
-			from shopping_car s 
-			INNER JOIN personal_information p 
-			ON s.per_id =p.id 
-			INNER JOIN article a 
+			from shopping_car s
+			INNER JOIN personal_information p
+			ON s.per_id =p.id
+			INNER JOIN article a
+			ON s.article_id=a.id WHERE p.`name` REGEXP #{keyword} OR a.aname REGEXP
+			#{keyword}
+			limit #{skipNum},#{takeNum}
+		</if>
+		<if test="keyword==''">
+			SELECT p.`name`,a.aname,s.number,s.date,s.id
+			from shopping_car s
+			INNER JOIN personal_information p
+			ON s.per_id =p.id
+			INNER JOIN article a
 			ON s.article_id=a.id limit #{skipNum},#{takeNum}
 		</if>
-		</select>
-		<select id="findShoppingCarAndUserAndPsersonalInformationById" parameterType="java.lang.String"
-		resultType="com.brick.squad.expand.ShoppingCarExpand">
-		SELECT p.`name`,a.aname,s.number,s.date,s.id
-		from shopping_car s 
-		INNER JOIN personal_information p 
-		ON s.per_id =p.id 
-		INNER JOIN article a 
+	</select>
+	<select id="findShoppingCarAndUserAndPsersonalInformationById"
+		parameterType="java.lang.String" resultType="com.brick.squad.expand.ShoppingCarExpand">
+		SELECT
+		p.`name`,a.aname,s.number,s.date,s.id
+		from shopping_car s
+		INNER JOIN personal_information p
+		ON s.per_id =p.id
+		INNER JOIN article a
 		ON s.article_id=a.id
 		WHERE s.id = #{id,jdbcType=VARCHAR}
-		</select>
-		<delete id="deleteShoppingCarByPerId" parameterType="java.lang.String">
+	</select>
+	<delete id="deleteShoppingCarByPerId" parameterType="java.lang.String">
 		DELETE FROM
 		shopping_car
 		WHERE per_id = #{perId,jdbcType=VARCHAR}
 	</delete>
+	<select id="findArticIdAllArtic"  resultType="com.brick.squad.pojo.ShoppingCar">
+		SELECT	s.id,s.article_id articleId,s.per_id perId,s.number,s.date,a.aname,
+		a.type_id typeId,a.business_id businessId,a.price,a.stock,a.describes,a.image
+		FROM shopping_car s JOIN article a on s.article_id=a.id
+	</select>
 </mapper>

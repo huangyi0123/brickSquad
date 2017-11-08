@@ -48,4 +48,8 @@ public interface ShoppingCarMapper {
 	 * 根据老人id查询perid删除信息
 	 */
 	public void deleteShoppingCarByPerId(String perId);
+	/**
+	 * 根据商品id查询出多条数据
+	 */
+	public List<ShoppingCar> findArticIdAllArtic();
 }

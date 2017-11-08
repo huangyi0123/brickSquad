@@ -50,6 +50,9 @@ public class VariableProductController {
 		//根据商品ID查询销售总量
 		int SalesNumberTotal =articleService.selectArticleSalesNumberTotalById(productId)+500;
 		request.setAttribute("SalesNumberTotal", SalesNumberTotal);
+		//根据商品ID查询评论总量
+		int ratedTotal =articleService.selectArticleRatedTotalById(productId)+500;
+		request.setAttribute("ratedTotal", ratedTotal);
 		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
 }
