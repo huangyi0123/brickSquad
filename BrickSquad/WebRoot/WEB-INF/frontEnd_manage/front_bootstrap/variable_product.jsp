@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -430,11 +431,10 @@
 									<a href="#"><img alt="" src="resource/image/3.png"
 										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
 									<div class="comm_imgs">
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
-										<a href="#"><img alt="" src="resource/image/3.png"></a>
+										<c:forEach var="a" items="${images }">
+										<a href="#"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
+											
+										</c:forEach>
 										<div>
 											<div style="float: left;">
 												<a href="#"
@@ -850,11 +850,12 @@
 											<form class="layui-form" action="">
 												<div class="layui-form-item">
 													<div class="layui-input-block layui-input-blocksa">
-														<input type="radio" name="sex" value="" title="全部(11)" style="font-size: 10px;"
-															checked="">
-														<input type="radio" name="sex" value="" title="追评(4)" style="font-size: 10px;">
-														<input type="radio" name="sex" value="" title="图片(7)" style="font-size: 10px;"
-															>
+														<input type="radio" name="sex" value="" title="全部(11)"
+															style="font-size: 10px;" checked="">
+														<input type="radio" name="sex" value="" title="追评(4)"
+															style="font-size: 10px;">
+														<input type="radio" name="sex" value="" title="图片(7)"
+															style="font-size: 10px;">
 													</div>
 												</div>
 											</form>
