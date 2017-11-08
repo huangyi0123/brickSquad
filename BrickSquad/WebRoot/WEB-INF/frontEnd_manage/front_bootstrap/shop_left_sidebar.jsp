@@ -109,16 +109,13 @@ $(function() {
 											<div id="main-slider" class="fullwidthbanner-container"
 												style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 												<div class="module slideshow no-margin">
+												<c:forEach var="article1" items="${listArticle1 }">
 													<div class="item">
 														<a href="simple_product.html"><img
-															src="resource/front_bootstrap/images/1903/slider-shop.jpg" alt="slider1"
+															src="resource/image/articleImg/${article1.image }" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
-													<div class="item">
-														<a href="simple_product.html"><img
-															src="resource/front_bootstrap/images/1903/slider-shop.jpg" alt="slider2"
-															class="img-responsive" height="559"></a>
-													</div>
+													</c:forEach>
 												</div>
 												<div class="loadeding"></div>
 											</div>
