@@ -13,6 +13,7 @@ import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
@@ -112,6 +113,38 @@ public class ArticleServiceTest {
 		List<ArticleExpand> articleExpand=articleService.findArticleBuyNumberAndMedicle("yiliaoqixie");
 		for (ArticleExpand articleExpand2 : articleExpand) {
 			System.out.println(articleExpand2.getAname());
+		}
+	}
+	/**
+	 * 医疗器械类获取商品总数测试
+	 * @throws Exception 
+	 * */
+	@Test
+	public void findCountMedicalInstruments() throws Exception{
+		Integer count=articleService.findCountMedicalInstruments("yiliaoqixie");
+		System.out.println(count);
+	}
+	/**
+	 * 医疗器械类获所有商品测试
+	 * @throws Exception 
+	 * */
+	/*@Test
+	public void findAllMedicalInstruments() throws Exception{
+		PageBeanUtil pageBeanUtil=new PageBeanUtil();
+		pageBeanUtil.setBegin(0);
+		pageBeanUtil.setLimitPage(4);
+		pageBeanUtil.setParentId("yiliaoqixie");
+		List<Article> list=articleService.findAllMedicalInstruments(pageBeanUtil);
+		for(Article article:list){
+			System.out.println(article.getAname());
+		}
+	}*/
+	@Test
+	public void findArtivleAndMedicalInstrumentsPage() throws Exception{
+		PageBeanUtil<Article> listArticle=articleService.findArtivleAndMedicalInstrumentsPage(2);
+		List<Article> list=listArticle.getList();
+		for(Article article:list){
+			System.out.println(article.getAname());
 		}
 	}
 

@@ -129,4 +129,19 @@ FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.arti
 	<select id="selectArticleSalesNumberTotalById" resultType="int" parameterType="java.lang.String">
 		select sum(number) NumberTotal from order_details  where article_id =#{id}
 	</select>
+	<!-- 查询医疗器械类的商品总数 -->
+	<select id="findCountMedicalInstruments" resultType="Integer" parameterType="String">
+	SELECT COUNT(*) 
+	FROM article a 
+	JOIN type t ON t.id=a.type_id 
+	WHERE t.parent_id=#{parentId}
+	</select>
+	<!-- 查询所有医疗器械类的所有商品 -->
+	<select id="findAllMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil" 
+	resultType="Article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes 
+	FROM article a JOIN type t ON a.type_id=t.id 
+	WHERE t.parent_id=#{parentId}
+	limit #{begin},#{limitPage}
+	</select>
 </mapper>
