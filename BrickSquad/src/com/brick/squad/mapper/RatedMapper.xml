@@ -31,8 +31,11 @@
 	</update>
 	<select id="ratedPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="rated">
-		select id id,order_id orderId,rated_date ratedDate,centent centent
-		from rated limit #{skipNum},#{takeNum}
+		select id id,order_id orderId,rated_date ratedDate,centent centent from rated 
+		<if test="keyword!=''">
+		where centent REGEXP #{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
 		</select>
 		<select id="findRatedAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
 		select COUNT(*) from rated

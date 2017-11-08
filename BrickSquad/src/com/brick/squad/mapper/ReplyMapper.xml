@@ -32,7 +32,7 @@
 		select id id,rated_id ratedId,reply_date replyDate,centent centent
 		from reply
 		<if test="keyword!=''">
-		where centent=#{keyword} 
+		where centent REGEXP #{keyword} 
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>

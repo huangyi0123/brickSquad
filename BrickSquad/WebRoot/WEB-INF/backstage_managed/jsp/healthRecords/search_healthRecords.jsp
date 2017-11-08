@@ -71,7 +71,7 @@
 			
 			<label class="layui-form-label">所患疾病</label>
 			<div class="layui-input-inline">
-				<input type="text" value="${healthRecords.diseaseId }" lay-verify="required" autocomplete="off" class="layui-input"
+				<input type="text" value="${healthRecords.tname}" lay-verify="required" autocomplete="off" class="layui-input"
 				readonly="readonly" style="border: none;background: #F3F3F4;">
 			</div>
 			<label class="layui-form-label">身体状况</label>

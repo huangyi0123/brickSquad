@@ -27,6 +27,13 @@ public class HealthRecords {
 	}
 	//为了方便就不写拓展类了，查看详情页的性别,身份证号
 	private String pgender;
+	private String tname;
+	public String getTname() {
+		return tname;
+	}
+	public void setTname(String tname) {
+		this.tname = tname;
+	}
 	public String getPgender() {
 		return pgender;
 	}

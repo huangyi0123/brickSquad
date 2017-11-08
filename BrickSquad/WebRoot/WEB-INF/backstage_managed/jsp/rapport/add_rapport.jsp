@@ -104,9 +104,13 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">沟通时长</label>
 			<div class="layui-input-inline">
-				<input type="text" name="period" required lay-verify="required"
+				<%-- <input type="text" name="period" required lay-verify="required"
 					placeholder="沟通时长" autocomplete="off" class="layui-input"
-					value="${rapport.period}">
+					value="${rapport.period}"> --%>
+				<input type='text' name="period" 
+				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
+				required lay-verify="required" placeholder="请输入有效时长" autocomplete="off" class="layui-input"
+					value="${rapport.period}" />
 			</div>
 		</div>
 		<div class="layui-form-item layui-form-text">

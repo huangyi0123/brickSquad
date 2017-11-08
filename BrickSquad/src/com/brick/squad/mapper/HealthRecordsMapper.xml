@@ -24,7 +24,7 @@
 		parameterType="String">
 		select h.id,p.id pid,p.name perId,p.gender pgender,p.idcard idCard,h.registr_date registrDate,
 		u.username userId,
-		disease_id diseaseId,h.shape, h.diet_situation
+		disease_id diseaseId,t.`name` tname,h.shape, h.diet_situation
 		dietSituation,
 		h.sports_situation sportsSituation,
 		h.emotion_control
