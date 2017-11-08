@@ -4269,6 +4269,7 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
