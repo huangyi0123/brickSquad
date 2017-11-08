@@ -9,6 +9,7 @@ import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
@@ -105,7 +106,7 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	}
 
 	@Override
-	public List<ShoppingCar> findArticIdAllArtic() {
+	public List<ShoppingCarAndArticle> findArticIdAllArtic() {
 		// TODO Auto-generated method stub
 		//通过shoppingCar中articleId查出商品表中的所有信息
 

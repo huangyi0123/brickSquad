@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.util.Pagination;
@@ -51,5 +52,5 @@ public interface ShoppingCarMapper {
 	/**
 	 * 根据商品id查询出多条数据
 	 */
-	public List<ShoppingCar> findArticIdAllArtic();
+	public List<ShoppingCarAndArticle> findArticIdAllArtic();
 }

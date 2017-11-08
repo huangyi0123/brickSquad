@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShoppingCar;
@@ -120,8 +121,8 @@ public class ShoppingCarController {
 	 */
 	@RequestMapping("/detailsShoppingCar")
 	public String detailsShoppingCar() throws Exception{
-		List<ShoppingCar> list = shoppingCarService.findArticIdAllArtic();
-		for (ShoppingCar shoppingCar : list) {
+		List<ShoppingCarAndArticle> list = shoppingCarService.findArticIdAllArtic();
+		for (ShoppingCarAndArticle shoppingCarAndArticle : list) {
 			System.out.println(list.toString());
 		}
 		return "frontEnd_manage/front_bootstrap/cart";

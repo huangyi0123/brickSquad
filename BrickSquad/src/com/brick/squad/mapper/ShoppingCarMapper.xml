@@ -95,7 +95,7 @@
 		shopping_car
 		WHERE per_id = #{perId,jdbcType=VARCHAR}
 	</delete>
-	<select id="findArticIdAllArtic"  resultType="com.brick.squad.pojo.ShoppingCar">
+	<select id="findArticIdAllArtic"  resultType="com.brick.squad.expand.ShoppingCarAndArticle">
 		SELECT	s.id,s.article_id articleId,s.per_id perId,s.number,s.date,a.aname,
 		a.type_id typeId,a.business_id businessId,a.price,a.stock,a.describes,a.image
 		FROM shopping_car s JOIN article a on s.article_id=a.id
