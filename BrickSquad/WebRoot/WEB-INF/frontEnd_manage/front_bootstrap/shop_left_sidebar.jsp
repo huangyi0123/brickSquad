@@ -1900,25 +1900,6 @@ $(function() {
 							class="count">></span></li>
 							</c:forEach>
 							
-					<!-- 		
-						<li class="cat-item"><a href="shop.html">老年人养生保健用品</a> <span
-							class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人护理用品
-								</a> <span class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人代步用品</a>
-							<span class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">养老机构用品</a> <span
-							class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人视听辅助用品
-								</a> <span class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人日常生活用品</a> <span
-							class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人娱乐用品
-								</a> <span class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人旅游装备用品
-								</a> <span class="count">></span></li>
-						<li class="cat-item"><a href="shop.html">老年人健康自测仪器
-						</a> <span class="count">></span></li> -->
 					</ul>
 				</div>
 			</div>
@@ -2014,13 +1995,13 @@ $(function() {
 
 					<div id="best-seller-01" class="sw-best-seller-product">
 						<ul class="list-unstyled">
+						<c:forEach var="article2" items="${listArticle2 }">
 							<li class="clearfix">
 								<div class="item-img">
-									<a href="simple_product.html" title="corned beef enim"> <img
-										width="180" height="180" src="resource/front_bootstrap/images/1903/65-180x180.jpg"
+									<a href="${pageContext.request.contextPath }/find?id=${article2.id}" title="${article2.aname }"> <img
+										width="180" height="180" src="resource/image/articleImg/${article2.image }"
 										class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
 										alt=""
-										srcset="resource/front_bootstrap/images/1903/65-180x180.jpg 180w, resource/front_bootstrap/images/1903/65-150x150.jpg 150w, resource/front_bootstrap/images/1903/65-300x300.jpg 300w, resource/front_bootstrap/images/1903/65.jpg 600w"
 										sizes="(max-width: 180px) 100vw, 180px">
 									</a>
 								</div>
@@ -2032,125 +2013,16 @@ $(function() {
 									</div>
 
 									<h4>
-										<a href="simple_product.html" title="corned beef enim">Corned
-											beef enim</a>
+										<a href="${pageContext.request.contextPath }/find?id=${article2.id}" title="${article2.aname }">${article2.aname }</a>
 									</h4>
 
 									<div class="price">
 										<span class="woocommerce-Price-amount amount"><span
-											class="woocommerce-Price-currencySymbol">$</span>400.00</span>
+											class="woocommerce-Price-currencySymbol">￥</span>${article2.price }</span>
 									</div>
 								</div>
 							</li>
-
-							<li class="clearfix">
-								<div class="item-img">
-									<a href="simple_product.html" title="philips stand"> <img
-										width="180" height="180" src="resource/front_bootstrap/images/1903/62-180x180.jpg"
-										class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-										alt=""
-										srcset="resource/front_bootstrap/images/1903/62-180x180.jpg 180w, resource/front_bootstrap/images/1903/62-150x150.jpg 150w, resource/front_bootstrap/images/1903/62-300x300.jpg 300w, resource/front_bootstrap/images/1903/62.jpg 600w"
-										sizes="(max-width: 180px) 100vw, 180px">
-									</a>
-								</div>
-
-								<div class="item-content">
-									<div class="reviews-content">
-										<div class="star"></div>
-										<div class="item-number-rating">0 Review(s)</div>
-									</div>
-
-									<h4>
-										<a href="simple_product.html" title="philips stand">Philips
-											stand</a>
-									</h4>
-
-									<div class="price">
-										<del>
-											<span class="woocommerce-Price-amount amount"><span
-												class="woocommerce-Price-currencySymbol">$</span>300.00</span>
-										</del>
-										<ins>
-											<span class="woocommerce-Price-amount amount"><span
-												class="woocommerce-Price-currencySymbol">$</span>250.00</span>
-										</ins>
-									</div>
-								</div>
-							</li>
-
-							<li class="clearfix">
-								<div class="item-img">
-									<a href="simple_product.html" title="Vacuum cleaner"> <img
-										width="180" height="180" src="resource/front_bootstrap/images/1903/26-180x180.jpg"
-										class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-										alt=""
-										srcset="resource/front_bootstrap/images/1903/26-180x180.jpg 180w, resource/front_bootstrap/images/1903/26-150x150.jpg 150w, resource/front_bootstrap/images/1903/26-300x300.jpg 300w, resource/front_bootstrap/images/1903/26.jpg 600w"
-										sizes="(max-width: 180px) 100vw, 180px">
-									</a>
-								</div>
-
-								<div class="item-content">
-									<div class="reviews-content">
-										<div class="star">
-											<span style="width:52.5px"></span>
-										</div>
-										<div class="item-number-rating">4 Review(s)</div>
-									</div>
-
-									<h4>
-										<a href="simple_product.html" title="Vacuum cleaner">Vacuum
-											cleaner</a>
-									</h4>
-
-									<div class="price">
-										<del>
-											<span class="woocommerce-Price-amount amount"><span
-												class="woocommerce-Price-currencySymbol">$</span>350.00</span>
-										</del>
-										<ins>
-											<span class="woocommerce-Price-amount amount"><span
-												class="woocommerce-Price-currencySymbol">$</span>260.00</span>
-										</ins>
-									</div>
-								</div>
-							</li>
-
-							<li class="clearfix">
-								<div class="item-img">
-									<a href="simple_product.html" title="veniam dolore"> <img
-										width="180" height="180" src="resource/front_bootstrap/images/1903/45-180x180.jpg"
-										class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-										alt=""
-										srcset="resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45.jpg 600w"
-										sizes="(max-width: 180px) 100vw, 180px">
-									</a>
-								</div>
-
-								<div class="item-content">
-									<div class="reviews-content">
-										<div class="star">
-											<span style="width:35px"></span>
-										</div>
-										<div class="item-number-rating">2 Review(s)</div>
-									</div>
-
-									<h4>
-										<a href="simple_product.html" title="veniam dolore">Veniam
-											dolore</a>
-									</h4>
-
-									<div class="price">
-										<del>
-											<span class="woocommerce-Price-amount amount"><span
-												class="woocommerce-Price-currencySymbol">$</span>250.00</span>
-										</del>
-										<ins>
-											<span class="woocommerce-Price-amount amount"><span
-												class="woocommerce-Price-currencySymbol">$</span>190.00</span>
-										</ins>
-									</div>
-								</div>
-							</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>

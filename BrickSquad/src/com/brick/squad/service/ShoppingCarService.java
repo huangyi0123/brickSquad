@@ -3,6 +3,7 @@ package com.brick.squad.service;
 import java.util.List;
 
 import com.brick.squad.expand.ShoppingCarExpand;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.util.Pagination;
 
@@ -50,4 +51,8 @@ public interface ShoppingCarService {
 	 * 查询购物车详细信息，关联查询到老人姓名与商品名称
 	 * */
 	public ShoppingCarExpand findShoppingCarAndUserAndPsersonalInformationById(String id)throws Exception;
+	/**
+	 * 根据购物车中的商品id查询出商品表中的所有信息
+	 */
+	public String findArticIdAllArtic(ShoppingCar shoppingCar );
 }

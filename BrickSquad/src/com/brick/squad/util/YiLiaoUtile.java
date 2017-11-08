@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.brick.squad.pojo.Article;
 
-public class YiLiaoUtile {
-	public List<Article> findArticleImgAndName(HttpServletRequest request,List<Article> listArticle){
+public class YiLiaoUtile<T> {
+	public List<T> findArticleImgAndName(HttpServletRequest request,List<T> listArticle){
 		List<String> imgPath=new ArrayList<String>();
-		for(Article article:listArticle){
+		for(T article:listArticle){
 			String path = request.getSession().getServletContext().
-				getRealPath("resource/image/articleImg/"+article.getImage());
-			String imgp=article.getImage();
+				getRealPath("resource/image/articleImg/"+((Article) article).getImage());
+			String imgp=((Article) article).getImage();
 		  imgPath.add(path);
 		String p=null;
 		for(String realPath:imgPath){
@@ -28,7 +28,7 @@ public class YiLiaoUtile {
 						if(file2.isDirectory()){
 						}else{
 							p=file2.getName();
-							article.setImage(imgp+"/"+p);
+							((Article) article).setImage(imgp+"/"+p);
 						}
 						
 					}
