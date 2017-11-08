@@ -2,6 +2,7 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,9 +15,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
-import com.brick.squad.service.ArticalService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 
@@ -134,9 +135,12 @@ public class ShoppingCarController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/detailsShoppingCar")
-	public String detailsShoppingCar(ShoppingCar shoppingCar) throws Exception {
-		String data = shoppingCarService.findArticIdAllArtic(shoppingCar);
-		System.out.println(data);
+
+	public String detailsShoppingCar() throws Exception{
+		List<ShoppingCarAndArticle> list = shoppingCarService.findArticIdAllArtic();
+		for (ShoppingCarAndArticle shoppingCarAndArticle : list) {
+			System.out.println("+++++++++++++++"+list.toString());
+		}
 		return "frontEnd_manage/front_bootstrap/cart";
-	}
+}
 }
