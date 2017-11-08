@@ -606,9 +606,8 @@
 
 									<div class="clear"></div>
 
-									<div class=" tab-content"
-										style="margin-top: 100px;height: 500px;">
-										<div class="tab-pane tab1" id="tab-description">
+									<div class=" tab-content">
+										<div class="tab-pane tab1 active" id="tab-description">
 											<h2>商品详情</h2>
 
 											<i class="glyphicon glyphicon-bookmark"
@@ -714,7 +713,7 @@
 
 										</div>
 
-										<div class="tab-pane active" id="tab-reviews">
+										<div class="tab-pane" id="tab-reviews">
 
 											<div id="reviews">
 												<div id="comments">
@@ -817,7 +816,11 @@
 
 									</div>
 									<div class="describe"
-										style="width:100%;height:100px; border:1px solid orange;float: left;margin-top: -600px;">
+										style="width:100%;height:130px; border:1px solid orange;float: left;">
+										<div
+											style="width: 100%;height: 30px;background-color: orange;">
+											<label style="margin-left: 30px;line-height: 30px;">累计评价（1628）</label>
+										</div>
 										<div style="display: block;float: left;">
 											<label style="margin-left: 60px;margin-top: 10px;">与描述相符</label>
 											<label
@@ -844,7 +847,7 @@
 										</div>
 									</div>
 									<div class="content"
-										style="width: 100%;height: 500px;border: 1px solid orange;">
+										style="width: 100%;border: 1px solid orange;margin-top: 130px;">
 										<div
 											style="background-color: #EFEFEF;width: 100%;height: 40px;">
 											<form class="layui-form" action="">
