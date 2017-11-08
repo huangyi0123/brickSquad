@@ -31,7 +31,7 @@ public class VariableProductController {
 	 */
 	@RequestMapping("/toVariable_product")
 	public String toVariable_product(HttpServletRequest request) throws Exception {
-		String productId="afdfddacc3bb11e7aca65254002ec43c";
+		String productId="f549c444c46e11e7aca65254002ec43c";
 		Article article=new Article();
 		article =articleService.findArticleById(productId);
 		request.setAttribute("article", article);

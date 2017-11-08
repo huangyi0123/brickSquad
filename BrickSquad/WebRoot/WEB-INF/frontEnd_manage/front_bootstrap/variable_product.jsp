@@ -112,13 +112,13 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="#"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
+									<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
 										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
 									<div class="comm_imgs">
 									
 										<c:forEach var="a" items="${images }">
 										
-										<a href="#"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
+										<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
 											
 										</c:forEach>
 										<div>
