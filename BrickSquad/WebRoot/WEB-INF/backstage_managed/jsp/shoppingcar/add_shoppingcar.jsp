@@ -77,8 +77,12 @@ $(function() {
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品数量</label>
 			<div class="layui-input-inline">
-				<input type="text" name="number" required lay-verify="required"
+				<%-- <input type="number" name="number" required lay-verify="required"
 					placeholder="商品数量" autocomplete="off" class="layui-input"
+					value="${ shoppingCar.number}">  --%>
+				 <input type='text'  name="number" 
+				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
+				required lay-verify="required" placeholder="请输入有效数量" autocomplete="off" class="layui-input"
 					value="${ shoppingCar.number}">
 			</div>
 		</div>
