@@ -698,7 +698,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</span>
 								</a>
 
-									<ul class="dropdown-menu nav-level1 column-3">
+									<%-- <ul <% %>class="dropdown-menu nav-level1 column-3">
 										<li class="active dropdown-submenu column-3 menu-home-pages">
 											<a href="#"> <span class="have-title"> <span
 													class="menu-title">Home Pages</span>
@@ -788,7 +788,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													</span>
 												</a></li>
 											</ul></li>
-									</ul>
+									</ul> --%>
 								</li>
 								
 

@@ -60,4 +60,10 @@ public interface ArticalService {
 	 * @return
 	 */
 	public int selectArticleSalesNumberTotalById(String id);
+	/**
+	 * 根据商品ID在评论表中查询评论总量
+	 * @param id
+	 * @return
+	 */
+	public int selectArticleRatedTotalById(String id);
 }

@@ -1,8 +1,6 @@
 package com.brick.squad.service.impl;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,9 +18,6 @@ import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
-import com.brick.squad.pojo.Business;
-import com.brick.squad.pojo.Reply;
-import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -158,6 +153,11 @@ public class ArticleServiceImpl implements ArticalService{
 	public int selectArticleSalesNumberTotalById(String id) {
 		
 		return articleMapper.selectArticleSalesNumberTotalById(id);
+	}
+	@Override
+	public int selectArticleRatedTotalById(String id) {
+		
+		return articleMapper.selectArticleRatedTotalById(id);
 	}
 	
 }
