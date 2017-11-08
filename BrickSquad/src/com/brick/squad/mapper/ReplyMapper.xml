@@ -31,6 +31,9 @@
 		resultType="reply">
 		select id id,rated_id ratedId,reply_date replyDate,centent centent
 		from reply
+		<if test="keyword!=''">
+		where centent=#{keyword} 
+		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
 

@@ -31,7 +31,7 @@ public class VariableProductController {
 	 */
 	@RequestMapping("/toVariable_product")
 	public String toVariable_product(HttpServletRequest request) throws Exception {
-		String productId="afdfddacc3bb11e7aca65254002ec43c";
+		String productId="f549c444c46e11e7aca65254002ec43c";
 		Article article=new Article();
 		article =articleService.findArticleById(productId);
 		request.setAttribute("article", article);
@@ -50,6 +50,9 @@ public class VariableProductController {
 		//根据商品ID查询销售总量
 		int SalesNumberTotal =articleService.selectArticleSalesNumberTotalById(productId)+500;
 		request.setAttribute("SalesNumberTotal", SalesNumberTotal);
+		//根据商品ID查询评论总量
+		int ratedTotal =articleService.selectArticleRatedTotalById(productId)+500;
+		request.setAttribute("ratedTotal", ratedTotal);
 		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
 }

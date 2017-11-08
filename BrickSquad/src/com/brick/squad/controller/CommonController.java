@@ -219,6 +219,14 @@ public class CommonController {
 
 		return "backstage_managed/jsp/role/limits";
 	}
+
+
+	@RequestMapping("/toShop")
+	public String toShop() {
+
+		return "frontEnd_manage/front_bootstrap/index";
+	}
+
 	@RequestMapping("/toContactUs")
 	public String toContactUs() {
 		return "frontEnd_manage/front_bootstrap/contact_us";
@@ -246,10 +254,78 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
+
+
+	/***
+	 * 医疗器械页面controller
+	 * 
+	 * @throws Exception
+	 */
+	@RequestMapping("/toShop_left_sidebar")
+	public String toShop_left_sidebar(HttpServletRequest request)
+			throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<Type> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		List<Article> listArticle = articleService
+				.findArticleImgAndName("laorenjianfuyongpin");
+		List<String> imgPath = new ArrayList<String>();
+		for (Article article : listArticle) {
+			String path = request
+					.getSession()
+					.getServletContext()
+					.getRealPath(
+							"resource/image/articleImg/" + article.getImage());
+			imgPath.add(path);
+			String p;
+			for (String realPath : imgPath) {
+				File file = new File(realPath);
+				if (file.exists()) {
+					File[] files = file.listFiles();
+					if (files.length == 0) {
+					} else {
+						for (File file2 : files) {
+							if (file2.isDirectory()) {
+
+							} else {
+								p = file2.getName();
+								article.setImage(article.getImage() + "/" + p);
+								break;
+							}
+						}
+					}
+				}
+			}
+
+		}
+		request.setAttribute("listArticle", listArticle);
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+	}
+
+
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
 
+	}
+
+
+	@RequestMapping("/toVariable_product")
+	public String toVariable_product() {
+		return "frontEnd_manage/front_bootstrap/variable_product";
+	}
+
+	@RequestMapping("/toCoupon")
+	public String toCoupon() {
+		return "frontEnd_manage/front_bootstrap/coupon";
+
+	}
+	
+	@RequestMapping("/toApply_coupon")
+	public String toApply_coupon() {
+		return "frontEnd_manage/front_bootstrap/apply_coupon";
+		
 	}
 
 }

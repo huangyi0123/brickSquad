@@ -64,5 +64,11 @@ public interface ArticleMapper {
 	 * */
 	public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean);
 /*	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page);*/
+/*
+	 * 根据商品ID在评论表中查询评论总量
+	 * @param id
+	 * @return
+	 */
+	public int selectArticleRatedTotalById(String id);
 }
 

@@ -1,29 +1,75 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'shop_header.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<head>
+<base href="<%=basePath%>">
+<title>优惠券</title>
+<meta charset="utf-8" />
 
-  </head>
-  
-  <body>
-   <header id="header" class="header header-style1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- FAVICONS -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="resource/front_bootstrap/icons/apple-touch-icon-144-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="resource/front_bootstrap/icons/apple-touch-icon-114-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
+<link rel="apple-touch-icon-precomposed"
+	href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
+<link rel="shortcut icon"
+	href="resource/front_bootstrap/icons/favicon.png" />
+
+<!-- GOOGLE WEB FONTS -->
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/font-awesome.min.css">
+
+<!-- BOOTSTRAP 3.3.7 CSS -->
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/bootstrap.min.css" />
+
+<!-- SLICK v1.6.0 CSS -->
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
+
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/jquery.fancybox.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
+
+
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
+<link rel="stylesheet" href="" id="rtl" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/app-responsive.css" />
+</head>
+
+<body class="page page-id-6 home-style1">
+
+	<div class="body-wrapper theme-clearfix">
+		<header id="header" class="header header-style1">
 		<div class="header-top clearfix">
 			<div class="container">
 				<div class="rows">
@@ -137,9 +183,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div>
 												<input type="text" value="" name="s"
 													placeholder="Enter your keyword...">
-												<div class="cat-wrapper" ">
+												<div class="cat-wrapper"">
 													<label class="label-search"> <select
-														name="search_category" class="s1_option" style="width: 150px;>
+														name="search_category" class="s1_option"
+														style="width: 150px;>
 															<option value="">所有类别</option>
 															<option value="8">女装</option>
 															<option value="14">男装</option>
@@ -1206,5 +1253,84 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		</header>
-  </body>
+			<script type="text/javascript"
+		src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
+
+	<!-- OPEN LIBS JS -->
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
+
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
+
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/plugins.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/megamenu.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/main.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/index.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			getType();
+		});
+		var sticky_navigation_offset_top = $("
+														#header .header-bottom").offset().top;
+		var
+														sticky_navigation=function() {
+			var
+														scroll_top=$(window).scrollTop(); if (scroll_top>
+															sticky_navigation_offset_top) { $("#header
+															.header-bottom").addClass("sticky-menu"); $("#header
+															.header-bottom").css({ "top" : 0, "left" : 0, "right" : 0
+															}); } else { $("#header
+															.header-bottom").removeClass("sticky-menu"); } };
+															sticky_navigation(); $(window).scroll(function() {
+															sticky_navigation(); }); $(document).ready(function() {
+															$(".show-dropdown").each(function() { $(this).on("click",
+															function() { $(this).toggleClass("show"); var $element =
+															$(this).parent().find("> ul"); $element.toggle(300); });
+															}); });
+															</script>
+
+															<!--[if gte IE 9]><!-->
+															<script type="text/javascript">
+																var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
+																		'(^|\\s+)(no-)?'
+																				+ cs
+																				+ '(\\s+|$)');
+																request = true;
+
+																b[c] = b[c]
+																		.replace(
+																				rcs,
+																				' ');
+																// The customizer requires postMessage and CORS (if the site is cross domain)
+																b[c] += (window.postMessage
+																		&& request ? ' '
+																		: ' no-')
+																		+ cs;
+															</script>
+															<!--<![endif]-->
+</body>
 </html>

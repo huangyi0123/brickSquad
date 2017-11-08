@@ -112,11 +112,13 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="#"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
+									<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
 										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
 									<div class="comm_imgs">
+									
 										<c:forEach var="a" items="${images }">
-										<a href="#"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
+										
+										<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
 											
 										</c:forEach>
 										<div>
@@ -224,7 +226,7 @@
 									<p style="display:block; margin-top: -26px;margin-left: 180px;">|</p>
 									<label
 										style="display:block; margin-left: 220px;margin-top: -29px;">累计评价</label>
-									<label style="margin-left: 290px;margin-top: -25px;">235</label>
+									<label style="margin-left: 290px;margin-top: -25px;">${ratedTotal }</label>
 									<p style="margin-top: -26px;margin-left: 350px;">|</p>
 									<label
 										style="display:block; margin-left: 390px;margin-top: -29px;">天猫积分</label>

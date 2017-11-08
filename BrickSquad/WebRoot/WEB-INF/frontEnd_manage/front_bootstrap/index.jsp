@@ -58,21 +58,10 @@
 		<jsp:include page="shop_header.jsp"></jsp:include>
 		<div class="container">
 			<div class="wrap-title">
-				<h1>shouy</h1>
 
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb">
-								<li>
-									<a href="common/toShop">首页</a>
-									<span class="go-page"></span>
-								</li>
-
-								<li class="active">
-									<span>首页</span>
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -363,17 +352,23 @@
 
 																	<ul id="menu-vertical-menu-1"
 																		class="nav vertical-megamenu etrostore-mega etrostore-menures">
-																		<c:forEach var="type" items="${alist }" varStatus="n">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<input class="typeId" type="hidden" value="${type.id }">
+<<<<<<< HEAD
+=======
+																				<input class="typeId" type="hidden" value="${type.id }" val="${n.index  }">
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title">
-																						<span class="menu-color" data-color="#${n.index+1 }ac14${n.index+1 }"></span>
-																						<span class="menu-title">${type.name }</span>
+																						<span class="menu-color" data-color="#cac14a"></span>
+																						<span class="menu-title">女装</span>
 																					</span>
 																				</a>
+<<<<<<< HEAD
+=======
+																				<span id="type${n.index }"></span>
+																				
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 																			</li>
-																		</c:forEach>
 
 
 
@@ -4272,6 +4267,9 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 
 	<script type="text/javascript">
+		$(function() {
+			getType();
+		});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();

@@ -28,9 +28,9 @@ public class ReplyController {
 	@ResponseBody
 	public String getReplyList(int pSize,int cPage,String keyword) {
 		Pagination pagination=new Pagination();
+		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		
 		return replyService.replyPagination(pagination);
 
 	}

@@ -28,6 +28,11 @@ public class ArticleServiceTest {
 		
 	}
 	@Test
+	public void selectArticleRatedTotalById(){
+		System.out.println(articleService.selectArticleRatedTotalById("afdfddacc3bb11e7aca65254002ec43c"));
+	}
+	
+	@Test
 	public void selectArticleSalesNumberTotalByIdTest(){
 		System.out.println(articleService.selectArticleSalesNumberTotalById("afdfddacc3bb11e7aca65254002ec43c"));
 	}
