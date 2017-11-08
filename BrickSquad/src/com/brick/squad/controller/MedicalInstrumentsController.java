@@ -14,6 +14,7 @@ import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.YiLiaoUtile;
 
 @Controller
@@ -30,21 +31,34 @@ public class MedicalInstrumentsController {
 	 * @throws Exception 
 	 */
 	@RequestMapping("/toShop_left_sidebar")
-	public String toShop_left_sidebar(HttpServletRequest request) throws Exception {
+	public String toShop_left_sidebar(HttpServletRequest request,PageBeanUtil pageBean) throws Exception {
 		/**医疗器械一级分类查询*/
 		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
-		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
-		List<Article> list1=articleService.findArticleImgAndName("zuixin");
-		List<ArticleExpand> list2=articleService.findArticleBuyNumberAndMedicle("yiliaoqixie");
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
+		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
 		List<Article> listArticle= yiLiaoUtile.findArticleImgAndName(request, list);
-		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
-		List<ArticleExpand> listArticle2= yiLiaoUtile.findArticleImgAndName(request, list2);
 		request.setAttribute("listArticle", listArticle);
+		List<Article> list1=articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
 		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2=articleService.findArticleBuyNumberAndMedicle("yiliaoqixie");
+		List<ArticleExpand> listArticle2= yiLiaoUtile.findArticleImgAndName(request, list2);
 		request.setAttribute("listArticle2", listArticle2);
+		
+		
+		 int page=pageBean.getPage();
+		 pageBean=articleService.findArtivleAndMedicalInstrumentsPage(page);
+		request.setAttribute("pageBean", pageBean);
+	/*	PageBeanUtil< Article> pageBean=new PageBeanUtil<Article>();
+		pageBean.setPage(page);
+		List<Article> list3=articleService.findAllMedicalInstruments(pageBean);
+		List<Article> listArticle3=yiLiaoUtile.findArticleImgAndName(request, list3);*/
+	
+		
+		
+		
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 }

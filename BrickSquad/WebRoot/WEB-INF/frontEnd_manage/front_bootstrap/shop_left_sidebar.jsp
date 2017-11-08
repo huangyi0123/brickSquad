@@ -51,17 +51,7 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
-<script type="text/javascript">
-$(function() {
-	$.ajax({
-		url : 'common/findArticleImgAndName',
-		success : function(data) {
-			data = JSON.parse(data);
-			console.log(data[0]);
-			/* 
-			findAll(business, "#businessId"); */
-});
-</script>
+
 </head>
 
 <body
@@ -197,7 +187,7 @@ $(function() {
 						<div class="products-wrapper">
 							<div class="row-fix clearfix">
 							<c:forEach var="article" items="${listArticle }">
-							
+						
 								<li
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
 									<a href="${pageContext.request.contextPath }/find?id=${article.id}"> <img src="resource/image/articleImg/${article.image }"
@@ -270,6 +260,14 @@ $(function() {
 							<div class="clear"></div>
 
 							<ul class="products-loop row grid clearfix">
+							
+							
+							
+							
+							
+							
+							
+							
 								<li
 									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-255 product type-product status-publish has-post-thumbnail product_cat-electronics product_cat-home-appliances product_cat-vacuum-cleaner product_brand-apoteket first instock sale featured shipping-taxable purchasable product-type-simple">
 									<div class="products-entry item-wrap clearfix">
@@ -338,8 +336,7 @@ $(function() {
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="Cleaner with bag">Cleaner
-														with bag</a>
+													<a href="simple_product.html" title="Cleaner with bag">老人专属</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -403,6 +400,11 @@ $(function() {
 										</div>
 									</div>
 								</li>
+				
+							
+
+
+
 
 								<li
 									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-246 product type-product status-publish has-post-thumbnail product_cat-laptop-asus product_brand-alpha  instock featured shipping-taxable purchasable product-type-simple">

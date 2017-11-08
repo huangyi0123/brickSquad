@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -50,17 +51,26 @@ public interface ArticalService {
 	 */
 	public List<ArticleExpand> findArticleBuyNumber();
 	/**
-<<<<<<< HEAD
 	 * 医疗器械类获取商品订单数量
 	 * */
 	public List<ArticleExpand> findArticleBuyNumberAndMedicle(String parentId)throws Exception;
-/*
+	/*
 	 * 根据商品ID在订单明细表中查询该商品的销售总量
 	 * @param id
 	 * @return
 	 */
 	public int selectArticleSalesNumberTotalById(String id);
 	/**
+	 * 医疗器械类获取商品总数
+	 * */
+	public Integer findCountMedicalInstruments(String parentId)throws Exception;
+	/**
+	 * 医疗器械类获所有商品
+	 * */
+	/*public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception;*/
+
+	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)throws Exception;
+/*
 	 * 根据商品ID在评论表中查询评论总量
 	 * @param id
 	 * @return

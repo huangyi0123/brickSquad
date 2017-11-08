@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -55,6 +56,15 @@ public interface ArticleMapper {
 	 */
 	public int selectArticleSalesNumberTotalById(String id);
 	/**
+	 * 医疗器械类获取商品总数
+	 * */
+	public Integer findCountMedicalInstruments(String parentId);
+	/**
+	 * 医疗器械类获所有商品
+	 * */
+	public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean);
+/*	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page);*/
+/*
 	 * 根据商品ID在评论表中查询评论总量
 	 * @param id
 	 * @return
