@@ -279,7 +279,7 @@
 
 												<div class="cart-links clearfix">
 													<div class="cart-link">
-														<a href="common/toCart" title="Cart">我的购物车</a>
+														<a href="shoppingCar/detailsShoppingCar" title="Cart">我的购物车</a>
 													</div>
 
 													<div class="checkout-link">

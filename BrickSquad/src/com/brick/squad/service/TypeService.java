@@ -56,5 +56,11 @@ public interface TypeService {
 	 * 查询商品类型
 	 * @return 商品类型列表
 	 */
-	public List<Type> getArctre() ;
+	public List<Type> getArctre(String id) ;
+	/**
+	 * 根据商品类型id查询子类别
+	 * @param id id
+	 * @return json 字符串
+	 */
+	public String getArticleType(String id);
 }
