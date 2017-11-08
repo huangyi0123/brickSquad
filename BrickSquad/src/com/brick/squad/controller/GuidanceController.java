@@ -1,5 +1,7 @@
 package com.brick.squad.controller;
 
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+
+
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +43,7 @@ public class GuidanceController {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateGuidanceById");
 		}else
+			System.out.println("1++++++++++++++++++++++++++++");
 			request.setAttribute("msg", "添加");
 			request.setAttribute("url", "insertGuidance");
 		return "backstage_managed/jsp/guidance/add_guidance";
@@ -55,11 +60,15 @@ public class GuidanceController {
 	}
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println("4++++++++++++++++++++++++++++");
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
-	@RequestMapping(value="/insertGuidance")
+	
+	@RequestMapping("/insertGuidance")
 	public String insertGuidance(Guidance guidance) throws Exception{
+		
+		System.out.println("2++++++++++++++++++++++++++++"+guidance.getGuidanceDate());
 		guidanceService.insertGuidanceById(guidance);
 		return "backstage_managed/jsp/guidance/guidance_list";
 	}

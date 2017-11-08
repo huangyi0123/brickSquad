@@ -20,14 +20,10 @@
 <meta http-equiv="description" content="This is my page">
 
 
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/layui/css/layui.css">
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/lay/modules/laydate.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css">
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript">
 	layui.use('form', function() {
@@ -42,10 +38,10 @@
 		
 	$(function() {
 		//日期格式回填
-		var guidanceDateId = $("#guidanceDateId").attr('val');
+		/* var guidanceDateId = $("#guidanceDateId").attr('val');
 		 guidanceDate = Format(new Date(guidanceDateId),
 				"yyyy-MM-dd hh:mm:ss");
-		$("#guidanceDateId").val(guidanceDate);
+		$("#guidanceDateId").val(guidanceDate); */
 		/* 从conterller获取数据打印在控制台 */
 		var allPersonalInformationdata='${allPersonalInformationdata}';
 		allPersonalInformationdata=JSON.parse(allPersonalInformationdata);
@@ -82,14 +78,18 @@
   <br>
 	<div style="padding-left: 120px;font-size:16;">${msg}老人健康指导信息</div>
 	<br>
-  <form action="guidance/${url }" method="post" id="form">
-  <input type="hidden" value="${ selectGuidanceId.id}">
+  <form action="guidance/${url}" method="post" id="form">
+  <input type="hidden" value="${selectGuidanceId.id}">
    <div class="layui-form-item">
 			<label class="layui-form-label">指导日期：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" val="${selectGuidanceId.guidanceDate}" 
+			<%-- 
+			<input class="layui-input" val="${selectGuidanceId.guidanceDate}" 
 				name="guidanceDate" id="guidanceDateId" placeholder="活动日期"
-					onclick="layui.laydate({elem: this, istime: true, format: 'yyyy-MM-dd hh:mm:ss'})">
+					onclick="layui.laydate({elem: this, istime: true, format: 'yyyy-MM-dd hh:mm:ss'})">  --%>
+					
+				 <input type="date" id="guidanceDateId" val="${selectGuidanceId.guidanceDate}" name="guidanceDate"
+					required lay-verify="required" placeholder="活动日期" class="layui-input">
 			</div>
 		</div>
   

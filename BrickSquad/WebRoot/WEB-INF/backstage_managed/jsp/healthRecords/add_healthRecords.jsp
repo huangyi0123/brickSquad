@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -21,24 +21,45 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/layui/css/layui.css">
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-	<script type="text/javascript" src="resource/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css">
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/js/common.js"></script>
+
+
+
+<script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
+
+<script type="text/javascript" src="resource/plugins/wang_edit/wangEditor.min.js"></script>
+
 <script type="text/javascript">
+
+	$(function() {
+		var data="";
+		$(".error").each(function() {
+			data=data+"<br>"+$(this).val();
+		});
+		if (data!="") {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				var msg = data;
+				layer.msg(msg);
+			});
+		}
+	});
+
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 		$(function() {
 		var da = '${typeData}';
-		console.log(da);
+		
 		da=JSON.parse(da);
 		findAll(da, "#JB");
 		form.render('select', 'JB1');
 	});
 	});
+	
+	 
 	
 	$(function() {
 		/* 从conterller获取数据打印在控制台 */
@@ -72,6 +93,7 @@
 			}
 		});
 	});
+
 </script>
 </head>
 
@@ -85,7 +107,7 @@
 			<label class="layui-form-label">身份证号：</label>
 			<input type="hidden" name="id" value="${healthRecords.id}"> 
 			<div class="layui-input-inline">
-				<input type="text" id="perIdCardId" required lay-verify="required"  value="${healthRecords.idCard}"
+				<input type="text" id="perIdCardId" name="perIdCardId" required lay-verify="required"  value="${healthRecords.idCard}"
 					placeholder="身份证号" autocomplete="off" class="layui-input">
 				
 			</div>
@@ -208,5 +230,9 @@
 
 		</div>
 	</form>
+	<c:forEach items="${errors}" var="error">
+   		<input class="error" value="${error.defaultMessage}" type="hidden">
+   	</c:forEach>
+ 	
 </body>
 </html>
