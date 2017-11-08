@@ -43,6 +43,10 @@ public interface ArticleMapper {
 	 * 获取商品订单数量
 	 */
 	public List<ArticleExpand> findArticleBuyNumber();
+	/**
+	 * 医疗器械类获取商品订单数量
+	 * */
+	public List<ArticleExpand> findArticleBuyNumberAndMedicle(String parentId);
 
 }
 

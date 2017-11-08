@@ -99,5 +99,15 @@ public class ArticleServiceTest {
 		}
 		
 	}
+	/**
+	 * 医疗器械类获取商品订单数量测试
+	 * */
+	@Test
+	public void findArticleBuyNumberAndMedicle() throws Exception{
+		List<ArticleExpand> articleExpand=articleService.findArticleBuyNumberAndMedicle("yiliaoqixie");
+		for (ArticleExpand articleExpand2 : articleExpand) {
+			System.out.println(articleExpand2.getAname());
+		}
+	}
 
 }
