@@ -220,8 +220,10 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toShop")
-	public String toShop() {
-		
+	public String toShop(HttpServletRequest request) {
+		List<Type> aList=typeService.getArctre();
+		System.out.println(aList);
+		request.setAttribute("alist", aList);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
