@@ -47,9 +47,11 @@ public class MedicalInstrumentsController {
 		List<ArticleExpand> listArticle2= yiLiaoUtile.findArticleImgAndName(request, list2);
 		request.setAttribute("listArticle2", listArticle2);
 		
-		
 		 int page=pageBean.getPage();
 		 pageBean=articleService.findArtivleAndMedicalInstrumentsPage(page);
+		List<Article> listArt=pageBean.getList();
+		List<Article> listArticle4=yiLiaoUtile.findArticleImgAndName(request, listArt);
+		pageBean.setList(listArticle4);
 		request.setAttribute("pageBean", pageBean);
 	/*	PageBeanUtil< Article> pageBean=new PageBeanUtil<Article>();
 		pageBean.setPage(page);

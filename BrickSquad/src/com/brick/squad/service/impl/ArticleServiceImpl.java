@@ -23,6 +23,7 @@ import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
+import com.brick.squad.util.YiLiaoUtile;
 @Transactional
 public class ArticleServiceImpl implements ArticalService{
 	@Autowired

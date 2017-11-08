@@ -249,7 +249,7 @@
 								<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
 								<ul class="page-numbers">
-									<li><span class="page-numbers current">1</span></li>
+									<li><span class="page-numbers current">${pageBean.page+1 }</span></li>
 									<li><a class="page-numbers" href="#">2</a></li>
 									<li><a class="page-numbers" href="#">3</a></li>
 									<li><a class="next page-numbers" href="#">?</a></li>
@@ -267,21 +267,20 @@
 							
 							
 							
-							
+							<c:forEach var="article3" items="${ pageBean.list}">
 								<li
 									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-255 product type-product status-publish has-post-thumbnail product_cat-electronics product_cat-home-appliances product_cat-vacuum-cleaner product_brand-apoteket first instock sale featured shipping-taxable purchasable product-type-simple">
 									<div class="products-entry item-wrap clearfix">
 										<div class="item-detail">
 											<div class="item-img products-thumb">
 												<span class="onsale">Sale!</span> <a
-													href="simple_product.html">
-													<div class="product-thumb-hover">
+													href="${pageContext.request.contextPath }/find?id=${article3.id}">
+													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
-															src="resource/front_bootstrap/images/1903/22-300x300.jpg"
+															src="resource/image/articleImg/${article3.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
-															srcset="resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-150x150.jpg 150w, resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22.jpg 600w"
-															sizes="(max-width: 300px) 100vw, 300px">
+															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
 													</div>
 												</a>
 
@@ -336,7 +335,7 @@
 												</div>
 
 												<h4>
-													<a href="simple_product.html" title="Cleaner with bag">老人专属</a>
+													<a href="${pageContext.request.contextPath }/find?id=${article3.id}" title="Cleaner with bag">${article3.aname }</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -344,16 +343,10 @@
 															class="woocommerce-Price-currencySymbol">$</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">$</span>350.00</span>
+															class="woocommerce-Price-currencySymbol">￥</span>${article3.price }</span>
 													</ins></span>
 
-												<div class="item-description">Proin nunc nibh,
-													adipiscing eu nisi id, ultrices suscipit augue. Sed rhoncus
-													hendrerit lacus, et venenatis felis. Donec ut fringilla
-													magna ultrices suscipit augue. Proin nunc nibh, adipiscing
-													eu nisi id, ultrices suscipit augue. Sed rhoncus hendrerit
-													lacus, et venenatis felis. Donec ut fringilla magna
-													ultrices suscipit augue.</div>
+												<div class="item-description">${article3.describes }</div>
 
 												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
@@ -400,12 +393,12 @@
 										</div>
 									</div>
 								</li>
-				
+				</c:forEach>
 							
 
 
 
-
+<!-- 
 								<li
 									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-246 product type-product status-publish has-post-thumbnail product_cat-laptop-asus product_brand-alpha  instock featured shipping-taxable purchasable product-type-simple">
 									<div class="products-entry item-wrap clearfix">
@@ -422,7 +415,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -487,7 +480,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -549,7 +542,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -614,7 +607,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -676,7 +669,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -743,7 +736,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -805,7 +798,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -872,7 +865,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -935,7 +928,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1003,7 +996,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1066,7 +1059,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1136,7 +1129,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1199,7 +1192,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1268,7 +1261,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1330,7 +1323,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1395,7 +1388,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1458,7 +1451,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1526,7 +1519,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1588,7 +1581,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1652,7 +1645,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1714,7 +1707,7 @@
 													</div>
 												</a>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1779,7 +1772,7 @@
 													lacus, et venenatis felis. Donec ut fringilla magna
 													ultrices suscipit augue.</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												加入购物车, wishlist, compare
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1823,7 +1816,7 @@
 											</div>
 										</div>
 									</div>
-								</li>
+								</li> -->
 							</ul>
 
 							<div class="clear"></div>
