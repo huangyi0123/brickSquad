@@ -37,6 +37,7 @@ import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
+import com.brick.squad.util.YiLiaoUtile;
 
 @Controller
 @RequestMapping("/common")
@@ -267,37 +268,15 @@ public class CommonController {
 		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
-		List<Article> listArticle=articleService.findArticleImgAndName("laorenjianfuyongpin");
-		List<String> imgPath=new ArrayList<String>();
-		for(Article article:listArticle){
-			String path = request.getSession().getServletContext().
-				getRealPath("resource/image/articleImg/"+article.getImage());
-		  imgPath.add(path);
-		String p;
-		for(String realPath:imgPath){
-			File file=new File(realPath);
-			if(file.exists()){
-				File[] files=file.listFiles();
-				if(files.length==0){
-				}else{
-					for(File file2:files){
-						if(file2.isDirectory()){
-							
-						}else{
-							p=file2.getName();
-							article.setImage(article.getImage()+"/"+p);
-							break;
-						}
-					}
-				}
-			}
-		}
-		
-		}
+		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
+		List<Article> list1=articleService.findArticleImgAndName("zuixin");
+		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
+		List<Article> listArticle= yiLiaoUtile.findArticleImgAndName(request, list);
+		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
 		request.setAttribute("listArticle", listArticle);
+		request.setAttribute("listArticle1", listArticle1);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
-
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";

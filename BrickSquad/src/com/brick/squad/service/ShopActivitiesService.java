@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.mapper.ShopActivitiesMapper;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.util.Pagination;
 
@@ -42,5 +43,8 @@ public interface ShopActivitiesService {
 	public String findTypeAndArticle();
 	
 	public ShopActivitiesExpand findShopActivitiesAndTypeAndArticle(String id);
+
+
+	public String findArticle(String businessId);
 	
 }

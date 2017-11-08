@@ -52,6 +52,23 @@
 		
 		layui.use('form', function() {
 					var form = layui.form();
+					//监听店铺下拉框的选中事件，根据店铺id查询相应店铺下面的商品
+		form.on('select(bidSelect)', function(data) {
+		console.log(data);
+		$.ajax({
+				url : 'shopActivities/findArticle?businessId=' + data.value,
+				success : function(result) {
+					result = JSON.parse(result);
+					console.log(result)
+					//清空该区域下面的下拉框
+					$("#articleId").empty();
+					$("#articleId").append('<option value="">直接选择或搜索选择</option>');
+					findAll(result, "#articleId");
+					form.render('select','articleIdSelect');
+				}
+			});
+		});
+					
 				});
 				
 		var url = "${url}";
@@ -83,6 +100,7 @@ $(function() {
 		}
 	});
 
+		
 </script>
 </head>
 
@@ -97,9 +115,18 @@ $(function() {
 
 		
 		<div class="layui-form-item">
+			<label class="layui-form-label">店铺名</label>
+			<div class="layui-input-inline">
+				<select name="businessId" id="businessId" val="${shopActivities.businessId}" lay-filter="bidSelect" lay-search="">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-inline">
-				<select name="articleId" id="articleId" val="${shopActivities.articleId}" lay-search="">
+				<select name="articleId" id="articleId" val="${shopActivities.articleId}" lay-search="" lay-filter="articleIdSelect" >
 					<option value=""></option>
 				</select>
 			</div>
@@ -107,14 +134,7 @@ $(function() {
 		
 	
 		
-		<div class="layui-form-item">
-			<label class="layui-form-label">店铺名</label>
-			<div class="layui-input-inline">
-				<select name="businessId" id="businessId" val="${shopActivities.businessId}" lay-search="">
-					<option value=""></option>
-				</select>
-			</div>
-		</div>
+		
 		
  
 
