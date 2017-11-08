@@ -372,6 +372,8 @@
 																						<span class="menu-title">${type.name }</span>
 																					</span>
 																				</a>
+																				<ul class="dropdown-menu nav-level1 column-3">
+																				</ul>
 																			</li>
 																		</c:forEach>
 
@@ -4272,6 +4274,9 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 
 	<script type="text/javascript">
+		$(function() {
+			getType();
+		});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();

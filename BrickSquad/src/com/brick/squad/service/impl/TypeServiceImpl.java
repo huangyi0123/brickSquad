@@ -85,9 +85,19 @@ public class TypeServiceImpl implements TypeService{
 	}
 
 	@Override
-	public List<Type> getArctre() {
-		List<Type> arcrte=typeMapper.findTyepByParentId("splb");
+	public List<Type> getArctre(String id) {
+		List<Type> arcrte=typeMapper.findTyepByParentId(id);
 		return arcrte;
+	}
+
+	@Override
+	public String getArticleType(String id) {
+		List<Type> types=typeMapper.findTyepByParentId(id);
+		for (Type type : types) {
+			type.setChdren(typeMapper.findTyepByParentId(type.getId()));
+		}
+		JSONArray jsonArray=JSONArray.fromObject(types);
+		return jsonArray.toString();
 	}
 
 }
