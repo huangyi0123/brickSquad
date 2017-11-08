@@ -51,6 +51,17 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
+<script type="text/javascript">
+$(function() {
+	$.ajax({
+		url : 'common/findArticleImgAndName',
+		success : function(data) {
+			data = JSON.parse(data);
+			console.log(data[0]);
+			/* 
+			findAll(business, "#businessId"); */
+});
+</script>
 </head>
 
 <body
@@ -98,16 +109,13 @@
 											<div id="main-slider" class="fullwidthbanner-container"
 												style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 												<div class="module slideshow no-margin">
+												<c:forEach var="article1" items="${listArticle1 }">
 													<div class="item">
 														<a href="simple_product.html"><img
-															src="resource/front_bootstrap/images/1903/slider-shop.jpg" alt="slider1"
+															src="resource/image/articleImg/${article1.image }" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
-													<div class="item">
-														<a href="simple_product.html"><img
-															src="resource/front_bootstrap/images/1903/slider-shop.jpg" alt="slider2"
-															class="img-responsive" height="559"></a>
-													</div>
+													</c:forEach>
 												</div>
 												<div class="loadeding"></div>
 											</div>
@@ -188,18 +196,22 @@
 						<!--  Shop Title -->
 						<div class="products-wrapper">
 							<div class="row-fix clearfix">
+							<c:forEach var="article" items="${listArticle }">
+							
 								<li
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c7.jpg"
+									<a href="shop.html"> <img src="resource/image/articleImg/${article.image }"
 										alt="Accessories" width="300" height="300">
 										<h3>
-											老人专属
+											${article.aname }
 											<mark class="count">(1)</mark>
 										</h3>
 								</a>
 								</li>
+								
+								</c:forEach>
 
-								<li
+							<!-- 	<li
 									class="product-category product product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
 									<a href="shop.html"> <img src="resource/front_bootstrap/images/1903/c10.jpg"
 										alt="Appliances" width="300" height="300">
@@ -296,7 +308,7 @@
 											<mark class="count">(2)</mark>
 										</h3>
 								</a>
-								</li>
+								</li> -->
 							</div>
 
 							<div class="products-nav clearfix">

@@ -1,6 +1,7 @@
 package com.brick.squad.service.impl;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -116,7 +117,7 @@ public class ArticleServiceImpl implements ArticalService{
 	@Override
 	public String findAllTypeAndBusiness() {
 		List<Select> business=businessMapper.findAllBusiness();
-		List<Select> type =typeMapper.findTypeByParentId("splb");
+		List<Select> type =typeMapper.findTypeByArticl();
 		Map<String, List> map=new HashMap<String, List>();
 		map.put("business", business);
 		map.put("type", type);
@@ -130,6 +131,15 @@ public class ArticleServiceImpl implements ArticalService{
 		ArticleExpand articleExpand = articleMapper.findArticleAndTypeAndBusiness(id);
 		return articleExpand;
 	}
+	/***
+	 * 医疗器械查询商品信息
+	 * 
+	 */
+	@Override
+	public List<Article> findArticleImgAndName(String typeId) throws Exception {
+		List<Article> listArticle=articleMapper.findArticleImgAndName(typeId);
+		return listArticle;
+}
 	//获取商品订单数量
 	@Override
 	public List<ArticleExpand> findArticleBuyNumber() {

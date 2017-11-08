@@ -73,6 +73,11 @@ public interface TypeMapper {
 	 * @return 民族集合
 	 */
 	public List<Select> findTypeByParentId(String parentId);
+	/**
+	 * 查询商品类别下的所有类别
+	 * @return 商品类别下的所有类别
+	 */
+	public List<Select> findTypeByArticl();
 
 	public List<Select> findType();
 
@@ -82,7 +87,7 @@ public interface TypeMapper {
 	 *            所属类别id
 	 * @return 类别列表
 	 */
-	public List<Select> findTyepByParentId(String parentId);
+	public List<Type> findTyepByParentId(String parentId);
 
 	/***
 	 * 医疗器械一级分类查询

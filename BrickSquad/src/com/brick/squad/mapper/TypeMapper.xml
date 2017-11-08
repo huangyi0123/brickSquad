@@ -69,7 +69,7 @@
 		select id,name from type
 	</select>
 	<select id="findTyepByParentId" parameterType="string"
-		resultType="com.brick.squad.util.Select">
+		resultType="type">
 		select id,name from type where parent_id=#{perantId}
 	</select>
 	<!-- 医疗器械一级分类查询 -->
@@ -77,6 +77,12 @@
 		resultType="Type">
 		SELECT type.id,type.`name`
 		FROM type
-		WHERE type.parent_id=#{parentId}
+		WHERE
+		type.parent_id=#{parentId}
+	</select>
+	<select id="findTypeByArticl" resultType="com.brick.squad.util.Select">
+		SELECT t1.id
+		id,t1.`name` name FROM type t1 WHERE t1.parent_id in
+		(SELECT t.id FROM type t WHERE t.parent_id='splb') or t1.parent_id='splb'
 	</select>
 </mapper>

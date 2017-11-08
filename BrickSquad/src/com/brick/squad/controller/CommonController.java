@@ -21,6 +21,7 @@ import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
@@ -37,6 +38,7 @@ import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
+import com.brick.squad.util.YiLiaoUtile;
 
 @Controller
 @RequestMapping("/common")
@@ -222,8 +224,11 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toShop")
-	public String toShop() {
 
+	public String toShop(HttpServletRequest request) {
+		List<Type> aList=typeService.getArctre();
+		System.out.println(aList);
+		request.setAttribute("alist", aList);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -247,42 +252,7 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 
-	@RequestMapping("/todeals")
-	public String deals(HttpServletRequest request) {
-		List<ArticleExpand> articleExpandList = articleService
-				.findArticleBuyNumber();
-
-		for (ArticleExpand item : articleExpandList) {
-			String path = request
-					.getSession()
-					.getServletContext()
-					.getRealPath("resource/image/articleImg/" + item.getImage());
-			File file = new File(path);
-			if (item.getImage() == null || item.getImage().equals("")) {
-
-			} else {
-
-				File[] files = file.listFiles();
-				if (files.length == 0) {
-
-				} else {
-					for (int i = 0; i < files.length; i++) {
-						if (files[i] != null) {
-							item.setImage("resource/image/articleImg/"
-									+ item.getImage() + "/"
-									+ files[i].getName());
-							
-							break;
-						}
-					}
-				}
-			}
-
-		}
-
-		request.setAttribute("articleExpandList", articleExpandList);
-		return "frontEnd_manage/front_bootstrap/deals";
-	}
+	
 
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
@@ -301,10 +271,16 @@ public class CommonController {
 		/** 医疗器械一级分类查询 */
 		List<Type> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
-		/** 医疗器械查询商品图片和商品名称 */
+		/**医疗器械查询商品图片和商品名称*/
+		List<Article> list=articleService.findArticleImgAndName("laorenjianfuyongpin");
+		List<Article> list1=articleService.findArticleImgAndName("zuixin");
+		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
+		List<Article> listArticle= yiLiaoUtile.findArticleImgAndName(request, list);
+		List<Article> listArticle1= yiLiaoUtile.findArticleImgAndName(request, list1);
+		request.setAttribute("listArticle", listArticle);
+		request.setAttribute("listArticle1", listArticle1);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
-
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
