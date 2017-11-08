@@ -249,10 +249,10 @@
 								<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
 								<ul class="page-numbers">
-									<li><span class="page-numbers current">${pageBean.page+1 }</span></li>
-									<li><a class="page-numbers" href="#">2</a></li>
-									<li><a class="page-numbers" href="#">3</a></li>
-									<li><a class="next page-numbers" href="#">?</a></li>
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
 								</ul>
 								</nav>
 							</div>
@@ -340,7 +340,7 @@
 
 												<span class="item-price"><del>
 														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">$</span>390.00</span>
+															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>${article3.price }</span>

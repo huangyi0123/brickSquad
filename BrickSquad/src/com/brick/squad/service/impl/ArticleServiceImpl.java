@@ -200,7 +200,7 @@ public class ArticleServiceImpl implements ArticalService{
 		// 设置当前页数:
 		pageBean.setPage(page);
 		// 设置每页显示记录数:
-		int limit = 12;
+		int limit = 6;
 		pageBean.setLimitPage(limit);
 		// 设置总记录数:
 		int totalCount = 0;
@@ -217,7 +217,8 @@ public class ArticleServiceImpl implements ArticalService{
 		pageBean.setTotalPage(totalPage);
 		// 每页显示的数据集合:
 		// 从哪开始:
-		int begin = (page - 1) * limit;
+		int begin = (page -1) *limit;
+		pageBean.setBegin(begin);
 		pageBean.setParentId("yiliaoqixie");
 		List<Article> list = articleMapper.findAllMedicalInstruments(pageBean);
 		pageBean.setList(list);

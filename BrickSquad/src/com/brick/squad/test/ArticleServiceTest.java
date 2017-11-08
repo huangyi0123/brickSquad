@@ -146,7 +146,7 @@ public class ArticleServiceTest {
 	}*/
 	@Test
 	public void findArtivleAndMedicalInstrumentsPage() throws Exception{
-		PageBeanUtil<Article> listArticle=articleService.findArtivleAndMedicalInstrumentsPage(2);
+		PageBeanUtil<Article> listArticle=articleService.findArtivleAndMedicalInstrumentsPage(1);
 		List<Article> list=listArticle.getList();
 		for(Article article:list){
 			System.out.println(article.getAname());
