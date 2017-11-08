@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
@@ -45,6 +46,7 @@ public class CommonController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		// begin 通过权限id查询权限
@@ -70,10 +72,11 @@ public class CommonController {
 
 	@RequestMapping("/uploadImg")
 	@ResponseBody
-	public String uploadImg(MultipartFile file, HttpServletRequest request,String imgPath) {
+	public String uploadImg(MultipartFile file, HttpServletRequest request,
+			String imgPath) {
 		UpLoadFile upLoadFile = new UpLoadFile();
 		List<String> list = new ArrayList<String>();
-		String realPath = "resource/image/"+imgPath+"/";
+		String realPath = "resource/image/" + imgPath + "/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name = file.getOriginalFilename();
@@ -221,8 +224,11 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toShop")
-	public String toShop() {
-		
+
+	public String toShop(HttpServletRequest request) {
+		List<Type> aList=typeService.getArctre();
+		System.out.println(aList);
+		request.setAttribute("alist", aList);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -246,10 +252,7 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 
-	@RequestMapping("/todeals")
-	public String deals() {
-		return "frontEnd_manage/front_bootstrap/deals";
-	}
+	
 
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
@@ -263,8 +266,8 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toVariable_product")
-    public String toVariable_product() {
+	public String toVariable_product() {
 		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
-	
+
 }
