@@ -17,14 +17,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
-import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
-import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
@@ -35,8 +34,8 @@ import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.TypeService;
-import com.brick.squad.util.Select;
 import com.brick.squad.util.UpLoadFile;
+import com.brick.squad.util.YiLiaoUtile;
 
 @Controller
 @RequestMapping("/common")
@@ -221,6 +220,7 @@ public class CommonController {
 		return "backstage_managed/jsp/role/limits";
 	}
 
+
 	@RequestMapping("/toShop")
 	public String toShop() {
 
@@ -247,16 +247,14 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 
-	@RequestMapping("/todeals")
-	public String deals() {
-		return "frontEnd_manage/front_bootstrap/deals";
-	}
+	
 
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
+
 
 	/***
 	 * 医疗器械页面controller
@@ -305,11 +303,13 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 
+
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
 
 	}
+
 
 	@RequestMapping("/toVariable_product")
 	public String toVariable_product() {
@@ -321,4 +321,5 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/coupon";
 
 	}
+
 }
