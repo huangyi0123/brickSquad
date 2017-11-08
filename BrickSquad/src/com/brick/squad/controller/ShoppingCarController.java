@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.service.ArticalService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 
@@ -25,6 +26,9 @@ public class ShoppingCarController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
+	@Autowired
+	@Qualifier("articalService")
+	private ArticalService articalService;
 	@RequestMapping("/toShoppingCarList")
 	public String toRegionList() {
 		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
@@ -107,5 +111,15 @@ public class ShoppingCarController {
 		 ShoppingCarExpand shoppingCarExpand=shoppingCarService.findShoppingCarAndUserAndPsersonalInformationById(id);
 		 request.setAttribute("shoppingCarExpand", shoppingCarExpand);
 		return "backstage_managed/jsp/shoppingcar/search_shoppingcar";
+	}
+	/**
+	 * 前台跳转到购物车详情、准备数据页面
+	 * @throws Exception 
+	 */
+	@RequestMapping("/detailsShoppingCar")
+	public String detailsShoppingCar(ShoppingCar shoppingCar) throws Exception{
+		String data =shoppingCarService.findArticIdAllArtic(shoppingCar);
+		System.out.println(data);
+		return "frontEnd_manage/front_bootstrap/cart";
 	}
 }

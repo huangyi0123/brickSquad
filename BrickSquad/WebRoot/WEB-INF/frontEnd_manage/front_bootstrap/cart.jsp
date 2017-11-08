@@ -94,8 +94,8 @@
 											cellspacing="0">
 											<thead>
 												<tr>
-													<th class="product-remove">&nbsp;</th>
-													<th class="product-thumbnail">&nbsp;</th>
+													<th class="product-remove">删除宝贝</th>
+													<th class="product-thumbnail">宝贝例图</th>
 													<th class="product-name">宝贝信息</th>
 													<th class="product-price">单价</th>
 													<th class="product-quantity">数量</th>
@@ -121,14 +121,12 @@
 													</td>
 
 													<td class="product-name" data-title="Product">
-														<a href="simple_product.html">Enim eu kevin</a>
-													</td>
+														<a href="simple_product.html">点击宝贝名称能跳转</td>
 
 													<td class="product-price" data-title="Price">
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">$</span>300.00</span>
 													</td>
-
 													<td class="product-quantity" data-title="Quantity">
 														<div class="quantity">
 															<input type="number" step="1" min="0" max="" name=""
@@ -148,12 +146,12 @@
 														<div class="coupon">
 															<label for="coupon_code">Coupon:</label>
 															<input type="text" name="coupon_code" class="input-text"
-																id="coupon_code" value="" placeholder="Coupon code">
+																id="coupon_code" value="" placeholder="优惠代码">
 															<input type="submit" class="button" name="apply_coupon"
-																value="Apply Coupon">
+																value="使用优惠券">
 														</div>
 														<input type="submit" class="button" name="update_cart"
-															value="Update Cart">
+															value="更新购物车">
 													</td>
 												</tr>
 											</tbody>
@@ -163,21 +161,21 @@
 									<div class="cart-collaterals">
 										<div class="products-wrapper">
 											<div class="cart_totals ">
-												<h2>Cart Totals</h2>
+												<h2>购物车总计</h2>
 
 												<table cellspacing="0"
 													class="shop_table shop_table_responsive">
 													<tbody>
 														<tr class="cart-subtotal">
-															<th>Subtotal</th>
-															<td data-title="Subtotal">
+															<th>小计</th>
+															<td data-title="小计">
 																<span class="woocommerce-Price-amount amount"><span
 																	class="woocommerce-Price-currencySymbol">$</span>300.00</span>
 															</td>
 														</tr>
 														<tr class="order-total">
-															<th>Total</th>
-															<td data-title="Total">
+															<th>总计</th>
+															<td data-title="总计">
 																<strong><span
 																	class="woocommerce-Price-amount amount"><span
 																		class="woocommerce-Price-currencySymbol">$</span>300.00</span></strong>
@@ -188,8 +186,7 @@
 
 												<div class="wc-proceed-to-checkout">
 													<a href="checkout.html"
-														class="checkout-button button alt wc-forward">Proceed
-														to Checkout</a>
+														class="checkout-button button alt wc-forward">继续结账</a>
 												</div>
 											</div>
 										</div>
