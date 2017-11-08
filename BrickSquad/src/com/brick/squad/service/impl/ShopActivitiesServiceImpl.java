@@ -112,6 +112,12 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 		return shopActivitiesExpand;
 	}
 
-
 	
+	@Override
+	public String findArticle(String businessId) {
+		List<Select> aname =shopActivitiesMapper.findArticle(businessId);
+		JSONArray jsonArray = new JSONArray();
+		String dataAnames =jsonArray.fromObject(aname).toString();
+		return dataAnames;
+	}
 }
