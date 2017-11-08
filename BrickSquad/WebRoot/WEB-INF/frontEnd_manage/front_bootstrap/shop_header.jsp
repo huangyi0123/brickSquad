@@ -1206,7 +1206,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		</header>
-
-		<div class="listings-title">
   </body>
 </html>
