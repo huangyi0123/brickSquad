@@ -178,8 +178,7 @@ public class PersonalInformationController {
 			return "backstage_managed/jsp/personal_Information/add_personal_Information";
 
 		}
-		personalInformationService
-				.insertPersonalInformation(addressAndPersonaInformationExpand);
+		personalInformationService.insertPersonalInformation(addressAndPersonaInformationExpand);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
 

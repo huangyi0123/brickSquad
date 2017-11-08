@@ -2,8 +2,21 @@ package com.brick.squad.pojo;
 
 import java.util.Date;
 
+import javax.validation.constraints.Pattern;
+
+import org.junit.runners.Parameterized.Parameter;
+
 public class HealthRecords {
 	private String id;
+	@Pattern(regexp="^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$|^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X)$",
+			message="请输入有效身份证号码")
+	private String perIdCardId;
+	public String getPerIdCardId() {
+		return perIdCardId;
+	}
+	public void setPerIdCardId(String perIdCardId) {
+		this.perIdCardId = perIdCardId;
+	}
 	private String perId;
 	private String pid;
 	public String getPid() {
@@ -20,6 +33,7 @@ public class HealthRecords {
 	public void setPgender(String pgender) {
 		this.pgender = pgender;
 	}
+	
 	private String idCard;
 	
 	public String getIdCard() {

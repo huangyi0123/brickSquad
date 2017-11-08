@@ -22,15 +22,11 @@
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/layui/css/layui.css">
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/wang_edit/wangEditor.min.js"></script>
+<script type="text/javascript" src="resource/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.ajax({

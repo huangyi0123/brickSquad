@@ -42,6 +42,7 @@
 <script type="text/javascript">
 	$(function() {
 		init("");
+		serach();
 		addReply("");
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
@@ -62,9 +63,9 @@ a:HOVER {
 <body>
 	<div class="search">
 		<div class="input-group" style="width: 520px;margin-left: 52px;">
-			<input type="text" class="form-control" placeholder="Search for...">
+			<input type="text" class="form-control" placeholder="可输入回复内容进行搜索" id="keyword">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">
+				<button class="btn btn-default" type="button" id="serach">
 					<i class="fa fa-search-plus" style="margin-right: 5px;"></i>搜一下
 				</button>
 			</span>

@@ -55,8 +55,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 
 	@Override
 	public String healthRecordsPagination(Pagination pagination) {
-		List<HealthRecordsExpand> healthRecords = healthRecordsMapper
-				.healthRecordsPagination(pagination);
+		List<HealthRecordsExpand> healthRecords = healthRecordsMapper.healthRecordsPagination(pagination);
 		int row = healthRecordsMapper.findHealthRecordsAllCount(pagination);
 		Util<HealthRecordsExpand> util = new Util<>();
 		String data = util.SplitPage(healthRecords, row);

@@ -3,12 +3,16 @@ package com.brick.squad.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -57,8 +61,6 @@ public class HealthRecordsController {
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		//userService.findUserByusername(request.getSession().getAttribute("userId").toString());
-		//pagination.setUserId(request.getSession().getAttribute("userId").toString());
 		return healthRecordsService.healthRecordsPagination(pagination);
 
 	}
@@ -87,8 +89,16 @@ public class HealthRecordsController {
 	}
 
 	@RequestMapping("/insertHealthRecords")
-	public String insertHealthRecords(HealthRecords healthRecords,HttpServletRequest request) {
-		
+	public String insertHealthRecords(@Validated HealthRecords healthRecords,BindingResult result, HttpServletRequest request) {
+		if (result.hasErrors()) {
+			System.out.println(healthRecords.getIdCard()+"11111111111111111111");
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "insertHealthRecords");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/healthRecords/add_healthRecords";
+
+		}
 		healthRecords.setUserId(request.getSession().getAttribute("userId").toString());
 		healthRecordsService.insertHealthRecords(healthRecords);
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
@@ -111,7 +121,6 @@ public class HealthRecordsController {
 	@RequestMapping("/serachHealthRecords")
 	public String serachHealthRecords(HttpServletRequest request,String id){
 		HealthRecords healthRecords=healthRecordsService.findHealthRecordsById(id);
-		System.out.println(healthRecords+"11111111111111111111111111111111111");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
 		request.setAttribute("registrDate",df.format(healthRecords.getRegistrDate()));
 		request.setAttribute("healthRecords",healthRecords);
