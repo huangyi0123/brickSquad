@@ -1,145 +1,148 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'shop_header.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'shop_header.jsp' starting page</title>
+
+<!-- <meta http-equiv="pragma" content="no-cache"> -->
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 
-  </head>
-  
-  <body>
-   <header id="header" class="header header-style1">
-		<div class="header-top clearfix">
-			<div class="container">
-				<div class="rows">
-					<!-- SIDEBAR TOP MENU -->
-					<div class="pull-left top1">
-						<div class="widget text-2 widget_text pull-left">
-							<div class="widget-inner">
-								<div class="textwidget">
-									<div class="call-us">
-										<span>Call Us Now: </span>0123-444-666654123
-									</div>
-								</div>
-							</div>
-						</div>
+</head>
 
-						<div class="widget text-3 widget_text pull-left">
-							<div class="widget-inner">
-								<div class="textwidget"></div>
+<body>
+	<header id="header" class="header header-style1">
+	<div class="header-top clearfix">
+		<div class="container">
+			<div class="rows">
+				<!-- SIDEBAR TOP MENU -->
+				<div class="pull-left top1">
+					<div class="widget text-2 widget_text pull-left">
+						<div class="widget-inner">
+							<div class="textwidget">
+								<div class="call-us">
+									<span>Call Us Now: </span>0123-444-666654123
+								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="wrap-myacc pull-right">
-						<div class="sidebar-account pull-left">
-							<div class="account-title">我的淘宝</div>
-
-							<div id="my-account" class="my-account">
-								<div
-									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account"><a class="item-link"
-												href="my_account.html"> <span class="menu-title">已买到的宝贝</span>
-											</a></li>
-
-											<li class="menu-cart"><a class="item-link"
-												href="cart.html"> <span class="menu-title">我的足迹</span>
-											</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="widget-2 widget-last widget sw_top-4 sw_top">
-									<div class="widget-inner">
-										<div class="top-login"></div>
-									</div>
-								</div>
-							</div>
+					<div class="widget text-3 widget_text pull-left">
+						<div class="widget-inner">
+							<div class="textwidget"></div>
 						</div>
-						<div class="sidebar-account pull-left">
-							<div class="account-title">登录</div>
+					</div>
+				</div>
 
-							<div id="my-account" class="my-account">
-								<div
-									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account"><a class="item-link"
-												href="my_account.html"> <span class="menu-title">登录</span>
-											</a></li>
+				<div class="wrap-myacc pull-right">
+					<div class="sidebar-account pull-left">
+						<div class="account-title">我的淘宝</div>
 
-											<li class="menu-cart"><a class="item-link"
-												href="cart.html"> <span class="menu-title">注册</span>
-											</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="widget-2 widget-last widget sw_top-4 sw_top">
-									<div class="widget-inner">
-										<div class="top-login"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="pull-left top2">
+						<div id="my-account" class="my-account">
 							<div
-								class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
 								<div class="widget-inner">
-									<ul id="menu-checkout" class="menu">
-										<li class="menu-checkout"><a class="item-link"
-											href="common/toContactUs"> <span class="menu-title">联系我们</span>
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="my_account.html"> <span class="menu-title">已买到的宝贝</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+											href="cart.html"> <span class="menu-title">我的足迹</span>
 										</a></li>
 									</ul>
 								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-account pull-left">
+						<div class="account-title">登录</div>
+
+						<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-inner">
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="my_account.html"> <span class="menu-title">登录</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+											href="cart.html"> <span class="menu-title">注册</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="pull-left top2">
+						<div
+							class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+							<div class="widget-inner">
+								<ul id="menu-checkout" class="menu">
+									<li class="menu-checkout"><a class="item-link"
+										href="common/toContactUs"> <span class="menu-title">联系我们</span>
+									</a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="header-mid clearfix">
-			<div class="container">
-				<div class="rows">
-					<!-- LOGO -->
-					<div class="etrostore-logo pull-left">
-						<a href="common/toShop"> <img
-							src="resource/front_bootstrap/images/icons/logo-orange.png"
-							alt="Shoopy">
-						</a>
-					</div>
+	<div class="header-mid clearfix">
+		<div class="container">
+			<div class="rows">
+				<!-- LOGO -->
+				<div class="etrostore-logo pull-left">
+					<a href="common/toShop"> <img
+						src="resource/front_bootstrap/images/icons/logo-orange.png"
+						alt="Shoopy">
+					</a>
+				</div>
 
-					<div class="mid-header pull-right">
-						<div class="widget-1 widget-first widget sw_top-2 sw_top">
-							<div class="widget-inner">
-								<div class="top-form top-search">
-									<div class="topsearch-entry">
-										<form method="get" action="">
-											<div>
-												<input type="text" value="" name="s"
-													placeholder="Enter your keyword...">
-												<div class="cat-wrapper" ">
-													<label class="label-search"> <select
-														name="search_category" class="s1_option" style="width: 150px;>
+				<div class="mid-header pull-right">
+					<div class="widget-1 widget-first widget sw_top-2 sw_top">
+						<div class="widget-inner">
+							<div class="top-form top-search">
+								<div class="topsearch-entry">
+									<form method="get" action="">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> <select
+													name="search_category" class="s1_option"
+													style="width: 150px;>
 															<option value="">所有类别</option>
 															<option value="8">女装</option>
 															<option value="14">男装</option>
@@ -276,7 +279,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 												<div class="cart-links clearfix">
 													<div class="cart-link">
-														<a href="common/toCart" title="Cart">我的购物车</a>
+														<a href="shoppingCar/detailsShoppingCar" title="Cart">我的购物车</a>
 													</div>
 
 													<div class="checkout-link">
@@ -323,7 +326,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="icon-bar"></span> <span class="icon-bar"></span>
 								</button>
 
-								<div id="ResMenuprimary_menu"
+								 <div id="ResMenuprimary_menu"
 									class="collapse menu-responsive-wrapper">
 									<ul id="menu-primary-menu" class="etrostore_resmenu">
 										<li class="active res-dropdown menu-home"><a
@@ -1207,6 +1210,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		</header>
 
-		<div class="listings-title">
   </body>
 </html>

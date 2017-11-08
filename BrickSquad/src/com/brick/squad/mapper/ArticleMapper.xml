@@ -136,5 +136,18 @@
 		select count(rated.id) ratedTotal from rated JOIN order_details on
 		rated.order_id =order_details.orders_id and order_details.article_id
 		=#{id}
+		</select>
+	<!-- 医疗器械热门商品查询 -->
+	<select id="findArticleBuyNumberAndMedicle"  resultType="com.brick.squad.expand.ArticleExpand"
+	parameterType="java.lang.String">
+			SELECT a.id,aname,buyNumber,price,image 
+			FROM article a JOIN 
+			(SELECT COUNT(*) buyNumber,article_id
+			FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) 
+			o ON a.id=o.article_id JOIN type t ON  t.id=a.type_id 
+			WHERE t.parent_id=#{parentId}
+</select>
+	<select id="selectArticleSalesNumberTotalById" resultType="int" parameterType="java.lang.String">
+		select sum(number) NumberTotal from order_details  where article_id =#{id}
 	</select>
 </mapper>

@@ -13,6 +13,7 @@ import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.ShoppingCarMapper;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
@@ -101,5 +102,15 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 			String id) throws Exception {
 		ShoppingCarExpand shoppingCarExpand=shoppingCarMapper.findShoppingCarAndUserAndPsersonalInformationById(id);
 		return shoppingCarExpand;
+	}
+
+	@Override
+	public String findArticIdAllArtic(ShoppingCar shoppingCar) {
+		// TODO Auto-generated method stub
+		//通过shoppingCar中articleId查出商品表中的所有信息
+		List<Article> articles = (List<Article>) articleMapper.findArticleById(shoppingCar.getArticleId());
+		JSONArray jsonArray=new JSONArray();
+		String dataString = jsonArray.fromObject(articles).toString();
+		return dataString;
 	}
 }
