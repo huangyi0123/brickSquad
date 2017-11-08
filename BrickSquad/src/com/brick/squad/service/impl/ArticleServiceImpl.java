@@ -159,5 +159,10 @@ public class ArticleServiceImpl implements ArticalService{
 		
 		return articleMapper.selectArticleSalesNumberTotalById(id);
 	}
+	@Override
+	public int selectArticleRatedTotalById(String id) {
+		
+		return articleMapper.selectArticleRatedTotalById(id);
+	}
 	
 }
