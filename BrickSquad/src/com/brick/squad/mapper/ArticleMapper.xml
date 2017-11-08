@@ -74,9 +74,8 @@
 		article
 	</select>
 
-<!-- 	<select id="findAllArticle" resultType="article"> select article.type_id
-		typeId from article
-	</select> -->
+	<!-- <select id="findAllArticle" resultType="article"> select article.type_id 
+		typeId from article </select> -->
 	<select id="findAllTypeAndBusiness" resultType="article">
 		SELECT
 		a.id,a.aname,a.type_id typeId,a.business_id businessId,t.`name`
@@ -130,11 +129,16 @@
 		WHERE
 		article.type_id=#{typeId}
 	</select>
+	<!-- 根据商品ID查询销售总数 -->
+	<!-- SUM 是SQL语句中的标准求和函数，如果没有符合条件的记录，那么SUM函数会返回NULL。 但多数情况下，我们希望如果没有符合条件记录的情况下，我们希望它返回0，而不是NULL，那么我们可以使用例如下面的方法来处理： 
+		COALESCE(sum(number),0) -->
 	<select id="selectArticleSalesNumberTotalById" resultType="int"
 		parameterType="java.lang.String">
-		select sum(number) NumberTotal from order_details where
+		select COALESCE(sum(number),0) NumberTotal from
+		order_details where
 		article_id =#{id}
 	</select>
+	<!-- 根据商品ID查询评论总数 -->
 	<select id="selectArticleRatedTotalById" resultType="int"
 		parameterType="java.lang.String">
 		select count(rated.id) ratedTotal from rated JOIN
@@ -147,11 +151,14 @@
 	<select id="findArticleBuyNumberAndMedicle" resultType="com.brick.squad.expand.ArticleExpand"
 		parameterType="java.lang.String">
 		SELECT a.id,aname,buyNumber,price,image
-		FROM article a JOIN
+		FROM article a
+		JOIN
 		(SELECT COUNT(*) buyNumber,article_id
-		FROM order_details GROUP BY article_id ORDER BY buyNumber DESC)
-		o ON a.id=o.article_id JOIN type t ON t.id=a.type_id
+		FROM order_details GROUP BY
+		article_id ORDER BY buyNumber DESC)
+		o ON a.id=o.article_id JOIN type t
+		ON t.id=a.type_id
 		WHERE t.parent_id=#{parentId}
 	</select>
-	
+
 </mapper>
