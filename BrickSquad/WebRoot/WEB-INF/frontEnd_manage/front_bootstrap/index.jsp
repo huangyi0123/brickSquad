@@ -365,15 +365,15 @@
 																		class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																		<c:forEach var="type" items="${alist }" varStatus="n">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<input class="typeId" type="hidden" value="${type.id }">
+																				<input class="typeId" type="hidden" value="${type.id }" val="${n.index  }">
 																				<a href="common/tosimple_product" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#${n.index+1 }ac14${n.index+1 }"></span>
 																						<span class="menu-title">${type.name }</span>
 																					</span>
 																				</a>
-																				<ul class="dropdown-menu nav-level1 column-3">
-																				</ul>
+																				<span id="type${n.index }"></span>
+																				
 																			</li>
 																		</c:forEach>
 
