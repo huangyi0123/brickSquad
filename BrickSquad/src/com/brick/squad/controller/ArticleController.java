@@ -243,9 +243,7 @@ public class ArticleController {
 	
 	@RequestMapping("/findArticleBuyNumber")
 	public String findArticleBuyNumber(HttpServletRequest request){
-		List<ArticleExpand> articleExpandList =articleService.findArticleBuyNumber();
-		request.setAttribute("articleExpandList", articleExpandList);
-		return null;
+				return "frontEnd_manage/front_bootstrap/deals";
 		
 	}
 

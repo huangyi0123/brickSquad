@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.RelativesAndAddressAndTypeExpand;
 import com.brick.squad.pojo.Address;
@@ -43,6 +44,7 @@ public class CommonController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		// begin 通过权限id查询权限
@@ -68,10 +70,11 @@ public class CommonController {
 
 	@RequestMapping("/uploadImg")
 	@ResponseBody
-	public String uploadImg(MultipartFile file, HttpServletRequest request,String imgPath) {
+	public String uploadImg(MultipartFile file, HttpServletRequest request,
+			String imgPath) {
 		UpLoadFile upLoadFile = new UpLoadFile();
 		List<String> list = new ArrayList<String>();
-		String realPath = "resource/image/"+imgPath+"/";
+		String realPath = "resource/image/" + imgPath + "/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		String name = file.getOriginalFilename();
@@ -220,7 +223,7 @@ public class CommonController {
 
 	@RequestMapping("/toShop")
 	public String toShop() {
-		
+
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -245,7 +248,39 @@ public class CommonController {
 	}
 
 	@RequestMapping("/todeals")
-	public String deals() {
+	public String deals(HttpServletRequest request) {
+		List<ArticleExpand> articleExpandList = articleService
+				.findArticleBuyNumber();
+
+		for (ArticleExpand item : articleExpandList) {
+			String path = request
+					.getSession()
+					.getServletContext()
+					.getRealPath("resource/image/articleImg/" + item.getImage());
+			File file = new File(path);
+			if (item.getImage() == null || item.getImage().equals("")) {
+
+			} else {
+
+				File[] files = file.listFiles();
+				if (files.length == 0) {
+
+				} else {
+					for (int i = 0; i < files.length; i++) {
+						if (files[i] != null) {
+							item.setImage("resource/image/articleImg/"
+									+ item.getImage() + "/"
+									+ files[i].getName());
+							
+							break;
+						}
+					}
+				}
+			}
+
+		}
+
+		request.setAttribute("articleExpandList", articleExpandList);
 		return "frontEnd_manage/front_bootstrap/deals";
 	}
 
@@ -254,16 +289,19 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
+
 	/***
 	 * 医疗器械页面controller
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	@RequestMapping("/toShop_left_sidebar")
-	public String toShop_left_sidebar(HttpServletRequest request) throws Exception {
-		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+	public String toShop_left_sidebar(HttpServletRequest request)
+			throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<Type> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
-		/**医疗器械查询商品图片和商品名称*/
+		/** 医疗器械查询商品图片和商品名称 */
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 
@@ -274,8 +312,8 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toVariable_product")
-    public String toVariable_product() {
+	public String toVariable_product() {
 		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
-	
+
 }
