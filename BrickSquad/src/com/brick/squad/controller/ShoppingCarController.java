@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.ShoppingCarExpand;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.service.ShoppingCarService;
@@ -119,7 +120,8 @@ public class ShoppingCarController {
 	@RequestMapping("/detailsShoppingCar")
 	public String detailsShoppingCar(ShoppingCar shoppingCar) throws Exception{
 		String data =shoppingCarService.findArticIdAllArtic(shoppingCar);
-		System.out.println(data);
+	
+		System.out.println("-------------------"+data);
 		return "frontEnd_manage/front_bootstrap/cart";
 	}
 }
