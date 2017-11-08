@@ -321,5 +321,11 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/coupon";
 
 	}
+	
+	@RequestMapping("/toApply_coupon")
+	public String toApply_coupon() {
+		return "frontEnd_manage/front_bootstrap/apply_coupon";
+		
+	}
 
 }

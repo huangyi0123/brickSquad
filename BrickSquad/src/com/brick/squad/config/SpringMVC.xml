@@ -82,6 +82,7 @@
 			<mvc:exclude-mapping path="/MedicalInstruments/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/deals/todeals" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>
+			<mvc:exclude-mapping path="/common/toApply_coupon" />
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
