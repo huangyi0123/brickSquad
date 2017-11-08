@@ -39,7 +39,12 @@ public interface ArticalService {
 	public String findAllTypeAndBusiness();
 	
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
-	
+
+	/***
+	 * 医疗器械查询商品信息
+	 */
+	public List<Article> findArticleImgAndName(String typeId)throws Exception;
+
 	/**
 	 * 获取商品订单数量
 	 */

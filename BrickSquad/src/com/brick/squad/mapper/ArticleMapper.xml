@@ -111,7 +111,9 @@ FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.arti
 
 	</select>
 	<!-- 医疗器械查询 -->
-	<select id="findArticleImgAndName" resultType="article">
-	
+	<select id="findArticleImgAndName" resultType="article" parameterType="java.lang.String">
+	SELECT id ,aname ,image 
+	FROM article 
+	WHERE article.type_id=#{typeId}
 	</select>
 </mapper>
