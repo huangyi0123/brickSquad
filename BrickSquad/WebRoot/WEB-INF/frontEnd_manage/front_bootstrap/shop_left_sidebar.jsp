@@ -239,9 +239,9 @@ $().ready(
 											<li><span class="current-li"><span
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
-													<li class="current"><a href="">默认排序</a></li>
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=2&page=1&limitPage=12">人气排序</a></li>
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=3&page=1&limitPage=12">日期排序</a></li>
+													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=2&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12">日期排序</a></li>
 													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
 												</ul></li>
@@ -257,6 +257,21 @@ $().ready(
 											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
 												<ul>
+												<c:if test="${ url=='findOrderByMedicalInstrumentsPop'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
+													<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
 												<c:if test="${ url=='findOrderByMedicalInstruments'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
@@ -281,19 +296,44 @@ $().ready(
 									class="note">页数:</span>
 								<ul class="page-numbers">
 								<c:if test="${ url=='toShop_left_sidebar'}">
+								
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
+									
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
+									<c:if test="${ url=='findOrderByMedicalInstrumentsPop'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								<c:if test="${ url=='findOrderByMedicalInstruments'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
@@ -589,9 +629,10 @@ $().ready(
 											<li><span class="current-li"><span
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
-													<li class="current"><a href="#">默认排序</a></li>
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
+													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=2&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12">日期排序</a></li>
+													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
 												</ul></li>
 										</ul>
@@ -603,9 +644,24 @@ $().ready(
 
 										<div class="product-number pull-left clearfix">
 											<span class="show-product pull-left">显示 </span>
-										<ul class="sort-count order-dropdown pull-left">
+											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
 												<ul>
+												<c:if test="${ url=='findOrderByMedicalInstrumentsPop'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
+													<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
 												<c:if test="${ url=='findOrderByMedicalInstruments'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
@@ -626,23 +682,49 @@ $().ready(
 									</div>
 								</div>
 
-								<nav class="woocommerce-pagination pull-right"> <span
+								
+										<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
 								<ul class="page-numbers">
 								<c:if test="${ url=='toShop_left_sidebar'}">
+								
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
+									
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
+									<c:if test="${ url=='findOrderByMedicalInstrumentsPop'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								<c:if test="${ url=='findOrderByMedicalInstruments'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>

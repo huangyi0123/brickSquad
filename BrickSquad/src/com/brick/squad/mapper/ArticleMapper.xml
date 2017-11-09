@@ -175,16 +175,32 @@
 	FROM article a JOIN type t ON a.type_id=t.id 
 	WHERE t.parent_id=#{parentId}
 	ORDER BY 
-	 <if test="sequence='4'">
 	a.price
-	</if>  
-	<if test="sequence='3'">
-	a.shelfdate
-	</if>
 	 DESC  
 	limit #{begin},#{limitPage}
 	</select>	
-
+<!-- 医疗器械类商品 时间排序-->
+	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"  
+	resultType="Article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes 
+	FROM article a JOIN type t ON a.type_id=t.id 
+	WHERE t.parent_id=#{parentId}
+	ORDER BY 
+	a.shelfdate
+	 DESC  
+	limit #{begin},#{limitPage}
+	</select>	
+	<!-- 医疗器械类商品 人气排序-->
+	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"  
+	resultType="Article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes 
+	FROM article a JOIN type t ON a.type_id=t.id 
+	JOIN order_details o ON o.article_id=a.id
+	WHERE t.parent_id=#{parentId}
+		ORDER BY o.number DESC
+	limit #{begin},#{limitPage}
+	</select>
+	
 	   
 		<!-- 获取商品订单数量 -->
 	<select id="findArticleBuyNumber"  resultType="com.brick.squad.expand.ArticleExpand">

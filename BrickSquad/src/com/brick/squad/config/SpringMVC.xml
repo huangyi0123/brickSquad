@@ -83,6 +83,8 @@
 			<mvc:exclude-mapping path="/MedicalInstruments/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findmedicalpageBean" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findOrderByMedicalInstruments" />
+			<mvc:exclude-mapping path="/MedicalInstruments/findOrderByMedicalInstrumentsDate" />
+			<mvc:exclude-mapping path="/MedicalInstruments/findOrderByMedicalInstrumentsPop" />
 			<mvc:exclude-mapping path="/deals/todeals" />
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>

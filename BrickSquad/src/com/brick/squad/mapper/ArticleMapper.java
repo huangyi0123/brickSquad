@@ -62,6 +62,8 @@ public interface ArticleMapper {
 	public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean);
 	/**医疗器械商品排序*/
 	public List<Article> findOrderByMedicalInstruments(PageBeanUtil pageBean);
+	public List<Article> findOrderByMedicalInstrumentsDate(PageBeanUtil pageBean);
+	public List<Article> findOrderByMedicalInstrumentsPop(PageBeanUtil pageBean);
 /*	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page);*/
 /*
 	 * 根据商品ID在评论表中查询评论总量

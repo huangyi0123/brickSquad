@@ -12,8 +12,13 @@ public class PageBeanUtil<T> {
 	private int begin;
 	//排序使用
 	private int sequence;
-	
-	
+	private Integer shelfdate;
+	public Integer getShelfdate() {
+		return shelfdate;
+	}
+	public void setShelfdate(Integer shelfdate) {
+		this.shelfdate = shelfdate;
+	}
 	public int getSequence() {
 		return sequence;
 	}
