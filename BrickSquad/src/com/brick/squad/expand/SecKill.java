@@ -24,4 +24,18 @@ public class SecKill extends Article {
 		this.activePrice = activePrice;
 	}
 
+	@Override
+	public String toString() {
+		return "SecKill [time=" + time + ", activePrice=" + activePrice
+				+ ", getAname()=" + getAname() + ", getId()=" + getId()
+				+ ", getTypeId()=" + getTypeId() + ", getDescribes()="
+				+ getDescribes() + ", getBusinessId()=" + getBusinessId()
+				+ ", getPrice()=" + getPrice() + ", getStock()=" + getStock()
+				+ ", getImage()=" + getImage() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + "]";
+	}
+
+	
+
 }

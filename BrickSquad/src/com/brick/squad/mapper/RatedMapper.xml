@@ -2,10 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.RatedMapper">
-
-<select id="findAllRated" resultType="rated">
-		select id id,order_id orderId,rated_date ratedDate,centent centent
-		from rated 
+	<!-- 根据商品ID查询该商品所有评论 -->
+	<select id="findOrderRatedByArticleId" parameterType="String"
+		resultType="orderRated">
+		select o.id orderId,u.username ratedUserName,r.id ratedId
+		,r.centent ratedCentent,r.rated_date ratedDate from
+		(select id ,buy_id
+		from orders WHERE id in
+		(select order_details.orders_id from
+		order_details where article_id
+		=#{articleId}
+		GROUP BY (orders_id))) o
+		LEFT JOIN user u on o.buy_id=u.id
+		LEFT JOIN
+		rated r on r.order_id =o.id ORDER BY (r.rated_date) DESC
+	</select>
+	<select id="findAllRated" resultType="rated">
+		select id id,order_id
+		orderId,rated_date ratedDate,centent centent
+		from rated
 	</select>
 	<select id="findRatedById" parameterType="String" resultType="rated">
 		select id id,order_id orderId,rated_date ratedDate,centent centent
@@ -27,17 +42,20 @@
 	</delete>
 
 	<update id="updateRatedCententById" parameterType="rated">
-		UPDATE rated set centent=#{centent} where id =#{id}
+		UPDATE rated
+		set centent=#{centent} where id =#{id}
 	</update>
 	<select id="ratedPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="rated">
-		select id id,order_id orderId,rated_date ratedDate,centent centent from rated 
+		select id id,order_id orderId,rated_date ratedDate,centent centent
+		from rated
 		<if test="keyword!=''">
-		where centent REGEXP #{keyword}
+			where centent REGEXP #{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
-		</select>
-		<select id="findRatedAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+	</select>
+	<select id="findRatedAllCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select COUNT(*) from rated
 	</select>
 </mapper>
