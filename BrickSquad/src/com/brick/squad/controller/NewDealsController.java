@@ -18,12 +18,12 @@ import com.brick.squad.service.ArticalService;
 @RequestMapping("/new_deals")
 public class NewDealsController {
 	@Autowired
-	@Qualifier("articalService")
-	private ArticalService articalService;
+	@Qualifier("articleService")
+	private ArticalService articleService;
 
 	@RequestMapping("/tonew_deals")
 	public String findFrontTime(HttpServletRequest request){
-		List<ArticleExpand> articleExpandList =articalService.findFrontTime();
+		List<ArticleExpand> articleExpandList =articleService.findFrontTime();
 
 		for (ArticleExpand item : articleExpandList) {
 			String path = request.getSession().getServletContext().getRealPath("resource/image/articleImg"+item.getImage());
