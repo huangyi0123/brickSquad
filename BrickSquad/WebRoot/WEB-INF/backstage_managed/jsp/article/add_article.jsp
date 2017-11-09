@@ -129,7 +129,7 @@ $(function() {
 		<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
-				<select name="businessId" id="businessId" 
+				<select name="businessId" id="businessId" style="z-index: 1" 
 					val="${article.businessId}" lay-search="" required lay-verify="required">
 					<option value="" >直接选择或搜索选择</option>
 				</select>
@@ -139,7 +139,7 @@ $(function() {
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品类型</label>
 			<div class="layui-input-inline">
-				<select name="typeId" id="typeId" val="${article.typeId}" lay-search="" required lay-verify="required">
+				<select name="typeId" id="typeId" val="${article.typeId}" lay-search="" required lay-verify="required" style="z-index: 1" >
 					<option value="">直接选择或搜索选择</option>
 				</select>
 			</div>
@@ -190,7 +190,7 @@ $(function() {
 			<div class="layui-form-item">
 			<label class="layui-form-label">商品描述</label>
 			<input type="hidden" name="describes" id="con1" >
-			<div class="layui-input-block" id="editor"></div>
+			<div class="layui-input-block" id="editor" style="z-index: -1" ></div>
 		</div>
 		
 			<div class="layui-form-item">
