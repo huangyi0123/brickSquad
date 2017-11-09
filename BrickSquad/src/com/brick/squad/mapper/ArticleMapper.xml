@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ArticleMapper">
-
 	<!-- 查询 -->
-	<!-- <select id="findArticleById" resultType="article" parameterType="String"> 
-		select id,aname aname,type_id typeId,business_id businessId,describes,price,stock,image 
-		from article where id=#{id} </select> -->
+	<select id="findArticleById" resultType="article" parameterType="String">
+		select id,aname aname,type_id typeId,business_id
+		businessId,describes,price,stock,image from article where id=#{id}
+	</select>
 
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -128,14 +128,11 @@
 		article_id =#{id}
 	</select>
 	<!-- 根据商品ID查询评论总数 -->
-	<select id="selectArticleRatedTotalById" resultType="int">
-		branch 'master' of https://github.com/huangyi0123/brickSquad.git
+	<select id="selectArticleRatedTotalById" resultType="int"
 		parameterType="java.lang.String">
-		select count(rated.id) ratedTotal
-		from rated JOIN
+		select count(rated.id) ratedTotal from rated JOIN
 		order_details on
-		rated.order_id =order_details.orders_id
-		and
+		rated.order_id =order_details.orders_id and
 		order_details.article_id
 		=#{id}
 	</select>
@@ -167,17 +164,20 @@
 		SELECT a.id,a.aname,a.image,a.price,a.describes
 		FROM article
 		a JOIN type t ON a.type_id=t.id
-		WHERE t.parent_id=#{parentId}
-		limit
+		WHERE t.parent_id=#{parentId} limit
 		#{begin},#{limitPage}
 	</select>
 	<!-- 获取最新商品 首页 -->
-	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle" parameterType="int">
+	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="int">
 		select
-		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0) totals from article
-		a left join (select COALESCE(sum(number),0) total ,article_id from
+		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
 		order_details group by (article_id))
-		nn on a.id=nn.article_id order by
+		nn on
+		a.id=nn.article_id order by
 		a.shelfdate DESC LIMIT 0,#{take}
 	</select>
 
@@ -189,8 +189,7 @@
 		a JOIN type t ON a.type_id=t.id
 		WHERE t.parent_id=#{parentId}
 		ORDER BY
-		a.price DESC
-		limit #{begin},#{limitPage}
+		a.price DESC limit #{begin},#{limitPage}
 	</select>
 	<!-- 获取商品订单数量 -->
 	<select id="findArticleBuyNumber" resultType="com.brick.squad.expand.ArticleExpand">
@@ -200,6 +199,7 @@
 		FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on
 		a.id=o.article_id
 	</select>
+
 
 	<!-- 获取最新添加的商品 -->
 	<select id="findFrontTime" resultType="com.brick.squad.expand.ArticleExpand">

@@ -288,7 +288,7 @@
 										<li class="description_tab active"><a
 											href="#tab-description" data-toggle="tab">商品详情</a></li>
 										<li class="reviews_tab "><a href="#tab-reviews"
-											data-toggle="tab">商品评价（0）</a></li>
+											data-toggle="tab">商品评价（${ratedTotal }）</a></li>
 									</ul>
 
 									<div class="clear"></div>
@@ -402,10 +402,9 @@
 
 										</div>
 										<div class="tab-pane" id="tab-reviews">
-
 											<div id="reviews">
 												<div id="comments">
-													<h2>商品评价（0）</h2>
+													<h2>商品评价（${ratedTotal }）</h2>
 												</div>
 												<div class="clear"></div>
 											</div>
@@ -416,7 +415,7 @@
 										style="width:100%;height:130px; border:1px solid orange;float: left;">
 										<div
 											style="width: 100%;height: 30px;background-color: orange;">
-											<label style="margin-left: 30px;line-height: 30px;">累计评价（1628）</label>
+											<label style="margin-left: 30px;line-height: 30px;">累计评价（${ratedTotal }）</label>
 										</div>
 										<div style="display: block;float: left;">
 											<label style="margin-left: 60px;margin-top: 10px;">与描述相符</label>
@@ -450,16 +449,25 @@
 											<form class="layui-form" action="">
 												<div class="layui-form-item">
 													<div class="layui-input-block layui-input-blocksa">
-														<input type="radio" name="sex" value="" title="全部(11)"
+														<input type="radio" name="sex" value="" title="全部(${ratedTotal })"
 															style="font-size: 10px;" checked="">
 														<input type="radio" name="sex" value="" title="追评(4)"
 															style="font-size: 10px;">
 														<input type="radio" name="sex" value="" title="图片(7)"
 															style="font-size: 10px;">
+													
 													</div>
+													
 												</div>
 											</form>
+											
 										</div>
+										<c:forEach var="orderRated" items="${orderRateds }">
+													${orderRated.ratedUserName }
+													${orderRated.ratedCentent }
+													${orderRated.ratedDate }
+													<hr style="background-color: #EFEFEF;">
+													</c:forEach>
 									</div>
 								</div>
 							</div>
