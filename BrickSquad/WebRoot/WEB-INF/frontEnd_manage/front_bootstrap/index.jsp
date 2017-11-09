@@ -1121,11 +1121,11 @@
 																			</div>
 																		</a>
 
-																		<!-- add to cart, wishlist, compare -->
+																		<!-- 添加购物车, wishlist, compare -->
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="Add to Cart">添加到购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -3403,7 +3403,6 @@
 																							title="Add to Cart">Add to cart</a>
 																						<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																							title="Add to Compare">Compare</a>
-
 																						<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																							<div class="yith-wcwl-add-button show" style="display:block">
 																								<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
