@@ -126,7 +126,7 @@
 			<div class="layui-input-inline">
 			<input type="hidden" name="userId" value="${healthRecords.userId}"> 
 				<input type="text"  value="${user.username }"
-					required lay-verify="required" placeholder="记录人员ID"
+					required lay-verify="required" placeholder="记录人员ID" readonly="readonly"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>

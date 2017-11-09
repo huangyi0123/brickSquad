@@ -145,9 +145,10 @@
 			type="hidden" name="address.id"
 			value="${relaAddressTypePerson.address.id }"> <input
 			type="hidden" name="type.id"
-			value="${relaAddressTypePerson.type.id }"> <input
+			value="${relaAddressTypePerson.type.id }"> 
+			<%-- <input
 			type="hidden" name="relatives.perId"
-			value="${relaAddressTypePerson.personalInformation.id }">
+			value="${relaAddressTypePerson.personalInformation.id }"> --%>
 
 		<div class="layui-form-item">
 			<label class="layui-form-label">老人姓名：</label>
@@ -180,10 +181,15 @@
 			<label class="layui-form-label">联系电话：</label>
 			<div class="layui-input-inline">
 				<input type="hidden" name="relphone" id="relphone"> 
-				<input type="text" name="relatives.telephone"  required id="telephone" onchange="sub()"
+				<%-- <input type="text" name="relatives.telephone"  required id="telephone" onchange="sub()"
 					lay-verify="required"
 					value="${relaAddressTypePerson.relatives.telephone}"
-					placeholder="联系电话" autocomplete="off" class="layui-input">
+					placeholder="联系电话" autocomplete="off" class="layui-input"> --%>
+					
+				<input type='text' name="relatives.telephone" id="telephone" onchange="sub()"
+				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
+				required lay-verify="required" placeholder="请输入有效手机号码" autocomplete="off" class="layui-input"
+					value="${relaAddressTypePerson.relatives.telephone}" />
 			</div>
 		</div>
 
