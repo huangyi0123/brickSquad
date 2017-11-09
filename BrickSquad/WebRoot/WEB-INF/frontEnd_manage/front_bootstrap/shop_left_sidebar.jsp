@@ -240,9 +240,8 @@ $().ready(
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
 													<li class="current"><a href="#">默认排序</a></li>
-													<li class=""><a href="#">人气排序</a></li>
-													<li class=""><a href="#">分类级别排序</a></li>
-													<li class=""><a href="#">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
 													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
 												</ul></li>
@@ -591,9 +590,8 @@ $().ready(
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
 													<li class="current"><a href="#">默认排序</a></li>
-													<li class=""><a href="#">人气排序</a></li>
-													<li class=""><a href="#">分类级别排序</a></li>
-													<li class=""><a href="#">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
 												</ul></li>
 										</ul>
