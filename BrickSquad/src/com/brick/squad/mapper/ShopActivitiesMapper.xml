@@ -40,7 +40,8 @@
 	<select id="findArticle" parameterType="String"
 		resultType="com.brick.squad.util.Select">
 
-		SELECT id,aname name FROM article WHERE business_id = #{businessId}
+		SELECT id,aname name FROM article WHERE business_id =
+		#{businessId}
 
 	</select>
 
@@ -89,17 +90,22 @@
 		SELECT s.id,a.aname aname,
 		b.`name`bname,t.`name` tname,
 		s.start_time startTime,s.end_time endTime
-		FROM shop_activities s JOIN article a ON s.article_id=a.id JOIN type t ON
+		FROM shop_activities s JOIN
+		article a ON s.article_id=a.id JOIN type t ON
 		s.type_id=t.id
-		JOIN business b ON s.business_id =b.id
+		JOIN
+		business b ON s.business_id =b.id
 		where s.id =#{id}
 	</select>
 	<!-- 首页秒杀 -->
 	<select id="secKillIndex" resultType="com.brick.squad.expand.SecKill">
 		SELECT
-		a.id,a.aname,a.image,a.price, TIMEDIFF(sa.end_time,NOW()) time,
-		sa.active_price FROM shop_activities sa JOIN type t on sa.type_id=t.id
-		JOIN article a on a.id=sa.article_id WHERE t.`name`='秒杀' and
+		a.id,a.aname,a.image,a.price,
+		DATE_FORMAT(TIMEDIFF(sa.end_time,NOW()),'%Y-%m-%d %H:%i:%s') time,
+		sa.active_price activePrice FROM shop_activities sa JOIN type t on
+		sa.type_id=t.id
+		JOIN article a on a.id=sa.article_id WHERE
+		t.`name`='秒杀' and
 		sa.end_time>NOW() LIMIT 0,4
 	</select>
 </mapper>
