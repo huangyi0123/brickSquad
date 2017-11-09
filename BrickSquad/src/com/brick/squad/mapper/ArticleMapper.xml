@@ -111,16 +111,6 @@
 	</select>
 
 
-	<select id="findArticleBuyNumber" resultType="com.brick.squad.expand.ArticleExpand">
-		SELECT
-		id,aname,buyNumber,price,image from article a JOIN
-		(select count(*)
-		buyNumber,article_id
-		FROM order_details GROUP BY article_id ORDER BY
-		buyNumber DESC) o on
-		a.id=o.article_id
-
-	</select>
 	<!-- 医疗器械查询 -->
 	<select id="findArticleImgAndName" resultType="article"
 		parameterType="java.lang.String">
