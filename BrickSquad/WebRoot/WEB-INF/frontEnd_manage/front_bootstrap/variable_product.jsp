@@ -84,17 +84,18 @@
 
 		<div class="container">
 			<div class="wrap-title">
-				<h1>变量产品</h1>
+				<h1>${ article.aname}</h1>
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
 							<ul class="breadcrumb" style="margin-left: 830px;">
 								<li><a href="common/toShop">首页</a><span class="go-page"></span></li>
-								<li><a href="shop_full_width.html">相机 &amp; 配件</a><span
+								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
-									class="go-page"></span></li>
-								<li class="active"><span>变量产品</span></li>
+									class="go-page"></span></li> -->
+									<li class="active"><span>商品详情</span></li>
+								<li class="active"><span>${ article.aname}</span></li>
 							</ul>
 						</div>
 					</div>
@@ -263,7 +264,7 @@
 									</form>
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
-										<input  type="number" class="layui-input" 
+										<input  type="number" class="layui-input" value="1"
 											style=" width: 70px;margin-left: 110px;margin-top: -35px;">
 										<label
 											style="display:block; margin-top: -30px;margin-left: 185px;">件</label>
@@ -399,100 +400,12 @@
 
 										</div> -->
 
+										</div>
 										<div class="tab-pane" id="tab-reviews">
 
 											<div id="reviews">
 												<div id="comments">
 													<h2>商品评价（0）</h2>
-												</div>
-												<div id="review_form_wrapper">
-													<div id="review_form">
-														<div id="respond" class="comment-respond">
-															<h3 id="reply-title" class="comment-reply-title"
-																style="margin-left: 30px;margin-top: -40px;font-weight: bold;">
-																其他买家需要你的建议哦！<small><a rel="nofollow"
-																	id="cancel-comment-reply-link" href=""
-																	style="display:none;">Cancel reply</a></small>
-															</h3>
-															<form class="layui-form" action="">
-																<div class="layui-form-item layui-form-text">
-																	<label class="layui-form-label">评价商品</label>
-																	<div class="layui-input-block"
-																		style="display:block; width: 480px;height: 300px;margin-left: 150px;">
-																		<textarea placeholder="请输入内容" class="layui-textarea"
-																			class="layui-textarea"
-																			style="display:block; padding: 0;min-height: 10px; height: 150px;"></textarea>
-																	</div>
-																	<label class="layui-form-label"
-																		style="margin-top: -150px;">评价服务</label>
-																	<div class="layui-input-block"
-																		style="width:480px; height: 150px;margin-top: -150px;margin-left: 150px;">
-																		<textarea placeholder="请输入内容" class="layui-textarea"
-																			style="margin: 0;padding: 0;min-height: 10px; height: 80px;"></textarea>
-																	</div>
-																	<label class="layui-form-label"
-																		style="margin-top: -70px;">晒图片</label>
-																	<div class="layui-input-block"
-																		style="width: 480px;height: 100px;margin-top: -70px;margin-left: 150px;">
-																		<textarea placeholder="请输入内容" class="layui-textarea"
-																			style="margin: 0;padding: 0;min-height: 10px; height: 60px;"></textarea>
-																	</div>
-																</div>
-															</form>
-
-															<label style="margin-left: 665px;margin-top: -330px;">店铺动态评分</label>
-															<div
-																style="width: 40%;border: 1px dashed #EAEAEA ;margin-left: 665px;margin-top: -300px;"></div>
-															<form action="" method="post" id="commentform"
-																class="comment-form"
-																style="margin-left: 600px;margin-top: -300px;">
-																<label
-																	style="position:relative; top:327px;left: 88px;font-size: 14px;font-weight: normal;">描述相符</label>
-																<label
-																	style="position:relative; top:357px;left: 28px;font-size: 14px;font-weight: normal;">卖家服务</label>
-																<label
-																	style="position:relative; top:388px;left: -32px;font-size: 14px;font-weight: normal;">物流服务</label>
-																<p class="comment-form-rating comment-form-rating1"
-																	style="margin-top: 300px;">
-																	<select name="rating" id="rating"
-																		style="display:block; margin-left: 150px;margin-top: -50px; ">
-																		<option value="">Rate ...</option>
-																		<option value="5">Perfect</option>
-																		<option value="4">Good</option>
-																		<option value="3">Average</option>
-																		<option value="2">Not that bad</option>
-																		<option value="1">Very Poor</option>
-																	</select> <select name="rating" id="rating"
-																		style="margin-left: 150px;display: none">
-																		<option value="">Rate ...</option>
-																		<option value="5">Perfect</option>
-																		<option value="4">Good</option>
-																		<option value="3">Average</option>
-																		<option value="2">Not that bad</option>
-																		<option value="1">Very Poor</option>
-																	</select> <select name="rating" id="rating"
-																		style="margin-left: 150px;display: none">
-																		<option value="">Rate ...</option>
-																		<option value="5">Perfect</option>
-																		<option value="4">Good</option>
-																		<option value="3">Average</option>
-																		<option value="2">Not that bad</option>
-																		<option value="1">Very Poor</option>
-																	</select>
-																</p>
-
-
-																<p class="form-submit">
-																	<input name="submit" type="submit" id="submit"
-																		class="submit" value="Submit"
-																		style="width:150px;height:40px;border-radius:5px; margin-top: 200px;margin-left: -180px;background-color: orange;">
-																</p>
-															</form>
-
-
-														</div>
-
-													</div>
 												</div>
 												<div class="clear"></div>
 											</div>
