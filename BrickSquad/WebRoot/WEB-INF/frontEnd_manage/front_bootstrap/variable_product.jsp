@@ -94,7 +94,7 @@
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
 									class="go-page"></span></li> -->
-									<li class="active"><span>商品详情</span></li>
+								<li class="active"><span>商品详情</span></li>
 								<li class="active"><span>${ article.aname}</span></li>
 							</ul>
 						</div>
@@ -113,14 +113,16 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
+									<a href="javaScript:;"><img alt=""
+										src="resource/image/articleImg/${ article.image}/${images[0]}"
 										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
 									<div class="comm_imgs">
-									
+
 										<c:forEach var="a" items="${images }">
-										
-										<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
-											
+
+											<a href="javaScript:;"><img alt=""
+												src="resource/image/articleImg/${ article.image}/${a}"></a>
+
 										</c:forEach>
 										<div>
 											<div style="float: left;">
@@ -264,7 +266,8 @@
 									</form>
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
-										<input  type="number" class="layui-input" value="1"
+										<input id="articleNumberId" type="number" class="layui-input"
+											value="1" min="1" max="${ article.stock}"
 											style=" width: 70px;margin-left: 110px;margin-top: -35px;">
 										<label
 											style="display:block; margin-top: -30px;margin-left: 185px;">件</label>
@@ -273,7 +276,13 @@
 									</div>
 									<input type="submit" value="立即购买"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
-									<input type="submit" value="加入购物车"
+									<!-- 先给死perid -->
+									<input type="hidden" id="userId"
+										value="04a925e8c2b611e7aca65254002ec43c">
+									<!--隐藏域存当前商品ID  -->
+									<input type="hidden" id="articleId" value="${ article.id}">
+									<input type="button" value="加入购物车"
+										onclick="userAddArticleToShoppingCar()"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white;margin-top: 40px;margin-left: 40px;">
 
 
@@ -297,7 +306,7 @@
 										<div class="tab-pane tab1 active" id="tab-description">
 											<h2>商品详情</h2>${ article.describes}
 
-			<!-- 								<i class="glyphicon glyphicon-bookmark"
+											<!-- 								<i class="glyphicon glyphicon-bookmark"
 												style="color: orange;font-size: 1.2em;"></i>
 											<h3
 												style="margin-left: 25px;margin-top: -20px;color: orange;">商品尺码SIZE</h3>
@@ -449,25 +458,26 @@
 											<form class="layui-form" action="">
 												<div class="layui-form-item">
 													<div class="layui-input-block layui-input-blocksa">
-														<input type="radio" name="sex" value="" title="全部(${ratedTotal })"
-															style="font-size: 10px;" checked="">
+														<input type="radio" name="sex" value=""
+															title="全部(${ratedTotal })" style="font-size: 10px;"
+															checked="">
 														<input type="radio" name="sex" value="" title="追评(4)"
 															style="font-size: 10px;">
 														<input type="radio" name="sex" value="" title="图片(7)"
 															style="font-size: 10px;">
-													
+
 													</div>
-													
+
 												</div>
 											</form>
-											
+
 										</div>
 										<c:forEach var="orderRated" items="${orderRateds }">
 													${orderRated.ratedUserName }
 													${orderRated.ratedCentent }
 													${orderRated.ratedDate }
 													<hr style="background-color: #EFEFEF;">
-													</c:forEach>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -1132,6 +1142,39 @@
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript">
+		/* 添加购物车JS，ajax提交 */
+		function userAddArticleToShoppingCar() {
+			var userId = $("#userId").val();
+			var articleId = $("#articleId").val();
+			var articleNumber = $("#articleNumberId").val();
+			var shoppingCar = {
+				'perId' : userId,
+				'articleId' : articleId,
+				'number' : articleNumber
+			};
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				$.ajax({
+					url : 'variableProduct/userAddArticleToShoppingCar',
+					type : "POST",
+					data : shoppingCar,
+					success : function(data) {
+
+						if (data == "fail") {
+							layer.msg("添加到购物车失败！稍后重试");
+						} else if (data == "success") {
+							layer.msg("添加到购物车成功！");
+						}
+
+					},
+					error : function(e) {
+						layer.msg("服务器错误！！稍后重试");
+					}
+				});
+			});
+		}
+	</script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {

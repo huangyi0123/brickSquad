@@ -35,7 +35,7 @@ public class BuyersServiceTest {
 		address.setProvinceId("89");
 		buyers.setCurrentIntegral(5);
 		buyers.setDeliveryAddressId("6");
-		buyers.setGrade(4);
+		//buyers.setGrade(4);
 		buyers.setHistoricalIntegral(5);
 		/*buyers.setInformationId("8");*/
 	}

@@ -1123,7 +1123,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="加入购物车">加入购物车</a>
+																				title="加入购物车1">加入购物车1</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1217,7 +1217,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="加入购物车">加入购物车</a>
+																				title="加入购物车2">加入购物车2</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1403,7 +1403,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="加入购物车">加入购物车</a>
+																				title="加入购物车3">加入购物车3</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1494,7 +1494,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车4">加入购物车4</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1586,7 +1586,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车5">加入购物车5</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1757,7 +1757,7 @@
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
 																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="Add to Cart">Add to cart</a>
+																						title="加入购物车6">加入购物车6</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
 
@@ -1831,7 +1831,7 @@
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
 																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="Add to Cart">Add to cart</a>
+																						title="加入购物车7">加入购物车7</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
 
@@ -1921,7 +1921,7 @@
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
 																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="Add to Cart">Add to cart</a>
+																						title="加入购物车8">加入购物车8</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
 
@@ -1996,7 +1996,7 @@
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
 																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="Add to Cart">Add to cart</a>
+																						title="加入购物车9">加入购物车9</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
 
@@ -2072,7 +2072,7 @@
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
 																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="Add to Cart">Add to cart</a>
+																						title="加入购物车10">加入购物车10</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
 
@@ -2138,10 +2138,8 @@
 																						</ins>
 																					</span>
 																				</div>
-
 																				<div class="sale-off">-13%</div>
 																			</div>
-
 																			<div class="item-img products-thumb">
 																				<span class="onsale">Sale!</span>
 																				<a href="simple_product.html">
@@ -2157,7 +2155,7 @@
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
 																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="Add to Cart">Add to cart</a>
+																						title="加入购物车11">加入购物车11</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
 
@@ -4251,7 +4249,6 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
-
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {

@@ -72,4 +72,13 @@ public class ShoppingCar {
     public void setDate(Date date) {
         this.date = date;
     }
+
+	@Override
+	public String toString() {
+		return "ShoppingCar [id=" + id + ", articleId=" + articleId
+				+ ", perId=" + perId + ", number=" + number + ", date=" + date
+				+ ", articles=" + articles + ", personalInformation="
+				+ personalInformation + "]";
+	}
+    
 }

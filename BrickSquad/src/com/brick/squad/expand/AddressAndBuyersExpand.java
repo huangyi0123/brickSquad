@@ -10,6 +10,7 @@ import com.brick.squad.pojo.Buyers;
 public class AddressAndBuyersExpand {
 	private Address address;
 	private Buyers buyers;
+	
 	public Address getAddress() {
 		return address;
 	}

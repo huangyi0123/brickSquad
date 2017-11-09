@@ -8,8 +8,22 @@ public class Buyers {
 	private String id;
 	private int currentIntegral;
 	private int historicalIntegral;
-	private int grade;
+	private String grade;
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 	private String deliveryAddressId;
+	
+	private String tname;
+	public String getTname() {
+		return tname;
+	}
+	public void setTname(String tname) {
+		this.tname = tname;
+	}
 	/**
 	 * 买家与老人信息的关系：一对一 的关系
 	 * */
@@ -32,12 +46,7 @@ public class Buyers {
 	public void setHistoricalIntegral(int historicalIntegral) {
 		this.historicalIntegral = historicalIntegral;
 	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
+	
 	public String getDeliveryAddressId() {
 		return deliveryAddressId;
 	}

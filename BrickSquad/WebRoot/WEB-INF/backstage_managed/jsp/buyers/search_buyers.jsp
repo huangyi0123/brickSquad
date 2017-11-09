@@ -61,7 +61,7 @@
 	<div class="layui-form-item">
 		<label class="layui-form-label">等级：</label>
 		<div class="layui-input-inline">
-			<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.grade}"
+			<input type="text" name="disease" value="${addressAndBuyersExpand.buyers.tname}"
 				lay-verify="required" autocomplete="off" class="layui-input" readonly="readonly"
 				 >
 		</div>

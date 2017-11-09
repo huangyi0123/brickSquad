@@ -1,8 +1,10 @@
 package com.brick.squad.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -80,6 +82,13 @@ public interface ArticleMapper {
 	 * 获取最新添加的商品
 	 */
 	public List<ArticleExpand> findFrontTime();
+	/**
+	 * 获取最新商品
+	 * @param map 参数
+	 * 
+	 * @return  最新商品列表
+	 */
+	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 
 }
 

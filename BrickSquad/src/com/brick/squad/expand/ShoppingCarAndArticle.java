@@ -15,9 +15,24 @@ public class ShoppingCarAndArticle {
 	private int stock;
 	private String describes;
 	private String image;
-	//计算总价
+	//封装的一个属性用于计算数量和单价
+	private  int i;
+	private Double allPrice;
 	
+	public int getI() {
+		return i;
+	}
+	public void setI(int i) {
+		this.i = i;
+	}
 	
+
+	public Double getAllPrice() {
+		return allPrice;
+	}
+	public void setAllPrice(Double allPrice) {
+		this.allPrice = allPrice;
+	}
 	public String getId() {
 		return id;
 	}
