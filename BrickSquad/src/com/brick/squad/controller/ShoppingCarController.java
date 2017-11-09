@@ -135,12 +135,18 @@ public class ShoppingCarController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/detailsShoppingCar")
-
-	public String detailsShoppingCar() throws Exception{
-		List<ShoppingCarAndArticle> list = shoppingCarService.findArticIdAllArtic();
-		for (ShoppingCarAndArticle shoppingCarAndArticle : list) {
-			System.out.println("+++++++++++++++"+list.toString());
-		}
+	public String detailsShoppingCar(HttpServletRequest request) throws Exception{
+		List<ShoppingCarAndArticle> listDetailsShoppingCar = shoppingCarService.findArticIdAllArtic();
+		request.setAttribute("listDetailsShoppingCar", listDetailsShoppingCar);
 		return "frontEnd_manage/front_bootstrap/cart";
 }
+	/**
+	 * 前台删除购物车
+	 * 
+	 */
+	@RequestMapping("/IndexDeleteShoppingCar")
+	public String IndexDeleteShoppingCar(String id) throws Exception {
+		shoppingCarService.deleteShoppingCarById(id);
+		return "redirect:/shoppingCar/detailsShoppingCar";
+	}
 }

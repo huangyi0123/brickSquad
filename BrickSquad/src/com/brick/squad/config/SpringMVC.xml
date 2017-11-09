@@ -74,6 +74,7 @@
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
 			<mvc:exclude-mapping path="/common/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/shoppingCar/detailsShoppingCar" />
+			<mvc:exclude-mapping path="/shoppingCar/IndexDeleteShoppingCar" />
 			<mvc:exclude-mapping path="/common/toVariable_product" />
 			<mvc:exclude-mapping path="/common/toCoupon" />
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
