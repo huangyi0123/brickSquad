@@ -1,5 +1,7 @@
 package com.brick.squad.pojo;
 
+import java.util.Date;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Article {
@@ -19,8 +21,15 @@ public class Article {
 	private String price;
 	private int stock;
 	private String describes;
+	public Date getShelfdate() {
+		return shelfdate;
+	}
+	public void setShelfdate(Date shelfdate) {
+		this.shelfdate = shelfdate;
+	}
 	private String image;
-
+	private Date shelfdate;
+	
 
 	public String getAname() {
 		return aname;

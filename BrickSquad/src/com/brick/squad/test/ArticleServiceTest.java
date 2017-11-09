@@ -133,17 +133,6 @@ public class ArticleServiceTest {
 	 * 医疗器械类获所有商品测试
 	 * @throws Exception 
 	 * */
-	/*@Test
-	public void findAllMedicalInstruments() throws Exception{
-		PageBeanUtil pageBeanUtil=new PageBeanUtil();
-		pageBeanUtil.setBegin(0);
-		pageBeanUtil.setLimitPage(4);
-		pageBeanUtil.setParentId("yiliaoqixie");
-		List<Article> list=articleService.findAllMedicalInstruments(pageBeanUtil);
-		for(Article article:list){
-			System.out.println(article.getAname());
-		}
-	}*/
 	@Test
 	public void findArtivleAndMedicalInstrumentsPage() throws Exception{
 		PageBeanUtil<Article> listArticle=articleService.findArtivleAndMedicalInstrumentsPage(1);
@@ -160,4 +149,13 @@ public class ArticleServiceTest {
 			System.out.println(article.getAname());
 		}
 	}
+	@Test
+	public void findOrderByMedicalInstruments() throws Exception{
+		PageBeanUtil<Article> listArticle=articleService.findOrderByMedicalInstruments(1,4,24);
+		List<Article> list=listArticle.getList();
+		for(Article article:list){
+			System.err.println(article.getAname()+"============="+article.getPrice());
+		}
+	}
+
 }

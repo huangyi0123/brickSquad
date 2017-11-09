@@ -1612,12 +1612,12 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
-										<c:forEach items="${articleExpandList }" var="a">
+										<c:forEach items="${articleExpandList }" var="a">		
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 												<div class="item-detail">
 													<div class="item-img products-thumb">
 														<span class="onsale">Sale!</span> <a
-															href="variableProduct/toVariable_product?productId=${a.id}">
+															href="simple_product.html?id=${a.id}">
 															<div class="product-thumb-hover">
 																<img width="300" height="300"
 																	src="${a.image }"
@@ -1636,7 +1636,7 @@
 																class="compare button" rel="nofollow"
 																title="Add to Compare">Compare</a>
 
-															 <div
+															<div
 																class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																<div class="yith-wcwl-add-button show"
 																	style="display:block">
@@ -1656,8 +1656,7 @@
 																<div class="yith-wcwl-wishlistexistsbrowse hide"
 																	style="display:none">
 																	<span class="feedback">The product is already in
-																		the wishlist!</span> <a href="#" rel="nofollow">Browse
-																		Wishlist</a>
+																		the wishlist!</span> <a href="#" rel="nofollow">浏览</a>
 																</div>
 
 																<div style="clear:both"></div>
@@ -1667,8 +1666,7 @@
 															<div class="clear"></div>
 															<a href="ajax/fancybox/example.html"
 																data-fancybox-type="ajax"
-																class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-																View </a>
+																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a>
 														</div>
 
 													<!-- 	<div class="sale-off">-13%</div> -->
@@ -1678,7 +1676,7 @@
 														<!-- rating  -->
 														<div class="reviews-content">
 															<div class="star"></div>
-															<div class="item-number-rating">${a.buyNumber } Review(s)</div>
+															<div class="item-number-rating">0人已购买</div>
 														</div>
 														<!-- end rating  -->
 
@@ -1793,8 +1791,8 @@
 												</div>
 											</div>
 										</div>
- -->
-										<!-- <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+
+										<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 											<div class="item-detail">
 												<div class="item-img products-thumb">
 													<span class="onsale">Sale!</span> <a
@@ -2335,10 +2333,11 @@
 												</div>
 											</div>
 										</div>
+									 -->
 									</div>
 								</div>
 							</div>
- -->
+
 										<div class="clearfix"></div>
 									</div>
 								</div>

@@ -74,6 +74,7 @@
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
 			<mvc:exclude-mapping path="/common/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/shoppingCar/detailsShoppingCar" />
+			<mvc:exclude-mapping path="/shoppingCar/IndexDeleteShoppingCar" />
 			<mvc:exclude-mapping path="/common/toVariable_product" />
 			<mvc:exclude-mapping path="/common/toCoupon" />
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
@@ -81,7 +82,9 @@
 			<mvc:exclude-mapping path="/variableProduct/toVariable_product" />
 			<mvc:exclude-mapping path="/MedicalInstruments/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findmedicalpageBean" />
+			<mvc:exclude-mapping path="/MedicalInstruments/findOrderByMedicalInstruments" />
 			<mvc:exclude-mapping path="/deals/todeals" />
+			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>
 			<mvc:exclude-mapping path="/common/toApply_coupon" />
 

@@ -10,7 +10,12 @@ function init(keyword) {
 					{
 					    key: 'aname',
 					    text: '商品名称'
-					},
+					},{
+
+
+                        key: 'activePrice',
+                        text: '活动价格'
+                    },
                      {
 
 

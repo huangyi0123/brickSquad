@@ -109,7 +109,6 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	public List<ShoppingCarAndArticle> findArticIdAllArtic() {
 		// TODO Auto-generated method stub
 		//通过shoppingCar中articleId查出商品表中的所有信息
-
 		return shoppingCarMapper.findArticIdAllArtic();
 	}
 }

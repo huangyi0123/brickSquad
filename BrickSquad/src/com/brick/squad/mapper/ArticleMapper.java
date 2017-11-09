@@ -40,10 +40,7 @@ public interface ArticleMapper {
 
 	
 	
-	/**
-	 * 获取商品订单数量
-	 */
-	public List<ArticleExpand> findArticleBuyNumber();
+	
 	/**
 	 * 医疗器械类获取商品订单数量
 	 * */
@@ -63,6 +60,8 @@ public interface ArticleMapper {
 	 * 医疗器械类获所有商品
 	 * */
 	public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean);
+	/**医疗器械商品排序*/
+	public List<Article> findOrderByMedicalInstruments(PageBeanUtil pageBean);
 /*	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page);*/
 /*
 	 * 根据商品ID在评论表中查询评论总量
@@ -70,5 +69,15 @@ public interface ArticleMapper {
 	 * @return
 	 */
 	public int selectArticleRatedTotalById(String id);
+	
+	/**
+	 * 获取商品订单数量
+	 */
+	public List<ArticleExpand> findArticleBuyNumber();
+	/**
+	 * 获取最新添加的商品
+	 */
+	public List<ArticleExpand> findFrontTime();
+
 }
 
