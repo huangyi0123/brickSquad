@@ -334,4 +334,14 @@ public class ArticleServiceImpl implements ArticalService{
 		return pageBean;
 	}
 	
+		
+	
+	@Override
+	public List<ArticleExpand> findFrontTime() {
+		List<ArticleExpand> articleExpand = articleMapper.findFrontTime();
+		System.err.println(articleExpand.size());
+		return articleExpand;
+	}
+
+	
 }
