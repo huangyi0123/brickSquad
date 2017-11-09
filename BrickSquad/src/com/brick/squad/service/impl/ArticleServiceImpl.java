@@ -276,12 +276,13 @@ public class ArticleServiceImpl implements ArticalService{
 		PageBeanUtil<Article> pageBean=new PageBeanUtil<Article>();
 		if(page==0){
 			page=1;
-		if(sequence==4){
+		
 		// 设置当前页数:
 		pageBean.setPage(page);
 		// 设置每页显示记录数:
 		/*int limit = 12;*/
 		pageBean.setLimitPage(limitPage);
+	
 		// 设置总记录数:
 		int totalCount = 0;
 		totalCount = articleMapper.findCountMedicalInstruments("yiliaoqixie");
@@ -303,9 +304,9 @@ public class ArticleServiceImpl implements ArticalService{
 		pageBean.setParentId("yiliaoqixie");
 		List<Article> list = articleMapper.findOrderByMedicalInstruments(pageBean);
 		pageBean.setList(list);
-		}
+	
 		}else{
-			if(sequence==4){
+			
 				// 设置当前页数:
 				pageBean.setPage(page);
 				// 设置每页显示记录数:
@@ -332,7 +333,7 @@ public class ArticleServiceImpl implements ArticalService{
 				List<Article> list = articleMapper.findOrderByMedicalInstruments(pageBean);
 				pageBean.setList(list);
 			}
-		}
+
 		return pageBean;
 	}
 	

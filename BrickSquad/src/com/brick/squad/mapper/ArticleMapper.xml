@@ -174,13 +174,16 @@
 	SELECT a.id,a.aname,a.image,a.price,a.describes 
 	FROM article a JOIN type t ON a.type_id=t.id 
 	WHERE t.parent_id=#{parentId}
-	ORDER BY a.price DESC  
+	ORDER BY 
+	 <if test="sequence='4'">
+	a.price
+	</if>  
+	<if test="sequence='3'">
+	a.shelfdate
+	</if>
+	 DESC  
 	limit #{begin},#{limitPage}
-	</select>
-
-
-	
-
+	</select>	
 
 	   
 		<!-- 获取商品订单数量 -->
@@ -189,7 +192,6 @@
 (select count(*) buyNumber,article_id
 FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.article_id
 	</select>
-	
 
 	<!-- 获取最新添加的商品 -->
 	<select id="findFrontTime" resultType="com.brick.squad.expand.ArticleExpand">
@@ -197,5 +199,6 @@ FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.arti
 		aname,price,image, TIMEDIFF(NOW(),shelfdate) time FROM article ORDER
 		BY time ASC
 	</select>
+	
 
 </mapper>
