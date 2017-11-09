@@ -80,6 +80,7 @@
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
 			<mvc:exclude-mapping path="/common/toCart" />
 			<mvc:exclude-mapping path="/variableProduct/toVariable_product" />
+			<mvc:exclude-mapping path="/variableProduct/userAddArticleToShoppingCar" />	
 			<mvc:exclude-mapping path="/MedicalInstruments/toShop_left_sidebar" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findmedicalpageBean" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findOrderByMedicalInstruments" />

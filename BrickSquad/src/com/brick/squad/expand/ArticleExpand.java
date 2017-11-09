@@ -1,5 +1,7 @@
 package com.brick.squad.expand;
 
+import java.util.Date;
+
 import com.brick.squad.pojo.Article;
 
 public class ArticleExpand extends Article{
@@ -10,6 +12,8 @@ public class ArticleExpand extends Article{
 	private String bname;
 	//获得商品订单量
 	private String buyNumber;
+	//获得最新上架时间
+
 	public String getBuyNumber() {
 		return buyNumber;
 	}
