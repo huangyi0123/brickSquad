@@ -20,7 +20,7 @@ function init(keyword) {
                 text: '历史积分'
             },
             {
-                key: 'grade',
+                key: 'tname',
                 text: '等级'
             },
             {

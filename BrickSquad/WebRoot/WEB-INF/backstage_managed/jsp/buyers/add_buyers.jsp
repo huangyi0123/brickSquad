@@ -30,6 +30,14 @@
 <script type="text/javascript">
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+		//会员级别数据
+		$(function() {
+		var da = '${typeData}';
+		da=JSON.parse(da);
+		findAll(da, "#jb");
+		form.render('select', 'hyjb');
+		});
+		
 		//获取老人信息表
 		$.ajax({
 			url : 'personalInformation/findAllPersonalInformation',
@@ -111,7 +119,7 @@
 	<form action="buyers/${url} " class="layui-form" method="post">
 		<input type="hidden" name="address.id"
 			value="${addressAndBuyersExpand.address.id }">
-
+		<input type="hidden" name="buyers.id" value="${addressAndBuyersExpand.buyers.id }">
 		<div class="layui-form-item">
 			<label class="layui-form-label">买家姓名：</label>
 			<div class="layui-input-inline">
@@ -123,7 +131,7 @@
 				</c:if>
 				<c:if test="${url ne 'updateBuyersById'}">
 				<select  lay-filter="perid" name="buyers.id" id="perid"
-					val="${addressAndBuyersExpand.buyers.id}">
+					val="${addressAndBuyersExpand.buyers.id}" lay-search="">
 					<option value="">选择买家姓名</option>
 				</select>
 				</c:if>
@@ -150,10 +158,19 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">等级：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="buyers.grade" lay-verify="number" required
+				 <%-- <input type="text" name="buyers.grade" lay-verify="number" required
 					lay-verify="required" placeholder="请输入名称" autocomplete="off"
-					class="layui-input" value="${addressAndBuyersExpand.buyers.grade}">
+					class="layui-input" value="${addressAndBuyersExpand.buyers.grade}">  --%>
+					<%-- <input type="hidden" name="buyers.grade" value="${addressAndBuyersExpand.buyers.grade}"> --%>
+				 <select  id="jb" name="buyers.grade" lay-search="" value="${addressAndBuyersExpand.buyers.grade}"
+					lay-filter="hyjb">
+					<option value="">请选择会员级别</option>
+				</select>
 			</div>
+			
+			
+			
+			
 		</div>
 		<!-- 显示地址表信息 -->
 		<div class="layui-form-item">

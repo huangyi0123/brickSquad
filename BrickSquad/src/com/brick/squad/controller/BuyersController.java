@@ -16,6 +16,7 @@ import com.brick.squad.service.AddressService;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
 
 @Controller
@@ -33,6 +34,9 @@ public class BuyersController {
 	@Autowired
 	@Qualifier("regionService")
 	private RegionService regionService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
 	@RequestMapping(value="/toBuyersList")
 	public String toBuyersList(){
 		return "backstage_managed/jsp/buyers/buyers_list";
@@ -41,6 +45,8 @@ public class BuyersController {
 	public String toAddBuyers(HttpServletRequest request,String id) throws Exception{
 		String regionDataString = buyersService.findRegionsByLevel();
 		request.setAttribute("regionDataString", regionDataString);
+		String data=typeService.findTypeByParentId("hyjb");
+		request.setAttribute("typeData", data);
 		if(id!=null){
 			Buyers buyers = buyersService.findBuyersByUUID(id);
 			Address address = addressService.findAddressById(buyers.getDeliveryAddressId());
@@ -50,6 +56,7 @@ public class BuyersController {
 			request.setAttribute("addressAndBuyersExpand",addressAndBuyersExpand );
 			String allRegionResultById = addressService.getAllRegion(address);
 			request.setAttribute("allRegionResultById", allRegionResultById);
+			request.setAttribute("Grade",addressAndBuyersExpand.getBuyers().getGrade());
 			request.setAttribute("msg","修改");
 			request.setAttribute("url", "updateBuyersById");
 			return "backstage_managed/jsp/buyers/add_buyers";
@@ -81,6 +88,7 @@ public class BuyersController {
 	}
 	@RequestMapping("/updateBuyersById")
 	public String updateBuyers(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception{
+		System.out.println(addressAndBuyersExpand.getBuyers().getId()+"11111111111");
 		buyersService.updateBuyersById(addressAndBuyersExpand);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
