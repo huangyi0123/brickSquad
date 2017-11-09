@@ -176,7 +176,7 @@
 	limit #{begin},#{limitPage}
 	</select>
 
-	
+	   
 		<!-- 获取商品订单数量 -->
 	<select id="findArticleBuyNumber"  resultType="com.brick.squad.expand.ArticleExpand">
 		SELECT id,aname,buyNumber,price,image from article a JOIN 
