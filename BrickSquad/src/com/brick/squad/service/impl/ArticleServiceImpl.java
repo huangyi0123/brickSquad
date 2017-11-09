@@ -286,14 +286,28 @@ public class ArticleServiceImpl implements ArticalService {
 	}
 
 	@Override
-	public Map<String,Object> shopIndex() {
+	public Map<String, Object> shopIndex() {
 		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> m = new HashMap<>();
+		//最新商品
+		m.put("take", 6);
+		m.put("order", "a.shelfdate");
 		List<NewsArticle> aNewsArticles = articleMapper
-				.findNewsArticleByIndex(6);
-		List<NewsArticle> aNewsArticlesTop=articleMapper.findNewsArticleByIndex(5);
-		map.put("aNewsArticles", (Object)aNewsArticles);
+				.findNewsArticleByIndex(m);
+		m.put("take", 5);
+		List<NewsArticle> aNewsArticlesTop = articleMapper
+				.findNewsArticleByIndex(m);
+		map.put("aNewsArticles", (Object) aNewsArticles);
 		map.put("aNewsArticlesTop", aNewsArticlesTop);
-		return null;
+		//热门商品
+		m.put("order", "totals");
+		m.put("take", 6);
+		List<NewsArticle> rArticles=articleMapper.findNewsArticleByIndex(m);
+		m.put("take", 5);
+		List<NewsArticle> rArticlesTop=articleMapper.findNewsArticleByIndex(m);
+		map.put("rArticles", rArticles);
+		map.put("rArticlesTop", rArticlesTop);
+		return map;
 	}
 
 	/** 医疗器械商品排序 */

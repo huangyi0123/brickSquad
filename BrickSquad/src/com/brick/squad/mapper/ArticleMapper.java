@@ -1,6 +1,7 @@
 package com.brick.squad.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
@@ -81,10 +82,11 @@ public interface ArticleMapper {
 	public List<ArticleExpand> findFrontTime();
 	/**
 	 * 获取最新商品
-	 * @param take 需要获取商品条数
+	 * @param map 参数
+	 * 
 	 * @return  最新商品列表
 	 */
-	public List<NewsArticle> findNewsArticleByIndex(int take);
+	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 
 }
 
