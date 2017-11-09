@@ -175,7 +175,7 @@
 	WHERE t.parent_id=#{parentId}
 	limit #{begin},#{limitPage}
 	</select>
-
+	<!-- 医疗器械类商品 价格排序-->
 	<select id="findOrderByMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"  
 	resultType="Article">
 	SELECT a.id,a.aname,a.image,a.price,a.describes 

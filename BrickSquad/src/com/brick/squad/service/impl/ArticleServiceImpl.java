@@ -269,10 +269,8 @@ public class ArticleServiceImpl implements ArticalService{
 	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page,
 			int sequence,int limitPage) throws Exception {
 		PageBeanUtil<Article> pageBean=new PageBeanUtil<Article>();
-		
 		if(page==0){
 			page=1;
-			
 		if(sequence==4){
 		// 设置当前页数:
 		pageBean.setPage(page);
@@ -301,7 +299,6 @@ public class ArticleServiceImpl implements ArticalService{
 		List<Article> list = articleMapper.findOrderByMedicalInstruments(pageBean);
 		pageBean.setList(list);
 		}
-			
 		}else{
 			if(sequence==4){
 				// 设置当前页数:
