@@ -4,10 +4,10 @@
 <mapper namespace="com.brick.squad.mapper.ArticleMapper">
 
 	<!-- 查询 -->
-	<!-- <select id="findArticleById" resultType="article" parameterType="String">
+	 <select id="findArticleById" resultType="article" parameterType="String">
 		select id,aname aname,type_id typeId,business_id
 		businessId,describes,price,stock,image from article where id=#{id}
-	</select> -->
+	</select> 
 
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -177,7 +177,7 @@
 		limit #{begin},#{limitPage}
 </select>
 
-	   
+		   
 		<!-- 获取商品订单数量 -->
 	<select id="findArticleBuyNumber"  resultType="com.brick.squad.expand.ArticleExpand">
 		SELECT id,aname,buyNumber,price,image from article a JOIN 
