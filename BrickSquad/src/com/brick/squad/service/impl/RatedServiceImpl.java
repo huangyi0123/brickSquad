@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.mapper.RatedMapper;
 import com.brick.squad.pojo.Medical;
+import com.brick.squad.pojo.OrderRated;
 import com.brick.squad.pojo.Rated;
 import com.brick.squad.pojo.Region;
 import com.brick.squad.service.RatedService;
@@ -78,6 +79,12 @@ public class RatedServiceImpl implements RatedService {
 		JSONArray jsonArray = new JSONArray();
 		String datarated = jsonArray.fromObject(rateds).toString();
 		return datarated;
+	}
+
+	@Override
+	public List<OrderRated> findOrderRatedByArticleId(String articleId) {
+		// TODO Auto-generated method stub
+		return ratedMapper.findOrderRatedByArticleId(articleId);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.brick.squad.expand.SecKill;
 import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ShopActivitiesService;
@@ -110,4 +111,5 @@ public class ShopActivitiesServiceTest {
 		ShopActivitiesExpand shopActivitiesExpand=shopActivitiesService.findShopActivitiesAndTypeAndArticle("12");
 		System.out.println(shopActivitiesExpand.getAname());
 	}
+	
 }

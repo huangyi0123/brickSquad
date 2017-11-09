@@ -12,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.OrderRated;
 import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.RatedService;
 
 @Controller
 @RequestMapping("/variableProduct")
@@ -20,6 +22,9 @@ public class VariableProductController {
 	@Autowired
 	@Qualifier("articleService")
 	private ArticalService articleService;
+	@Autowired
+	@Qualifier("ratedService")
+	private RatedService ratedService;
 	
 	/**
 	 * 跳转到商品详情页面
@@ -53,6 +58,9 @@ public class VariableProductController {
 		//根据商品ID查询评论总量
 		int ratedTotal =articleService.selectArticleRatedTotalById(productId)+500;
 		request.setAttribute("ratedTotal", ratedTotal);
+		//根据商品ID查询评论内容
+		List<OrderRated> orderRateds =ratedService.findOrderRatedByArticleId(productId);
+		request.setAttribute("orderRateds", orderRateds);
 		return "frontEnd_manage/front_bootstrap/variable_product";
 	}
 }
