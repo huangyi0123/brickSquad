@@ -206,7 +206,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																</span>
 
 																<div class="qty">
-																	<span class="qty-number">1</span>
+																	<span class="qty-number">5</span>
 																</div>
 															</div>
 

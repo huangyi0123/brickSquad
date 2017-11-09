@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
+import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
@@ -33,6 +34,7 @@ import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
+import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.UpLoadFile;
 import com.brick.squad.util.YiLiaoUtile;
@@ -43,7 +45,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
-
+	@Autowired
+	@Qualifier("shoppingCarService")
+	private ShoppingCarService shoppingCarService;
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		// begin 通过权限id查询权限
@@ -222,9 +226,23 @@ public class CommonController {
 
 
 	@RequestMapping("/toShop")
-	public String toShop() {
-
+	public String toShop(HttpServletRequest request) {
+		//进入主页之前把购物车显示所需信息查询到
+		List<ShoppingCarAndArticle> toShopDetailsShoppingCar = shoppingCarService.findArticIdAllArtic();
+		for (ShoppingCarAndArticle shoppingCarAndArticle : toShopDetailsShoppingCar) {
+			System.out.println("--------------------------"+shoppingCarAndArticle.toString());
+		}
+		request.setAttribute("toShopDetailsShoppingCar", toShopDetailsShoppingCar);
 		return "frontEnd_manage/front_bootstrap/index";
+	}
+	/**
+	 * 首页下拉框删除购物车
+	 * 
+	 */
+	@RequestMapping("/toShopDeleteShoppingCar")
+	public String IndexDeleteShoppingCar(String id) throws Exception {
+		shoppingCarService.deleteShoppingCarById(id);
+		return "redirect:/common/toShop";
 	}
 
 	@RequestMapping("/toContactUs")
