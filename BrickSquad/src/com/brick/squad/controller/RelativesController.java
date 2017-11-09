@@ -327,6 +327,7 @@ public class RelativesController {
 				//将上述查询出来的信息设置到拓展对象中
 				relaAddressTypePerson.setAddress(address);
 				relaAddressTypePerson.setPersonalInformation(personalInformation);
+			
 				relaAddressTypePerson.setRelatives(relatives);
 				relaAddressTypePerson.setType(type);
 				//将对象放入request中传入jsp

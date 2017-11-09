@@ -141,9 +141,14 @@ $(function() {
 			<div class="layui-form-item">
 			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">
-				<input type="text" name="price" required lay-verify="required"
+			<%-- 	<input type="text" name="price" required lay-verify="required"
 					placeholder="价格" autocomplete="off" class="layui-input"
-					value="${article.price }">
+					value="${article.price }"> --%>
+					
+				<input type='text' name="price"
+				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
+				required lay-verify="required" placeholder="请输入有效价格" autocomplete="off" class="layui-input"
+					value="${article.price }" />
 			</div>
 		</div>
 		
