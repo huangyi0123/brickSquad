@@ -10,7 +10,16 @@ public class PageBeanUtil<T> {
 	private List<T> list;
 	private String parentId;
 	private int begin;
+	//排序使用
+	private int sequence;
 	
+	
+	public int getSequence() {
+		return sequence;
+	}
+	public void setSequence(int sequence) {
+		this.sequence = sequence;
+	}
 	public int getBegin() {
 		return begin;
 	}
