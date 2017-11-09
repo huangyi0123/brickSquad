@@ -1617,7 +1617,7 @@
 												<div class="item-detail">
 													<div class="item-img products-thumb">
 														<span class="onsale">Sale!</span> <a
-															href="simple_product.html?id=${a.id}">
+															href="variableProduct/toVariable_product?productId=${a.id}">
 															<div class="product-thumb-hover">
 																<img width="300" height="300"
 																	src="${a.image }"
