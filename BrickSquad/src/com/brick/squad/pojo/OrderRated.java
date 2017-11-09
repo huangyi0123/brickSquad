@@ -1,5 +1,8 @@
 package com.brick.squad.pojo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 订单评论内容 用于商品详情页面商品评论显示
  * 
@@ -27,41 +30,57 @@ public class OrderRated {
 	 * 评论时间
 	 */
 	private String ratedDate;
+	/**
+	 * 处理查出来的评论时间格式
+	 */
+	SimpleDateFormat dateFormater = new SimpleDateFormat(
+			"yyyy年-MM月-dd日 hh:mm:ss");
+
 	public String getOrderId() {
 		return orderId;
 	}
+
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
+
 	public String getRatedUserName() {
 		return ratedUserName;
 	}
+
 	public void setRatedUserName(String ratedUserName) {
 		this.ratedUserName = ratedUserName;
 	}
+
 	public String getRatedId() {
 		return ratedId;
 	}
+
 	public void setRatedId(String ratedId) {
 		this.ratedId = ratedId;
 	}
+
 	public String getRatedCentent() {
 		return ratedCentent;
 	}
+
 	public void setRatedCentent(String ratedCentent) {
 		this.ratedCentent = ratedCentent;
 	}
+
 	public String getRatedDate() {
 		return ratedDate;
 	}
-	public void setRatedDate(String ratedDate) {
-		this.ratedDate = ratedDate;
+
+	public void setRatedDate(Date ratedDate) {
+		this.ratedDate = dateFormater.format(ratedDate);
 	}
+
 	@Override
 	public String toString() {
 		return "OrderRated [orderId=" + orderId + ", ratedUserName="
 				+ ratedUserName + ", ratedId=" + ratedId + ", ratedCentent="
 				+ ratedCentent + ", ratedDate=" + ratedDate + "]";
 	}
-	
+
 }

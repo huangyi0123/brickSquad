@@ -2,6 +2,7 @@ package com.brick.squad.test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.pojo.OrderRated;
 import com.brick.squad.pojo.Rated;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.util.JunitClassRunner;
@@ -28,11 +30,11 @@ public class RatedServiceTest {
 	@Test
 	public void findOrderRatedByArticleIdTest() {
 		String articleId = "263aa23ac46f11e7aca65254002ec43c";
-		System.out.println("44");
-		/*List<OrderRated> orderRateds=ratedService.findOrderRatedByArticleId(articleId);
+		List<OrderRated> orderRateds = ratedService
+				.findOrderRatedByArticleId(articleId);
 		for (OrderRated orderRated : orderRateds) {
 			System.out.println(orderRated.toString());
-		}*/
+		}
 	}
 
 	/*
