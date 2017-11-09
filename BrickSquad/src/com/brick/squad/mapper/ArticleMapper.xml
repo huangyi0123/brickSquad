@@ -166,6 +166,7 @@
 		WHERE t.parent_id=#{parentId}
 		limit #{begin},#{limitPage}
 	</select>
+
 	<!-- 医疗器械类商品 价格排序 -->
 	<select id="findOrderByMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
@@ -174,9 +175,27 @@
 		WHERE t.parent_id=#{parentId}
 		ORDER BY a.price DESC
 		limit #{begin},#{limitPage}
+</select>
+
+	<!-- 医疗器械类商品 价格排序-->
+	<select id="findOrderByMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"  
+	resultType="Article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes 
+	FROM article a JOIN type t ON a.type_id=t.id 
+	WHERE t.parent_id=#{parentId}
+	ORDER BY a.price DESC  
+	limit #{begin},#{limitPage}
 	</select>
 
-	
+
+
+	   
+		<!-- 获取商品订单数量 -->
+	<select id="findArticleBuyNumber"  resultType="com.brick.squad.expand.ArticleExpand">
+		SELECT id,aname,buyNumber,price,image from article a JOIN 
+(select count(*) buyNumber,article_id
+FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.article_id
+	</select>
 
 	<!-- 获取最新添加的商品 -->
 	<select id="findFrontTime" resultType="com.brick.squad.expand.ArticleExpand">

@@ -1636,7 +1636,7 @@
 																class="compare button" rel="nofollow"
 																title="Add to Compare">Compare</a>
 
-															<div
+															 <div
 																class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																<div class="yith-wcwl-add-button show"
 																	style="display:block">
