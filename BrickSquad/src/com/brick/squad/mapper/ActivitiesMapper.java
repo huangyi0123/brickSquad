@@ -3,6 +3,7 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 import com.brick.squad.expand.ActivitiesExpand;
+import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -37,4 +38,9 @@ public interface ActivitiesMapper {
 	 * 根据活动id查询出所有活动名称
 	 */
 	public List<Select> findAllActivitiesIdAndName();
+	/**
+	 * 获取首页最新商品
+	 * @return 最新商品集合
+	 */
+	public List<NewsArticle> findNewsArticleByIndex();
 }
