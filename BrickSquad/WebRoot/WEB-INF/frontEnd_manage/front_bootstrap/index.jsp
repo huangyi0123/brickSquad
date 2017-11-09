@@ -61,8 +61,7 @@
 
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
-						<div class="container">
-						</div>
+						<div class="container"></div>
 					</div>
 				</div>
 			</div>
@@ -352,26 +351,14 @@
 
 																	<ul id="menu-vertical-menu-1"
 																		class="nav vertical-megamenu etrostore-mega etrostore-menures">
-																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-<<<<<<< HEAD
-=======
-																				<input class="typeId" type="hidden" value="${type.id }" val="${n.index  }">
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
-																				<a href="common/tosimple_product" class="item-link">
-																					<span class="have-title">
-																						<span class="menu-color" data-color="#cac14a"></span>
-																						<span class="menu-title">女装</span>
-																					</span>
-																				</a>
-<<<<<<< HEAD
-=======
-																				<span id="type${n.index }"></span>
-																				
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
-																			</li>
-
-
-
+																		<li class="menu-computers-laptops etrostore-menu-custom level1">
+																			<a href="common/tosimple_product" class="item-link">
+																				<span class="have-title">
+																					<span class="menu-color" data-color="#cac14a"></span>
+																					<span class="menu-title">女装</span>
+																				</span>
+																			</a>
+																		</li>
 																		<li class="menu-cameras-camcorders etrostore-menu-custom level1">
 																			<a href="common/tosimple_product" class="item-link">
 																				<span class="have-title">
@@ -380,9 +367,6 @@
 																				</span>
 																			</a>
 																		</li>
-
-
-
 																		<li class="menu-home-appliances etrostore-menu-custom level1">
 																			<a href="common/tosimple_product" class="item-link">
 																				<span class="have-title">
@@ -1089,7 +1073,7 @@
 																				<span style="width:35px"></span>
 																			</div>
 
-																			<div class="item-number-rating">2 条评论</div>
+																			<div class="item-number-rating">2 人已购买</div>
 																		</div>
 																		<!-- end rating  -->
 
@@ -1137,7 +1121,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车">加入购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1231,7 +1215,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车">加入购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1417,7 +1401,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车">加入购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -4267,9 +4251,6 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 
 	<script type="text/javascript">
-		$(function() {
-			getType();
-		});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();
