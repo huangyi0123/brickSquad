@@ -121,7 +121,7 @@ $().ready(
 												<div class="module slideshow no-margin">
 												<c:forEach var="article1" items="${listArticle1 }">
 													<div class="item">
-														<a href="${pageContext.request.contextPath }/find?id=${article1.id}"><img
+														<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article1.id}"><img
 															src="resource/image/articleImg/${article1.image }" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
