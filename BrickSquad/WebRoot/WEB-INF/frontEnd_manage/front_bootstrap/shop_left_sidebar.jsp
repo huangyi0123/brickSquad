@@ -52,12 +52,24 @@
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
 <script type="text/javascript">
-$("#tb").dataTable({    
-    "bProcessing": false, // 是否显示取数据时的那个等待提示  
-    "bServerSide": true,//这个用来指明是通过服务端来取数据  
-    "sAjaxSource": "tableDemoAjax.html",//这个是请求的地址  
-    "fnServerData": retrieveData // 获取数据的处理函数  
-});  
+$().ready(
+        function() {
+            $("#fy").click(
+                    function() {
+                        $.ajax({
+                                    url : 'MedicalInstruments/findmedicalpageBean',
+                                    type : 'POST',
+                                    data : 'JSON', // Request body 
+                                    contentType : 'application/json; charset=utf-8',
+                                    dataType : 'json',
+                                    success : function(response) {
+                                    	
+                                    },
+                                    
+                                });
+                    });
+        });
+
   
 </script>
 </head>
@@ -245,7 +257,7 @@ $("#tb").dataTable({
 											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
 													<ul>
-														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12">12</a></li>
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
 													</ul></li>
@@ -274,7 +286,7 @@ $("#tb").dataTable({
 							
 							
 							
-							
+							<!-- 商品分页查询 -->
 							
 							<c:if test="${ pageBean.limitPage}!=''">
 							<c:forEach var="article3" items="${ pageBean.list}">
