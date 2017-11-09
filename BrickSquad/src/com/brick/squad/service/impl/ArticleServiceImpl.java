@@ -167,40 +167,15 @@ public class ArticleServiceImpl implements ArticalService{
 	/**
 	 * 医疗器械类获所有商品分页查询
 	 * */
-	/*	@Override
-	public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception {
-		//设置每页显示记录数
-		int limit=12;
-		pageBean.setLimitPage(limit);
-		//设置总的查询记录数
-		int totalCount=articleMapper.findCountMedicalInstruments("yiliaoqixie");
-		pageBean.setTotalCount(totalCount);
-		//设置总页数
-		int totalPage=0;
-		if (totalCount % limit == 0) {
-			totalPage = totalCount / limit;
-		} else {
-			totalPage = totalCount / limit + 1;
-		}
-		pageBean.setTotalPage(totalPage);
-		// 每页显示的数据集合:
-		// 从哪开始:
-		int begin = (pageBean.getPage() - 1) * limit;
-		
-		List<Article> listArticle=articleMapper.findAllMedicalInstruments(pageBean);
-		pageBean.setList(listArticle);
-		
-		List<Article> listArticle=articleMapper.findAllMedicalInstruments(pageBean);
-		pageBean.setList(listArticle);
-		return listArticle;
-	}*/
 	@Override
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)throws Exception {
 		PageBeanUtil<Article> pageBean=new PageBeanUtil<Article>();
+		if(page==0){
+			page=1;
 		// 设置当前页数:
 		pageBean.setPage(page);
 		// 设置每页显示记录数:
-		int limit = 6;
+		int limit = 12;
 		pageBean.setLimitPage(limit);
 		// 设置总记录数:
 		int totalCount = 0;
@@ -222,13 +197,72 @@ public class ArticleServiceImpl implements ArticalService{
 		pageBean.setParentId("yiliaoqixie");
 		List<Article> list = articleMapper.findAllMedicalInstruments(pageBean);
 		pageBean.setList(list);
+		}else{
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 12;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page -1) *limit;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findAllMedicalInstruments(pageBean);
+			pageBean.setList(list);
+		}
 		return pageBean;
+		
 	}
 	
 	@Override
 	public int selectArticleRatedTotalById(String id) {
 		
 		return articleMapper.selectArticleRatedTotalById(id);
+	}
+	@Override
+	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page,
+			int limitPage) throws Exception {
+		PageBeanUtil<Article> pageBean=new PageBeanUtil<Article>();
+		// 设置当前页数:
+		pageBean.setPage(page);
+		// 设置每页显示记录数:
+		/*int limit = 12;*/
+		pageBean.setLimitPage(limitPage);
+		// 设置总记录数:
+		int totalCount = 0;
+		totalCount = articleMapper.findCountMedicalInstruments("yiliaoqixie");
+		pageBean.setTotalCount(totalCount);
+		// 设置总页数:
+		int totalPage = 0;
+		// Math.ceil(totalCount / limit);
+		if (totalCount % limitPage == 0) {
+			totalPage = totalCount / limitPage;
+		} else {
+			totalPage = totalCount / limitPage + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		// 每页显示的数据集合:
+		// 从哪开始:
+		int begin = (page -1) *limitPage;
+		pageBean.setBegin(begin);
+		pageBean.setParentId("yiliaoqixie");
+		List<Article> list = articleMapper.findAllMedicalInstruments(pageBean);
+		pageBean.setList(list);
+		return pageBean;
 	}
 	
 }
