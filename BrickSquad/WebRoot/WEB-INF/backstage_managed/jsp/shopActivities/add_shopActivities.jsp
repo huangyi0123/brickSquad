@@ -132,6 +132,16 @@ $(function() {
 			</div>
 		</div>
 		
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动价格</label>
+			<div class="layui-input-inline">
+				<input type='text' name="activePrice" 
+				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
+				required lay-verify="required" placeholder="请输入有效价格" autocomplete="off" class="layui-input"
+					value="${shopActivities.activePrice}" />
+				</select>
+			</div>
+		</div>
 	
 		
 		

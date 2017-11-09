@@ -9,7 +9,7 @@ function init(keyword) {
         columnData: [
                      {
                          key: 'ratedId',
-                         text: '评论ID'
+                         text: '评论用户'
                      },
             {
                 key: 'replyDate',

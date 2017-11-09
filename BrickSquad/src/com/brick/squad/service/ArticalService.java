@@ -46,10 +46,7 @@ public interface ArticalService {
 	 */
 	public List<Article> findArticleImgAndName(String typeId)throws Exception;
 
-	/**
-	 * 获取商品订单数量
-	 */
-	public List<ArticleExpand> findArticleBuyNumber();
+	
 	/**
 	 * 医疗器械类获取商品订单数量
 	 * */
@@ -68,13 +65,26 @@ public interface ArticalService {
 	 * 医疗器械类获所有商品
 	 * */
 	/*public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception;*/
-
+	/**医疗器械商品分页查询*/
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)throws Exception;
+	/**医疗器械商品指定页数*/
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page ,int limitPage)throws Exception;
+	/**医疗器械商品排序*/
+	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page ,int sequence,int limitPage)throws Exception;
 /*
 	 * 根据商品ID在评论表中查询评论总量
 	 * @param id
 	 * @return
 	 */
 	public int selectArticleRatedTotalById(String id);
+	
+	
+	/**
+	 * 获取商品订单数量
+	 */
+	public List<ArticleExpand> findArticleBuyNumber();
+	/**
+	 * 获取最新添加的商品
+	 */
+	public List<ArticleExpand> findFrontTime();
 }

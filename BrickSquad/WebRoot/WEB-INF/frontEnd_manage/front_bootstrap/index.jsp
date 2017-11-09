@@ -56,13 +56,14 @@
 
 	<div class="body-wrapper theme-clearfix">
 		<jsp:include page="shop_header.jsp"></jsp:include>
+		<div class="listings-title">
+	
 		<div class="container">
 			<div class="wrap-title">
 
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
-						<div class="container">
-						</div>
+						<div class="container"></div>
 					</div>
 				</div>
 			</div>
@@ -352,14 +353,14 @@
 
 																	<ul id="menu-vertical-menu-1"
 																		class="nav vertical-megamenu etrostore-mega etrostore-menures">
-																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
-																					<span class="have-title">
-																						<span class="menu-color" data-color="#cac14a"></span>
-																						<span class="menu-title">女装</span>
-																					</span>
-																				</a>
-																			</li>
+																		<li class="menu-computers-laptops etrostore-menu-custom level1">
+																			<a href="common/tosimple_product" class="item-link">
+																				<span class="have-title">
+																					<span class="menu-color" data-color="#cac14a"></span>
+																					<span class="menu-title">女装</span>
+																				</span>
+																			</a>
+																		</li>
 																		<li class="menu-cameras-camcorders etrostore-menu-custom level1">
 																			<a href="common/tosimple_product" class="item-link">
 																				<span class="have-title">
@@ -368,9 +369,6 @@
 																				</span>
 																			</a>
 																		</li>
-
-
-
 																		<li class="menu-home-appliances etrostore-menu-custom level1">
 																			<a href="common/tosimple_product" class="item-link">
 																				<span class="have-title">
@@ -1077,7 +1075,7 @@
 																				<span style="width:35px"></span>
 																			</div>
 
-																			<div class="item-number-rating">2 条评论</div>
+																			<div class="item-number-rating">2 人已购买</div>
 																		</div>
 																		<!-- end rating  -->
 
@@ -1121,11 +1119,11 @@
 																			</div>
 																		</a>
 
-																		<!-- 添加购物车, wishlist, compare -->
+																		<!-- add to cart, wishlist, compare -->
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">添加到购物车</a>
+																				title="加入购物车">加入购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1219,7 +1217,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车">加入购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -1405,7 +1403,7 @@
 																		<div class="item-bottom clearfix">
 																			<a rel="nofollow" href="#"
 																				class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																				title="Add to Cart">Add to cart</a>
+																				title="加入购物车">加入购物车</a>
 																			<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																				title="Add to Compare">Compare</a>
 
@@ -3403,6 +3401,7 @@
 																							title="Add to Cart">Add to cart</a>
 																						<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																							title="Add to Compare">Compare</a>
+
 																						<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																							<div class="yith-wcwl-add-button show" style="display:block">
 																								<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to

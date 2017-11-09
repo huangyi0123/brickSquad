@@ -330,12 +330,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											class="item-link dropdown-toggle" href="home_page_1.html">首页</a>
 											<span class="show-dropdown"></span>
 
-											<ul class="dropdown-resmenu">
+											<%-- <ul class="dropdown-resmenu">
 												<li class="active res-dropdown menu-home-pages"><a
 													class="item-link dropdown-toggle" href="#">Home Pages</a> <span
 													class="show-dropdown"></span>
 
-													<ul class="dropdown-resmenu">
+													<ul <% %>class="dropdown-resmenu">
 														<li class="active menu-home-page-1"><a
 															href="home_page_1.html">Home Page 1</a></li>
 
@@ -358,7 +358,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															href="home_page_1_full.html">Home Page Full</a></li>
 													</ul></li>
 
-												<li class="res-dropdown menu-color-styles"><a
+												<li<% %> class="res-dropdown menu-color-styles"><a
 													class="item-link dropdown-toggle" href="#">Color Styles</a>
 													<span class="show-dropdown"></span>
 
@@ -381,7 +381,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														<li class="menu-orange"><a data-advanced="rtl">Right
 																to left</a></li>
 													</ul></li>
-											</ul>
+											</ul> --%>
 											
 											</li>
 
@@ -698,14 +698,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</span>
 								</a>
 
-									<%-- <ul <% %>class="dropdown-menu nav-level1 column-3">
+									<%-- <ul class="dropdown-menu nav-level1 column-3">
 										<li class="active dropdown-submenu column-3 menu-home-pages">
 											<a href="#"> <span class="have-title"> <span
 													class="menu-title">Home Pages</span>
 											</span>
 										</a>
 
-											<ul class="dropdown-sub nav-level2">
+											<ul<% %> class="dropdown-sub nav-level2">
 												<li class="active menu-home-page-1"><a
 													href="home_page_1.html"> <span class="have-title">
 															<span class="menu-title">Home Page 1</span>
@@ -750,7 +750,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</ul>
 										</li>
 
-										<li class="dropdown-submenu column-3 menu-color-styles">
+										<li<% %> class="dropdown-submenu column-3 menu-color-styles">
 											<a href="#"> <span class="have-title"> <span
 													class="menu-title">Color Styles</span>
 											</span>
@@ -769,7 +769,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</ul>
 										</li>
 
-										<li class="dropdown-submenu column-3 menu-advanced"><a
+										<li<% %> class="dropdown-submenu column-3 menu-advanced"><a
 											href="#"> <span class="have-title"> <span
 													class="menu-title">Advanced</span>
 											</span>

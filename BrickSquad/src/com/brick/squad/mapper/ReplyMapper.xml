@@ -29,10 +29,13 @@
 
 	<select id="replyPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="reply">
-		select id id,rated_id ratedId,reply_date replyDate,centent centent
-		from reply
+		SELECT reply.id id,personal_information.name ratedId,reply.reply_date replyDate,reply.centent centent
+			    FROM reply  
+				JOIN  rated ON reply.rated_id=rated.id
+				JOIN orders ON rated.order_id=orders.id
+				JOIN personal_information ON orders.buy_id=personal_information.id
 		<if test="keyword!=''">
-		where centent REGEXP #{keyword} 
+		where reply.centent REGEXP #{keyword} or personal_information.name REGEXP #{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
