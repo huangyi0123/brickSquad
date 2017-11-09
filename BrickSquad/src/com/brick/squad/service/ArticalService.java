@@ -65,9 +65,12 @@ public interface ArticalService {
 	 * 医疗器械类获所有商品
 	 * */
 	/*public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception;*/
-
+	/**医疗器械商品分页查询*/
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)throws Exception;
+	/**医疗器械商品指定页数*/
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page ,int limitPage)throws Exception;
+	/**医疗器械商品排序*/
+	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page ,int sequence,int limitPage)throws Exception;
 /*
 	 * 根据商品ID在评论表中查询评论总量
 	 * @param id
