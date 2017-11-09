@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.SecKill;
 import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.pojo.Article;
@@ -46,5 +47,10 @@ public interface ShopActivitiesService {
 
 
 	public String findArticle(String businessId);
+	/**
+	 * 首页秒杀
+	 * @return 商品列表
+	 */
+	public List<SecKill> secKillIndex();
 	
 }
