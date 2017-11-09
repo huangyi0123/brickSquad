@@ -264,7 +264,7 @@
 									</form>
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
-										<input  type="number" class="layui-input" value="1"
+										<input  type="number" class="layui-input" value="1" min="1" max="${ article.stock}"
 											style=" width: 70px;margin-left: 110px;margin-top: -35px;">
 										<label
 											style="display:block; margin-top: -30px;margin-left: 185px;">件</label>
