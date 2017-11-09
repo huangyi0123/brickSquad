@@ -172,13 +172,13 @@
 		#{begin},#{limitPage}
 	</select>
 	<!-- 获取最新商品 首页 -->
-	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle">
+	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle" parameterType="int">
 		select
 		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0) totals from article
 		a left join (select COALESCE(sum(number),0) total ,article_id from
 		order_details group by (article_id))
 		nn on a.id=nn.article_id order by
-		a.shelfdate DESC LIMIT 0,6
+		a.shelfdate DESC LIMIT 0,#{take}
 	</select>
 
 	<!-- 医疗器械类商品 价格排序 -->

@@ -101,7 +101,7 @@ public interface ArticalService {
 	 * 
 	 * @return 数据集合
 	 */
-	public Map<String, List<Object>> shopIndex();
+	public Map<String, Object> shopIndex();
 	
 	/**
 	 * 获取最新添加的商品
