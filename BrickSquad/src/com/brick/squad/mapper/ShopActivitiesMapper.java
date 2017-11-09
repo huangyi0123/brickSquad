@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.SecKill;
 import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShopActivities;
@@ -32,4 +33,9 @@ public interface ShopActivitiesMapper {
 	public ShopActivitiesExpand findShopActivitiesAndTypeAndArticle(String id);
 
 	public List<Select> findArticle(String businessId);
+	/**
+	 * 首页秒杀
+	 * @return 商品列表
+	 */
+	public List<SecKill> secKillIndex();
 }
