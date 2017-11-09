@@ -210,7 +210,7 @@ $().ready(
 						
 								<li
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="${pageContext.request.contextPath }/find?id=${article.id}"> <img src="resource/image/articleImg/${article.image }"
+									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article.id}"> <img src="resource/image/articleImg/${article.image }"
 										alt="Accessories" width="300" height="300">
 										<h3>
 											${article.aname }
@@ -240,10 +240,10 @@ $().ready(
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
 													<li class="current"><a href="#">默认排序</a></li>
-													<li class=""><a href="#">人气排序</a></li>
-													<li class=""><a href="#">分类级别排序</a></li>
-													<li class=""><a href="#">日期排序</a></li>
-													<li class=""><a href="#">价格排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
+													
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
 												</ul></li>
 										</ul>
 
@@ -256,25 +256,48 @@ $().ready(
 											<span class="show-product pull-left">显示 </span>
 											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
-													<ul>
+												<ul>
+												<c:if test="${ url=='findOrderByMedicalInstruments'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+													<c:if test="${url=='toShop_left_sidebar'}">
+												
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
-													</ul></li>
+													</ul>
+													</c:if>
+													</li>
 											</ul>
 										</div>
 									</div>
 								</div>
 
-								<nav class="woocommerce-pagination pull-right"> <span
+										<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
 								<ul class="page-numbers">
+								<c:if test="${ url=='toShop_left_sidebar'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByMedicalInstruments'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
 								</c:if>
 								</ul>
 								</nav>
@@ -296,7 +319,7 @@ $().ready(
 										<div class="item-detail">
 											<div class="item-img products-thumb">
 												<span class="onsale">Sale!</span> <a
-													href="${pageContext.request.contextPath }/find?id=${article3.id}">
+													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
 															src="resource/image/articleImg/${article3.image }"
@@ -308,7 +331,7 @@ $().ready(
 
 												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="#"
+													<a rel="nofollow" href="http:www.baidu.com"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
 														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
@@ -357,7 +380,7 @@ $().ready(
 												</div>
 
 												<h4>
-													<a href="${pageContext.request.contextPath }/find?id=${article3.id}" title="Cleaner with bag">${article3.aname }</a>
+													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}" title="${article3.aname }">${article3.aname }</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -426,7 +449,7 @@ $().ready(
 										<div class="item-detail">
 											<div class="item-img products-thumb">
 												<span class="onsale">Sale!</span> <a
-													href="${pageContext.request.contextPath }/find?id=${article3.id}">
+													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
 															src="resource/image/articleImg/${article3.image }"
@@ -487,7 +510,7 @@ $().ready(
 												</div>
 
 												<h4>
-													<a href="${pageContext.request.contextPath }/find?id=${article3.id}" title="Cleaner with bag">${article3.aname }</a>
+													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}" title="${article3.aname }">${article3.aname }</a>
 												</h4>
 
 												<span class="item-price"><del>
@@ -567,10 +590,9 @@ $().ready(
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
 													<li class="current"><a href="#">默认排序</a></li>
-													<li class=""><a href="#">人气排序</a></li>
-													<li class=""><a href="#">分类级别排序</a></li>
-													<li class=""><a href="#">日期排序</a></li>
-													<li class=""><a href="#">价格排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
 												</ul></li>
 										</ul>
 
@@ -581,13 +603,23 @@ $().ready(
 
 										<div class="product-number pull-left clearfix">
 											<span class="show-product pull-left">显示 </span>
-											<ul class="sort-count order-dropdown pull-left">
+										<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
-													<ul>
-														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12">12</a></li>
+												<ul>
+												<c:if test="${ url=='findOrderByMedicalInstruments'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+													<c:if test="${url=='toShop_left_sidebar'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
 													</ul>
+													</c:if>
 													</li>
 											</ul>
 										</div>
@@ -597,12 +629,24 @@ $().ready(
 								<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
 								<ul class="page-numbers">
+								<c:if test="${ url=='toShop_left_sidebar'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByMedicalInstruments'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
 								</c:if>
 								</ul>
 								</nav>
@@ -727,7 +771,7 @@ $().ready(
 						<c:forEach var="article2" items="${listArticle2 }">
 							<li class="clearfix">
 								<div class="item-img">
-									<a href="${pageContext.request.contextPath }/find?id=${article2.id}" title="${article2.aname }"> <img
+									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article2.id}" title="${article2.aname }"> <img
 										width="180" height="180" src="resource/image/articleImg/${article2.image }"
 										class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
 										alt=""
