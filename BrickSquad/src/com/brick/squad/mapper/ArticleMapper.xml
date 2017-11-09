@@ -172,7 +172,7 @@
 	SELECT a.id,a.aname,a.image,a.price,a.describes 
 	FROM article a JOIN type t ON a.type_id=t.id 
 	WHERE t.parent_id=#{parentId}
-	ORDER BY a.price DESC
+	ORDER BY a.price DESC  
 	limit #{begin},#{limitPage}
 	</select>
 
