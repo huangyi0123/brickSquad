@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -25,40 +26,53 @@
 	href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
 <link rel="apple-touch-icon-precomposed"
 	href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
-<link rel="shortcut icon" href="resource/front_bootstrap/icons/favicon.png" />
+<link rel="shortcut icon"
+	href="resource/front_bootstrap/icons/favicon.png" />
 
 <!-- GOOGLE WEB FONTS -->
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!-- BOOTSTRAP 3.3.7 CSS -->
-<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/bootstrap.min.css" />
 
 <!-- SLICK v1.6.0 CSS -->
-<link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
 
-<link rel="stylesheet" href="resource/front_bootstrap/css/jquery.fancybox.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-layout.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/jquery.fancybox.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/woocommerce/woocommerce-layout.css" />
 <link rel="stylesheet"
 	href="resource/front_bootstrap/css/woocommerce/woocommerce-smallscreen.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 
 
 <link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
-<link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
+<link rel="stylesheet"
+	href="resource/front_bootstrap/css/app-responsive.css" />
 </head>
 
 <body class="page woocommerce-cart woocommerce-page">
 
 
 	<div class="body-wrapper theme-clearfix">
-		
+
 		<jsp:include page="shop_header.jsp"></jsp:include>
 
 		<div class="listings-title">
@@ -69,8 +83,7 @@
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
-									<li><a href="common/toShop">首页</a> <span
-										class="go-page"></span></li>
+									<li><a href="common/toShop">首页</a> <span class="go-page"></span></li>
 
 									<li class="active"><span>购物车</span></li>
 								</ul>
@@ -104,54 +117,54 @@
 											</thead>
 
 											<tbody>
-												<tr class="cart_item">
-													<td class="product-remove">
-														<a href="#" class="remove" title="Remove this item"><i
-															class="fa fa-times" aria-hidden="true"></i></a>
-													</td>
+												<c:forEach var="listDetailsShoppingCar"
+													items="${listDetailsShoppingCar}">
+													<tr class="cart_item">
+														<td class="product-remove"><a href="shoppingCar/IndexDeleteShoppingCar?id=${listDetailsShoppingCar.id}" class="remove"
+															title="Remove this item"><i class="fa fa-times"
+																aria-hidden="true"></i></a></td>
 
-													<td class="product-thumbnail">
-														<a href="simple_product.html"> <img width="180"
-															height="180" src="resource/front_bootstrap/images/1903/56-180x180.jpg"
-															class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-															alt=""
-															srcset="resource/front_bootstrap/images/1903/56-180x180.jpg 180w, resource/front_bootstrap/images/1903/56-150x150.jpg 150w, resource/front_bootstrap/images/1903/56-300x300.jpg 300w, resource/front_bootstrap/images/1903/56.jpg 600w"
-															sizes="(max-width: 180px) 100vw, 180px">
-														</a>
-													</td>
+														<td class="product-thumbnail"><a
+															href="simple_product.html"> <img width="180"
+																height="180"
+																src="resource/front_bootstrap/images/1903/56-180x180.jpg"
+																class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
+																alt=""
+																srcset="resource/front_bootstrap/images/1903/56-180x180.jpg 180w, resource/front_bootstrap/images/1903/56-150x150.jpg 150w, resource/front_bootstrap/images/1903/56-300x300.jpg 300w, resource/front_bootstrap/images/1903/56.jpg 600w"
+																sizes="(max-width: 180px) 100vw, 180px">
+														</a></td>
+														<td class="product-name" data-title="Product"><a
+															href="simple_product.html">${listDetailsShoppingCar.aname}</td>
 
-													<td class="product-name" data-title="Product">
-														<a href="simple_product.html">点击宝贝名称能跳转</td>
+														<td class="product-price" data-title="Price"><span
+															class="woocommerce-Price-amount amount"><span
+																class="woocommerce-Price-currencySymbol">￥</span>${listDetailsShoppingCar.price}</span>
+														</td>
+														<td class="product-quantity" data-title="Quantity">
+															<div class="quantity">
+																<input type="string" step="1" min="1" max="${listDetailsShoppingCar.stock}" name=""
+																	value="1" id="stock"  title="Qty" class="input-text qty text"
+																	size="4" pattern="[0-9]*" inputmode="numeric">
+																	<input type="hidden" id="price" value="${listDetailsShoppingCar.price}">
+															</div>
+														</td>
 
-													<td class="product-price" data-title="Price">
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">$</span>300.00</span>
-													</td>
-													<td class="product-quantity" data-title="Quantity">
-														<div class="quantity">
-															<input type="number" step="1" min="0" max="" name=""
-																value="1" title="Qty" class="input-text qty text"
-																size="4" pattern="[0-9]*" inputmode="numeric">
-														</div>
-													</td>
-
-													<td class="product-subtotal" data-title="Total">
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">$</span>300.00</span>
-													</td>
-												</tr>
-
+														<td class="product-subtotal" data-title="Total"><span
+															class="woocommerce-Price-amount amount"><span 
+																class="woocommerce-Price-currencySymbol">￥</span><input type="text" id="allPrice" readonly="readonly" style="border: none;background: #EFEFEF;"></span>
+														</td>
+													</tr>
+												</c:forEach>
 												<tr>
 													<td colspan="6" class="actions">
 														<div class="coupon">
-															<label for="coupon_code">Coupon:</label>
-															<input type="text" name="coupon_code" class="input-text"
-																id="coupon_code" value="" placeholder="优惠代码">
-															<input type="submit" class="button" name="apply_coupon"
+															<label for="coupon_code">Coupon:</label> <input
+																type="text" name="coupon_code" class="input-text"
+																id="coupon_code" value="" placeholder="优惠代码"> <input
+																type="submit" class="button" name="apply_coupon"
 																value="使用优惠券">
-														</div>
-														<input type="submit" class="button" name="update_cart"
-															value="更新购物车">
+														</div> <input type="submit" class="button" name="update_cart"
+														value="更新购物车">
 													</td>
 												</tr>
 											</tbody>
@@ -168,15 +181,14 @@
 													<tbody>
 														<tr class="cart-subtotal">
 															<th>小计</th>
-															<td data-title="小计">
-																<span class="woocommerce-Price-amount amount"><span
+															<td data-title="小计"><span
+																class="woocommerce-Price-amount amount"><span
 																	class="woocommerce-Price-currencySymbol">$</span>300.00</span>
 															</td>
 														</tr>
 														<tr class="order-total">
 															<th>总计</th>
-															<td data-title="总计">
-																<strong><span
+															<td data-title="总计"><strong><span
 																	class="woocommerce-Price-amount amount"><span
 																		class="woocommerce-Price-currencySymbol">$</span>300.00</span></strong>
 															</td>
@@ -201,7 +213,7 @@
 			</div>
 		</div>
 
-		
+
 		<jsp:include page="shop_footer.jsp"></jsp:include>
 
 	</div>
@@ -296,8 +308,8 @@
 					<div class="mc4wp-form-fields">
 						<div class="newsletter-content">
 							<input type="email" class="newsletter-email" name="EMAIL"
-								placeholder="Your email" required="" />
-							<input class="newsletter-submit" type="submit" value="Subscribe" />
+								placeholder="Your email" required="" /> <input
+								class="newsletter-submit" type="submit" value="Subscribe" />
 						</div>
 					</div>
 					<div class="mc4wp-response"></div>
@@ -306,8 +318,8 @@
 
 			<div class="subscribe-checkbox">
 				<label for="popup_check"> <input id="popup_check"
-						name="popup_check" type="checkbox" /> <span>Don't show
-						this popup again!</span>
+					name="popup_check" type="checkbox" /> <span>Don't show this
+						popup again!</span>
 				</label>
 			</div>
 
@@ -327,33 +339,59 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 
 	<!-- OPEN LIBS JS -->
 	<script type="text/javascript"
 		src="js/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/wc-quantity-increment.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/cart.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/wc-quantity-increment.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/woocommerce/cart.min.js"></script>
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 
-	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
-	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/plugins.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/megamenu.min.js"></script>
+	<script type="text/javascript"
+		src="resource/front_bootstrap/js/main.min.js"></script>
 
 	<script type="text/javascript">
+	$(function() {
+	
+	$("#stock").bind('change input',
+			/*  */
+		function(){
+		var price = $("#price").val();
+		var stock = $("#stock").val();
+		var allPrice = price * stock;
+		//计算结果精确小数点后面5位
+		allPrice = parseFloat(allPrice.toFixed(5));
+		$("#allPrice").val(allPrice);
+	});
+	});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();

@@ -37,23 +37,26 @@
 		where id =#{id}
 	</update>
 
-	<select id="findArticle" parameterType="String" resultType="com.brick.squad.util.Select">
-	
-	SELECT id,aname name FROM article WHERE business_id = #{businessId}
-	
+	<select id="findArticle" parameterType="String"
+		resultType="com.brick.squad.util.Select">
+
+		SELECT id,aname name FROM article WHERE business_id = #{businessId}
+
 	</select>
 
 	<!-- 分页查询 级联查询 -->
 	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
+
 		SELECT sa.id,a.aname aname,b.shopname bname,t.`name` tname,active_price activePrice,sa.start_time
 		startTime,sa.end_time endTime FROM shop_activities sa
-		join type t on sa.type_id=t.id
+		JOIN type t on sa.type_id=t.id
 		JOIN business b on sa.business_id=b.id
 		JOIN article a on sa.article_id=a.id
 
 		<if test="keyword!='' and keyword!=null">
-			WHERE t.`name` REGEXP #{keyword} or b.shopname REGEXP #{keyword} or
+			WHERE t.`name` REGEXP #{keyword} or b.shopname REGEXP
+			#{keyword} or
 			a.aname REGEXP #{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
@@ -64,9 +67,11 @@
 		SELECT count(*) FROM shop_activities sa
 		join type t on sa.type_id=t.id
 		JOIN business b on sa.business_id=b.id
-		JOIN article a on sa.article_id=a.id
+		JOIN article a on
+		sa.article_id=a.id
 		<if test="keyword!='' and keyword!=null">
-			WHERE t.`name` REGEXP #{keyword} or b.shopname REGEXP #{keyword} or
+			WHERE t.`name` REGEXP #{keyword} or b.shopname REGEXP
+			#{keyword} or
 			a.aname REGEXP #{keyword}
 		</if>
 	</select>
@@ -81,12 +86,20 @@
 
 	<select id="findShopActivitiesAndTypeAndArticle" parameterType="java.lang.String"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
-		SELECT  s.id,a.aname aname,
+		SELECT s.id,a.aname aname,
 		b.`name`bname,t.`name` tname,
 		s.start_time startTime,s.end_time endTime
- 		FROM shop_activities s JOIN article a ON s.article_id=a.id JOIN type t ON s.type_id=t.id
-		JOIN business b ON s.business_id =b.id 
-		where s.id =#{id} 
+		FROM shop_activities s JOIN article a ON s.article_id=a.id JOIN type t ON
+		s.type_id=t.id
+		JOIN business b ON s.business_id =b.id
+		where s.id =#{id}
 	</select>
-
+	<!-- 首页秒杀 -->
+	<select id="secKillIndex" resultType="com.brick.squad.expand.SecKill">
+		SELECT
+		a.id,a.aname,a.image,a.price, TIMEDIFF(sa.end_time,NOW()) time,
+		sa.active_price FROM shop_activities sa JOIN type t on sa.type_id=t.id
+		JOIN article a on a.id=sa.article_id WHERE t.`name`='秒杀' and
+		sa.end_time>NOW() LIMIT 0,4
+	</select>
 </mapper>

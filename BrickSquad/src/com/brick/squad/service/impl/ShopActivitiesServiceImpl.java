@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.SecKill;
 import com.brick.squad.expand.ShopActivitiesExpand;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.BusinessMapper;
@@ -119,5 +120,10 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService{
 		JSONArray jsonArray = new JSONArray();
 		String dataAnames =jsonArray.fromObject(aname).toString();
 		return dataAnames;
+	}
+
+	@Override
+	public List<SecKill> secKillIndex() {
+		return shopActivitiesMapper.secKillIndex();
 	}
 }

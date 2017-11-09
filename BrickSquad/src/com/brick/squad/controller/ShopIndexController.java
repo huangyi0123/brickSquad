@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.SecKill;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.service.TypeService;
 
 @Controller
@@ -19,9 +21,14 @@ public class ShopIndexController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
+	@Autowired
+	@Qualifier("shopActivitiesService")
+	private ShopActivitiesService shopActivitiesService;
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
 		List<Type> aList = typeService.getArctre("splb");
+		/*List<SecKill> secKills=shopActivitiesService.secKillIndex();
+		request.setAttribute("secKills", secKills);*/
 		request.setAttribute("alist", aList);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
