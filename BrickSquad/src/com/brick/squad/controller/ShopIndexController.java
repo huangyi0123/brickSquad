@@ -26,10 +26,7 @@ public class ShopIndexController {
 	private ShopActivitiesService shopActivitiesService;
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
-		List<Type> aList = typeService.getArctre("splb");
-		/*List<SecKill> secKills=shopActivitiesService.secKillIndex();
-		request.setAttribute("secKills", secKills);*/
-		request.setAttribute("alist", aList);
+		
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 	@RequestMapping("/getArticleType")

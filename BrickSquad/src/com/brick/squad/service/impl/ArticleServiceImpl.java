@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.mapper.TypeMapper;
@@ -263,6 +264,11 @@ public class ArticleServiceImpl implements ArticalService{
 		List<Article> list = articleMapper.findAllMedicalInstruments(pageBean);
 		pageBean.setList(list);
 		return pageBean;
+	}
+	@Override
+	public Map<String, List<Object>> shopIndex() {
+		Map<String, List<Object>> map=new HashMap<String, List<Object>>();
+		return null;
 	}
 	
 }
