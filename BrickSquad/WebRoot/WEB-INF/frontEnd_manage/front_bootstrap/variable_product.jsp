@@ -76,9 +76,53 @@
 <link rel="stylesheet" type="text/css"
 	href="resource/css/ProductDetails.css">
 <link rel="stylesheet" type="text/css"
-	href="resource/plugins/pictureMagnification/css/ShopShow.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/pictureMagnification/css/MagicZoom.css">
+	href="resource/plugins/pictureMagnification/css/default.css">
+<link rel="stylesheet"
+	href="resource/plugins/pictureMagnification/css/smoothproducts.css">
+<style type="text/css">
+.page {
+	padding: 5px 30px 30px 30px;
+	max-width: 800px;
+	margin: 0 auto;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans",
+		"Helvetica Neue", Arial, sans-serif;
+	background: #fff;
+	color: #555;
+	height: 400px;
+}
+
+img {
+	border: none;
+}
+
+a:link,a:visited {
+	color: #F0353A;
+}
+
+a:hover {
+	color: #8C0B0E;
+}
+
+ul {
+	overflow: hidden;
+}
+
+pre {
+	background: #333;
+	padding: 10px;
+	overflow: auto;
+	color: #BBB7A9;
+}
+
+.demo {
+	text-align: center;
+	padding: 30px 0
+}
+
+.clear {
+	clear: both;
+}
+</style>
 </head>
 
 <body
@@ -117,61 +161,28 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<!--  	<a href="javaScript:;"><img alt=""
-										src="resource/image/articleImg/${ article.image}/${images[0]}"
-										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
-									-->
-									<div id="tsShopContainer">
-										<div id="tsImgS">
-											<a
-												href="resource/image/articleImg/${ article.image}/${images[0]}"
-												title="Images" class="MagicZoom" id="MagicZoom"><img
-												width="500" height="500"
-												src="resource/image/articleImg/${ article.image}/${images[0]}" /></a>
+									<div class="page">
+										<div class="sp-wrap">
+											<c:forEach var="a" items="${images }">
+												<a href="resource/image/articleImg/${ article.image}/${a}"><img
+													src="resource/image/articleImg/${ article.image}/${a}"
+													alt=""></a>
+											</c:forEach>
 										</div>
-										<div id="tsPicContainer">
-											<div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
-											<div id="tsImgSCon">
-												<ul>
-													<c:forEach var="a" items="${images }" varStatus="status">
-														<li onclick="showPic(${status.index})" rel="MagicZoom"
-															class="tsSelectImg"><img height="80" width="80"
-															src="resource/image/articleImg/${ article.image}/${a}"
-															tsImgS="resource/image/articleImg/${ article.image}/${a}" /></li>
-													</c:forEach>
-												</ul>
-											</div>
-											<div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
-										</div>
-										<img class="MagicZoomLoading" width="16" height="16"
-											src="resource/plugins/pictureMagnification/images/loading.gif"
-											alt="Loading..." />
 									</div>
-
-
 									<div class="comm_imgs">
-										<%-- <c:forEach var="a" items="${images }">
-
-											<a href="javaScript:;"><img alt=""
-												src="resource/image/articleImg/${ article.image}/${a}"></a>
-
-										</c:forEach> --%>
 										<div>
-											<div style="float: left;">
+											<div>
 												<a href="#"
 													style="color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-share"></i> <label
 													style="cursor: pointer;">分享</label>
 												</a> <a href="#"
-													style="display:block; color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
+													style="display:block; color: #BAAA99;border: none;margin-left: 40px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-star"></i> <label
 													style="cursor: pointer;">收藏商品</label>
 												</a> <label
-													style="font-size: 0.1px;margin-top: 42px;color:#BAAA99;">（1762人气）</label>
-											</div>
-											<div style="float: left;">
-												<a href="#"
-													style="display: block; margin-left:285px;margin-top: 38px;border: none;color: #BAAA99;">举报</a>
+													style="font-size: 0.1px;margin-left:60px;margin-top: 40px;color:#BAAA99;">（1762人气）</label>
 											</div>
 										</div>
 									</div>
@@ -1175,11 +1186,16 @@
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
 	<script type="text/javascript"
-		src="resource/plugins/pictureMagnification/js/MagicZoom.js"></script>
-	<script type="text/javascript"
-		src="resource/plugins/pictureMagnification/js/ShopShow.js"></script>
-	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-	<script type="text/javascript">
+		<script src="resource/plugins/pictureMagnification/js/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="resource/plugins/pictureMagnification/js/smoothproducts.min.js"></script>
+		<script type="text/javascript">
+/* wait for images to load */
+$(window).load(function() {
+	$('.sp-wrap').smoothproducts();
+});
+</script>
+		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+		<script type="text/javascript">
 		/* 添加购物车JS，ajax提交 */
 		function userAddArticleToShoppingCar() {
 			var userId = $("#userId").val();
@@ -1211,7 +1227,7 @@
 
 		}
 	</script>
-	<script type="text/javascript">
+		<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();
@@ -1241,7 +1257,6 @@
 			});
 		});
 	</script>
-
 	<!--[if gte IE 9]><!-->
 	<script type="text/javascript">
 		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
