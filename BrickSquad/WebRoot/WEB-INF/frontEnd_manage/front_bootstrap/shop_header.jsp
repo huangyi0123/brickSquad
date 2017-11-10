@@ -194,7 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<div class="detail-item">
 														<div class="product-details">
 															<h4>
-																<a class="title-item" href="simple_product.html">Veniam
+																<a class="title-item" href="simple_product.html">SperMan
 																	Dolore</a>
 															</h4>
 
@@ -209,7 +209,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																	<span class="qty-number">5</span>
 																</div>
 															</div>
-
 															<div class="product-action clearfix">
 																<a href="#" class="btn-remove" title="删除此物品2">
 																	<span class="fa fa-trash-o"></span>
