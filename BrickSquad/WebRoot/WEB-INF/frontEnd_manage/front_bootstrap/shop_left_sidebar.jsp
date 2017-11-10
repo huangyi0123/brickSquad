@@ -51,26 +51,38 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
+<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 <script type="text/javascript">
-$().ready(
-        function() {
-            $("#fy").click(
-                    function() {
-                        $.ajax({
-                                    url : 'MedicalInstruments/findmedicalpageBean',
-                                    type : 'POST',
-                                    data : 'JSON', // Request body 
-                                    contentType : 'application/json; charset=utf-8',
-                                    dataType : 'json',
-                                    success : function(response) {
-                                    	
-                                    },
-                                    
-                                });
-                    });
-        });
+	function findSecondMedical(typeId,aid){
+		$.ajax({
+			  url:"${pageContext.request.contextPath}/MedicalInstruments/findSecondMedicalInstruments",
+			  data:{typeId:typeId},
+			  type:'post', 
+			  success:function(data){
+				  $("#secondMedical").html('');
+				 var json = eval(data); //数组  
+				
+				  showData(json,aid);
+			  }
+			  });	
+	}
+	function showData(json,aid) {
+		//循环遍历一边d
+		for ( var i = 0; i < json.length; i++) {
+			var html = "<li  class='product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12'>"+
+			
+			"<a href='${pageContext.request.contextPath }/variableProduct/toVariable_product?productId="+aid+"'>"+
+					"<image src='resource/image/articleImg/"+json[i].image+"' alt='Accessories' width='300' height='300'>"+
+					"<h3>"+
+					json[i].aname+
+					"<mark class='count'>"+(1)+"</mark>"+
+					"</h3>"+
+					"</a>"+"</li>";
+			//通过表体id把显示文本显示到网页中
+			$("#secondMedical").append(html);
+		}
+	}
 
-  
 </script>
 </head>
 
@@ -205,10 +217,10 @@ $().ready(
 					<div id="content" role="main">
 						<!--  Shop Title -->
 						<div class="products-wrapper">
-							<div class="row-fix clearfix">
+							<div class="row-fix clearfix" id="secondMedical">
 							<c:forEach var="article" items="${listArticle }">
 						
-								<li
+								<li 
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
 									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article.id}"> <img src="resource/image/articleImg/${article.image }"
 										alt="Accessories" width="300" height="300">
@@ -747,14 +759,14 @@ $().ready(
 							<span>类别</span>
 						</h2>
 					</div>
-
+				
 					<ul class="product-categories">
 						
 						<c:forEach var="type" items="#{listType}">
-						<li class="cat-item"><a href="${pageContext.request.contextPath }/find?id=${type.id}">${type.name}</a> <span
+						<li class="cat-item"><a href="javascript:;" onclick="findSecondMedical('${type.id}','${type.aid }')">${type.name}</a> <span
 							class="count">></span></li>
 							</c:forEach>
-							
+					
 					</ul>
 				</div>
 			</div>
@@ -1056,7 +1068,7 @@ $().ready(
 	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
 	<script type="text/javascript"
-		src="js/sw_woocommerce/jquery.countdown.min.js"></script>
+		src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/price-slider.min.js"></script>
 
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>

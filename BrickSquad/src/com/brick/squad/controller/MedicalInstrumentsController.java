@@ -3,13 +3,19 @@ package com.brick.squad.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticalService;
@@ -33,7 +39,7 @@ public class MedicalInstrumentsController {
 	@RequestMapping("/toShop_left_sidebar")
 	public String toShop_left_sidebar(HttpServletRequest request,PageBeanUtil pageBean) throws Exception {
 		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
@@ -60,7 +66,7 @@ public class MedicalInstrumentsController {
 	@RequestMapping("/findmedicalpageBean")
 	public String findmedicalpageBean (HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
 		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
@@ -87,7 +93,7 @@ public class MedicalInstrumentsController {
 	@RequestMapping("/findOrderByMedicalInstruments")
 	public String findOrderByMedicalInstruments(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
 		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
@@ -117,9 +123,9 @@ public class MedicalInstrumentsController {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 	@RequestMapping("/findOrderByMedicalInstrumentsDate")
-	public String findOrderByMedicalInstrumentsDate(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
+	public String findOrderByMedicalInstrumentsDate(HttpServletRequest request, PageBeanUtil pageBean) throws Exception{
 		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
@@ -146,7 +152,7 @@ public class MedicalInstrumentsController {
 	@RequestMapping("/findOrderByMedicalInstrumentsPop")
 	public String findOrderByMedicalInstrumentsPop(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
 		/**医疗器械一级分类查询*/
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/**医疗器械查询商品图片和商品名称*/
 		YiLiaoUtile yiLiaoUtile=new YiLiaoUtile();
@@ -170,4 +176,16 @@ public class MedicalInstrumentsController {
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
+	@RequestMapping("/findSecondMedicalInstruments")
+	@ResponseBody
+	public String findSecondMedicalInstruments(HttpServletRequest request,String typeId) throws Exception{
+		List<Article> listArticle=articleService.findSecondMedicalInstruments(typeId);
+		YiLiaoUtile<Article> yiLiaoUtile=new YiLiaoUtile<Article>();
+		List<Article> list=yiLiaoUtile.findArticleImgAndName(request, listArticle);
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(list).toString();
+		return data;
+	}
+	
+	
 }

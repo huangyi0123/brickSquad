@@ -109,4 +109,6 @@ public interface ArticalService {
 	 * 获取最新添加的商品
 	 */
 	public List<ArticleExpand> findFrontTime();
+
+	public  List<Article> findSecondMedicalInstruments(String typeId)throws Exception;
 }

@@ -174,4 +174,11 @@ public class ArticleServiceTest {
 			System.err.println(newsArticle.toString());
 		}
 	}
+	@Test
+	public void findSecondMedicalInstruments() throws Exception{
+		List<Article> data=articleService.findSecondMedicalInstruments("laorenjianfuyongpin");
+		for(Article article:data){
+		System.err.println(article);
+		}
+	}
 }

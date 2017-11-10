@@ -20,6 +20,7 @@ import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.ShoppingCarAndArticle;
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
@@ -283,7 +284,7 @@ public class CommonController {
 	public String toShop_left_sidebar(HttpServletRequest request)
 			throws Exception {
 		/** 医疗器械一级分类查询 */
-		List<Type> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
 		List<Article> listArticle = articleService

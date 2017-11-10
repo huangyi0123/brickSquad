@@ -519,4 +519,11 @@ public class ArticleServiceImpl implements ArticalService {
 		}
 		return  pageBean;
 	}
+
+	@Override
+	/**查询一来哦器械类下的所属的类别的商品信息*/
+	public List<Article> findSecondMedicalInstruments(String typeId) throws Exception {
+		List<Article> listArticle=articleMapper.findArticleImgAndName(typeId);
+		return listArticle;
+	}
 }

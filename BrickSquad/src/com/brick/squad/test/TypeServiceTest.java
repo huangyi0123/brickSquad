@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.JunitClassRunner;
@@ -83,9 +84,9 @@ public class TypeServiceTest {
 	 */
 	@Test
 	public void findIdAndTypeNmae() throws Exception{
-		List<Type> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
-		for(Type type:listType){
-			System.out.println(type.getId()+"====="+type.getName());
+		List<TypeExpand> listType=typeService.findIdAndTypeNmae("yiliaoqixie");
+		for(TypeExpand type:listType){
+			System.err.println(type.getAid()+"====="+type.getName());
 		}
 	}
 }
