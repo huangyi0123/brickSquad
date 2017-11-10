@@ -132,7 +132,7 @@ $(function() {
 		<div class="layui-form-item ">
 			<label class="layui-form-label ">老人用户</label>
 			<div class="layui-input-inline">
-				<select name="personalInformation.id" value="${addressAndPersonaInformationExpand.personalInformation.id }" id="perid" lay-filter="perid">
+				<select name="personalInformation.id" value="${addressAndPersonaInformationExpand.personalInformation.id }" id="perid" lay-filter="perid" lay-search="">
 					<option value="">选择老人用户</option>
 				</select>
 			</div>

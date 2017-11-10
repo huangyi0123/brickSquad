@@ -1,7 +1,9 @@
 package com.brick.squad.test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.NewsArticle;
+import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.JunitClassRunner;
@@ -157,5 +161,17 @@ public class ArticleServiceTest {
 			System.err.println(article.getAname()+"============="+article.getPrice());
 		}
 	}
-
+	@Autowired
+	@Qualifier("articleMapper")
+	private ArticleMapper articleMapper;
+	@Test
+	public void testfindNewsArticleByIndex() {
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("take", 4);
+		map.put("order", "totals");
+		List<NewsArticle> list=articleMapper.findNewsArticleByIndex(map);
+		for (NewsArticle newsArticle : list) {
+			System.err.println(newsArticle.toString());
+		}
+	}
 }
