@@ -16,43 +16,44 @@ import com.brick.squad.service.ReplyService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
-
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class ReplyServiceTest {
 	@Autowired
 	@Qualifier("replyService")
 	private ReplyService replyService;
-@Test
-public void findReplyAllCount(){
-	System.out.println(replyService.findReplyAllCount());
-}
-	
+
 	@Test
-	public void replyPaginationTest(){
-		Pagination pagination =new Pagination();
+	public void findReplyAllCount() {
+		System.out.println(replyService.findReplyAllCount());
+	}
+
+	@Test
+	public void replyPaginationTest() {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		String listReply = replyService.replyPagination(pagination);
 		System.out.println(listReply);
 	}
-	
+
 	@Test
 	public void findReplyById() {
-	Reply reply =  replyService.findReplyById("e9809af8b4e111e78d4f5254002ec43c");
-	System.out.println(reply.getCentent());
+		Reply reply = replyService
+				.findReplyById("e9809af8b4e111e78d4f5254002ec43c");
+		System.out.println(reply.getCentent());
 	}
 
 	@Test
 	public void insertReply() {
 		for (int i = 0; i < 10; i++) {
-			Reply reply =new Reply();
-			reply.setRatedId("setRatedId"+i);
+			Reply reply = new Reply();
+			reply.setRatedId("setRatedId" + i);
 			reply.setReplyDate(new Date());
-			reply.setCentent("回复内容："+i);
+			reply.setCentent("回复内容：" + i);
 			replyService.insertReply(reply);
 		}
-		
+
 	}
 
 	@Test
@@ -67,9 +68,10 @@ public void findReplyAllCount(){
 		reply.setCentent("修改後的回复");
 		replyService.updateReplyCententById(reply);
 	}
+
 	@Test
-	public void findAllReply(){
-		String data=replyService.findAllReply();
+	public void findAllReply() {
+		String data = replyService.findAllReply();
 		System.out.println(data);
 	}
 }

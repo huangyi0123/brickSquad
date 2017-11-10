@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
@@ -73,8 +74,10 @@ public interface TypeMapper {
 	 * @return 民族集合
 	 */
 	public List<Select> findTypeByParentId(String parentId);
+
 	/**
 	 * 查询商品类别下的所有类别
+	 * 
 	 * @return 商品类别下的所有类别
 	 */
 	public List<Select> findTypeByArticl();
@@ -92,6 +95,6 @@ public interface TypeMapper {
 	/***
 	 * 医疗器械一级分类查询
 	 */
-	public List<Type> findIdAndTypeNmae(String parentId);
-	
+	public List<TypeExpand> findIdAndTypeNmae(String parentId);
+
 }

@@ -16,15 +16,16 @@ class LoginInterceptor implements HandlerInterceptor {
 		HttpSession session = request.getSession();
 		User user = null;
 		user = (User) session.getAttribute("user");
-		//用户登录后放行
+		// 用户登录后放行
 		if (user != null) {
 			return true;
 		}
-		//拦截后跳转
+		// 拦截后跳转
 		else {
 			request.setAttribute("userNoLogion", "0");
 			request.setAttribute("msg", "请先登录");
-			 request.getRequestDispatcher("/index.jsp").forward( request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request,
+					response);
 			return false;
 		}
 

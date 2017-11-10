@@ -25,8 +25,9 @@ public class GuidanceServiceTest {
 	@Autowired
 	@Qualifier("personalInformationMapper")
 	private PersonalInformationMapper personalInformationMapper;
+
 	@Test
-	public void testInsertGuidance() throws Exception{
+	public void testInsertGuidance() throws Exception {
 		Guidance guidance = new Guidance();
 		guidance.setAssessment("008");
 		guidance.setDisease("007");
@@ -35,44 +36,52 @@ public class GuidanceServiceTest {
 		guidance.setSuggest("吴老狗");
 		guidanceService.insertGuidanceById(guidance);
 	}
+
 	@Test
-	public void testQueryGuidanceById() throws Exception{
-		System.out.println(guidanceService.queryGuidanceById("ddbe2328b89411e78d4f5254002ec43c"));
+	public void testQueryGuidanceById() throws Exception {
+		System.out.println(guidanceService
+				.queryGuidanceById("ddbe2328b89411e78d4f5254002ec43c"));
 	}
+
 	@Test
-	public void testDeleteGuidanceById() throws Exception{
+	public void testDeleteGuidanceById() throws Exception {
 		guidanceService.deleteGuidanceById("21");
 	}
+
 	@Test
-	public void testUpdateGuidanceById() throws Exception{
-		Guidance guidance = guidanceService.queryGuidanceById("30cdf642bd3111e7aca65254002ec43c");
+	public void testUpdateGuidanceById() throws Exception {
+		Guidance guidance = guidanceService
+				.queryGuidanceById("30cdf642bd3111e7aca65254002ec43c");
 		guidance.setAssessment("wocao");
 		guidance.setDisease("520");
 		guidance.setPerId("562400");
 		guidance.setSuggest("wqnmmp");
 		guidanceService.updateGuidanceById(guidance);
 	}
+
 	@Test
-	public void testGuidancePagination() throws Exception{
-		/*List<Guidance> lGuidances = new ArrayList<Guidance>();*/
+	public void testGuidancePagination() throws Exception {
+		/* List<Guidance> lGuidances = new ArrayList<Guidance>(); */
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		/*lGuidances = guidanceService.guidancePagination(pagination);*/
-		String data=guidanceService.guidancePagination(pagination);
+		/* lGuidances = guidanceService.guidancePagination(pagination); */
+		String data = guidanceService.guidancePagination(pagination);
 		System.out.println(data);
 	}
-/*	@Test
-	public void testFindGuidanceAllCount() throws Exception{
-		guidanceService.findGuidanceAllCount();
-	}*/
-	@Test 
-	public void test(){
+
+	/*
+	 * @Test public void testFindGuidanceAllCount() throws Exception{
+	 * guidanceService.findGuidanceAllCount(); }
+	 */
+	@Test
+	public void test() {
 		guidanceService.findPerIdAndIdCard();
 	}
+
 	@Test
-	public void findPerIdAndIdCard(){
-		String data=guidanceService.findPerIdAndIdCard();
+	public void findPerIdAndIdCard() {
+		String data = guidanceService.findPerIdAndIdCard();
 		System.out.println(data);
 	}
 }

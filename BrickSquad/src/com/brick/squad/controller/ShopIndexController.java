@@ -44,14 +44,29 @@ public class ShopIndexController {
 		List<NewsArticle> rArticles = (List<NewsArticle>) map.get("rArticles");
 		List<NewsArticle> rArticlesTop = (List<NewsArticle>) map
 				.get("rArticlesTop");
-		List<List<NewsArticle>> nList=avgList(getImagePath(request, newsArticles));
-		List<List<NewsArticle>> nListTop=avgList(getImagePath(request, newsArticlesTop));
-		List<List<NewsArticle>> rList=avgList(getImagePath(request, rArticles));
-		List<List<NewsArticle>> rListTop=avgList(getImagePath(request, rArticlesTop));
-		request.setAttribute("aNewsArticles",nList);
-		request.setAttribute("aNewsArticlesTop",getImagePath(request, newsArticlesTop));
+		List<SecKill> secKills = (List<SecKill>) map.get("secKills");
+		for (SecKill item : secKills) {
+			String path = request
+					.getSession()
+					.getServletContext()
+					.getRealPath("resource/image/articleImg/" + item.getImage());
+			File file = new File(path);
+			File[] files = file.listFiles();
+			if (files != null && files.length > 0) {
+				item.setImage("resource/image/articleImg/" + item.getImage()
+						+ "/" + files[0].getName());
+			}
+		}
+		List<List<NewsArticle>> nList = avgList(getImagePath(request,
+				newsArticles));
+		List<List<NewsArticle>> rList = avgList(getImagePath(request, rArticles));
+		request.setAttribute("aNewsArticles", nList);
+		request.setAttribute("aNewsArticlesTop",
+				getImagePath(request, newsArticlesTop));
 		request.setAttribute("rArticles", rList);
-		request.setAttribute("rArticlesTop",getImagePath(request, rArticlesTop));
+		request.setAttribute("rArticlesTop",
+				getImagePath(request, rArticlesTop));
+		request.setAttribute("secKills", secKills);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -77,10 +92,10 @@ public class ShopIndexController {
 		List<NewsArticle> nList1 = new ArrayList<>();
 		List<NewsArticle> nList2 = new ArrayList<>();
 		for (int i = 0; i < newsArticles.size(); i++) {
-			if (i%2==0) {
+			if (i % 2 == 0) {
 				nList1.add(newsArticles.get(i));
 				list.add(nList1);
-			}else {
+			} else {
 				nList2.add(newsArticles.get(i));
 				list.add(nList2);
 			}

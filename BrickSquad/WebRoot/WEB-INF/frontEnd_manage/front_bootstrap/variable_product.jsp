@@ -75,6 +75,54 @@
 	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css"
 	href="resource/css/ProductDetails.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/pictureMagnification/css/default.css">
+<link rel="stylesheet"
+	href="resource/plugins/pictureMagnification/css/smoothproducts.css">
+<style type="text/css">
+.page {
+	padding: 5px 30px 30px 30px;
+	max-width: 800px;
+	margin: 0 auto;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans",
+		"Helvetica Neue", Arial, sans-serif;
+	background: #fff;
+	color: #555;
+	height: 400px;
+}
+
+img {
+	border: none;
+}
+
+a:link,a:visited {
+	color: #F0353A;
+}
+
+a:hover {
+	color: #8C0B0E;
+}
+
+ul {
+	overflow: hidden;
+}
+
+pre {
+	background: #333;
+	padding: 10px;
+	overflow: auto;
+	color: #BBB7A9;
+}
+
+.demo {
+	text-align: center;
+	padding: 30px 0
+}
+
+.clear {
+	clear: both;
+}
+</style>
 </head>
 
 <body
@@ -113,37 +161,33 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="javaScript:;"><img alt=""
-										src="resource/image/articleImg/${ article.image}/${images[0]}"
-										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
+									<div class="page">
+										<div class="sp-wrap">
+											<c:forEach var="a" items="${images }">
+												<a href="resource/image/articleImg/${ article.image}/${a}"><img
+													src="resource/image/articleImg/${ article.image}/${a}"
+													alt=""></a>
+											</c:forEach>
+										</div>
+									</div>
 									<div class="comm_imgs">
-
-										<c:forEach var="a" items="${images }">
-
-											<a href="javaScript:;"><img alt=""
-												src="resource/image/articleImg/${ article.image}/${a}"></a>
-
-										</c:forEach>
 										<div>
-											<div style="float: left;">
+											<div>
 												<a href="#"
 													style="color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-share"></i> <label
 													style="cursor: pointer;">分享</label>
 												</a> <a href="#"
-													style="display:block; color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
+													style="display:block; color: #BAAA99;border: none;margin-left: 40px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-star"></i> <label
 													style="cursor: pointer;">收藏商品</label>
 												</a> <label
-													style="font-size: 0.1px;margin-top: 42px;color:#BAAA99;">（1762人气）</label>
-											</div>
-											<div style="float: left;">
-												<a href="#"
-													style="display: block; margin-left:285px;margin-top: 38px;border: none;color: #BAAA99;">举报</a>
+													style="font-size: 0.1px;margin-left:60px;margin-top: 40px;color:#BAAA99;">（1762人气）</label>
 											</div>
 										</div>
 									</div>
 								</div>
+
 								<div class="comm_info">
 									<p
 										style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">${ article.aname}</p>
@@ -1141,8 +1185,17 @@
 		src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript"
+		<script src="resource/plugins/pictureMagnification/js/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="resource/plugins/pictureMagnification/js/smoothproducts.min.js"></script>
+		<script type="text/javascript">
+/* wait for images to load */
+$(window).load(function() {
+	$('.sp-wrap').smoothproducts();
+});
+</script>
+		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+		<script type="text/javascript">
 		/* 添加购物车JS，ajax提交 */
 		function userAddArticleToShoppingCar() {
 			var userId = $("#userId").val();
@@ -1160,22 +1213,21 @@
 					type : "POST",
 					data : shoppingCar,
 					success : function(data) {
-
 						if (data == "fail") {
-							layer.msg("添加到购物车失败！稍后重试");
+							alert("添加到购物车失败！稍后重试");
 						} else if (data == "success") {
-							layer.msg("添加到购物车成功！");
+							alert("添加到购物车成功！");
 						}
-
 					},
 					error : function(e) {
-						layer.msg("服务器错误！！稍后重试");
+						alert("服务器错误！！稍后重试");
 					}
 				});
 			});
+
 		}
 	</script>
-	<script type="text/javascript">
+		<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();
@@ -1205,7 +1257,6 @@
 			});
 		});
 	</script>
-
 	<!--[if gte IE 9]><!-->
 	<script type="text/javascript">
 		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
@@ -1216,11 +1267,11 @@
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<script>
+	<!-- 	<script>
 		layui.use([ 'form', 'layedit', 'laydate' ], function() {
-			var form = layui.form, layer = layui.layer;
+			var form = layui.form;
 		})
-	</script>
+	</script> -->
 	<!--<![endif]-->
 </body>
 </html>

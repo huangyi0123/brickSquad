@@ -22,20 +22,25 @@ public interface RegionMapper {
 
 	public List<Region> findRegionByParentId(String perantId);
 
-	//用于数据回显
-	public List<Region> findAllRegion ();
-
+	// 用于数据回显
+	public List<Region> findAllRegion();
 
 	/**
 	 * 根据级别选择地区
-	 * @param level 级别
+	 * 
+	 * @param level
+	 *            级别
 	 * @return 区域及id集合
 	 */
 	public List<Select> findRegionsByLevel(int level);
+
 	public List<Select> findRegionByLevel(int level);
+
 	/**
 	 * 根据父id查询区域
-	 * @param parentId 父id
+	 * 
+	 * @param parentId
+	 *            父id
 	 * @return 区域集合
 	 */
 	public List<Select> findRegionsByParentId(String parentId);

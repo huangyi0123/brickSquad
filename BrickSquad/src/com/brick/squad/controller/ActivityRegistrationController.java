@@ -31,29 +31,34 @@ import com.brick.squad.util.Pagination;
 @Controller
 @RequestMapping("/activityRegistration")
 public class ActivityRegistrationController {
-  @Autowired
-  @Qualifier("activityRegistrationService")
-  private ActivityRegistrationService activityRegistrationService;
-  @RequestMapping("/toActivityRegistration")
-  public String toActivityRegistration(){
-	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
-  }
-  
-  @RequestMapping("/getActivityRegistrationList")
-  @ResponseBody
-  public String getActivityRegistrationList(int pSize,int cPage,String keyword) {
-	Pagination pagination=new Pagination();
-	pagination.setCurentPage(cPage);
-	pagination.setPageSize(pSize);
-	pagination.setKeyword(keyword);
-	String data=activityRegistrationService.activityRegistrationPagination(pagination);
-	return data;
-}
-  
-  @RequestMapping("/toAddActivityRegistration")
-  public String toAddActivityRegistration(HttpServletRequest request, String id) throws Exception {
-	  if (id != null) {
-			ActivityRegistration activityRegistration = activityRegistrationService.findActivityRegistrationById(id);
+	@Autowired
+	@Qualifier("activityRegistrationService")
+	private ActivityRegistrationService activityRegistrationService;
+
+	@RequestMapping("/toActivityRegistration")
+	public String toActivityRegistration() {
+		return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
+	}
+
+	@RequestMapping("/getActivityRegistrationList")
+	@ResponseBody
+	public String getActivityRegistrationList(int pSize, int cPage,
+			String keyword) {
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(cPage);
+		pagination.setPageSize(pSize);
+		pagination.setKeyword(keyword);
+		String data = activityRegistrationService
+				.activityRegistrationPagination(pagination);
+		return data;
+	}
+
+	@RequestMapping("/toAddActivityRegistration")
+	public String toAddActivityRegistration(HttpServletRequest request,
+			String id) throws Exception {
+		if (id != null) {
+			ActivityRegistration activityRegistration = activityRegistrationService
+					.findActivityRegistrationById(id);
 			request.setAttribute("activityRegistration", activityRegistration);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateActivityRegistrationById");
@@ -61,49 +66,61 @@ public class ActivityRegistrationController {
 			request.setAttribute("url", "insertActivityRegistration");
 			request.setAttribute("msg", "添加");
 		}
-	return "backstage_managed/jsp/activityRegistration/add_activityRegistration";
-	
-}
-  @InitBinder
-	protected void initBinder(WebDataBinder binder) {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+		return "backstage_managed/jsp/activityRegistration/add_activityRegistration";
+
 	}
 
-  @RequestMapping("/insertActivityRegistration")
-  public String insertActivityRegistration(@Validated ActivityRegistration activityRegistration,BindingResult result,HttpServletRequest request) {
-	  
-	  if (result.hasErrors()) {
-		
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
+	}
+
+	@RequestMapping("/insertActivityRegistration")
+	public String insertActivityRegistration(
+			@Validated ActivityRegistration activityRegistration,
+			BindingResult result, HttpServletRequest request) {
+
+		if (result.hasErrors()) {
+
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
 			request.setAttribute("url", "insertActivityRegistration");
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/activityRegistration/add_activityRegistration";
-					
+
 		}
-	  activityRegistrationService.insertActivityRegistration(activityRegistration);
-	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
-	
-}
-  
-  @RequestMapping("/updateActivityRegistrationById")
-	public  String updateActivityRegistrationById(ActivityRegistration activityRegistration) {
-	  activityRegistrationService.updateActivityRegistrationById(activityRegistration);
-	  return "backstage_managed/jsp/activityRegistration/activityRegistration_list";		
+		activityRegistrationService
+				.insertActivityRegistration(activityRegistration);
+		return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
+
 	}
-    @RequestMapping("/deleteActivityRegistrationById")
+
+	@RequestMapping("/updateActivityRegistrationById")
+	public String updateActivityRegistrationById(
+			ActivityRegistration activityRegistration) {
+		activityRegistrationService
+				.updateActivityRegistrationById(activityRegistration);
+		return "backstage_managed/jsp/activityRegistration/activityRegistration_list";
+	}
+
+	@RequestMapping("/deleteActivityRegistrationById")
 	@ResponseBody
 	public String deleteActivityRegistrationById(String id) {
 		activityRegistrationService.deleteActivityRegistrationById(id);
 		return "success";
-				
+
 	}
-    
-    @RequestMapping("/findActivityRegistrationById")
-    public String findActivityRegistrationById(HttpServletRequest request,String id){
-    	ActivityRegistrationExpand activityRegistrationExpand =activityRegistrationService.findActivityRegistrationAndPersonalInformationAndActivities(id);
-		request.setAttribute("activityRegistrationExpand", activityRegistrationExpand);
-		  return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
-    }
+
+	@RequestMapping("/findActivityRegistrationById")
+	public String findActivityRegistrationById(HttpServletRequest request,
+			String id) {
+		ActivityRegistrationExpand activityRegistrationExpand = activityRegistrationService
+				.findActivityRegistrationAndPersonalInformationAndActivities(id);
+		request.setAttribute("activityRegistrationExpand",
+				activityRegistrationExpand);
+		return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
+	}
 }
