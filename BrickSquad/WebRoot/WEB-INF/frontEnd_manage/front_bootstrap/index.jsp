@@ -55,7 +55,9 @@
 <body class="page page-id-6 home-style1">
 
 	<div class="body-wrapper theme-clearfix">
-		<jsp:include page="shop_header.jsp"></jsp:include>
+		<jsp:include page="shop_header.jsp">
+		<jsp:param value="${toShopDetailsShoppingCar}" name="toShopDetailsShoppingCar"/>
+		</jsp:include>
 		<div class="listings-title">
 
 			<div class="container">
@@ -1104,7 +1106,7 @@
 
 																			<div class="sale-off">-24%</div>
 
-																			<div class="product-countdown" data-date="1519776000" data-price="$250"
+																			<div class="product-countdown" data-date="10000" data-price="$250"
 																				data-starttime="1483747200" data-cdtime="1519776000"
 																				data-id="product_sw_countdown_02"></div>
 																		</div>
@@ -1136,7 +1138,6 @@
 																							class="ajax-loading" alt="loading" width="16" height="16"
 																							style="visibility:hidden" />
 																					</div>
-
 																					<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
 																						<span class="feedback">Product added!</span>
 																						<a href="#" rel="nofollow">Browse Wishlist</a>
@@ -3411,6 +3412,12 @@
 		<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
 		<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 		<script type="text/javascript">
+		$(function() {
+			 console.log("123");
+		 var data = '${toShopDetailsShoppingCar}';
+		 console.log(data);
+
+		});
 			var sticky_navigation_offset_top = $("#header .header-bottom")
 					.offset().top;
 			var sticky_navigation = function() {
