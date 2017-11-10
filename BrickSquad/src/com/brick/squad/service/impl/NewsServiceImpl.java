@@ -48,7 +48,6 @@ public class NewsServiceImpl implements NewsService {
 
 	}
 
-
 	// 根据新闻ID删除新闻
 	public void deleteNews(String id) {
 
@@ -113,8 +112,9 @@ public class NewsServiceImpl implements NewsService {
 	public String findNewsList() {
 		List<News> news = newsMapper.findNewsList();
 		JsonConfig jsonConfig = new JsonConfig();
-        jsonConfig.registerJsonValueProcessor(Date.class, new JsonDateValueProcessor("yyyy-MM-dd"));
-		JSONArray jsonArray = JSONArray.fromObject(news,jsonConfig);
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy-MM-dd"));
+		JSONArray jsonArray = JSONArray.fromObject(news, jsonConfig);
 		return jsonArray.toString();
 	}
 
@@ -122,6 +122,5 @@ public class NewsServiceImpl implements NewsService {
 	public NewsExpand findNewsExpandById(String id) {
 		return newsMapper.findNewsExpandById(id);
 	}
-
 
 }

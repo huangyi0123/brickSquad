@@ -64,11 +64,10 @@ public class RatedServiceImpl implements RatedService {
 		return data;
 	}
 
-	/*@Override
-	public int findReplyAllCount() {
-		// TODO Auto-generated method stub
-		return ratedMapper.findRatedAllCount();
-	}*/
+	/*
+	 * @Override public int findReplyAllCount() { // TODO Auto-generated method
+	 * stub return ratedMapper.findRatedAllCount(); }
+	 */
 
 	/**
 	 * 将查询出的封装成json字符串

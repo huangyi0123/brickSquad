@@ -19,20 +19,22 @@ public class AddressController {
 	@Autowired
 	@Qualifier(value = "addressService")
 	private AddressService addressService;
+
 	@RequestMapping("/toAddressList")
 	public String toAddressList() {
 		return "backstage_managed/jsp/address/address_list";
 	}
 
 	@RequestMapping("/toAddress")
-	public String toAddress(HttpServletRequest request,String id) throws Exception {
-		String data=addressService.findRegionsByLevel();
+	public String toAddress(HttpServletRequest request, String id)
+			throws Exception {
+		String data = addressService.findRegionsByLevel();
 		request.setAttribute("data", data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateAddressById");
 			Address address = addressService.findAddressById(id);
-			String regions=addressService.getAllRegion(address);
+			String regions = addressService.getAllRegion(address);
 			request.setAttribute("regions", regions);
 			request.setAttribute("address", address);
 		} else {
@@ -61,16 +63,19 @@ public class AddressController {
 		addressService.insertAddress(address);
 		return "backstage_managed/jsp/address/address_list";
 	}
+
 	@RequestMapping("/findRegionsByParentId")
 	@ResponseBody
 	public String findRegionsByParentId(String pid) {
 		return addressService.findRegionsByParentId(pid);
 	}
+
 	@RequestMapping("/updateAddressById")
 	public String updateAddressById(Address address) throws Exception {
 		addressService.updateAddressById(address);
 		return "backstage_managed/jsp/address/address_list";
 	}
+
 	@RequestMapping("/deleteAddressById")
 	@ResponseBody
 	public String deleteAddressById(String id) throws Exception {

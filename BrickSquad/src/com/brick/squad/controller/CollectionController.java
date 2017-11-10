@@ -36,8 +36,7 @@ public class CollectionController {
 
 	@RequestMapping("/getCollectionList")
 	@ResponseBody
-	public String getCollectionList(int pSize, int cPage,
-			String keyword) {
+	public String getCollectionList(int pSize, int cPage, String keyword) {
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
@@ -45,50 +44,52 @@ public class CollectionController {
 		String data = collectionService.collectionPagination(pagination);
 		return data;
 	}
-	
+
 	@RequestMapping("/toAddCollection")
-	  public String toAddCollection(HttpServletRequest request, String id) {
-		   
-		String data=buyersService.findPnameByBuyersId();
+	public String toAddCollection(HttpServletRequest request, String id) {
+
+		String data = buyersService.findPnameByBuyersId();
 		request.setAttribute("collectionData", data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateCollectionById");
-			Collection collection=collectionService.findCollectionById(id);
+			Collection collection = collectionService.findCollectionById(id);
 			request.setAttribute("collection", collection);
 		} else {
 			request.setAttribute("url", "insertCollection");
 			request.setAttribute("msg", "添加");
 		}
 		return "backstage_managed/jsp/collection/add_collection";
-		
+
 	}
-	
-	 @InitBinder
-		protected void initBinder(WebDataBinder binder) {
-		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-		}
-	
-	  @RequestMapping("/insertCollection")
-	  public String insertCollection(Collection collection ) {
-		  collectionService.insertCollection(collection);
-		  return "backstage_managed/jsp/collection/collection_list";
-		
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
 	}
-	  
-	  @RequestMapping("/updateCollectionById")
-		public String updateCollectionById(Collection collection ) {
-			collectionService.updateCollectionById(collection);
-			return "backstage_managed/jsp/collection/collection_list";
-			
-		}
-		
-		@RequestMapping("/deleteCollectionById")
-		@ResponseBody
-		public String deleteCollectionById(String id) {
-			collectionService.deleteCollectionById(id);
-			return "success";
-					
-		} 
+
+	@RequestMapping("/insertCollection")
+	public String insertCollection(Collection collection) {
+		collectionService.insertCollection(collection);
+		return "backstage_managed/jsp/collection/collection_list";
+
+	}
+
+	@RequestMapping("/updateCollectionById")
+	public String updateCollectionById(Collection collection) {
+		collectionService.updateCollectionById(collection);
+		return "backstage_managed/jsp/collection/collection_list";
+
+	}
+
+	@RequestMapping("/deleteCollectionById")
+	@ResponseBody
+	public String deleteCollectionById(String id) {
+		collectionService.deleteCollectionById(id);
+		return "success";
+
+	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 public class ZTree {
 	private String name;
 	private String id;
-	private boolean checked=false;
+	private boolean checked = false;
 	private String value;
 	private List<ZTree> children;
 

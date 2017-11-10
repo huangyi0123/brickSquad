@@ -20,7 +20,7 @@ import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
 
 @Controller
-@RequestMapping(value="buyers")
+@RequestMapping(value = "buyers")
 public class BuyersController {
 	@Autowired
 	@Qualifier("buyersService")
@@ -37,73 +37,91 @@ public class BuyersController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
-	@RequestMapping(value="/toBuyersList")
-	public String toBuyersList(){
+
+	@RequestMapping(value = "/toBuyersList")
+	public String toBuyersList() {
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+
 	@RequestMapping("/toAddBuyers")
-	public String toAddBuyers(HttpServletRequest request,String id) throws Exception{
+	public String toAddBuyers(HttpServletRequest request, String id)
+			throws Exception {
 		String regionDataString = buyersService.findRegionsByLevel();
 		request.setAttribute("regionDataString", regionDataString);
-		String data=typeService.findTypeByParentId("hyjb");
+		String data = typeService.findTypeByParentId("hyjb");
 		request.setAttribute("typeData", data);
-		if(id!=null){
+		if (id != null) {
 			Buyers buyers = buyersService.findBuyersByUUID(id);
-			Address address = addressService.findAddressById(buyers.getDeliveryAddressId());
-			AddressAndBuyersExpand addressAndBuyersExpand=new AddressAndBuyersExpand();
+			Address address = addressService.findAddressById(buyers
+					.getDeliveryAddressId());
+			AddressAndBuyersExpand addressAndBuyersExpand = new AddressAndBuyersExpand();
 			addressAndBuyersExpand.setAddress(address);
 			addressAndBuyersExpand.setBuyers(buyers);
-			request.setAttribute("addressAndBuyersExpand",addressAndBuyersExpand );
+			request.setAttribute("addressAndBuyersExpand",
+					addressAndBuyersExpand);
 			String allRegionResultById = addressService.getAllRegion(address);
 			request.setAttribute("allRegionResultById", allRegionResultById);
-			request.setAttribute("Grade",addressAndBuyersExpand.getBuyers().getGrade());
-			request.setAttribute("msg","修改");
+			request.setAttribute("Grade", addressAndBuyersExpand.getBuyers()
+					.getGrade());
+			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateBuyersById");
 			return "backstage_managed/jsp/buyers/add_buyers";
-		}else {
+		} else {
 			request.setAttribute("msg", "添加");
 			request.setAttribute("url", "insertBuyres");
 			return "backstage_managed/jsp/buyers/add_buyers";
 		}
-			
+
 	}
-	@RequestMapping(value="/getBuyersList")
+
+	@RequestMapping(value = "/getBuyersList")
 	@ResponseBody
-	public String getBuyersList(int pSize,int cPage,String keyword) throws Exception{
+	public String getBuyersList(int pSize, int cPage, String keyword)
+			throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setPageSize(pSize);
 		pagination.setCurentPage(cPage);
 		pagination.setKeyword(keyword);
 		return buyersService.buyersPagination(pagination);
 	}
-	@RequestMapping(value="/insertBuyres")
-	public String insertBuyres(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception{
+
+	@RequestMapping(value = "/insertBuyres")
+	public String insertBuyres(AddressAndBuyersExpand addressAndBuyersExpand)
+			throws Exception {
 		buyersService.insertBuyers(addressAndBuyersExpand);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+
 	@RequestMapping("/deleteBuyersById")
-	public String deleteBuyersById(String id ) throws Exception{
+	public String deleteBuyersById(String id) throws Exception {
 		buyersService.deleteBuyersById(id);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+
 	@RequestMapping("/updateBuyersById")
-	public String updateBuyers(AddressAndBuyersExpand addressAndBuyersExpand) throws Exception{
-		System.out.println(addressAndBuyersExpand.getBuyers().getId()+"11111111111");
+	public String updateBuyers(AddressAndBuyersExpand addressAndBuyersExpand)
+			throws Exception {
+		System.out.println(addressAndBuyersExpand.getBuyers().getId()
+				+ "11111111111");
 		buyersService.updateBuyersById(addressAndBuyersExpand);
 		return "backstage_managed/jsp/buyers/buyers_list";
 	}
+
 	@RequestMapping("/findBuyersByIdString")
-	public String findBuyersByIdString(HttpServletRequest request,String id) throws Exception{
+	public String findBuyersByIdString(HttpServletRequest request, String id)
+			throws Exception {
 
 		Buyers buyers = buyersService.findBuyersByUUID(id);
-		PersonalInformation personalInformation=personalInformationService.findPersonalInformationById(buyers.getId());
+		PersonalInformation personalInformation = personalInformationService
+				.findPersonalInformationById(buyers.getId());
 		String perString = personalInformation.getName();
 		request.setAttribute("perString", perString);
-		String address = addressService.findByIdAllAddress(buyers.getDeliveryAddressId());
-		AddressAndBuyersExpand addressAndBuyersExpand=new AddressAndBuyersExpand();
+		String address = addressService.findByIdAllAddress(buyers
+				.getDeliveryAddressId());
+		AddressAndBuyersExpand addressAndBuyersExpand = new AddressAndBuyersExpand();
 		request.setAttribute("address", address);
 		addressAndBuyersExpand.setBuyers(buyers);
-		request.setAttribute("addressAndBuyersExpand",addressAndBuyersExpand );
+		request.setAttribute("addressAndBuyersExpand", addressAndBuyersExpand);
 
 		return "backstage_managed/jsp/buyers/search_buyers";
 	}

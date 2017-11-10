@@ -102,7 +102,7 @@
 	<!-- 首页秒杀 -->
 	<select id="secKillIndex" resultType="com.brick.squad.expand.SecKill">
 		SELECT
-		a.id,a.aname,a.image,a.price,
+		a.id,a.aname,a.image,a.price,sa.end_time endtime,
 		from_unixtime(TIMEDIFF(sa.end_time,NOW()), '%Y-%m-%d %h:%m:%s')
 		time,
 		sa.active_price activePrice FROM shop_activities sa JOIN type t on

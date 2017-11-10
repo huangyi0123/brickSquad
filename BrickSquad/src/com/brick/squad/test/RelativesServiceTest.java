@@ -24,56 +24,61 @@ public class RelativesServiceTest {
 
 	@Test
 	public void testFindRelativesById() {
-		Relatives relatives=relativesService.findRelativesById("b9de4736b02811e78d4f5254002ec43c");
+		Relatives relatives = relativesService
+				.findRelativesById("b9de4736b02811e78d4f5254002ec43c");
 		System.out.println(relatives.getId());
 	}
 
 	@Test
 	public void testInsertRelatives() {
 
-			RelativesAndAddressAndTypeAndPersonExpand relatives2 =new RelativesAndAddressAndTypeAndPersonExpand();
-			relatives2.setRelatives(new Relatives());
-			relatives2.setAddress(new Address());
-			relatives2.setPersonalInformation(new PersonalInformation());
-			relatives2.setType(new Type());
-			
-			try {
-				Relatives relatives =relatives2.getRelatives();
-				Address address =relatives2.getAddress();
-				relatives.setPerId("1");
-				relatives.setName("2");
-				relatives.setRelationshipId("3");
-				relatives.setTelephone("4");
-				relatives.setAddressId("5");
-				relativesService.insertRelatives(relatives2);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+		RelativesAndAddressAndTypeAndPersonExpand relatives2 = new RelativesAndAddressAndTypeAndPersonExpand();
+		relatives2.setRelatives(new Relatives());
+		relatives2.setAddress(new Address());
+		relatives2.setPersonalInformation(new PersonalInformation());
+		relatives2.setType(new Type());
+
+		try {
+			Relatives relatives = relatives2.getRelatives();
+			Address address = relatives2.getAddress();
+			relatives.setPerId("1");
+			relatives.setName("2");
+			relatives.setRelationshipId("3");
+			relatives.setTelephone("4");
+			relatives.setAddressId("5");
+			relativesService.insertRelatives(relatives2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Test
 	public void testUpdateRelativesById() {
-		Relatives relatives=relativesService.findRelativesById("b9de4736b02811e78d4f5254002ec43c");
+		Relatives relatives = relativesService
+				.findRelativesById("b9de4736b02811e78d4f5254002ec43c");
 		relatives.setName("李四");
 		relativesService.updateRelativesById(relatives);
 	}
 
 	@Test
 	public void testDeleteRelativesById() {
-		relativesService.deleteRelativesById("690208c8b35411e78d4f5254002ec43c");
+		relativesService
+				.deleteRelativesById("690208c8b35411e78d4f5254002ec43c");
 	}
-/*	@Test
-	public void selectRelativesByPerId(){
-		Relatives relatives=relativesService.selectRelativesByPerId("1195777ebf8d11e7aca65254002ec43c");
-		System.out.println(relatives.getName());
-	}*/
+
+	/*
+	 * @Test public void selectRelativesByPerId(){ Relatives
+	 * relatives=relativesService
+	 * .selectRelativesByPerId("1195777ebf8d11e7aca65254002ec43c");
+	 * System.out.println(relatives.getName()); }
+	 */
 	@Test
-	public void updateRelativesByIdExend(){
-		RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand=
-				new RelativesAndAddressAndTypeAndPersonExpand();
-		relativesService.updateRelativesByIdExend(relativesAndAddressAndTypeAndPersonExpand);
+	public void updateRelativesByIdExend() {
+		RelativesAndAddressAndTypeAndPersonExpand relativesAndAddressAndTypeAndPersonExpand = new RelativesAndAddressAndTypeAndPersonExpand();
+		relativesService
+				.updateRelativesByIdExend(relativesAndAddressAndTypeAndPersonExpand);
 	}
 
 }

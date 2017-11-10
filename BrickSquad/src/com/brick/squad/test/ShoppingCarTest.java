@@ -58,27 +58,33 @@ public class ShoppingCarTest {
 			System.out.println(shoppingCar.getDate());
 		}
 	}
-	/*@Test
-	public void findCount() throws Exception{
-		Integer count=shoppingCarService.findShoppingCarCount();
-		System.out.println(count);
-	}*/
+
+	/*
+	 * @Test public void findCount() throws Exception{ Integer
+	 * count=shoppingCarService.findShoppingCarCount();
+	 * System.out.println(count); }
+	 */
 	@Test
-	public void findArticleAndPersonalInformation() throws Exception{
-		String data=shoppingCarService.findArticleAndPersonalInformation();
+	public void findArticleAndPersonalInformation() throws Exception {
+		String data = shoppingCarService.findArticleAndPersonalInformation();
 		System.out.println(data);
 	}
+
 	@Test
-	public void shoppingCarPagination() throws Exception{
+	public void shoppingCarPagination() throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
-		String shoppings=shoppingCarService.shoppingCarPagination(pagination);
+		String shoppings = shoppingCarService.shoppingCarPagination(pagination);
 		System.out.println(shoppings);
 	}
+
 	@Test
-	public void findShoppingCarAndUserAndPsersonalInformationById() throws Exception{
-		System.out.println(shoppingCarService.findShoppingCarAndUserAndPsersonalInformationById("2").getName());
+	public void findShoppingCarAndUserAndPsersonalInformationById()
+			throws Exception {
+		System.out.println(shoppingCarService
+				.findShoppingCarAndUserAndPsersonalInformationById("2")
+				.getName());
 	}
 
 }

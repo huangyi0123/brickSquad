@@ -294,7 +294,7 @@ public class ArticleServiceImpl implements ArticalService {
 	public Map<String, Object> shopIndex() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> m = new HashMap<>();
-		//最新商品
+		// 最新商品
 		m.put("take", 6);
 		m.put("order", "a.shelfdate");
 		List<NewsArticle> aNewsArticles = articleMapper
@@ -304,16 +304,17 @@ public class ArticleServiceImpl implements ArticalService {
 				.findNewsArticleByIndex(m);
 		map.put("aNewsArticles", (Object) aNewsArticles);
 		map.put("aNewsArticlesTop", aNewsArticlesTop);
-		//热门商品
+		// 热门商品
 		m.put("order", "totals");
 		m.put("take", 6);
-		List<NewsArticle> rArticles=articleMapper.findNewsArticleByIndex(m);
+		List<NewsArticle> rArticles = articleMapper.findNewsArticleByIndex(m);
 		m.put("take", 5);
-		List<NewsArticle> rArticlesTop=articleMapper.findNewsArticleByIndex(m);
+		List<NewsArticle> rArticlesTop = articleMapper
+				.findNewsArticleByIndex(m);
 		map.put("rArticles", rArticles);
 		map.put("rArticlesTop", rArticlesTop);
-		//秒杀
-		List<SecKill> secKills=shopActivitiesMapper.secKillIndex();
+		// 秒杀
+		List<SecKill> secKills = shopActivitiesMapper.secKillIndex();
 		map.put("secKills", secKills);
 		return map;
 	}
@@ -388,6 +389,7 @@ public class ArticleServiceImpl implements ArticalService {
 		}
 		return pageBean;
 	}
+
 	@Override
 	/**医疗器械日期排序*/
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page,
@@ -459,13 +461,14 @@ public class ArticleServiceImpl implements ArticalService {
 		}
 		return pageBean;
 	}
+
 	@Override
 	public List<NewsArticle> findFrontTime() {
 		List<NewsArticle> NewsArticleList = articleMapper.findFrontTime();
 		System.err.println(NewsArticleList.size());
 		return NewsArticleList;
 	}
-	
+
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page,
 			int sequence, int limitPage) throws Exception {
 
@@ -533,13 +536,14 @@ public class ArticleServiceImpl implements ArticalService {
 					.findOrderByMedicalInstrumentsPop(pageBean);
 			pageBean.setList(list);
 		}
-		return  pageBean;
+		return pageBean;
 	}
 
 	@Override
 	/**查询一来哦器械类下的所属的类别的商品信息*/
-	public List<Article> findSecondMedicalInstruments(String typeId) throws Exception {
-		List<Article> listArticle=articleMapper.findArticleImgAndName(typeId);
+	public List<Article> findSecondMedicalInstruments(String typeId)
+			throws Exception {
+		List<Article> listArticle = articleMapper.findArticleImgAndName(typeId);
 		return listArticle;
 	}
 }

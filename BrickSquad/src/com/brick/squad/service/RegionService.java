@@ -26,5 +26,6 @@ public interface RegionService {
 	public String regionPagination(Pagination pagination);
 
 	public String findRegionByParentId(String perantId);
-	public String findAllRegion ();
+
+	public String findAllRegion();
 }

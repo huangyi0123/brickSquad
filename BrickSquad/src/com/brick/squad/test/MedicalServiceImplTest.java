@@ -23,18 +23,20 @@ public class MedicalServiceImplTest {
 	@Autowired
 	@Qualifier("medicalService")
 	private MedicalService medicalService;
-	/*@Test
-	public void findMedicalAllCount(){
-		System.out.println(medicalService.findMedicalAllCount());
-	}*/
+
+	/*
+	 * @Test public void findMedicalAllCount(){
+	 * System.out.println(medicalService.findMedicalAllCount()); }
+	 */
 	@Test
-	public void medicalPagination(){
-		Pagination pagination =new Pagination();
+	public void medicalPagination() {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		String listMedical =medicalService.medicalPagination(pagination);
+		String listMedical = medicalService.medicalPagination(pagination);
 		System.out.println(listMedical);
 	}
+
 	@Test
 	public void insertMedicalTest() {
 		Medical medical = new Medical();
@@ -50,33 +52,39 @@ public class MedicalServiceImplTest {
 
 	@Test
 	public void findMedicalById() {
-		Medical medical = medicalService
-				.findMedicalById("12");
+		Medical medical = medicalService.findMedicalById("12");
 		System.out.println(medical.getAttendingSurgeon() + "***");
 	}
+
 	@Test
 	public void updateMedicalCententById() {
-		Medical medical =medicalService.findMedicalById("12");
+		Medical medical = medicalService.findMedicalById("12");
 		medical.setContent("修改后的content");
 		medicalService.updateMedicalById(medical);
 	}
+
 	@Test
-	public void deleteMedicalById(){
+	public void deleteMedicalById() {
 		medicalService.deleteMedicalById("12");
 	}
+
 	@Test
-	public void findAllPersonalInformationGetIdAndIdCardAndName(){
-		String data=medicalService.findAllPersonalInformationGetIdAndIdCardAndName();
+	public void findAllPersonalInformationGetIdAndIdCardAndName() {
+		String data = medicalService
+				.findAllPersonalInformationGetIdAndIdCardAndName();
 		System.out.println(data);
 	}
+
 	@Test
-	public void findAllPersonalInformationAndType(){
-		String data=medicalService.findAllPersonalInformationAndType();
+	public void findAllPersonalInformationAndType() {
+		String data = medicalService.findAllPersonalInformationAndType();
 		System.out.println(data);
 	}
+
 	@Test
-	public void findPersonalInformationAndType(){
-		MedicalExpand medicalExpand=medicalService.findPersonalInformationAndType("12");
+	public void findPersonalInformationAndType() {
+		MedicalExpand medicalExpand = medicalService
+				.findPersonalInformationAndType("12");
 		System.out.println(medicalExpand.getContent());
 	}
 }

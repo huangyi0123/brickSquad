@@ -20,14 +20,16 @@ public class OrdersServiceTest {
 	@Autowired
 	@Qualifier("ordersService")
 	private OrdersService ordersService;
+
 	@Test
 	public void findOrdersById() throws Exception {
-		Orders orders=ordersService.findOrdersById("1");
+		Orders orders = ordersService.findOrdersById("1");
 		System.out.println(orders);
 	}
+
 	@Test
-	public void insertOrders() throws Exception{
-		Orders orders=new Orders();
+	public void insertOrders() throws Exception {
+		Orders orders = new Orders();
 		orders.setId("2");
 		orders.setNo("2");
 		orders.setNumber(32);
@@ -37,40 +39,49 @@ public class OrdersServiceTest {
 		orders.setBuyId("4");
 		ordersService.insertOrders(orders);
 	}
+
 	@Test
-	public void updateOrdersById() throws Exception{
-		Orders orders=ordersService.findOrdersById("1");
+	public void updateOrdersById() throws Exception {
+		Orders orders = ordersService.findOrdersById("1");
 		orders.setStateId("888");
 		ordersService.updateOrdersById(orders);
 	}
+
 	@Test
-	public void deleteOrdersById() throws Exception{
+	public void deleteOrdersById() throws Exception {
 		ordersService.deleteOrdersById("2");
 	}
+
 	@Test
-	public void findOrders() throws Exception{
-		/*List<Orders> orders=ordersService.findOrders();
-		for(Orders order:orders){
-			System.out.println(order);
-		}*/
+	public void findOrders() throws Exception {
+		/*
+		 * List<Orders> orders=ordersService.findOrders(); for(Orders
+		 * order:orders){ System.out.println(order); }
+		 */
 	}
+
 	@Test
-	public void findOrdersCount() throws Exception{
+	public void findOrdersCount() throws Exception {
 	}
+
 	@Test
-	public void ordersPagination() throws Exception{
+	public void ordersPagination() throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		System.out.println(ordersService.ordersPagination(pagination));
 	}
+
 	@Test
-	public void findBuyserAndPersonalInformation() throws Exception{
-		System.out.println(ordersService.findBuyserAndPersonalInformation("12"));
+	public void findBuyserAndPersonalInformation() throws Exception {
+		System.out
+				.println(ordersService.findBuyserAndPersonalInformation("12"));
 	}
+
 	@Test
-	public void findOrdersAndBuyserById() throws Exception{
-		System.out.println(ordersService.findOrdersAndBuyserById("12").getName());
+	public void findOrdersAndBuyserById() throws Exception {
+		System.out.println(ordersService.findOrdersAndBuyserById("12")
+				.getName());
 	}
-	
+
 }

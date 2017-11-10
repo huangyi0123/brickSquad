@@ -15,55 +15,64 @@ import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
+
 @Transactional
 public class RegionServiceImpl implements RegionService {
 	@Autowired
 	@Qualifier("regionMapper")
 	private RegionMapper regionMapper;
+
 	@Override
 	public String findRegionByLevel(int level) {
-		List<Select> regions =regionMapper.findRegionsByLevel(level);
+		List<Select> regions = regionMapper.findRegionsByLevel(level);
 		JSONArray jsonArray = new JSONArray();
-		String dataregion =jsonArray.fromObject(regions).toString();
+		String dataregion = jsonArray.fromObject(regions).toString();
 		return dataregion;
 	}
+
 	@Override
 	public Region findRegionById(String id) {
 		return regionMapper.findRegionById(id);
 	}
+
 	@Override
-	public void insertRegionById(Region region){
+	public void insertRegionById(Region region) {
 		regionMapper.insertRegionById(region);
 	}
+
 	@Override
-	public void updateRegion(Region region){
+	public void updateRegion(Region region) {
 		regionMapper.updateRegion(region);
 	}
+
 	@Override
 	public void deleteRegionById(String id) {
 		// TODO Auto-generated method stub
 		regionMapper.deleteRegionById(id);
 	}
+
 	@Override
 	public String regionPagination(Pagination pagination) {
-		List<Region> regions=regionMapper.regionPagination(pagination);
-		int row=regionMapper.regionCount(pagination);
-		Util<Region> util=new Util<Region>();
-		String data=util.SplitPage(regions, row);
+		List<Region> regions = regionMapper.regionPagination(pagination);
+		int row = regionMapper.regionCount(pagination);
+		Util<Region> util = new Util<Region>();
+		String data = util.SplitPage(regions, row);
 		return data;
 	}
+
 	@Override
 	public String findRegionByParentId(String perantId) {
 		List<Region> regions = regionMapper.findRegionByParentId(perantId);
 		JSONArray jsonArray = new JSONArray();
-		String dataregion =jsonArray.fromObject(regions).toString();
+		String dataregion = jsonArray.fromObject(regions).toString();
 		return dataregion;
 	}
+
 	@Override
 	public String findAllRegion() {
 		// TODO Auto-generated method stub
 		List<Region> list = regionMapper.findAllRegion();
-		JSONArray jsonArray = new	JSONArray();
+		JSONArray jsonArray = new JSONArray();
 		String data = jsonArray.fromObject(list).toString();
 		return data;
 	}
