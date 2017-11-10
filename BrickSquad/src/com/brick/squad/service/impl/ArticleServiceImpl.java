@@ -234,6 +234,8 @@ public class ArticleServiceImpl implements ArticalService{
 		
 		return articleMapper.selectArticleRatedTotalById(id);
 	}
+	
+	//页面分页
 	@Override
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page,
 			int limitPage) throws Exception {
@@ -335,11 +337,11 @@ public class ArticleServiceImpl implements ArticalService{
 		}
 		return pageBean;
 	}
-	
+	//查询最新商品
 	@Override
-	public List<ArticleExpand> findFrontTime() {
-		List<ArticleExpand> articleExpand = articleMapper.findFrontTime();
-		System.err.println(articleExpand.size());
-		return articleExpand;
+	public List<NewsArticle> findFrontTime() {
+		List<NewsArticle> NewsArticleList = articleMapper.findFrontTime();
+		System.err.println(NewsArticleList.size());
+		return NewsArticleList;
 	}
 }

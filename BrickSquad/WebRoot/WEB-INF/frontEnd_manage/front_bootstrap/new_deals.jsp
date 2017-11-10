@@ -1612,7 +1612,7 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
-										<c:forEach items="${articleExpandList }" var="a">		
+										<c:forEach items="${NewsArticleList }" var="a">		
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 												<div class="item-detail">
 													<div class="item-img products-thumb">
@@ -1676,7 +1676,7 @@
 														<!-- rating  -->
 														<div class="reviews-content">
 															<div class="star"></div>
-															<div class="item-number-rating">0人已购买</div>
+															<div class="item-number-rating">${a.totals}人已购买</div>
 														</div>
 														<!-- end rating  -->
 
@@ -1701,6 +1701,86 @@
 												</div>
 											</div>
 										</c:forEach>
+										
+										<div class="products-nav clearfix">
+								<div class="view-mode-wrap pull-left clearfix">
+									<div class="view-mode">
+										<a href="javascript:void(0)" class="grid-view active"
+											title="模块视图"><span>模块视图</span></a> <a
+											href="javascript:void(0)" class="list-view" title="列表视图"><span>列表视图</span></a>
+									</div>
+								</div>
+
+								<div class="catalog-ordering">
+									<div class="orderby-order-container clearfix">
+										<ul class="orderby order-dropdown pull-left">
+											<li><span class="current-li"><span
+													class="current-li-content"><a>默认排序</a></span></span>
+												<ul>
+													<li class="current"><a href="#">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
+													
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
+												</ul></li>
+										</ul>
+
+										<ul class="order pull-left">
+											<li class="asc"><a href="#"><i
+													class="fa fa-long-arrow-down"></i></a></li>
+										</ul>
+
+										<div class="product-number pull-left clearfix">
+											<span class="show-product pull-left">显示 </span>
+											<ul class="sort-count order-dropdown pull-left">
+												<li><span class="current-li"><a>12</a></span>
+												<ul>
+												<c:if test="${ url=='findOrderByMedicalInstruments'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+													<c:if test="${url=='toShop_left_sidebar'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
+													</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+										<nav class="woocommerce-pagination pull-right"> <span
+									class="note">页数:</span>
+								<ul class="page-numbers">
+								<c:if test="${ url=='toShop_left_sidebar'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByMedicalInstruments'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								</ul>
+								</nav>
+							</div>
+										
 										<!--  <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 											<div class="item-detail">
 												<div class="item-img products-thumb">

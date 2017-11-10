@@ -3,6 +3,7 @@ package com.brick.squad.mapper;
 import java.util.List;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -77,7 +78,9 @@ public interface ArticleMapper {
 	/**
 	 * 获取最新添加的商品
 	 */
-	public List<ArticleExpand> findFrontTime();
+	public List<NewsArticle> findFrontTime();
+	/**获取所有商品数量*/
+	public String findFrontTimeNumber();
 
 }
 
