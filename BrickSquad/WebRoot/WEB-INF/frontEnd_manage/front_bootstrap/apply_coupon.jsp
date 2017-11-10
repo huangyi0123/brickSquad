@@ -250,47 +250,83 @@
 							</div> --> </header>
 		<div class="cou_body">
 			<span
-				style="background: url('resource/image/hot-icons.png') no-repeat 600px 20px; display: block; height: 40px;"></span>
+				style="background: url('resource/image/hot-icons.png') no-repeat 590px 20px; display: block; height: 40px;"></span>
 			<label
-				style="margin-left: 650px;margin-top: -25px;font-weight: bold;font-size: 20px;">精选好券</label>
+				style="margin-left: 640px;margin-top: -25px;font-weight: bold;font-size: 20px;">精选好券</label>
 			<span
-				style="background: url('resource/image/hot-icons.png') no-repeat 750px 20px; display: block; height: 40px;margin-top: -45px;"></span>
+				style="background: url('resource/image/hot-icons.png') no-repeat 740px 20px; display: block; height: 40px;margin-top: -45px;"></span>
 
 			<div style="width: 80%;margin: 0 auto;">
 				<div class="coupon">
 					<div class="coupon-left">
 						<div class="coupon-inner">
-						<div class="coupon-img">
-						<img alt="" src="resource/image/2.png">
-						</div>
+							<div class="coupon-img">
+								<img alt="" src="resource/image/2.png">
+							</div>
 							<div class="coupon-money">
 								<span class="money_icon">¥</span> <span class="sum">100.00</span>
-							
+
 							</div>
 							<div class="coupon-describe">
-							<p>仅可购买自营厨卫及净水器、饮水机部分商品</p>
+								<p>仅可购买自营厨卫及净水器、饮水机部分商品</p>
 							</div>
-								
+
 							<div class="coupon-condition">
 								<p>满200.00可用</p>
 							</div>
-							<div class="coupon-condition">
+							<div class="coupon-percent">
 								<p>已抢20%</p>
+							</div>
+							<div class="layui-progress"  style="width: 120px;margin-left: 180px;margin-top: -25px;">
+								<div class="layui-progress-bar layui-bg-orange" lay-percent="20%"></div>
 							</div>
 						</div>
 					</div>
 					<a href="#" style="z-index: 1">
-					<div class="coupon-right" style="z-index: 10">
-						<div class="coupon-inner">
-							<div class="coupon-time">
-								立即领取
-								
+						<div class="coupon-right" style="z-index: 10">
+							<div class="coupon-inner">
+								<div class="coupon-time">立即领取</div>
+
+								<i class="coupon-circle top"></i> <i
+									class="coupon-circle bottom"></i>
 							</div>
-							
-							<i class="coupon-circle top"></i> <i class="coupon-circle bottom"></i>
+						</div> <!-- <div class="coupon-light"></div> -->
+					</a>
+				</div>
+				<div class="coupon coupon-diabled">
+					<div class="coupon-left">
+						<div class="coupon-inner">
+							<div class="coupon-img">
+								<img alt="" src="resource/image/2.png">
+							</div>
+							<div class="coupon-money">
+								<span class="money_icon">¥</span> <span class="sum">100.00</span>
+
+							</div>
+							<div class="coupon-describe">
+								<p>仅可购买自营厨卫及净水器、饮水机部分商品</p>
+							</div>
+
+							<div class="coupon-condition">
+								<p>满200.00可用</p>
+							</div>
+							<div class="coupon-percent">
+								<p>已抢20%</p>
+							</div>
+							<div class="layui-progress"  style="width: 120px;margin-left: 180px;margin-top: -25px;">
+								<div class="layui-progress-bar layui-bg-orange" lay-percent="20%"></div>
+							</div>
 						</div>
 					</div>
-					<!-- <div class="coupon-light"></div> -->
+					<a href="#" style="z-index: 1">
+						<div class="coupon-right" style="z-index: 10">
+							<div class="coupon-inner">
+								<div class="coupon-time">立即领取</div>
+
+								<i class="coupon-circle top"></i> <i
+									class="coupon-circle bottom"></i>
+							</div>
+						</div> <!-- <div class="coupon-light"></div> -->
 					</a>
 				</div>
 			</div>

@@ -9,11 +9,15 @@
 	line-height: 25px;
 	overflow: hidden;
 	margin-top: 15px;
+	margin-left: 55px;
 }
 
 .coupon-diabled {
 	background: #c3c3c3;
 	color: #666;
+	float: left;
+	margin-left: 610px;
+	margin-top: -150px;
 }
 
 .coupon:after {
@@ -27,7 +31,7 @@
 .coupon-money .sum {
 	display:block;
 	font-size: 25px;
-	margin-left: -10px;
+	margin-left: 5px;
 	margin-top: -10px;
 }
 
@@ -49,15 +53,23 @@
 	width:150px;
 	margin-left: 125px;
 	margin-top: 10px;
-	line-height: 15px;
+	line-height: 20px;
 }
 
 .coupon-condition p{
 	display:block;
 	width:80px;
 	margin-left: 230px;
-	margin-top: -68px;
+	margin-top: -80px;
 }
+
+.coupon-percent{
+	display:block;
+	width:80px;
+	margin-left: 125px;
+	margin-top: 50px;
+}
+
 .coupon-right {
 	float: right;
 	text-align: center;
@@ -68,7 +80,7 @@
 
 .coupon-inner {
 	padding: 10px 15px;
-	height: 80px;
+	height: 150px;
 	position: relative;
 }
 
@@ -76,12 +88,20 @@
 	border-left: 2px dashed rgba(255, 255, 255, .5);
 }
 
-.coupon-money,.coupon-time {
+.coupon-money{
 	width:20px;
-	margin: 0 auto;
-	line-height: 20px;
+    margin-left:130px;
 	color: white;
-	
+	text-align: center;
+}
+
+.coupon-time {
+	width:20px;
+	margin: 15 auto;
+	line-height: 25px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
 }
 
 .coupon-circle {
@@ -99,7 +119,7 @@
 }
 
 .coupon-circle.bottom {
-	bottom: -20px;
+	bottom: -8px;
 }
 
 .coupon-light {
