@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
@@ -79,8 +80,8 @@ public class TypeServiceImpl implements TypeService{
 	/***
 	 * 医疗器械一级分类查询
 	 */
-	public List<Type> findIdAndTypeNmae(String parentId) throws Exception {
-		List<Type> listType=typeMapper.findIdAndTypeNmae(parentId);
+	public List<TypeExpand> findIdAndTypeNmae(String parentId) throws Exception {
+		List<TypeExpand> listType=typeMapper.findIdAndTypeNmae(parentId);
 		return listType;
 	}
 

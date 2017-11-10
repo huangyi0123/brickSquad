@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
@@ -51,7 +52,7 @@ public interface TypeService {
 	/***
 	 * 医疗器械一级分类查询
 	 */
-	public List<Type> findIdAndTypeNmae(String parentId)throws Exception;
+	public List<TypeExpand> findIdAndTypeNmae(String parentId)throws Exception;
 	/**
 	 * 查询商品类型
 	 * @return 商品类型列表

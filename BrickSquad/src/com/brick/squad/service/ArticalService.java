@@ -109,5 +109,9 @@ public interface ArticalService {
 	/**
 	 * 获取最新添加的商品
 	 */
+
+	public  List<Article> findSecondMedicalInstruments(String typeId)throws Exception;
+
 	public List<NewsArticle> findFrontTime();
+
 }
