@@ -880,7 +880,7 @@
 									</div>
 
 									<h4>
-										<a href="${pageContext.request.contextPath }/find?id=${article2.id}" title="${article2.aname }">${article2.aname }</a>
+										<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article2.id}" title="${article2.aname }">${article2.aname }</a>
 									</h4>
 
 									<div class="price">

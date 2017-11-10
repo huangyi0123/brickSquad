@@ -788,7 +788,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li 
 								class="dropdown menu-smartphones-tablet etrostore-mega-menu
 								level1">
-								<a href="#" class="item-link dropdown-toggle"> <span
+								<a href="${pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar" class="item-link dropdown-toggle"> <span
 									class="have-title"> <span class="menu-color"
 										data-color="#13528c"></span> <span class="menu-title">医药器械</span>
 								</span>
