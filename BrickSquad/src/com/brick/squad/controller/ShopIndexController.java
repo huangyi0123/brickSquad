@@ -51,7 +51,7 @@ public class ShopIndexController {
 		request.setAttribute("aNewsArticles",nList);
 		request.setAttribute("aNewsArticlesTop",getImagePath(request, newsArticlesTop));
 		request.setAttribute("rArticles", rList);
-		request.setAttribute("rArticlesTop",rArticlesTop);
+		request.setAttribute("rArticlesTop",getImagePath(request, rArticlesTop));
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
