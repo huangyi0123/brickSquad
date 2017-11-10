@@ -41,7 +41,7 @@ public class HealthRecordsController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
-	
+
 	@RequestMapping("/toHealthRecordsList")
 	public String toHealthRecordsList() {
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
@@ -56,7 +56,8 @@ public class HealthRecordsController {
 
 	@RequestMapping("/getHealthRecordsList")
 	@ResponseBody
-	public String getHealthRecordsList(int pSize, int cPage, String keyword,HttpServletRequest request) {
+	public String getHealthRecordsList(int pSize, int cPage, String keyword,
+			HttpServletRequest request) {
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
@@ -68,19 +69,23 @@ public class HealthRecordsController {
 	@RequestMapping("/toAddHealthRecords")
 	public String toAddHealthRecords(HttpServletRequest request, String id)
 			throws Exception {
-		//得到数据库中查询的身份证 姓名 id的json数据用于页面显示出来
-				String	allPersonalInformationdata = guidanceService.findPerIdAndIdCard();
-				request.setAttribute("allPersonalInformationdata", allPersonalInformationdata);
-				String data=typeService.findTypeByParentId("jibingleixin");
-				//System.out.println(data);
-				request.setAttribute("typeData", data);
+		// 得到数据库中查询的身份证 姓名 id的json数据用于页面显示出来
+		String allPersonalInformationdata = guidanceService
+				.findPerIdAndIdCard();
+		request.setAttribute("allPersonalInformationdata",
+				allPersonalInformationdata);
+		// 通过父ID查询疾病类型
+		String data = typeService.findTypeByParentId("jibingleixin");
+		// System.out.println(data);
+		request.setAttribute("typeData", data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateHealthRecordsById");
-			HealthRecords healthRecords = healthRecordsService.findHealthRecordsById(id);
-			request.setAttribute("healthRecords",healthRecords);
-			
-			System.out.println(healthRecords+"111111111111111111111111111");
+			HealthRecords healthRecords = healthRecordsService
+					.findHealthRecordsById(id);
+			request.setAttribute("healthRecords", healthRecords);
+
+			System.out.println(healthRecords + "111111111111111111111111111");
 		} else {
 			request.setAttribute("url", "insertHealthRecords");
 			request.setAttribute("msg", "添加");
@@ -89,9 +94,11 @@ public class HealthRecordsController {
 	}
 
 	@RequestMapping("/insertHealthRecords")
-	public String insertHealthRecords(@Validated HealthRecords healthRecords,BindingResult result, HttpServletRequest request) {
+	public String insertHealthRecords(@Validated HealthRecords healthRecords,
+			BindingResult result, HttpServletRequest request) {
 		if (result.hasErrors()) {
-			System.out.println(healthRecords.getIdCard()+"11111111111111111111");
+			System.out.println(healthRecords.getIdCard()
+					+ "11111111111111111111");
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
 			request.setAttribute("url", "insertHealthRecords");
@@ -99,32 +106,38 @@ public class HealthRecordsController {
 			return "backstage_managed/jsp/healthRecords/add_healthRecords";
 
 		}
-		healthRecords.setUserId(request.getSession().getAttribute("userId").toString());
+		healthRecords.setUserId(request.getSession().getAttribute("userId")
+				.toString());
 		healthRecordsService.insertHealthRecords(healthRecords);
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 
 	}
-	
+
 	@RequestMapping("/findTypeByParentId")
 	@ResponseBody
 	public String findTypeByParentId(String parentId) {
 		return typeService.findTypeByParentId(parentId);
 	}
-	
+
 	@RequestMapping("/updateHealthRecordsById")
-	public String updateHealthRecordsById(HealthRecords healthRecords,HttpServletRequest request) {
-		healthRecords.setUserId(request.getSession().getAttribute("userId").toString());
+	public String updateHealthRecordsById(HealthRecords healthRecords,
+			HttpServletRequest request) {
+		healthRecords.setUserId(request.getSession().getAttribute("userId")
+				.toString());
 		healthRecordsService.updateHealthRecordsById(healthRecords);
 		return "backstage_managed/jsp/healthRecords/healthRecords_list";
 	}
-	//查看详情
+
+	// 查看详情
 	@RequestMapping("/serachHealthRecords")
-	public String serachHealthRecords(HttpServletRequest request,String id){
-		HealthRecords healthRecords=healthRecordsService.findHealthRecordsById(id);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
-		request.setAttribute("registrDate",df.format(healthRecords.getRegistrDate()));
-		request.setAttribute("healthRecords",healthRecords);
+	public String serachHealthRecords(HttpServletRequest request, String id) {
+		HealthRecords healthRecords = healthRecordsService
+				.findHealthRecordsById(id);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		request.setAttribute("registrDate",
+				df.format(healthRecords.getRegistrDate()));
+		request.setAttribute("healthRecords", healthRecords);
 		return "backstage_managed/jsp/healthRecords/search_healthRecords";
-	
+
 	}
 }

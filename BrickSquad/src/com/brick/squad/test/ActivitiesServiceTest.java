@@ -18,26 +18,28 @@ import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
-@ContextConfiguration(locations="classpath:com/brick/squad/config/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
 public class ActivitiesServiceTest {
-	
+
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
-	
+
 	@Test
-	public void findActivitiesById() throws Exception{
-	   Activities activities = activitiesService.findActivitiesById("1");
+	public void findActivitiesById() throws Exception {
+		Activities activities = activitiesService.findActivitiesById("1");
 		System.out.println(activitiesService.findActivitiesById("1").getName());
 	}
-	
+
 	@Test
-	public void deleteActivitiesById() throws Exception{
-		activitiesService.deleteActivitiesById("4492fddeb79c11e78d4f5254002ec43c");
-		
+	public void deleteActivitiesById() throws Exception {
+		activitiesService
+				.deleteActivitiesById("4492fddeb79c11e78d4f5254002ec43c");
+
 	}
+
 	@Test
-	public void updateActivitiesById() throws Exception{
+	public void updateActivitiesById() throws Exception {
 		Activities a = activitiesService.findActivitiesById("1");
 		a.setName("范伟111");
 		a.setCentent("好玩");
@@ -45,10 +47,9 @@ public class ActivitiesServiceTest {
 		a.setEndTime(new Date());
 		activitiesService.updateActivitiesById(a);
 	}
-	
-	
+
 	@Test
-	public void insertActivitiesById() throws Exception{
+	public void insertActivitiesById() throws Exception {
 		Activities activities = new Activities();
 		activities.setTypeId("12222");
 		activities.setName("麻将");
@@ -57,47 +58,51 @@ public class ActivitiesServiceTest {
 		activities.setEndTime(new Date());
 		activitiesService.insertActivitiesById(activities);
 	}
-	
-	
-	//分页测试
+
+	// 分页测试
 	@Test
-	public void testActivitiesPagination(){
+	public void testActivitiesPagination() {
 		List<Activities> activities = new ArrayList<>();
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
-		System.out.println("++++++++"+activitiesService.activitiesPagination(pagination));
+		System.out.println("++++++++"
+				+ activitiesService.activitiesPagination(pagination));
 	}
-	
+
 	@Test
-	public void findActivitiesAllCount(){
+	public void findActivitiesAllCount() {
 		System.out.println(activitiesService.findActivitiesAllCount());
 	}
-	
+
 	@Test
-	public void findAllActivities(){
+	public void findAllActivities() {
 		System.out.println(activitiesService.findAllActivities());
 	}
+
 	/**
 	 * 后补测试方法
 	 * */
 	@Test
-	public void findActivitiesAllCount1(){
+	public void findActivitiesAllCount1() {
 	}
+
 	@Test
-	public void findAllTypeAndUser(){
-		String data=activitiesService.findAllTypeAndUser();
-		System.out.println("+++++++"+data+"++++++");
+	public void findAllTypeAndUser() {
+		String data = activitiesService.findAllTypeAndUser();
+		System.out.println("+++++++" + data + "++++++");
 	}
+
 	@Test
-	public void findActivitiesAndTpyeAndUser(){
-		ActivitiesExpand activitiesExpand= activitiesService.findActivitiesAndTpyeAndUser("4492fddeb79c11e78d4f5254002ec43c");
-		System.out.println("测试"+activitiesExpand);
+	public void findActivitiesAndTpyeAndUser() {
+		ActivitiesExpand activitiesExpand = activitiesService
+				.findActivitiesAndTpyeAndUser("4492fddeb79c11e78d4f5254002ec43c");
+		System.out.println("测试" + activitiesExpand);
 	}
-	
+
 	@Test
-	public void findAllActivitiesIdAndName(){
-		String data=activitiesService.findAllActivitiesIdAndName();
-		System.out.println("测试+++++++++++++"+data);
+	public void findAllActivitiesIdAndName() {
+		String data = activitiesService.findAllActivitiesIdAndName();
+		System.out.println("测试+++++++++++++" + data);
 	}
 }

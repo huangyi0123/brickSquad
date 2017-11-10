@@ -36,22 +36,27 @@ public interface ShoppingCarService {
 	 * 查询购物车所有信息
 	 * */
 	public List<ShoppingCar> findShoppingCar() throws Exception;
+
 	/**
 	 * 查询购物车总数
 	 * */
-	//public Integer findShoppingCarCount()throws Exception;
+	// public Integer findShoppingCarCount()throws Exception;
 	/**
 	 * 购物车分页查询
 	 * */
-	public String shoppingCarPagination(Pagination pagination)throws Exception;
+	public String shoppingCarPagination(Pagination pagination) throws Exception;
+
 	/**
 	 * 查询购物车关联查询到的需要字段：商品信息字段，老人信息字段
 	 * */
-	public String findArticleAndPersonalInformation()throws Exception;
+	public String findArticleAndPersonalInformation() throws Exception;
+
 	/**
 	 * 查询购物车详细信息，关联查询到老人姓名与商品名称
 	 * */
-	public ShoppingCarExpand findShoppingCarAndUserAndPsersonalInformationById(String id)throws Exception;
+	public ShoppingCarExpand findShoppingCarAndUserAndPsersonalInformationById(
+			String id) throws Exception;
+
 	/**
 	 * 根据购物车中的商品id查询出商品表中的所有信息
 	 */

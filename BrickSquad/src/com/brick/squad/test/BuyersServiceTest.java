@@ -18,13 +18,14 @@ import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
 
 @RunWith(JunitClassRunner.class)
-@ContextConfiguration(locations="classpath*:com/brick/squad/config/applicationContext.xml")
+@ContextConfiguration(locations = "classpath*:com/brick/squad/config/applicationContext.xml")
 public class BuyersServiceTest {
 	@Autowired
 	@Qualifier("buyersService")
 	private BuyersService buyersService;
+
 	@Test
-	public void testInsertBuyers() throws Exception{
+	public void testInsertBuyers() throws Exception {
 		Buyers buyers = new Buyers();
 		Address address = new Address();
 		address.setCityId("9");
@@ -35,48 +36,57 @@ public class BuyersServiceTest {
 		address.setProvinceId("89");
 		buyers.setCurrentIntegral(5);
 		buyers.setDeliveryAddressId("6");
-		buyers.setGrade(4);
+		// buyers.setGrade(4);
 		buyers.setHistoricalIntegral(5);
-		/*buyers.setInformationId("8");*/
+		/* buyers.setInformationId("8"); */
 	}
+
 	@Test
-	public void testfindBuyersByUUID () throws Exception{
-/*		Buyers buyers = new Buyers();
-		buyers.setId("1");*/
-		 Buyers buyers=buyersService.findBuyersByUUID("ab1595b6b0bd11e78d4f5254002ec43c");
-		 System.out.println(buyers.getPersonalInformation().getFamilyHistory());
+	public void testfindBuyersByUUID() throws Exception {
+		/*
+		 * Buyers buyers = new Buyers(); buyers.setId("1");
+		 */
+		Buyers buyers = buyersService
+				.findBuyersByUUID("ab1595b6b0bd11e78d4f5254002ec43c");
+		System.out.println(buyers.getPersonalInformation().getFamilyHistory());
 	}
+
 	@Test
-	public void testUpdateBuyersById() throws Exception{
+	public void testUpdateBuyersById() throws Exception {
 		AddressAndBuyersExpand addressAndBuyersExpand = new AddressAndBuyersExpand();
-		buyersService.updateBuyersById(addressAndBuyersExpand);	
+		buyersService.updateBuyersById(addressAndBuyersExpand);
 	}
+
 	@Test
-	public void testDeleteBuyersById() throws Exception{
+	public void testDeleteBuyersById() throws Exception {
 		buyersService.deleteBuyersById("21");
 	}
+
 	@Test
-	public void testBuyersPagination() throws Exception{
-		/*List<Buyers> lBuyers = new ArrayList<Buyers>();*/
+	public void testBuyersPagination() throws Exception {
+		/* List<Buyers> lBuyers = new ArrayList<Buyers>(); */
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(6);
-		/*lBuyers = buyersService.buyersPagination(pagination);*/
-		String data=buyersService.buyersPagination(pagination);
+		/* lBuyers = buyersService.buyersPagination(pagination); */
+		String data = buyersService.buyersPagination(pagination);
 		System.out.println(data);
 	}
-	/*@Test
-	public void testFindBuyersAllCount() throws Exception{
-		buyersService.findBuyersAllCount();
-	}*/
+
+	/*
+	 * @Test public void testFindBuyersAllCount() throws Exception{
+	 * buyersService.findBuyersAllCount(); }
+	 */
 	@Test
-	public void findAddressById() throws Exception{
-		Address address=buyersService.findAddressById("9ea6cab4b86211e78d4f5254002ec43c");
+	public void findAddressById() throws Exception {
+		Address address = buyersService
+				.findAddressById("9ea6cab4b86211e78d4f5254002ec43c");
 		System.out.println(address.getProvinceId());
 	}
+
 	@Test
-	public void findRegionsByLevel(){
-		String data=buyersService.findRegionsByLevel();
+	public void findRegionsByLevel() {
+		String data = buyersService.findRegionsByLevel();
 		System.out.println(data);
 	}
 }

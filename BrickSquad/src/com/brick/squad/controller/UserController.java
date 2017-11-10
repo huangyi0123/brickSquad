@@ -44,7 +44,6 @@ public class UserController {
 		return "backstage_managed/jsp/user/user_list";
 	}
 
-
 	@RequestMapping("/getUserList")
 	@ResponseBody
 	public String getUserList(int pSize, int cPage, String keyword) {

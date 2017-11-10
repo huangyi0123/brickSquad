@@ -20,21 +20,24 @@ public class RapportTest {
 	@Autowired
 	@Qualifier("rapportService")
 	private RapportService rapportService;
+
 	@Test
-	public void findRapportById() throws Exception{
-		Rapport rapport= rapportService.findRapportById("1");
+	public void findRapportById() throws Exception {
+		Rapport rapport = rapportService.findRapportById("1");
 		System.out.println(rapport);
 	}
+
 	@Test
-	public void findRapport() throws Exception{
-		List<Rapport> rapports= rapportService.findRapport();
-		for(Rapport rapport:rapports){
-		System.out.println(rapport.getRapportDate());
+	public void findRapport() throws Exception {
+		List<Rapport> rapports = rapportService.findRapport();
+		for (Rapport rapport : rapports) {
+			System.out.println(rapport.getRapportDate());
 		}
 	}
+
 	@Test
-	public void insertRapport() throws Exception{
-		Rapport rapport=new Rapport();
+	public void insertRapport() throws Exception {
+		Rapport rapport = new Rapport();
 		rapport.setContent("666666");
 		rapport.setPerId("66666");
 		rapport.setId("666");
@@ -44,9 +47,10 @@ public class RapportTest {
 		rapport.setPeriod(66666f);
 		rapportService.insertRapport(rapport);
 	}
+
 	@Test
-	public void updateRapportByID() throws Exception{
-		Rapport rapport=new Rapport();
+	public void updateRapportByID() throws Exception {
+		Rapport rapport = new Rapport();
 		rapport.setContent("1");
 		rapport.setId("1");
 		rapport.setPerId("1");
@@ -54,24 +58,28 @@ public class RapportTest {
 		rapport.setUserId("323");
 		rapportService.updateRapportByID(rapport);
 	}
+
 	@Test
-	public void deleteRapportById() throws Exception{
+	public void deleteRapportById() throws Exception {
 		rapportService.deleteRapportById("3");
 	}
-	/*@Test
-	public void findRapportCount() throws Exception{
-		Integer count=rapportService.findRapportCount();
-		System.out.println(count);
-	}*/
+
+	/*
+	 * @Test public void findRapportCount() throws Exception{ Integer
+	 * count=rapportService.findRapportCount(); System.out.println(count); }
+	 */
 	@Test
-	public void rapportCarPagination() throws Exception{
+	public void rapportCarPagination() throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(3);
 		System.out.println(rapportService.rapportPagination(pagination));
 	}
+
 	@Test
-	public void findRapportAndUserAndPersonalInformation() throws Exception{
-		System.out.println(rapportService.findRapportAndUserAndPersonalInformation("b418bf20b93811e78d4f5254002ec43c").getUsername());
+	public void findRapportAndUserAndPersonalInformation() throws Exception {
+		System.out.println(rapportService
+				.findRapportAndUserAndPersonalInformation(
+						"b418bf20b93811e78d4f5254002ec43c").getUsername());
 	}
 }

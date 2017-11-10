@@ -30,7 +30,7 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 	@Override
 	public void insertHealthRecords(HealthRecords healthRecords) {
 		healthRecords.setRegistrDate(new Date());
-		//System.out.println(healthRecords.getRegistrDate()+"555555555555555555");
+		// System.out.println(healthRecords.getRegistrDate()+"555555555555555555");
 		healthRecordsMapper.insertHealthRecords(healthRecords);
 
 	}
@@ -55,18 +55,18 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 
 	@Override
 	public String healthRecordsPagination(Pagination pagination) {
-		List<HealthRecordsExpand> healthRecords = healthRecordsMapper.healthRecordsPagination(pagination);
+		List<HealthRecordsExpand> healthRecords = healthRecordsMapper
+				.healthRecordsPagination(pagination);
 		int row = healthRecordsMapper.findHealthRecordsAllCount(pagination);
 		Util<HealthRecordsExpand> util = new Util<>();
 		String data = util.SplitPage(healthRecords, row);
 		return data;
 	}
 
-	/*@Override
-	public int findHealthRecordsAllCount() {
-		// TODO Auto-generated method stub
-		return healthRecordsMapper.findHealthRecordsAllCount();
-	}*/
+	/*
+	 * @Override public int findHealthRecordsAllCount() { // TODO Auto-generated
+	 * method stub return healthRecordsMapper.findHealthRecordsAllCount(); }
+	 */
 
 	@Override
 	public String findAllPersonalInformationGetIdAndIdCardAndName() {
@@ -80,10 +80,8 @@ public class HealthRecordsServiceImpl implements HealthRecordsService {
 
 	@Override
 	public HealthRecords findHealthRecordsByPerId(String perId) {
-		
+
 		return healthRecordsMapper.findHealthRecordsByPerId(perId);
 	}
-	
-	
 
 }

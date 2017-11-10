@@ -75,6 +75,54 @@
 	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css"
 	href="resource/css/ProductDetails.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/pictureMagnification/css/default.css">
+<link rel="stylesheet"
+	href="resource/plugins/pictureMagnification/css/smoothproducts.css">
+<style type="text/css">
+.page {
+	padding: 5px 30px 30px 30px;
+	max-width: 800px;
+	margin: 0 auto;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans",
+		"Helvetica Neue", Arial, sans-serif;
+	background: #fff;
+	color: #555;
+	height: 400px;
+}
+
+img {
+	border: none;
+}
+
+a:link,a:visited {
+	color: #F0353A;
+}
+
+a:hover {
+	color: #8C0B0E;
+}
+
+ul {
+	overflow: hidden;
+}
+
+pre {
+	background: #333;
+	padding: 10px;
+	overflow: auto;
+	color: #BBB7A9;
+}
+
+.demo {
+	text-align: center;
+	padding: 30px 0
+}
+
+.clear {
+	clear: both;
+}
+</style>
 </head>
 
 <body
@@ -94,7 +142,7 @@
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
 									class="go-page"></span></li> -->
-									<li class="active"><span>商品详情</span></li>
+								<li class="active"><span>商品详情</span></li>
 								<li class="active"><span>${ article.aname}</span></li>
 							</ul>
 						</div>
@@ -113,35 +161,33 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${images[0]}"
-										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
+									<div class="page">
+										<div class="sp-wrap">
+											<c:forEach var="a" items="${images }">
+												<a href="resource/image/articleImg/${ article.image}/${a}"><img
+													src="resource/image/articleImg/${ article.image}/${a}"
+													alt=""></a>
+											</c:forEach>
+										</div>
+									</div>
 									<div class="comm_imgs">
-									
-										<c:forEach var="a" items="${images }">
-										
-										<a href="javaScript:;"><img alt="" src="resource/image/articleImg/${ article.image}/${a}"></a>
-											
-										</c:forEach>
 										<div>
-											<div style="float: left;">
+											<div>
 												<a href="#"
 													style="color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-share"></i> <label
 													style="cursor: pointer;">分享</label>
 												</a> <a href="#"
-													style="display:block; color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
+													style="display:block; color: #BAAA99;border: none;margin-left: 40px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-star"></i> <label
 													style="cursor: pointer;">收藏商品</label>
 												</a> <label
-													style="font-size: 0.1px;margin-top: 42px;color:#BAAA99;">（1762人气）</label>
-											</div>
-											<div style="float: left;">
-												<a href="#"
-													style="display: block; margin-left:285px;margin-top: 38px;border: none;color: #BAAA99;">举报</a>
+													style="font-size: 0.1px;margin-left:60px;margin-top: 40px;color:#BAAA99;">（1762人气）</label>
 											</div>
 										</div>
 									</div>
 								</div>
+
 								<div class="comm_info">
 									<p
 										style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">${ article.aname}</p>
@@ -264,7 +310,8 @@
 									</form>
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
-										<input  type="number" class="layui-input" value="1"
+										<input id="articleNumberId" type="number" class="layui-input"
+											value="1" min="1" max="${ article.stock}"
 											style=" width: 70px;margin-left: 110px;margin-top: -35px;">
 										<label
 											style="display:block; margin-top: -30px;margin-left: 185px;">件</label>
@@ -273,7 +320,13 @@
 									</div>
 									<input type="submit" value="立即购买"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
-									<input type="submit" value="加入购物车"
+									<!-- 先给死perid -->
+									<input type="hidden" id="userId"
+										value="04a925e8c2b611e7aca65254002ec43c">
+									<!--隐藏域存当前商品ID  -->
+									<input type="hidden" id="articleId" value="${ article.id}">
+									<input type="button" value="加入购物车"
+										onclick="userAddArticleToShoppingCar()"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white;margin-top: 40px;margin-left: 40px;">
 
 
@@ -297,7 +350,7 @@
 										<div class="tab-pane tab1 active" id="tab-description">
 											<h2>商品详情</h2>${ article.describes}
 
-			<!-- 								<i class="glyphicon glyphicon-bookmark"
+											<!-- 								<i class="glyphicon glyphicon-bookmark"
 												style="color: orange;font-size: 1.2em;"></i>
 											<h3
 												style="margin-left: 25px;margin-top: -20px;color: orange;">商品尺码SIZE</h3>
@@ -449,25 +502,26 @@
 											<form class="layui-form" action="">
 												<div class="layui-form-item">
 													<div class="layui-input-block layui-input-blocksa">
-														<input type="radio" name="sex" value="" title="全部(${ratedTotal })"
-															style="font-size: 10px;" checked="">
+														<input type="radio" name="sex" value=""
+															title="全部(${ratedTotal })" style="font-size: 10px;"
+															checked="">
 														<input type="radio" name="sex" value="" title="追评(4)"
 															style="font-size: 10px;">
 														<input type="radio" name="sex" value="" title="图片(7)"
 															style="font-size: 10px;">
-													
+
 													</div>
-													
+
 												</div>
 											</form>
-											
+
 										</div>
 										<c:forEach var="orderRated" items="${orderRateds }">
 													${orderRated.ratedUserName }
 													${orderRated.ratedCentent }
 													${orderRated.ratedDate }
 													<hr style="background-color: #EFEFEF;">
-													</c:forEach>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -1131,8 +1185,49 @@
 		src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript"
+		<script src="resource/plugins/pictureMagnification/js/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="resource/plugins/pictureMagnification/js/smoothproducts.min.js"></script>
+		<script type="text/javascript">
+/* wait for images to load */
+$(window).load(function() {
+	$('.sp-wrap').smoothproducts();
+});
+</script>
+		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+		<script type="text/javascript">
+		/* 添加购物车JS，ajax提交 */
+		function userAddArticleToShoppingCar() {
+			var userId = $("#userId").val();
+			var articleId = $("#articleId").val();
+			var articleNumber = $("#articleNumberId").val();
+			var shoppingCar = {
+				'perId' : userId,
+				'articleId' : articleId,
+				'number' : articleNumber
+			};
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				$.ajax({
+					url : 'variableProduct/userAddArticleToShoppingCar',
+					type : "POST",
+					data : shoppingCar,
+					success : function(data) {
+						if (data == "fail") {
+							alert("添加到购物车失败！稍后重试");
+						} else if (data == "success") {
+							alert("添加到购物车成功！");
+						}
+					},
+					error : function(e) {
+						alert("服务器错误！！稍后重试");
+					}
+				});
+			});
+
+		}
+	</script>
+		<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();
@@ -1162,7 +1257,6 @@
 			});
 		});
 	</script>
-
 	<!--[if gte IE 9]><!-->
 	<script type="text/javascript">
 		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
@@ -1173,11 +1267,11 @@
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<script>
+	<!-- 	<script>
 		layui.use([ 'form', 'layedit', 'laydate' ], function() {
-			var form = layui.form, layer = layui.layer;
+			var form = layui.form;
 		})
-	</script>
+	</script> -->
 	<!--<![endif]-->
 </body>
 </html>

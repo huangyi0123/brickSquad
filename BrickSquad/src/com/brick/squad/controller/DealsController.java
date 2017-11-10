@@ -19,7 +19,7 @@ public class DealsController {
 	@Autowired
 	@Qualifier("articleService")
 	private ArticalService articleService;
-	
+
 	@RequestMapping("/todeals")
 	public String deals(HttpServletRequest request) {
 		List<ArticleExpand> articleExpandList = articleService
@@ -44,7 +44,7 @@ public class DealsController {
 							item.setImage("resource/image/articleImg/"
 									+ item.getImage() + "/"
 									+ files[i].getName());
-							
+
 							break;
 						}
 					}

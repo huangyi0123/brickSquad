@@ -74,11 +74,13 @@
 	</select>
 	<!-- 医疗器械一级分类查询 -->
 	<select id="findIdAndTypeNmae" parameterType="java.lang.String"
-		resultType="Type">
-		SELECT type.id,type.`name`
-		FROM type
+		resultType="com.brick.squad.expand.TypeExpand">
+		SELECT t.id,t.`name`,a.id aid
+		FROM type t 
+		JOIN article a ON t.id=a.type_id
 		WHERE
-		type.parent_id=#{parentId}
+		t.parent_id=#{parentId}
+		group by t.`name`
 	</select>
 	<select id="findTypeByArticl" resultType="com.brick.squad.util.Select">
 		SELECT t1.id

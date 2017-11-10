@@ -49,7 +49,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="wrap-myacc pull-right">
 						<div class="sidebar-account pull-left">
 							<div class="account-title">我的淘宝</div>
-
 							<div id="my-account" class="my-account">
 								<div
 									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
@@ -182,8 +181,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="number-item">
 												There are <span>items</span> in your cart
 											</div>
-
-											<ul class="minicart-content">
+										
+											<ul class="minicart-content" >
 												<li><a href="simple_product.html" class="product-image">
 														<img width="100" height="100"
 														src="resource/front_bootstrap/images/1903/45-150x150.jpg"
@@ -192,37 +191,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w"
 														sizes="(max-width: 100px) 100vw, 100px" />
 												</a>
-
-													<div class="detail-item">
+													<div class="detail-item" >
 														<div class="product-details">
 															<h4>
-																<a class="title-item" href="simple_product.html">Veniam
-																	Dolore</a>
+																<a class="title-item" href="simple_product.html">
+																	</a>
 															</h4>
-
+															
 															<div class="product-price">
 																<span class="price"> <span
 																	class="woocommerce-Price-amount amount"> <span
-																		class="woocommerce-Price-currencySymbol">$</span>190.00
+																		class="woocommerce-Price-currencySymbol">$</span>10
 																</span>
 																</span>
 
 																<div class="qty">
-																	<span class="qty-number">1</span>
+																	<span class="qty-number">5</span>
 																</div>
 															</div>
-
 															<div class="product-action clearfix">
-																<a href="#" class="btn-remove" title="Remove this item">
+																<a href="#" class="btn-remove" title="删除此物品2">
 																	<span class="fa fa-trash-o"></span>
-																</a> <a class="btn-edit" href="cart.html"
-																	title="View your shopping cart"> <span
-																	class="fa fa-pencil"></span>
+																</a> 
 																</a>
 															</div>
 														</div>
 													</div></li>
-
+											
 												<li><a href="simple_product.html" class="product-image">
 														<img width="100" height="100"
 														src="resource/front_bootstrap/images/1903/22-150x150.jpg"
@@ -252,11 +247,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															</div>
 
 															<div class="product-action clearfix">
-																<a href="#" class="btn-remove" title="Remove this item">
+																<a href="#" class="btn-remove" title="删除此物品3">
 																	<span class="fa fa-trash-o"></span>
-																</a> <a class="btn-edit" href="cart.html"
-																	title="View your shopping cart"> <span
-																	class="fa fa-pencil"></span>
+																</a> 
 																</a>
 															</div>
 														</div>
@@ -795,7 +788,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li 
 								class="dropdown menu-smartphones-tablet etrostore-mega-menu
 								level1">
-								<a href="#" class="item-link dropdown-toggle"> <span
+								<a href="${pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar" class="item-link dropdown-toggle"> <span
 									class="have-title"> <span class="menu-color"
 										data-color="#13528c"></span> <span class="menu-title">医药器械</span>
 								</span>
@@ -1109,11 +1102,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>
 
 												<div class="product-action clearfix">
-													<a href="#" class="btn-remove" title="Remove this item">
+													<a href="#" class="btn-remove" title="删除此物品">
 														<span class="fa fa-trash-o"></span>
-													</a> <a class="btn-edit" href="cart.html"
-														title="View your shopping cart"> <span
-														class="fa fa-pencil"></span>
+													</a> 
 													</a>
 												</div>
 											</div>
@@ -1147,11 +1138,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>
 
 												<div class="product-action clearfix">
-													<a href="#" class="btn-remove" title="Remove this item">
+													<a href="#" class="btn-remove" title="删除此物品1">
 														<span class="fa fa-trash-o"></span>
-													</a> <a class="btn-edit" href="cart.html"
-														title="View your shopping cart"> <span
-														class="fa fa-pencil"></span>
+													</a> 
 													</a>
 												</div>
 											</div>
@@ -1171,11 +1160,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 									<div class="cart-links clearfix">
 										<div class="cart-link">
-											<a href="cart.html" title="Cart">View Cart</a>
+											<a href="shoppingCar/detailsShoppingCar" title="Cart">我的购物车</a>
 										</div>
 
 										<div class="checkout-link">
-											<a href="checkout.html" title="Check Out">Check Out</a>
+											<a href="checkout.html" title="Check Out">注销</a>
 										</div>
 									</div>
 								</div>

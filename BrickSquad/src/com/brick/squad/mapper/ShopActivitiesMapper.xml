@@ -48,11 +48,13 @@
 	<!-- 分页查询 级联查询 -->
 	<select id="shopActivitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ShopActivitiesExpand">
-
-		SELECT sa.id,a.aname aname,b.shopname bname,t.`name` tname,active_price activePrice,sa.start_time
-		startTime,sa.end_time endTime FROM shop_activities sa
+		SELECT sa.id,a.aname aname,b.shopname bname,t.`name`
+		tname,active_price activePrice,sa.start_time
+		startTime,sa.end_time
+		endTime FROM shop_activities sa
 		JOIN type t on sa.type_id=t.id
-		JOIN business b on sa.business_id=b.id
+		JOIN
+		business b on sa.business_id=b.id
 		JOIN article a on sa.article_id=a.id
 
 		<if test="keyword!='' and keyword!=null">
@@ -100,8 +102,9 @@
 	<!-- 首页秒杀 -->
 	<select id="secKillIndex" resultType="com.brick.squad.expand.SecKill">
 		SELECT
-		a.id,a.aname,a.image,a.price,
-		DATE_FORMAT(TIMEDIFF(sa.end_time,NOW()),'%Y-%m-%d %H:%i:%s') time,
+		a.id,a.aname,a.image,a.price,sa.end_time endtime,
+		from_unixtime(TIMEDIFF(sa.end_time,NOW()), '%Y-%m-%d %h:%m:%s')
+		time,
 		sa.active_price activePrice FROM shop_activities sa JOIN type t on
 		sa.type_id=t.id
 		JOIN article a on a.id=sa.article_id WHERE

@@ -3,10 +3,10 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ArticleMapper">
 	<!-- 查询 -->
-	 <select id="findArticleById" resultType="article" parameterType="String">
+	<select id="findArticleById" resultType="article" parameterType="String">
 		select id,aname aname,type_id typeId,business_id
 		businessId,describes,price,stock,image from article where id=#{id}
-	</select> 
+	</select>
 
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -113,7 +113,8 @@
 	<!-- 医疗器械查询 -->
 	<select id="findArticleImgAndName" resultType="article"
 		parameterType="java.lang.String">
-		SELECT id ,aname ,image
+		SELECT id,aname ,image,price,describes,shelfdate,
+		stock,type_id typeId
 		FROM article
 		WHERE
 		article.type_id=#{typeId}
@@ -154,48 +155,91 @@
 		parameterType="String">
 		SELECT COUNT(*)
 		FROM article a
-		JOIN type t ON t.id=a.type_id
+		JOIN type t ON
+		t.id=a.type_id
 		WHERE t.parent_id=#{parentId}
 	</select>
 	<!-- 查询所有医疗器械类的所有商品 -->
 	<select id="findAllMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-		FROM article a JOIN type t ON a.type_id=t.id
-		WHERE t.parent_id=#{parentId}
-		limit #{begin},#{limitPage}
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{parentId} limit
+		#{begin},#{limitPage}
+	</select>
+	<!-- 获取最新商品 首页 -->
+	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="int">
+		select
+		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id order by
+		${order}
+		DESC LIMIT 0,#{take}
 	</select>
 
-
-
-	<!-- 医疗器械类商品 价格排序-->
-	<select id="findOrderByMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"  
+	<!-- 医疗器械类商品 价格排序 -->
+	<select id="findOrderByMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="Article">
+		SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{parentId}
+		ORDER BY
+		a.price DESC limit #{begin},#{limitPage}
+	</select>
+	<!-- 获取商品订单数量 -->
+	<select id="findArticleBuyNumber" resultType="com.brick.squad.expand.ArticleExpand">
+		SELECT
+		id,aname,buyNumber,price,image from article a JOIN
+		(select count(*)
+		buyNumber,article_id
+		FROM order_details GROUP BY article_id ORDER BY
+		buyNumber DESC) o on
+		a.id=o.article_id
+	</select>
+<!-- 医疗器械类商品 时间排序-->
+	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"  
 	resultType="Article">
 	SELECT a.id,a.aname,a.image,a.price,a.describes 
 	FROM article a JOIN type t ON a.type_id=t.id 
 	WHERE t.parent_id=#{parentId}
-	ORDER BY a.price DESC  
+	ORDER BY 
+	a.shelfdate
+	 DESC  
 	limit #{begin},#{limitPage}
-	</select>
-
-
-	
-
-
-	   
-		<!-- 获取商品订单数量 -->
-	<select id="findArticleBuyNumber"  resultType="com.brick.squad.expand.ArticleExpand">
-		SELECT id,aname,buyNumber,price,image from article a JOIN 
-(select count(*) buyNumber,article_id
-FROM order_details GROUP BY article_id ORDER BY buyNumber DESC) o on a.id=o.article_id
+	</select>	
+	<!-- 医疗器械类商品 人气排序-->
+	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"  
+	resultType="Article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes 
+	FROM article a JOIN type t ON a.type_id=t.id 
+	JOIN order_details o ON o.article_id=a.id
+	WHERE t.parent_id=#{parentId}
+		ORDER BY o.number DESC
+	limit #{begin},#{limitPage}
 	</select>
 	
 
 	<!-- 获取最新添加的商品 -->
-	<select id="findFrontTime" resultType="com.brick.squad.expand.ArticleExpand">
-		SELECT id,
-		aname,price,image, TIMEDIFF(NOW(),shelfdate) time FROM article ORDER
-		BY time ASC
+	<select id="findFrontTime" resultType="com.brick.squad.expand.NewsArticle">
+		select
+		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0) totals from article
+		a left join (select COALESCE(sum(number),0) total ,article_id from
+		order_details group by (article_id))
+		nn on a.id=nn.article_id order by
+		a.shelfdate DESC 
 	</select>
-
+	
+	<!-- 查询最新上架商品总数 -->
+	<select id="findFrontTimeNumber">
+	 select COUNT(*) from article
+	 #{begin},#{limitPage}
+	</select>
+	
 </mapper>

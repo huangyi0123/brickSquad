@@ -73,7 +73,7 @@ public class PersonalInformationServiceImpl implements
 	@Qualifier("medicalMapper")
 	private MedicalMapper medicalMapper;
 	@Autowired
-	@Qualifier ("shoppingCarMapper")
+	@Qualifier("shoppingCarMapper")
 	private ShoppingCarMapper shoppingCarMapper;
 	@Autowired
 	@Qualifier("memberShipApplicationMapper")
@@ -90,7 +90,7 @@ public class PersonalInformationServiceImpl implements
 	@Autowired
 	@Qualifier("buyersMapper")
 	private BuyersMapper buyersMapper;
-	
+
 	@Override
 	public String findRegionsByLevel() {
 		List<Select> selects = regionMapper.findRegionsByLevel(1);
@@ -128,24 +128,27 @@ public class PersonalInformationServiceImpl implements
 	}
 
 	@Override
-	public void updatePersonalInformationById(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand
-			) throws Exception {
-		PersonalInformation personalInformation =addressAndPersonaInformationExpand.getPersonalInformation();
-		//先修改地址,如果addressID为空，先插入
-		if (addressAndPersonaInformationExpand.getAddress().getId()==""||addressAndPersonaInformationExpand.getAddress().getId()==null) {
+	public void updatePersonalInformationById(
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand)
+			throws Exception {
+		PersonalInformation personalInformation = addressAndPersonaInformationExpand
+				.getPersonalInformation();
+		// 先修改地址,如果addressID为空，先插入
+		if (addressAndPersonaInformationExpand.getAddress().getId() == ""
+				|| addressAndPersonaInformationExpand.getAddress().getId() == null) {
 			Address address = addressAndPersonaInformationExpand.getAddress();
 			addressMapper.insertAddress(address);
 			personalInformation.setAddressId(address.getId());
-			
-		}else {
-			personalInformation.setAddressId(addressAndPersonaInformationExpand.getAddress().getId());
-			addressMapper.updateAddressById(addressAndPersonaInformationExpand.getAddress());
-		}	
-		
-		
-			personalInformationMapper.updatePersonalInformationById(personalInformation);
-		
-		
+
+		} else {
+			personalInformation.setAddressId(addressAndPersonaInformationExpand
+					.getAddress().getId());
+			addressMapper.updateAddressById(addressAndPersonaInformationExpand
+					.getAddress());
+		}
+
+		personalInformationMapper
+				.updatePersonalInformationById(personalInformation);
 
 	}
 
@@ -161,18 +164,26 @@ public class PersonalInformationServiceImpl implements
 						.getAddressId());
 				// 地址删除成功后，再删除信息表的记录
 				personalInformationMapper.deletePersonalInformationById(id);
-				//删除信息表记录以后再删除其余表的数据
+				// 删除信息表记录以后再删除其余表的数据
 				guidanceMapper.deleteByIdGuidance(personalInformation.getId());
-				healthRecordsMapper.deleteByPerIdHealth(personalInformation.getId());
+				healthRecordsMapper.deleteByPerIdHealth(personalInformation
+						.getId());
 				rapportMapper.deleteByPerIdRapport(personalInformation.getId());
-				activityRegistrationMapper.deleteByPerIdActivityRegistration(personalInformation.getId());
+				activityRegistrationMapper
+						.deleteByPerIdActivityRegistration(personalInformation
+								.getId());
 				medicalMapper.deleteMedicalByPerId(personalInformation.getId());
-				shoppingCarMapper.deleteShoppingCarByPerId(personalInformation.getId());
-				memberShipApplicationMapper.deleteMemberShipApplicationByPerId(personalInformation.getId());
+				shoppingCarMapper.deleteShoppingCarByPerId(personalInformation
+						.getId());
+				memberShipApplicationMapper
+						.deleteMemberShipApplicationByPerId(personalInformation
+								.getId());
 				userMapper.deleteUser(personalInformation.getId());
-				relativesMapper.deleteRelativesByPerId(personalInformation.getId());
-				collectionMapper.deleteCollectionByPerId(personalInformation.getId());
-				buyersMapper.deleteBuyersById(personalInformation.getId());	
+				relativesMapper.deleteRelativesByPerId(personalInformation
+						.getId());
+				collectionMapper.deleteCollectionByPerId(personalInformation
+						.getId());
+				buyersMapper.deleteBuyersById(personalInformation.getId());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -233,13 +244,11 @@ public class PersonalInformationServiceImpl implements
 
 	@Override
 	public PersonalInformation findThereAllById(String id) {
-		PersonalInformation PersonalInformation = personalInformationMapper.findThereAllById(id);
+		PersonalInformation PersonalInformation = personalInformationMapper
+				.findThereAllById(id);
 		return PersonalInformation;
 	}
 
-	
-	//为老人个人详细信息一面做铺垫
-	
-
+	// 为老人个人详细信息一面做铺垫
 
 }
