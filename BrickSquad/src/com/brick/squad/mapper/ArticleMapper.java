@@ -83,8 +83,9 @@ public interface ArticleMapper {
 	 */
 
 	public List<NewsArticle> findFrontTime();
+	
 	/**获取所有商品数量*/
-	public String findFrontTimeNumber();
+	public Integer findFrontTimeNumber();
 
 	/**
 	 * 获取最新商品
@@ -93,6 +94,8 @@ public interface ArticleMapper {
 	 * @return  最新商品列表
 	 */
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
+
+
 
 }
 

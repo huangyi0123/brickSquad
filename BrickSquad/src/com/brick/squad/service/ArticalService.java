@@ -90,7 +90,10 @@ public interface ArticalService {
 	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page ,int sequence,int limitPage)throws Exception;
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page ,int sequence,int limitPage)throws Exception;
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page ,int sequence,int limitPage)throws Exception;
-/*
+
+	/**最新商品分页查询 findArtivlePage*/
+	public PageBeanUtil<NewsArticle> findArtivlePage(int page);
+	/*
 	 * 根据商品ID在评论表中查询评论总量
 	 * 
 	 * @param id
@@ -110,4 +113,7 @@ public interface ArticalService {
 	 * 获取最新添加的商品
 	 */
 	public List<NewsArticle> findFrontTime();
+	
+	/**获取所有商品数量*/
+	public Integer findFrontTimeNumber();
 }

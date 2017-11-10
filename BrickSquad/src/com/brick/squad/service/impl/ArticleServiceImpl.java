@@ -455,7 +455,7 @@ public class ArticleServiceImpl implements ArticalService {
 		System.err.println(NewsArticleList.size());
 		return NewsArticleList;
 	}
-	
+	@Override
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page,
 			int sequence, int limitPage) throws Exception {
 		
@@ -521,4 +521,70 @@ public class ArticleServiceImpl implements ArticalService {
 		}
 		return  pageBean;
 	}
+	//获取商品总数，用于最新商品分页显示
+	public Integer findFrontTimeNumber(){
+		int count = articleMapper.findFrontTimeNumber();
+		return count;
+	}
+	//分页测试
+	@Override
+	public PageBeanUtil<NewsArticle> findArtivlePage(int page){
+		PageBeanUtil<NewsArticle> pageBean = new PageBeanUtil<NewsArticle>();
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 12;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper.findFrontTimeNumber();
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			//pageBean.setParentId("yiliaoqixie");
+			//获得所有商品
+			//List<NewsArticle> list = articleMapper.findAllArticle();
+			//pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 12;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			Integer totalCount = 0;
+			totalCount = articleMapper.findFrontTimeNumber();
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			
+		}
+		return pageBean;
+
+	}
+	
 }
