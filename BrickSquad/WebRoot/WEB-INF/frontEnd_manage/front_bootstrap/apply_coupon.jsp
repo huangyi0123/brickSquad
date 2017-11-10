@@ -65,6 +65,8 @@
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet"
 	href="resource/front_bootstrap/css/app-responsive.css" />
+<link href="resource/css/coupon.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body class="page page-id-6 home-style1">
@@ -246,6 +248,53 @@
 								<div class="layui-tab-item">内容4</div>
 								<div class="layui-tab-item">内容5</div>
 							</div> --> </header>
+		<div class="cou_body">
+			<span
+				style="background: url('resource/image/hot-icons.png') no-repeat 600px 20px; display: block; height: 40px;"></span>
+			<label
+				style="margin-left: 650px;margin-top: -25px;font-weight: bold;font-size: 20px;">精选好券</label>
+			<span
+				style="background: url('resource/image/hot-icons.png') no-repeat 750px 20px; display: block; height: 40px;margin-top: -45px;"></span>
+
+			<div style="width: 80%;margin: 0 auto;">
+				<div class="coupon">
+					<div class="coupon-left">
+						<div class="coupon-inner">
+						<div class="coupon-img">
+						<img alt="" src="resource/image/2.png">
+						</div>
+							<div class="coupon-money">
+								<span class="money_icon">¥</span> <span class="sum">100.00</span>
+							
+							</div>
+							<div class="coupon-describe">
+							<p>仅可购买自营厨卫及净水器、饮水机部分商品</p>
+							</div>
+								
+							<div class="coupon-condition">
+								<p>满200.00可用</p>
+							</div>
+							<div class="coupon-condition">
+								<p>已抢20%</p>
+							</div>
+						</div>
+					</div>
+					<a href="#" style="z-index: 1">
+					<div class="coupon-right" style="z-index: 10">
+						<div class="coupon-inner">
+							<div class="coupon-time">
+								立即领取
+								
+							</div>
+							
+							<i class="coupon-circle top"></i> <i class="coupon-circle bottom"></i>
+						</div>
+					</div>
+					<!-- <div class="coupon-light"></div> -->
+					</a>
+				</div>
+			</div>
+		</div>
 		<script type="text/javascript"
 			src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 		<script type="text/javascript"
@@ -255,8 +304,7 @@
 		<script type="text/javascript"
 			src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-		<script type="text/javascript"
-		<!-- OPEN LIBS JS -->
+		<script type="text/javascript"<!-- OPEN LIBS JS -->
 		<script type="text/javascript"
 			src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
 		<script type="text/javascript"
