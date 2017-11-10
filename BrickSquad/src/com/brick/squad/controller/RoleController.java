@@ -16,6 +16,7 @@ import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.RoleService;
 import com.brick.squad.util.Common;
 import com.brick.squad.util.Pagination;
+
 @Controller
 @RequestMapping("/role")
 public class RoleController {
@@ -25,58 +26,67 @@ public class RoleController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@RequestMapping("/toRoleList")
 	public String toRoleList() {
 		return "backstage_managed/jsp/role/role_list";
 	}
+
 	@RequestMapping("/getRoleList")
 	@ResponseBody
-	public String getRoleList(int pSize,int cPage,String keyword) {
-		Pagination pagination=new Pagination();
+	public String getRoleList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return roleService.rolePagination(pagination);
 	}
+
 	@RequestMapping("/toAddRole")
-	public String toAddRole(HttpServletRequest request,String id) throws Exception{
-		if(id!=null){
+	public String toAddRole(HttpServletRequest request, String id)
+			throws Exception {
+		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateRole");
-			Role role=roleService.findRole(id);
+			Role role = roleService.findRole(id);
 			request.setAttribute("role", role);
-		}else{
+		} else {
 			request.setAttribute("msg", "添加");
 			request.setAttribute("url", "insertRole");
 		}
 		return "backstage_managed/jsp/role/add_role";
 	}
+
 	@RequestMapping("/insertRole")
-	public String insertRole(Role role) throws Exception{
+	public String insertRole(Role role) throws Exception {
 		roleService.insertRole(role);
 		return "backstage_managed/jsp/role/role_list";
 	}
+
 	@RequestMapping("/deleteRole")
 	@ResponseBody
-	public String deleteRole(String id){
+	public String deleteRole(String id) {
 		roleService.deleteRole(id);
 		return "success";
 	}
+
 	@RequestMapping("/updateRole")
-	public String updateRole(Role role) throws Exception{
+	public String updateRole(Role role) throws Exception {
 		roleService.updateRoleById(role);
 		return "backstage_managed/jsp/role/role_list";
 	}
+
 	@RequestMapping("/findRoleById")
-	public String findRoleById(HttpServletRequest request ,String id){
-		Role role=roleService.findRole(id);
+	public String findRoleById(HttpServletRequest request, String id) {
+		Role role = roleService.findRole(id);
 		request.setAttribute("role", role);
 		return "backstage_managed/jsp/role/search_role";
 	}
+
 	@RequestMapping("/updateLimitsByRoleId")
 	@ResponseBody
-	public String updateLimitsByRoleId(String limits,String roleId) {
-		List<Limits> limits2=Common.limitsUtil(limits);
+	public String updateLimitsByRoleId(String limits, String roleId) {
+		List<Limits> limits2 = Common.limitsUtil(limits);
 		limitsService.updateLimitsByRoleId(limits2, roleId);
 		return "role/toRoleList";
 	}

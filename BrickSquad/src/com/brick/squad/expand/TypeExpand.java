@@ -2,7 +2,7 @@ package com.brick.squad.expand;
 
 import com.brick.squad.pojo.Type;
 
-public class TypeExpand extends Type{
+public class TypeExpand extends Type {
 	private String aid;
 
 	public String getAid() {
@@ -12,5 +12,5 @@ public class TypeExpand extends Type{
 	public void setAid(String aid) {
 		this.aid = aid;
 	}
-	
+
 }

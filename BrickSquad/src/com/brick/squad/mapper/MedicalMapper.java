@@ -14,11 +14,14 @@ public interface MedicalMapper {
 	public void updateMedicalCententById(Medical medical);
 
 	public Medical findMedicalById(String id);
-	
+
 	public List<MedicalExpand> medicalPagination(Pagination pagination);
 
 	public int findMedicalAllCount(Pagination pagination);
+
 	public String findAllPersonalInformationAndType();
+
 	public MedicalExpand findPersonalInformationAndType(String id);
+
 	public void deleteMedicalByPerId(String perId);
 }

@@ -17,12 +17,12 @@ import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 
 @Transactional
-public class TypeServiceImpl implements TypeService{
+public class TypeServiceImpl implements TypeService {
 
 	@Autowired
 	@Qualifier("typeMapper")
 	private TypeMapper typeMapper;
-	
+
 	@Override
 	public Type findTypeById(String id) {
 		return typeMapper.findTypeById(id);
@@ -31,43 +31,43 @@ public class TypeServiceImpl implements TypeService{
 	@Override
 	public void insertType(Type type) {
 		typeMapper.insertType(type);
-		
+
 	}
 
 	@Override
 	public void updateTypeById(Type type) {
 		typeMapper.updateTypeById(type);
-		
+
 	}
 
 	@Override
 	public void deleteTypeById(String id) {
 		typeMapper.deleteTypeById(id);
-		
+
 	}
 
 	@Override
 	public String typePagination(Pagination pagination) {
-		List<Type> datas=typeMapper.typePagination(pagination);
-		int n=typeMapper.typeCount(pagination);
-		Util<Type> util=new Util<Type>();
-		String data=util.SplitPage(datas, n);
+		List<Type> datas = typeMapper.typePagination(pagination);
+		int n = typeMapper.typeCount(pagination);
+		Util<Type> util = new Util<Type>();
+		String data = util.SplitPage(datas, n);
 		return data;
 	}
 
 	@Override
 	public String findAllType() {
-	  List<Type> typeList = typeMapper.findAllType();
-	 JSONArray jsonArray=new JSONArray();
-	 String string=jsonArray.fromObject(typeList).toString();
-	 return string;
+		List<Type> typeList = typeMapper.findAllType();
+		JSONArray jsonArray = new JSONArray();
+		String string = jsonArray.fromObject(typeList).toString();
+		return string;
 	}
 
 	@Override
 	public String findTypeByParentId(String parentId) {
-		List<Select> types =typeMapper.findTypeByParentId(parentId);
+		List<Select> types = typeMapper.findTypeByParentId(parentId);
 		JSONArray jsonArray = new JSONArray();
-		String dataTytes =jsonArray.fromObject(types).toString();
+		String dataTytes = jsonArray.fromObject(types).toString();
 		return dataTytes;
 	}
 
@@ -81,23 +81,23 @@ public class TypeServiceImpl implements TypeService{
 	 * 医疗器械一级分类查询
 	 */
 	public List<TypeExpand> findIdAndTypeNmae(String parentId) throws Exception {
-		List<TypeExpand> listType=typeMapper.findIdAndTypeNmae(parentId);
+		List<TypeExpand> listType = typeMapper.findIdAndTypeNmae(parentId);
 		return listType;
 	}
 
 	@Override
 	public List<Type> getArctre(String id) {
-		List<Type> arcrte=typeMapper.findTyepByParentId(id);
+		List<Type> arcrte = typeMapper.findTyepByParentId(id);
 		return arcrte;
 	}
 
 	@Override
 	public String getArticleType(String id) {
-		List<Type> types=typeMapper.findTyepByParentId(id);
+		List<Type> types = typeMapper.findTyepByParentId(id);
 		for (Type type : types) {
 			type.setChdren(typeMapper.findTyepByParentId(type.getId()));
 		}
-		JSONArray jsonArray=JSONArray.fromObject(types);
+		JSONArray jsonArray = JSONArray.fromObject(types);
 		return jsonArray.toString();
 	}
 

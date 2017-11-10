@@ -40,16 +40,19 @@ public class MemberShipApplicationController {
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		return memberShipApplicationService.MemberShipApplicationPagination(pagination);
+		return memberShipApplicationService
+				.MemberShipApplicationPagination(pagination);
 
 	}
 
 	@RequestMapping("/toAddMemberShipApplication")
-	public String toAddMemberShipApplication(HttpServletRequest request, String id) {
+	public String toAddMemberShipApplication(HttpServletRequest request,
+			String id) {
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateMemberShipApplicationById");
-			MemberShipApplication memberShipApplication=memberShipApplicationService.findMemberShipApplicationById(id);
+			MemberShipApplication memberShipApplication = memberShipApplicationService
+					.findMemberShipApplicationById(id);
 			request.setAttribute("memberShipApplication", memberShipApplication);
 		} else {
 			request.setAttribute("url", "addMemberShipApplication");
@@ -57,10 +60,12 @@ public class MemberShipApplicationController {
 		}
 		return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
 	}
-	
+
 	@RequestMapping("/addMemberShipApplication")
-	public String addMemberShipApplication(@Validated MemberShipApplication memberShipApplication,BindingResult result,HttpServletRequest request){
-		
+	public String addMemberShipApplication(
+			@Validated MemberShipApplication memberShipApplication,
+			BindingResult result, HttpServletRequest request) {
+
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -68,46 +73,51 @@ public class MemberShipApplicationController {
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/memberShipApplication/add_memberShipApplication";
 		}
-		memberShipApplicationService.insertMemberShipApplicationById(memberShipApplication);
+		memberShipApplicationService
+				.insertMemberShipApplicationById(memberShipApplication);
 		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
-		
-	}
-	
-	@RequestMapping("/deleteMemberShipApplicationById")
-	public String deleteMemberShipApplicationById(String id){
-		memberShipApplicationService.deleteMemberShipApplicationById(id);
-		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
-	
-	}
-	
-	@RequestMapping("/updateMemberShipApplicationById")
-	public String updateMemberShipApplicationById(MemberShipApplication memberShipApplication){
-		memberShipApplicationService.updateMemberShipApplicationById(memberShipApplication);
-		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";	
-	}
-	
-	@RequestMapping("/findAllMemberShipApplication")
-	@ResponseBody
-	public String findAllMemberShipApplication(){
-		return memberShipApplicationService.findAllMemberShipApplication();
-		
-	}
-	
-	@RequestMapping("/findMembershipApplicationById")
-	public String findMembershipApplicationById(HttpServletRequest request,String id){
-		MemberShipApplicationExpand memberShipApplicationExpand = memberShipApplicationService.findMemberShipApplicationAndTypeAndUserAndPersonalInformation(id);
-		request.setAttribute("memberShipApplicationExpand", memberShipApplicationExpand);
-		return "backstage_managed/jsp/memberShipApplication/search_memberShipApplication";	
+
 	}
 
-	
+	@RequestMapping("/deleteMemberShipApplicationById")
+	public String deleteMemberShipApplicationById(String id) {
+		memberShipApplicationService.deleteMemberShipApplicationById(id);
+		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
+
+	}
+
+	@RequestMapping("/updateMemberShipApplicationById")
+	public String updateMemberShipApplicationById(
+			MemberShipApplication memberShipApplication) {
+		memberShipApplicationService
+				.updateMemberShipApplicationById(memberShipApplication);
+		return "backstage_managed/jsp/memberShipApplication/memberShipApplication_list";
+	}
+
+	@RequestMapping("/findAllMemberShipApplication")
+	@ResponseBody
+	public String findAllMemberShipApplication() {
+		return memberShipApplicationService.findAllMemberShipApplication();
+
+	}
+
+	@RequestMapping("/findMembershipApplicationById")
+	public String findMembershipApplicationById(HttpServletRequest request,
+			String id) {
+		MemberShipApplicationExpand memberShipApplicationExpand = memberShipApplicationService
+				.findMemberShipApplicationAndTypeAndUserAndPersonalInformation(id);
+		request.setAttribute("memberShipApplicationExpand",
+				memberShipApplicationExpand);
+		return "backstage_managed/jsp/memberShipApplication/search_memberShipApplication";
+	}
+
 	@RequestMapping("/findAllTypeAndUserAndPersonalInformation")
 	@ResponseBody
-	public String findAllTypeAndUserAndPersonalInformation(){
-		
-		return memberShipApplicationService.findAllTypeAndUserAndPersonalInformation();
-		
-		
+	public String findAllTypeAndUserAndPersonalInformation() {
+
+		return memberShipApplicationService
+				.findAllTypeAndUserAndPersonalInformation();
+
 	}
-	
+
 }

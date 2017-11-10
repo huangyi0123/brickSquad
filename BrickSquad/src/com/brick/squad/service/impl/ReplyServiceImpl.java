@@ -62,9 +62,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public String findAllReply() {
-		List<Reply> replies =replyMapper.findAllReply();
-		JSONArray jsonArray =  new JSONArray();
-		String replydata =jsonArray.fromObject(replies).toString();
+		List<Reply> replies = replyMapper.findAllReply();
+		JSONArray jsonArray = new JSONArray();
+		String replydata = jsonArray.fromObject(replies).toString();
 		return replydata;
 	}
 

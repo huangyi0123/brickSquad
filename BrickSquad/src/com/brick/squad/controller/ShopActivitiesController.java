@@ -1,6 +1,6 @@
 package com.brick.squad.controller;
 
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -24,57 +24,62 @@ import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
 
-
 @RequestMapping("/shopActivities")
 @Controller
 public class ShopActivitiesController {
-	
+
 	@Autowired
 	@Qualifier("shopActivitiesService")
 	private ShopActivitiesService shopActivitiesService;
-	
+
 	@RequestMapping("/toShopActivitiesList")
-	public String toShopActivitiesList(){
+	public String toShopActivitiesList() {
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
-		
+
 	}
-	
+
 	@RequestMapping("/getShopActivitiesList")
 	@ResponseBody
-	public String getShopActivitiesList(int pSize,int cPage,String keyword){
-		Pagination pagination=new Pagination();
+	public String getShopActivitiesList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		return  shopActivitiesService.shopActivitiesPagination(pagination);
-}
-	
+		return shopActivitiesService.shopActivitiesPagination(pagination);
+	}
+
 	@RequestMapping("/toAddShopActivities")
-	public String toAddShopActivities(HttpServletRequest request, String id) throws Exception {
-		request.setAttribute("type", shopActivitiesService.findAllShopActivities());
+	public String toAddShopActivities(HttpServletRequest request, String id)
+			throws Exception {
+		request.setAttribute("type",
+				shopActivitiesService.findAllShopActivities());
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateShopActivitiesById");
-			ShopActivities shopActivities = shopActivitiesService.findShopActivitiesById(id);
+			ShopActivities shopActivities = shopActivitiesService
+					.findShopActivitiesById(id);
 			request.setAttribute("shopActivities", shopActivities);
 		} else {
 			request.setAttribute("url", "addShopActivities");
 			request.setAttribute("msg", "添加");
 		}
-	
+
 		return "backstage_managed/jsp/shopActivities/add_shopActivities";
-		
+
 	}
-	
+
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
 	}
-	
+
 	@RequestMapping("/addShopActivities")
-	public String addShopActivities(@Validated ShopActivities shopActivities,BindingResult result,HttpServletRequest request) throws Exception{
-		System.out.println(shopActivities.getTypeId()+"-----------------");
+	public String addShopActivities(@Validated ShopActivities shopActivities,
+			BindingResult result, HttpServletRequest request) throws Exception {
+		System.out.println(shopActivities.getTypeId() + "-----------------");
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -82,58 +87,55 @@ public class ShopActivitiesController {
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/shopActivities/add_shopActivities";
 		}
-		
+
 		shopActivitiesService.insertShopActivitiesById(shopActivities);
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
 	}
-	
-	
+
 	@RequestMapping("/deleteShopActivitiesById")
 	@ResponseBody
-	public String deleteShopActivitiesById(String id) throws Exception{
+	public String deleteShopActivitiesById(String id) throws Exception {
 		shopActivitiesService.delectShopActivitiesById(id);
 		return "success";
-		
+
 	}
-	
-	
+
 	@RequestMapping("/findAllShopActivities")
-	public String findAllShopActivities(){
+	public String findAllShopActivities() {
 		return shopActivitiesService.findAllShopActivities();
-		
+
 	}
-	
-	
+
 	@RequestMapping("/updateShopActivitiesById")
-	public String updateShopActivitiesById(ShopActivities shopActivities) throws Exception{
-		
+	public String updateShopActivitiesById(ShopActivities shopActivities)
+			throws Exception {
+
 		shopActivitiesService.updateShopActivitiesById(shopActivities);
-		
+
 		return "backstage_managed/jsp/shopActivities/shopActivities_list";
-		
+
 	}
-	
+
 	@RequestMapping("/findShopActivitiesById")
-	public String findShopActivitiesById(HttpServletRequest request,String id){
-		ShopActivitiesExpand shopActivitiesExpand = shopActivitiesService.findShopActivitiesAndTypeAndArticle(id);
-		//System.out.println("+++++++++"+shopActivitiesExpand);
+	public String findShopActivitiesById(HttpServletRequest request, String id) {
+		ShopActivitiesExpand shopActivitiesExpand = shopActivitiesService
+				.findShopActivitiesAndTypeAndArticle(id);
+		// System.out.println("+++++++++"+shopActivitiesExpand);
 		request.setAttribute("shopActivitiesExpand", shopActivitiesExpand);
 		return "backstage_managed/jsp/shopActivities/search_shopActivities";
-		
+
 	}
-	
-	
+
 	@RequestMapping("/findTypeAndArticle")
 	@ResponseBody
-	public String findTypeAndArticle(){
+	public String findTypeAndArticle() {
 		return shopActivitiesService.findTypeAndArticle();
-		}	
-	
+	}
+
 	@RequestMapping("/findArticle")
 	@ResponseBody
-	public String  findArticle(String businessId,HttpServletRequest request){
+	public String findArticle(String businessId, HttpServletRequest request) {
 		return shopActivitiesService.findArticle(businessId);
-		
-		  
-	}	
+
+	}
 }

@@ -43,11 +43,11 @@ public class RegionController {
 		}
 		return "backstage_managed/jsp/region/add_region";
 	}
-	
+
 	@RequestMapping("findAllRegion")
 	@ResponseBody
-	public String findAllRegion(){
-		
+	public String findAllRegion() {
+
 		return regionService.findAllRegion();
 	}
 
@@ -72,14 +72,16 @@ public class RegionController {
 		regionService.updateRegion(region);
 		return "backstage_managed/jsp/region/region_list";
 	}
-@RequestMapping("/findRegionById")
-@ResponseBody
-public String findRegionById(String id){
-	Region region =regionService.findRegionById(id);
-	JSONObject jsonObject =new JSONObject();
-	String regiondata =  jsonObject.fromObject(region).toString();
-	return regiondata;
-}
+
+	@RequestMapping("/findRegionById")
+	@ResponseBody
+	public String findRegionById(String id) {
+		Region region = regionService.findRegionById(id);
+		JSONObject jsonObject = new JSONObject();
+		String regiondata = jsonObject.fromObject(region).toString();
+		return regiondata;
+	}
+
 	@RequestMapping("/findRegionByParentId")
 	@ResponseBody
 	public String findRegionByParentId(String parantId) {
@@ -88,15 +90,15 @@ public String findRegionById(String id){
 
 	@RequestMapping("/insertRegion")
 	public String insertRegion(Region region) {
-	
-		 Random random = new Random(); 
-		 region.setId(random.nextInt(100000) +"");
-		 
-	/*	StringBuffer stringBuffer = new StringBuffer();
-		for (int i = 0; i < 1000; i++) {
-			stringBuffer.append(i);
-		}
-		region.setId("13063310" + stringBuffer.toString());*/
+
+		Random random = new Random();
+		region.setId(random.nextInt(100000) + "");
+
+		/*
+		 * StringBuffer stringBuffer = new StringBuffer(); for (int i = 0; i <
+		 * 1000; i++) { stringBuffer.append(i); } region.setId("13063310" +
+		 * stringBuffer.toString());
+		 */
 		region.setPerantId("1");
 		regionService.insertRegionById(region);
 		return "backstage_managed/jsp/region/region_list";

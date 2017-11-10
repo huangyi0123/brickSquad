@@ -14,6 +14,7 @@ import com.brick.squad.util.Pagination;
 public interface HealthRecordsMapper {
 	/**
 	 * 根据perid查询HealthRecords
+	 * 
 	 * @param perId
 	 * @return
 	 */
@@ -31,7 +32,7 @@ public interface HealthRecordsMapper {
 			Pagination pagination);
 
 	public int findHealthRecordsAllCount(Pagination pagination);
-	
+
 	public void deleteByPerIdHealth(String perId);
 
 	public HealthRecords serachHealthRecords(String id);

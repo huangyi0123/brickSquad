@@ -8,7 +8,7 @@ import com.brick.squad.pojo.News;
 import com.brick.squad.util.Pagination;
 
 public interface NewsService {
-	//添加新闻
+	// 添加新闻
 	public void addNews(String id, String userId, String content,
 			String imagePath, Date postTime);
 
@@ -47,9 +47,12 @@ public interface NewsService {
 	 * @return
 	 */
 	public String findNewsList();
+
 	/**
 	 * 根据id查询新闻详情
-	 * @param id id
+	 * 
+	 * @param id
+	 *            id
 	 * @return 新闻详情
 	 */
 	public NewsExpand findNewsExpandById(String id);

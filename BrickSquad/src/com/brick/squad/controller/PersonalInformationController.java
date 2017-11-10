@@ -178,7 +178,8 @@ public class PersonalInformationController {
 			return "backstage_managed/jsp/personal_Information/add_personal_Information";
 
 		}
-		personalInformationService.insertPersonalInformation(addressAndPersonaInformationExpand);
+		personalInformationService
+				.insertPersonalInformation(addressAndPersonaInformationExpand);
 		return "backstage_managed/jsp/personal_Information/personal_Information_list";
 	}
 
@@ -234,21 +235,24 @@ public class PersonalInformationController {
 		personalInformationService.deletePersonalInformationById(id);
 		return "success";
 	}
-	
+
 	/**
 	 * 级联查询获得数据后显示在老人个人信息详细列表页
 	 */
 	@RequestMapping("/findAllThereById")
-	public String findAllThereById(HttpServletRequest request,String id){
-		PersonalInformation personalInformation = personalInformationService.findThereAllById(id);
+	public String findAllThereById(HttpServletRequest request, String id) {
+		PersonalInformation personalInformation = personalInformationService
+				.findThereAllById(id);
 		request.setAttribute("personalInformation", personalInformation);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd"); 
-		request.setAttribute("retirementDate",df.format(personalInformation.getRetirementDate()).toString());
-		request.setAttribute("birthday",df.format(personalInformation.getBirthday()).toString());
-		String address = addressService.findByIdAllAddress(personalInformation.getAddressId());
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		request.setAttribute("retirementDate",
+				df.format(personalInformation.getRetirementDate()).toString());
+		request.setAttribute("birthday",
+				df.format(personalInformation.getBirthday()).toString());
+		String address = addressService.findByIdAllAddress(personalInformation
+				.getAddressId());
 		request.setAttribute("address", address);
 		return "backstage_managed/jsp/personal_Information/search_personal_Information";
 	}
-
 
 }

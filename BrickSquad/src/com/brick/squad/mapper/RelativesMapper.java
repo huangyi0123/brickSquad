@@ -9,10 +9,12 @@ import com.brick.squad.util.Pagination;
 public interface RelativesMapper {
 	/**
 	 * 根据perId查询亲属
+	 * 
 	 * @param PerId
 	 * @return
 	 */
 	public List<Relatives> selectRelativesByPerId(String perId);
+
 	/**
 	 * 根据id查询亲属关系
 	 * 
@@ -49,5 +51,6 @@ public interface RelativesMapper {
 	public List<Relatives> relativesPagination(Pagination pagination);
 
 	public int findRelativesAllCount(Pagination pagination);
+
 	public void deleteRelativesByPerId(String perId);
 }

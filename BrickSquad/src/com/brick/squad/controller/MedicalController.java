@@ -45,9 +45,11 @@ public class MedicalController {
 
 	@RequestMapping("/toAddMedical")
 	public String toAddMedical(HttpServletRequest request, String id) {
-		//获得全部的personalinformattion页面填写身份证信息用
-		String allPersonalInformationData =medicalService.findAllPersonalInformationGetIdAndIdCardAndName();
-		request.setAttribute("allPersonalInformationData", allPersonalInformationData);
+		// 获得全部的personalinformattion页面填写身份证信息用
+		String allPersonalInformationData = medicalService
+				.findAllPersonalInformationGetIdAndIdCardAndName();
+		request.setAttribute("allPersonalInformationData",
+				allPersonalInformationData);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateMedicalById");
@@ -66,9 +68,10 @@ public class MedicalController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, true));
 	}
+
 	@RequestMapping("/addMedical")
 	public String addMedical(Medical medical) {
-		System.out.println(medical.getTypeId()+"99");
+		System.out.println(medical.getTypeId() + "99");
 		medicalService.insertMedical(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}
@@ -81,20 +84,18 @@ public class MedicalController {
 	}
 
 	@RequestMapping("/updateMedicalById")
-
 	public String updateMedicalById(Medical medical) {
 		medicalService.updateMedicalById(medical);
 		return "backstage_managed/jsp/medical/medical_list";
 	}
-	
-	
-	
+
 	@RequestMapping("/findMedicalById")
-	public String findMedicalById(HttpServletRequest request,String id){
-		MedicalExpand medicalExpand = medicalService.findPersonalInformationAndType(id);
+	public String findMedicalById(HttpServletRequest request, String id) {
+		MedicalExpand medicalExpand = medicalService
+				.findPersonalInformationAndType(id);
 		request.setAttribute("medicalExpand", medicalExpand);
-		return  "backstage_managed/jsp/medical/search_medical";
-		
+		return "backstage_managed/jsp/medical/search_medical";
+
 	}
-	
+
 }

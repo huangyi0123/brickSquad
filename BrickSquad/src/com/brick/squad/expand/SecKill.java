@@ -10,9 +10,6 @@ public class SecKill extends Article {
 	private int powsr;
 	private Date endtime;
 	private long timer;
-	
-	
-	
 
 	public long getTimer() {
 		return endtime.getTime();
@@ -31,13 +28,13 @@ public class SecKill extends Article {
 	}
 
 	public int getPowsr() {
-		float s=activePrice/Float.parseFloat(super.getPrice());
-		return (int) ((1.0f-s)*100);
+		float s = activePrice / Float.parseFloat(super.getPrice());
+		return (int) ((1.0f - s) * 100);
 	}
 
 	public void setPowsr() {
-		float s=activePrice/Float.parseFloat(super.getPrice());
-		this.powsr =(int) ((1.0f-s)*100);
+		float s = activePrice / Float.parseFloat(super.getPrice());
+		this.powsr = (int) ((1.0f - s) * 100);
 	}
 
 	public String getTime() {
