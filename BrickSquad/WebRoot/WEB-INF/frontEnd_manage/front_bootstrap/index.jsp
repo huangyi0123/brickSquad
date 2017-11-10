@@ -55,7 +55,9 @@
 <body class="page page-id-6 home-style1">
 
 	<div class="body-wrapper theme-clearfix">
-		<jsp:include page="shop_header.jsp"></jsp:include>
+		<jsp:include page="shop_header.jsp">
+		<jsp:param value="${toShopDetailsShoppingCar}" name="toShopDetailsShoppingCar"/>
+		</jsp:include>
 		<div class="listings-title">
 
 			<div class="container">
@@ -1104,7 +1106,7 @@
 
 																			<div class="sale-off">-24%</div>
 
-																			<div class="product-countdown" data-date="1519776000" data-price="$250"
+																			<div class="product-countdown" data-date="10000" data-price="$250"
 																				data-starttime="1483747200" data-cdtime="1519776000"
 																				data-id="product_sw_countdown_02"></div>
 																		</div>
@@ -1136,7 +1138,6 @@
 																							class="ajax-loading" alt="loading" width="16" height="16"
 																							style="visibility:hidden" />
 																					</div>
-
 																					<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
 																						<span class="feedback">Product added!</span>
 																						<a href="#" rel="nofollow">Browse Wishlist</a>
@@ -2537,7 +2538,7 @@
 																						<!-- end rating  -->
 
 																						<h4>
-																							<a href="simple_product.html" title="voluptate ipsum">${a[0].aname }</a>
+																							<a href="variableProduct/toVariable_product?productId=${a[0].id }" title="voluptate ipsum">${a[0].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2552,7 +2553,7 @@
 																					</div>
 
 																					<div class="item-img products-thumb">
-																						<a href="simple_product.html">
+																						<a href="variableProduct/toVariable_product?productId=${a[0].id }">
 																							<div class="product-thumb-hover">
 																								<img width="300" height="300" src="${a[0].image }"
 																									class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
@@ -2611,7 +2612,7 @@
 																						<!-- end rating -->
 
 																						<h4>
-																							<a href="simple_product.html" title="veniam dolore">${a[1].aname }</a>
+																							<a href="variableProduct/toVariable_product?productId=${a[1].id }" title="veniam dolore">${a[1].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2626,7 +2627,7 @@
 																					</div>
 
 																					<div class="item-img products-thumb">
-																						<a href="simple_product.html">
+																						<a href="variableProduct/toVariable_product?productId=${a[1].id }">
 																							<div class="product-thumb-hover">
 																								<img width="300" height="300" src="${a[1].image }"
 																									class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
@@ -2690,7 +2691,7 @@
 																		<div class="item">
 																			<div class="item-inner">
 																				<div class="item-img">
-																					<a href="simple_product.html" title="corned beef enim">
+																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="corned beef enim">
 																						<img width="180" height="180" src="${a.image }"
 																							class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
 																							srcset="${a.image } 180w, ${a.image } 150w, ${a.image } 300w, ${a.image } 600w"
@@ -2706,7 +2707,7 @@
 																						<div class="item-number-rating">${a.totals }人已购买</div>
 
 																						<h4>
-																							<a href="simple_product.html" title="corned beef enim">${a.aname }</a>
+																							<a href="variableProduct/toVariable_product?productId=${a.id }" title="corned beef enim">${a.aname }</a>
 																						</h4>
 
 																						<div class="item-price">
@@ -2873,7 +2874,7 @@
 																							<!-- end rating  -->
 
 																							<h4>
-																								<a href="simple_product.html" title="Cleaner with bag">${a[0].aname }</a>
+																								<a href="variableProduct/toVariable_product?productId=${a[0].id }" title="Cleaner with bag">${a[0].aname }</a>
 																							</h4>
 
 																							<!-- Price -->
@@ -2892,7 +2893,7 @@
 
 																						<div class="item-img products-thumb">
 																							<span class="onsale">Sale!</span>
-																							<a href="simple_product.html">
+																							<a href="variableProduct/toVariable_product?productId=${a[0].id }">
 																								<div class="product-thumb-hover">
 																									<img width="300" height="300" src="${a[0].image }"
 																										class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
@@ -2954,7 +2955,7 @@
 																							<!-- end rating  -->
 
 																							<h4>
-																								<a href="simple_product.html" title="sint turkey">${a[1].aname }</a>
+																								<a href="variableProduct/toVariable_product?productId=${a[1].id }" title="sint turkey">${a[1].aname }</a>
 																							</h4>
 
 																							<!-- Price -->
@@ -2969,7 +2970,7 @@
 																						</div>
 
 																						<div class="item-img products-thumb">
-																							<a href="simple_product.html">
+																							<a href="variableProduct/toVariable_product?productId=${a[1].id }">
 																								<div class="product-thumb-hover">
 																									<img width="300" height="300" src="${a[1].image }"
 																										class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
@@ -3033,7 +3034,7 @@
 																		<div class="item">
 																			<div class="item-inner">
 																				<div class="item-img">
-																					<a href="simple_product.html" title="Vacuum cleaner">
+																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="Vacuum cleaner">
 																						<img width="180" height="180" src="${a.image }g"
 																							class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
 																							srcset="${a.image } 180w, ${a.image } 150w,${a.image } 300w, ${a.image } 600w"
@@ -3055,7 +3056,7 @@
 																					<!-- end rating  -->
 
 																					<h4>
-																						<a href="simple_product.html" title="Vacuum cleaner">${a.aname }</a>
+																						<a href="variableProduct/toVariable_product?productId=${a.id }" title="Vacuum cleaner">${a.aname }</a>
 																					</h4>
 
 																					<div class="item-price">
@@ -3411,6 +3412,12 @@
 		<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
 		<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 		<script type="text/javascript">
+		$(function() {
+			 console.log("123");
+		 var data = '${toShopDetailsShoppingCar}';
+		 console.log(data);
+
+		});
 			var sticky_navigation_offset_top = $("#header .header-bottom")
 					.offset().top;
 			var sticky_navigation = function() {

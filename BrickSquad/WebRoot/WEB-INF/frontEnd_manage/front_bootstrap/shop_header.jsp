@@ -181,8 +181,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="number-item">
 												There are <span>items</span> in your cart
 											</div>
-
-											<ul class="minicart-content">
+										
+											<ul class="minicart-content" >
 												<li><a href="simple_product.html" class="product-image">
 														<img width="100" height="100"
 														src="resource/front_bootstrap/images/1903/45-150x150.jpg"
@@ -191,17 +191,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														srcset="resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, resource/front_bootstrap/images/1903/45.jpg 600w"
 														sizes="(max-width: 100px) 100vw, 100px" />
 												</a>
-													<div class="detail-item">
+													<div class="detail-item" >
 														<div class="product-details">
 															<h4>
-																<a class="title-item" href="simple_product.html">Veniam
-																	Dolore</a>
+																<a class="title-item" href="simple_product.html">
+																	</a>
 															</h4>
-
+															
 															<div class="product-price">
 																<span class="price"> <span
 																	class="woocommerce-Price-amount amount"> <span
-																		class="woocommerce-Price-currencySymbol">$</span>190.00
+																		class="woocommerce-Price-currencySymbol">$</span>10
 																</span>
 																</span>
 
@@ -209,7 +209,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																	<span class="qty-number">5</span>
 																</div>
 															</div>
-
 															<div class="product-action clearfix">
 																<a href="#" class="btn-remove" title="删除此物品2">
 																	<span class="fa fa-trash-o"></span>
@@ -218,6 +217,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 															</div>
 														</div>
 													</div></li>
+											
 												<li><a href="simple_product.html" class="product-image">
 														<img width="100" height="100"
 														src="resource/front_bootstrap/images/1903/22-150x150.jpg"

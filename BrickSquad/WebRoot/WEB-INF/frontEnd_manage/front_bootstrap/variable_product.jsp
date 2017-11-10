@@ -75,6 +75,10 @@
 	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css"
 	href="resource/css/ProductDetails.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/pictureMagnification/css/ShopShow.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/pictureMagnification/css/MagicZoom.css">
 </head>
 
 <body
@@ -113,17 +117,45 @@
 						<div class="single-product clearfix">
 							<div class="Pro_info">
 								<div class="comm_img">
-									<a href="javaScript:;"><img alt=""
+									<!--  	<a href="javaScript:;"><img alt=""
 										src="resource/image/articleImg/${ article.image}/${images[0]}"
 										style="width: 550px;height: 420px;margin-left: 15px;margin-top: 20px;"></a>
-									<div class="comm_imgs">
+									-->
+									<div id="tsShopContainer">
+										<div id="tsImgS">
+											<a
+												href="resource/image/articleImg/${ article.image}/${images[0]}"
+												title="Images" class="MagicZoom" id="MagicZoom"><img
+												width="500" height="500"
+												src="resource/image/articleImg/${ article.image}/${images[0]}" /></a>
+										</div>
+										<div id="tsPicContainer">
+											<div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
+											<div id="tsImgSCon">
+												<ul>
+													<c:forEach var="a" items="${images }" varStatus="status">
+														<li onclick="showPic(${status.index})" rel="MagicZoom"
+															class="tsSelectImg"><img height="80" width="80"
+															src="resource/image/articleImg/${ article.image}/${a}"
+															tsImgS="resource/image/articleImg/${ article.image}/${a}" /></li>
+													</c:forEach>
+												</ul>
+											</div>
+											<div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
+										</div>
+										<img class="MagicZoomLoading" width="16" height="16"
+											src="resource/plugins/pictureMagnification/images/loading.gif"
+											alt="Loading..." />
+									</div>
 
-										<c:forEach var="a" items="${images }">
+
+									<div class="comm_imgs">
+										<%-- <c:forEach var="a" items="${images }">
 
 											<a href="javaScript:;"><img alt=""
 												src="resource/image/articleImg/${ article.image}/${a}"></a>
 
-										</c:forEach>
+										</c:forEach> --%>
 										<div>
 											<div style="float: left;">
 												<a href="#"
@@ -144,6 +176,7 @@
 										</div>
 									</div>
 								</div>
+
 								<div class="comm_info">
 									<p
 										style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">${ article.aname}</p>
@@ -1141,6 +1174,10 @@
 		src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript"
 		src="resource/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="resource/plugins/pictureMagnification/js/MagicZoom.js"></script>
+	<script type="text/javascript"
+		src="resource/plugins/pictureMagnification/js/ShopShow.js"></script>
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript">
 		/* 添加购物车JS，ajax提交 */
@@ -1160,19 +1197,18 @@
 					type : "POST",
 					data : shoppingCar,
 					success : function(data) {
-
 						if (data == "fail") {
-							layer.msg("添加到购物车失败！稍后重试");
+							alert("添加到购物车失败！稍后重试");
 						} else if (data == "success") {
-							layer.msg("添加到购物车成功！");
+							alert("添加到购物车成功！");
 						}
-
 					},
 					error : function(e) {
-						layer.msg("服务器错误！！稍后重试");
+						alert("服务器错误！！稍后重试");
 					}
 				});
 			});
+
 		}
 	</script>
 	<script type="text/javascript">
@@ -1216,11 +1252,11 @@
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<script>
+	<!-- 	<script>
 		layui.use([ 'form', 'layedit', 'laydate' ], function() {
-			var form = layui.form, layer = layui.layer;
+			var form = layui.form;
 		})
-	</script>
+	</script> -->
 	<!--<![endif]-->
 </body>
 </html>

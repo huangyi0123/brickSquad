@@ -81,7 +81,11 @@ public interface ArticleMapper {
 	/**
 	 * 获取最新添加的商品
 	 */
-	public List<ArticleExpand> findFrontTime();
+
+	public List<NewsArticle> findFrontTime();
+	/**获取所有商品数量*/
+	public String findFrontTimeNumber();
+
 	/**
 	 * 获取最新商品
 	 * @param map 参数

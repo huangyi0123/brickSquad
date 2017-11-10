@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -108,7 +109,9 @@ public interface ArticalService {
 	/**
 	 * 获取最新添加的商品
 	 */
-	public List<ArticleExpand> findFrontTime();
 
 	public  List<Article> findSecondMedicalInstruments(String typeId)throws Exception;
+
+	public List<NewsArticle> findFrontTime();
+
 }

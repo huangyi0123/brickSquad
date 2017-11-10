@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.service.ArticalService;
 
 @Controller
@@ -23,16 +24,18 @@ public class NewDealsController {
 
 	@RequestMapping("/tonew_deals")
 	public String findFrontTime(HttpServletRequest request){
-		List<ArticleExpand> articleExpandList =articleService.findFrontTime();
+		List<NewsArticle> NewsArticleList =articleService.findFrontTime();
 
-		for (ArticleExpand item : articleExpandList) {
-			String path = request.getSession().getServletContext().getRealPath("resource/image/articleImg"+item.getImage());
+		for (NewsArticle item : NewsArticleList) {
+			
+			String path = request.getSession().getServletContext().getRealPath("resource/image/articleImg/"+item.getImage());
 		File file = new File(path);
+		System.err.println(path);
 		if(item.getImage()==null || item.getImage().equals("") ){
 			}
 		else {
 			File[] file2 =file.listFiles();
-			if(file2.length==0){
+			if(file2==null||file2.length==0){
 				
 			}else {
 				for (int i = 0; i < file2.length; i++) {
@@ -48,7 +51,7 @@ public class NewDealsController {
 		  }
 		}
 		
-		request.setAttribute("articleExpandList", articleExpandList);
+		request.setAttribute("NewsArticleList", NewsArticleList);
 		return "frontEnd_manage/front_bootstrap/new_deals";	
 	}
 }

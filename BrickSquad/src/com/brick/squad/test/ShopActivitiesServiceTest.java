@@ -1,5 +1,7 @@
 package com.brick.squad.test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -111,5 +113,14 @@ public class ShopActivitiesServiceTest {
 		ShopActivitiesExpand shopActivitiesExpand=shopActivitiesService.findShopActivitiesAndTypeAndArticle("12");
 		System.out.println(shopActivitiesExpand.getAname());
 	}
-	
+	@Test
+	public void testsecKillIndex() throws ParseException {
+		List<SecKill> secKills=shopActivitiesService.secKillIndex();
+		for (SecKill secKill : secKills) {
+			SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			
+			Date date=simpleDateFormat.parse(secKill.getTime());
+			System.err.println(date.getTime()/1000);
+		}
+	}
 }
