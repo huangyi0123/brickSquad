@@ -7,8 +7,11 @@
 		 values (#{id},#{currentIntegral},#{historicalIntegral},#{grade},#{deliveryAddressId})
 	</insert>
 	<select id="findBuyersByUUID" parameterType="String" resultType="com.brick.squad.pojo.Buyers">
-	select id,current_integral currentIntegral,historical_integral historicalIntegral,grade grade,delivery_address_id deliveryAddressId 
-	from buyers where id=#{id}
+	select buyers.id,current_integral currentIntegral,
+		historical_integral historicalIntegral,grade grade,
+		type.name tname,delivery_address_id deliveryAddressId
+		from buyers 
+		JOIN type ON buyers.grade=type.id where buyers.id=#{id}
 	</select>
 	<update id="updateBuyersById" parameterType="com.brick.squad.pojo.Buyers">
 		update buyers set 
@@ -21,10 +24,11 @@
 	<!--分页查询  -->
 	<select id="buyersPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.BuyersExpand">
 		select buyers.id,personal_information.name pname,current_integral currentIntegral,
-		historical_integral historicalIntegral,
-		grade grade,delivery_address_id deliveryAddressId
+		historical_integral historicalIntegral,grade grade,
+		type.name tname,delivery_address_id deliveryAddressId
 		from buyers 
-		JOIN personal_information ON buyers.id=personal_information.id 	
+		JOIN personal_information ON buyers.id=personal_information.id 
+		JOIN type ON buyers.grade=type.id
 		<if test="keyword!=''">
 		where personal_information.name REGEXP #{keyword} or buyers.grade REGEXP #{keyword}
 		</if>

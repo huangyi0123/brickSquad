@@ -1,6 +1,7 @@
 package com.brick.squad.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
@@ -63,6 +64,8 @@ public interface ArticleMapper {
 	public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean);
 	/**医疗器械商品排序*/
 	public List<Article> findOrderByMedicalInstruments(PageBeanUtil pageBean);
+	public List<Article> findOrderByMedicalInstrumentsDate(PageBeanUtil pageBean);
+	public List<Article> findOrderByMedicalInstrumentsPop(PageBeanUtil pageBean);
 /*	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page);*/
 /*
 	 * 根据商品ID在评论表中查询评论总量
@@ -78,9 +81,18 @@ public interface ArticleMapper {
 	/**
 	 * 获取最新添加的商品
 	 */
+
 	public List<NewsArticle> findFrontTime();
 	/**获取所有商品数量*/
 	public String findFrontTimeNumber();
+
+	/**
+	 * 获取最新商品
+	 * @param map 参数
+	 * 
+	 * @return  最新商品列表
+	 */
+	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 
 }
 

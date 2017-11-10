@@ -88,6 +88,8 @@ public interface ArticalService {
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page ,int limitPage)throws Exception;
 	/**医疗器械商品排序*/
 	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page ,int sequence,int limitPage)throws Exception;
+	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page ,int sequence,int limitPage)throws Exception;
+	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page ,int sequence,int limitPage)throws Exception;
 /*
 	 * 根据商品ID在评论表中查询评论总量
 	 * 
@@ -102,7 +104,7 @@ public interface ArticalService {
 	 * 
 	 * @return 数据集合
 	 */
-	public Map<String, List<Object>> shopIndex();
+	public Map<String, Object> shopIndex();
 	
 	/**
 	 * 获取最新添加的商品

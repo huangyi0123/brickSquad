@@ -71,6 +71,7 @@ public class HealthRecordsController {
 		//得到数据库中查询的身份证 姓名 id的json数据用于页面显示出来
 				String	allPersonalInformationdata = guidanceService.findPerIdAndIdCard();
 				request.setAttribute("allPersonalInformationdata", allPersonalInformationdata);
+				//通过父ID查询疾病类型
 				String data=typeService.findTypeByParentId("jibingleixin");
 				//System.out.println(data);
 				request.setAttribute("typeData", data);

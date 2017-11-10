@@ -123,7 +123,7 @@
 				</c:if>
 				<c:if test="${url ne 'updateMedicalById'}">
 					<select lay-filter="IdCard" id="perIdCardId"
-						val="${medical.perId }">
+						val="${medical.perId }" lay-search="">
 						<option value="">选择老人身份证号码</option>
 					</select>
 				</c:if>
