@@ -5,14 +5,15 @@ import java.util.Date;
 import com.brick.squad.pojo.Article;
 
 public class SecKill extends Article {
-	private Date time;
+	private String time;
 	private float activePrice;
+	
 
-	public Date getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
@@ -35,7 +36,5 @@ public class SecKill extends Article {
 				+ super.toString() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + "]";
 	}
-
-	
 
 }
