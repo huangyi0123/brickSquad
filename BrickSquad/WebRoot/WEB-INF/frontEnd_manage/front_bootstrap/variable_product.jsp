@@ -1160,19 +1160,18 @@
 					type : "POST",
 					data : shoppingCar,
 					success : function(data) {
-
-						if (data == "fail") {
-							layer.msg("添加到购物车失败！稍后重试");
+						 if (data == "fail") {
+							alert("添加到购物车失败！稍后重试");
 						} else if (data == "success") {
-							layer.msg("添加到购物车成功！");
+							alert("添加到购物车成功！");
 						}
-
 					},
 					error : function(e) {
-						layer.msg("服务器错误！！稍后重试");
+						alert("服务器错误！！稍后重试");
 					}
 				});
 			});
+
 		}
 	</script>
 	<script type="text/javascript">
@@ -1216,11 +1215,11 @@
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<script>
+	<!-- 	<script>
 		layui.use([ 'form', 'layedit', 'laydate' ], function() {
-			var form = layui.form, layer = layui.layer;
+			var form = layui.form;
 		})
-	</script>
+	</script> -->
 	<!--<![endif]-->
 </body>
 </html>

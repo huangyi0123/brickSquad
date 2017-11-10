@@ -254,7 +254,6 @@ public class ArticleServiceImpl implements ArticalService {
 	}
 
 	@Override
-	
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page,
 			int limitPage) throws Exception {
 		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
@@ -380,12 +379,8 @@ public class ArticleServiceImpl implements ArticalService {
 		return pageBean;
 	}
 
-	@Override
-	public List<ArticleExpand> findFrontTime() {
-		List<ArticleExpand> articleExpand = articleMapper.findFrontTime();
-		System.err.println(articleExpand.size());
-		return articleExpand;
-	}
+
+	
 	@Override
 	/**医疗器械日期排序*/
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page ,int sequence,int limitPage)
@@ -453,7 +448,14 @@ public class ArticleServiceImpl implements ArticalService {
 		}
 		return  pageBean;
 	}
+
 	@Override
+	public List<NewsArticle> findFrontTime() {
+		List<NewsArticle> NewsArticleList = articleMapper.findFrontTime();
+		System.err.println(NewsArticleList.size());
+		return NewsArticleList;
+	}
+	
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page,
 			int sequence, int limitPage) throws Exception {
 		
