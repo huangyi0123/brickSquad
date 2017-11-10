@@ -1,6 +1,7 @@
 package com.brick.squad.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.JunitClassRunner;
@@ -27,7 +29,12 @@ public class CollectionServiceTest {
 				.findCollectionById("499e0cbabfad11e7aca65254002ec43c");
 		System.out.println(collection.getColDate());
 	}
-
+	@Test
+	public void testFindCollectionById2() {
+		 List<ArticleExpand> articleExpand=collectionService.findCollectionMessage("77c9a2dec44911e7aca65254002ec43c");
+		 System.out.println(articleExpand);
+		
+	}
 	@Test
 	public void testInsertCollection() {
 		Collection collection = new Collection();

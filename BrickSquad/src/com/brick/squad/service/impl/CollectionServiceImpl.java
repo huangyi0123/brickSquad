@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.mapper.CollectionMapper;
 import com.brick.squad.pojo.ActivityRegistration;
@@ -53,5 +54,11 @@ public class CollectionServiceImpl implements CollectionService {
 		String data = util.SplitPage(datas, n);
 		return data;
 	}
+
+	public List<ArticleExpand> findCollectionMessage(String pid){
+		return collectionMapper.findCollectionMessage(pid);
+		
+	}
+	
 
 }

@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.util.Pagination;
 
@@ -44,5 +45,9 @@ public interface CollectionService {
 	 * @return 收藏物品信息
 	 */
 	public String collectionPagination(Pagination pagination);
+
+
+	public List<ArticleExpand> findCollectionMessage(String pid);
+	
 
 }

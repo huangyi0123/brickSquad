@@ -190,7 +190,7 @@ $(function() {
 			<div class="layui-form-item">
 			<label class="layui-form-label">商品描述</label>
 			<input type="hidden" name="describes" id="con1" >
-			<div class="layui-input-block" id="editor" style="z-index: -1" ></div>
+			<div class="layui-input-block" id="editor" style="z-index: 0" ></div>
 		</div>
 		
 			<div class="layui-form-item">

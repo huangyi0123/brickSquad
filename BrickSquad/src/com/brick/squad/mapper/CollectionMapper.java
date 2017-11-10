@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Collection;
@@ -64,4 +65,6 @@ public interface CollectionMapper {
 	public List<Select> findPnameByBuyersId();
 
 	public void deleteCollectionByPerId(String perId);
+
+	public List<ArticleExpand> findCollectionMessage(String pid);
 }
