@@ -458,6 +458,21 @@ pre {
 											<div id="reviews">
 												<div id="comments">
 													<h2>商品评价（${ratedTotal }）</h2>
+													<table style="width: 100%">
+														<c:forEach var="orderRated" items="${orderRateds }">
+															<tr style="height: 40px;">
+																<td style="width: 150px;text-align: center;">
+																	<img style="border-radius:100%;" alt="" width="20px"
+																		height="20px" src="resource/image/userdefaultpic.jpg">
+																</td>
+																<td>${orderRated.ratedCentent }</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #EFEFEF;" >
+																<td>${orderRated.ratedUserName }</td>
+																<td style="text-align: right;">${orderRated.ratedDate }</td>
+															</tr>
+														</c:forEach>
+													</table>
 												</div>
 												<div class="clear"></div>
 											</div>
@@ -516,12 +531,6 @@ pre {
 											</form>
 
 										</div>
-										<c:forEach var="orderRated" items="${orderRateds }">
-													${orderRated.ratedUserName }
-													${orderRated.ratedCentent }
-													${orderRated.ratedDate }
-													<hr style="background-color: #EFEFEF;">
-										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -1189,10 +1198,10 @@ pre {
 		<script src="resource/plugins/pictureMagnification/js/jquery.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="resource/plugins/pictureMagnification/js/smoothproducts.min.js"></script>
 		<script type="text/javascript">
-/* wait for images to load */
-$(window).load(function() {
+			/* wait for images to load */
+		$(window).load(function() {
 	$('.sp-wrap').smoothproducts();
-});
+	});
 </script>
 		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 		<script type="text/javascript">
@@ -1256,8 +1265,7 @@ $(window).load(function() {
 				});
 			});
 		});
-	</script>
-	<!--[if gte IE 9]><!-->
+	</script><!--[if gte IE 9]><!-->
 	<script type="text/javascript">
 		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
 				'(^|\\s+)(no-)?' + cs + '(\\s+|$)');
@@ -1267,11 +1275,5 @@ $(window).load(function() {
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<!-- 	<script>
-		layui.use([ 'form', 'layedit', 'laydate' ], function() {
-			var form = layui.form;
-		})
-	</script> -->
-	<!--<![endif]-->
 </body>
 </html>
