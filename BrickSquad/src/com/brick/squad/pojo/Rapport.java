@@ -3,24 +3,23 @@ package com.brick.squad.pojo;
 import java.util.Date;
 
 public class Rapport {
-    private String id;
+	private String id;
 
-    private String perId;
+	private String perId;
 
-    private String userId;
+	private String userId;
 
-    private Date rapportDate;
-    
-    private String goal;
-    
-    private Float period;
+	private Date rapportDate;
 
-    private String content;
-    /**Rapport客户老人沟通与User用户的关系：一对多*/
-    private User users;
-    /**Rapport客户老人沟通与老人的关系：一对多*/
-    private PersonalInformation personalInformation;
+	private String goal;
 
+	private Float period;
+
+	private String content;
+	/** Rapport客户老人沟通与User用户的关系：一对多 */
+	private User users;
+	/** Rapport客户老人沟通与老人的关系：一对多 */
+	private PersonalInformation personalInformation;
 
 	public User getUsers() {
 		return users;
@@ -39,43 +38,44 @@ public class Rapport {
 	}
 
 	public String getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getPerId() {
-        return perId;
-    }
+	public String getPerId() {
+		return perId;
+	}
 
-    public void setPerId(String perId) {
-        this.perId = perId;
-    }
+	public void setPerId(String perId) {
+		this.perId = perId;
+	}
 
-    public String getUserId() {
-        return userId;
-    }
+	public String getUserId() {
+		return userId;
+	}
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    public Date getRapportDate() {
-        return rapportDate;
-    }
-    public void setRapportDate(Date rapportDate) {
-        this.rapportDate = rapportDate;
-    }
+	public Date getRapportDate() {
+		return rapportDate;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setRapportDate(Date rapportDate) {
+		this.rapportDate = rapportDate;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 
 	public String getGoal() {
 		return goal;
@@ -92,5 +92,5 @@ public class Rapport {
 	public void setPeriod(Float period) {
 		this.period = period;
 	}
-    
+
 }

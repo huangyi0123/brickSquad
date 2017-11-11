@@ -66,44 +66,47 @@ public class MedicalServiceImpl implements MedicalService {
 
 	@Override
 	public String medicalPagination(Pagination pagination) {
-		List<MedicalExpand> medicals = medicalMapper.medicalPagination(pagination);
+		List<MedicalExpand> medicals = medicalMapper
+				.medicalPagination(pagination);
 		int row = medicalMapper.findMedicalAllCount(pagination);
 		Util<MedicalExpand> util = new Util<>();
 		String data = util.SplitPage(medicals, row);
 		return data;
 	}
 
-	/*@Override
-	public int findMedicalAllCount() {
-		// TODO Auto-generated method stub
-		return medicalMapper.findMedicalAllCount();
-	}*/
+	/*
+	 * @Override public int findMedicalAllCount() { // TODO Auto-generated
+	 * method stub return medicalMapper.findMedicalAllCount(); }
+	 */
 
 	@Override
 	public String findAllPersonalInformationGetIdAndIdCardAndName() {
-		List<PersonalInformation> allPersonalInformation =personalInformationMapper.findPerIdAndIdCard();
+		List<PersonalInformation> allPersonalInformation = personalInformationMapper
+				.findPerIdAndIdCard();
 		JSONArray jsonArray = new JSONArray();
-		String allPersonalInformationData =jsonArray.fromObject(allPersonalInformation).toString();	
+		String allPersonalInformationData = jsonArray.fromObject(
+				allPersonalInformation).toString();
 		return allPersonalInformationData;
 	}
 
 	@Override
 	public String findAllPersonalInformationAndType() {
-		List<PersonalInformation> personalInformation=personalInformationMapper.findAllPersonalInformations();
-		List<Type> type =typeMapper.findAllType();
-		Map<String, List> map=new HashMap<String, List>();
+		List<PersonalInformation> personalInformation = personalInformationMapper
+				.findAllPersonalInformations();
+		List<Type> type = typeMapper.findAllType();
+		Map<String, List> map = new HashMap<String, List>();
 		map.put("personalInformation", personalInformation);
 		map.put("type", type);
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(map).toString();
+		JSONArray jsonArray = new JSONArray();
+		String data = jsonArray.fromObject(map).toString();
 		return data;
 	}
 
 	@Override
 	public MedicalExpand findPersonalInformationAndType(String id) {
-		MedicalExpand medicalExpand = medicalMapper.findPersonalInformationAndType(id);
+		MedicalExpand medicalExpand = medicalMapper
+				.findPersonalInformationAndType(id);
 		return medicalExpand;
 	}
 
-	
 }

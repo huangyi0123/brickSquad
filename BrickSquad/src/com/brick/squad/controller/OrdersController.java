@@ -57,17 +57,19 @@ public class OrdersController {
 	}
 
 	@RequestMapping("/toAddOrders")
-	public String toAddOrders(HttpServletRequest request,String id) throws Exception {
-		if(id!=null){
-			OrdersExpand ordersExpand=ordersService.findBuyserAndPersonalInformation(id);
+	public String toAddOrders(HttpServletRequest request, String id)
+			throws Exception {
+		if (id != null) {
+			OrdersExpand ordersExpand = ordersService
+					.findBuyserAndPersonalInformation(id);
 			request.setAttribute("ordersName", ordersExpand);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateOrders");
-			Orders orders=ordersService.findOrdersById(id);
+			Orders orders = ordersService.findOrdersById(id);
 			request.setAttribute("orders", orders);
-		}else{
+		} else {
 			request.setAttribute("msg", "添加");
-			request.setAttribute("url", "inserOrders");//这儿的inserOrders添加，暂时还没有写
+			request.setAttribute("url", "inserOrders");// 这儿的inserOrders添加，暂时还没有写
 		}
 		return "backstage_managed/jsp/orders/add_orders";
 	}
@@ -77,25 +79,31 @@ public class OrdersController {
 	public String findAllOrders() throws Exception {
 		return ordersService.findOrders();
 	}
+
 	@RequestMapping("/deleteOrders")
 	@ResponseBody
-	public String deleteOrders(String id) throws Exception{
+	public String deleteOrders(String id) throws Exception {
 		ordersService.deleteOrdersById(id);
 		return "success";
 	}
+
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
 	}
+
 	@RequestMapping("/updateOrders")
-	public String updateOrders(Orders orders) throws Exception{
+	public String updateOrders(Orders orders) throws Exception {
 		ordersService.updateOrdersById(orders);
 		return "backstage_managed/jsp/orders/orders_list";
 	}
+
 	@RequestMapping("/findOrdersAndBuyserById")
-	public String findOrdersAndBuyserById(HttpServletRequest request,String id) throws Exception{
-		OrdersExpand ordersExpand=ordersService.findOrdersAndBuyserById(id);
+	public String findOrdersAndBuyserById(HttpServletRequest request, String id)
+			throws Exception {
+		OrdersExpand ordersExpand = ordersService.findOrdersAndBuyserById(id);
 		request.setAttribute("ordersExpand", ordersExpand);
 		return "backstage_managed/jsp/orders/search_orders";
 	}

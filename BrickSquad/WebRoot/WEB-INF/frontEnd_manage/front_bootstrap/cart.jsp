@@ -116,11 +116,11 @@
 												</tr>
 											</thead>
 
-											<tbody ng-app="" >
+											<tbody ng-app=""  >
 												<c:forEach var="listDetailsShoppingCar"
 													items="${listDetailsShoppingCar}" varStatus="a">
 													<tr  class="cart_item" 
-														ng-init="price_${a.index }='${listDetailsShoppingCar.price }'">
+														ng-init="price_${a.index }='${listDetailsShoppingCar.price }';num_${a.index}='${listDetailsShoppingCar.number}'">
 														<td class="product-remove"><a
 															href="shoppingCar/IndexDeleteShoppingCar?id=${listDetailsShoppingCar.id}"
 															class="remove" title="Remove this item"><i
@@ -143,19 +143,19 @@
 														</td>
 
 														<td class="product-quantity" data-title="Quantity">
-															<div class="quantity">
+															<div class="quantity" >
 																<input type="number" step="1" min="1"
-																	max="${listDetailsShoppingCar.stock}" name="" value="1"
+																	max="${listDetailsShoppingCar.stock}" name="" value="${listDetailsShoppingCar.number}"
 																	title="Qty"
 																	class="input-text qty text" size="4"
 																	pattern="[0-9]*" inputmode="numeric"
-																	ng-model="num_${a.index }">
+																	ng-model="num_${a.index}">
 															</div>
 														</td>
 														<td class="product-subtotal" data-title="Total"><span
 															class="woocommerce-Price-amount amount"><span
 																class="woocommerce-Price-currencySymbol">￥</span> <input
-																type="text" class="allPriceId${a.index }"
+																type="text" class="allPriceId${a.index}"
 																readonly="readonly"
 																style="border: none;background-color:transparent;"
 																value="{{num_${a.index }*price_${a.index }}}"></span>
@@ -401,8 +401,7 @@
 					$(".allPriceId").val(allPrice);
 				});
 			}); */
-
-		});
+});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();

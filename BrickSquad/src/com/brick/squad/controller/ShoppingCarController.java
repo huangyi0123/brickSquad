@@ -27,10 +27,12 @@ public class ShoppingCarController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
-	/*@Autowired
-	@Qualifier("articalService")
-	private ArticalService articalService;
-*/
+
+	/*
+	 * @Autowired
+	 * 
+	 * @Qualifier("articalService") private ArticalService articalService;
+	 */
 	@RequestMapping("/toShoppingCarList")
 	public String toRegionList() {
 		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
@@ -135,11 +137,14 @@ public class ShoppingCarController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/detailsShoppingCar")
-	public String detailsShoppingCar(HttpServletRequest request) throws Exception{
-		List<ShoppingCarAndArticle> listDetailsShoppingCar = shoppingCarService.findArticIdAllArtic();
+	public String detailsShoppingCar(HttpServletRequest request)
+			throws Exception {
+		List<ShoppingCarAndArticle> listDetailsShoppingCar = shoppingCarService
+				.findArticIdAllArtic();
 		request.setAttribute("listDetailsShoppingCar", listDetailsShoppingCar);
 		return "frontEnd_manage/front_bootstrap/cart";
-}
+	}
+
 	/**
 	 * 前台删除购物车
 	 * 

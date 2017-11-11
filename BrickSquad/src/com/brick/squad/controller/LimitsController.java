@@ -16,37 +16,40 @@ public class LimitsController {
 	@Autowired
 	@Qualifier("limitsService")
 	private LimitsService limitsService;
+
 	@RequestMapping("/toLimitsList")
 	public String toLimitsList() {
 		return "backstage_managed/jsp/limits/limits_list";
 	}
+
 	@RequestMapping("/getLimitsList")
 	@ResponseBody
-	public String getLimitsList(int pSize,int cPage,String keyword) {
-		Pagination pagination=new Pagination();
+	public String getLimitsList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return limitsService.limitsPagination(pagination);
-		 
+
 	}
-	
+
 	@RequestMapping("/toAddLimits")
-	public String toAddLimits(){
+	public String toAddLimits() {
 		return "backstage_managed/jsp/limits/add_limits";
-		
+
 	}
-	
+
 	@RequestMapping("/addLimits")
-	public String addLimits(Limits limits){
-		System.out.println(limits.getRoleId()+"6666");
+	public String addLimits(Limits limits) {
+		System.out.println(limits.getRoleId() + "6666");
 		limitsService.insertLimits(limits);
 		return "backstage_managed/jsp/limits/limits_list";
 	}
+
 	@RequestMapping("/findAllLimitsByRoleId")
 	@ResponseBody
 	public String findAllLimitsByRoleId(String roleId) {
-		String data=limitsService.findAllTableName(roleId);
+		String data = limitsService.findAllTableName(roleId);
 		return data;
 	}
 }

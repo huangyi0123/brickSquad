@@ -10,15 +10,15 @@ public interface ActivitiesService {
 	/**
 	 * 
 	 * @param id
-	 * @return 返回活动列表 
+	 * @return 返回活动列表
 	 */
-	public Activities  findActivitiesById(String id) throws Exception;
+	public Activities findActivitiesById(String id) throws Exception;
 
 	public void insertActivitiesById(Activities activities) throws Exception;
-	
-	public void deleteActivitiesById(String id)throws Exception;
-	
-	public void updateActivitiesById(Activities activities)throws Exception;
+
+	public void deleteActivitiesById(String id) throws Exception;
+
+	public void updateActivitiesById(Activities activities) throws Exception;
 
 	public int findActivitiesAllCount();
 
@@ -26,16 +26,13 @@ public interface ActivitiesService {
 
 	public String findAllActivities();
 
-	
 	public String findAllTypeAndUser();
-	
+
 	public ActivitiesExpand findActivitiesAndTpyeAndUser(String id);
+
 	/*
 	 * 查询出所有活动的需求字段
 	 */
 	public String findAllActivitiesIdAndName();
-
-	
-
 
 }

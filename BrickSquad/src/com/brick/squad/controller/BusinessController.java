@@ -42,6 +42,7 @@ public class BusinessController {
 		String data = businessService.businessPagination(pagination);
 		return data;
 	}
+
 	@RequestMapping("/toAddBusiness")
 	public String toAddBusiness(HttpServletRequest request, String id) {
 		if (id != null) {
@@ -55,43 +56,44 @@ public class BusinessController {
 		}
 		return "backstage_managed/jsp/business/add_business";
 	}
-	
+
 	@RequestMapping("/insertBusiness")
-	  public String insertBusiness(@Validated Business business,BindingResult result,HttpServletRequest request) {
+	public String insertBusiness(@Validated Business business,
+			BindingResult result, HttpServletRequest request) {
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
 			request.setAttribute("url", "insertBusiness");
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/business/add_business";
-					
+
 		}
-		  businessService.insertBusiness(business);
-		  return "backstage_managed/jsp/business/business_list";
-		
+		businessService.insertBusiness(business);
+		return "backstage_managed/jsp/business/business_list";
+
 	}
-	
+
 	@RequestMapping("/updateBusinessById")
-	public String updateBusinessById(Business business ) {
+	public String updateBusinessById(Business business) {
 		businessService.updateBusinessById(business);
 		return "backstage_managed/jsp/business/business_list";
-		
+
 	}
-	
+
 	@RequestMapping("/deleteBusinessById")
 	@ResponseBody
 	public String deleteBusinessById(String id) {
 		businessService.deleteBusinessById(id);
 		return "success";
-				
+
 	}
-	
+
 	@RequestMapping("/findBusinessById")
-	public String findBusinessById(HttpServletRequest request,String id){
+	public String findBusinessById(HttpServletRequest request, String id) {
 		Business business = businessService.findBusiness(id);
 		request.setAttribute("business", business);
-		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+business);
+		// System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+business);
 		return "backstage_managed/jsp/business/search_business";
 	}
-	
+
 }

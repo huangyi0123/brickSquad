@@ -1,4 +1,4 @@
- package com.brick.squad.controller;
+package com.brick.squad.controller;
 
 import java.util.List;
 
@@ -70,7 +70,8 @@ public class TypeController {
 	}
 
 	@RequestMapping("/insertType")
-	public String insertType(@Validated Type type,BindingResult result,HttpServletRequest request) {
+	public String insertType(@Validated Type type, BindingResult result,
+			HttpServletRequest request) {
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -88,11 +89,11 @@ public class TypeController {
 		typeService.updateTypeById(type);
 		return "backstage_managed/jsp/type/type_list";
 	}
-	
+
 	@RequestMapping("/deleteTypeById")
 	@ResponseBody
 	public String deleteTypeById(String id) {
 		typeService.deleteTypeById(id);
-		return "success";		
+		return "success";
 	}
 }

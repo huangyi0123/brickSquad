@@ -38,14 +38,14 @@ public class JsonDateValueProcessor implements JsonValueProcessor {
 	@Override
 	public Object processObjectValue(String key, Object value,
 			JsonConfig jsonConfig) {
-		if (value instanceof java.util.Date) {  
-            String str = new SimpleDateFormat(format).format((Date) value);  
-            return str;  
-        }  
-        if (null != value) {  
-            return value.toString();
-        }  
-        return "";
+		if (value instanceof java.util.Date) {
+			String str = new SimpleDateFormat(format).format((Date) value);
+			return str;
+		}
+		if (null != value) {
+			return value.toString();
+		}
+		return "";
 	}
 
 }

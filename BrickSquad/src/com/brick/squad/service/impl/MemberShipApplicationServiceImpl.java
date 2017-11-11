@@ -89,11 +89,11 @@ public class MemberShipApplicationServiceImpl implements
 		return data;
 	}
 
-	/*@Override
-	public int findMemberShipApplicationAllCount() {
-		// TODO Auto-generated method stub
-		return memberShipApplicationMapper.findMemberShipApplicationAllCount();
-	}*/
+	/*
+	 * @Override public int findMemberShipApplicationAllCount() { // TODO
+	 * Auto-generated method stub return
+	 * memberShipApplicationMapper.findMemberShipApplicationAllCount(); }
+	 */
 
 	@Override
 	public String findAllMemberShipApplication() {
@@ -125,7 +125,7 @@ public class MemberShipApplicationServiceImpl implements
 			String id) {
 		MemberShipApplicationExpand memberShipApplicationExpand = memberShipApplicationMapper
 				.findMemberShipApplicationAndTypeAndUserAndPersonalInformation(id);
-        return memberShipApplicationExpand;
+		return memberShipApplicationExpand;
 	}
 
 }

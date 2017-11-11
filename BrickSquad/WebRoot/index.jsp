@@ -147,10 +147,10 @@
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<a href="common/toShop" title="商城中心"><img src="resource/image/credit.png" alt=" " /></a>
+							<a href="shopIndex/toShop" title="商城中心"><img src="resource/image/credit.png" alt=" " /></a>
 						</span>
 					</h4>
-					<a href="common/toShop"><p>商城中心</p></a>
+					<a href="shopIndex/toShop"><p>商城中心</p></a>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>

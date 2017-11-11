@@ -28,22 +28,25 @@ public class MemberShipApplicationServiceTest {
 	@Test
 	public void findMemberShipApplicationById() {
 		System.out.println(memberShipApplicationService
-				.findMemberShipApplicationById("fd5e42b4b4be11e78d4f5254002ec43c").toString());
+				.findMemberShipApplicationById(
+						"fd5e42b4b4be11e78d4f5254002ec43c").toString());
 	}
 
 	@Test
 	public void deleteMemberShipApplicationById() {
-		memberShipApplicationService.deleteMemberShipApplicationById("1b36865ab64c11e78d4f5254002ec43c");
+		memberShipApplicationService
+				.deleteMemberShipApplicationById("1b36865ab64c11e78d4f5254002ec43c");
 	}
+
 	@Test
 	public void insertMemberShipApplicationById() {
 
 		for (int i = 0; i < 2; i++) {
 			MemberShipApplication m = new MemberShipApplication();
-			m.setMemberShipTypeId("MemberShipTypeId"+i);
-			m.setUserId("UserId"+i);
-			m.setPerId("PerId"+i);
-			m.setDeposit(500+i);
+			m.setMemberShipTypeId("MemberShipTypeId" + i);
+			m.setUserId("UserId" + i);
+			m.setPerId("PerId" + i);
+			m.setDeposit(500 + i);
 			memberShipApplicationService.insertMemberShipApplicationById(m);
 		}
 
@@ -70,33 +73,40 @@ public class MemberShipApplicationServiceTest {
 				.MemberShipApplicationPagination(pagination);
 	}
 
-	/*@Test
-	public void findMemberShipApplicationAllCount() {
-
-		System.out.println(memberShipApplicationService
-				.findMemberShipApplicationAllCount());
-	}*/
+	/*
+	 * @Test public void findMemberShipApplicationAllCount() {
+	 * 
+	 * System.out.println(memberShipApplicationService
+	 * .findMemberShipApplicationAllCount()); }
+	 */
 	@Test
-	public void MemberShipApplicationPagination(){
-		Pagination pagination=new Pagination();
+	public void MemberShipApplicationPagination() {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
-		String data=memberShipApplicationService.MemberShipApplicationPagination(pagination);
+		String data = memberShipApplicationService
+				.MemberShipApplicationPagination(pagination);
 		System.out.println(data);
 	}
+
 	@Test
-	public void findAllMemberShipApplication(){
-		String data=memberShipApplicationService.findAllMemberShipApplication();
+	public void findAllMemberShipApplication() {
+		String data = memberShipApplicationService
+				.findAllMemberShipApplication();
 		System.out.println(data);
 	}
+
 	@Test
-	public void findAllTypeAndUserAndPersonalInformation(){
-		String data=memberShipApplicationService.findAllTypeAndUserAndPersonalInformation();
+	public void findAllTypeAndUserAndPersonalInformation() {
+		String data = memberShipApplicationService
+				.findAllTypeAndUserAndPersonalInformation();
 		System.out.println(data);
 	}
+
 	@Test
-	public void findMemberShipApplicationAndTypeAndUserAndPersonalInformation(){
-		MemberShipApplicationExpand memberShipApplicationExpand= memberShipApplicationService.findMemberShipApplicationAndTypeAndUserAndPersonalInformation("3");
+	public void findMemberShipApplicationAndTypeAndUserAndPersonalInformation() {
+		MemberShipApplicationExpand memberShipApplicationExpand = memberShipApplicationService
+				.findMemberShipApplicationAndTypeAndUserAndPersonalInformation("3");
 		System.out.println(memberShipApplicationExpand.getTname());
 	}
 }

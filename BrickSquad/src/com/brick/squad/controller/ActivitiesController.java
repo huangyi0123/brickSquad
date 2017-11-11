@@ -27,120 +27,118 @@ import com.brick.squad.util.Pagination;
 @RequestMapping("/activities")
 @Controller
 public class ActivitiesController {
-	
-		@Autowired
-		@Qualifier("activitiesService")
-		private ActivitiesService activitiesService;
-		
-		@RequestMapping("/toActivitiesList")
-		public String toActivitiesList(){
-			return "backstage_managed/jsp/activities/activities_list";
-			
+
+	@Autowired
+	@Qualifier("activitiesService")
+	private ActivitiesService activitiesService;
+
+	@RequestMapping("/toActivitiesList")
+	public String toActivitiesList() {
+		return "backstage_managed/jsp/activities/activities_list";
+
+	}
+
+	@RequestMapping("/getActivitiesList")
+	@ResponseBody
+	public String getActivitiesList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
+		pagination.setCurentPage(cPage);
+		pagination.setPageSize(pSize);
+		pagination.setKeyword(keyword);
+		return activitiesService.activitiesPagination(pagination);
+	}
+
+	@RequestMapping("/toAddActivities")
+	public String toAddActivities(HttpServletRequest request, String id)
+			throws Exception {
+		if (id != null) {
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateActivitiesById");
+
+			Activities activities = activitiesService.findActivitiesById(id);
+			request.setAttribute("activities", activities);
+		} else {
+			request.setAttribute("url", "addActivities");
+			request.setAttribute("msg", "添加");
 		}
-		@RequestMapping("/getActivitiesList")
-		@ResponseBody
-		public String getActivitiesList(int pSize,int cPage,String keyword){
-			Pagination pagination=new Pagination();
-			pagination.setCurentPage(cPage);
-			pagination.setPageSize(pSize);
-			pagination.setKeyword(keyword);
-			return  activitiesService.activitiesPagination(pagination);}
-		
-		
-		
-		
-		@RequestMapping("/toAddActivities")
-		public String toAddActivities(HttpServletRequest request, String id) throws Exception{
-			if (id != null) {
-				request.setAttribute("msg", "修改");
-				request.setAttribute("url", "updateActivitiesById");
-				
-				Activities activities = activitiesService.findActivitiesById(id);
-				request.setAttribute("activities", activities);
-			} else {
-				request.setAttribute("url", "addActivities");
-				request.setAttribute("msg", "添加");
-			}
-		
+
+		return "backstage_managed/jsp/activities/add_activities";
+
+	}
+
+	// 验证
+	@RequestMapping("/addActivities")
+	public String addActivities(@Validated Activities activities,
+			BindingResult result, HttpServletRequest request) throws Exception {
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addActivities");
+			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/activities/add_activities";
-			
 		}
-		
-		
-		
-		
-		
-		
-		//验证
-		@RequestMapping("/addActivities")
-		public String addActivities(@Validated Activities activities,BindingResult result,HttpServletRequest request) throws Exception{
-			if (result.hasErrors()) {
-				List<ObjectError> errors = result.getAllErrors();
-				request.setAttribute("errors", errors);
-				request.setAttribute("url", "addActivities");
-				request.setAttribute("msg", "添加");
-				return "backstage_managed/jsp/activities/add_activities";
-			}
-			activitiesService.insertActivitiesById(activities);
-			return "backstage_managed/jsp/activities/activities_list";
+		activitiesService.insertActivitiesById(activities);
+		return "backstage_managed/jsp/activities/activities_list";
+	}
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(
+				dateFormat, true));
+	}
+
+	@RequestMapping("/deleteActivitiesById")
+	@ResponseBody
+	public String deleteActivitiesById(String id) throws Exception {
+		activitiesService.deleteActivitiesById(id);
+		return "success";
+	}
+
+	@RequestMapping("/findAllActivities")
+	@ResponseBody
+	public String findAllActivities() {
+		return activitiesService.findAllActivities();
+	}
+
+	@RequestMapping("/updateActivitiesById")
+	public String updateActivitiesById(@Validated Activities activities,
+			BindingResult result, HttpServletRequest request) throws Exception {
+		if (result.hasErrors()) {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "updateActivitiesById");
+			request.setAttribute("msg", "修改");
+			return "backstage_managed/jsp/activities/add_activities";
 		}
-		
-		@InitBinder
-		protected void initBinder(WebDataBinder binder) {
-		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-		}
-		
-		
-		@RequestMapping("/deleteActivitiesById")
-		@ResponseBody
-		public String deleteActivitiesById(String id) throws Exception{
-			activitiesService.deleteActivitiesById(id);
-			return "success";
-	   	} 
-		
-		@RequestMapping("/findAllActivities")
-		@ResponseBody
-		public String findAllActivities(){
-			return activitiesService.findAllActivities();
-		}
-		
-		
-		@RequestMapping("/updateActivitiesById")
-		public String updateActivitiesById(@Validated Activities activities,BindingResult result,HttpServletRequest request) throws Exception{
-			if (result.hasErrors()) {
-				List<ObjectError> errors = result.getAllErrors();
-				request.setAttribute("errors", errors);
-				request.setAttribute("url", "updateActivitiesById");
-				request.setAttribute("msg", "修改");
-				return "backstage_managed/jsp/activities/add_activities";
-			}
-			activitiesService.updateActivitiesById(activities);
-			return "backstage_managed/jsp/activities/activities_list";
-			
-		}
-		
-		@RequestMapping("/findActivitiesById")
-		public String findActivitiesById(HttpServletRequest request,String id){
-			ActivitiesExpand activitiesExpand = activitiesService.findActivitiesAndTpyeAndUser(id);
-			request.setAttribute("activitiesExpand", activitiesExpand);
-			return "backstage_managed/jsp/activities/search_activities";
-			
-		}
-		/*
-		 * 获取活动id和所有活动名称
-		 */
-		@RequestMapping("/findAllActivitiesIdAndName")
-		@ResponseBody
-		public String findAllActivitiesIdAndName(){
-			return activitiesService.findAllActivitiesIdAndName();
-		}
-		
-		
-		@RequestMapping("/findAllTypeAndUser")
-		@ResponseBody
-		public String findAllTypeAndUser(){
-			return activitiesService.findAllTypeAndUser();
-		}
+		activitiesService.updateActivitiesById(activities);
+		return "backstage_managed/jsp/activities/activities_list";
+
+	}
+
+	@RequestMapping("/findActivitiesById")
+	public String findActivitiesById(HttpServletRequest request, String id) {
+		ActivitiesExpand activitiesExpand = activitiesService
+				.findActivitiesAndTpyeAndUser(id);
+		request.setAttribute("activitiesExpand", activitiesExpand);
+		return "backstage_managed/jsp/activities/search_activities";
+
+	}
+
+	/*
+	 * 获取活动id和所有活动名称
+	 */
+	@RequestMapping("/findAllActivitiesIdAndName")
+	@ResponseBody
+	public String findAllActivitiesIdAndName() {
+		return activitiesService.findAllActivitiesIdAndName();
+	}
+
+	@RequestMapping("/findAllTypeAndUser")
+	@ResponseBody
+	public String findAllTypeAndUser() {
+		return activitiesService.findAllTypeAndUser();
+	}
 
 }

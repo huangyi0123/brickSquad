@@ -29,14 +29,15 @@ public class LimitsServiceTest {
 
 	@Test
 	public void testFindLimitsById() {
-		System.out.println(limitsService.findLimitsById("b97a0794b0aa11e78d4f5254002ec43c").isAd());
+		System.out.println(limitsService.findLimitsById(
+				"b97a0794b0aa11e78d4f5254002ec43c").isAd());
 	}
 
 	@Test
 	public void testInsertLimits() {
 
 		try {
-			Limits limits=new Limits();
+			Limits limits = new Limits();
 			limits.setRoleId("001");
 			limits.setTablename("user");
 			limits.setAd(true);
@@ -52,7 +53,8 @@ public class LimitsServiceTest {
 
 	@Test
 	public void testUpdateLimitsById() {
-		Limits limits=limitsService.findLimitsById("66741fd4bf7411e7aca65254002ec43c");
+		Limits limits = limitsService
+				.findLimitsById("66741fd4bf7411e7aca65254002ec43c");
 		limits.setAd(true);
 		limitsService.updateLimitsById(limits);
 	}
@@ -61,30 +63,36 @@ public class LimitsServiceTest {
 	public void testDeleteLimitsById() {
 		limitsService.deleteLimitsById("12");
 	}
+
 	@Test
 	public void testLimitsPagination() {
-		Pagination pagination=new Pagination();
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
 		System.out.println(limitsService.limitsPagination(pagination));
 	}
+
 	@Test
 	public void testFindAllTableName() {
 		System.out.println(limitsService.findAllTableName("1"));
 	}
+
 	@Test
-	public void updateLimitsByRoleId(){
-		List<Limits> list=new ArrayList<Limits>();
-		Limits limits=limitsService.findLimitsById("de6ba706bf6911e7aca65254002ec43c");
+	public void updateLimitsByRoleId() {
+		List<Limits> list = new ArrayList<Limits>();
+		Limits limits = limitsService
+				.findLimitsById("de6ba706bf6911e7aca65254002ec43c");
 		limits.setTablename("xiaobiao");
 		list.add(limits);
 		limitsService.updateLimitsByRoleId(list, limits.getRoleId());
 	}
+
 	@Test
-	public void findAllLimitsByRoleId(){
-		Map<String , Limits> map=limitsService.findAllLimitsByRoleId("12");
-		for(Map.Entry<String, Limits>  entry:map.entrySet()){
-			System.out.println("key:"+entry.getKey()+"=====value:"+entry.getValue().getTablename());
+	public void findAllLimitsByRoleId() {
+		Map<String, Limits> map = limitsService.findAllLimitsByRoleId("12");
+		for (Map.Entry<String, Limits> entry : map.entrySet()) {
+			System.out.println("key:" + entry.getKey() + "=====value:"
+					+ entry.getValue().getTablename());
 		}
 	}
 }
