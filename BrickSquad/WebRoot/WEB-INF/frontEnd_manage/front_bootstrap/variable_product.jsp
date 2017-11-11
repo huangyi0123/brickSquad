@@ -322,7 +322,7 @@ pre {
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
 									<!-- 先给死perid -->
 									<input type="hidden" id="userId"
-										value="04a925e8c2b611e7aca65254002ec43c">
+										value="${user.id }">
 									<!--隐藏域存当前商品ID  -->
 									<input type="hidden" id="articleId" value="${ article.id}">
 									<input type="button" value="加入购物车"
