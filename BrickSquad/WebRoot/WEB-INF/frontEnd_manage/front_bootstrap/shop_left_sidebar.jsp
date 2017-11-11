@@ -383,7 +383,7 @@
 
 												<!-- 加入购物车, wishlist, compare -->
 												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="http:www.baidu.com"
+													<a rel="nofollow" href=""
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
 														title="加入购物车">加入购物车</a> <a
 														href="javascript:void(0)" class="compare button"
@@ -393,7 +393,7 @@
 														<div class="yith-wcwl-add-button show"
 															style="display:block">
 															<a href="wishlist.html" rel="nofollow"
-																class="add_to_wishlist">Add to Wishlist</a> <img
+																class="add_to_wishlist">加入收藏</a> <img
 																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
 																alt="loading" width="16" height="16"
 																style="visibility:hidden" />
@@ -423,6 +423,14 @@
 														View </a>
 												</div>
 											</div>
+											
+											
+											
+											
+											
+											
+											
+											
 
 											<div class="item-content products-content">
 												<div class="reviews-content">
@@ -515,42 +523,36 @@
 												<div class="item-bottom clearfix">
 													<a rel="nofollow" href="#"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="加入购物车">加入购物车</a> <a
-														href="javascript:void(0)" class="compare button"
-														rel="nofollow" title="Add to Compare">Compare</a>
+														title="加入购物车">加入购物车</a> 
 
 													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 														<div class="yith-wcwl-add-button show"
 															style="display:block">
 															<a href="wishlist.html" rel="nofollow"
 																class="add_to_wishlist">Add to Wishlist</a> <img
-																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
+																src="resource/front_bootstrap/images/wpspin_light.gif" 
+																class="ajax-loading"
 																alt="loading" width="16" height="16"
 																style="visibility:hidden" />
 														</div>
 
 														<div class="yith-wcwl-wishlistaddedbrowse hide"
 															style="display:none;">
-															<span class="feedback">Product added!</span> <a href="#"
-																rel="nofollow">Browse Wishlist</a>
+															<span class="feedback">Product added!!</span> 
+															<a href="#" rel="nofollow">查看收藏</a>
 														</div>
 
 														<div class="yith-wcwl-wishlistexistsbrowse hide"
 															style="display:none">
-															<span class="feedback">The product is already in
-																the wishlist!</span> <a href="#" rel="nofollow">Browse
-																Wishlist</a>
+															<span class="feedback">该商品已经收藏!</span> 
+															<a href="#" rel="nofollow">查看收藏</a>
 														</div>
 
 														<div style="clear:both"></div>
 														<div class="yith-wcwl-wishlistaddresponse"></div>
 													</div>
 
-													<div class="clear"></div>
-													<a href="ajax/fancybox/example.html"
-														data-fancybox-type="ajax"
-														class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-														View </a>
+													
 												</div>
 											</div>
 
@@ -575,46 +577,39 @@
 
 												<div class="item-description">${article3.describes }</div>
 
-												<!-- 加入购物车, wishlist, compare -->
+												<!-- 加入购物车, 收藏-->
 												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="#"
+													<a rel="nofollow" href="http://www.baidu.com"
 														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="加入购物车">加入购物车</a> <a
-														href="javascript:void(0)" class="compare button"
-														rel="nofollow" title="Add to Compare">Compare</a>
+														title="加入购物车">加入购物车</a> 
 
 													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 														<div class="yith-wcwl-add-button show"
 															style="display:block">
 															<a href="wishlist.html" rel="nofollow"
-																class="add_to_wishlist">Add to Wishlist</a> <img
+																class="add_to_wishlist">添加收藏!</a> <img
 																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
 																alt="loading" width="16" height="16"
 																style="visibility:hidden" />
 														</div>
-
+															<!-- 点击旋转按钮 -->
 														<div class="yith-wcwl-wishlistaddedbrowse hide"
 															style="display:none;">
-															<span class="feedback">Product added!</span> <a href="#"
-																rel="nofollow">Browse Wishlist</a>
+															<span class="feedback">添加收藏!</span> 
+																<a href="#"
+																rel="nofollow">查看收藏</a>
 														</div>
 
-														<div class="yith-wcwl-wishlistexistsbrowse hide"
-															style="display:none">
-															<span class="feedback">The product is already in
-																the wishlist!</span> <a href="#" rel="nofollow">Browse
-																Wishlist</a>
-														</div>
-
-														<div style="clear:both"></div>
-														<div class="yith-wcwl-wishlistaddresponse"></div>
+														
+														
+														<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																<span class="feedback">该上商品已收藏!</span>
+																<a href="#" rel="nofollow">查看收藏</a>
+															</div>
 													</div>
 
-													<div class="clear"></div>
-													<a href="ajax/fancybox/example.html"
-														data-fancybox-type="ajax"
-														class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-														View </a>
+													
+													
 												</div>
 											</div>
 										</div>
