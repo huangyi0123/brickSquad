@@ -84,16 +84,16 @@
 	}
 	
 	function addCart(id,o){
-		alert("添加成功");
-		$(o).css('background','red');
-		$ajax({
-			url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
-		 	data:{id:id},
-		  	type:'post', 
-			success:function(data){
-				
-			}
-		});
+		alert("${user}");
+			$ajax({
+				url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
+			 	data:{articleId:id},
+			  	type:'post', 
+				success:function(data){
+					alert(data);
+				}
+			});
+		
 	};
 
 </script>
@@ -438,7 +438,7 @@
 														title="加入购物车" onclick="addCart('${article3.id}',this)"  
 														id="onclicka"></a> 
 													<div class="yith-wcwl-add-to-wishlist">
-														<div class="yith-wcwl-add-button show"
+														<div class="show"
 															style="display:block">
 															<a href="javascript:;" rel=""
 																title="添加收藏">添加收藏</a>
@@ -472,7 +472,7 @@
 														title="加入购物车" onclick="addCart('${article3.id}',this)" 
 														 id="onclicka"> </a> 
 													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-														<div class="yith-wcwl-add-button show"
+														<div class=" show"
 															style="display:block">
 															<a href="javascript:;" rel="nofollow"
 																title="添加收藏" >添加收藏!</a> 
@@ -693,7 +693,7 @@
 						</h2>
 					</div>
 
-					<form method="get" action="">
+					<form method="get" action="dsfreeg">
 						<div class="price_slider_wrapper">
 							<div class="price_slider" style="display:none;"></div>
 							<div class="price_slider_amount">

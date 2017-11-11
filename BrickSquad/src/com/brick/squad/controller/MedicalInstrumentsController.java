@@ -18,7 +18,9 @@ import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.YiLiaoUtile;
@@ -32,7 +34,9 @@ public class MedicalInstrumentsController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
-
+	@Autowired
+	@Qualifier("shoppingCarService")
+	private ShoppingCarService shoppingCarService;
 	/***
 	 * 医疗器械页面controller
 	 * 
@@ -241,9 +245,14 @@ public class MedicalInstrumentsController {
 	}
 	
 	@RequestMapping("/addCartMedicalInstruments")
-	public String addCartMedicalInstruments(String id){
-		
-		return null;
+	@ResponseBody
+	public String addCartMedicalInstruments(HttpServletRequest request, String articleId) throws Exception{
+		User user=(User) request.getSession().getAttribute("user");
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(user).toString();
+		System.err.println(data);
+		/*shoppingCarService.findShoppingCarById(articleId);*/
+		return data;
 	}
 
 }
