@@ -46,12 +46,15 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 
-
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
-<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+
 <script type="text/javascript">
 	function findSecondMedical(typeId,aid){
 		$.ajax({
@@ -82,20 +85,61 @@
 			$("#secondMedical").append(html);
 		}
 	}
-	
+</script>
+<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript">
+	/* 添加购物车JS，ajax提交 */
 	function addCart(id,o){
-		alert("添加成功");
-		$(o).css('background','red');
-		$ajax({
-			url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
-		 	data:{id:id},
-		  	type:'post', 
-			success:function(data){
-				
-			}
-		});
-	};
-
+		var user = '${user}';
+		if(user!=''){
+			$.ajax({
+				  url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
+				  data:{articleId:id},
+				  type:'post', 
+				  success:function(data){
+					  var json = eval(data);
+					 if(json=='1'){
+						 alert("商品已存在");
+						 $(o).css('background','red');
+					 }else {
+						 
+						 alert("添加商品成功");
+						 $(o).css('background','red');
+					 }
+				  }
+				  });	
+		}else{
+			alert("还没有登录！");
+		}
+		
+	}
+</script>
+	<script type="text/javascript">
+	/* 添加购物车JS，ajax提交 */
+	function addWish(id,o){
+		var user = '${user}';
+		if(user!=''){
+			$.ajax({
+				  url:"${pageContext.request.contextPath}/MedicalInstruments/addWishlistMedicalInstruments",
+				  data:{articleId:id},
+				  type:'post', 
+				  success:function(data){
+					  var json = eval(data);
+					 if(json=='1'){
+						 alert("商品已存");
+						 $(o).css('background','red');
+					 }else {
+						 
+						 alert("收藏商品成功");
+						 $(o).css('background','red');
+					 }
+				  }
+				  });	
+		}else{
+			alert("还没有登录！");
+		}
+		
+	}
 </script>
 </head>
 
@@ -438,10 +482,10 @@
 														title="加入购物车" onclick="addCart('${article3.id}',this)"  
 														id="onclicka"></a> 
 													<div class="yith-wcwl-add-to-wishlist">
-														<div class="yith-wcwl-add-button show"
+														<div class="show"
 															style="display:block">
 															<a href="javascript:;" rel=""
-																title="添加收藏">添加收藏</a>
+																title="添加收藏" onclick="addWish('${article3.id}',this)">添加收藏</a>
 														</div>
 													</div>
 												</div>
@@ -472,10 +516,10 @@
 														title="加入购物车" onclick="addCart('${article3.id}',this)" 
 														 id="onclicka"> </a> 
 													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-														<div class="yith-wcwl-add-button show"
+														<div class=" show"
 															style="display:block">
 															<a href="javascript:;" rel="nofollow"
-																title="添加收藏" >添加收藏!</a> 
+																title="添加收藏" onclick="addWish('${article3.id}',this)" >添加收藏!</a> 
 														</div>
 													</div>
 												</div>
@@ -693,7 +737,7 @@
 						</h2>
 					</div>
 
-					<form method="get" action="">
+					<form method="get" action="dsfreeg">
 						<div class="price_slider_wrapper">
 							<div class="price_slider" style="display:none;"></div>
 							<div class="price_slider_amount">
@@ -937,7 +981,7 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
-
+<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
