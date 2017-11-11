@@ -71,45 +71,6 @@ public class UserController {
 	public String toUserAccountAuthentication() {
 		return "backstage_managed/jsp/user/userAccountAuthentication";
 	}
-
-	/**
-	 * wwx写的从商城首页登录的方法
-	 * 
-	 * @param request
-	 * @param user1
-	 * @param type
-	 *            用户类型
-	 * @param url
-	 *            从哪个连接调用的该方法，获取之后登录又返回调用的页面
-	 * @return
-	 */
-	@RequestMapping("/userLoginAtShopIndex")
-	public String userLoginAtShopIndex(HttpServletRequest request, User user1,
-			String type, String url) {
-		User user = userService.checkLogin(user1);
-		if (user != null) {
-			request.getSession().setAttribute("user", user);
-			request.getSession().setAttribute("userId", user.getId());
-			// begin 判断登录类型
-			// 如果查询出来的用户RoleId是普通用户，跳转到主页去，不能登录看到后台管理页面
-			if (type.equals("admin")
-					&& !(user.getRoleId()
-							.equals("e2ebe746b86b11e78d4f5254002ec43c"))) {
-				return "redirect:/common/toFrame";
-
-			} else if (url.equals("shopIndex/toShop")) {
-				request.setAttribute("url", "shopIndex/toShop");
-				return "frontEnd_manage/util/turn";
-			} else if (url.equals("")) {
-				return "redirect:/common/toIndexModal";
-			}
-			// end
-		}
-		request.setAttribute("flag", "2");
-		request.setAttribute("msg", "你输入的密码和账户名不匹配 ！");
-		return "backstage_managed/jsp/user/login";
-	}
-
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1, String type) {
 		User user = userService.checkLogin(user1);

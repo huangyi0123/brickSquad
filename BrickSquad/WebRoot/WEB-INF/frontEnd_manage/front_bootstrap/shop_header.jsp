@@ -45,7 +45,7 @@
 				layer = layer.open({
 					title : '注册|登录',
 					type : 2,
-					content : "user/toLogin?type=user&url=shopIndex/toShop",
+					content : "user/toLogin?type=user",
 					offset : '100px',
 					area : [ '400px', '450px' ],
 					end : function() {
