@@ -63,6 +63,14 @@ public interface ShoppingCarMapper {
 	/**
 	 * 根据老人id匹配查询出相应的信息，用于前台购物车
 	 */
+
+	public List<ShoppingCarAndArticle> findArticIdAllArtic();
+	/**
+	 * 根据购物车商品ID查询购物车列表商品
+	 * */
+	public List<ShoppingCar> findShoppingCarByArticleId(String articleId);
+
+
 	public List<ShoppingCarAndArticle> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination);
 	/**
 	 * 统计根据老人id查询出来的信息条数

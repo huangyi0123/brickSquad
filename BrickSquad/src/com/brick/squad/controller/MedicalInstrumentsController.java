@@ -1,24 +1,27 @@
 package com.brick.squad.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Article;
-import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.Collection;
+import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.CollectionService;
+import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.YiLiaoUtile;
@@ -32,7 +35,12 @@ public class MedicalInstrumentsController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
-
+	@Autowired
+	@Qualifier("shoppingCarService")
+	private ShoppingCarService shoppingCarService;
+	@Autowired
+	@Qualifier("collectionService")
+	private CollectionService collectionService;
 	/***
 	 * 医疗器械页面controller
 	 * 
@@ -241,9 +249,41 @@ public class MedicalInstrumentsController {
 	}
 	
 	@RequestMapping("/addCartMedicalInstruments")
-	public String addCartMedicalInstruments(String id){
-		
-		return null;
+	@ResponseBody
+	public String addCartMedicalInstruments(HttpServletRequest request, String articleId) throws Exception{
+		User user=(User) request.getSession().getAttribute("user");
+		List<ShoppingCar> shoppingCart=shoppingCarService.AddShoppingCarByArticleId(articleId);
+		String data;
+		if(shoppingCart.size()!=0){
+			data="1";
+		}else{
+			ShoppingCar shoppingCar=new ShoppingCar();
+			shoppingCar.setArticleId(articleId);
+			shoppingCar.setDate(new Date());
+			shoppingCar.setNumber(1);
+			shoppingCar.setPerId(user.getId());
+			shoppingCarService.insertShoppingCar(shoppingCar);
+			data="2";
+		}
+		return data;
+	}
+	@RequestMapping("/addWishlistMedicalInstruments")
+	@ResponseBody
+	public String addWishlistMedicalInstruments(HttpServletRequest request, String articleId) throws Exception{
+		User user=(User) request.getSession().getAttribute("user");
+		List<Collection> listCollection=collectionService.findCollectionByArticleId(articleId);
+		String data;
+		if(listCollection.size()!=0){
+			data="1";
+		}else{
+			Collection collection=new Collection();
+			collection.setArticleId(articleId);
+			collection.setColDate(new Date());
+			collection.setPerId(user.getId());
+			collectionService.insertCollection(collection);
+			data="2";
+		}
+		return data;
 	}
 
 }

@@ -67,4 +67,8 @@ public interface CollectionMapper {
 	public void deleteCollectionByPerId(String perId);
 
 	public List<ArticleExpand> findCollectionMessage(String pid);
+	/**
+	 * 根据收藏的商品ID查询信息
+	 * */
+	public List<Collection> findCollectionByArticleId(String articleId);
 }
