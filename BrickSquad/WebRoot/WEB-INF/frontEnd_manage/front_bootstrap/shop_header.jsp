@@ -10,17 +10,72 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-
 <title>My JSP 'shop_header.jsp' starting page</title>
-
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
+<script type="text/javascript"
+	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/angularjs/angular.min.js"></script>
-
+<script>
+	$(function() {
+		//头像图片信息
+		var imagepath = $("#imagepath").val();
+		if (imagepath == "") {
+			$("#indexUserPic").attr("src", "resource/image/userdefaultpic.jpg");
+		} else {
+			$("#indexUserPic").attr("src", imagepath);
+		}
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			$("#register").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toRegister",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+			$("#login").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toLogin?type=user&url=shopIndex/toShop",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+		});
+	});
+	function logout() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer.open({
+				title : '提示',
+				content : "是否退出系统？",
+				offset : '200px',
+				btn : [ "确认", "取消" ],
+				yes : function(index) {
+					$.ajax({
+						url : "user/logout",
+						success : function(data) {
+							window.location = "shopIndex/toShop";
+							layer.close(index);
+						}
+					});
+				}
+			});
+		});
+	}
+</script>
 </head>
 
 <body>
@@ -73,6 +128,38 @@
 							</div>
 						</div>
 					</div>
+					<div class="sidebar-account pull-left" ng-if="${user!=null }">
+						<div class="account-title">
+							<input type="hidden" id="imagepath" value="${user.userPicPath }">
+							<img
+								style="display:block; border-radius:100%;width: 20px;height: 20px;margin-top: -5px;"
+								alt="还没有图片" src="" id="indexUserPic"><span
+								style="display: block;margin-left: 25px;margin-top: -15px;">${user.username }</span>
+						</div>
+									<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-inner">
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="common/toPersonal" > <span class="menu-title">个人信息</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+										 href="javascript:;" onclick="logout()"> <span
+												class="menu-title">退出登录</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="sidebar-account pull-left" ng-if="${user==null }">
 						<div class="account-title">登录</div>
 
@@ -82,11 +169,12 @@
 								<div class="widget-inner">
 									<ul id="menu-my-account" class="menu">
 										<li class="menu-my-account"><a class="item-link"
-											href="my_account.html"> <span class="menu-title">登录</span>
+											href="javascript:;" id="login"> <span class="menu-title">登录</span>
 										</a></li>
 
 										<li class="menu-cart"><a class="item-link"
-											href="cart.html"> <span class="menu-title">注册</span>
+											href="javascript:;" id="register"> <span
+												class="menu-title">注册</span>
 										</a></li>
 									</ul>
 								</div>
