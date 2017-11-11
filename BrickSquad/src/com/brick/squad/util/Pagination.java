@@ -6,10 +6,10 @@ public class Pagination {
 	private int curentPage;// 当前页
 	private int pageSize;// 每页显示记录数
 	private String keyword;
-	private String userId;
+	private  String userId;
+
 
 	public int getSkipNum() {
-
 		return (curentPage - 1) * pageSize;
 	}
 

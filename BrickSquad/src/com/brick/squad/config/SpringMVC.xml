@@ -91,6 +91,7 @@
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>
 			<mvc:exclude-mapping path="/common/toApply_coupon" />
+			<mvc:exclude-mapping path="/shoppingCar/getIndexShoppingCarList" />
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>

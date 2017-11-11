@@ -3,9 +3,11 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -20,6 +22,7 @@ import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.ShoppingCarPagination;
 
 @Controller
 @RequestMapping("/shoppingCar")
@@ -47,7 +50,6 @@ public class ShoppingCarController {
 			throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
-		System.out.println(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		String value = shoppingCarService.shoppingCarPagination(pagination);
@@ -137,14 +139,16 @@ public class ShoppingCarController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/detailsShoppingCar")
-	public String detailsShoppingCar(HttpServletRequest request)
-			throws Exception {
-		List<ShoppingCarAndArticle> listDetailsShoppingCar = shoppingCarService
-				.findArticIdAllArtic();
-		request.setAttribute("listDetailsShoppingCar", listDetailsShoppingCar);
-		return "frontEnd_manage/front_bootstrap/cart";
-	}
 
+	public String detailsShoppingCar(HttpServletRequest request,ShoppingCarPagination shoppingCarPagination) throws Exception{
+		
+		//先设置一个固定的perid,后面获取用户登录id
+		shoppingCarPagination.setPerId("04a925e8c2b611e7aca65254002ec43c");
+		Map<String, Object> map=shoppingCarService.findArticIdAllArtic(shoppingCarPagination);
+		request.setAttribute("map", map);
+		return "frontEnd_manage/front_bootstrap/cart";
+
+}	
 	/**
 	 * 前台删除购物车
 	 * 

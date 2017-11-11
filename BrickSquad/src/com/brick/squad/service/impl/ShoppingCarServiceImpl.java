@@ -22,6 +22,7 @@ import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
+import com.brick.squad.util.ShoppingCarPagination;
 import com.brick.squad.util.Util;
 
 /**
@@ -116,13 +117,21 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 				.findShoppingCarAndUserAndPsersonalInformationById(id);
 		return shoppingCarExpand;
 	}
-
+	/**
+	 * 根据老人id查询出相应的信息，分页显示
+	 */
 	@Override
-	public List<ShoppingCarAndArticle> findArticIdAllArtic() {
-		// TODO Auto-generated method stub
-		// 通过shoppingCar中articleId查出商品表中的所有信息
-		return shoppingCarMapper.findArticIdAllArtic();
+	public  Map<String, Object> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination) {
+		Map<String, Object> map=new HashMap<String, Object>();
+		
+		List<ShoppingCarAndArticle> list =shoppingCarMapper.findArticIdAllArtic(shoppingCarPagination);
+		map.put("list", list);
+		int n =shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination); 
+		shoppingCarPagination.setCount(n);
+		map.put("shoppingCarPagination", shoppingCarPagination);
+		return map;
 	}
+
 
 	@Override
 	/**
@@ -133,4 +142,12 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		List<ShoppingCar> shoppingCar=shoppingCarMapper.findShoppingCarByArticleId(articleId);
 		return shoppingCar;
 	}
+
+	@Override
+	public List<ShoppingCarAndArticle> findArticIdAllArtic() {
+		return null;
+	}
+
+
+
 }
