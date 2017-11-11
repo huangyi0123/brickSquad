@@ -239,5 +239,11 @@ public class MedicalInstrumentsController {
 		String data = jsonArray.fromObject(list).toString();
 		return data;
 	}
+	
+	@RequestMapping("/addCartMedicalInstruments")
+	public String addCartMedicalInstruments(String id){
+		
+		return null;
+	}
 
 }
