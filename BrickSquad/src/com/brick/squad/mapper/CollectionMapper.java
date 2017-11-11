@@ -66,5 +66,6 @@ public interface CollectionMapper {
 
 	public void deleteCollectionByPerId(String perId);
 
-	public List<ArticleExpand> findCollectionMessage(String pid);
+	public List<ArticleExpand> findCollectionMessage(Pagination pagination);
+	public int findCollectionMessageCount(Pagination pagination);
 }

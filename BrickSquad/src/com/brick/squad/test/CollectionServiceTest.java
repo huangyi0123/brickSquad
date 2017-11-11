@@ -29,12 +29,12 @@ public class CollectionServiceTest {
 				.findCollectionById("499e0cbabfad11e7aca65254002ec43c");
 		System.out.println(collection.getColDate());
 	}
-	@Test
+	/*@Test
 	public void testFindCollectionById2() {
 		 List<ArticleExpand> articleExpand=collectionService.findCollectionMessage("77c9a2dec44911e7aca65254002ec43c");
 		 System.out.println(articleExpand);
 		
-	}
+	}*/
 	@Test
 	public void testInsertCollection() {
 		Collection collection = new Collection();

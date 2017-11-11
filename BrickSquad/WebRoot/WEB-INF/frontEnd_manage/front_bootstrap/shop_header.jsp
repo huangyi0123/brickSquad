@@ -287,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="widget-inner">
 								<ul id="menu-wishlist" class="menu">
 									<li class="menu-wishlist"><a class="item-link"
-										href="common/toWishlist"> <span class="menu-title">我的收藏</span>
+										href="collectionFront/collectionMessage"> <span class="menu-title">我的收藏</span>
 									</a></li>
 
 									<li class="yith-woocompare-open menu-compare"><a

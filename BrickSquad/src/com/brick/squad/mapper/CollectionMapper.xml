@@ -75,9 +75,14 @@
 		collection WHERE per_id=#{perId}
 	</delete>
 	
-	<select id="findCollectionMessage" parameterType="String" resultType="com.brick.squad.expand.ArticleExpand">
+	<select id="findCollectionMessage" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.ArticleExpand">
 			SELECT article.aname,article.price,article.stock FROM collection 
 			 JOIN article ON collection.article_id=article.id
-				WHERE collection.per_id=#{pid}
+				WHERE collection.per_id=#{userId} LIMIT #{skipNum},#{takeNum}
+	</select>
+	<select id="findCollectionMessageCount" parameterType="com.brick.squad.util.Pagination" resultType="int">
+			SELECT count(1) FROM collection 
+			 JOIN article ON collection.article_id=article.id
+				WHERE collection.per_id=#{userId} 
 	</select>
 </mapper>

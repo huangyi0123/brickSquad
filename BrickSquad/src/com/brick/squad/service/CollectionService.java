@@ -1,6 +1,7 @@
 package com.brick.squad.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Collection;
@@ -47,7 +48,7 @@ public interface CollectionService {
 	public String collectionPagination(Pagination pagination);
 
 
-	public List<ArticleExpand> findCollectionMessage(String pid);
+	public Map<String, Object> findCollectionMessage(Pagination pagination);
 	
 
 }
