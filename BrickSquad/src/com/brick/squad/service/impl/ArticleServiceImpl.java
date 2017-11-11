@@ -21,6 +21,7 @@ import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -526,17 +527,19 @@ public class ArticleServiceImpl implements ArticalService {
 		int count = articleMapper.findFrontTimeNumber();
 		return count;
 	}
-	//分页测试
+	
+	
+	//最新商品分页测试
 	@Override
-	public PageBeanUtil<NewsArticle> findArtivlePage(int page){
-		PageBeanUtil<NewsArticle> pageBean = new PageBeanUtil<NewsArticle>();
+	public PageUtil findArticlePage(int page){
+		PageUtil pageBean = new PageUtil();
 		if (page == 0) {
-			page = 1;
+			page  = 1;
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			int limit = 12;
-			pageBean.setLimitPage(limit);
+			int pageSize = 12;
+			pageBean.setPageSize(pageSize);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = articleMapper.findFrontTimeNumber();
@@ -544,26 +547,23 @@ public class ArticleServiceImpl implements ArticalService {
 			// 设置总页数:
 			int totalPage = 0;
 			// Math.ceil(totalCount / limit);
-			if (totalCount % limit == 0) {
-				totalPage = totalCount / limit;
+			if (totalCount % pageSize == 0) {
+				totalPage = totalCount / pageSize;
 			} else {
-				totalPage = totalCount / limit + 1;
+				totalPage = totalCount / pageSize + 1;
 			}
 			pageBean.setTotalPage(totalPage);
 			// 每页显示的数据集合:
 			// 从哪开始:
-			int begin = (page - 1) * limit;
-			pageBean.setBegin(begin);
-			//pageBean.setParentId("yiliaoqixie");
-			//获得所有商品
-			//List<NewsArticle> list = articleMapper.findAllArticle();
-			//pageBean.setList(list);
+			int startRow = (page - 1) * pageSize;
+			pageBean.setStartRow(startRow);
+	 
 		} else {
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			int limit = 12;
-			pageBean.setLimitPage(limit);
+			int pageSize = 12;
+			pageBean.setPageSize(pageSize);
 			// 设置总记录数:
 			Integer totalCount = 0;
 			totalCount = articleMapper.findFrontTimeNumber();
@@ -571,18 +571,17 @@ public class ArticleServiceImpl implements ArticalService {
 			// 设置总页数:
 			int totalPage = 0;
 			// Math.ceil(totalCount / limit);
-			if (totalCount % limit == 0) {
-				totalPage = totalCount / limit;
+			if (totalCount % pageSize == 0) {
+				totalPage = totalCount / pageSize;
 			} else {
-				totalPage = totalCount / limit + 1;
+				totalPage = totalCount / pageSize + 1;
 			}
 			pageBean.setTotalPage(totalPage);
 			// 每页显示的数据集合:
 			// 从哪开始:
-			int begin = (page - 1) * limit;
-			pageBean.setBegin(begin);
-			
-		}
+			int startRow = (page - 1) * pageSize;
+			pageBean.setStartRow(startRow);
+		 }
 		return pageBean;
 
 	}

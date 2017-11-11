@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.service.ArticalService;
+import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 
 @Controller
 @RequestMapping("/new_deals")
@@ -54,4 +56,16 @@ public class NewDealsController {
 		request.setAttribute("NewsArticleList", NewsArticleList);
 		return "frontEnd_manage/front_bootstrap/new_deals";	
 	}
+	
+	@RequestMapping("/findFrontTimeNumber")
+	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageBean){
+		int page = pageBean.getPage();
+		int pageSize=pageBean.getPageSize();
+		int startRow=pageBean.getStartRow();
+		request.setAttribute("page", page);
+		request.setAttribute("pageSize", pageSize);
+		request.setAttribute("startRow", startRow);
+		return "frontEnd_manage/front_bootstrap/new_deals";	
+	}
+	
 }

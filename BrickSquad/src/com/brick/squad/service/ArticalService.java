@@ -9,6 +9,7 @@ import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -91,8 +92,8 @@ public interface ArticalService {
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page ,int sequence,int limitPage)throws Exception;
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page ,int sequence,int limitPage)throws Exception;
 
-	/**最新商品分页查询 findArtivlePage*/
-	public PageBeanUtil<NewsArticle> findArtivlePage(int page);
+	/********最新商品分页查询 *********/
+	public PageUtil findArticlePage(int page);
 	/*
 	 * 根据商品ID在评论表中查询评论总量
 	 * 
