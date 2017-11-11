@@ -137,7 +137,7 @@ pre {
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
 							<ul class="breadcrumb" style="margin-left: 830px;">
-								<li><a href="common/toShop">首页</a><span class="go-page"></span></li>
+								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
 								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
