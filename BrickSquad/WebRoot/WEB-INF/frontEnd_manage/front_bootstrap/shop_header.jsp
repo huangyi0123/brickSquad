@@ -1,144 +1,234 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'shop_header.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<head>
+<base href="<%=basePath%>">
+<title>My JSP 'shop_header.jsp' starting page</title>
+<link href="resource/plugins/layui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
+<script type="text/javascript"
+	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/angularjs/angular.min.js"></script>
+<script>
+	$(function() {
+		//头像图片信息
+		var imagepath = $("#imagepath").val();
+		if (imagepath == "") {
+			$("#indexUserPic").attr("src", "resource/image/userdefaultpic.jpg");
+		} else {
+			$("#indexUserPic").attr("src", imagepath);
+		}
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			$("#register").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toRegister",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+			$("#login").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toLogin?type=user",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+		});
+	});
+	function logout() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer.open({
+				title : '提示',
+				content : "是否退出系统？",
+				offset : '200px',
+				btn : [ "确认", "取消" ],
+				yes : function(index) {
+					$.ajax({
+						url : "user/logout",
+						success : function(data) {
+							window.location = "shopIndex/toShop";
+							layer.close(index);
+						}
+					});
+				}
+			});
+		});
+	}
+</script>
+</head>
 
-  </head>
-  
-  <body>
-   <header id="header" class="header header-style1">
-		<div class="header-top clearfix">
-			<div class="container">
-				<div class="rows">
-					<!-- SIDEBAR TOP MENU -->
-					<div class="pull-left top1">
-						<div class="widget text-2 widget_text pull-left">
-							<div class="widget-inner">
-								<div class="textwidget">
-									<div class="call-us">
-										<span>Call Us Now: </span>0123-444-666654123
-									</div>
+<body>
+	<header id="header" class="header header-style1">
+	<div class="header-top clearfix">
+		<div class="container">
+			<div class="rows">
+				<!-- SIDEBAR TOP MENU -->
+				<div class="pull-left top1">
+					<div class="widget text-2 widget_text pull-left">
+						<div class="widget-inner">
+							<div class="textwidget">
+								<div class="call-us">
+									<span>热线电话: </span>800-820-8820
 								</div>
-							</div>
-						</div>
-
-						<div class="widget text-3 widget_text pull-left">
-							<div class="widget-inner">
-								<div class="textwidget"></div>
 							</div>
 						</div>
 					</div>
 
-					<div class="wrap-myacc pull-right">
-						<div class="sidebar-account pull-left">
-							<div class="account-title">我的淘宝</div>
-							<div id="my-account" class="my-account">
-								<div
-									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account"><a class="item-link"
-												href="my_account.html"> <span class="menu-title">已买到的宝贝</span>
-											</a></li>
-
-											<li class="menu-cart"><a class="item-link"
-												href="cart.html"> <span class="menu-title">我的足迹</span>
-											</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="widget-2 widget-last widget sw_top-4 sw_top">
-									<div class="widget-inner">
-										<div class="top-login"></div>
-									</div>
-								</div>
-							</div>
+					<div class="widget text-3 widget_text pull-left">
+						<div class="widget-inner">
+							<div class="textwidget"></div>
 						</div>
-						<div class="sidebar-account pull-left">
-							<div class="account-title">登录</div>
+					</div>
+				</div>
 
-							<div id="my-account" class="my-account">
-								<div
-									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account"><a class="item-link"
-												href="my_account.html"> <span class="menu-title">登录</span>
-											</a></li>
-
-											<li class="menu-cart"><a class="item-link"
-												href="cart.html"> <span class="menu-title">注册</span>
-											</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="widget-2 widget-last widget sw_top-4 sw_top">
-									<div class="widget-inner">
-										<div class="top-login"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="pull-left top2">
+				<div class="wrap-myacc pull-right" ng-app="">
+					<div class="sidebar-account pull-left" ng-if="${user!=null }">
+						<div class="account-title">我的淘宝</div>
+						<div id="my-account" class="my-account">
 							<div
-								class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
 								<div class="widget-inner">
-									<ul id="menu-checkout" class="menu">
-										<li class="menu-checkout"><a class="item-link"
-											href="common/toContactUs"> <span class="menu-title">联系我们</span>
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="my_account.html"> <span class="menu-title">已买到的宝贝</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+											href="cart.html"> <span class="menu-title">我的足迹</span>
 										</a></li>
 									</ul>
 								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-account pull-left" ng-if="${user!=null }">
+						<div class="account-title">
+							<input type="hidden" id="imagepath" value="${user.userPicPath }">
+							<img
+								style="display:block; border-radius:100%;width: 20px;height: 20px;margin-top: -5px;"
+								alt="还没有图片" src="" id="indexUserPic"><span
+								style="display: block;margin-left: 25px;margin-top: -15px;">${user.username }</span>
+						</div>
+									<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-inner">
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="common/toPersonal" > <span class="menu-title">个人信息</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+										 href="javascript:;" onclick="logout()"> <span
+												class="menu-title">退出登录</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-account pull-left" ng-if="${user==null }">
+						<div class="account-title">登录</div>
+
+						<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-inner">
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="javascript:;" id="login"> <span class="menu-title">登录</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+											href="javascript:;" id="register"> <span
+												class="menu-title">注册</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="pull-left top2">
+						<div
+							class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+							<div class="widget-inner">
+								<ul id="menu-checkout" class="menu">
+									<li class="menu-checkout"><a class="item-link"
+										href="common/toContactUs"> <span class="menu-title">联系我们</span>
+									</a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="header-mid clearfix">
-			<div class="container">
-				<div class="rows">
-					<!-- LOGO -->
-					<div class="etrostore-logo pull-left">
-						<a href="common/toShop"> <img
-							src="resource/front_bootstrap/images/icons/logo-orange.png"
-							alt="Shoopy">
-						</a>
-					</div>
+	<div class="header-mid clearfix">
+		<div class="container">
+			<div class="rows">
+				<!-- LOGO -->
+				<div class="etrostore-logo pull-left">
+					<a href="common/toShop"> <img
+						src="resource/front_bootstrap/images/icons/logo-orange.png"
+						alt="Shoopy">
+					</a>
+				</div>
 
-					<div class="mid-header pull-right">
-						<div class="widget-1 widget-first widget sw_top-2 sw_top">
-							<div class="widget-inner">
-								<div class="top-form top-search">
-									<div class="topsearch-entry">
-										<form method="get" action="">
-											<div>
-												<input type="text" value="" name="s"
-													placeholder="Enter your keyword...">
-												<div class="cat-wrapper" ">
-													<label class="label-search"> <select
-														name="search_category" class="s1_option" style="width: 150px;>
+				<div class="mid-header pull-right">
+					<div class="widget-1 widget-first widget sw_top-2 sw_top">
+						<div class="widget-inner">
+							<div class="top-form top-search">
+								<div class="topsearch-entry">
+									<form method="get" action="">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> <select
+													name="search_category" class="s1_option"
+													style="width: 150px;>
 															<option value="">所有类别</option>
 															<option value="8">女装</option>
 															<option value="14">男装</option>

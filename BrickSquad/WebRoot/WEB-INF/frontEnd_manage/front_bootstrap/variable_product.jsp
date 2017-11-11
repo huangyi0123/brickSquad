@@ -137,7 +137,7 @@ pre {
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
 							<ul class="breadcrumb" style="margin-left: 830px;">
-								<li><a href="common/toShop">首页</a><span class="go-page"></span></li>
+								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
 								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
@@ -322,7 +322,7 @@ pre {
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
 									<!-- 先给死perid -->
 									<input type="hidden" id="userId"
-										value="04a925e8c2b611e7aca65254002ec43c">
+										value="${user.id }">
 									<!--隐藏域存当前商品ID  -->
 									<input type="hidden" id="articleId" value="${ article.id}">
 									<input type="button" value="加入购物车"

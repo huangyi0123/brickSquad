@@ -2683,22 +2683,22 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_2">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop Dell</a>
+																		<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Macbook</a>
+																		<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop HP</a>
+																		<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop MSI</a>
+																		<a href="shop_right_sidebar.html?id=maozi">帽子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop Asus</a>
+																		<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories</a>
+																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																</ul>
 															</div>
@@ -3021,22 +3021,22 @@
 																<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_3">
 																	<ul>
 																		<li>
-																			<a href="shop_right_sidebar.html">Blender</a>
+																			<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Mixer</a>
+																			<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Microwave</a>
+																			<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Sponge</a>
+																			<a href="shop_right_sidebar.html?id=maozi">帽子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Paper Towel</a>
+																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Vacuum Cleaner</a>
+																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
 																	</ul>
 																</div>
