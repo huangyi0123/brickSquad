@@ -36,6 +36,7 @@ import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.Pagination;
 import com.brick.squad.util.UpLoadFile;
 import com.brick.squad.util.YiLiaoUtile;
 
@@ -228,11 +229,12 @@ public class CommonController {
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
 		//进入主页之前把购物车显示所需信息查询到
-		List<ShoppingCarAndArticle> toShopDetailsShoppingCar = shoppingCarService.findArticIdAllArtic();
+/*		Pagination pagination = new Pagination();
+		List<ShoppingCarAndArticle> toShopDetailsShoppingCar = shoppingCarService.findArticIdAllArtic(pagination);
 		for (ShoppingCarAndArticle shoppingCarAndArticle : toShopDetailsShoppingCar) {
 			System.out.println("--------------------------"+shoppingCarAndArticle.toString());
 		}
-		request.setAttribute("toShopDetailsShoppingCar", toShopDetailsShoppingCar);
+		request.setAttribute("toShopDetailsShoppingCar", toShopDetailsShoppingCar);*/
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 	/**
