@@ -321,8 +321,7 @@ pre {
 									<input type="submit" value="立即购买"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
 									<!-- 先给死perid -->
-									<input type="hidden" id="userId"
-										value="${user.id }">
+									<input type="hidden" id="userId" value="${user.id }">
 									<!--隐藏域存当前商品ID  -->
 									<input type="hidden" id="articleId" value="${ article.id}">
 									<input type="button" value="加入购物车"
@@ -467,7 +466,7 @@ pre {
 																</td>
 																<td>${orderRated.ratedCentent }</td>
 															</tr>
-															<tr style="border-bottom: 1px solid #EFEFEF;" >
+															<tr style="border-bottom: 1px solid #EFEFEF;">
 																<td>${orderRated.ratedUserName }</td>
 																<td style="text-align: right;">${orderRated.ratedDate }</td>
 															</tr>
@@ -1207,35 +1206,42 @@ pre {
 		<script type="text/javascript">
 		/* 添加购物车JS，ajax提交 */
 		function userAddArticleToShoppingCar() {
+			layui.use('layer', function() {
+				var layer = layui.layer;
 			var userId = $("#userId").val();
-			var articleId = $("#articleId").val();
+			if(userId==null||userId==""){
+			layer.msg("还没有登录！");
+			}
+				else{	
+					var articleId = $("#articleId").val();
 			var articleNumber = $("#articleNumberId").val();
 			var shoppingCar = {
 				'perId' : userId,
 				'articleId' : articleId,
 				'number' : articleNumber
 			};
-			layui.use('layer', function() {
-				var layer = layui.layer;
+			
 				$.ajax({
 					url : 'variableProduct/userAddArticleToShoppingCar',
 					type : "POST",
 					data : shoppingCar,
 					success : function(data) {
 						if (data == "fail") {
-							alert("添加到购物车失败！稍后重试");
+							layer.msg("添加到购物车失败！稍后重试");
 						} else if (data == "success") {
-							alert("添加到购物车成功！");
+							layer.msg("添加到购物车成功！");
 						}
 					},
 					error : function(e) {
-						alert("服务器错误！！稍后重试");
+						layer.msg("服务器错误！！稍后重试");
 					}
 				});
-			});
-
+		
+				}
+			
+	});
 		}
-	</script>
+</script>
 		<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
