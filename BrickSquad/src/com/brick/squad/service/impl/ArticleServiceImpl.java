@@ -555,58 +555,25 @@ public class ArticleServiceImpl implements ArticalService {
 	
 	//最新商品分页测试
 	@Override
-	public PageUtil findArticlePage(int page){
-		PageUtil pageBean = new PageUtil();
-		if (page == 0) {
-			page  = 1;
-			// 设置当前页数:
-			pageBean.setPage(page);
-			// 设置每页显示记录数:
-			int pageSize = 12;
-			pageBean.setPageSize(pageSize);
-			// 设置总记录数:
-			int totalCount = 0;
-			totalCount = articleMapper.findFrontTimeNumber();
-			pageBean.setTotalCount(totalCount);
-			// 设置总页数:
-			int totalPage = 0;
-			// Math.ceil(totalCount / limit);
-			if (totalCount % pageSize == 0) {
-				totalPage = totalCount / pageSize;
-			} else {
-				totalPage = totalCount / pageSize + 1;
+	public Map<String, Object> findArticlePage(PageUtil page,String path,String order){
+		Map<String, Object> map=new HashMap<>();
+			Map<String, Object> m=new HashMap<String, Object>();
+			m.put("order", order);
+			m.put("skli", page.getSkipNum());
+			m.put("take", page.getTakeNum());
+			List<NewsArticle> list=articleMapper.findNewsArticle(m);
+			int n=articleMapper.findFrontTimeNumber();
+			page.setCount(n);
+			for (NewsArticle item : list) {
+				File file=new File(path+"resource/image/articleImg/"+item.getImage());
+				File[] files=file.listFiles();
+				if (files!=null&&files.length!=0) {
+					item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+				}
 			}
-			pageBean.setTotalPage(totalPage);
-			// 每页显示的数据集合:
-			// 从哪开始:
-			int startRow = (page - 1) * pageSize;
-			pageBean.setStartRow(startRow);
-	 
-		} else {
-			// 设置当前页数:
-			pageBean.setPage(page);
-			// 设置每页显示记录数:
-			int pageSize = 12;
-			pageBean.setPageSize(pageSize);
-			// 设置总记录数:
-			Integer totalCount = 0;
-			totalCount = articleMapper.findFrontTimeNumber();
-			pageBean.setTotalCount(totalCount);
-			// 设置总页数:
-			int totalPage = 0;
-			// Math.ceil(totalCount / limit);
-			if (totalCount % pageSize == 0) {
-				totalPage = totalCount / pageSize;
-			} else {
-				totalPage = totalCount / pageSize + 1;
-			}
-			pageBean.setTotalPage(totalPage);
-			// 每页显示的数据集合:
-			// 从哪开始:
-			int startRow = (page - 1) * pageSize;
-			pageBean.setStartRow(startRow);
-		 }
-		return pageBean;
+			map.put("data", list);
+			map.put("page", page);
+		return map;
 
 	}
 	

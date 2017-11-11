@@ -114,7 +114,7 @@ public interface ArticleMapper {
 	 */
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 
-
+	public List<NewsArticle> findNewsArticle(Map<String, Object> map);
 
 }
 

@@ -1,34 +1,34 @@
 package com.brick.squad.util;
 
 public class PageUtil {
-	// 总记录数
-    private int totalCount = 0;
-    
-	// 当前页号，默认显示第一页
-    private int page= 1;
-    
-    // 每页大小，默认每页12条
-    private int pageSize = 12; 
-    
-    // 总页数，默认为0
-    private int totalPage = 0;
-    
-    // 起始记录行号，默认为从表头开始
-    private int startRow = 0;
-    
-    
-	public int getTotalCount() {
-		return totalCount;
+	private int skipNum;//当前第几条记录开始
+	private int takeNum;//从开始记录开始每页显示条数
+	private int curentPage=1;//当前页
+	private int pageSize=12;//每页显示记录数
+	private int count;//统计总条数
+	private int pageCount;
+	
+	public int getPageCount() {
+		return pageCount=(int) Math.ceil((float)count/pageSize);
 	}
-	public void setTotalCount(int totalCount) {
-		this.totalCount = totalCount;
+	public int getCount() {
+		return count;
 	}
-
-	public int getPage() {
-		return page;
+	public void setCount(int count) {
+		this.count = count;
 	}
-	public void setPage(int page) {
-		this.page = page;
+	public int getSkipNum() {
+		return (curentPage-1)*pageSize;
+	}
+	public int getTakeNum() {
+		return pageSize;
+	}
+	
+	public int getCurentPage() {
+		return curentPage;
+	}
+	public void setCurentPage(int curentPage) {
+		this.curentPage = curentPage;
 	}
 	public int getPageSize() {
 		return pageSize;
@@ -36,18 +36,6 @@ public class PageUtil {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	public int getTotalPage() {
-		return totalPage;
-	}
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-	public int getStartRow() {
-		return startRow;
-	}
-	public void setStartRow(int startRow) {
-		this.startRow = startRow;
-	}
- 
+	
 
 }

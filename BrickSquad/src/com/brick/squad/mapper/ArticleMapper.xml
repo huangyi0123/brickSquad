@@ -170,7 +170,7 @@
 	</select>
 	<!-- 获取最新商品 首页 -->
 	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle"
-		parameterType="int">
+		parameterType="map">
 		select
 		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0)
 		totals from article
@@ -239,7 +239,18 @@
 	<!-- 查询最新上架商品总数 -->
 	<select id="findFrontTimeNumber" resultType="Integer">
 	 select COUNT(*) from article
-	 #{begin},#{limitPage}
 	</select>
-	
+	<select id="findNewsArticle" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
+		select
+		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id order by
+		${order}
+		DESC LIMIT #{skli},#{take}
+	</select>
 </mapper>
