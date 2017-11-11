@@ -49,5 +49,10 @@ public interface CollectionService {
 
 	public List<ArticleExpand> findCollectionMessage(String pid);
 	
+	/**
+	 * 根据收藏的商品ID查询信息
+	 * */
+	public List<Collection> findCollectionByArticleId(String articleId)throws Exception;
+	
 
 }

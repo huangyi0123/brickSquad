@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Collection;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.CollectionService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.PageBeanUtil;
@@ -36,6 +38,9 @@ public class MedicalInstrumentsController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
+	@Autowired
+	@Qualifier("collectionService")
+	private CollectionService collectionService;
 	/***
 	 * 医疗器械页面controller
 	 * 
@@ -262,6 +267,23 @@ public class MedicalInstrumentsController {
 		}
 		return data;
 	}
-	
+	@RequestMapping("/addWishlistMedicalInstruments")
+	@ResponseBody
+	public String addWishlistMedicalInstruments(HttpServletRequest request, String articleId) throws Exception{
+		User user=(User) request.getSession().getAttribute("user");
+		List<Collection> listCollection=collectionService.findCollectionByArticleId(articleId);
+		String data;
+		if(listCollection.size()!=0){
+			data="1";
+		}else{
+			Collection collection=new Collection();
+			collection.setArticleId(articleId);
+			collection.setColDate(new Date());
+			collection.setPerId(user.getId());
+			collectionService.insertCollection(collection);
+			data="2";
+		}
+		return data;
+	}
 
 }

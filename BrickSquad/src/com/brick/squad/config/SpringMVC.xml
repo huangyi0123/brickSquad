@@ -87,6 +87,7 @@
 			<mvc:exclude-mapping path="/MedicalInstruments/findOrderByMedicalInstrumentsPop" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findSecondMedicalInstruments" />
 			<mvc:exclude-mapping path="/MedicalInstruments/addCartMedicalInstruments" />
+			<mvc:exclude-mapping path="/MedicalInstruments/addWishlistMedicalInstruments" />
 			<mvc:exclude-mapping path="/deals/todeals" />
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>

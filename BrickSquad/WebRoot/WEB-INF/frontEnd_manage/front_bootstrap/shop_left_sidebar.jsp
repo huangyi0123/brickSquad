@@ -100,9 +100,37 @@
 					  var json = eval(data);
 					 if(json=='1'){
 						 alert("商品已存在");
-					 }else{
+						 $(o).css('background','red');
+					 }else {
 						 
 						 alert("添加商品成功");
+						 $(o).css('background','red');
+					 }
+				  }
+				  });	
+		}else{
+			alert("还没有登录！");
+		}
+		
+	}
+</script>
+	<script type="text/javascript">
+	/* 添加购物车JS，ajax提交 */
+	function addWish(id,o){
+		var user = '${user}';
+		if(user!=''){
+			$.ajax({
+				  url:"${pageContext.request.contextPath}/MedicalInstruments/addWishlistMedicalInstruments",
+				  data:{articleId:id},
+				  type:'post', 
+				  success:function(data){
+					  var json = eval(data);
+					 if(json=='1'){
+						 alert("商品已存");
+						 $(o).css('background','red');
+					 }else {
+						 
+						 alert("收藏商品成功");
 						 $(o).css('background','red');
 					 }
 				  }
@@ -457,7 +485,7 @@
 														<div class="show"
 															style="display:block">
 															<a href="javascript:;" rel=""
-																title="添加收藏">添加收藏</a>
+																title="添加收藏" onclick="addWish('${article3.id}',this)">添加收藏</a>
 														</div>
 													</div>
 												</div>
@@ -491,7 +519,7 @@
 														<div class=" show"
 															style="display:block">
 															<a href="javascript:;" rel="nofollow"
-																title="添加收藏" >添加收藏!</a> 
+																title="添加收藏" onclick="addWish('${article3.id}',this)" >添加收藏!</a> 
 														</div>
 													</div>
 												</div>
