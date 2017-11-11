@@ -63,4 +63,9 @@ public interface ShoppingCarMapper {
 	 * 根据商品id查询出多条数据
 	 */
 	public List<ShoppingCarAndArticle> findArticIdAllArtic();
+	/**
+	 * 根据购物车商品ID查询购物车列表商品
+	 * */
+	public List<ShoppingCar> findShoppingCarByArticleId(String articleId);
+
 }

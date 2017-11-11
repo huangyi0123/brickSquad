@@ -86,5 +86,10 @@ public class ShoppingCarTest {
 				.findShoppingCarAndUserAndPsersonalInformationById("2")
 				.getName());
 	}
+	@Test
+	public void AddShoppingCarByArticleId() throws Exception{
+		List<ShoppingCar> flag=shoppingCarService.AddShoppingCarByArticleId("5863a982c46f11e7aca65254002ec43c");
+		System.err.println(flag);
+	}
 
 }

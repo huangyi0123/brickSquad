@@ -46,12 +46,15 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 
-
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
-<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+
 <script type="text/javascript">
 	function findSecondMedical(typeId,aid){
 		$.ajax({
@@ -82,20 +85,33 @@
 			$("#secondMedical").append(html);
 		}
 	}
-	
+</script>
+<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript">
+	/* 添加购物车JS，ajax提交 */
 	function addCart(id,o){
-		alert("${user}");
-			$ajax({
-				url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
-			 	data:{articleId:id},
-			  	type:'post', 
-				success:function(data){
-					alert(data);
-				}
-			});
+		var user = '${user}';
+		if(user!=''){
+			$.ajax({
+				  url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
+				  data:{articleId:id},
+				  type:'post', 
+				  success:function(data){
+					  var json = eval(data);
+					 if(json=='1'){
+						 alert("商品已存在");
+					 }else{
+						 
+						 alert("添加商品成功");
+						 $(o).css('background','red');
+					 }
+				  }
+				  });	
+		}else{
+			alert("还没有登录！");
+		}
 		
-	};
-
+	}
 </script>
 </head>
 
@@ -937,7 +953,7 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
-
+<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {

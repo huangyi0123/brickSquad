@@ -61,4 +61,8 @@ public interface ShoppingCarService {
 	 * 根据购物车中的商品id查询出商品表中的所有信息
 	 */
 	public List<ShoppingCarAndArticle> findArticIdAllArtic();
+	/**
+	 * 根据购物车商品ID查询购物车列表商品
+	 * */
+	public List<ShoppingCar> AddShoppingCarByArticleId(String articleId)throws Exception;
 }

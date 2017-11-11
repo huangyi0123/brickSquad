@@ -11,6 +11,13 @@
 		FROM shopping_car
 		WHERE id=#{id,jdbcType=VARCHAR}
 	</select>
+		<select id="findShoppingCarByArticleId" parameterType="java.lang.String"
+		resultType="ShoppingCar">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM shopping_car
+		WHERE article_id=#{articleId,jdbcType=VARCHAR}
+	</select>
 	<select id="findShoppingCar" resultType="ShoppingCar">
 		SELECT
 		<include refid="Base_Column_List" />
