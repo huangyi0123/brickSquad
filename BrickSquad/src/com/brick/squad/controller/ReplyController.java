@@ -26,27 +26,27 @@ public class ReplyController {
 
 	@RequestMapping("/getReplyList")
 	@ResponseBody
-	public String getReplyList(int pSize,int cPage,String keyword) {
-		Pagination pagination=new Pagination();
+	public String getReplyList(int pSize, int cPage, String keyword) {
+		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return replyService.replyPagination(pagination);
 
 	}
+
 	@RequestMapping("/findAllReply")
 	@ResponseBody
-	public String findAllReply(){
+	public String findAllReply() {
 		return replyService.findAllReply();
 	}
-	
-	
+
 	@RequestMapping("/toAddReply")
 	public String toAddReply(HttpServletRequest request, String id) {
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateReplyById");
-			Reply reply =replyService.findReplyById(id);
+			Reply reply = replyService.findReplyById(id);
 			request.setAttribute("reply", reply);
 		} else {
 			request.setAttribute("url", "addReply");
@@ -54,20 +54,22 @@ public class ReplyController {
 		}
 		return "backstage_managed/jsp/reply/add_reply";
 	}
+
 	@RequestMapping("/addReply")
-	public String addReply(Reply reply){
+	public String addReply(Reply reply) {
 		replyService.insertReply(reply);
 		return "backstage_managed/jsp/reply/reply_list";
 	}
+
 	@RequestMapping("/deleteReplyById")
 	@ResponseBody
-	public String deleteReplyById(String id){
+	public String deleteReplyById(String id) {
 		replyService.deleteReplyById(id);
 		return "success";
 	}
-	@RequestMapping("/updateReplyById")
 
-	public String updateReplyById(Reply reply){
+	@RequestMapping("/updateReplyById")
+	public String updateReplyById(Reply reply) {
 		replyService.updateReplyCententById(reply);
 		return "backstage_managed/jsp/reply/reply_list";
 	}

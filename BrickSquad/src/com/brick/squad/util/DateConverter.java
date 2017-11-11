@@ -6,11 +6,13 @@ import java.util.Date;
 
 import org.springframework.core.convert.converter.Converter;
 
-public class DateConverter implements Converter<String, Date>{
-	SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+public class DateConverter implements Converter<String, Date> {
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+			"yyyy-MM-dd HH:mm:ss");
+
 	@Override
 	public Date convert(String source) {
-		
+
 		try {
 			return simpleDateFormat.parse(source);
 		} catch (ParseException e) {

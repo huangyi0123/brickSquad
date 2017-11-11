@@ -1632,9 +1632,11 @@
 														<div class="item-bottom clearfix">
 															<a rel="nofollow" href="#"
 																class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																title="加入购物车">加入购物车</a> <a href="javascript:void(0)"
+																title="加入购物车">加入购物车</a> 
+																
+															<!-- 	<a href="javascript:void(0)"
 																class="compare button" rel="nofollow"
-																title="Add to Compare">Compare</a>
+																title="Add to Compare">Compare</a> -->
 
 															<div
 																class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
@@ -1663,10 +1665,10 @@
 																<div class="yith-wcwl-wishlistaddresponse"></div>
 															</div>
 
-															<div class="clear"></div>
+															<!-- <div class="clear"></div>
 															<a href="ajax/fancybox/example.html"
 																data-fancybox-type="ajax"
-																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a>
+																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a> -->
 														</div>
 
 													<!-- 	<div class="sale-off">-13%</div> -->
@@ -1718,10 +1720,9 @@
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
 													<li class="current"><a href="#">默认排序</a></li>
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">人气排序</a></li>
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">日期排序</a></li>
-													
-													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&page=1&pageSize=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&page=1&pageSize=12">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&page=1&pageSize=12">价格排序</a></li>
 												</ul></li>
 										</ul>
 
@@ -1735,18 +1736,18 @@
 											<ul class="sort-count order-dropdown pull-left">
 												<li><span class="current-li"><a>12</a></span>
 												<ul>
-												<c:if test="${ url=='findOrderByMedicalInstruments'}">
+												<c:if test="${ url=='findFrontTimeNumber'}">
 													
-														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
-														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=24">24</a></li>
-														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
+														<li class="current"><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&page=1&pageSize=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&page=1&pageSize=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&page=1&pageSize=36">36</a></li>
 											
 												</c:if>
-													<c:if test="${url=='toShop_left_sidebar'}">
+													<c:if test="${url=='findFrontTimeNumber'}">
 												
-														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
-														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
-														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
+														<li class="current"><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=1&pageSize=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=1&pageSize=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=1&pageSize=36">36</a></li>
 													</ul>
 													</c:if>
 													</li>
@@ -1758,23 +1759,23 @@
 										<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
 								<ul class="page-numbers">
-								<c:if test="${ url=='toShop_left_sidebar'}">
-									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">1</a></span></li>
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">2</a></li>
+								<c:if test="${ url=='tonew_deals'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">3</a></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=${pageBean.page+1}">3</a></li>
 									
-									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=${pageBean.page+1}">?</a></li>
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
-								<c:if test="${ url=='findOrderByMedicalInstruments'}">
-									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+								<c:if test="${ url=='findFrontTimeNumber'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&pageSize=12&page=1">1</a></span></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&pageSize=12&page=${pageBean.page+1}">2</a></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&pageSize=12&page=${pageBean.page+1}">3</a></li>
 									
-									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/new_deals/tonew_deals?sequence=4&pageSize=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								</ul>

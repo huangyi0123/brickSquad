@@ -44,7 +44,6 @@ public class UserController {
 		return "backstage_managed/jsp/user/user_list";
 	}
 
-
 	@RequestMapping("/getUserList")
 	@ResponseBody
 	public String getUserList(int pSize, int cPage, String keyword) {
@@ -72,7 +71,6 @@ public class UserController {
 	public String toUserAccountAuthentication() {
 		return "backstage_managed/jsp/user/userAccountAuthentication";
 	}
-
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1, String type) {
 		User user = userService.checkLogin(user1);

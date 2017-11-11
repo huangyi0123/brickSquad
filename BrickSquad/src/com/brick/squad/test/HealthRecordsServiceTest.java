@@ -22,22 +22,25 @@ public class HealthRecordsServiceTest {
 	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
-	/*@Test
-	public void findHealthRecordsAllCount(){
-		System.out.println(healthRecordsService.findHealthRecordsAllCount());
-	}*/
+
+	/*
+	 * @Test public void findHealthRecordsAllCount(){
+	 * System.out.println(healthRecordsService.findHealthRecordsAllCount()); }
+	 */
 	@Test
-	public void healthRecordsratedPaginationTest(){
-		Pagination pagination =new Pagination();
+	public void healthRecordsratedPaginationTest() {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
-		String healthRecordslist =healthRecordsService.healthRecordsPagination(pagination); 
+		String healthRecordslist = healthRecordsService
+				.healthRecordsPagination(pagination);
 	}
+
 	@Test
 	public void findHealthRecordsByIdTest() {
 		HealthRecords healthRecords = healthRecordsService
 				.findHealthRecordsById("21");
-		System.out.println(healthRecords+"****");
+		System.out.println(healthRecords + "****");
 	}
 
 	@Test
@@ -47,10 +50,10 @@ public class HealthRecordsServiceTest {
 		healthRecords.setBloodPressure("修改后的BloodPressure");
 		healthRecordsService.updateHealthRecordsById(healthRecords);
 	}
+
 	@Test
 	public void deleteHealthRecordsByIdTest() {
-		healthRecordsService
-				.deleteHealthRecordsById("21");
+		healthRecordsService.deleteHealthRecordsById("21");
 	}
 
 	@Test
@@ -76,22 +79,27 @@ public class HealthRecordsServiceTest {
 			healthRecordsService.insertHealthRecords(healthRecords);
 		}
 	}
+
 	@Test
-	public void healthRecordsPagination(){
-		Pagination pagination=new Pagination();
+	public void healthRecordsPagination() {
+		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
-		String data=healthRecordsService.healthRecordsPagination(pagination);
+		String data = healthRecordsService.healthRecordsPagination(pagination);
 		System.out.println(data);
 	}
+
 	@Test
-	public void findAllPersonalInformationGetIdAndIdCardAndName(){
-		String data=healthRecordsService.findAllPersonalInformationGetIdAndIdCardAndName();
+	public void findAllPersonalInformationGetIdAndIdCardAndName() {
+		String data = healthRecordsService
+				.findAllPersonalInformationGetIdAndIdCardAndName();
 		System.out.println(data);
 	}
+
 	@Test
-	public void findHealthRecordsByPerId(){
-		HealthRecords healthRecords=healthRecordsService.findHealthRecordsByPerId("1ede1858bddc11e7aca65254002ec43c");
+	public void findHealthRecordsByPerId() {
+		HealthRecords healthRecords = healthRecordsService
+				.findHealthRecordsByPerId("1ede1858bddc11e7aca65254002ec43c");
 		System.out.println(healthRecords.toString());
 	}
 }

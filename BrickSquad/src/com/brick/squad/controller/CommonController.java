@@ -20,6 +20,7 @@ import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.ShoppingCarAndArticle;
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.HealthRecords;
@@ -49,6 +50,7 @@ public class CommonController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
+
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		// begin 通过权限id查询权限
@@ -225,18 +227,12 @@ public class CommonController {
 		return "backstage_managed/jsp/role/limits";
 	}
 
-
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
-		//进入主页之前把购物车显示所需信息查询到
-/*		Pagination pagination = new Pagination();
-		List<ShoppingCarAndArticle> toShopDetailsShoppingCar = shoppingCarService.findArticIdAllArtic(pagination);
-		for (ShoppingCarAndArticle shoppingCarAndArticle : toShopDetailsShoppingCar) {
-			System.out.println("--------------------------"+shoppingCarAndArticle.toString());
-		}
-		request.setAttribute("toShopDetailsShoppingCar", toShopDetailsShoppingCar);*/
+
 		return "frontEnd_manage/front_bootstrap/index";
 	}
+
 	/**
 	 * 首页下拉框删除购物车
 	 * 
@@ -267,14 +263,11 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 
-	
-
 	@RequestMapping("/toShop_right_sidebar")
 	public String toShop_right_sidebar() {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
-
 
 	/***
 	 * 医疗器械页面controller
@@ -285,7 +278,8 @@ public class CommonController {
 	public String toShop_left_sidebar(HttpServletRequest request)
 			throws Exception {
 		/** 医疗器械一级分类查询 */
-		List<Type> listType = typeService.findIdAndTypeNmae("yiliaoqixie");
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
 		List<Article> listArticle = articleService
@@ -323,13 +317,11 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 
-
 	@RequestMapping("/toCart")
 	public String toCart() {
 		return "frontEnd_manage/front_bootstrap/cart";
 
 	}
-
 
 	@RequestMapping("/toVariable_product")
 	public String toVariable_product() {
@@ -341,11 +333,11 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/coupon";
 
 	}
-	
+
 	@RequestMapping("/toApply_coupon")
 	public String toApply_coupon() {
 		return "frontEnd_manage/front_bootstrap/apply_coupon";
-		
+
 	}
 
 }

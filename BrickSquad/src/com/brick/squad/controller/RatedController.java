@@ -34,7 +34,7 @@ public class RatedController {
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateRatedById");
-			Rated rated =ratedService.findRatedById(id);
+			Rated rated = ratedService.findRatedById(id);
 			request.setAttribute("rated", rated);
 		} else {
 			request.setAttribute("url", "addRated");
@@ -97,7 +97,6 @@ public class RatedController {
 	}
 
 	@RequestMapping("/updateRatedById")
-
 	public String updateRatedById(Rated rated) {
 		ratedService.updateRatedCententById(rated);
 		return "backstage_managed/jsp/rated/rated_list";

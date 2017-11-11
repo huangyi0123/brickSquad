@@ -127,13 +127,12 @@ public class AddressServiceImpl implements AddressService {
 		String countryName = null;
 		// 具体街道名
 		String detailed = null;
-		
-		//start
+
+		// start
 		if (address != null) {
 			if (address.getDetailed() != null) {
 				detailed = address.getDetailed();
 			}
-
 
 			if (address.getProvinceId() != null) {
 				// 如果传过来的地址省份ID不为空，根据省份id查询region相应的地区
@@ -168,11 +167,12 @@ public class AddressServiceImpl implements AddressService {
 
 			}
 		}
-//end
+		// end
 		String addressString = provinceName + cityName + countyName
 				+ countryName + detailed;
 		return addressString;
 	}
+
 	@Override
 	public String findByIdAllAddress(String id) {
 		// TODO Auto-generated method stub

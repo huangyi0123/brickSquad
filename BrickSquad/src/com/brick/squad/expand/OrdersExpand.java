@@ -2,7 +2,7 @@ package com.brick.squad.expand;
 
 import com.brick.squad.pojo.Orders;
 
-public class OrdersExpand extends Orders{
+public class OrdersExpand extends Orders {
 	private String name;
 
 	public String getName() {

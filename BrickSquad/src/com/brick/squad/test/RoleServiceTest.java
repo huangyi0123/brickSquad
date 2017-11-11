@@ -70,32 +70,37 @@ public class RoleServiceTest {
 		pagination.setPageSize(8);
 		System.out.println(roleService.rolePagination(pagination));
 	}
+
 	/***
 	 * 添加角色信息测试
+	 * 
 	 * @param role
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@Test
-	public void inserRole() throws Exception{
-		Role role=new Role();
+	public void inserRole() throws Exception {
+		Role role = new Role();
 		role.setName("超级管理员");
 		roleService.insertRole(role);
 	}
+
 	@Test
-	public void findRoleAll(){
-		Role role=roleService.findRole("2");
+	public void findRoleAll() {
+		Role role = roleService.findRole("2");
 		System.out.println(role);
 	}
+
 	@Test
-	public void findAllRole() throws Exception{
+	public void findAllRole() throws Exception {
 		System.out.println(roleService.findRoleAll());
 	}
+
 	@Test
-	public void updateRoleById() throws Exception{
-		Role role=new Role();
+	public void updateRoleById() throws Exception {
+		Role role = new Role();
 		role.setId("2");
 		role.setName("超级CEO");
 		roleService.updateRoleById(role);
 	}
-	
+
 }

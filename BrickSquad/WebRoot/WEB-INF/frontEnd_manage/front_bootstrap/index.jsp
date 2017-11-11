@@ -56,7 +56,7 @@
 
 	<div class="body-wrapper theme-clearfix">
 		<jsp:include page="shop_header.jsp">
-		<jsp:param value="${toShopDetailsShoppingCar}" name="toShopDetailsShoppingCar"/>
+			<jsp:param value="${toShopDetailsShoppingCar}" name="toShopDetailsShoppingCar" />
 		</jsp:include>
 		<div class="listings-title">
 
@@ -357,46 +357,275 @@
 																		<ul id="menu-vertical-menu-1"
 																			class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=shangyi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#cac14a"></span>
-																						<span class="menu-title">女装</span>
+																						<span class="menu-title">上衣</span>
 																					</span>
 																				</a>
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=kuzi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
-																						<span class="menu-title">男装</span>
+																						<span class="menu-title">裤子</span>
 																					</span>
 																				</a>
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=xielei" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
-																						<span class="menu-title">女鞋</span>
+																						<span class="menu-title">鞋类</span>
 																					</span>
 																				</a>
 																			</li>
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=maozi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>
-																						<span class="menu-title">男鞋</span>
+																						<span class="menu-title">帽子</span>
 																					</span>
 																				</a>
 																			</li>
 
-																			<li class="menu-household-goods etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
+																				<a href="common/tosimple_product?id=yiliaoqixie" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#42b8d1"></span>
-																						<span class="menu-title">配件配饰</span>
+																						<span class="menu-title">医疗器械</span>
 																					</span>
 																				</a>
+																				
+																				<ul class="dropdown-menu nav-level1 column-3">
+																					<li class="dropdown-submenu column-3 menu-electronics">
+																						<a href="#?id=laorenjianfuyongpin">
+																							<span class="have-title">
+																								<span class="menu-title">老人康复用品</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-laptop-desktop-accessories">
+																								<a href="#?id=laonianrenyangshengbaojianyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人养身保健用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-storage-external-drives">
+																								<a href="#?id=laonianrenhuliyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人护理用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-networking-wireless">
+																								<a href="#?id=laonianrendaibuyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人代步用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-motherboards-cpus-psus">
+																								<a href="#?id=yanglaojigouyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">养老机构用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-webcams">
+																								<a href="#?id=laonianrenshitingfuzhuyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人视听辅助用品</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="dropdown-submenu column-3 menu-smartphone">
+																						<a href="#?id=laonianrenrichangshenghuoyongpin">
+																							<span class="have-title">
+																								<span class="menu-title">老年人日常生活用品</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-mobile-phones">
+																								<a href="#?id=laonianrenyuleyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人娱乐用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-smart-watches-accessories">
+																								<a href="#?id=laonianrenlvyouzhuangbeiyonhpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人旅游装备用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-mobile-accessories">
+																								<a href="#?id=laonianrenjiankangziceyiqi">
+																									<span class="have-title">
+																										<span class="menu-title">老年人健康自测仪器</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-cases-covers">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Cases & Covers</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-power-banks">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Power Banks</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="dropdown-submenu column-3 menu-tablets">
+																						<a href="#">
+																							<span class="have-title">
+																								<span class="menu-title">Tablets</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-tablet-accessories">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Tablet Accessories</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-cases-covers">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Cases & Covers</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-power-banks">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Power Banks</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-memory-cards">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Memory Cards</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="dropdown-submenu column-3 menu-computer">
+																						<a href="#">
+																							<span class="have-title">
+																								<span class="menu-title">Computer</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-macbooks-imacs">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Macbooks & iMacs</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-computers-desktops">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Computers & Desktops</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-printers-scanners-faxs">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Printers, Scanners, & Faxs</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-laptop-desktop-accessories">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Laptop & Desktop Accessories</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-storage-external-drives">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Storage & External Drives</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="fix-position dropdown-submenu column-3 menu-image">
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-image-1 etrostore-menu-img">
+																								<a href="#">
+																									<span class="">
+																										<span class="menu-img">
+																											<img src="images/1903/menu-bn7.jpg" alt="Menu Image" />
+																										</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-image-2 etrostore-menu-img">
+																								<a href="#">
+																									<span class="">
+																										<span class="menu-img">
+																											<img src="images/1903/menu-bn8.jpg" alt="Menu Image" />
+																										</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-image-3 etrostore-menu-img">
+																								<a href="#">
+																									<span class="">
+																										<span class="menu-img">
+																											<img src="images/1903/menu-bn9.jpg" alt="Menu Image" />
+																										</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+																				</ul>
+																			
 																			</li>
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
 																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
@@ -633,6 +862,7 @@
 																						</ul>
 																					</li>
 																				</ul>
+																			
 																			</li>
 
 																			<li class="menu-television etrostore-menu-custom level1">
@@ -1068,98 +1298,100 @@
 
 														<div class="slider responsive">
 															<!--秒杀开始  -->
-															<div class="item-countdown product " id="product_sw_countdown_02">
-																<div class="item-wrap">
-																	<div class="item-detail">
-																		<div class="item-content">
-																			<!-- rating  -->
-																			<div class="reviews-content">
-																				<div class="star">
-																					<span style="width:35px"></span>
+															<c:forEach items="${secKills }" var="a">
+																<div class="item-countdown product " id="product_sw_countdown_02">
+																	<div class="item-wrap">
+																		<div class="item-detail">
+																			<div class="item-content">
+																				<!-- rating  -->
+																				<div class="reviews-content">
+																					<div class="star">
+																						<span style="width:35px"></span>
+																					</div>
+
+																					<!-- <div class="item-number-rating">2 人已购买</div> -->
+																				</div>
+																				<!-- end rating  -->
+
+																				<h4>
+																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="veniam dolore">${a.aname }</a>
+																				</h4>
+
+																				<!-- Price -->
+																				<div class="item-price">
+																					<span>
+																						<del>
+																							<span class="woocommerce-Price-amount amount">
+																								<span class="woocommerce-Price-currencySymbol">￥</span>
+																								${a.price }
+																							</span>
+																						</del>
+																						<ins>
+																							<span class="woocommerce-Price-amount amount">
+																								<span class="woocommerce-Price-currencySymbol">￥</span>
+																								${a.activePrice }
+																							</span>
+																						</ins>
+																					</span>
 																				</div>
 
-																				<div class="item-number-rating">2 人已购买</div>
+																				<div class="sale-off">-${a.powsr }%</div>
+																							
+																				<div class="product-countdown" data-date="${a.timer }" data-price="$390"
+																				data-starttime="1484660800" data-cdtime="1517356800"
+																				data-id="product_sw_countdown_03"></div>
 																			</div>
-																			<!-- end rating  -->
 
-																			<h4>
-																				<a href="simple_product.html" title="veniam dolore">商品名称</a>
-																			</h4>
+																			<div class="item-image-countdown">
+																				<span class="onsale">Sale!</span>
+																				<a href="variableProduct/toVariable_product?productId=${a.id }">
+																					<div class="product-thumb-hover">
+																						<img width="300" height="300" src="${a.image }"
+																							class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
+																							srcset="${a.image } 300w, ${a.image } 150w, ${a.image } 180w, ${a.image } 600w"
+																							sizes="(max-width: 300px) 100vw, 300px" />
+																					</div>
+																				</a>
 
-																			<!-- Price -->
-																			<div class="item-price">
-																				<span>
-																					<del>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">￥</span>
-																							250.00
-																						</span>
-																					</del>
-																					<ins>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">￥</span>
-																							190.00
-																						</span>
-																					</ins>
-																				</span>
-																			</div>
+																				<!-- add to cart, wishlist, compare -->
+																				<div class="item-bottom clearfix">
+																					<a rel="nofollow" href="#"
+																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+																						title="加入购物车1">加入购物车1</a>
+																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
+																						title="Add to Compare">Compare</a>
 
-																			<div class="sale-off">-24%</div>
+																					<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																						<div class="yith-wcwl-add-button show" style="display:block">
+																							<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
+																								Wishlist</a>
+																							<img src="resource/front_bootstrap/images/wpspin_light.gif"
+																								class="ajax-loading" alt="loading" width="16" height="16"
+																								style="visibility:hidden" />
+																						</div>
+																						<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																							<span class="feedback">Product added!</span>
+																							<a href="#" rel="nofollow">Browse Wishlist</a>
+																						</div>
 
-																			<div class="product-countdown" data-date="10000" data-price="$250"
-																				data-starttime="1483747200" data-cdtime="1519776000"
-																				data-id="product_sw_countdown_02"></div>
-																		</div>
+																						<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																							<span class="feedback">The product is already in the wishlist!</span>
+																							<a href="#" rel="nofollow">Browse Wishlist</a>
+																						</div>
 
-																		<div class="item-image-countdown">
-																			<span class="onsale">Sale!</span>
-																			<a href="simple_product.html">
-																				<div class="product-thumb-hover">
-																					<img width="300" height="300" src="images/1903/45-300x300.jpg"
-																						class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
-																						srcset="resource/front_bootstrap/images/1903/45-300x300.jpg 300w, resource/front_bootstrap/images/1903/45-150x150.jpg 150w, resource/front_bootstrap/images/1903/45-180x180.jpg 180w, images/1903/45.jpg 600w"
-																						sizes="(max-width: 300px) 100vw, 300px" />
+																						<div style="clear:both"></div>
+																						<div class="yith-wcwl-wishlistaddresponse"></div>
+																					</div>
+
+																					<div class="clear"></div>
+																					<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
+																						class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																				</div>
-																			</a>
-
-																			<!-- add to cart, wishlist, compare -->
-																			<div class="item-bottom clearfix">
-																				<a rel="nofollow" href="#"
-																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																					title="加入购物车1">加入购物车1</a>
-																				<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																					title="Add to Compare">Compare</a>
-
-																				<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																					<div class="yith-wcwl-add-button show" style="display:block">
-																						<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																							Wishlist</a>
-																						<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																							class="ajax-loading" alt="loading" width="16" height="16"
-																							style="visibility:hidden" />
-																					</div>
-																					<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																						<span class="feedback">Product added!</span>
-																						<a href="#" rel="nofollow">Browse Wishlist</a>
-																					</div>
-
-																					<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																						<span class="feedback">The product is already in the wishlist!</span>
-																						<a href="#" rel="nofollow">Browse Wishlist</a>
-																					</div>
-
-																					<div style="clear:both"></div>
-																					<div class="yith-wcwl-wishlistaddresponse"></div>
-																				</div>
-
-																				<div class="clear"></div>
-																				<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																					class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																			</div>
 																		</div>
 																	</div>
 																</div>
-															</div>
+															</c:forEach>
 															<!--秒杀结束 -->
 															<div class="item-countdown product" id="product_sw_countdown_03">
 																<div class="item-wrap">
@@ -2451,22 +2683,22 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_2">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop Dell</a>
+																		<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Macbook</a>
+																		<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop HP</a>
+																		<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop MSI</a>
+																		<a href="shop_right_sidebar.html?id=maozi">帽子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop Asus</a>
+																		<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories</a>
+																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																</ul>
 															</div>
@@ -2538,7 +2770,8 @@
 																						<!-- end rating  -->
 
 																						<h4>
-																							<a href="variableProduct/toVariable_product?productId=${a[0].id }" title="voluptate ipsum">${a[0].aname }</a>
+																							<a href="variableProduct/toVariable_product?productId=${a[0].id }"
+																								title="voluptate ipsum">${a[0].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2612,7 +2845,8 @@
 																						<!-- end rating -->
 
 																						<h4>
-																							<a href="variableProduct/toVariable_product?productId=${a[1].id }" title="veniam dolore">${a[1].aname }</a>
+																							<a href="variableProduct/toVariable_product?productId=${a[1].id }"
+																								title="veniam dolore">${a[1].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2691,7 +2925,8 @@
 																		<div class="item">
 																			<div class="item-inner">
 																				<div class="item-img">
-																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="corned beef enim">
+																					<a href="variableProduct/toVariable_product?productId=${a.id }"
+																						title="corned beef enim">
 																						<img width="180" height="180" src="${a.image }"
 																							class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
 																							srcset="${a.image } 180w, ${a.image } 150w, ${a.image } 300w, ${a.image } 600w"
@@ -2707,7 +2942,8 @@
 																						<div class="item-number-rating">${a.totals }人已购买</div>
 
 																						<h4>
-																							<a href="variableProduct/toVariable_product?productId=${a.id }" title="corned beef enim">${a.aname }</a>
+																							<a href="variableProduct/toVariable_product?productId=${a.id }"
+																								title="corned beef enim">${a.aname }</a>
 																						</h4>
 
 																						<div class="item-price">
@@ -2785,22 +3021,22 @@
 																<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_3">
 																	<ul>
 																		<li>
-																			<a href="shop_right_sidebar.html">Blender</a>
+																			<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Mixer</a>
+																			<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Microwave</a>
+																			<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Sponge</a>
+																			<a href="shop_right_sidebar.html?id=maozi">帽子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Paper Towel</a>
+																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Vacuum Cleaner</a>
+																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
 																	</ul>
 																</div>
@@ -2874,7 +3110,8 @@
 																							<!-- end rating  -->
 
 																							<h4>
-																								<a href="variableProduct/toVariable_product?productId=${a[0].id }" title="Cleaner with bag">${a[0].aname }</a>
+																								<a href="variableProduct/toVariable_product?productId=${a[0].id }"
+																									title="Cleaner with bag">${a[0].aname }</a>
 																							</h4>
 
 																							<!-- Price -->
@@ -2955,7 +3192,8 @@
 																							<!-- end rating  -->
 
 																							<h4>
-																								<a href="variableProduct/toVariable_product?productId=${a[1].id }" title="sint turkey">${a[1].aname }</a>
+																								<a href="variableProduct/toVariable_product?productId=${a[1].id }"
+																									title="sint turkey">${a[1].aname }</a>
 																							</h4>
 
 																							<!-- Price -->
@@ -3034,7 +3272,8 @@
 																		<div class="item">
 																			<div class="item-inner">
 																				<div class="item-img">
-																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="Vacuum cleaner">
+																					<a href="variableProduct/toVariable_product?productId=${a.id }"
+																						title="Vacuum cleaner">
 																						<img width="180" height="180" src="${a.image }g"
 																							class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
 																							srcset="${a.image } 180w, ${a.image } 150w,${a.image } 300w, ${a.image } 600w"
@@ -3056,7 +3295,8 @@
 																					<!-- end rating  -->
 
 																					<h4>
-																						<a href="variableProduct/toVariable_product?productId=${a.id }" title="Vacuum cleaner">${a.aname }</a>
+																						<a href="variableProduct/toVariable_product?productId=${a.id }"
+																							title="Vacuum cleaner">${a.aname }</a>
 																					</h4>
 
 																					<div class="item-price">
@@ -3412,12 +3652,12 @@
 		<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
 		<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 		<script type="text/javascript">
-		$(function() {
-			 console.log("123");
-		 var data = '${toShopDetailsShoppingCar}';
-		 console.log(data);
+			$(function() {
+				console.log("123");
+				var data = '${toShopDetailsShoppingCar}';
+				console.log(data);
 
-		});
+			});
 			var sticky_navigation_offset_top = $("#header .header-bottom")
 					.offset().top;
 			var sticky_navigation = function() {

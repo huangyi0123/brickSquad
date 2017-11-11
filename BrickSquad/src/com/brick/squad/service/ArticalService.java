@@ -9,6 +9,7 @@ import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -46,6 +47,7 @@ public interface ArticalService {
 	 * 医疗器械查询商品信息
 	 */
 	public List<Article> findArticleImgAndName(String typeId) throws Exception;
+
 	/**
 	 * 获取商品订单数量
 	 */
@@ -80,6 +82,7 @@ public interface ArticalService {
 	 * pageBean)throws Exception;
 	 */
 
+
 	/*
 	/*public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception;*/
 	/**医疗器械商品分页查询*/
@@ -90,13 +93,11 @@ public interface ArticalService {
 	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page ,int sequence,int limitPage)throws Exception;
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page ,int sequence,int limitPage)throws Exception;
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page ,int sequence,int limitPage)throws Exception;
-/*
-	 * 根据商品ID在评论表中查询评论总量
-	 * 
-	 * @param id
-	 * 
-	 * @return
-	 */
+
+	/********最新商品分页查询 *********/
+	public PageUtil findArticlePage(int page);
+	
+
 	public int selectArticleRatedTotalById(String id);
 
 	/**
@@ -105,9 +106,17 @@ public interface ArticalService {
 	 * @return 数据集合
 	 */
 	public Map<String, Object> shopIndex();
-	
+
 	/**
 	 * 获取最新添加的商品
 	 */
+
 	public List<NewsArticle> findFrontTime();
+	
+	/**获取所有商品数量*/
+
+
+	public List<Article> findSecondMedicalInstruments(String typeId)
+			throws Exception;
+
 }

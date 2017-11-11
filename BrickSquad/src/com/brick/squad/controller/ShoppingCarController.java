@@ -30,10 +30,12 @@ public class ShoppingCarController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
-	/*@Autowired
-	@Qualifier("articalService")
-	private ArticalService articalService;
-*/
+
+	/*
+	 * @Autowired
+	 * 
+	 * @Qualifier("articalService") private ArticalService articalService;
+	 */
 	@RequestMapping("/toShoppingCarList")
 	public String toRegionList() {
 		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
@@ -137,6 +139,7 @@ public class ShoppingCarController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/detailsShoppingCar")
+
 	public String detailsShoppingCar(HttpServletRequest request,ShoppingCarPagination shoppingCarPagination) throws Exception{
 		
 		//先设置一个固定的perid,后面获取用户登录id
@@ -144,24 +147,8 @@ public class ShoppingCarController {
 		Map<String, Object> map=shoppingCarService.findArticIdAllArtic(shoppingCarPagination);
 		request.setAttribute("map", map);
 		return "frontEnd_manage/front_bootstrap/cart";
+
 }	
-	/**
-	 * 前端购物车分页显示
-	 * @param pSize
-	 * @param cPage
-	 * @param keyword
-	 * @return
-	 */
-/*	@RequestMapping("/getIndexShoppingCarList")
-	@ResponseBody
-	public String getIndexShoppingCarList(int pSize, int cPage, String keyword){
-		Pagination pagination = new Pagination();
-		pagination.setKeyword(keyword);
-		pagination.setCurentPage(cPage);
-		pagination.setPageSize(pSize);
-		String value = shoppingCarService.findArticIdAllArtic(pagination);
-		return value;
-	}*/
 	/**
 	 * 前台删除购物车
 	 * 

@@ -51,26 +51,51 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
+<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 <script type="text/javascript">
-$().ready(
-        function() {
-            $("#fy").click(
-                    function() {
-                        $.ajax({
-                                    url : 'MedicalInstruments/findmedicalpageBean',
-                                    type : 'POST',
-                                    data : 'JSON', // Request body 
-                                    contentType : 'application/json; charset=utf-8',
-                                    dataType : 'json',
-                                    success : function(response) {
-                                    	
-                                    },
-                                    
-                                });
-                    });
-        });
+	function findSecondMedical(typeId,aid){
+		$.ajax({
+			  url:"${pageContext.request.contextPath}/MedicalInstruments/findSecondMedicalInstruments",
+			  data:{typeId:typeId},
+			  type:'post', 
+			  success:function(data){
+				  $("#secondMedical").html('');
+				 var json = eval(data); //数组  
+				
+				  showData(json,aid);
+			  }
+			  });	
+	}
+	function showData(json,aid) {
+		//循环遍历一边d
+		for ( var i = 0; i < json.length; i++) {
+			var html = "<li  class='product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12'>"+
+			
+			"<a href='${pageContext.request.contextPath }/variableProduct/toVariable_product?productId="+aid+"'>"+
+					"<image src='resource/image/articleImg/"+json[i].image+"' alt='Accessories' width='300' height='300'>"+
+					"<h3>"+
+					json[i].aname+
+					"<mark class='count'>"+(1)+"</mark>"+
+					"</h3>"+
+					"</a>"+"</li>";
+			//通过表体id把显示文本显示到网页中
+			$("#secondMedical").append(html);
+		}
+	}
+	
+	function addCart(id,o){
+		alert("添加成功");
+		$(o).css('background','red');
+		$ajax({
+			url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
+		 	data:{id:id},
+		  	type:'post', 
+			success:function(data){
+				
+			}
+		});
+	};
 
-  
 </script>
 </head>
 
@@ -205,25 +230,23 @@ $().ready(
 					<div id="content" role="main">
 						<!--  Shop Title -->
 						<div class="products-wrapper">
-							<div class="row-fix clearfix">
+							<div class="row-fix clearfix" id="secondMedical">
 							<c:forEach var="article" items="${listArticle }">
 						
-								<li
+								<li 
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
-									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article.id}"> <img src="resource/image/articleImg/${article.image }"
-										alt="Accessories" width="300" height="300">
+									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article.id}"
+									title="${article.aname }">
+									 <img src="resource/image/articleImg/${article.image }"
+										alt="${article.aname }" width="300" height="300">
 										<h3>
 											${article.aname }
 											<mark class="count">(1)</mark>
 										</h3>
 								</a>
 								</li>
-								
 								</c:forEach>
-
-	
 							</div>
-
 							<div class="products-nav clearfix">
 								<div class="view-mode-wrap pull-left clearfix">
 									<div class="view-mode">
@@ -342,13 +365,8 @@ $().ready(
 								</ul>
 								</nav>
 							</div>
-
 							<div class="clear"></div>
-
 							<ul class="products-loop row grid clearfix">
-							
-							
-							
 							<!-- 商品分页查询 -->
 							
 							<c:if test="${ pageBean.limitPage}!=''">
@@ -368,50 +386,7 @@ $().ready(
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
 													</div>
 												</a>
-
-												<!-- 加入购物车, wishlist, compare -->
-												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="http:www.baidu.com"
-														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="加入购物车">加入购物车</a> <a
-														href="javascript:void(0)" class="compare button"
-														rel="nofollow" title="Add to Compare">Compare</a>
-
-													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-														<div class="yith-wcwl-add-button show"
-															style="display:block">
-															<a href="wishlist.html" rel="nofollow"
-																class="add_to_wishlist">Add to Wishlist</a> <img
-																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
-																alt="loading" width="16" height="16"
-																style="visibility:hidden" />
-														</div>
-
-														<div class="yith-wcwl-wishlistaddedbrowse hide"
-															style="display:none;">
-															<span class="feedback">Product added!</span> <a href="#"
-																rel="nofollow">Browse Wishlist</a>
-														</div>
-
-														<div class="yith-wcwl-wishlistexistsbrowse hide"
-															style="display:none">
-															<span class="feedback">The product is already in
-																the wishlist!</span> <a href="#" rel="nofollow">Browse
-																Wishlist</a>
-														</div>
-
-														<div style="clear:both"></div>
-														<div class="yith-wcwl-wishlistaddresponse"></div>
-													</div>
-
-													<div class="clear"></div>
-													<a href="ajax/fancybox/example.html"
-														data-fancybox-type="ajax"
-														class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-														View </a>
-												</div>
 											</div>
-
 											<div class="item-content products-content">
 												<div class="reviews-content">
 													<div class="star">
@@ -432,48 +407,6 @@ $().ready(
 													</ins></span>
 
 												<div class="item-description">${article3.describes }</div>
-
-												<!-- 加入购物车, wishlist, compare -->
-												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="#"
-														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="加入购物车">加入购物车</a> <a
-														href="javascript:void(0)" class="compare button"
-														rel="nofollow" title="Add to Compare">Compare</a>
-
-													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-														<div class="yith-wcwl-add-button show"
-															style="display:block">
-															<a href="wishlist.html" rel="nofollow"
-																class="add_to_wishlist">Add to Wishlist</a> <img
-																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
-																alt="loading" width="16" height="16"
-																style="visibility:hidden" />
-														</div>
-
-														<div class="yith-wcwl-wishlistaddedbrowse hide"
-															style="display:none;">
-															<span class="feedback">Product added!</span> <a href="#"
-																rel="nofollow">Browse Wishlist</a>
-														</div>
-
-														<div class="yith-wcwl-wishlistexistsbrowse hide"
-															style="display:none">
-															<span class="feedback">The product is already in
-																the wishlist!</span> <a href="#" rel="nofollow">Browse
-																Wishlist</a>
-														</div>
-
-														<div style="clear:both"></div>
-														<div class="yith-wcwl-wishlistaddresponse"></div>
-													</div>
-
-													<div class="clear"></div>
-													<a href="ajax/fancybox/example.html"
-														data-fancybox-type="ajax"
-														class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-														View </a>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -498,47 +431,19 @@ $().ready(
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
 													</div>
 												</a>
-
-												<!-- 加入购物车, wishlist, compare -->
+												<!-- 加入购物车, 添加收藏 -->
 												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="#"
-														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="加入购物车">加入购物车</a> <a
-														href="javascript:void(0)" class="compare button"
-														rel="nofollow" title="Add to Compare">Compare</a>
-
-													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+													<a rel="nofollow" href="javascript:;"
+														class="button product_type_simple "
+														title="加入购物车" onclick="addCart('${article3.id}',this)"  
+														id="onclicka"></a> 
+													<div class="yith-wcwl-add-to-wishlist">
 														<div class="yith-wcwl-add-button show"
 															style="display:block">
-															<a href="wishlist.html" rel="nofollow"
-																class="add_to_wishlist">Add to Wishlist</a> <img
-																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
-																alt="loading" width="16" height="16"
-																style="visibility:hidden" />
+															<a href="javascript:;" rel=""
+																title="添加收藏">添加收藏</a>
 														</div>
-
-														<div class="yith-wcwl-wishlistaddedbrowse hide"
-															style="display:none;">
-															<span class="feedback">Product added!</span> <a href="#"
-																rel="nofollow">Browse Wishlist</a>
-														</div>
-
-														<div class="yith-wcwl-wishlistexistsbrowse hide"
-															style="display:none">
-															<span class="feedback">The product is already in
-																the wishlist!</span> <a href="#" rel="nofollow">Browse
-																Wishlist</a>
-														</div>
-
-														<div style="clear:both"></div>
-														<div class="yith-wcwl-wishlistaddresponse"></div>
 													</div>
-
-													<div class="clear"></div>
-													<a href="ajax/fancybox/example.html"
-														data-fancybox-type="ajax"
-														class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-														View </a>
 												</div>
 											</div>
 
@@ -548,11 +453,9 @@ $().ready(
 														<span style="width: 63px"></span>
 													</div>
 												</div>
-
 												<h4>
 													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}" title="${article3.aname }">${article3.aname }</a>
 												</h4>
-
 												<span class="item-price"><del>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
@@ -562,47 +465,19 @@ $().ready(
 													</ins></span>
 
 												<div class="item-description">${article3.describes }</div>
-
-												<!-- 加入购物车, wishlist, compare -->
+												<!-- 加入购物车, 收藏-->
 												<div class="item-bottom clearfix">
-													<a rel="nofollow" href="#"
-														class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-														title="加入购物车">加入购物车</a> <a
-														href="javascript:void(0)" class="compare button"
-														rel="nofollow" title="Add to Compare">Compare</a>
-
+													<a rel="nofollow" href="javascript:;"
+														class="button product_type_simple"
+														title="加入购物车" onclick="addCart('${article3.id}',this)" 
+														 id="onclicka"> </a> 
 													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 														<div class="yith-wcwl-add-button show"
 															style="display:block">
-															<a href="wishlist.html" rel="nofollow"
-																class="add_to_wishlist">Add to Wishlist</a> <img
-																src="resource/front_bootstrap/images/wpspin_light.gif" class="ajax-loading"
-																alt="loading" width="16" height="16"
-																style="visibility:hidden" />
+															<a href="javascript:;" rel="nofollow"
+																title="添加收藏" >添加收藏!</a> 
 														</div>
-
-														<div class="yith-wcwl-wishlistaddedbrowse hide"
-															style="display:none;">
-															<span class="feedback">Product added!</span> <a href="#"
-																rel="nofollow">Browse Wishlist</a>
-														</div>
-
-														<div class="yith-wcwl-wishlistexistsbrowse hide"
-															style="display:none">
-															<span class="feedback">The product is already in
-																the wishlist!</span> <a href="#" rel="nofollow">Browse
-																Wishlist</a>
-														</div>
-
-														<div style="clear:both"></div>
-														<div class="yith-wcwl-wishlistaddresponse"></div>
 													</div>
-
-													<div class="clear"></div>
-													<a href="ajax/fancybox/example.html"
-														data-fancybox-type="ajax"
-														class="sm_quickview_handler-list fancybox fancybox.ajax">Quick
-														View </a>
 												</div>
 											</div>
 										</div>
@@ -747,14 +622,14 @@ $().ready(
 							<span>类别</span>
 						</h2>
 					</div>
-
+				
 					<ul class="product-categories">
 						
 						<c:forEach var="type" items="#{listType}">
-						<li class="cat-item"><a href="${pageContext.request.contextPath }/find?id=${type.id}">${type.name}</a> <span
+						<li class="cat-item"><a href="javascript:;" onclick="findSecondMedical('${type.id}','${type.aid }')">${type.name}</a> <span
 							class="count">></span></li>
 							</c:forEach>
-							
+					
 					</ul>
 				</div>
 			</div>
@@ -868,7 +743,7 @@ $().ready(
 									</div>
 
 									<h4>
-										<a href="${pageContext.request.contextPath }/find?id=${article2.id}" title="${article2.aname }">${article2.aname }</a>
+										<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article2.id}" title="${article2.aname }">${article2.aname }</a>
 									</h4>
 
 									<div class="price">
@@ -1056,7 +931,7 @@ $().ready(
 	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
 	<script type="text/javascript"
-		src="js/sw_woocommerce/jquery.countdown.min.js"></script>
+		src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/woocommerce/price-slider.min.js"></script>
 
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
