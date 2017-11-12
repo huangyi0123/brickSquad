@@ -3036,7 +3036,7 @@
 																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																			<a href="shop_right_sidebar.html?id=">Vacuum Cleaner</a>
 																		</li>
 																	</ul>
 																</div>
@@ -3142,23 +3142,14 @@
 																							<!-- add to cart, wishlist, compare -->
 																							<div class="item-bottom clearfix">
 																								<a rel="nofollow" href="#"
-																									class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																									title="Add to Cart">Add to cart</a>
-																								<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																									title="Add to Compare">Compare</a>
-
+																									class="button product_type_simple"
+																									title="加入购物车">Add to cart</a>
+																								
 																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																									<div class="yith-wcwl-add-button show" style="display:block">
-																										<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
+																										<a href="wishlist.html" rel="nofollow" class="">Add to
 																											Wishlist</a>
-																										<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																											class="ajax-loading" alt="loading" width="16" height="16"
-																											style="visibility:hidden" />
-																									</div>
-
-																									<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																										<span class="feedback">Product added!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
+																										
 																									</div>
 
 																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
@@ -3170,9 +3161,6 @@
 																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
 
-																								<div class="clear"></div>
-																								<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																									class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																							</div>
 																						</div>
 																					</div>
