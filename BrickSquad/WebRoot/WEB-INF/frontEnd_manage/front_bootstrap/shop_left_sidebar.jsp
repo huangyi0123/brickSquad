@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 
 <!-- BOOTSTRAP 3.3.7 CSS -->
-<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" /> -->
 
 <!-- SLICK v1.6.0 CSS -->
 <link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
@@ -91,6 +91,7 @@
 	/* 添加购物车JS，ajax提交 */
 	function addCart(id,o){
 		var user = '${user}';
+	
 		if(user!=''){
 			$.ajax({
 				  url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
@@ -109,8 +110,9 @@
 				  }
 				  });	
 		}else{
-			alert("还没有登录！");
+			 alert("还没有登录！"); 
 		}
+		
 		
 	}
 </script>
@@ -406,10 +408,90 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+								
+								
+								<c:if test="${ url=='findPriceScope'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
 								</ul>
 								</nav>
 							</div>
 							<div class="clear"></div>
+							
+							
+							
+							
+							<!-- 按价格范围查询商品信息 -->
+							<c:if test="${url =='findPriceScope'}">
+										<ul class="products-loop row grid clearfix">
+							<!-- 商品分页查询 -->
+							
+							<c:if test="${ pageBean.limitPage}!=''">
+							<c:forEach var="article4" items="${ pageBean.list}">
+								<li
+									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-255 product type-product status-publish has-post-thumbnail product_cat-electronics product_cat-home-appliances product_cat-vacuum-cleaner product_brand-apoteket first instock sale featured shipping-taxable purchasable product-type-simple">
+									<div class="products-entry item-wrap clearfix">
+										<div class="item-detail">
+											<div class="item-img products-thumb">
+												<span class="onsale">Sale!</span> <a
+													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}">
+													<div class="product-thumb-hover" style="width:200px;height:200px;">
+														<img width="300" height="300"
+															src="resource/image/articleImg/${article4.image }"
+															class="attachment-shop_catalog size-shop_catalog wp-post-image"
+															alt=""
+															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
+													</div>
+												</a>
+											</div>
+											<div class="item-content products-content">
+												<div class="reviews-content">
+													<div class="star">
+														<span style="width: 63px"></span>
+													</div>
+												</div>
+
+												<h4>
+													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}" title="${article4.aname }">${article4.aname }</a>
+												</h4>
+
+												<span class="item-price"><del>
+														<span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
+													</del> <ins>
+														<span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">￥</span>${article4.price }</span>
+													</ins></span>
+
+												<div class="item-description">${article4.describes }</div>
+											</div>
+										</div>
+									</div>
+								</li>
+					</c:forEach>
+							
+							</c:if>
+						
+							
+							</ul>
+							</c:if>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							<ul class="products-loop row grid clearfix">
 							<!-- 商品分页查询 -->
 							
@@ -737,7 +819,7 @@
 						</h2>
 					</div>
 
-					<form method="get" action="dsfreeg">
+					<form method="get" action="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope">
 						<div class="price_slider_wrapper">
 							<div class="price_slider" style="display:none;"></div>
 							<div class="price_slider_amount">

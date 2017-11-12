@@ -215,4 +215,12 @@ public class ArticleServiceTest {
 			System.err.println(article);
 		}
 	}
+	@Test
+	public void findPriceScope() throws Exception{
+		PageBeanUtil<Article> listP=articleService.findPriceScope(0,0,1,500);
+		List<Article> list=listP.getList();
+		for(Article article:list){
+			System.out.println("=============="+article);
+		}
+	}
 }
