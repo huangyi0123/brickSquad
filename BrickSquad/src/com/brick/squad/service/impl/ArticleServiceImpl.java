@@ -622,6 +622,8 @@ public class ArticleServiceImpl implements ArticalService {
 			// 设置每页显示记录数:
 			/* int limit = 12; */
 			pageBean.setLimitPage(limitPage);
+			pageBean.setMin_price(minPrice);
+			pageBean.setMax_price(maxPrice);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = articleMapper
@@ -641,8 +643,7 @@ public class ArticleServiceImpl implements ArticalService {
 			int begin = (page - 1) * limitPage;
 			pageBean.setBegin(begin);
 			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper
-					.findOrderByMedicalInstrumentsPop(pageBean);
+			List<Article> list = articleMapper.findPriceScope(pageBean);
 			pageBean.setList(list);
 		}
 		return pageBean;
