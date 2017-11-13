@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.PageUtil;
 
@@ -23,9 +23,9 @@ import com.brick.squad.util.PageUtil;
 public class NewDealsController {
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
+	private ArticleService articleService;
 
-	@RequestMapping("/tonew_dealsqw")
+	/*@RequestMapping("/tonew_dealsqw")
 	public String findFrontTime(HttpServletRequest request) {
 		List<NewsArticle> NewsArticleList = articleService.findFrontTime();
 
@@ -58,7 +58,7 @@ public class NewDealsController {
 
 		request.setAttribute("NewsArticleList", NewsArticleList);
 		return "frontEnd_manage/front_bootstrap/new_deals";
-	}
+	}*/
 	
 	@RequestMapping("/tonew_deals")
 	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageUtil){

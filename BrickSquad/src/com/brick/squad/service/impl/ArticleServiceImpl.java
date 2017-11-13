@@ -1,6 +1,7 @@
 package com.brick.squad.service.impl;
 
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,16 +22,15 @@ import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
-import com.brick.squad.util.YiLiaoUtile;
 
 @Transactional
-public class ArticleServiceImpl implements ArticalService {
+public class ArticleServiceImpl implements ArticleService {
 	@Autowired
 	@Qualifier("articleMapper")
 	private ArticleMapper articleMapper;
@@ -56,6 +56,7 @@ public class ArticleServiceImpl implements ArticalService {
 	@Override
 	public void insertArticleById(Article article) {
 		// TODO Auto-generated method stub
+		article.setShelfdate(new Date());
 		articleMapper.insertArticle(article);
 	}
 
@@ -553,7 +554,7 @@ public class ArticleServiceImpl implements ArticalService {
 	}
 	
 	
-	//最新商品分页测试
+	//最新商品分页
 	@Override
 	public Map<String, Object> findArticlePage(PageUtil page,String path,String order){
 		Map<String, Object> map=new HashMap<>();
@@ -565,7 +566,7 @@ public class ArticleServiceImpl implements ArticalService {
 			int n=articleMapper.findFrontTimeNumber();
 			page.setCount(n);
 			for (NewsArticle item : list) {
-				File file=new File(path+"resource/image/articleImg/"+item.getImage());
+				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
 				File[] files=file.listFiles();
 				if (files!=null&&files.length!=0) {
 					item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());

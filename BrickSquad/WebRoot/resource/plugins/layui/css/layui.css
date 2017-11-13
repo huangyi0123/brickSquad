@@ -2261,16 +2261,3 @@ opacity
 	}
 }
 
-/*子页面样式*/
-.childrenBody {
-	margin: 10px 10px 0;
-}
-
-.layui-table td,.layui-table th {
-	word-break: break-all;
-}
-
-::selection {
-	background: #ff5722;
-	color: #fff;
-} /*文字选中背景色*/
