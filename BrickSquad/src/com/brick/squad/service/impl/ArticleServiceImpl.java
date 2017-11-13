@@ -23,6 +23,7 @@ import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -468,7 +469,6 @@ public class ArticleServiceImpl implements ArticalService {
 		System.err.println(NewsArticleList.size());
 		return NewsArticleList;
 	}
-
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page,
 			int sequence, int limitPage) throws Exception {
 
@@ -546,4 +546,108 @@ public class ArticleServiceImpl implements ArticalService {
 		List<Article> listArticle = articleMapper.findArticleImgAndName(typeId);
 		return listArticle;
 	}
+	//获取商品总数，用于最新商品分页显示
+	public Integer findFrontTimeNumber(){
+		int count = articleMapper.findFrontTimeNumber();
+		return count;
+	}
+	
+	
+	//最新商品分页测试
+	@Override
+	public Map<String, Object> findArticlePage(PageUtil page,String path,String order){
+		Map<String, Object> map=new HashMap<>();
+			Map<String, Object> m=new HashMap<String, Object>();
+			m.put("order", order);
+			m.put("skli", page.getSkipNum());
+			m.put("take", page.getTakeNum());
+			List<NewsArticle> list=articleMapper.findNewsArticle(m);
+			int n=articleMapper.findFrontTimeNumber();
+			page.setCount(n);
+			for (NewsArticle item : list) {
+				File file=new File(path+"resource/image/articleImg/"+item.getImage());
+				File[] files=file.listFiles();
+				if (files!=null&&files.length!=0) {
+					item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+				}
+			}
+			map.put("data", list);
+			map.put("page", page);
+		return map;
+
+	}
+	/**
+	 * 根据商品的价格范围查询商品信息
+	 * */
+	@Override
+	public PageBeanUtil<Article> findPriceScope(int page, int limitPage,
+			double minPrice, double maxPrice) throws Exception {
+		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
+		if (page == 0 ||limitPage==0 &&maxPrice==0||minPrice==0) {
+			page = 1;
+			limitPage=12;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setMin_price(minPrice);
+			pageBean.setMax_price(maxPrice);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findPriceScope(pageBean);
+			pageBean.setList(list);
+
+		} else {
+
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setMin_price(minPrice);
+			pageBean.setMax_price(maxPrice);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findPriceScope(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	
 }

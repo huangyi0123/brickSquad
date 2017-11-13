@@ -1,5 +1,6 @@
 package com.brick.squad.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +16,13 @@ import com.brick.squad.mapper.ArticleMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.ShoppingCarMapper;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
+import com.brick.squad.util.ShoppingCarPagination;
 import com.brick.squad.util.Util;
 
 /**
@@ -34,6 +38,9 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	@Autowired
 	@Qualifier("personalInformationMapper")
 	private PersonalInformationMapper personalInformationMapper;
+	@Autowired
+	@Qualifier("personalInformationService")
+	private PersonalInformationService personalInformationService;
 
 	@Override
 	/**根据ID查询购物车*/
@@ -110,11 +117,40 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 				.findShoppingCarAndUserAndPsersonalInformationById(id);
 		return shoppingCarExpand;
 	}
+	/**
+	 * 根据老人id查询出相应的信息，分页显示
+	 */
+	@Override
+	public  Map<String, Object> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination) {
+		Map<String, Object> map=new HashMap<String, Object>();
+		
+		List<ShoppingCarAndArticle> list =shoppingCarMapper.findArticIdAllArtic(shoppingCarPagination);
+		map.put("list", list);
+		int n =shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination); 
+		shoppingCarPagination.setCount(n);
+		map.put("shoppingCarPagination", shoppingCarPagination);
+		return map;
+	}
+
 
 	@Override
-	public List<ShoppingCarAndArticle> findArticIdAllArtic() {
-		// TODO Auto-generated method stub
-		// 通过shoppingCar中articleId查出商品表中的所有信息
-		return shoppingCarMapper.findArticIdAllArtic();
+	/**
+	 * 根据购物车商品ID查询购物车列表商品
+	 * */
+	public List<ShoppingCar> AddShoppingCarByArticleId(String articleId)
+			throws Exception {
+		List<ShoppingCar> shoppingCar=shoppingCarMapper.findShoppingCarByArticleId(articleId);
+		return shoppingCar;
 	}
+
+
+	@Override
+	public Integer findShoppingCarPerIdCount(ShoppingCarPagination shoppingCarPagination) {
+		// TODO Auto-generated method stub
+		int row = shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination);
+		return row;
+	}
+
+
+
 }

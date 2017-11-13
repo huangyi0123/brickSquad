@@ -50,6 +50,7 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
+<link rel="stylesheet" href="resource/plugins/laysui/css/layui.css" />
 </head>
 
 <body class="page page-id-6 home-style1">
@@ -356,46 +357,275 @@
 																		<ul id="menu-vertical-menu-1"
 																			class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=shangyi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#cac14a"></span>
-																						<span class="menu-title">女装</span>
+																						<span class="menu-title">上衣</span>
 																					</span>
 																				</a>
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=kuzi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
-																						<span class="menu-title">男装</span>
+																						<span class="menu-title">裤子</span>
 																					</span>
 																				</a>
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=xielei" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
-																						<span class="menu-title">女鞋</span>
+																						<span class="menu-title">鞋类</span>
 																					</span>
 																				</a>
 																			</li>
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="common/tosimple_product?id=maozi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>
-																						<span class="menu-title">男鞋</span>
+																						<span class="menu-title">帽子</span>
 																					</span>
 																				</a>
 																			</li>
 
-																			<li class="menu-household-goods etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
+																				<a href="common/tosimple_product?id=yiliaoqixie" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#42b8d1"></span>
-																						<span class="menu-title">配件配饰</span>
+																						<span class="menu-title">医疗器械</span>
 																					</span>
 																				</a>
+
+																				<ul class="dropdown-menu nav-level1 column-3">
+																					<li class="dropdown-submenu column-3 menu-electronics">
+																						<a href="#?id=laorenjianfuyongpin">
+																							<span class="have-title">
+																								<span class="menu-title">老人康复用品</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-laptop-desktop-accessories">
+																								<a href="#?id=laonianrenyangshengbaojianyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人养身保健用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-storage-external-drives">
+																								<a href="#?id=laonianrenhuliyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人护理用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-networking-wireless">
+																								<a href="#?id=laonianrendaibuyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人代步用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-motherboards-cpus-psus">
+																								<a href="#?id=yanglaojigouyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">养老机构用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-webcams">
+																								<a href="#?id=laonianrenshitingfuzhuyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人视听辅助用品</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="dropdown-submenu column-3 menu-smartphone">
+																						<a href="#?id=laonianrenrichangshenghuoyongpin">
+																							<span class="have-title">
+																								<span class="menu-title">老年人日常生活用品</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-mobile-phones">
+																								<a href="#?id=laonianrenyuleyongpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人娱乐用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-smart-watches-accessories">
+																								<a href="#?id=laonianrenlvyouzhuangbeiyonhpin">
+																									<span class="have-title">
+																										<span class="menu-title">老年人旅游装备用品</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-mobile-accessories">
+																								<a href="#?id=laonianrenjiankangziceyiqi">
+																									<span class="have-title">
+																										<span class="menu-title">老年人健康自测仪器</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-cases-covers">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Cases & Covers</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-power-banks">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Power Banks</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="dropdown-submenu column-3 menu-tablets">
+																						<a href="#">
+																							<span class="have-title">
+																								<span class="menu-title">Tablets</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-tablet-accessories">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Tablet Accessories</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-cases-covers">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Cases & Covers</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-power-banks">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Power Banks</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-memory-cards">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Memory Cards</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="dropdown-submenu column-3 menu-computer">
+																						<a href="#">
+																							<span class="have-title">
+																								<span class="menu-title">Computer</span>
+																							</span>
+																						</a>
+
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-macbooks-imacs">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Macbooks & iMacs</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-computers-desktops">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Computers & Desktops</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-printers-scanners-faxs">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Printers, Scanners, & Faxs</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-laptop-desktop-accessories">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Laptop & Desktop Accessories</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-storage-external-drives">
+																								<a href="#">
+																									<span class="have-title">
+																										<span class="menu-title">Storage & External Drives</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+
+																					<li class="fix-position dropdown-submenu column-3 menu-image">
+																						<ul class="dropdown-sub nav-level2">
+																							<li class="menu-image-1 etrostore-menu-img">
+																								<a href="#">
+																									<span class="">
+																										<span class="menu-img">
+																											<img src="images/1903/menu-bn7.jpg" alt="Menu Image" />
+																										</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-image-2 etrostore-menu-img">
+																								<a href="#">
+																									<span class="">
+																										<span class="menu-img">
+																											<img src="images/1903/menu-bn8.jpg" alt="Menu Image" />
+																										</span>
+																									</span>
+																								</a>
+																							</li>
+
+																							<li class="menu-image-3 etrostore-menu-img">
+																								<a href="#">
+																									<span class="">
+																										<span class="menu-img">
+																											<img src="images/1903/menu-bn9.jpg" alt="Menu Image" />
+																										</span>
+																									</span>
+																								</a>
+																							</li>
+																						</ul>
+																					</li>
+																				</ul>
+
 																			</li>
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
 																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
@@ -632,6 +862,7 @@
 																						</ul>
 																					</li>
 																				</ul>
+
 																			</li>
 
 																			<li class="menu-television etrostore-menu-custom level1">
@@ -1083,7 +1314,8 @@
 																				<!-- end rating  -->
 
 																				<h4>
-																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="veniam dolore">${a.aname }</a>
+																					<a href="variableProduct/toVariable_product?productId=${a.id }"
+																						title="veniam dolore">${a.aname }</a>
 																				</h4>
 
 																				<!-- Price -->
@@ -1105,10 +1337,10 @@
 																				</div>
 
 																				<div class="sale-off">-${a.powsr }%</div>
-																							
+
 																				<div class="product-countdown" data-date="${a.timer }" data-price="$390"
-																				data-starttime="1484660800" data-cdtime="1517356800"
-																				data-id="product_sw_countdown_03"></div>
+																					data-starttime="1484660800" data-cdtime="1517356800"
+																					data-id="product_sw_countdown_03"></div>
 																			</div>
 
 																			<div class="item-image-countdown">
@@ -2452,22 +2684,22 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_2">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop Dell</a>
+																		<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Macbook</a>
+																		<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop HP</a>
+																		<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop MSI</a>
+																		<a href="shop_right_sidebar.html?id=maozi">帽子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptop Asus</a>
+																		<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories</a>
+																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																</ul>
 															</div>
@@ -2566,19 +2798,13 @@
 
 																						<!-- add to cart, wishlist, compare -->
 																						<div class="item-bottom clearfix">
-																							<a rel="nofollow" href="#"
-																								class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																								title="Add to Cart">Add to cart</a>
-																							<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																								title="Add to Compare">Compare</a>
+																							<a rel="nofollow" href="javascript:;" class="button product_type_simple"
+																								title="加入购物车" onclick="addcar('${a[0].id}')">Add to cart</a>
 
 																							<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																								<div class="yith-wcwl-add-button show" style="display:block">
-																									<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																										Wishlist</a>
-																									<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																										class="ajax-loading" alt="loading" width="16" height="16"
-																										style="visibility:hidden" />
+																									<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
+																										class="">Add to Wishlist</a>
 																								</div>
 
 																								<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -2594,10 +2820,6 @@
 																								<div style="clear:both"></div>
 																								<div class="yith-wcwl-wishlistaddresponse"></div>
 																							</div>
-
-																							<div class="clear"></div>
-																							<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																								class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																						</div>
 																					</div>
 																				</div>
@@ -2623,7 +2845,7 @@
 																							<span>
 																								<span class="woocommerce-Price-amount amount">
 																									<span class="woocommerce-Price-currencySymbol">￥</span>
-																									${a[0].price }
+																									${a[1].price }
 																								</span>
 																							</span>
 																						</div>
@@ -2641,12 +2863,8 @@
 
 																						<!-- add to cart, wishlist, compare -->
 																						<div class="item-bottom clearfix">
-																							<a rel="nofollow" href="#"
-																								class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																								title="Add to Cart">Add to cart</a>
-																							<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																								title="Add to Compare">Compare</a>
-
+																							<a rel="nofollow" href="#" class="button product_type_simple" title="加入购物车"
+																								onclick="addcar('${a[1].id}')">Add to cart</a>
 																							<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																								<div class="yith-wcwl-add-button show" style="display:block">
 																									<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
@@ -2790,22 +3008,22 @@
 																<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_3">
 																	<ul>
 																		<li>
-																			<a href="shop_right_sidebar.html">Blender</a>
+																			<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Mixer</a>
+																			<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Microwave</a>
+																			<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Sponge</a>
+																			<a href="shop_right_sidebar.html?id=maozi">帽子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Paper Towel</a>
+																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html">Vacuum Cleaner</a>
+																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
 																	</ul>
 																</div>
@@ -2910,24 +3128,13 @@
 
 																							<!-- add to cart, wishlist, compare -->
 																							<div class="item-bottom clearfix">
-																								<a rel="nofollow" href="#"
-																									class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																									title="Add to Cart">Add to cart</a>
-																								<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																									title="Add to Compare">Compare</a>
+																								<a rel="nofollow" href="javascript:;" class="button product_type_simple"
+																									title="加入购物车" onclick="addcar('${a[0].id }')">Add to cart</a>
 
 																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																									<div class="yith-wcwl-add-button show" style="display:block">
-																										<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																											Wishlist</a>
-																										<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																											class="ajax-loading" alt="loading" width="16" height="16"
-																											style="visibility:hidden" />
-																									</div>
-
-																									<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																										<span class="feedback">Product added!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
+																										<a href="javascript:;" rel="nofollow" class="" title="添加收藏"
+																											onclick="addWish('${a[0].id}')">Add to Wishlist</a>
 																									</div>
 
 																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
@@ -2939,9 +3146,6 @@
 																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
 
-																								<div class="clear"></div>
-																								<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																									class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																							</div>
 																						</div>
 																					</div>
@@ -2988,19 +3192,12 @@
 
 																							<!-- add to cart, wishlist, compare -->
 																							<div class="item-bottom clearfix">
-																								<a rel="nofollow" href="#"
-																									class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																									title="Add to Cart">Add to cart</a>
-																								<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																									title="Add to Compare">Compare</a>
-
+																								<a rel="nofollow" href="javascript:;" class="button product_type_simple"
+																									title="加入购物车" onclick="addcar('${a[1].id}')">Add to cart</a>
 																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
 																									<div class="yith-wcwl-add-button show" style="display:block">
-																										<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																											Wishlist</a>
-																										<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																											class="ajax-loading" alt="loading" width="16" height="16"
-																											style="visibility:hidden" />
+																										<a href="javascript:;" rel="nofollow" onclick="addWish('${a[1].id}')"
+																											class="">Add to Wishlist</a>
 																									</div>
 
 																									<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
@@ -3016,10 +3213,6 @@
 																									<div style="clear:both"></div>
 																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
-
-																								<div class="clear"></div>
-																								<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																									class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																							</div>
 																						</div>
 																					</div>
@@ -3080,181 +3273,6 @@
 																			</div>
 																		</div>
 																	</c:forEach>
-																	<!-- 
-																	<div class="item">
-																		<div class="item-inner">
-																			<div class="item-img">
-																				<a href="simple_product.html" title="philips stand">
-																					<img width="180" height="180" src="images/1903/62-180x180.jpg"
-																						class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-																						srcset="resource/front_bootstrap/images/1903/62-180x180.jpg 180w, resource/front_bootstrap/images/1903/62-150x150.jpg 150w, resource/front_bootstrap/images/1903/62-300x300.jpg 300w, resource/front_bootstrap/images/1903/62.jpg 600w"
-																						sizes="(max-width: 180px) 100vw, 180px" />
-																				</a>
-																			</div>
-
-																			<div class="item-sl pull-left">2</div>
-
-																			<div class="item-content">
-																				rating 
-																				<div class="reviews-content">
-																					<div class="star"></div>
-
-																					<div class="item-number-rating">0 Review(s)</div>
-																				</div>
-																				end rating 
-
-																				<h4>
-																					<a href="simple_product.html" title="philips stand">philips stand</a>
-																				</h4>
-
-																				<div class="item-price">
-																					<del>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							300.00
-																						</span>
-																					</del>
-
-																					<ins>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							250.00
-																						</span>
-																					</ins>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-
-																	<div class="item">
-																		<div class="item-inner">
-																			<div class="item-img">
-																				<a href="simple_product.html" title="exercitation jerky">
-																					<img width="180" height="180" src="images/1903/61-180x180.jpg"
-																						class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-																						srcset="resource/front_bootstrap/images/1903/61-180x180.jpg 180w, resource/front_bootstrap/images/1903/61-150x150.jpg 150w, resource/front_bootstrap/images/1903/61-300x300.jpg 300w, resource/front_bootstrap/images/1903/61.jpg 600w"
-																						sizes="(max-width: 180px) 100vw, 180px" />
-																				</a>
-																			</div>
-
-																			<div class="item-sl pull-left">3</div>
-
-																			<div class="item-content">
-																				rating 
-																				<div class="reviews-content">
-																					<div class="star">
-																						<span style="width:35px"></span>
-																					</div>
-
-																					<div class="item-number-rating">2 Review(s)</div>
-																				</div>
-																				end rating 
-
-																				<h4>
-																					<a href="simple_product.html" title="exercitation jerky">Exercitation jerky</a>
-																				</h4>
-
-																				<div class="item-price">
-																					<span class="woocommerce-Price-amount amount">
-																						<span class="woocommerce-Price-currencySymbol">$</span>
-																						260.00
-																					</span>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-
-																	<div class="item">
-																		<div class="item-inner">
-																			<div class="item-img">
-																				<a href="simple_product.html" title="nisi ball tip">
-																					<img width="180" height="180" src="images/1903/11-180x180.jpg"
-																						class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-																						srcset="resource/front_bootstrap/images/1903/11-180x180.jpg 180w, resource/front_bootstrap/images/1903/11-150x150.jpg 150w, resource/front_bootstrap/images/1903/11-300x300.jpg 300w, resource/front_bootstrap/images/1903/11.jpg 600w"
-																						sizes="(max-width: 180px) 100vw, 180px" />
-																				</a>
-																			</div>
-
-																			<div class="item-sl pull-left">4</div>
-
-																			<div class="item-content">
-																				rating 
-																				<div class="reviews-content">
-																					<div class="star"></div>
-
-																					<div class="item-number-rating">0 Review(s)</div>
-																				</div>
-																				end rating 
-
-																				<h4>
-																					<a href="simple_product.html" title="nisi ball tip">Nisi ball tip</a>
-																				</h4>
-
-																				<div class="item-price">
-																					<del>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							460.00
-																						</span>
-																					</del>
-
-																					<ins>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							400.00
-																						</span>
-																					</ins>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-
-																	<div class="item">
-																		<div class="item-inner">
-																			<div class="item-img">
-																				<a href="simple_product.html" title="Cleaner with bag">
-																					<img width="180" height="180" src="images/1903/22-180x180.jpg"
-																						class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""
-																						srcset="resource/front_bootstrap/images/1903/22-180x180.jpg 180w, resource/front_bootstrap/images/1903/22-150x150.jpg 150w,resource/front_bootstrap/ images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22.jpg 600w"
-																						sizes="(max-width: 180px) 100vw, 180px" />
-																				</a>
-																			</div>
-
-																			<div class="item-sl pull-left">5</div>
-
-																			<div class="item-content">
-																				rating 
-																				<div class="reviews-content">
-																					<div class="star">
-																						<span style="width:63px"></span>
-																					</div>
-
-																					<div class="item-number-rating">2 Review(s)</div>
-																				</div>
-																				end rating 
-
-																				<h4>
-																					<a href="simple_product.html" title="Cleaner with bag">Cleaner with bag</a>
-																				</h4>
-
-																				<div class="item-price">
-																					<del>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							390.00
-																						</span>
-																					</del>
-
-																					<ins>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							350.00
-																						</span>
-																					</ins>
-																				</div>
-																			</div>
-																		</div>
-																	</div> -->
 																</div>
 															</div>
 														</div>
@@ -3420,6 +3438,7 @@
 		<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 		<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
 		<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
+		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				console.log("123");
@@ -3467,6 +3486,40 @@
 			b[c] = b[c].replace(rcs, ' ');
 			// The customizer requires postMessage and CORS (if the site is cross domain)
 			b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
+			function addcar(id) {
+				$({
+					url : 'MedicalInstruments/addCartMedicalInstruments',
+					success : function(result) {
+						if (result == "3") {
+							alert("请先登录");
+						}
+						if (result == "1") {
+							alert("添加成功");
+						}
+						if (result == "2") {
+							alert("商品已存在");
+						}
+					}
+				});
+			}
+			function addWish(id) {
+				$
+						.ajax({
+							url : 'MedicalInstruments/addWishlistMedicalInstruments?id='
+									+ id,
+							success : function(result) {
+								if (result == "3") {
+									alert("请先登录");
+								}
+								if (result == "1") {
+									alert("添加成功");
+								}
+								if (result == "2") {
+									alert("商品已存在");
+								}
+							}
+						});
+			}
 		</script>
 		<!--<![endif]-->
 </body>

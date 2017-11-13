@@ -6,6 +6,7 @@ import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.ShoppingCarPagination;
 
 public interface ShoppingCarMapper {
 	/**
@@ -60,7 +61,17 @@ public interface ShoppingCarMapper {
 	public void deleteShoppingCarByPerId(String perId);
 
 	/**
-	 * 根据商品id查询出多条数据
+	 * 根据购物车商品ID查询购物车列表商品
+	 * */
+	public List<ShoppingCar> findShoppingCarByArticleId(String articleId);
+
+
+	public List<ShoppingCarAndArticle> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination);
+	/**
+	 * 统计根据老人id查询出来的信息条数
+	 * @param pagination
+	 * @return
 	 */
-	public List<ShoppingCarAndArticle> findArticIdAllArtic();
+	public Integer findShoppingCarPerIdCount(ShoppingCarPagination shoppingCarPagination);
+	
 }

@@ -11,6 +11,13 @@
 		FROM shopping_car
 		WHERE id=#{id,jdbcType=VARCHAR}
 	</select>
+		<select id="findShoppingCarByArticleId" parameterType="java.lang.String"
+		resultType="ShoppingCar">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM shopping_car
+		WHERE article_id=#{articleId,jdbcType=VARCHAR}
+	</select>
 	<select id="findShoppingCar" resultType="ShoppingCar">
 		SELECT
 		<include refid="Base_Column_List" />
@@ -101,10 +108,28 @@
 		shopping_car
 		WHERE per_id = #{perId,jdbcType=VARCHAR}
 	</delete>
-	<select id="findArticIdAllArtic" resultType="com.brick.squad.expand.ShoppingCarAndArticle">
+	<!-- 根据老人id匹配查询出相应的信息，用于前台购物车 -->
+	<select id="findArticIdAllArtic" parameterType="com.brick.squad.util.ShoppingCarPagination" resultType="com.brick.squad.expand.ShoppingCarAndArticle">
 		SELECT s.id,s.article_id articleId,s.per_id perId,s.number,s.date,a.aname,
 		a.type_id typeId,a.business_id
-		businessId,a.price,a.stock,a.describes,a.image FROM shopping_car s
-		JOIN article a on s.article_id=a.id
+		businessId,a.price,a.stock,a.describes,a.image,p.`name` FROM
+		shopping_car s
+		JOIN article a on s.article_id=a.id JOIN
+		personal_information p on s.per_id=p.id
+		WHERE
+		s.per_id=#{perId}
+		LIMIT #{skipNum},#{takeNum}
 	</select>
+	<!--统计上述信息条数用作分页显示-->
+	<select id="findShoppingCarPerIdCount" resultType="Integer"
+		parameterType="com.brick.squad.util.ShoppingCarPagination">
+		SELECT COUNT(*)
+		FROM
+		shopping_car s
+		JOIN article a on s.article_id=a.id JOIN
+		personal_information p on s.per_id=p.id
+		WHERE
+		s.per_id=#{perId}
+	</select>
+
 </mapper>

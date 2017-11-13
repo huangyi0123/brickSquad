@@ -29,12 +29,12 @@ public class CollectionServiceTest {
 				.findCollectionById("499e0cbabfad11e7aca65254002ec43c");
 		System.out.println(collection.getColDate());
 	}
-	@Test
+	/*@Test
 	public void testFindCollectionById2() {
 		 List<ArticleExpand> articleExpand=collectionService.findCollectionMessage("77c9a2dec44911e7aca65254002ec43c");
 		 System.out.println(articleExpand);
 		
-	}
+	}*/
 	@Test
 	public void testInsertCollection() {
 		Collection collection = new Collection();
@@ -66,6 +66,13 @@ public class CollectionServiceTest {
 		pagination.setCurentPage(1);
 		pagination.setPageSize(4);
 		System.out.println(collectionService.collectionPagination(pagination));
+	}
+	@Test
+	public void findCollectionByArticleId() throws Exception{
+		List<Collection> listCollection=collectionService.findCollectionByArticleId("8b1b72d6b70611e78d4f5254002ec43c");
+		for(Collection collection:listCollection){
+			System.out.println("==============="+collection.getArticleId());
+		}
 	}
 
 }

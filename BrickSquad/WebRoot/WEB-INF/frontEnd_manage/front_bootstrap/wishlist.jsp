@@ -1,11 +1,13 @@
+<%@page import="com.brick.squad.util.PaginationCollection"%>
+<%@page import="com.brick.squad.util.Pagination"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -69,9 +71,7 @@
 </head>
 
 <body class="page woocommerce-wishlist woocommerce woocommerce-page">
-bbb
-
-
+	
 
 	<div class="body-wrapper theme-clearfix">
 		<jsp:include page="shop_header.jsp"></jsp:include>
@@ -118,16 +118,12 @@ bbb
 										<tr>
 											<th class="product-remove"></th>
 
-											<th class="product-name">
-												<span class="nobr">宝贝信息</span>
+											<th class="product-name"><span class="nobr">宝贝信息</span>
 											</th>
 
-											<th class="product-price">
-												<span class="nobr">单价</span>
-											</th>
+											<th class="product-price"><span class="nobr">单价</span></th>
 
-											<th class="product-stock-stauts">
-												<span class="nobr">库存量</span>
+											<th class="product-stock-stauts"><span class="nobr">库存量</span>
 											</th>
 
 											<th class="product-add-to-cart"></th>
@@ -135,43 +131,89 @@ bbb
 									</thead>
 
 									<tbody>
-										<tr>
-											<td class="product-remove">
-												<div>
-													<a href="" class="remove remove_from_wishlist"
-														title="Remove this product">&#215;</a>
-												</div>
-											</td>
 
-											<td class="product-name">
-												<a href="simple_product.html">Pisan maze ikan kazen</a>
-											</td>
+										<c:forEach var="ArticleExpand"
+											items="${collectionMessage.ArticleExpand}" step="1"
+											varStatus="i" begin="0" end="4">
 
-											<td class="product-price">
-												<del>
-													<span class="woocommerce-Price-amount amount"> <span
-														class="woocommerce-Price-currencySymbol">$</span>5.50
-													</span>
-												</del>
+											<tr>
+												<td class="product-remove">
+													<div>
+														<a href="" class="remove remove_from_wishlist"></a>
 
-												<ins>
-													<span class="woocommerce-Price-amount amount"> <span
-														class="woocommerce-Price-currencySymbol">$</span>5.00
-													</span>
-												</ins>
-											</td>
+													</div>
+												</td>
 
-											<td class="product-stock-status">
-												<span class="wishlist-in-stock">有存货的</span>
-											</td>
+												<td class="product-name"><a href="simple_product.html"></a>
+													${ArticleExpand.aname}</td>
 
-											<td class="product-add-to-cart">
-												<a rel="nofollow" href=""
+												<td class="product-price"><del>
+														<span class="woocommerce-Price-amount amount"> <span
+															class="woocommerce-Price-currencySymbol">$</span>5.50
+															${ArticleExpand.price}
+														</span>
+													</del> <ins>
+														<span class="woocommerce-Price-amount amount"> <span
+															class="woocommerce-Price-currencySymbol">$</span>
+
+														</span>
+													</ins></td>
+
+												<td class="product-stock-status">
+													${ArticleExpand.stock}</td>
+
+												<td class="product-add-to-cart"><a rel="nofollow"
+													href=""
 													class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt">添加至购物车</a>
-											</td>
-										</tr>
+												</td>
+											</tr>
+
+										</c:forEach>
 									</tbody>
-									
+									<tr>
+										<td colspan="6">
+											<%
+												Map<String,Object> map=(Map<String,Object>)request.getAttribute("collectionMessage");
+												PaginationCollection pagination=(PaginationCollection)map.get("pagination");
+												
+											%> <nav aria-label="Page navigation">
+											<ul class="pagination">
+												<li><a
+													href="<%=pagination.getCurentPage()==1?"javascript:;":"collectionFront/collectionMessage?curentPage="+(pagination.getCurentPage()-1)%>"
+													style="<%=pagination.getCurentPage()==1?"color:#ccc":""%>"
+													aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+												</a></li>
+												<%
+													for(int i=1;i<=pagination.getPageCount();i++) {
+												%>
+												<li><a
+													href="collectionFront/collectionMessage?curentPage=<%=i%>"
+													style="<%=pagination.getCurentPage()==i?"color:red":""%>"><%=i%></a></li>
+												<%
+													}
+												%>
+												<li><a href="<%=pagination.getCurentPage()==pagination.getPageCount()?"javascript:;":"collectionFront/collectionMessage?curentPage="+(pagination.getCurentPage()+1)%>"
+													style="<%=pagination.getCurentPage()==pagination.getPageCount()?"color:#ccc":""%>" aria-label="Next"> <span
+														aria-hidden="true">&raquo;</span>
+												</a></li>
+											</ul>
+											</nav>
+										</td>
+									</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 									<tfoot>
 										<tr>
 											<td colspan="6">
@@ -197,7 +239,7 @@ bbb
 														<li style="list-style-type: none; display: inline-block;">
 															<a target="_blank" class="googleplus"
 															href="https://plus.google.com/" title="Google+"
-															onclick="javascript:window.open(this.href,&quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;"></a>
+															onclick="javascript:window.open(this.href,&quot;&quot;,&quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;"></a>
 														</li>
 
 														<li style="list-style-type: none; display: inline-block;">
@@ -311,8 +353,8 @@ bbb
 					<div class="mc4wp-form-fields">
 						<div class="newsletter-content">
 							<input type="email" class="newsletter-email" name="EMAIL"
-								placeholder="Your email" required="" />
-							<input class="newsletter-submit" type="submit" value="Subscribe" />
+								placeholder="Your email" required="" /> <input
+								class="newsletter-submit" type="submit" value="Subscribe" />
 						</div>
 					</div>
 					<div class="mc4wp-response"></div>
@@ -321,8 +363,8 @@ bbb
 
 			<div class="subscribe-checkbox">
 				<label for="popup_check"> <input id="popup_check"
-						name="popup_check" type="checkbox" /> <span>Don't show
-						this popup again!</span>
+					name="popup_check" type="checkbox" /> <span>Don't show this
+						popup again!</span>
 				</label>
 			</div>
 

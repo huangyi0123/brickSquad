@@ -1,12 +1,14 @@
 package com.brick.squad.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.ShoppingCarPagination;
 
 /**
  * 业务层:购物车
@@ -58,7 +60,10 @@ public interface ShoppingCarService {
 			String id) throws Exception;
 
 	/**
-	 * 根据购物车中的商品id查询出商品表中的所有信息
-	 */
-	public List<ShoppingCarAndArticle> findArticIdAllArtic();
+	 * 根据购物车商品ID查询购物车列表商品
+	 * */
+	public List<ShoppingCar> AddShoppingCarByArticleId(String articleId)throws Exception;
+
+	public Map<String, Object> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination);
+	public Integer findShoppingCarPerIdCount(ShoppingCarPagination shoppingCarPagination);
 }

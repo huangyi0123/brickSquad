@@ -1,10 +1,12 @@
 package com.brick.squad.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaginationCollection;
 
 public interface CollectionService {
 
@@ -47,7 +49,12 @@ public interface CollectionService {
 	public String collectionPagination(Pagination pagination);
 
 
-	public List<ArticleExpand> findCollectionMessage(String pid);
+	public Map<String, Object> findCollectionMessage(PaginationCollection pagination);
+	
+	/**
+	 * 根据收藏的商品ID查询信息
+	 * */
+	public List<Collection> findCollectionByArticleId(String articleId)throws Exception;
 	
 
 }

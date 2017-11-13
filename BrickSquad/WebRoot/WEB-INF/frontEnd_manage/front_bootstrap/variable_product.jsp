@@ -137,7 +137,7 @@ pre {
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
 							<ul class="breadcrumb" style="margin-left: 830px;">
-								<li><a href="common/toShop">首页</a><span class="go-page"></span></li>
+								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
 								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
@@ -321,8 +321,7 @@ pre {
 									<input type="submit" value="立即购买"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
 									<!-- 先给死perid -->
-									<input type="hidden" id="userId"
-										value="04a925e8c2b611e7aca65254002ec43c">
+									<input type="hidden" id="userId" value="${user.id }">
 									<!--隐藏域存当前商品ID  -->
 									<input type="hidden" id="articleId" value="${ article.id}">
 									<input type="button" value="加入购物车"
@@ -458,6 +457,21 @@ pre {
 											<div id="reviews">
 												<div id="comments">
 													<h2>商品评价（${ratedTotal }）</h2>
+													<table style="width: 100%">
+														<c:forEach var="orderRated" items="${orderRateds }">
+															<tr style="height: 40px;">
+																<td style="width: 150px;text-align: center;">
+																	<img style="border-radius:100%;" alt="" width="20px"
+																		height="20px" src="resource/image/userdefaultpic.jpg">
+																</td>
+																<td>${orderRated.ratedCentent }</td>
+															</tr>
+															<tr style="border-bottom: 1px solid #EFEFEF;">
+																<td>${orderRated.ratedUserName }</td>
+																<td style="text-align: right;">${orderRated.ratedDate }</td>
+															</tr>
+														</c:forEach>
+													</table>
 												</div>
 												<div class="clear"></div>
 											</div>
@@ -516,12 +530,6 @@ pre {
 											</form>
 
 										</div>
-										<c:forEach var="orderRated" items="${orderRateds }">
-													${orderRated.ratedUserName }
-													${orderRated.ratedCentent }
-													${orderRated.ratedDate }
-													<hr style="background-color: #EFEFEF;">
-										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -1189,44 +1197,51 @@ pre {
 		<script src="resource/plugins/pictureMagnification/js/jquery.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="resource/plugins/pictureMagnification/js/smoothproducts.min.js"></script>
 		<script type="text/javascript">
-/* wait for images to load */
-$(window).load(function() {
+			/* wait for images to load */
+		$(window).load(function() {
 	$('.sp-wrap').smoothproducts();
-});
+	});
 </script>
 		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 		<script type="text/javascript">
 		/* 添加购物车JS，ajax提交 */
 		function userAddArticleToShoppingCar() {
+			layui.use('layer', function() {
+				var layer = layui.layer;
 			var userId = $("#userId").val();
-			var articleId = $("#articleId").val();
+			if(userId==null||userId==""){
+			layer.msg("还没有登录！");
+			}
+				else{	
+					var articleId = $("#articleId").val();
 			var articleNumber = $("#articleNumberId").val();
 			var shoppingCar = {
 				'perId' : userId,
 				'articleId' : articleId,
 				'number' : articleNumber
 			};
-			layui.use('layer', function() {
-				var layer = layui.layer;
+			
 				$.ajax({
 					url : 'variableProduct/userAddArticleToShoppingCar',
 					type : "POST",
 					data : shoppingCar,
 					success : function(data) {
 						if (data == "fail") {
-							alert("添加到购物车失败！稍后重试");
+							layer.msg("添加到购物车失败！稍后重试");
 						} else if (data == "success") {
-							alert("添加到购物车成功！");
+							layer.msg("添加到购物车成功！");
 						}
 					},
 					error : function(e) {
-						alert("服务器错误！！稍后重试");
+						layer.msg("服务器错误！！稍后重试");
 					}
 				});
-			});
-
+		
+				}
+			
+	});
 		}
-	</script>
+</script>
 		<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
@@ -1256,8 +1271,7 @@ $(window).load(function() {
 				});
 			});
 		});
-	</script>
-	<!--[if gte IE 9]><!-->
+	</script><!--[if gte IE 9]><!-->
 	<script type="text/javascript">
 		var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
 				'(^|\\s+)(no-)?' + cs + '(\\s+|$)');
@@ -1267,11 +1281,5 @@ $(window).load(function() {
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<!-- 	<script>
-		layui.use([ 'form', 'layedit', 'laydate' ], function() {
-			var form = layui.form;
-		})
-	</script> -->
-	<!--<![endif]-->
 </body>
 </html>

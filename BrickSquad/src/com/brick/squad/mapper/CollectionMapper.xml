@@ -13,7 +13,15 @@
 		FROM collection
 		WHERE id=#{id};
 	</select>
-
+	
+	<select id="findCollectionByArticleId" resultType="Collection"
+		parameterType="String">
+		SELECT
+		<include refid="prop" />
+		FROM collection
+		WHERE article_id=#{articleId};
+	</select>
+	
 	<insert id="insertCollection" parameterType="Collection">
 		<selectKey keyProperty="id" resultType="String" order="BEFORE">
 			select replace(uuid(),'-','') from dual
@@ -75,9 +83,14 @@
 		collection WHERE per_id=#{perId}
 	</delete>
 	
-	<select id="findCollectionMessage" parameterType="String" resultType="com.brick.squad.expand.ArticleExpand">
+	<select id="findCollectionMessage" parameterType="com.brick.squad.util.PaginationCollection" resultType="com.brick.squad.expand.ArticleExpand">
 			SELECT article.aname,article.price,article.stock FROM collection 
 			 JOIN article ON collection.article_id=article.id
-				WHERE collection.per_id=#{pid}
+				WHERE collection.per_id=#{userId} LIMIT #{skipNum},#{takeNum}
+	</select>
+	<select id="findCollectionMessageCount" parameterType="com.brick.squad.util.PaginationCollection" resultType="int">
+			SELECT count(1) FROM collection 
+			 JOIN article ON collection.article_id=article.id
+				WHERE collection.per_id=#{userId} 
 	</select>
 </mapper>

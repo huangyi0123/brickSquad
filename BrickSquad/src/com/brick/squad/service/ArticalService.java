@@ -9,6 +9,7 @@ import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -81,35 +82,22 @@ public interface ArticalService {
 	 * pageBean)throws Exception;
 	 */
 
-	/*
-	 * /*public List<Article> findAllMedicalInstruments(PageBeanUtil
-	 * pageBean)throws Exception;
-	 */
-	/** 医疗器械商品分页查询 */
-	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)
-			throws Exception;
-
-	/** 医疗器械商品指定页数 */
-	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page,
-			int limitPage) throws Exception;
-
-	/** 医疗器械商品排序 */
-	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page,
-			int sequence, int limitPage) throws Exception;
-
-	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page,
-			int sequence, int limitPage) throws Exception;
-
-	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page,
-			int sequence, int limitPage) throws Exception;
 
 	/*
-	 * 根据商品ID在评论表中查询评论总量
-	 * 
-	 * @param id
-	 * 
-	 * @return
-	 */
+	/*public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception;*/
+	/**医疗器械商品分页查询*/
+	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)throws Exception;
+	/**医疗器械商品指定页数*/
+	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page ,int limitPage)throws Exception;
+	/**医疗器械商品排序*/
+	public PageBeanUtil<Article> findOrderByMedicalInstruments(int page ,int sequence,int limitPage)throws Exception;
+	public PageBeanUtil<Article> findOrderByMedicalInstrumentsDate(int page ,int sequence,int limitPage)throws Exception;
+	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page ,int sequence,int limitPage)throws Exception;
+
+	/********最新商品分页查询 *********/
+	public Map<String, Object> findArticlePage(PageUtil pageUtil,String path,String order);
+	
+
 	public int selectArticleRatedTotalById(String id);
 
 	/**
@@ -123,9 +111,16 @@ public interface ArticalService {
 	 * 获取最新添加的商品
 	 */
 
+	public List<NewsArticle> findFrontTime();
+	
+	/**获取所有商品数量*/
+
+
 	public List<Article> findSecondMedicalInstruments(String typeId)
 			throws Exception;
-
-	public List<NewsArticle> findFrontTime();
+	/**
+	 * 根据价格范围查询商品	
+	 * */
+	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
 
 }

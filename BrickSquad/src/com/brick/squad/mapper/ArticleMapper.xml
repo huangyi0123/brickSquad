@@ -7,7 +7,7 @@
 		select id,aname aname,type_id typeId,business_id
 		businessId,describes,price,stock,image from article where id=#{id}
 	</select>
-
+	
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
@@ -16,7 +16,7 @@
 		article(id,aname,type_id,business_id,price,stock,describes,image)
 		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id})
 	</insert>
-
+	
 	<delete id="deleteArticleById" parameterType="String">
 		delete from article
 		where id=#{id}
@@ -168,9 +168,23 @@
 		WHERE t.parent_id=#{parentId} limit
 		#{begin},#{limitPage}
 	</select>
+	<!-- 医疗器械根据商品的价格范围查询商品 -->
+	<select id="findPriceScope" parameterType="com.brick.squad.util.PageBeanUtil" 
+	resultType="article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{parentId} 
+		and price
+	BETWEEN #{min_price} AND #{max_price}
+	LIMIT #{begin},#{limitPage}
+	</select>
+	
+	
+	
 	<!-- 获取最新商品 首页 -->
 	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle"
-		parameterType="int">
+		parameterType="map">
 		select
 		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0)
 		totals from article
@@ -237,9 +251,20 @@
 	</select>
 	
 	<!-- 查询最新上架商品总数 -->
-	<select id="findFrontTimeNumber">
+	<select id="findFrontTimeNumber" resultType="Integer">
 	 select COUNT(*) from article
-	 #{begin},#{limitPage}
 	</select>
-	
+	<select id="findNewsArticle" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
+		select
+		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id order by
+		${order}
+		DESC LIMIT #{skli},#{take}
+	</select>
 </mapper>
