@@ -13,7 +13,7 @@ import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
-public interface ArticalService {
+public interface ArticleService {
 	/**
 	 * 
 	 * @param id
