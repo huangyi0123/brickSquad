@@ -63,7 +63,6 @@
 
 			<div class="container">
 				<div class="wrap-title">
-
 					<div class="bread">
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container"></div>

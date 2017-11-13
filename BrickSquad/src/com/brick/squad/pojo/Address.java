@@ -11,6 +11,15 @@ public class Address {
 	private String countyId;
 	private String countryId;
 	private String detailed;
+	private String buyersId;
+
+	public String getBuyersId() {
+		return buyersId;
+	}
+
+	public void setBuyersId(String buyersId) {
+		this.buyersId = buyersId;
+	}
 
 	public String getId() {
 		return id;
@@ -60,16 +69,13 @@ public class Address {
 		this.detailed = detailed;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", provinceId=" + provinceId + ", cityId="
 				+ cityId + ", countyId=" + countyId + ", countryId="
-				+ countryId + ", detailed=" + detailed + "]";
+				+ countryId + ", detailed=" + detailed + ", buyersId="
+				+ buyersId + "]";
 	}
+
 
 }
