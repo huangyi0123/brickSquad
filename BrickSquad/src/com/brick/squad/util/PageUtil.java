@@ -9,6 +9,7 @@ public class PageUtil {
 	private int pageCount;
 	
 	public int getPageCount() {
+		//math.ceil为向上取整  
 		return pageCount=(int) Math.ceil((float)count/pageSize);
 	}
 	public int getCount() {

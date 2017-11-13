@@ -13,8 +13,8 @@
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		insert into
-		article(id,aname,type_id,business_id,price,stock,describes,image)
-		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id})
+		article(id,aname,type_id,business_id,price,stock,describes,image,shelfdate)
+		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id},#{shelfdate})
 	</insert>
 	
 	<delete id="deleteArticleById" parameterType="String">
@@ -254,6 +254,7 @@
 	<select id="findFrontTimeNumber" resultType="Integer">
 	 select COUNT(*) from article
 	</select>
+	
 	<select id="findNewsArticle" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		select
@@ -264,7 +265,7 @@
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id order by
-		${order}
-		DESC LIMIT #{skli},#{take}
+		${order} DESC 
+		LIMIT #{skli},#{take}
 	</select>
 </mapper>

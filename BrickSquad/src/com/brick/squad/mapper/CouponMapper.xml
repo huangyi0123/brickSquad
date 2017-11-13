@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.CouponMapper">
+	<insert id="insertCouponById" parameterType="com.brick.squad.pojo.Coupon">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into
+		coupon(id,type_id,buyers_id,start_time,end_time,total,surplus,full_money,money,receive)
+		values(#{id},#{typeId},#{buyersId},#{startTime},#{endTime},#{total},#{surplus},#{fullMoney},#{money},#{receive})
+	</insert>
+	 <update id="updateCouponById" parameterType="com.brick.squad.pojo.Coupon">
+		UPDATE
+		coupon set
+		type_id=#{typeId},
+		buyers_id=#{buyersId},
+		start_time=#{startTime},
+		end_time=#{endTime},
+		total=#{total},
+		surplus=#{surplus},
+		full_money=#{fullMoney},
+		money=#{money},
+		receive=#{receive}
+		where id
+		=#{id}
+	</update>
+	<select id="findListCouponPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.CouponPaginationExpand">
+		select c.id,c.type_id typeId,c.buyers_id buyersId,c.start_time
+		startTime,c.end_time endTime,
+		c.total,c.surplus,c.full_money fullMoney,c.money,c.receive,t.id tId,t.name tName,p.id pId,p.name
+		pName
+		from coupon c JOIN type t on c.type_id=t.id
+		JOIN personal_information p on c.buyers_id=p.id
+		<if test="keyword!=null and keyword!=''">
+			WHERE t.name REGEXP#{keyword} or
+			p.name REGEXP#{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findListCouponPaginationCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT count(*)
+		from coupon c JOIN type t on
+		c.type_id=t.id
+		JOIN personal_information p on c.buyers_id=p.id
+	</select>
+	<delete id="deleteCouponAllById" parameterType="String">
+	delete from coupon where id=#{id}
+	</delete>
+</mapper>
