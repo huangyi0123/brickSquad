@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx 
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
 	<context:component-scan base-package="com.brick.squad" />
 	<mvc:annotation-driven>
@@ -88,6 +88,7 @@
 			<mvc:exclude-mapping path="/MedicalInstruments/findSecondMedicalInstruments" />
 			<mvc:exclude-mapping path="/MedicalInstruments/addCartMedicalInstruments" />
 			<mvc:exclude-mapping path="/MedicalInstruments/addWishlistMedicalInstruments" />
+			<mvc:exclude-mapping path="/MedicalInstruments/findPriceScope" />
 			<mvc:exclude-mapping path="/deals/todeals" />
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>

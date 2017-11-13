@@ -118,5 +118,9 @@ public interface ArticalService {
 
 	public List<Article> findSecondMedicalInstruments(String typeId)
 			throws Exception;
+	/**
+	 * 根据价格范围查询商品	
+	 * */
+	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
 
 }
