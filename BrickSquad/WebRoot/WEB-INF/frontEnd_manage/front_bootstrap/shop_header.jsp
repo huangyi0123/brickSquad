@@ -258,7 +258,7 @@
 										</form>
 										</c:if>
 										
-										<c:if test="${url=='toShop_left_sidebar' }">
+										<c:if test="${url=='toShop_left_sidebar'}">
 										<form method="get" action="${pageContext.request.contextPath }/MedicalInstruments/findArticleTitle">
 										<div>
 											<input type="text" value="" name="s"
@@ -268,9 +268,7 @@
 												<select
 													name="search_category" class="s1_option"
 													style="width: 150px;>
-													
 															<option value="">所有类别</option>
-														
 															<c:forEach var="type" items="${ listType}">
 															<option value="${type.id }">${type.name }</option>
 																</c:forEach>
@@ -284,6 +282,33 @@
 											</div>
 										</form>
 										</c:if>
+										
+										
+											<c:if test="${url=='findArticleTitle'}">
+										<form method="get" action="${pageContext.request.contextPath }/MedicalInstruments/findArticleTitle">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> 
+												<select
+													name="search_category" class="s1_option"
+													style="width: 150px;>
+															<option value="">所有类别</option>
+															<c:forEach var="type" items="${ listType}">
+															<option value="${type.id }">${type.name }</option>
+																</c:forEach>
+														
+													</select>
+													</label>
+												</div>
+
+												<button type="submit" title="Search"
+													class="fa fa-search button-search-pro form-button"></button>
+											</div>
+										</form>
+										</c:if>
+										
 									</div>
 								</div>
 							</div>

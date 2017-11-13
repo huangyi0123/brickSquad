@@ -20,7 +20,7 @@ public class PageBeanUtil<T> {
 	
 
 	
-	
+
 	public String getS() {
 		return s;
 	}
