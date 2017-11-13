@@ -25,7 +25,7 @@ public class NewDealsController {
 	@Qualifier("articleService")
 	private ArticalService articleService;
 
-	@RequestMapping("/tonew_dealsqw")
+	/*@RequestMapping("/tonew_dealsqw")
 	public String findFrontTime(HttpServletRequest request) {
 		List<NewsArticle> NewsArticleList = articleService.findFrontTime();
 
@@ -58,7 +58,7 @@ public class NewDealsController {
 
 		request.setAttribute("NewsArticleList", NewsArticleList);
 		return "frontEnd_manage/front_bootstrap/new_deals";
-	}
+	}*/
 	
 	@RequestMapping("/tonew_deals")
 	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageUtil){
