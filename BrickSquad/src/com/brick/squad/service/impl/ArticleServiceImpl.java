@@ -553,7 +553,7 @@ public class ArticleServiceImpl implements ArticalService {
 	}
 	
 	
-	//最新商品分页测试
+	//最新商品分页
 	@Override
 	public Map<String, Object> findArticlePage(PageUtil page,String path,String order){
 		Map<String, Object> map=new HashMap<>();
@@ -565,7 +565,7 @@ public class ArticleServiceImpl implements ArticalService {
 			int n=articleMapper.findFrontTimeNumber();
 			page.setCount(n);
 			for (NewsArticle item : list) {
-				File file=new File(path+"resource/image/articleImg/"+item.getImage());
+				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
 				File[] files=file.listFiles();
 				if (files!=null&&files.length!=0) {
 					item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
