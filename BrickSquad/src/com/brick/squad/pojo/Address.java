@@ -11,7 +11,20 @@ public class Address {
 	private String countyId;
 	private String countryId;
 	private String detailed;
+	/**
+	 * 买家ID
+	 */
 	private String buyersId;
+	/**
+	 * 收货人姓名
+	 * 
+	 */
+	private String consigneeName;
+	/**
+	 * 收货人联系电话
+	 * 
+	 */
+	private String consigneePhone;
 
 	public String getBuyersId() {
 		return buyersId;
@@ -76,6 +89,5 @@ public class Address {
 				+ countryId + ", detailed=" + detailed + ", buyersId="
 				+ buyersId + "]";
 	}
-
 
 }

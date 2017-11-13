@@ -13,8 +13,8 @@
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		insert into
-		article(id,aname,type_id,business_id,price,stock,describes,image)
-		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id})
+		article(id,aname,type_id,business_id,price,stock,describes,image,shelfdate)
+		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id},#{shelfdate})
 	</insert>
 	
 	<delete id="deleteArticleById" parameterType="String">

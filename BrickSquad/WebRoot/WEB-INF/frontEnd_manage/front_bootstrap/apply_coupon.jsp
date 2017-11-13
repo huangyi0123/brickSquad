@@ -372,8 +372,7 @@
 		$(function() {
 			getType();
 		});
-		var sticky_navigation_offset_top = $("
-														#header .header-bottom").offset().top;
+		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var
 														sticky_navigation=function() {
 			var

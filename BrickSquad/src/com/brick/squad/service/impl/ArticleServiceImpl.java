@@ -1,6 +1,7 @@
 package com.brick.squad.service.impl;
 
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,6 @@ import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
-import com.brick.squad.util.YiLiaoUtile;
 
 @Transactional
 public class ArticleServiceImpl implements ArticalService {
@@ -56,6 +56,7 @@ public class ArticleServiceImpl implements ArticalService {
 	@Override
 	public void insertArticleById(Article article) {
 		// TODO Auto-generated method stub
+		article.setShelfdate(new Date());
 		articleMapper.insertArticle(article);
 	}
 
