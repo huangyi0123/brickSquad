@@ -1394,6 +1394,7 @@
 																</div>
 															</c:forEach>
 															<!--秒杀结束 -->
+															
 															<div class="item-countdown product" id="product_sw_countdown_03">
 																<div class="item-wrap">
 																	<div class="item-detail">
@@ -2767,7 +2768,7 @@
 																						<div class="item-img products-thumb">
 																						<a href="variableProduct/toVariable_product?productId=${a[0].id }">
 																							<div class="product-thumb-hover">
-																								<img alt="" src="${a[0].image }" style="width: 200px">
+																								<img alt="" src="${a[0].image }" style="width: 200px;height: 200px">
 																							</div>
 																						</a>
 
@@ -2829,7 +2830,7 @@
 																				<div class="item-img products-thumb">
 																						<a href="variableProduct/toVariable_product?productId=${a[1].id }">
 																							<div class="product-thumb-hover">
-																							<img alt="" src="${a[1].image }" style="width: 200px">
+																							<img alt="" src="${a[1].image }" style="width: 200px;height: 200px">
 																								<%-- <img width="300" height="300" src="${a[1].image }"
 																									class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
 																									srcset="${a[1].image } 300w, ${a[1].image } 150w, ${a[1].image } 180w, ${a[1].image } 600w"

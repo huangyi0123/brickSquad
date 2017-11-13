@@ -25,46 +25,32 @@
 	href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
 <link rel="apple-touch-icon-precomposed"
 	href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
-<link rel="shortcut icon"
-	href="resource/front_bootstrap/icons/favicon.png" />
+<link rel="shortcut icon" href="resource/front_bootstrap/icons/favicon.png" />
 
 <!-- GOOGLE WEB FONTS -->
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/font-awesome.min.css">
+<link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 
 <!-- BOOTSTRAP 3.3.7 CSS -->
 <link rel="stylesheet" href="resource/plugins/laysui/css/layui.css" />
 
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
 <!-- SLICK v1.6.0 CSS -->
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
 
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/jquery.fancybox.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/jquery.fancybox.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 
 
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/app-responsive.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
 <link href="resource/css/coupon.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -82,7 +68,8 @@
 							<div class="widget-inner">
 								<div class="textwidget">
 									<div class="call-us">
-										<span>Call Us Now: </span>0123-444-666654123
+										<span>Call Us Now: </span>
+										0123-444-666654123
 									</div>
 								</div>
 							</div>
@@ -100,18 +87,20 @@
 							<div class="account-title">我的淘宝</div>
 
 							<div id="my-account" class="my-account">
-								<div
-									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
 									<div class="widget-inner">
 										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account"><a class="item-link"
-												href="my_account.html"> <span class="menu-title"
-													style="font-size: 2px;float: right;">已买到的宝贝</span>
-											</a></li>
+											<li class="menu-my-account">
+												<a class="item-link" href="my_account.html">
+													<span class="menu-title" style="font-size: 2px;float: right;">已买到的宝贝</span>
+												</a>
+											</li>
 
-											<li class="menu-cart"><a class="item-link"
-												href="cart.html"> <span class="menu-title">我的足迹</span>
-											</a></li>
+											<li class="menu-cart">
+												<a class="item-link" href="cart.html">
+													<span class="menu-title">我的足迹</span>
+												</a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -127,17 +116,20 @@
 							<div class="account-title">登录</div>
 
 							<div id="my-account" class="my-account">
-								<div
-									class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
 									<div class="widget-inner">
 										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account"><a class="item-link"
-												href="my_account.html"> <span class="menu-title">登录</span>
-											</a></li>
+											<li class="menu-my-account">
+												<a class="item-link" href="my_account.html">
+													<span class="menu-title">登录</span>
+												</a>
+											</li>
 
-											<li class="menu-cart"><a class="item-link"
-												href="cart.html"> <span class="menu-title">注册</span>
-											</a></li>
+											<li class="menu-cart">
+												<a class="item-link" href="cart.html">
+													<span class="menu-title">注册</span>
+												</a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -151,13 +143,14 @@
 						</div>
 
 						<div class="pull-left top2">
-							<div
-								class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+							<div class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
 								<div class="widget-inner">
 									<ul id="menu-checkout" class="menu">
-										<li class="menu-checkout"><a class="item-link"
-											href="common/toContactUs"> <span class="menu-title">联系我们</span>
-										</a></li>
+										<li class="menu-checkout">
+											<a class="item-link" href="common/toContactUs">
+												<span class="menu-title">联系我们</span>
+											</a>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -172,9 +165,8 @@
 				<div class="rows">
 					<!-- LOGO -->
 					<div class="etrostore-logo pull-left">
-						<a href="common/toShop"> <img
-							src="resource/front_bootstrap/images/icons/logo-orange.png"
-							alt="Shoopy">
+						<a href="common/toShop">
+							<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
 						</a>
 					</div>
 
@@ -185,10 +177,8 @@
 									<div class="topsearch-entry">
 										<form method="get" action="">
 											<div style="margin-left: 200px;width: 700px;">
-												<input type="text" value="" name="s"
-													placeholder="Enter your keyword...">
-												<button type="submit" title="Search"
-													class="fa fa-search button-search-pro form-button"></button>
+												<input type="text" value="" name="s" placeholder="Enter your keyword...">
+												<button type="submit" title="Search" class="fa fa-search button-search-pro form-button"></button>
 											</div>
 										</form>
 									</div>
@@ -205,14 +195,16 @@
 				<div class="rows">
 					<!-- Primary navbar -->
 					<div id="main-menu" class="main-menu">
-						<div class="layui-tab layui-tab-brief"
-							lay-filter="docDemoTabBrief">
+						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 							<ul class="layui-tab-title" style="margin-top: -30px;">
-								<li class="layui-this">网站设置</li>
-								<li>用户管理</li>
-								<li>权限分配</li>
-								<li>商品管理</li>
-								<li>订单管理</li>
+								<c:forEach items="${types }" var="a" varStatus="q">
+									<c:if test="${q.index eq 0 }">
+										<li class="layui-this" onclick="types('${a.id}')">${a.name}</li>
+									</c:if>
+									<c:if test="${q.index ne 0 }">
+										<li onclick="types('${a.id}')">${a.name}</li>
+									</c:if>
+								</c:forEach>
 							</ul>
 
 						</div>
@@ -221,17 +213,15 @@
 					<!-- /Primary navbar -->
 					<div class="mid-header pull-right">
 						<div class="widget sw_top">
-							<span class="stick-sr"> <i class="fa fa-search"
-								aria-hidden="true"></i>
+							<span class="stick-sr">
+								<i class="fa fa-search" aria-hidden="true"></i>
 							</span>
 
 							<div class="top-form top-search">
 								<div class="topsearch-entry">
-									<form role="search" method="get" class="form-search searchform"
-										action="">
+									<form role="search" method="get" class="form-search searchform" action="">
 										<label class="hide"></label>
-										<input type="text" value="" name="s" class="search-query"
-											placeholder="Keyword here..." />
+										<input type="text" value="" name="s" class="search-query" placeholder="Keyword here..." />
 										<button type="submit" class="button-search-pro form-button">Search</button>
 									</form>
 								</div>
@@ -240,19 +230,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- <div class="layui-tab-content" style="height: 100px;background-color: white;">
-								<div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>
-								<div class="layui-tab-item">内容2</div>
-								<div class="layui-tab-item">内容3</div>
-								<div class="layui-tab-item">内容4</div>
-								<div class="layui-tab-item">内容5</div>
-							</div> --> </header>
+		</div></header>
 		<div class="cou_body">
 			<span
 				style="background: url('resource/image/hot-icons.png') no-repeat 590px 20px; display: block; height: 40px;"></span>
-			<label
-				style="margin-left: 640px;margin-top: -25px;font-weight: bold;font-size: 20px;">精选好券</label>
+			<label style="margin-left: 640px;margin-top: -25px;font-weight: bold;font-size: 20px;">精选好券</label>
 			<span
 				style="background: url('resource/image/hot-icons.png') no-repeat 740px 20px; display: block; height: 40px;margin-top: -45px;"></span>
 
@@ -264,7 +246,8 @@
 								<img alt="" src="resource/image/2.png">
 							</div>
 							<div class="coupon-money">
-								<span class="money_icon">¥</span> <span class="sum">100.00</span>
+								<span class="money_icon">¥</span>
+								<span class="sum">100.00</span>
 
 							</div>
 							<div class="coupon-describe">
@@ -277,7 +260,7 @@
 							<div class="coupon-percent">
 								<p>已抢20%</p>
 							</div>
-							<div class="layui-progress"  style="width: 120px;margin-left: 180px;margin-top: -25px;">
+							<div class="layui-progress" style="width: 120px;margin-left: 180px;margin-top: -25px;">
 								<div class="layui-progress-bar layui-bg-orange" lay-percent="20%"></div>
 							</div>
 						</div>
@@ -287,10 +270,10 @@
 							<div class="coupon-inner">
 								<div class="coupon-time">立即领取</div>
 
-								<i class="coupon-circle top"></i> <i
-									class="coupon-circle bottom"></i>
+								<i class="coupon-circle top"></i>
+								<i class="coupon-circle bottom"></i>
 							</div>
-						</div> <!-- <div class="coupon-light"></div> -->
+						</div>
 					</a>
 				</div>
 				<div class="coupon coupon-diabled">
@@ -300,7 +283,8 @@
 								<img alt="" src="resource/image/2.png">
 							</div>
 							<div class="coupon-money">
-								<span class="money_icon">¥</span> <span class="sum">100.00</span>
+								<span class="money_icon">¥</span>
+								<span class="sum">100.00</span>
 
 							</div>
 							<div class="coupon-describe">
@@ -313,7 +297,7 @@
 							<div class="coupon-percent">
 								<p>已抢20%</p>
 							</div>
-							<div class="layui-progress"  style="width: 120px;margin-left: 180px;margin-top: -25px;">
+							<div class="layui-progress" style="width: 120px;margin-left: 180px;margin-top: -25px;">
 								<div class="layui-progress-bar layui-bg-orange" lay-percent="20%"></div>
 							</div>
 						</div>
@@ -323,97 +307,87 @@
 							<div class="coupon-inner">
 								<div class="coupon-time">立即领取</div>
 
-								<i class="coupon-circle top"></i> <i
-									class="coupon-circle bottom"></i>
+								<i class="coupon-circle top"></i>
+								<i class="coupon-circle bottom"></i>
 							</div>
-						</div> <!-- <div class="coupon-light"></div> -->
+						</div>
+						<!-- <div class="coupon-light"></div> -->
 					</a>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-		<script type="text/javascript"<!-- OPEN LIBS JS -->
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 
 		<script type="text/javascript"
 			src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
 		<script type="text/javascript"
 			src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
 		<script type="text/javascript"
 			src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/plugins.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/megamenu.min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/main.min.js"></script>
-		<script type="text/javascript"
-			src="resource/front_bootstrap/js/index.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
+		<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 
 		<script type="text/javascript">
-		$(function() {
-			getType();
-		});
-		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
-		var
-														sticky_navigation=function() {
-			var
-														scroll_top=$(window).scrollTop(); if (scroll_top>
-															sticky_navigation_offset_top) { $("#header
-															.header-bottom").addClass("sticky-menu"); $("#header
-															.header-bottom").css({ "top" : 0, "left" : 0, "right" : 0
-															}); } else { $("#header
-															.header-bottom").removeClass("sticky-menu"); } };
-															sticky_navigation(); $(window).scroll(function() {
-															sticky_navigation(); }); $(document).ready(function() {
-															$(".show-dropdown").each(function() { $(this).on("click",
-															function() { $(this).toggleClass("show"); var $element =
-															$(this).parent().find("> ul"); $element.toggle(300); });
-															}); });
-															</script>
+			var sticky_navigation_offset_top = $("#header .header-bottom")
+					.offset().top;
+			var sticky_navigation = function() {
+				var scroll_top = $(window).scrollTop();
+				if (scroll_top > sticky_navigation_offset_top) {
+					$("#header.header-bottom").addClass("sticky-menu");
+					$("#header.header-bottom").css({
+						"top" : 0,
+						"left" : 0,
+						"right" : 0
+					});
+				} else {
+					$("#header.header-bottom").removeClass("sticky-menu");
+				}
+			};
+			sticky_navigation();
+			$(window).scroll(function() {
+				sticky_navigation();
+			});
+			$(document).ready(function() {
+				$(".show-dropdown").each(function() {
+					$(this).on("click", function() {
+						$(this).toggleClass("show");
+						var $element = $(this).parent().find("> ul");
+						$element.toggle(300);
+					});
+				});
+			});
+		</script>
 
 		<!--[if gte IE 9]><!-->
 		<script type="text/javascript">
-																var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
-																		'(^|\\s+)(no-)?'
-																				+ cs
-																				+ '(\\s+|$)');
-																request = true;
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp(
+					'(^|\\s+)(no-)?' + cs + '(\\s+|$)');
+			request = true;
 
-																b[c] = b[c]
-																		.replace(
-																				rcs,
-																				' ');
-																// The customizer requires postMessage and CORS (if the site is cross domain)
-																b[c] += (window.postMessage
-																		&& request ? ' '
-																		: ' no-')
-																		+ cs;
-															</script>
+			b[c] = b[c].replace(rcs, ' ');
+			// The customizer requires postMessage and CORS (if the site is cross domain)
+			b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
+		</script>
 		<!--<![endif]-->
 		<script>
-layui.use('element', function(){
-  var $ = layui.jquery
-  ,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
-})
-</script>
+			layui.use('element', function() {
+				var $ = layui.jquery, element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+			});
+			function types(id) {
+				console.log(id);
+			}
+		</script>
 </body>
 </html>
