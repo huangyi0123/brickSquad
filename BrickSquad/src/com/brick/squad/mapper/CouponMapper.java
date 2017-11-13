@@ -8,6 +8,10 @@ import com.brick.squad.util.Pagination;
 
 public interface CouponMapper {
 	/**
+	 * 根据id查询
+	 */
+	public Coupon findCouponById(String id);
+	/**
 	 * 分页查询和统计
 	 */
 	public List<CouponPaginationExpand> findListCouponPagination (Pagination pagination);

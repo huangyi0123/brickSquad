@@ -42,5 +42,11 @@ public class CouponServiceImpl implements CouponService {
 		// TODO Auto-generated method stub
 		couponMapper.updateCouponById(coupon);
 	}
+	@Override
+	public Coupon findCouponById(String id) {
+		// TODO Auto-generated method stub
+		
+		return couponMapper.findCouponById(id);
+	}
 
 }

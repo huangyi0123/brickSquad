@@ -80,26 +80,21 @@
 	<form class="layui-form" action="coupon/${url}" id="form1"
 		method="post">
 
-		<input type="hidden" name="relatives.id"
-			value="${relaAddressTypePerson.relatives.id }"> <input
-			type="hidden" name="address.id"
-			value="${relaAddressTypePerson.address.id }"> <input
-			type="hidden" name="type.id"
-			value="${relaAddressTypePerson.type.id }"> 
-			<%-- <input
-			type="hidden" name="relatives.perId"
-			value="${relaAddressTypePerson.personalInformation.id }"> --%>
-
+		<input type="hidden" name="id"
+			value="${coupon.id}"> 
+			<c:if test="${url eq 'updateCouponById'}">
+			<input type="hidden" name="buyersId"
+			value="${newid}"> 
+			</c:if>
 		<div class="layui-form-item">
 			<label class="layui-form-label">卖家商铺名：</label>
 			<div class="layui-input-inline">
 			<c:if test="${url ne 'insertCoupon'}">
-				<input value="${perData}" lay-verify="required" autocomplete="off" class="layui-input"
+				<input value="${busName}" lay-verify="required" autocomplete="off" class="layui-input"
 					readonly="readonly" background: #F3F3F4;">
 				</c:if>
 				<c:if test="${url eq 'insertCoupon'}">
-				<select lay-filter="busnessid" name="buyersId" id="busnessid"
-					val="${relaAddressTypePerson.relatives.perId}">
+				<select lay-filter="busnessid" name="buyersId" id="busnessid"">
 					<option value="">选择买家姓名</option>
 				</select>
 				</c:if>
@@ -110,7 +105,7 @@
 			<div class="layui-input-inline">
 				<select lay-filter="typeid" name="typeId"
 					id="typeid"
-					val="${relaAddressTypePerson.relatives.relationshipId}">
+					val="${coupon.typeId}">
 					<option value="">选择优惠券类型</option>
 				</select>
 			</div>
@@ -119,14 +114,14 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">开始时间：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" id="startTime" name="startTime" placeholder="开始时间" val="${activities.startTime }"
+				<input class="layui-input" id="startTime" name="startTime" placeholder="开始时间" val="${coupon.startTime }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
         <div class="layui-form-item">
 			<label class="layui-form-label">结束时间：</label>
 			<div class="layui-input-inline logstart_time">
-				<input class="layui-input" id="endTime" name="endTime" placeholder="结束时间" val="${activities.endTime }"
+				<input class="layui-input" id="endTime" name="endTime" placeholder="结束时间" val="${coupon.endTime }"
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
@@ -136,7 +131,7 @@
 			<div class="layui-input-inline">
 				<input type="number" name="total" required
 					lay-verify="required" min="1" max="20"
-					value="${relaAddressTypePerson.relatives.name}" placeholder="拥有总数"
+					value="${coupon.total}" placeholder="拥有总数"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -146,7 +141,7 @@
 			<div class="layui-input-inline">
 				<input type="number" name="surplus" required
 					lay-verify="required" min="1" max="20"
-					value="${relaAddressTypePerson.relatives.name}" placeholder="拥有总数"
+					value="${coupon.surplus}" placeholder="拥有总数"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -156,7 +151,7 @@
 			<div class="layui-input-inline">
 				<input type="number" name="fullMoney" required
 					lay-verify="required" min="1" max="3000"
-					value="${relaAddressTypePerson.relatives.name}" placeholder="满足价格"
+					value="${coupon.fullMoney}" placeholder="满足价格"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -166,7 +161,7 @@
 			<div class="layui-input-inline">
 				<input type="number" name="money" required
 					lay-verify="required" min="1" max="2000"
-					value="${relaAddressTypePerson.relatives.name}" placeholder="优惠价格"
+					value="${coupon.money}" placeholder="优惠价格"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>

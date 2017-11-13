@@ -21,6 +21,7 @@ import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.CouponService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Coupon;
 import com.brick.squad.pojo.Type;
 
@@ -67,6 +68,13 @@ public class CouponController {
 		String dataBusness = businessService.findAllBusiness();
 		request.setAttribute("dataBusness", dataBusness);
 		if (id != null) {
+			Coupon coupon	=couponService.findCouponById(id);
+			request.setAttribute("coupon", coupon);
+			Business business =businessService.findBusinessById(coupon.getBuyersId());
+			String newid =coupon.getBuyersId();
+			request.setAttribute("newid", newid);
+			String busName=business.getName();
+			request.setAttribute("busName", busName);
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateCouponById");
 		} else {
@@ -86,6 +94,26 @@ public class CouponController {
 	public String deleteCouponById(String id){
 		couponService.deleteCouponAllById(id);
 		return "backstage_managed/jsp/coupon/coupon_list";
+	}
+	//后台修改
+	@RequestMapping("updateCouponById")
+	public String updateCouponById(Coupon coupon){
+		couponService.updateCouponById(coupon);
+		return "backstage_managed/jsp/coupon/coupon_list";
+	}
+	//后台查看详情
+	@RequestMapping("searchCoupon")
+	public String searchCoupon(HttpServletRequest request,String id){
+		String dataType= typeService.findTypeByParentId("c79b8c82c83b11e7aca65254002ec43c");
+		request.setAttribute("dataType", dataType);
+		Coupon coupon	=couponService.findCouponById(id);
+		request.setAttribute("coupon", coupon);
+		Business business =businessService.findBusinessById(coupon.getBuyersId());
+		String newid =coupon.getBuyersId();
+		request.setAttribute("newid", newid);
+		String busName=business.getName();
+		request.setAttribute("busName", busName);
+		return "backstage_managed/jsp/coupon/search_coupon";
 	}
 	@RequestMapping("/findArticleType")
 	public String findArticleType(HttpServletRequest request) {

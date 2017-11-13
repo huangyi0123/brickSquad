@@ -4,6 +4,8 @@ import com.brick.squad.pojo.Coupon;
 import com.brick.squad.util.Pagination;
 
 public interface CouponService {
+	//根据id查询全部字段
+	public Coupon findCouponById(String id);
 	/**
 	 * 插入
 	 */
