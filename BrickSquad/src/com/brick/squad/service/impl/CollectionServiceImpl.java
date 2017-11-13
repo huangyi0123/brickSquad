@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,10 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.mapper.CollectionMapper;
-import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaginationCollection;
 import com.brick.squad.util.Util;
 
 @Transactional
@@ -55,8 +57,13 @@ public class CollectionServiceImpl implements CollectionService {
 		return data;
 	}
 
-	public List<ArticleExpand> findCollectionMessage(String pid){
-		return collectionMapper.findCollectionMessage(pid);
+	public Map<String, Object> findCollectionMessage(PaginationCollection pagination){
+		List<ArticleExpand> articleExpands=collectionMapper.findCollectionMessage(pagination);
+		pagination.setCount(collectionMapper.findCollectionMessageCount(pagination));
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("ArticleExpand", articleExpands);
+		map.put("pagination", pagination);
+		return map;
 		
 	}
 
