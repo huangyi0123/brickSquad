@@ -157,6 +157,9 @@
 						<li>
 							<a class="J_menuItem" href="buyers/toBuyersList">买家信息列表</a>
 						</li>
+						<li>
+							<a class="J_menuItem" href="coupon/toCouponList">优惠券列表</a>
+						</li>
 					</ul>
 				</li>
 				</c:if>

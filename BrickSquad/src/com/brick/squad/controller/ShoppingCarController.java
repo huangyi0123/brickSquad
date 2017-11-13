@@ -139,7 +139,6 @@ public class ShoppingCarController {
 		
 		//获取登陆id
 		User user = (User) request.getSession().getAttribute("user");
-		System.out.println("________________________________"+user);
 		if (user!=null) {
 			shoppingCarPagination.setPerId(user.getId());
 			Map<String, Object> map=shoppingCarService.findArticIdAllArtic(shoppingCarPagination);

@@ -1,8 +1,5 @@
 package com.brick.squad.controller;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.brick.squad.expand.ArticleExpand;
-import com.brick.squad.expand.NewsArticle;
-import com.brick.squad.service.ArticalService;
-import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.util.PageUtil;
 
 @Controller
@@ -23,8 +17,8 @@ import com.brick.squad.util.PageUtil;
 public class NewDealsController {
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
-	
+	private ArticleService articleService;
+
 	@RequestMapping("/tonew_deals")
 	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageUtil){
 		String  path = request

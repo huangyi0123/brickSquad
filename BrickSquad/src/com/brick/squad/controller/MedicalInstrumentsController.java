@@ -19,7 +19,7 @@ import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.pojo.User;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
@@ -31,7 +31,7 @@ import com.brick.squad.util.YiLiaoUtile;
 public class MedicalInstrumentsController {
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
+	private ArticleService articleService;
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;

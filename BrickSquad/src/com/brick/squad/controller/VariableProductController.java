@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.criteria.Order;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.OrderRated;
+import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.ShoppingCar;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.pojo.User;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.service.ShoppingCarService;
+import com.brick.squad.service.VariableProductService;
 
 /**
  * 商品详情页操作相关的controller
@@ -31,13 +35,37 @@ import com.brick.squad.service.ShoppingCarService;
 public class VariableProductController {
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
+	private ArticleService articleService;
 	@Autowired
 	@Qualifier("ratedService")
 	private RatedService ratedService;
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
+	@Autowired
+	@Qualifier("variableProductService")
+	private VariableProductService variableProductService;
+
+	/**
+	 * 商品详情页立即购买商品
+	 * 
+	 * @param articleNumber
+	 *            商品数量
+	 * @param articleId
+	 *            商品ID
+	 * @param request
+	 */
+	@RequestMapping("/userBuyImmediately")
+	public void userBuyImmediately(int articleNumber, String articleId,
+			HttpServletRequest request) throws Exception {
+		User user = (User) request.getSession().getAttribute("user");
+		if (user != null) {
+			variableProductService
+					.userBuyImmediatelyAddOrdersandAddOrderDetails(
+							articleNumber, articleId, user.getId());
+		}
+
+	}
 
 	/**
 	 * 商品详情页用户添加商品到购物车

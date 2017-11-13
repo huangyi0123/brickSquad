@@ -14,8 +14,13 @@
 <title>官网</title>
 
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
+
 <link href="resource/css/style.css" rel="stylesheet" type="text/css"
 	media="all" />
+
+<link href="resource/css/index.css" rel="stylesheet">
+
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,7 +29,25 @@
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
+
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -40,6 +63,11 @@
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <!-- js -->
+<!-- search-scripts -->
+<script src="resource/plugins/layui/layui.js"></script>
+
+
+<!-- //search-scripts -->
 <script>
 	$(document).ready(function() {
 		//Initialize tooltips
@@ -77,11 +105,31 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
+<!-- script-for-menu -->
+<script>
+	$("span.menu").click(function() {
+		$("ul.nav1").slideToggle(300, function() {
+			// Animation complete.
+		});
+	});
+</script>
+<!-- /script-for-menu -->
+<script>
+	layui.use('element', function() {
+		var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+		//监听导航点击
+		element.on('nav(demo)', function(elem) {
+			//console.log(elem)
+			layer.msg(elem.text());
+		});
+	});
+</script>
 </head>
 
 <body>
 	<div class="banner">
-		<div class="header">
+		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
 					<a href="index.html"><i><img src="resource/image/cell.png"
@@ -90,43 +138,101 @@
 			</div>
 			<div class="top-nav">
 				<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
-				<ul class="nav1">
-					<li><a href="#" data-toggle="modal" data-target="#myModal">Mobile</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">datacard</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">DTH</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">landline</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal5">Signup</a></li>
+				<ul class="layui-nav"
+					style="margin-left:-150px; margin-top: -25px;background-color: #48CFC1;">
+					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
+					<li class="layui-nav-item"><a href=""
+						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
+
+					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">保健产品</a>
+							</dd>
+							<dd>
+								<a href="">修身养性</a>
+							</dd>
+							<dd>
+								<a href="">讲座中心</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">营养膳食</a>
+							</dd>
+							<dd>
+								<a href="">健康管理</a>
+							</dd>
+							<dd>
+								<a href="">住户感言</a>
+							</dd>
+							<dd>
+								<a href="">住户视频</a>
+							</dd>
+						</dl></li>
+
+					<li class="layui-nav-item"><a href="">乐堡服务</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">独立生活</a>
+							</dd>
+							<dd>
+								<a href="">协助护理</a>
+							</dd>
+							<dd>
+								<a href="">记忆护理</a>
+							</dd>
+							<dd>
+								<a href="">康复护理</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="javascript:;">关于乐堡</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">乐堡简介</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">乐堡使命</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">乐堡团队</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">加入我们</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">联系我们</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="javascript:;"><img
+							src="http://t.cn/RCzsdCq" class="layui-nav-img">登录</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">个人中心</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">注册</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">注销</a>
+							</dd>
+						</dl></li>
 				</ul>
-				<!-- script-for-menu -->
-				<script>
-					$("span.menu").click(function() {
-						$("ul.nav1").slideToggle(300, function() {
-							// Animation complete.
-						});
-					});
-				</script>
-				<!-- /script-for-menu -->
+
 			</div>
 			<!-- start search-->
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
 					<form>
-						<input class="sb-search-input"
-							placeholder="Enter your search item..." type="search"
-							name="search" id="search">
+						<input class="sb-search-input" placeholder="请输入您的关键字..."
+							type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
 						<span class="sb-icon-search"> </span>
 					</form>
 				</div>
 			</div>
-			<!-- search-scripts -->
-			<script src="resource/js/classie.js"></script>
-			<script src="resource/js/uisearch.js"></script>
-			<script>
-				new UISearch(document.getElementById('sb-search'));
-			</script>
-			<!-- //search-scripts -->
+
 
 
 			<div class="clearfix"></div>
@@ -976,6 +1082,11 @@
 		</div>
 	</div>
 	<!-- //signup -->
+	<script src="resource/js/classie.js"></script>
+	<script src="resource/js/uisearch.js"></script>
+	<script>
+		new UISearch(document.getElementById('sb-search'));
+	</script>
 	<!-- for bootstrap working -->
 	<script src="resource/plugins/bootstrap/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
