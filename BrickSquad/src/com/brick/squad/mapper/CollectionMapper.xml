@@ -42,7 +42,7 @@
 
 	<delete id="deleteCollectionById" parameterType="String">
 		DELETE FROM
-		collection WHERE id=#{id}
+		collection WHERE id=#{collectionId}
 	</delete>
 	
 	<!-- <select id="collectionPagination" parameterType="com.brick.squad.util.Pagination"
@@ -84,7 +84,7 @@
 	</delete>
 	
 	<select id="findCollectionMessage" parameterType="com.brick.squad.util.PaginationCollection" resultType="com.brick.squad.expand.ArticleExpand">
-			SELECT article.aname,article.price,article.stock FROM collection 
+			SELECT collection.id collectionId,collection.per_id perId,article.id,article.aname,article.price,article.stock FROM collection 
 			 JOIN article ON collection.article_id=article.id
 				WHERE collection.per_id=#{userId} LIMIT #{skipNum},#{takeNum}
 	</select>

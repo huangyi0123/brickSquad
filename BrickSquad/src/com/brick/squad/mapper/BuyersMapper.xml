@@ -6,6 +6,11 @@
 		insert into buyers(id,current_integral,historical_integral,grade,delivery_address_id)
 		 values (#{id},#{currentIntegral},#{historicalIntegral},#{grade},#{deliveryAddressId})
 	</insert>
+		<select id="findBuyersById" parameterType="String" resultType="com.brick.squad.pojo.Buyers">
+	select id,current_integral currentIntegral,
+		historical_integral historicalIntegral,grade grade,delivery_address_id deliveryAddressId
+		from buyers where id=#{id}
+	</select>
 	<select id="findBuyersByUUID" parameterType="String" resultType="com.brick.squad.pojo.Buyers">
 	select buyers.id,current_integral currentIntegral,
 		historical_integral historicalIntegral,grade grade,

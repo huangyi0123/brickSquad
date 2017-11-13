@@ -78,6 +78,10 @@ public interface ArticleMapper {
 	 * 根据价格范围查询商品
 	 * */
 	public List<Article> findPriceScope(PageBeanUtil pageBean);
+	/**
+	 * 搜索框搜索商品信息
+	 * */
+	public List<Article> findArticleTitle(PageBeanUtil pageBean);
 
 	/*
 	 * public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int

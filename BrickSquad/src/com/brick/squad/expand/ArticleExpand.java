@@ -5,16 +5,35 @@ import java.util.Date;
 import com.brick.squad.pojo.Article;
 
 public class ArticleExpand extends Article {
-
+	
+	private String perId;
+	
+	//收藏页收藏ID
+	private String collectionId;
 	// type表中活动类型名称
 	private String tname;
 	// business表中店铺名称
 	private String bname;
 	// 获得商品订单量
 	private String buyNumber;
-
+	
 	// 获得最新上架时间
+	public String getPerId() {
+		return perId;
+	}
 
+	public void setPerId(String perId) {
+		this.perId = perId;
+	}
+
+	public String getCollectionId() {
+		return collectionId;
+	}
+
+	public void setCollectionId(String collectionId) {
+		this.collectionId = collectionId;
+	}
+	
 	public String getBuyNumber() {
 		return buyNumber;
 	}
