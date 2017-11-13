@@ -6,6 +6,7 @@ import com.brick.squad.pojo.Buyers;
 import com.brick.squad.util.Pagination;
 
 public interface BuyersMapper {
+	public Buyers findBuyersById(String id);
 	public void insertBuyers(Buyers buyers) throws Exception;
 
 	public Buyers findBuyersByUUID(String id) throws Exception;

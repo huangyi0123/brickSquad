@@ -13,14 +13,6 @@
 
 <title>官网</title>
 
-
-
-<!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 
@@ -28,9 +20,20 @@
 	media="all" />
 
 <link href="resource/css/index.css" rel="stylesheet">
+
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -217,14 +220,26 @@
 	<div class="content-bottom">
 		<div class="btm-grids">
 			<div class="col-md-4 btm-grid back-col1 text-center">
-				<!-- <img src="resource/image/bbbb.png" alt="" /> -->
+				<img src="resource/image/bbbb.png" alt="" />
 			</div>
-			<div class="col-md-4 btm-grid btm-wid">
-				<h3>SPECIAL RECHARGE OFFERS</h3>
-				<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-					odit aut fugit, sed quia conse magni dolores eos qui ratione. Nemo
-					enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-					fugit, sed quia conse magni dolores eos qui ratione.</p>
+			<div class="col-md-4 btm-grid btm-wid"
+				style="background-color: #48D2D2;">
+				<input value="社区搜索" class="title">
+				<input class="city_search" type="text" value="请输入城市" style="color:#C5C5C5; "
+					onfocus="if(value=='请输入城市') {value=''}"
+					onblur="if (value=='') {value='请输入城市'}">
+				<label class="search_icon"
+					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
+					href="#"><i class="layui-icon"
+						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
+				<div
+					style="width:100%;height:100px;margin-top:50px; background-color: white;">
+					<label
+						style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
+					<label
+						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+
+				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
 				<img src="resource/image/bbb1.png" alt="" />
