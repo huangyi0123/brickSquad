@@ -319,6 +319,7 @@ pre {
 											style="display:block; margin-top: -25px;margin-left: 210px;">库存${ article.stock}件</label>
 									</div>
 									<input type="submit" value="立即购买"
+										onclick="userBuyImmediately()"
 										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
 									<!-- 先给死perid -->
 									<input type="hidden" id="userId" value="${user.id }">
@@ -1204,6 +1205,31 @@ pre {
 </script>
 		<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 		<script type="text/javascript">
+		/* 立即购买*/
+			function userBuyImmediately(){
+				layui.use('layer', function() {
+					var layer = layui.layer;
+				var userId = $("#userId").val();
+				if(userId==null||userId==""){
+					layer.msg("还没有登录！");
+				}else{	
+					var articleId = $("#articleId").val();
+					var articleNumber = $("#articleNumberId").val();
+				$.ajax({
+					url : 'variableProduct/userBuyImmediately?articleId='+articleId+'&articleNumber='+articleNumber,
+					success : function(data) {
+					},
+					error : function(e) {
+						layer.msg("服务器错误！！稍后重试");
+					}
+				});
+
+		
+				}
+			});
+			}
+		</script>
+		<script type="text/javascript">
 		/* 添加购物车JS，ajax提交 */
 		function userAddArticleToShoppingCar() {
 			layui.use('layer', function() {
@@ -1214,8 +1240,8 @@ pre {
 			}
 				else{	
 					var articleId = $("#articleId").val();
-			var articleNumber = $("#articleNumberId").val();
-			var shoppingCar = {
+					var articleNumber = $("#articleNumberId").val();
+				var shoppingCar = {
 				'perId' : userId,
 				'articleId' : articleId,
 				'number' : articleNumber

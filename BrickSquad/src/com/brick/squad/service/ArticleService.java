@@ -13,7 +13,7 @@ import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
-public interface ArticalService {
+public interface ArticleService {
 	/**
 	 * 
 	 * @param id
@@ -125,7 +125,7 @@ public interface ArticalService {
 	/**
 	 * 导航搜索框搜索
 	 * */
-	public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
-			String search_category)throws Exception;
+	PageBeanUtil findArticleTitle(int page, int limitPage, String s,
+			String search_category);
 
 }

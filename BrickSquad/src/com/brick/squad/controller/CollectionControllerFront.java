@@ -4,6 +4,7 @@ package com.brick.squad.controller;
 
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +29,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
+
+
+
+
+
 import com.brick.squad.expand.ArticleExpand;
+import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.service.CollectionService;
+import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.PaginationCollection;
 
@@ -39,15 +47,35 @@ public class CollectionControllerFront {
 	@Autowired
 	@Qualifier("collectionService")
 	private CollectionService collectionService;
-	
+	@Autowired
+	@Qualifier("shoppingCarService")
+	private ShoppingCarService shoppingCarService;
+	//查询用户收藏信息
 	@RequestMapping("/collectionMessage")
-	public String collectionMessage(String pid,HttpServletRequest request,PaginationCollection pagination){
+	public String collectionMessage(PaginationCollection pagination,HttpServletRequest request){
 		//根据登陆Pid获取收藏信息
 		pagination.setUserId("77c9a2dec44911e7aca65254002ec43c");
 		Map<String, Object> articleExpand=collectionService.findCollectionMessage(pagination);
 		request.setAttribute("collectionMessage",articleExpand);
-	
 		return "frontEnd_manage/front_bootstrap/wishlist";
 	}
-
+	//删除用户收藏信息
+	@RequestMapping("/deleteCollectionMessage")
+	public String deleteCollectionMessage(String collectionId){
+		collectionService.deleteCollectionById(collectionId);
+		return "redirect:/collectionFront/collectionMessage";
+	}
+	//用户添加至购物车
+	@RequestMapping("/addShopCar")
+	public String  addShopCar(String articleId,ShoppingCar shoppingCar) throws Exception {
+		System.out.println(articleId+"qqqqqqqqq");
+		shoppingCar.setArticleId(articleId);
+		shoppingCar.setDate(new Date());
+		shoppingCar.setPerId("77c9a2dec44911e7aca65254002ec43c");
+		shoppingCar.setNumber(1);
+		shoppingCarService.insertShoppingCar(shoppingCar);
+		return "redirect:/collectionFront/collectionMessage";
+	}
+		
+	
 }

@@ -79,7 +79,7 @@
 
 		<div class="container">
 			<div class="wrap-title">
-				<h1>我的收藏</h1>
+			
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
@@ -116,7 +116,7 @@
 								<table class="shop_table cart wishlist_table">
 									<thead>
 										<tr>
-											<th class="product-remove"></th>
+											<th class="product-remove"><span class="nobr">删除</span></th>
 
 											<th class="product-name"><span class="nobr">宝贝信息</span>
 											</th>
@@ -134,13 +134,12 @@
 
 										<c:forEach var="ArticleExpand"
 											items="${collectionMessage.ArticleExpand}" step="1"
-											varStatus="i" begin="0" end="4">
+											varStatus="i" >
 
 											<tr>
 												<td class="product-remove">
 													<div>
-														<a href="" class="remove remove_from_wishlist"></a>
-
+														<a href="collectionFront/deleteCollectionMessage?collectionId=${ArticleExpand.collectionId}" class="remove remove_from_wishlist"></a>
 													</div>
 												</td>
 
@@ -162,8 +161,7 @@
 												<td class="product-stock-status">
 													${ArticleExpand.stock}</td>
 
-												<td class="product-add-to-cart"><a rel="nofollow"
-													href=""
+												<td class="product-add-to-cart"><a rel="nofollow" href="collectionFront/addShopCar?articleId=${ArticleExpand.id}"
 													class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt">添加至购物车</a>
 												</td>
 											</tr>
@@ -172,7 +170,8 @@
 									</tbody>
 									<tr>
 										<td colspan="6">
-											<%
+											
+											<%	
 												Map<String,Object> map=(Map<String,Object>)request.getAttribute("collectionMessage");
 												PaginationCollection pagination=(PaginationCollection)map.get("pagination");
 												

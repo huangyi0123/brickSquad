@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.expand.SecKill;
 import com.brick.squad.pojo.Type;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.service.TypeService;
 
@@ -31,7 +31,7 @@ public class ShopIndexController {
 	private ShopActivitiesService shopActivitiesService;
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articalService;
+	private ArticleService articalService;
 
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
