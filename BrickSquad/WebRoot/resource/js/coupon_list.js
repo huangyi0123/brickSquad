@@ -2,7 +2,7 @@ function init(keyword) {
 	var table = document
 			.querySelector('table[grid-manager="demo-ajaxPageCode"]');
 	table.GM({
-		ajax_url : 'relatives/getRelativesList',
+		ajax_url : 'coupon/getCouponList',
 		ajax_type : 'POST',
 		query : {
 			pluginId : 1,
@@ -11,22 +11,28 @@ function init(keyword) {
 		supportAjaxPage : true,
 		supportCheckbox : false,
 		columnData : [ {
-			key : 'name',
-			text : '亲属姓名'
+			key : 'bName',
+			text : '商家店铺名'
 		}, {
-			key : 'perId',
-			text : '老人姓名'
+			key : 'tName',
+			text : '优惠券类型'
 		}, {
-			key : 'relationshipId',
-			text : '亲属关系'
+			key : 'total',
+			text : '总量'
+		},{
+			key : 'surplus',
+			text : '余量'
+		}{
+			key : 'startTime',
+			text : '开始时间'
 		}, {
-			key : 'telephone',
-			text : '亲属电话号码'
+			key : 'endTime',
+			text : '结束时间'
 		},  {
 			key : "operation",
 			text : "操作",
 			template : function(noteData, rowData)   {
-				return '<a href="relatives/toAddRelatives?id='
+				return '<a href="coupon/toAddCoupon?id='
 				+ rowData.id
 
 				+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:85px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteById("'

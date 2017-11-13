@@ -84,10 +84,9 @@ a:HOVER {
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="relatives/toAddRelatives" 
+				<li><a href="coupon/toAddCoupon" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
-
 			</ul>
 		</div>
 	</div>

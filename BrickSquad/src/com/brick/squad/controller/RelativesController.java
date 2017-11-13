@@ -59,7 +59,6 @@ public class RelativesController {
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		return relativesService.relativesPagination(pagination);
-
 	}
 
 	/**

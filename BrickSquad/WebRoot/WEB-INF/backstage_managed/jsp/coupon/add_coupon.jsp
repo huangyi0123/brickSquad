@@ -45,99 +45,39 @@
 	});
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-		
-	
-		
 		//获取老人信息表
-		$.ajax({
-			url : 'personalInformation/findAllPersonalInformation',
-			success : function(result) {
-				result = JSON.parse(result);
-				findAll(result, "#perid");
-				form.render('select', 'perid');
-			}
-		});
+		dataBusness
+		var dataBusness = '${dataBusness}';
+		dataBusness = JSON.parse(dataBusness);
+		findAll(dataBusness, "#busnessid");
+		form.render('select', 'busnessid');
 		//获取type中的
 		var dataType = '${dataType}';
 		dataType = JSON.parse(dataType);
-		findAll(dataType, "#relationshipid");
-		form.render('select', 'relationshipid');
-		//获取address中的省市区镇
-		//先查询到所有省的信息
-		$(function() {
-			var da = '${dataRegion}';
-			da = JSON.parse(da);
-			findAll(da, "#prId");
-			form.render('select', 'prId');
-			//回显省市区县
-			var url = "${url}";
-			if (url == 'insertRelatives') {
-
-			} else {
-				var regions = '${allRegionResultById}';
-				regions = JSON.parse(regions);
-				findAll(regions[0].city, "#cityId");
-				findAll(regions[0].county, "#countyId");
-				findAll(regions[0].country, "#countryId");
-				var detailed = $("#detailedId").attr('val');
-				$("#detailedId").val(detailed);
+		findAll(dataType, "#typeid");
+		form.render('select', 'typeid');
+		
+		var url="${url}"   //根据用户点击页面判断是否需要回显
+			if(url=='toAddCoupon'){}
+			else{
+			var da = $("#startTime").attr('val');//回显时间
+			dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
+			$("#startTime").val(dat);
+			
+			var da = $("#endTime").attr('val');
+			dat = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
+			$("#endTime").val(dat);
 			}
-		});
-		form.on('select(prIds)', function(data) {
-			$.ajax({
-				url : 'address/findRegionsByParentId?pid=' + data.value,
-				success : function(result) {
-					result = JSON.parse(result);
-					$("#cityId").empty();
-					$("#cityId").append('<option value="">选择城市</option>');
-					$("#countyId").empty();
-					$("#countyId").append('<option value="">选择县市</option>');
-					$("#countryId").empty();
-					$("#countryId").append('<option value="">选择乡镇</option>');
-					findAll(result, "#cityId");
-					form.render('select', 'cityIdSelect');
-				}
-			});
-		});
-		form.on('select(cityIdSelect)', function(data) {
-			$.ajax({
-				url : 'address/findRegionsByParentId?pid=' + data.value,
-				success : function(result) {
-					result = JSON.parse(result);
-					$("#countyId").empty();
-					$("#countyId").append('<option value="">选择县市</option>');
-					$("#countryId").empty();
-					$("#countryId").append('<option value="">选择乡镇</option>');
-					findAll(result, "#countyId");
-					form.render('select', 'countyIdSelect');
-				}
-			});
-		});
-		form.on('select(countyIdSelect)', function(data) {
-			$.ajax({
-				url : 'address/findRegionsByParentId?pid=' + data.value,
-				success : function(result) {
-					result = JSON.parse(result);
-					$("#countryId").empty();
-					$("#countryId").append('<option value="">选择乡镇</option>');
-					findAll(result, "#countryId");
-					form.render('select', 'countryIdSelect');
-				}
-			});
-		});
 	});
-	function sub(){
-		var relphone = $("#telephone").val();
-		$("#relphone").val(relphone);
-	}
+		
 </script>
 </head>
 
 <body>
 	<br>
-	<div style="padding-left: 120px;font-size:16;">${msg}老人亲属关系信息</div>
+	<div style="padding-left: 120px;font-size:16;">${msg}优惠券信息</div>
 	<br>
-	<form class="layui-form" action="relatives/${url}" id="form1"
+	<form class="layui-form" action="coupon/${url}" id="form1"
 		method="post">
 
 		<input type="hidden" name="relatives.id"
@@ -151,100 +91,83 @@
 			value="${relaAddressTypePerson.personalInformation.id }"> --%>
 
 		<div class="layui-form-item">
-			<label class="layui-form-label">老人姓名：</label>
+			<label class="layui-form-label">卖家商铺名：</label>
 			<div class="layui-input-inline">
-			<c:if test="${url eq 'updateRelativesByIdExend'}">
+			<c:if test="${url ne 'insertCoupon'}">
 				<input value="${perData}" lay-verify="required" autocomplete="off" class="layui-input"
 					readonly="readonly" background: #F3F3F4;">
 				</c:if>
-				<c:if test="${url ne 'updateRelativesByIdExend'}">
-				<select lay-filter="perid" name="relatives.perId" id="perid"
+				<c:if test="${url eq 'insertCoupon'}">
+				<select lay-filter="busnessid" name="buyersId" id="busnessid"
 					val="${relaAddressTypePerson.relatives.perId}">
-					<option value="">选择老人姓名</option>
+					<option value="">选择买家姓名</option>
 				</select>
 				</c:if>
 			</div>
 		</div>
+			<div class="layui-form-item">
+			<label class="layui-form-label">优惠券类型：</label>
+			<div class="layui-input-inline">
+				<select lay-filter="typeid" name="typeId"
+					id="typeid"
+					val="${relaAddressTypePerson.relatives.relationshipId}">
+					<option value="">选择优惠券类型</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">开始时间：</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" id="startTime" name="startTime" placeholder="开始时间" val="${activities.startTime }"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+			</div>
+		</div>
+        <div class="layui-form-item">
+			<label class="layui-form-label">结束时间：</label>
+			<div class="layui-input-inline logstart_time">
+				<input class="layui-input" id="endTime" name="endTime" placeholder="结束时间" val="${activities.endTime }"
+					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+			</div>
+		</div>
 
 		<div class="layui-form-item">
-			<label class="layui-form-label">亲属姓名：</label>
+			<label class="layui-form-label">拥有总数：</label>
 			<div class="layui-input-inline">
-				<input type="text" name="relatives.name" required
-					lay-verify="required"
-					value="${relaAddressTypePerson.relatives.name}" placeholder="亲属姓名"
+				<input type="number" name="total" required
+					lay-verify="required" min="1" max="20"
+					value="${relaAddressTypePerson.relatives.name}" placeholder="拥有总数"
+					autocomplete="off" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">剩余量：</label>
+			<div class="layui-input-inline">
+				<input type="number" name="surplus" required
+					lay-verify="required" min="1" max="20"
+					value="${relaAddressTypePerson.relatives.name}" placeholder="拥有总数"
 					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 
-
 		<div class="layui-form-item">
-			<label class="layui-form-label">联系电话：</label>
+			<label class="layui-form-label">满足价格：</label>
 			<div class="layui-input-inline">
-				<input type="hidden" name="relphone" id="relphone"> 
-				<%-- <input type="text" name="relatives.telephone"  required id="telephone" onchange="sub()"
-					lay-verify="required"
-					value="${relaAddressTypePerson.relatives.telephone}"
-					placeholder="联系电话" autocomplete="off" class="layui-input"> --%>
-					
-				<input type='text' name="relatives.telephone" id="telephone" onchange="sub()"
-				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
-				required lay-verify="required" placeholder="请输入有效手机号码" autocomplete="off" class="layui-input"
-					value="${relaAddressTypePerson.relatives.telephone}" />
+				<input type="number" name="fullMoney" required
+					lay-verify="required" min="1" max="3000"
+					value="${relaAddressTypePerson.relatives.name}" placeholder="满足价格"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
-
-		<!-- 显示地址表信息 -->
-		<div class="layui-form-item">
-			<label class="layui-form-label">地址</label>
+		
+	<div class="layui-form-item">
+			<label class="layui-form-label">优惠价格：</label>
 			<div class="layui-input-inline">
-				<select required lay-verify="required"
-					val="${relaAddressTypePerson.address.provinceId}"
-					name="address.provinceId" id="prId" lay-filter="prIds"
-					lay-search="">
-					<option value="">选择省份</option>
-				</select>
-			</div>
-			<div class="layui-input-inline">
-				<select required lay-verify="required"
-					val="${relaAddressTypePerson.address.cityId}" name="address.cityId"
-					id="cityId" lay-filter="cityIdSelect" lay-search="">
-					<option value="">选择城市</option>
-				</select>
-			</div>
-			<div class="layui-input-inline">
-				<select required lay-verify="required"
-					val="${relaAddressTypePerson.address.countyId}"
-					name="address.countyId" id="countyId" lay-filter="countyIdSelect"
-					lay-search="">
-					<option value="">选择县市</option>
-				</select>
-			</div>
-			<div class="layui-input-inline">
-				<select required lay-verify="required"
-					val="${relaAddressTypePerson.address.countryId}"
-					name="address.countryId" id="countryId"
-					lay-filter="countryIdSelect" lay-search="">
-					<option value="">选择乡镇</option>
-				</select>
-			</div>
-			<div class="layui-form-item layui-form-text">
-				<label class="layui-form-label">详细地址</label>
-				<div class="layui-input-block">
-					<textarea name="address.detailed" placeholder="请输入详细地址"
-						id="detailedId" val="${relaAddressTypePerson.address.detailed }"
-						lay-filter="detailedSelect" class="layui-textarea"></textarea>
-				</div>
-			</div>
-
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">亲属关系：</label>
-			<div class="layui-input-inline">
-				<select lay-filter="relationshipid" name="relatives.relationshipId"
-					id="relationshipid"
-					val="${relaAddressTypePerson.relatives.relationshipId}">
-					<option value="">选择亲属关系</option>
-				</select>
+				<input type="number" name="money" required
+					lay-verify="required" min="1" max="2000"
+					value="${relaAddressTypePerson.relatives.name}" placeholder="优惠价格"
+					autocomplete="off" class="layui-input">
 			</div>
 		</div>
 
