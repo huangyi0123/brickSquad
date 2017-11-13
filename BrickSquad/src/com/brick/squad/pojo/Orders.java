@@ -17,6 +17,10 @@ public class Orders {
 	private Integer number;
 
 	private Float money;
+	/**
+	 * 收货地址ID
+	 */
+	private String receivingAddress;
 	/** 订单与Rate评论的关系：一对多 */
 	private List<Rated> rateds;
 	/** 订单与Type类型的关系：一对多 */
@@ -113,4 +117,24 @@ public class Orders {
 	public void setMoney(Float money) {
 		this.money = money;
 	}
+
+	public String getReceivingAddress() {
+		return receivingAddress;
+	}
+
+	public void setReceivingAddress(String receivingAddress) {
+		this.receivingAddress = receivingAddress;
+	}
+
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", no=" + no + ", stateId=" + stateId
+				+ ", productionDate=" + productionDate + ", buyId=" + buyId
+				+ ", number=" + number + ", money=" + money
+				+ ", receivingAddress=" + receivingAddress + ", rateds="
+				+ rateds + ", types=" + types + ", orderDetails="
+				+ orderDetails + ", buyers=" + buyers + "]";
+	}
+
+
 }
