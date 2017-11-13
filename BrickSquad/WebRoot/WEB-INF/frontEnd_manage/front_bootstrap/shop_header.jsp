@@ -1125,7 +1125,7 @@
 								</li>
 								<li
 									class="menu-deals etrostore-menu-custom level1 etrostore-menu-img">
-									<a href="deals.html" class="item-link"> <span
+									<a href="coupon/findArticleType" class="item-link"> <span
 										class="have-title"> <span class="menu-img"> <img
 												src="resource/front_bootstrap/images/1903/icon-hot.png"
 												alt="Menu Image" />
