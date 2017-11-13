@@ -6,6 +6,14 @@
 		id, article_id articleId, orders_id ordersId, number,
 		subtotal
 	</sql>
+	<insert id="insertOrderDetails" parameterType="OrderDetails">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO order_details(id, article_id, orders_id, number,
+		subtotal)
+		values(#{id},#{articleId},#{ordersId},#{number},#{subtotal})
+	</insert>
 	<select id="findOrderDetails" resultType="OrderDetails">
 		SELECT
 		<include refid="Base_Column_List"></include>

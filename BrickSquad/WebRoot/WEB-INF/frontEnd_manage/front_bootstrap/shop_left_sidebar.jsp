@@ -233,7 +233,8 @@
 									<div class="slider responsive">
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" 
+												<a href="${pageContext.request.contextPath }/MedicalInstruments/findArticleBrands?">
+												<img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>

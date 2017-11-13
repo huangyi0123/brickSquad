@@ -7,6 +7,8 @@ import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.util.Pagination;
 
 public interface OrderDetailsMapper {
+	public void insertOrderDetails(OrderDetails orderDetails);
+
 	/**
 	 * 查询订单项
 	 * */
