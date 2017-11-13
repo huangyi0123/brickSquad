@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/article")
@@ -31,7 +31,7 @@ public class ArticleController {
 
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
+	private ArticleService articleService;
 
 	@RequestMapping("/toArticleList")
 	public String toArticleList() {

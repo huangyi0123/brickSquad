@@ -29,7 +29,7 @@ import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.PersonalInformationService;
@@ -130,7 +130,7 @@ public class CommonController {
 	private HealthRecordsService healthRecordsService;
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
+	private ArticleService articleService;
 
 	@RequestMapping("/toPersonal")
 	public String toPersonal(HttpServletRequest request) throws Exception {
