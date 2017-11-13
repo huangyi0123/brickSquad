@@ -13,6 +13,28 @@ public class PageBeanUtil<T> {
 	// 排序使用
 	private int sequence;
 	private Integer shelfdate;
+	private double min_price;
+	private double max_price;
+	
+	
+
+	
+
+	public double getMin_price() {
+		return min_price;
+	}
+
+	public void setMin_price(double min_price) {
+		this.min_price = min_price;
+	}
+
+	public double getMax_price() {
+		return max_price;
+	}
+
+	public void setMax_price(double max_price) {
+		this.max_price = max_price;
+	}
 
 	public Integer getShelfdate() {
 		return shelfdate;

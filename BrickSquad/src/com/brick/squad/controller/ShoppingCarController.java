@@ -2,12 +2,10 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -17,9 +15,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.ShoppingCarExpand;
 import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.ShoppingCarPagination;
@@ -30,12 +28,10 @@ public class ShoppingCarController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
-
-	/*
-	 * @Autowired
-	 * 
-	 * @Qualifier("articalService") private ArticalService articalService;
-	 */
+	/*@Autowired
+	@Qualifier("articalService")
+	private ArticalService articalService;
+*/
 	@RequestMapping("/toShoppingCarList")
 	public String toRegionList() {
 		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
@@ -139,16 +135,37 @@ public class ShoppingCarController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/detailsShoppingCar")
-
 	public String detailsShoppingCar(HttpServletRequest request,ShoppingCarPagination shoppingCarPagination) throws Exception{
 		
-		//先设置一个固定的perid,后面获取用户登录id
-		shoppingCarPagination.setPerId("04a925e8c2b611e7aca65254002ec43c");
-		Map<String, Object> map=shoppingCarService.findArticIdAllArtic(shoppingCarPagination);
-		request.setAttribute("map", map);
-		return "frontEnd_manage/front_bootstrap/cart";
-
+		//获取登陆id
+		User user = (User) request.getSession().getAttribute("user");
+		System.out.println("________________________________"+user);
+		if (user!=null) {
+			shoppingCarPagination.setPerId(user.getId());
+			Map<String, Object> map=shoppingCarService.findArticIdAllArtic(shoppingCarPagination);
+			request.setAttribute("map", map);
+			return "frontEnd_manage/front_bootstrap/cart";
+		}else {
+			return "frontEnd_manage/front_bootstrap/cartNull";
+		}
 }	
+	/**
+	 * 前端购物车分页显示
+	 * @param pSize
+	 * @param cPage
+	 * @param keyword
+	 * @return
+	 */
+/*	@RequestMapping("/getIndexShoppingCarList")
+	@ResponseBody
+	public String getIndexShoppingCarList(int pSize, int cPage, String keyword){
+		Pagination pagination = new Pagination();
+		pagination.setKeyword(keyword);
+		pagination.setCurentPage(cPage);
+		pagination.setPageSize(pSize);
+		String value = shoppingCarService.findArticIdAllArtic(pagination);
+		return value;
+	}*/
 	/**
 	 * 前台删除购物车
 	 * 

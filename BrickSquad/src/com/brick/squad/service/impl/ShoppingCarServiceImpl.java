@@ -143,9 +143,12 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		return shoppingCar;
 	}
 
+
 	@Override
-	public List<ShoppingCarAndArticle> findArticIdAllArtic() {
-		return null;
+	public Integer findShoppingCarPerIdCount(ShoppingCarPagination shoppingCarPagination) {
+		// TODO Auto-generated method stub
+		int row = shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination);
+		return row;
 	}
 
 

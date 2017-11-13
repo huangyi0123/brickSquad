@@ -61,11 +61,6 @@ public interface ShoppingCarMapper {
 	public void deleteShoppingCarByPerId(String perId);
 
 	/**
-	 * 根据老人id匹配查询出相应的信息，用于前台购物车
-	 */
-
-	public List<ShoppingCarAndArticle> findArticIdAllArtic();
-	/**
 	 * 根据购物车商品ID查询购物车列表商品
 	 * */
 	public List<ShoppingCar> findShoppingCarByArticleId(String articleId);
