@@ -6,3 +6,9 @@
 .top-nav ul li{
 	margin-left: -10px;
 }
+
+.back-col1{
+	background-image: url('../image/online-lesson.jpg');
+	width: 449px;
+	height: 406.58px;
+}
