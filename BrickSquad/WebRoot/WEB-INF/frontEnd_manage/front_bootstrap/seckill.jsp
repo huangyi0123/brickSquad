@@ -11,7 +11,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>${msg }</title>
+<title>秒杀</title>
 <meta charset="utf-8" />
 
 <meta name="viewport"
@@ -62,7 +62,7 @@
 		<div class="listings-title">
 			<div class="container">
 				<div class="wrap-title">
-					<h1>${msg }</h1>
+					<h1>秒杀</h1>
 
 					<div class="bread">
 						<div class="breadcrumbs theme-clearfix">
@@ -74,7 +74,7 @@
 									</li>
 
 									<li class="active">
-										<span>${msg }</span>
+										<span>秒杀</span>
 									</li>
 								</ul>
 							</div>
@@ -92,79 +92,103 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
-										<c:forEach items="${map.data }" var="a">
-											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
-												<div class="item-detail">
-													<div class="item-img products-thumb">
-														<span class="onsale">Sale!</span>
-														<a href="variableProduct/toVariable_product?productId=${a.id}">
-															<div class="product-thumb-hover">
-																<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+									<div class="item-countdown product" id="product_sw_countdown_03">
+																<div class="item-wrap">
+																	<div class="item-detail">
+																		<div class="item-content">
+																			<!-- rating  -->
+																			<div class="reviews-content">
+																				<div class="star">
+																					<span style="width:63px"></span>
+																				</div>
+
+																				<div class="item-number-rating">2 Review(s)</div>
+																			</div>
+																			<!-- end rating  -->
+
+																			<h4>
+																				<a href="simple_product.html" title="Cleaner with bag">Cleaner with bag</a>
+																			</h4>
+
+																			<!-- Price -->
+																			<div class="item-price">
+																				<span>
+																					<del>
+																						<span class="woocommerce-Price-amount amount">
+																							<span class="woocommerce-Price-currencySymbol">$</span>
+																							390.00
+																						</span>
+																					</del>
+																					<ins>
+																						<span class="woocommerce-Price-amount amount">
+																							<span class="woocommerce-Price-currencySymbol">$</span>
+																							350.00
+																						</span>
+																					</ins>
+																				</span>
+																			</div>
+
+																			<div class="sale-off">-10%</div>
+
+																			<div class="product-countdown" data-date="1517356800" data-price="$390"
+																				data-starttime="1483660800" data-cdtime="1517356800"
+																				data-id="product_sw_countdown_03"></div>
+																		</div>
+
+																		<div class="item-image-countdown">
+																			<span class="onsale">Sale!</span>
+																			<a href="simple_product.html">
+																				<div class="product-thumb-hover">
+																					<img width="300" height="300" src="images/1903/22-300x300.jpg"
+																						class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
+																						srcset="resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-150x150.jpg 150w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w"
+																						sizes="(max-width: 300px) 100vw, 300px" />
+																				</div>
+																			</a>
+
+																			<!-- add to cart, wishlist, compare -->
+																			<div class="item-bottom clearfix">
+																				<a rel="nofollow" href="#"
+																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+																					title="加入购物车2">加入购物车2</a>
+																				<a href="javascript:void(0)" class="compare button" rel="nofollow"
+																					title="Add to Compare">Compare</a>
+
+																				<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																					<div class="yith-wcwl-add-button show" style="display:block">
+																						<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
+																							Wishlist</a>
+																						<img src="resource/front_bootstrap/images/wpspin_light.gif"
+																							class="ajax-loading" alt="loading" width="16" height="16"
+																							style="visibility:hidden" />
+																					</div>
+
+																					<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																						<span class="feedback">Product added!</span>
+																						<a href="#" rel="nofollow">Browse Wishlist</a>
+																					</div>
+
+																					<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																						<span class="feedback">The product is already in the wishlist!</span>
+																						<a href="#" rel="nofollow">Browse Wishlist</a>
+																					</div>
+
+																					<div style="clear:both"></div>
+																					<div class="yith-wcwl-wishlistaddresponse"></div>
+																				</div>
+
+																				<div class="clear"></div>
+																				<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
+																					class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
 															</div>
-														</a>
-
-														<!-- add to cart, wishlist, compare -->
-														<div class="item-bottom clearfix">
-															<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
-																class="button product_type_simple" title="加入购物车">加入购物车</a>
-
-															<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																<div class="yith-wcwl-add-button show" style="display:block">
-																	<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																	<span class="feedback">Product added!</span>
-																	<a href="#" rel="nofollow">Browse Wishlist</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																	<span class="feedback">The product is already in the wishlist!</span>
-																	<a href="#" rel="nofollow">浏览</a>
-																</div>
-
-																<div style="clear:both"></div>
-																<div class="yith-wcwl-wishlistaddresponse"></div>
-															</div>
-
-															<!-- <div class="clear"></div>
-															<a href="ajax/fancybox/example.html"
-																data-fancybox-type="ajax"
-																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a> -->
-														</div>
-
-														<!-- 	<div class="sale-off">-13%</div> -->
-													</div>
-
-													<div class="item-content">
-														<!-- rating  -->
-														<div class="reviews-content">
-															<div class="star"></div>
-															<div class="item-number-rating">${a.totals}人已购买</div>
-														</div>
-														<!-- end rating  -->
-
-														<h4>
-															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
-														</h4>
-
-														<!-- price -->
-														<div class="item-price">
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">
-																	<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
-																</span>
-															</ins>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</c:forEach>
+								
 										<div style="clear: both;"></div>
 										<div>
-											<%
+											<%-- <%
 												Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
 																																																																																	PageUtil pageUtil=(PageUtil)map.get("page");
 											%>
@@ -224,10 +248,11 @@
 												</li>
 											</ul>
 											</nav>
+										 --%>
 										</div>
 
 
-										<!--  <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+										 <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 											<div class="item-detail">
 												<div class="item-img products-thumb">
 													<span class="onsale">Sale!</span> <a
@@ -859,7 +884,7 @@
 												</div>
 											</div>
 										</div>
-									 -->
+									
 									</div>
 								</div>
 							</div>
