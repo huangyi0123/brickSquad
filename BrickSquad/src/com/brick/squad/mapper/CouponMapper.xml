@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.brick.squad.pojo.Coupon">
+<mapper namespace="com.brick.squad.mapper.CouponMapper">
 	<insert id="insertCouponById" parameterType="com.brick.squad.pojo.Coupon">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
@@ -10,7 +10,7 @@
 		coupon(id,type_id,buyers_id,start_time,end_time,total,surplus,full_money,money,receive)
 		values(#{id},#{typeId},#{buyersId},#{startTime},#{endTime},#{total},#{surplus},#{fullMoney},#{money},#{receive})
 	</insert>
-	<update id="updateCouponById" parameterType="com.brick.squad.pojo.Coupon">
+	 <update id="updateCouponById" parameterType="com.brick.squad.pojo.Coupon">
 		UPDATE
 		coupon set
 		type_id=#{typeId},

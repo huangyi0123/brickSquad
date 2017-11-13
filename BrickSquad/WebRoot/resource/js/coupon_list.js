@@ -65,7 +65,7 @@ function deleteById(id) {
 			btn:["确认","取消"],
 			yes:function(index){
 				$.ajax({
-					url:'relatives/deleteRelativesById?id='+id,
+					url:'coupon/deleteCouponById?id='+id,
 					success:function(data){
 						RefreshGridManagerList("");
 						layer.close(index);
