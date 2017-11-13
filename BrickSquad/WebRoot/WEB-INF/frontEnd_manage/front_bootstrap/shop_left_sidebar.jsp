@@ -167,11 +167,12 @@
 
 		<div class="container">
 			<div class="wrap-title">
-				<h1 style="font-size:2em;">商品</h1>
+				
 
 				<div class="bread" >
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
+						<h1 style="font-size:2em;">商品</h1>
 							<ul class="breadcrumb" style="padding-left:92%;width:100%;">
 								<li><a href="common/toShop">首页</a> <span
 									class="go-page"></span></li>
