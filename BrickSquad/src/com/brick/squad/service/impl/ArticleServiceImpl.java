@@ -23,6 +23,7 @@ import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticalService;
 import com.brick.squad.util.PageBeanUtil;
+import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -468,7 +469,6 @@ public class ArticleServiceImpl implements ArticalService {
 		System.err.println(NewsArticleList.size());
 		return NewsArticleList;
 	}
-
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page,
 			int sequence, int limitPage) throws Exception {
 
@@ -546,4 +546,68 @@ public class ArticleServiceImpl implements ArticalService {
 		List<Article> listArticle = articleMapper.findArticleImgAndName(typeId);
 		return listArticle;
 	}
+	//获取商品总数，用于最新商品分页显示
+	public Integer findFrontTimeNumber(){
+		int count = articleMapper.findFrontTimeNumber();
+		return count;
+	}
+	
+	
+	//最新商品分页测试
+	@Override
+	public PageUtil findArticlePage(int page){
+		PageUtil pageBean = new PageUtil();
+		if (page == 0) {
+			page  = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int pageSize = 12;
+			pageBean.setPageSize(pageSize);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper.findFrontTimeNumber();
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % pageSize == 0) {
+				totalPage = totalCount / pageSize;
+			} else {
+				totalPage = totalCount / pageSize + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int startRow = (page - 1) * pageSize;
+			pageBean.setStartRow(startRow);
+	 
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int pageSize = 12;
+			pageBean.setPageSize(pageSize);
+			// 设置总记录数:
+			Integer totalCount = 0;
+			totalCount = articleMapper.findFrontTimeNumber();
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % pageSize == 0) {
+				totalPage = totalCount / pageSize;
+			} else {
+				totalPage = totalCount / pageSize + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int startRow = (page - 1) * pageSize;
+			pageBean.setStartRow(startRow);
+		 }
+		return pageBean;
+
+	}
+	
 }

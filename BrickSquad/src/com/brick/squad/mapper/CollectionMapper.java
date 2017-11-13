@@ -7,6 +7,7 @@ import com.brick.squad.expand.CollectionExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaginationCollection;
 import com.brick.squad.util.Select;
 
 /**
@@ -66,6 +67,6 @@ public interface CollectionMapper {
 
 	public void deleteCollectionByPerId(String perId);
 
-	public List<ArticleExpand> findCollectionMessage(Pagination pagination);
-	public int findCollectionMessageCount(Pagination pagination);
+	public List<ArticleExpand> findCollectionMessage(PaginationCollection pagination);
+	public int findCollectionMessageCount(PaginationCollection pagination);
 }

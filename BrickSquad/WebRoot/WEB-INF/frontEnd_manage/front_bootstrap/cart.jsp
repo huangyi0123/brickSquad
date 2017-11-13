@@ -1,10 +1,11 @@
+<%@page import="com.brick.squad.util.ShoppingCarPagination"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -66,6 +67,7 @@
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet"
 	href="resource/front_bootstrap/css/app-responsive.css" />
+<link rel="stylesheet" href="resource/plugins/laysui/css/layui.css" />
 </head>
 
 <body class="page woocommerce-cart woocommerce-page">
@@ -116,10 +118,11 @@
 												</tr>
 											</thead>
 
-											<tbody ng-app=""  >
-												<c:forEach var="listDetailsShoppingCar"
-													items="${listDetailsShoppingCar}" varStatus="a">
-													<tr  class="cart_item" 
+											<tbody ng-app="">
+												<c:forEach var="listDetailsShoppingCar" items="${map.list}"
+													varStatus="a">
+
+													<tr class="cart_item"
 														ng-init="price_${a.index }='${listDetailsShoppingCar.price }';num_${a.index}='${listDetailsShoppingCar.number}'">
 														<td class="product-remove"><a
 															href="shoppingCar/IndexDeleteShoppingCar?id=${listDetailsShoppingCar.id}"
@@ -143,13 +146,13 @@
 														</td>
 
 														<td class="product-quantity" data-title="Quantity">
-															<div class="quantity" >
+															<div class="quantity">
 																<input type="number" step="1" min="1"
-																	max="${listDetailsShoppingCar.stock}" name="" value="${listDetailsShoppingCar.number}"
-																	title="Qty"
-																	class="input-text qty text" size="4"
-																	pattern="[0-9]*" inputmode="numeric"
-																	ng-model="num_${a.index}">
+																	max="${listDetailsShoppingCar.stock}"
+																	name="listDetailsShoppingCar.number"
+																	value="${listDetailsShoppingCar.number}" title="Qty"
+																	class="input-text qty text" size="4" pattern="[0-9]*"
+																	inputmode="numeric" ng-model="num_${a.index}">
 															</div>
 														</td>
 														<td class="product-subtotal" data-title="Total"><span
@@ -158,24 +161,50 @@
 																type="text" class="allPriceId${a.index}"
 																readonly="readonly"
 																style="border: none;background-color:transparent;"
-																value="{{num_${a.index }*price_${a.index }}}"></span>
-														</td>
-
+																value="{{num_${a.index } * price_${a.index }}}"></span></td>
 													</tr>
 												</c:forEach>
-												<tr>
-													<td colspan="6" class="actions">
-														<div class="coupon">
-															<label for="coupon_code">Coupon:</label> <input
-																type="text" name="coupon_code" class="input-text"
-																id="coupon_code" value="" placeholder="优惠代码"> <input
-																type="submit" class="button" name="apply_coupon"
-																value="使用优惠券">
-														</div> <input type="submit" class="button" name="update_cart"
-														value="更新购物车">
-													</td>
-												</tr>
 											</tbody>
+											<tr>
+												<td colspan="6">
+													<div>
+														<%
+															Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
+																																						ShoppingCarPagination pagination=(ShoppingCarPagination)map.get("shoppingCarPagination");
+														%>
+														<nav aria-label="Page navigation">
+														<ul class="pagination">
+															<li><a href="<%=pagination.getCurentPage()==1?"javascript:;":"shoppingCar/detailsShoppingCar?curentPage="+(pagination.getCurentPage()-1) %>" style="<%=pagination.getCurentPage()==1?"color: #ccc":""%>" aria-label="Previous"> <span
+																	aria-hidden="true">&laquo;</span>
+															</a></li>
+															<%
+																for(int i=1;i<=pagination.getPageCount();i++) {
+															%>
+															<li><a href="shoppingCar/detailsShoppingCar?curentPage=<%=i %>" style="<%=pagination.getCurentPage()==i?"color:red":""%>"><%=i%></a></li>
+															<%
+																}
+															%>
+															<li><a href="<%=pagination.getCurentPage()==pagination.getPageCount()?"javascript:;":"shoppingCar/detailsShoppingCar?curentPage="+(pagination.getCurentPage()+1) %>" style="<%=pagination.getCurentPage()==pagination.getPageCount()?"color: #ccc":""%>" aria-label="Next"> <span
+																	aria-hidden="true">&raquo;</span>
+															</a></li>
+														</ul>
+														</nav>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="6" class="actions">
+													<div class="coupon">
+														<label for="coupon_code">Coupon:</label> <input
+															type="text" name="coupon_code" class="input-text"
+															id="coupon_code" value="" placeholder="优惠代码"> <input
+															type="submit" class="button" name="apply_coupon"
+															value="使用优惠券">
+													</div> <input type="submit" class="button" name="update_cart"
+													value="更新购物车">
+												</td>
+											</tr>
+
 										</table>
 									</form>
 
@@ -387,21 +416,10 @@
 		src="resource/front_bootstrap/js/main.min.js"></script>
 	<script type="text/javascript"
 		src="resource/plugins/angularjs/angular.min.js"></script>
+	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			/*  console.log("123");
-			$(".cars12").find(".car12").each(function() {
-				$(".stock").bind('change input',
-				function() {
-					var price = $(".price").val();
-					var stock = $(".stock").val();
-					var allPrice = price * stock;
-					//计算结果精确小数点后面5位
-					allPrice = parseFloat(allPrice.toFixed(5));
-					$(".allPriceId").val(allPrice);
-				});
-			}); */
-});
+		});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {
 			var scroll_top = $(window).scrollTop();
@@ -442,6 +460,5 @@
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
 	</script>
-	<!--<![endif]-->
 </body>
 </html>

@@ -14,6 +14,7 @@ import com.brick.squad.mapper.CollectionMapper;
 import com.brick.squad.pojo.Collection;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaginationCollection;
 import com.brick.squad.util.Util;
 
 @Transactional
@@ -56,7 +57,7 @@ public class CollectionServiceImpl implements CollectionService {
 		return data;
 	}
 
-	public Map<String, Object> findCollectionMessage(Pagination pagination){
+	public Map<String, Object> findCollectionMessage(PaginationCollection pagination){
 		List<ArticleExpand> articleExpands=collectionMapper.findCollectionMessage(pagination);
 		pagination.setCount(collectionMapper.findCollectionMessageCount(pagination));
 		Map<String, Object> map=new HashMap<String, Object>();

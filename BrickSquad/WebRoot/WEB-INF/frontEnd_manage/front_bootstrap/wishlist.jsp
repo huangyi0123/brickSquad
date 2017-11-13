@@ -1,3 +1,4 @@
+<%@page import="com.brick.squad.util.PaginationCollection"%>
 <%@page import="com.brick.squad.util.Pagination"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
@@ -70,22 +71,7 @@
 </head>
 
 <body class="page woocommerce-wishlist woocommerce woocommerce-page">
-	<%
-		int count = 0; //总行数
-		int page_count = 1; //开始条数
-		int page_total = 1; //，总页码
-		int page_current = 1; //首页
-		int page_size = 20;//一页的行数
-		String page_cu = request.getParameter("page_current");
-		if (page_cu == null) {
-			page_cu = "1";
-		}
-		page_current = Integer.parseInt(page_cu);
-		if (page_current < 0) {
-			page_current = 1;
-		}
-		page_count = page_count + page_current * page_size;
-	%>
+	
 
 	<div class="body-wrapper theme-clearfix">
 		<jsp:include page="shop_header.jsp"></jsp:include>
@@ -188,7 +174,8 @@
 										<td colspan="6">
 											<%
 												Map<String,Object> map=(Map<String,Object>)request.getAttribute("collectionMessage");
-																													Pagination pagination=(Pagination)map.get("pagination");
+												PaginationCollection pagination=(PaginationCollection)map.get("pagination");
+												
 											%> <nav aria-label="Page navigation">
 											<ul class="pagination">
 												<li><a

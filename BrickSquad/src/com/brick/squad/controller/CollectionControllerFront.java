@@ -27,9 +27,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
+
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaginationCollection;
 
 @Controller
 @RequestMapping("/collectionFront")
@@ -39,7 +41,7 @@ public class CollectionControllerFront {
 	private CollectionService collectionService;
 	
 	@RequestMapping("/collectionMessage")
-	public String collectionMessage(String pid,HttpServletRequest request,Pagination pagination){
+	public String collectionMessage(String pid,HttpServletRequest request,PaginationCollection pagination){
 		//根据登陆Pid获取收藏信息
 		pagination.setUserId("77c9a2dec44911e7aca65254002ec43c");
 		Map<String, Object> articleExpand=collectionService.findCollectionMessage(pagination);

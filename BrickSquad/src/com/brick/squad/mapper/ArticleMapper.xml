@@ -237,7 +237,7 @@
 	</select>
 	
 	<!-- 查询最新上架商品总数 -->
-	<select id="findFrontTimeNumber">
+	<select id="findFrontTimeNumber" resultType="Integer">
 	 select COUNT(*) from article
 	 #{begin},#{limitPage}
 	</select>
