@@ -122,5 +122,10 @@ public interface ArticalService {
 	 * 根据价格范围查询商品	
 	 * */
 	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
+	/**
+	 * 导航搜索框搜索
+	 * */
+	public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
+			String search_category)throws Exception;
 
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -74,6 +75,9 @@
 				}
 			});
 		});
+	}
+	function selectType(){
+		alert("nihao");
 	}
 </script>
 </head>
@@ -221,17 +225,16 @@
 						<div class="widget-inner">
 							<div class="top-form top-search">
 								<div class="topsearch-entry">
-								
-								
-								
+									<c:if test="${url=='toShop' }">
 									<form method="get" action="">
 										<div>
 											<input type="text" value="" name="s"
 												placeholder="Enter your keyword...">
 											<div class="cat-wrapper"">
-												<label class="label-search"> <select
+												<label class="label-search"> 
+												<select
 													name="search_category" class="s1_option"
-													style="width: 150px;>
+													style="width: 150px; onclick="selectType()">
 															<option value="">所有类别</option>
 															<option value="8">女装</option>
 															<option value="14">男装</option>
@@ -253,9 +256,34 @@
 													class="fa fa-search button-search-pro form-button"></button>
 											</div>
 										</form>
+										</c:if>
 										
-										
-										
+										<c:if test="${url=='toShop_left_sidebar' }">
+										<form method="get" action="${pageContext.request.contextPath }/MedicalInstruments/findArticleTitle">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> 
+												<select
+													name="search_category" class="s1_option"
+													style="width: 150px;>
+													
+															<option value="">所有类别</option>
+														
+															<c:forEach var="type" items="${ listType}">
+															<option value="${type.id }">${type.name }</option>
+																</c:forEach>
+														
+													</select>
+													</label>
+												</div>
+
+												<button type="submit" title="Search"
+													class="fa fa-search button-search-pro form-button"></button>
+											</div>
+										</form>
+										</c:if>
 									</div>
 								</div>
 							</div>
@@ -394,6 +422,7 @@
 							</div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -781,7 +810,7 @@
 							<ul id="menu-primary-menu-1"
 								class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
 								<li class="active dropdown menu-home etrostore-mega-menu level1">
-									<a href="common/toShop" class="item-link dropdown-toggle">
+									<a href="shopIndex/toShop" class="item-link dropdown-toggle">
 										<span class="have-title"> <span class="menu-color"
 											data-color="#f034ca"></span> <span class="menu-title">首页</span>
 									</span>
