@@ -147,21 +147,32 @@
 
 <body
 	class="archive post-type-archive woocommerce post-type-archive-product has-left-sidebar has-left-product-sidebar">
-
-
-
 	<div class="body-wrapper theme-clearfix">
-		<jsp:include page="shop_header.jsp"></jsp:include>
+	<jsp:include page="shop_header.jsp"></jsp:include>
+
+		<div class="listings-title">
+
+			<div class="container">
+				<div class="wrap-title">
+
+					<div class="bread">
+						<div class="breadcrumbs theme-clearfix">
+							<div class="container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 		<div class="container">
 			<div class="wrap-title">
-				<h1>商品</h1>
+				<h1 style="font-size:2em;">商品</h1>
 
-				<div class="bread">
+				<div class="bread" >
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb">
+							<ul class="breadcrumb" style="padding-left:92%;width:100%;">
 								<li><a href="common/toShop">首页</a> <span
 									class="go-page"></span></li>
 
@@ -172,7 +183,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
 
 	<div class="container">
 		<div class="row">
@@ -207,6 +218,8 @@
 							<!-- OWL LIGHT SLIDER -->
 						</div>
 					</div>
+					
+				
 
 					<div class="widget-2 widget-last widget sw_brand-2 sw_brand">
 						<div class="widget-inner">
@@ -368,6 +381,7 @@
 										</div>
 									</div>
 								</div>
+									
 
 										<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
@@ -1060,6 +1074,7 @@
 			</div>
 		</div>
 	</div>
+		</div>
 	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
