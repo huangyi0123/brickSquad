@@ -41,6 +41,7 @@ public class MedicalInstrumentsController {
 	@Autowired
 	@Qualifier("collectionService")
 	private CollectionService collectionService;
+
 	/***
 	 * 医疗器械页面controller
 	 * 
@@ -247,48 +248,67 @@ public class MedicalInstrumentsController {
 		String data = jsonArray.fromObject(list).toString();
 		return data;
 	}
-	
+
 	@RequestMapping("/addCartMedicalInstruments")
 	@ResponseBody
-	public String addCartMedicalInstruments(HttpServletRequest request, String articleId) throws Exception{
-		User user=(User) request.getSession().getAttribute("user");
-		List<ShoppingCar> shoppingCart=shoppingCarService.AddShoppingCarByArticleId(articleId);
+	public String addCartMedicalInstruments(HttpServletRequest request,
+			String articleId) throws Exception {
 		String data;
-		if(shoppingCart.size()!=0){
-			data="1";
-		}else{
-			ShoppingCar shoppingCar=new ShoppingCar();
-			shoppingCar.setArticleId(articleId);
-			shoppingCar.setDate(new Date());
-			shoppingCar.setNumber(1);
-			shoppingCar.setPerId(user.getId());
-			shoppingCarService.insertShoppingCar(shoppingCar);
-			data="2";
+		User user = (User) request.getSession().getAttribute("user");
+		if (user == null) {
+			data = "3";
+		} else {
+
+			List<ShoppingCar> shoppingCart = shoppingCarService
+					.AddShoppingCarByArticleId(articleId);
+
+			if (shoppingCart.size() != 0) {
+				data = "1";
+			} else {
+				ShoppingCar shoppingCar = new ShoppingCar();
+				shoppingCar.setArticleId(articleId);
+				shoppingCar.setDate(new Date());
+				shoppingCar.setNumber(1);
+				shoppingCar.setPerId(user.getId());
+				shoppingCarService.insertShoppingCar(shoppingCar);
+				data = "2";
+			}
 		}
 		return data;
 	}
+
 	@RequestMapping("/addWishlistMedicalInstruments")
 	@ResponseBody
-	public String addWishlistMedicalInstruments(HttpServletRequest request, String articleId) throws Exception{
-		User user=(User) request.getSession().getAttribute("user");
-		List<Collection> listCollection=collectionService.findCollectionByArticleId(articleId);
+	public String addWishlistMedicalInstruments(HttpServletRequest request,
+			String articleId) throws Exception {
+		User user = (User) request.getSession().getAttribute("user");
 		String data;
-		if(listCollection.size()!=0){
-			data="1";
-		}else{
-			Collection collection=new Collection();
-			collection.setArticleId(articleId);
-			collection.setColDate(new Date());
-			collection.setPerId(user.getId());
-			collectionService.insertCollection(collection);
-			data="2";
+		if (user == null) {
+			data = "3";
+		} else {
+
+			List<Collection> listCollection = collectionService
+					.findCollectionByArticleId(articleId);
+
+			if (listCollection.size() != 0) {
+				data = "1";
+			} else {
+				Collection collection = new Collection();
+				collection.setArticleId(articleId);
+				collection.setColDate(new Date());
+				collection.setPerId(user.getId());
+				collectionService.insertCollection(collection);
+				data = "2";
+			}
 		}
 		return data;
 	}
-	
-	
-	/**按价格范围查找商品
-	 * @throws Exception */
+
+	/**
+	 * 按价格范围查找商品
+	 * 
+	 * @throws Exception
+	 */
 	@RequestMapping("/findPriceScope")
 	public String findPriceScope(HttpServletRequest request,
 			PageBeanUtil pageBean) throws Exception {
@@ -314,9 +334,10 @@ public class MedicalInstrumentsController {
 		request.setAttribute("listArticle2", listArticle2);
 		int page = pageBean.getPage();
 		int limitPage = pageBean.getLimitPage();
-		double minPrice=pageBean.getMin_price();
-		double maxPrice=pageBean.getMax_price();
-		pageBean = articleService.findPriceScope(page, limitPage, minPrice, maxPrice);
+		double minPrice = pageBean.getMin_price();
+		double maxPrice = pageBean.getMax_price();
+		pageBean = articleService.findPriceScope(page, limitPage, minPrice,
+				maxPrice);
 		List<Article> listArt = pageBean.getList();
 		List<Article> listArticle5 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
