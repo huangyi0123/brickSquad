@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 
 <!-- BOOTSTRAP 3.3.7 CSS -->
-<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" /> -->
 
 <!-- SLICK v1.6.0 CSS -->
 <link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
@@ -46,12 +46,15 @@
 <link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 
-
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet"
+	type="text/css" media="all" />
+<link href="resource/plugins/bootstrap/bootstrap.min.css"
+	rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
 <link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
-<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+
 <script type="text/javascript">
 	function findSecondMedical(typeId,aid){
 		$.ajax({
@@ -82,40 +85,94 @@
 			$("#secondMedical").append(html);
 		}
 	}
-	
+</script>
+<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript">
+	/* 添加购物车JS，ajax提交 */
 	function addCart(id,o){
-		alert("添加成功");
-		$(o).css('background','red');
-		$ajax({
-			url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
-		 	data:{id:id},
-		  	type:'post', 
-			success:function(data){
-				
-			}
-		});
-	};
-
+		var user = '${user}';
+	
+		if(user!=''){
+			$.ajax({
+				  url:"${pageContext.request.contextPath}/MedicalInstruments/addCartMedicalInstruments",
+				  data:{articleId:id},
+				  type:'post', 
+				  success:function(data){
+					  var json = eval(data);
+					 if(json=='1'){
+						 alert("商品已存在");
+						 $(o).css('background','red');
+					 }else {
+						 
+						 alert("添加商品成功");
+						 $(o).css('background','red');
+					 }
+				  }
+				  });	
+		}else{
+			 alert("还没有登录！"); 
+		}
+		
+		
+	}
+</script>
+	<script type="text/javascript">
+	/* 添加购物车JS，ajax提交 */
+	function addWish(id,o){
+		var user = '${user}';
+		if(user!=''){
+			$.ajax({
+				  url:"${pageContext.request.contextPath}/MedicalInstruments/addWishlistMedicalInstruments",
+				  data:{articleId:id},
+				  type:'post', 
+				  success:function(data){
+					  var json = eval(data);
+					 if(json=='1'){
+						 alert("商品已存");
+						 $(o).css('background','red');
+					 }else {
+						 
+						 alert("收藏商品成功");
+						 $(o).css('background','red');
+					 }
+				  }
+				  });	
+		}else{
+			alert("还没有登录！");
+		}
+		
+	}
 </script>
 </head>
 
 <body
 	class="archive post-type-archive woocommerce post-type-archive-product has-left-sidebar has-left-product-sidebar">
-
-
-
 	<div class="body-wrapper theme-clearfix">
-		<jsp:include page="shop_header.jsp"></jsp:include>
+	<jsp:include page="shop_header.jsp"></jsp:include>
+
+		<div class="listings-title">
+
+			<div class="container">
+				<div class="wrap-title">
+
+					<div class="bread">
+						<div class="breadcrumbs theme-clearfix">
+							<div class="container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 		<div class="container">
 			<div class="wrap-title">
-				<h1>商品</h1>
+				<h1 style="font-size:2em;">商品</h1>
 
-				<div class="bread">
+				<div class="bread" >
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb">
+							<ul class="breadcrumb" style="padding-left:92%;width:100%;">
 								<li><a href="common/toShop">首页</a> <span
 									class="go-page"></span></li>
 
@@ -126,7 +183,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
 
 	<div class="container">
 		<div class="row">
@@ -161,6 +218,8 @@
 							<!-- OWL LIGHT SLIDER -->
 						</div>
 					</div>
+					
+				
 
 					<div class="widget-2 widget-last widget sw_brand-2 sw_brand">
 						<div class="widget-inner">
@@ -302,6 +361,14 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+											<c:if test="${ url=='findPriceScope'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 													<c:if test="${url=='toShop_left_sidebar'}">
 												
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
@@ -314,6 +381,7 @@
 										</div>
 									</div>
 								</div>
+									
 
 										<nav class="woocommerce-pagination pull-right"> <span
 									class="note">页数:</span>
@@ -362,10 +430,93 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+								
+								
+								<c:if test="${ url=='findPriceScope'}">
+							
+									
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
 								</ul>
 								</nav>
 							</div>
 							<div class="clear"></div>
+							
+							
+							
+							
+							<!-- 按价格范围查询商品信息 -->
+							<c:if test="${url =='findPriceScope'}">
+										<ul class="products-loop row grid clearfix">
+							<!-- 商品分页查询 -->
+							
+							<c:if test="${ pageBean.limitPage}!=''">
+							<c:forEach var="article4" items="${ pageBean.list}">
+								<li
+									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-255 product type-product status-publish has-post-thumbnail product_cat-electronics product_cat-home-appliances product_cat-vacuum-cleaner product_brand-apoteket first instock sale featured shipping-taxable purchasable product-type-simple">
+									<div class="products-entry item-wrap clearfix">
+										<div class="item-detail">
+											<div class="item-img products-thumb">
+												<span class="onsale">Sale!</span> <a
+													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}">
+													<div class="product-thumb-hover" style="width:200px;height:200px;">
+														<img width="300" height="300"
+															src="resource/image/articleImg/${article4.image }"
+															class="attachment-shop_catalog size-shop_catalog wp-post-image"
+															alt=""
+															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
+													</div>
+												</a>
+											</div>
+											<div class="item-content products-content">
+												<div class="reviews-content">
+													<div class="star">
+														<span style="width: 63px"></span>
+													</div>
+												</div>
+
+												<h4>
+													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}" title="${article4.aname }">${article4.aname }</a>
+												</h4>
+
+												<span class="item-price"><del>
+														<span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
+													</del> <ins>
+														<span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">￥</span>${article4.price }</span>
+													</ins></span>
+
+												<div class="item-description">${article4.describes }</div>
+											</div>
+										</div>
+									</div>
+								</li>
+					</c:forEach>
+							
+							</c:if>
+						
+							
+							</ul>
+							</c:if>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							<ul class="products-loop row grid clearfix">
 							<!-- 商品分页查询 -->
 							
@@ -438,10 +589,10 @@
 														title="加入购物车" onclick="addCart('${article3.id}',this)"  
 														id="onclicka"></a> 
 													<div class="yith-wcwl-add-to-wishlist">
-														<div class="yith-wcwl-add-button show"
+														<div class="show"
 															style="display:block">
 															<a href="javascript:;" rel=""
-																title="添加收藏">添加收藏</a>
+																title="添加收藏" onclick="addWish('${article3.id}',this)">添加收藏</a>
 														</div>
 													</div>
 												</div>
@@ -472,10 +623,10 @@
 														title="加入购物车" onclick="addCart('${article3.id}',this)" 
 														 id="onclicka"> </a> 
 													<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-														<div class="yith-wcwl-add-button show"
+														<div class=" show"
 															style="display:block">
 															<a href="javascript:;" rel="nofollow"
-																title="添加收藏" >添加收藏!</a> 
+																title="添加收藏" onclick="addWish('${article3.id}',this)" >添加收藏!</a> 
 														</div>
 													</div>
 												</div>
@@ -544,6 +695,15 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+												
+												
+												<c:if test="${ url=='findPriceScope'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
 													<c:if test="${url=='toShop_left_sidebar'}">
 												
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
@@ -605,6 +765,22 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+								
+									
+								<c:if test="${ url=='findPriceScope'}">
+							
+									
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								</ul>
 								</nav>
 							</div>
@@ -693,7 +869,7 @@
 						</h2>
 					</div>
 
-					<form method="get" action="">
+					<form method="get" action="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope">
 						<div class="price_slider_wrapper">
 							<div class="price_slider" style="display:none;"></div>
 							<div class="price_slider_amount">
@@ -898,6 +1074,7 @@
 			</div>
 		</div>
 	</div>
+		</div>
 	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
@@ -937,7 +1114,7 @@
 	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
-
+<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {

@@ -13,7 +13,15 @@
 		FROM collection
 		WHERE id=#{id};
 	</select>
-
+	
+	<select id="findCollectionByArticleId" resultType="Collection"
+		parameterType="String">
+		SELECT
+		<include refid="prop" />
+		FROM collection
+		WHERE article_id=#{articleId};
+	</select>
+	
 	<insert id="insertCollection" parameterType="Collection">
 		<selectKey keyProperty="id" resultType="String" order="BEFORE">
 			select replace(uuid(),'-','') from dual

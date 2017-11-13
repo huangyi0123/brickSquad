@@ -74,6 +74,10 @@ public interface ArticleMapper {
 	public List<Article> findOrderByMedicalInstrumentsDate(PageBeanUtil pageBean);
 
 	public List<Article> findOrderByMedicalInstrumentsPop(PageBeanUtil pageBean);
+	/**
+	 * 根据价格范围查询商品
+	 * */
+	public List<Article> findPriceScope(PageBeanUtil pageBean);
 
 	/*
 	 * public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int
@@ -114,6 +118,7 @@ public interface ArticleMapper {
 	 */
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 
+	public List<NewsArticle> findNewsArticle(Map<String, Object> map);
 
 
 }

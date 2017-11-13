@@ -67,5 +67,12 @@ public class CollectionServiceTest {
 		pagination.setPageSize(4);
 		System.out.println(collectionService.collectionPagination(pagination));
 	}
+	@Test
+	public void findCollectionByArticleId() throws Exception{
+		List<Collection> listCollection=collectionService.findCollectionByArticleId("8b1b72d6b70611e78d4f5254002ec43c");
+		for(Collection collection:listCollection){
+			System.out.println("==============="+collection.getArticleId());
+		}
+	}
 
 }

@@ -3,6 +3,7 @@ package com.brick.squad.controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,7 +25,7 @@ public class NewDealsController {
 	@Qualifier("articleService")
 	private ArticalService articleService;
 
-	@RequestMapping("/tonew_deals")
+	@RequestMapping("/tonew_dealsqw")
 	public String findFrontTime(HttpServletRequest request) {
 		List<NewsArticle> NewsArticleList = articleService.findFrontTime();
 
@@ -59,14 +60,16 @@ public class NewDealsController {
 		return "frontEnd_manage/front_bootstrap/new_deals";
 	}
 	
-	@RequestMapping("/findFrontTimeNumber")
-	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageBean){
-		int page = pageBean.getPage();
-		int pageSize=pageBean.getPageSize();
-		int startRow=pageBean.getStartRow();
-		request.setAttribute("page", page);
-		request.setAttribute("pageSize", pageSize);
-		request.setAttribute("startRow", startRow);
+	@RequestMapping("/tonew_deals")
+	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageUtil){
+		String  path = request
+				.getSession()
+				.getServletContext()
+				.getRealPath("");
+		Map<String, Object> map=articleService.findArticlePage(pageUtil, path, "a.shelfdate");
+	
+		request.setAttribute("map", map);
+		System.out.println(map.size()+"------------------------------------------");
 		return "frontEnd_manage/front_bootstrap/new_deals";	
 	}
 	

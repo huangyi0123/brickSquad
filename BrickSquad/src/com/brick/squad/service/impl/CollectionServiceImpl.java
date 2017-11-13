@@ -66,6 +66,15 @@ public class CollectionServiceImpl implements CollectionService {
 		return map;
 		
 	}
+
+	@Override
+	/**
+	 * 根据收藏的商品ID查询信息
+	 * */
+	public List<Collection> findCollectionByArticleId(String articleId) throws Exception {
+		List<Collection> listCollection=collectionMapper.findCollectionByArticleId(articleId);
+		return listCollection;
+	}
 	
 
 }

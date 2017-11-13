@@ -95,7 +95,7 @@ public interface ArticalService {
 	public PageBeanUtil<Article> findOrderByMedicalInstrumentsPop(int page ,int sequence,int limitPage)throws Exception;
 
 	/********最新商品分页查询 *********/
-	public PageUtil findArticlePage(int page);
+	public Map<String, Object> findArticlePage(PageUtil pageUtil,String path,String order);
 	
 
 	public int selectArticleRatedTotalById(String id);
@@ -118,5 +118,9 @@ public interface ArticalService {
 
 	public List<Article> findSecondMedicalInstruments(String typeId)
 			throws Exception;
+	/**
+	 * 根据价格范围查询商品	
+	 * */
+	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
 
 }

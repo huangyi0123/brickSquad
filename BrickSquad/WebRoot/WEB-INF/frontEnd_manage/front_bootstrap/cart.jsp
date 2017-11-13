@@ -161,7 +161,7 @@
 																type="text" class="allPriceId${a.index}"
 																readonly="readonly"
 																style="border: none;background-color:transparent;"
-																value="{{num_${a.index } * price_${a.index }}}"></span></td>
+																value="{{num_${a.index }*price_${a.index }}}"></span></td>
 													</tr>
 												</c:forEach>
 											</tbody>

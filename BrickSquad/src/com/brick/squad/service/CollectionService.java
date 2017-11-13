@@ -51,5 +51,10 @@ public interface CollectionService {
 
 	public Map<String, Object> findCollectionMessage(PaginationCollection pagination);
 	
+	/**
+	 * 根据收藏的商品ID查询信息
+	 * */
+	public List<Collection> findCollectionByArticleId(String articleId)throws Exception;
+	
 
 }
