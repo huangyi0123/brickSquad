@@ -45,7 +45,7 @@ public interface CollectionMapper {
 	 * 
 	 * @param id
 	 */
-	public void deleteCollectionById(String id);
+	public void deleteCollectionById(String collectionId);
 
 	/**
 	 * 根据分页条件查询收藏物品信息
