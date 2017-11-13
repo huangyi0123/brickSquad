@@ -22,7 +22,7 @@ import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
@@ -30,7 +30,7 @@ import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
 
 @Transactional
-public class ArticleServiceImpl implements ArticalService {
+public class ArticleServiceImpl implements ArticleService {
 	@Autowired
 	@Qualifier("articleMapper")
 	private ArticleMapper articleMapper;

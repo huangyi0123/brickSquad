@@ -11,14 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.brick.squad.expand.ArticleExpand;
-import com.brick.squad.service.ArticalService;
+import com.brick.squad.service.ArticleService;
 
 @Controller
 @RequestMapping("/deals")
 public class DealsController {
 	@Autowired
 	@Qualifier("articleService")
-	private ArticalService articleService;
+	private ArticleService articleService;
 
 	@RequestMapping("/todeals")
 	public String deals(HttpServletRequest request) {
