@@ -17,6 +17,16 @@ public class ShopActivities {
 	@NotEmpty(message = "商品名不能为空！")
 	private String articleId;
 	private String activePrice;
+	
+	private Integer buyersNumber;
+
+	public Integer getBuyersNumber() {
+		return buyersNumber;
+	}
+
+	public void setBuyersNumber(Integer buyersNumber) {
+		this.buyersNumber = buyersNumber;
+	}
 
 	public String getActivePrice() {
 		return activePrice;

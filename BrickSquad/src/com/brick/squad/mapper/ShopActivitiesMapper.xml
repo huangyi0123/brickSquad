@@ -8,7 +8,7 @@
 		parameterType="String">
 		select id,type_id typeId,start_time startTime,end_time
 		endTime,business_id
-		businessId,article_id articleId from
+		businessId,article_id articleId,buyersNumber buyersNumber from
 		shop_activities where id=#{id}
 	</select>
 

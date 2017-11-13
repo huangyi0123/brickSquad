@@ -9,7 +9,17 @@ import com.brick.squad.pojo.Article;
  * 
  */
 public class NewsArticle extends Article {
+
 	private int totals;
+	private int buyersNumber;
+	
+	public int getBuyersNumber() {
+		return buyersNumber;
+	}
+
+	public void setBuyersNumber(int buyersNumber) {
+		this.buyersNumber = buyersNumber;
+	}
 
 	public int getTotals() {
 		return totals;

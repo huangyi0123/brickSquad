@@ -30,7 +30,7 @@ public class ArticleServiceTest {
 	@Test
 	public void findArticleById() throws Exception {
 		System.out.println(articleService.findArticleById(
-				"afdfddacc3bb11e7aca65254002ec43c").toString());
+				"e6c34424be0911e7aca65254002ec43c").getBuyersNumber());
 
 	}
 

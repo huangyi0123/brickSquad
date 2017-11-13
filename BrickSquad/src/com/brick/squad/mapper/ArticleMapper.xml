@@ -5,7 +5,7 @@
 	<!-- 查询 -->
 	<select id="findArticleById" resultType="article" parameterType="String">
 		select id,aname aname,type_id typeId,business_id
-		businessId,describes,price,stock,image from article where id=#{id}
+		businessId,describes,price,stock,image,buyersNumber buyersNumber from article where id=#{id}
 	</select>
 	
 	<insert id="insertArticle" parameterType="article">
@@ -243,7 +243,7 @@
 	<!-- 获取最新添加的商品 -->
 	<select id="findFrontTime" resultType="com.brick.squad.expand.NewsArticle">
 		select
-		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0) totals from article
+		a.id,a.aname,a.price,a.image,a.buyersNumber,COALESCE(nn.total,0) totals from article
 		a left join (select COALESCE(sum(number),0) total ,article_id from
 		order_details group by (article_id))
 		nn on a.id=nn.article_id order by
