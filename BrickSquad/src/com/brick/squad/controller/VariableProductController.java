@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.pojo.OrderRated;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.ArticleService;
+import com.brick.squad.service.OrderDetailsService;
+import com.brick.squad.service.OrdersService;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.VariableProductService;
@@ -34,6 +37,12 @@ import com.brick.squad.service.VariableProductService;
 @RequestMapping("/variableProduct")
 public class VariableProductController {
 	@Autowired
+	@Qualifier("orderDetailsService")
+	private OrderDetailsService orderDetailsService;
+	@Autowired
+	@Qualifier("ordersService")
+	private OrdersService ordersService;
+	@Autowired
 	@Qualifier("articleService")
 	private ArticleService articleService;
 	@Autowired
@@ -47,6 +56,30 @@ public class VariableProductController {
 	private VariableProductService variableProductService;
 
 	/**
+	 * 跳转到订单确认页
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/toconfirm_order")
+	public String toconfirm_order(String orderDetailsId,HttpServletRequest request) throws Exception {
+		Orders orders = new Orders();
+		OrderDetails orderDetails= new OrderDetails();
+		Article article = new Article();
+		if (orderDetailsId != null) {
+			orderDetails=orderDetailsService.findOrderDetailsById(orderDetailsId);
+			if (orderDetails!=null) {
+				article =articleService.findArticleById(orderDetails.getArticleId());
+				orders = ordersService.findOrdersById(orderDetails.getOrdersId());
+			}
+		}
+		request.setAttribute("article", article);
+		request.setAttribute("orders", orders);
+		request.setAttribute("orderDetails", orderDetails);
+		return "frontEnd_manage/front_bootstrap/confirm_order";
+	}
+
+	/**
 	 * 商品详情页立即购买商品
 	 * 
 	 * @param articleNumber
@@ -56,15 +89,20 @@ public class VariableProductController {
 	 * @param request
 	 */
 	@RequestMapping("/userBuyImmediately")
-	public void userBuyImmediately(int articleNumber, String articleId,
+	@ResponseBody
+	public String userBuyImmediately(int articleNumber, String articleId,
 			HttpServletRequest request) throws Exception {
 		User user = (User) request.getSession().getAttribute("user");
 		if (user != null) {
-			variableProductService
+			String orderDetailsId = variableProductService
 					.userBuyImmediatelyAddOrdersandAddOrderDetails(
 							articleNumber, articleId, user.getId());
+			if (orderDetailsId != null) {
+				return orderDetailsId;
+			}
+			return "fail";
 		}
-
+		return "fail";
 	}
 
 	/**

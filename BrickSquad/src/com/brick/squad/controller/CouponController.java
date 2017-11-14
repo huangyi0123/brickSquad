@@ -121,5 +121,4 @@ public class CouponController {
 		request.setAttribute("types", types);
 		return "frontEnd_manage/front_bootstrap/apply_coupon";
 	}
-	
 }

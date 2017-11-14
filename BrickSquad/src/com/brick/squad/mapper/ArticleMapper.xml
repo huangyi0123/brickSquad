@@ -7,7 +7,7 @@
 		select id,aname aname,type_id typeId,business_id
 		businessId,describes,price,stock,image from article where id=#{id}
 	</select>
-	
+
 	<insert id="insertArticle" parameterType="article">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
@@ -16,7 +16,7 @@
 		article(id,aname,type_id,business_id,price,stock,describes,image,shelfdate)
 		values(#{id},#{aname},#{typeId},#{businessId},#{price},#{stock},#{describes},#{id},#{shelfdate})
 	</insert>
-	
+
 	<delete id="deleteArticleById" parameterType="String">
 		delete from article
 		where id=#{id}
@@ -169,27 +169,43 @@
 		#{begin},#{limitPage}
 	</select>
 	<!-- 医疗器械根据商品的价格范围查询商品 -->
-	<select id="findPriceScope" parameterType="com.brick.squad.util.PageBeanUtil" 
-	resultType="article">
-	SELECT a.id,a.aname,a.image,a.price,a.describes
+	<select id="findPriceScope" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="article">
+		SELECT a.id,a.aname,a.image,a.price,a.describes
 		FROM article
-		a JOIN type t ON a.type_id=t.id
-		WHERE t.parent_id=#{parentId} 
+		a JOIN type t ON
+		a.type_id=t.id
+		WHERE t.parent_id=#{parentId}
 		and price
-	BETWEEN #{min_price} AND #{max_price}
-	LIMIT #{begin},#{limitPage}
+		BETWEEN #{min_price} AND #{max_price}
+		LIMIT #{begin},#{limitPage}
 	</select>
 	<!-- 搜索框搜索商品信息 -->
 	<select id="findArticleTitle" parameterType="com.brick.squad.util.PageBeanUtil"
-	resultType="article">
-	SELECT  id,aname,type_id typeId,business_id
-		businessId,describes,price,stock,image,shelfdate 
-		FROM article 
-		WHERE aname REGEXP '#{s}' AND type_id=#{search_category}
+		resultType="article">
+		SELECT id,aname,type_id typeId,business_id
+		businessId,describes,price,stock,image,shelfdate
+		FROM article
+		WHERE
+		aname REGEXP #{s}
+		AND
+		type_id=#{search_category}
+		LIMIT
+		#{begin},#{limitPage}
+	</select>
+	<select id="findArticleTitles" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="article">
+		SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON
+		a.type_id=t.id
+		WHERE t.parent_id=#{parentId}
+		AND
+		type_id=#{search_category}
 		LIMIT #{begin},#{limitPage}
 	</select>
-	
-	
+
+
 	<!-- 获取最新商品 首页 -->
 	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
@@ -225,28 +241,31 @@
 		buyNumber DESC) o on
 		a.id=o.article_id
 	</select>
-<!-- 医疗器械类商品 时间排序-->
-	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"  
-	resultType="Article">
-	SELECT a.id,a.aname,a.image,a.price,a.describes 
-	FROM article a JOIN type t ON a.type_id=t.id 
-	WHERE t.parent_id=#{parentId}
-	ORDER BY 
-	a.shelfdate
-	 DESC  
-	limit #{begin},#{limitPage}
-	</select>	
-	<!-- 医疗器械类商品 人气排序-->
-	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"  
-	resultType="Article">
-	SELECT a.id,a.aname,a.image,a.price,a.describes 
-	FROM article a JOIN type t ON a.type_id=t.id 
-	JOIN order_details o ON o.article_id=a.id
-	WHERE t.parent_id=#{parentId}
-		ORDER BY o.number DESC
-	limit #{begin},#{limitPage}
+	<!-- 医疗器械类商品 时间排序 -->
+	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="Article">
+		SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{parentId}
+		ORDER BY
+		a.shelfdate
+		DESC
+		limit #{begin},#{limitPage}
 	</select>
-	
+	<!-- 医疗器械类商品 人气排序 -->
+	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="Article">
+		SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		JOIN order_details o ON
+		o.article_id=a.id
+		WHERE t.parent_id=#{parentId}
+		ORDER BY o.number DESC
+		limit #{begin},#{limitPage}
+	</select>
+
 
 	<!-- 获取最新添加的商品 -->
 	<select id="findFrontTime" resultType="com.brick.squad.expand.NewsArticle">
@@ -255,14 +274,15 @@
 		a left join (select COALESCE(sum(number),0) total ,article_id from
 		order_details group by (article_id))
 		nn on a.id=nn.article_id order by
-		a.shelfdate DESC 
+		a.shelfdate DESC
 	</select>
-	
+
 	<!-- 查询最新上架商品总数 -->
 	<select id="findFrontTimeNumber" resultType="Integer">
-	 select COUNT(*) from article
+		select COUNT(*) from
+		article
 	</select>
-	
+
 	<select id="findNewsArticle" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		select
@@ -273,7 +293,24 @@
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id order by
-		${order} DESC 
+		${order} DESC
 		LIMIT #{skli},#{take}
+	</select>
+	<!--查询用户最近购买的商品 -->
+	<select id="findUserArticle" parameterType="map"
+		resultType="com.brick.squad.expand.NewsArticle">
+		SELECT a.id,a.aname,a.price,a.image,COALESCE(s.n,0) totals
+		FROM (SELECT * FROM article
+		WHERE id in(
+		SELECT DISTINCT( od.article_id)
+		id FROM order_details od JOIN
+		(SELECT * FROM orders o WHERE
+		o.buy_id=#{userId}
+		ORDER BY o.production_date
+		DESC) o
+		on o.id=od.orders_id))a LEFT JOIN
+		(SELECT count(*) n,id FROM
+		order_details od GROUP BY od.article_id) s ON
+		a.id=s.id LIMIT 0,#{take}
 	</select>
 </mapper>

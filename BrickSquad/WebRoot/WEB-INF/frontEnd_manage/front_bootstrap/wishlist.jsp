@@ -161,9 +161,11 @@
 												<td class="product-stock-status">
 													${ArticleExpand.stock}</td>
 
-												<td class="product-add-to-cart"><a rel="nofollow" href="collectionFront/addShopCar?articleId=${ArticleExpand.id}"
-													class="button product_type_simple add_to_cart_button ajax_add_to_cart add_to_cart button alt">添加至购物车</a>
+												<td class="product-add-to-cart"><a rel="nofollow" 
+												href="collectionFront/addShopCar?articleId=${ArticleExpand.id}&perId=${ArticleExpand.perId}"
+													class="ajax_add_to_cart add_to_cart button">添加至购物车</a>
 												</td>
+												<%-- class="<%request.getAttribute("class");%>" --%>
 											</tr>
 
 										</c:forEach>

@@ -293,7 +293,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Map<String, Object> shopIndex() {
+	public Map<String, Object> shopIndex(String userId) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> m = new HashMap<>();
 		// 最新商品
@@ -318,6 +318,18 @@ public class ArticleServiceImpl implements ArticleService {
 		// 秒杀
 		List<SecKill> secKills = shopActivitiesMapper.secKillIndex();
 		map.put("secKills", secKills);
+		//猜你喜欢
+		if (userId==null) {
+			map.put("myArticle", rArticles);
+			System.err.println("---------------------------");
+			map.put("myArticleTop", aNewsArticlesTop);
+		}else {
+			map.put("take", 6);
+			map.put("userId", userId);
+			map.put("myArticle", articleMapper.findUserArticleIndex(map));
+			map.put("take", 5);
+			map.put("myArticleTop", articleMapper.findUserArticleIndex(map));
+		}
 		return map;
 	}
 
@@ -686,10 +698,10 @@ public class ArticleServiceImpl implements ArticleService {
 			int begin = (page - 1) * limitPage;
 			pageBean.setBegin(begin);
 			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper.findPriceScope(pageBean);
+			List<Article> list = articleMapper.findArticleTitle(pageBean);
 			pageBean.setList(list);
 
-		} else {
+		} else{
 
 			// 设置当前页数:
 			pageBean.setPage(page);
@@ -717,11 +729,79 @@ public class ArticleServiceImpl implements ArticleService {
 			int begin = (page - 1) * limitPage;
 			pageBean.setBegin(begin);
 			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper.findPriceScope(pageBean);
+			List<Article> list = articleMapper.findArticleTitle(pageBean);
 			pageBean.setList(list);
 		}
 		return pageBean;
 	}
 
+	@Override
+	public PageBeanUtil findArticleTitles(int page, int limitPage,
+			String search_category) {
+		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
+		if (page == 0 ||limitPage==0) {
+			page = 1;
+			limitPage=12;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setSearch_category(search_category);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findArticleTitles(pageBean);
+			pageBean.setList(list);
+
+		} else{
+
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setSearch_category(search_category);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findArticleTitles(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	
+	}
 	
 }
