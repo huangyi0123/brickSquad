@@ -97,4 +97,9 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersExpand;
 	}
 
+	@Override
+	public void updateOrdersreceivingAddressById(Orders orders) {
+		ordersMapper.updateOrdersreceivingAddressById(orders);
+	}
+
 }

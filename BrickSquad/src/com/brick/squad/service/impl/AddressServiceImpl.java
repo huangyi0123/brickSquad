@@ -178,4 +178,10 @@ public class AddressServiceImpl implements AddressService {
 		// TODO Auto-generated method stub
 		return addressMapper.findByIdAllAddress(id);
 	}
+
+	@Override
+	public List<Address> findAddressByBuyersId(String buyersId) {
+		// TODO Auto-generated method stub
+		return addressMapper.findAddressByBuyersId(buyersId);
+	}
 }
