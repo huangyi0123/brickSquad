@@ -219,8 +219,8 @@
 
 	<div class="content-bottom">
 		<div class="btm-grids">
-			<div class="col-md-4 btm-grid back-col1 text-center">
-				<img src="resource/image/bbbb.png" alt="" />
+			<div class="col-md-4 btm-grid back-col1 text-center"><!-- 
+				<img src="resource/image/timg.jpg" alt="" /> -->
 			</div>
 			<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48D2D2;">
@@ -242,7 +242,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
-				<img src="resource/image/bbb1.png" alt="" />
+				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
 			</div>
 			<div class="clearfix"></div>
 		</div>
