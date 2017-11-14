@@ -7,11 +7,21 @@
 	margin-left: -10px;
 }
 
-/* .back-col1{
-	background-image: url('../image/note_img3.jpg');
+.back-col1{
+	background-image: url('../image/online.jpg');
 	width: 449px;
 	height: 406.58px;
-} */
+	background-size: 100% 100%;
+	background-position: center center;
+}
+
+.back-col2{
+	background-image: url('../image/activity.jpg');
+	width: 449px;
+	height: 406.58px;
+	background-size: 100% 100%;
+	background-position: center center;
+}
 
 .btm-wid{
 	padding-bottom: 0px;

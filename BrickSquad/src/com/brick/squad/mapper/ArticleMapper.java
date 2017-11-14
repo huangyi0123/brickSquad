@@ -128,7 +128,7 @@ public interface ArticleMapper {
 	 * @param map 参数
 	 * @return 商品列表
 	 */
-	public List<NewsArticle> findUserArticleIndex(Map<String, Object> map);
+	public List<NewsArticle> findUserArticle(Map<String, Object> map);
 
 
 }

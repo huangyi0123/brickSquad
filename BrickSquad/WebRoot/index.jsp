@@ -104,7 +104,7 @@
 				<ul class="layui-nav"
 					style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href=""
+					<li class="layui-nav-item"><a href="shopIndex/toshop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
 					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
@@ -219,8 +219,8 @@
 
 	<div class="content-bottom">
 		<div class="btm-grids">
-			<div class="col-md-4 btm-grid back-col1 text-center">
-				<img src="resource/image/bbbb.png" alt="" />
+			<div class="col-md-4 btm-grid back-col1 text-center"><!-- 
+				<img src="resource/image/timg.jpg" alt="" /> -->
 			</div>
 			<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48D2D2;">
@@ -242,7 +242,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
-				<img src="resource/image/bbb1.png" alt="" />
+				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
 			</div>
 			<div class="clearfix"></div>
 		</div>
