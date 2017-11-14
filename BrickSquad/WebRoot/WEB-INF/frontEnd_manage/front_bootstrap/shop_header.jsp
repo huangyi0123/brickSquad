@@ -294,7 +294,7 @@
 												<select
 													name="search_category" class="s1_option"
 													style="width: 150px;>
-															<option value="">所有类别</option>
+															<option value="" selected="selected">所有类别</option>
 															<c:forEach var="type" items="${ listType}">
 															<option value="${type.id }">${type.name }</option>
 																</c:forEach>

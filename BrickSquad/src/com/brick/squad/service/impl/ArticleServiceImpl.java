@@ -657,7 +657,7 @@ public class ArticleServiceImpl implements ArticleService {
 	public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
 			String search_category) {
 		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
-		if (page == 0 ||limitPage==0&&s==null) {
+		if (page == 0 ||limitPage==0&&s==null||search_category==null) {
 			page = 1;
 			limitPage=12;
 			// 设置当前页数:

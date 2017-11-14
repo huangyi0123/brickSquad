@@ -186,8 +186,10 @@
 		businessId,describes,price,stock,image,shelfdate 
 		FROM article 
 		WHERE
+		<if test="#{s}!=null">
 		 aname REGEXP #{s}
-		AND type_id=#{search_category}
+		AND
+		 </if> type_id=#{search_category}
 		LIMIT #{begin},#{limitPage}
 	</select>
 	
