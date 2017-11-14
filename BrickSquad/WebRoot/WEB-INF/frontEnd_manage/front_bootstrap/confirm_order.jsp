@@ -254,7 +254,6 @@
 															'input:radio[name="addressRadio"]:checked')
 															.val();
 													var orderId=$("#orderId").val();
-													alert(orderId);
 													$
 															.ajax({
 																url : 'variableProduct/userUpdatereceivingAddress?receivingAddressId='+receivingAddressId+'&orderId='+orderId,
