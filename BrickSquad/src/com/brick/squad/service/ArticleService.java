@@ -126,6 +126,6 @@ public interface ArticleService {
 	 * 导航搜索框搜索
 	 * */
 	PageBeanUtil findArticleTitle(int page, int limitPage, String s,
-			String search_category);
+			String search_category)throws Exception;
 
 }
