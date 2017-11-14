@@ -1949,6 +1949,7 @@
 															<!-- slider content -->
 															<div class="resp-slider-container">
 																<div class="slider responsive">
+																<c:forEach var="a" items=""></c:forEach>
 																	<div class="item product">
 																		<!-- 开始 -->
 																		<div class="item-wrap">

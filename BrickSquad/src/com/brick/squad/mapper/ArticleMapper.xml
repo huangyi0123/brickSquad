@@ -297,7 +297,7 @@
 		LIMIT #{skli},#{take}
 	</select>
 	<!--查询用户最近购买的商品 -->
-	<select id="findUserArticle" parameterType="userId"
+	<select id="findUserArticle" parameterType="map"
 		resultType="com.brick.squad.expand.NewsArticle">
 		SELECT a.id,a.aname,a.price,a.image,COALESCE(s.n,0) totals
 		FROM (SELECT * FROM article
