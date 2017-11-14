@@ -3,6 +3,8 @@ package com.brick.squad.service.impl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.faces.flow.builder.ReturnBuilder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -43,7 +45,7 @@ public class VariableProductServiceImpl implements VariableProductService {
 	 * @throws Exception
 	 */
 	@Override
-	public void userBuyImmediatelyAddOrdersandAddOrderDetails(
+	public String userBuyImmediatelyAddOrdersandAddOrderDetails(
 			int articleNumber, String articleId, String userId)
 			throws Exception {
 		// start 订单生成插入开始
@@ -71,19 +73,21 @@ public class VariableProductServiceImpl implements VariableProductService {
 		// 收货地址ID
 		Buyers buyers = new Buyers();
 		buyers = buyersMapper.findBuyersById(userId);
-		orders.setReceivingAddress(buyers.getDeliveryAddressId());
+		if (buyers != null) {
+			orders.setReceivingAddress(buyers.getDeliveryAddressId());
+		}
+
 		ordersMapper.insertOrders(orders);
 		// end 订单生成插入结束
 		// start 订单明细表插入开始
-
 		OrderDetails orderDetails = new OrderDetails();
 		orderDetails.setArticleId(articleId);
 		orderDetails.setNumber(articleNumber);
 		orderDetails.setOrdersId(orders.getId());
 		orderDetails.setSubtotal(money);
 		orderDetailsMapper.insertOrderDetails(orderDetails);
-
 		// end 订单明细表插入结束
+		return orderDetails.getId();
 	}
 
 }
