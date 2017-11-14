@@ -36,6 +36,7 @@ public class ShopIndexController {
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
 		Map<String, Object> map = articalService.shopIndex();
+		request.setAttribute("url", "toShop");
 		System.err.println(map);
 		List<NewsArticle> newsArticles = (List<NewsArticle>) map
 				.get("aNewsArticles");

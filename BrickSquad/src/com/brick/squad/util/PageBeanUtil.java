@@ -15,10 +15,27 @@ public class PageBeanUtil<T> {
 	private Integer shelfdate;
 	private double min_price;
 	private double max_price;
-	
+	private String s;
+	private String search_category;
 	
 
 	
+
+	public String getS() {
+		return s;
+	}
+
+	public void setS(String s) {
+		this.s = s;
+	}
+
+	public String getSearch_category() {
+		return search_category;
+	}
+
+	public void setSearch_category(String search_category) {
+		this.search_category = search_category;
+	}
 
 	public double getMin_price() {
 		return min_price;

@@ -74,4 +74,14 @@ public class Buyers {
 	public void setPersonalInformation(PersonalInformation personalInformation) {
 		this.personalInformation = personalInformation;
 	}
+
+	@Override
+	public String toString() {
+		return "Buyers [id=" + id + ", currentIntegral=" + currentIntegral
+				+ ", historicalIntegral=" + historicalIntegral + ", grade="
+				+ grade + ", deliveryAddressId=" + deliveryAddressId
+				+ ", tname=" + tname + ", personalInformation="
+				+ personalInformation + "]";
+	}
+	
 }

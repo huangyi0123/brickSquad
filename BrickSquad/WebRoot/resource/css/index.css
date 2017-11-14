@@ -6,3 +6,35 @@
 .top-nav ul li{
 	margin-left: -10px;
 }
+
+/* .back-col1{
+	background-image: url('../image/note_img3.jpg');
+	width: 449px;
+	height: 406.58px;
+} */
+
+.btm-wid{
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.title{
+	margin-left:50px;
+	width: 350px;
+	height:40px;
+	line-height:40px;
+	color:#48D2D2;
+	font-size:1.2em;
+	letter-spacing:10px;
+	text-align:center;
+	border: 1px solid #48D2D2;
+}
+
+.city_search{
+	width: 200px;
+	height:40px;
+	border-radius:5px 0 0 5px;
+	margin-left:95px;
+	margin-top:50px;
+	border:1px solid #48D2D2; 
+}

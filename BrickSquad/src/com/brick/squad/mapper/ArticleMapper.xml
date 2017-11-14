@@ -179,7 +179,19 @@
 	BETWEEN #{min_price} AND #{max_price}
 	LIMIT #{begin},#{limitPage}
 	</select>
-	
+	<!-- 搜索框搜索商品信息 -->
+	<select id="findArticleTitle" parameterType="com.brick.squad.util.PageBeanUtil"
+	resultType="article">
+	SELECT  id,aname,type_id typeId,business_id
+		businessId,describes,price,stock,image,shelfdate 
+		FROM article 
+		WHERE
+		<if test="#{s}!=null">
+		 aname REGEXP #{s}
+		AND
+		 </if> type_id=#{search_category}
+		LIMIT #{begin},#{limitPage}
+	</select>
 	
 	
 	<!-- 获取最新商品 首页 -->

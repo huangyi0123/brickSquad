@@ -77,7 +77,8 @@ public class MedicalInstrumentsController {
 		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
 		pageBean.setList(listArticle4);
-		request.setAttribute("url", "toShop_left_sidebar");
+		request.getSession().setAttribute("url", "toShop_left_sidebar");
+	/*	request.setAttribute("url", "toShop_left_sidebar");*/
 		request.setAttribute("pageBean", pageBean);
 
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
@@ -346,5 +347,43 @@ public class MedicalInstrumentsController {
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
-
+	/**
+	 * 头部搜索
+	 * @throws Exception */
+	@RequestMapping("/findArticleTitle")
+	public String findArticleTitle(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
+		/** 医疗器械一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae("yiliaoqixie");
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		List<Article> list = articleService
+				.findArticleImgAndName("laorenjianfuyongpin");
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle("yiliaoqixie");
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+		int page = pageBean.getPage();
+		int limitPage = pageBean.getLimitPage();
+		String s=pageBean.getS();
+		String search_category=pageBean.getSearch_category();
+		pageBean = articleService.findArticleTitle(page, limitPage, s,
+				search_category);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle5 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle5);
+		request.setAttribute("url", "findArticleTitle");
+		request.setAttribute("pageBean", pageBean);
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+	}
 }
