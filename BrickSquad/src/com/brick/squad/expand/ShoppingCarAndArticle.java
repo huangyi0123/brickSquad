@@ -11,7 +11,7 @@ public class ShoppingCarAndArticle {
 	private String aname;
 	private String typeId;
 	private String businessId;
-	private String price;
+	private float price;
 	private int stock;
 	private String describes;
 	private String image;
@@ -28,7 +28,7 @@ public class ShoppingCarAndArticle {
 	}
 
 	public Double getAllPrice() {
-		return allPrice;
+		return (double) (number*price);
 	}
 
 	public void setAllPrice(Double allPrice) {
@@ -99,11 +99,11 @@ public class ShoppingCarAndArticle {
 		this.businessId = businessId;
 	}
 
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

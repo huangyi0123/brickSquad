@@ -66,4 +66,10 @@ public interface ShoppingCarService {
 
 	public Map<String, Object> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination);
 	public Integer findShoppingCarPerIdCount(ShoppingCarPagination shoppingCarPagination);
+	/**
+	 * 根据用户id及购物车id关系购物车时商品数量并返回购物车总额
+	 * @param shoppingCar 修改信息
+	 * @return 购物车总额
+	 */
+	public float updateShoppingNumber(ShoppingCar shoppingCar);
 }

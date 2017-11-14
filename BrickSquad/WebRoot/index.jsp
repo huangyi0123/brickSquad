@@ -108,7 +108,7 @@
 				<ul class="layui-nav"
 					style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href="shopIndex/toshop"
+					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
 					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
