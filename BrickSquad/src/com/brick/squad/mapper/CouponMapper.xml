@@ -33,7 +33,7 @@
 	<select id="findListCouponPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.CouponPaginationExpand">
 		select c.id,c.type_id typeId,c.buyers_id buyersId,c.start_time
-		startTime,c.end_time ,
+		startTime,c.end_time endTime,
 		c.total,c.surplus,c.full_money fullMoney,c.money,c.receive,t.id tId,t.name tName,b.id bId,b.name
 		bName
 		from coupon c JOIN type t on c.type_id=t.id
