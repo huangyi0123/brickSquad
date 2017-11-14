@@ -383,7 +383,7 @@
 							<div class="widget-inner">
 								<ul id="menu-wishlist" class="menu">
 									<li class="menu-wishlist"><a class="item-link"
-										href="collectionFront/collectionMessage"> <span class="menu-title">我的收藏</span>
+										href="collectionFront/collectionMessage?userId=${user.id}"> <span class="menu-title">我的收藏</span>
 									</a></li>
 
 									<li class="yith-woocompare-open menu-compare"><a
