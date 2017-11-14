@@ -324,11 +324,11 @@ public class ArticleServiceImpl implements ArticleService {
 			System.err.println("---------------------------");
 			map.put("myArticleTop", aNewsArticlesTop);
 		}else {
-			map.put("take", 6);
-			map.put("userId", userId);
-			map.put("myArticle", articleMapper.findUserArticleIndex(map));
-			map.put("take", 5);
-			map.put("myArticleTop", articleMapper.findUserArticleIndex(map));
+			m.put("take", 6);
+			m.put("userId", userId);
+			map.put("myArticle", articleMapper.findUserArticle(m));
+			m.put("take", 5);
+			map.put("myArticleTop", articleMapper.findUserArticle(m));
 		}
 		return map;
 	}
