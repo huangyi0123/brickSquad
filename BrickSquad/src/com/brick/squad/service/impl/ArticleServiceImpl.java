@@ -293,7 +293,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Map<String, Object> shopIndex() {
+	public Map<String, Object> shopIndex(String userId) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> m = new HashMap<>();
 		// 最新商品
@@ -318,6 +318,17 @@ public class ArticleServiceImpl implements ArticleService {
 		// 秒杀
 		List<SecKill> secKills = shopActivitiesMapper.secKillIndex();
 		map.put("secKills", secKills);
+		//猜你喜欢
+		if (userId==null) {
+			map.put("myArticle", rArticles);
+			map.put("myArticleTop", rArticles);
+		}else {
+			map.put("take", 6);
+			map.put("userId", userId);
+			map.put("myArticle", articleMapper.findUserArticleIndex(map));
+			map.put("take", 5);
+			map.put("myArticleTop", articleMapper.findUserArticleIndex(map));
+		}
 		return map;
 	}
 

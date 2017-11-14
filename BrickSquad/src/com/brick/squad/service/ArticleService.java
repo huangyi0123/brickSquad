@@ -105,7 +105,7 @@ public interface ArticleService {
 	 * 
 	 * @return 数据集合
 	 */
-	public Map<String, Object> shopIndex();
+	public Map<String, Object> shopIndex(String userId);
 
 	/**
 	 * 获取最新添加的商品
