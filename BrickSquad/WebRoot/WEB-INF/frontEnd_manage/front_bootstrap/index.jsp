@@ -1298,8 +1298,8 @@
 
 														<div class="slider responsive">
 															<!--秒杀开始  -->
-															<c:forEach items="${secKills }" var="a">
-																<div class="item-countdown product " id="product_sw_countdown_02">
+															<%-- <c:forEach items="${secKills }" var="a" varStatus="q">
+																<div class="item-countdown product " id="product_sw_countdown_0${q.index }">
 																	<div class="item-wrap">
 																		<div class="item-detail">
 																			<div class="item-content">
@@ -1340,24 +1340,21 @@
 
 																				<div class="product-countdown" data-date="${a.timer }" data-price="$390"
 																					data-starttime="1484660800" data-cdtime="1517356800"
-																					data-id="product_sw_countdown_03"></div>
+																					data-id="product_sw_countdown_0${q.index }"></div>
 																			</div>
 
 																			<div class="item-image-countdown">
 																				<span class="onsale">Sale!</span>
 																				<a href="variableProduct/toVariable_product?productId=${a.id }">
 																					<div class="product-thumb-hover">
-																						<img width="300" height="300" src="${a.image }"
-																							class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
-																							srcset="${a.image } 300w, ${a.image } 150w, ${a.image } 180w, ${a.image } 600w"
-																							sizes="(max-width: 300px) 100vw, 300px" />
+																					<img alt="" src="${a.image }" style="width: 140px;height: 140px">
 																					</div>
 																				</a>
 
 																				<!-- add to cart, wishlist, compare -->
 																				<div class="item-bottom clearfix">
 																					<a rel="nofollow" href="#"
-																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+																						class="button product_type_simple"
 																						title="加入购物车1">加入购物车1</a>
 																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
 																						title="Add to Compare">Compare</a>
@@ -1392,103 +1389,102 @@
 																		</div>
 																	</div>
 																</div>
-															</c:forEach>
+															</c:forEach> --%>
 															<!--秒杀结束 -->
-															
-															<div class="item-countdown product" id="product_sw_countdown_03">
-																<div class="item-wrap">
-																	<div class="item-detail">
-																		<div class="item-content">
-																			<!-- rating  -->
-																			<div class="reviews-content">
-																				<div class="star">
-																					<span style="width:63px"></span>
+															<c:forEach var="a" items="${secKills }" varStatus="q">
+																<div class="item-countdown product" id="product_sw_countdown_0${q.index }">
+																	<div class="item-wrap">
+																		<div class="item-detail">
+																			<div class="item-content">
+																				<!-- rating  -->
+																				<div class="reviews-content">
+																					<div class="star">
+																						<span style="width:63px"></span>
+																					</div>
+																				</div>
+																				<!-- end rating  -->
+
+																				<h4>
+																					<a href="variableProduct/toVariable_product?productId=${a.id }" title="Cleaner with bag">${a.aname }</a>
+																				</h4>
+
+																				<!-- Price -->
+																				<div class="item-price">
+																					<span>
+																						<del>
+																							<span class="woocommerce-Price-amount amount">
+																								<span class="woocommerce-Price-currencySymbol">￥</span>
+																								${a.price }
+																							</span>
+																						</del>
+																						<ins>
+																							<span class="woocommerce-Price-amount amount">
+																								<span class="woocommerce-Price-currencySymbol">￥</span>
+																								${a.activePrice }
+																							</span>
+																						</ins>
+																					</span>
 																				</div>
 
-																				<div class="item-number-rating">2 Review(s)</div>
+																				<div class="sale-off">-${a.powsr }%</div>
+
+																				<div class="product-countdown" data-date="${a.timer }" data-price="$390"
+																					data-starttime="1483660800" data-cdtime="1517356800"
+																					data-id="product_sw_countdown_0${q.index }"></div>
 																			</div>
-																			<!-- end rating  -->
 
-																			<h4>
-																				<a href="simple_product.html" title="Cleaner with bag">Cleaner with bag</a>
-																			</h4>
+																			<div class="item-image-countdown">
+																				<span class="onsale">Sale!</span>
+																				<a href="variableProduct/toVariable_product?productId=${a.id }">
+																					<div class="product-thumb-hover">
+																					<%-- <img alt="" src="${a.image }" style="width: 180px;height: 150px"> --%>
+																						<img width="200" height="200" src="${a.image }.jpg"
+																							class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
+																							srcset="${a.image } 300w, ${a.image } 150w, ${a.image } 180w, ${a.image } 600w"
+																							sizes="(max-width: 300px) 100vw, 200px" />
+																					</div>
+																				</a>
 
-																			<!-- Price -->
-																			<div class="item-price">
-																				<span>
-																					<del>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							390.00
-																						</span>
-																					</del>
-																					<ins>
-																						<span class="woocommerce-Price-amount amount">
-																							<span class="woocommerce-Price-currencySymbol">$</span>
-																							350.00
-																						</span>
-																					</ins>
-																				</span>
-																			</div>
+																				<!-- add to cart, wishlist, compare -->
+																				<div class="item-bottom clearfix">
+																					<a rel="nofollow" href="#"
+																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+																						title="加入购物车2">加入购物车2</a>
+																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
+																						title="Add to Compare">Compare</a>
 
-																			<div class="sale-off">-10%</div>
+																					<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																						<div class="yith-wcwl-add-button show" style="display:block">
+																							<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
+																								Wishlist</a>
+																							<img src="resource/front_bootstrap/images/wpspin_light.gif"
+																								class="ajax-loading" alt="loading" width="16" height="16"
+																								style="visibility:hidden" />
+																						</div>
 
-																			<div class="product-countdown" data-date="1517356800" data-price="$390"
-																				data-starttime="1483660800" data-cdtime="1517356800"
-																				data-id="product_sw_countdown_03"></div>
-																		</div>
+																						<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																							<span class="feedback">Product added!</span>
+																							<a href="#" rel="nofollow">Browse Wishlist</a>
+																						</div>
 
-																		<div class="item-image-countdown">
-																			<span class="onsale">Sale!</span>
-																			<a href="simple_product.html">
-																				<div class="product-thumb-hover">
-																					<img width="300" height="300" src="images/1903/22-300x300.jpg"
-																						class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
-																						srcset="resource/front_bootstrap/images/1903/22-300x300.jpg 300w, resource/front_bootstrap/images/1903/22-150x150.jpg 150w, images/1903/22-180x180.jpg 180w, images/1903/22.jpg 600w"
-																						sizes="(max-width: 300px) 100vw, 300px" />
+																						<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																							<span class="feedback">The product is already in the wishlist!</span>
+																							<a href="#" rel="nofollow">Browse Wishlist</a>
+																						</div>
+
+																						<div style="clear:both"></div>
+																						<div class="yith-wcwl-wishlistaddresponse"></div>
+																					</div>
+
+																					<div class="clear"></div>
+																					<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
+																						class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																				</div>
-																			</a>
-
-																			<!-- add to cart, wishlist, compare -->
-																			<div class="item-bottom clearfix">
-																				<a rel="nofollow" href="#"
-																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																					title="加入购物车2">加入购物车2</a>
-																				<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																					title="Add to Compare">Compare</a>
-
-																				<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																					<div class="yith-wcwl-add-button show" style="display:block">
-																						<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																							Wishlist</a>
-																						<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																							class="ajax-loading" alt="loading" width="16" height="16"
-																							style="visibility:hidden" />
-																					</div>
-
-																					<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																						<span class="feedback">Product added!</span>
-																						<a href="#" rel="nofollow">Browse Wishlist</a>
-																					</div>
-
-																					<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																						<span class="feedback">The product is already in the wishlist!</span>
-																						<a href="#" rel="nofollow">Browse Wishlist</a>
-																					</div>
-
-																					<div style="clear:both"></div>
-																					<div class="yith-wcwl-wishlistaddresponse"></div>
-																				</div>
-
-																				<div class="clear"></div>
-																				<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																					class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																			</div>
 																		</div>
 																	</div>
 																</div>
-															</div>
-
+															</c:forEach>
 															<div class="item-countdown product" id="product_sw_countdown_04">
 																<div class="item-wrap">
 																	<div class="item-detail">
@@ -2766,39 +2762,39 @@
 																					<div class="item-content">
 																						<!-- rating  -->
 																						<div class="item-img products-thumb">
-																						<a href="variableProduct/toVariable_product?productId=${a[0].id }">
-																							<div class="product-thumb-hover">
-																								<img alt="" src="${a[0].image }" style="width: 200px;height: 200px">
-																							</div>
-																						</a>
-
-																						<!-- add to cart, wishlist, compare -->
-																						<div class="item-bottom clearfix">
-																							<a rel="nofollow" href="javascript:;" class="button product_type_simple"
-																								title="加入购物车" onclick="addcar('${a[0].id}')">Add to cart</a>
-
-																							<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																								<div class="yith-wcwl-add-button show" style="display:block">
-																									<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
-																										class="">Add to Wishlist</a>
+																							<a href="variableProduct/toVariable_product?productId=${a[0].id }">
+																								<div class="product-thumb-hover">
+																									<img alt="" src="${a[0].image }" style="width: 200px;height: 200px">
 																								</div>
+																							</a>
 
-																								<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																									<span class="feedback">Product added!</span>
-																									<a href="#" rel="nofollow">Browse Wishlist</a>
+																							<!-- add to cart, wishlist, compare -->
+																							<div class="item-bottom clearfix">
+																								<a rel="nofollow" href="javascript:;" class="button product_type_simple"
+																									title="加入购物车" onclick="addcar('${a[0].id}')">Add to cart</a>
+
+																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																									<div class="yith-wcwl-add-button show" style="display:block">
+																										<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
+																											class="">Add to Wishlist</a>
+																									</div>
+
+																									<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																										<span class="feedback">Product added!</span>
+																										<a href="#" rel="nofollow">Browse Wishlist</a>
+																									</div>
+
+																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																										<span class="feedback">The product is already in the wishlist!</span>
+																										<a href="#" rel="nofollow">Browse Wishlist</a>
+																									</div>
+
+																									<div style="clear:both"></div>
+																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
-
-																								<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																									<span class="feedback">The product is already in the wishlist!</span>
-																									<a href="#" rel="nofollow">Browse Wishlist</a>
-																								</div>
-
-																								<div style="clear:both"></div>
-																								<div class="yith-wcwl-wishlistaddresponse"></div>
 																							</div>
 																						</div>
-																					</div>
-																					<div style="clear: both;"></div>
+																						<div style="clear: both;"></div>
 																						<div class="reviews-content">
 																							<div class="star"></div>
 																							<div class="item-number-rating">${a[0].totals }人已购买</div>
@@ -2821,16 +2817,16 @@
 																						</div>
 																					</div>
 
-																					
+
 																				</div>
 																			</div>
 
 																			<div class="item-wrap">
 																				<div class="item-detail">
-																				<div class="item-img products-thumb">
+																					<div class="item-img products-thumb">
 																						<a href="variableProduct/toVariable_product?productId=${a[1].id }">
 																							<div class="product-thumb-hover">
-																							<img alt="" src="${a[1].image }" style="width: 200px;height: 200px">
+																								<img alt="" src="${a[1].image }" style="width: 200px;height: 200px">
 																								<%-- <img width="300" height="300" src="${a[1].image }"
 																									class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
 																									srcset="${a[1].image } 300w, ${a[1].image } 150w, ${a[1].image } 180w, ${a[1].image } 600w"
@@ -2868,8 +2864,8 @@
 																							<div class="clear"></div>
 																						</div>
 																					</div>
-																				<div style="clear:both;"></div>
-																					
+																					<div style="clear:both;"></div>
+
 																					<div class="item-content">
 																						<!-- rating -->
 																						<div class="reviews-content">
@@ -2894,8 +2890,8 @@
 																						</div>
 																					</div>
 
-																					
-																				
+
+
 																				</div>
 																			</div>
 																		</div>
@@ -3085,11 +3081,11 @@
 																			<div class="item product">
 																				<div class="item-wrap" style="width: 320px">
 																					<div class="item-detail">
-																					<div class="item-img products-thumb">
+																						<div class="item-img products-thumb">
 																							<span class="onsale">Sale!</span>
 																							<a href="variableProduct/toVariable_product?productId=${a[0].id }">
 																								<div class="product-thumb-hover">
-																								<img alt="" src="${a[0].image }" style="width: 190px;height: 190px">
+																									<img alt="" src="${a[0].image }" style="width: 190px;height: 190px">
 																								</div>
 																							</a>
 
@@ -3151,37 +3147,37 @@
 																				<div class="item-wrap" style="width: 320px">
 																					<div class="item-detail">
 																						<div class="item-content">
-																						<div class="item-img products-thumb">
-																							<span class="onsale">Sale!</span>
-																							<a href="variableProduct/toVariable_product?productId=${a[1].id }">
-																								<div class="product-thumb-hover">
-																								<img alt="" src="${a[1].image }" style="width: 190px;height: 190px">
-																								</div>
-																							</a>
+																							<div class="item-img products-thumb">
+																								<span class="onsale">Sale!</span>
+																								<a href="variableProduct/toVariable_product?productId=${a[1].id }">
+																									<div class="product-thumb-hover">
+																										<img alt="" src="${a[1].image }" style="width: 190px;height: 190px">
+																									</div>
+																								</a>
 
-																							<!-- add to cart, wishlist, compare -->
-																							<div class="item-bottom clearfix">
-																								<a rel="nofollow" href="javascript:;" class="button product_type_simple"
-																									title="加入购物车" onclick="addcar('${a[1].id }')">Add to cart</a>
+																								<!-- add to cart, wishlist, compare -->
+																								<div class="item-bottom clearfix">
+																									<a rel="nofollow" href="javascript:;" class="button product_type_simple"
+																										title="加入购物车" onclick="addcar('${a[1].id }')">Add to cart</a>
 
-																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																									<div class="yith-wcwl-add-button show" style="display:block">
-																										<a href="javascript:;" rel="nofollow" class="" title="添加收藏"
-																											onclick="addWish('${a[1].id}')">Add to Wishlist</a>
+																									<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																										<div class="yith-wcwl-add-button show" style="display:block">
+																											<a href="javascript:;" rel="nofollow" class="" title="添加收藏"
+																												onclick="addWish('${a[1].id}')">Add to Wishlist</a>
+																										</div>
+
+																										<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																											<span class="feedback">The product is already in the wishlist!</span>
+																											<a href="#" rel="nofollow">Browse Wishlist</a>
+																										</div>
+
+																										<div style="clear:both"></div>
+																										<div class="yith-wcwl-wishlistaddresponse"></div>
 																									</div>
 
-																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																										<span class="feedback">The product is already in the wishlist!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
-																									</div>
-
-																									<div style="clear:both"></div>
-																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
-
 																							</div>
-																						</div>
-																						<div style="clear: both;"></div>
+																							<div style="clear: both;"></div>
 																							<!-- rating  -->
 																							<div class="reviews-content">
 																								<div class="star">

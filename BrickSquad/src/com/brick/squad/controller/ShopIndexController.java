@@ -49,7 +49,7 @@ public class ShopIndexController {
 		for (SecKill item : secKills) {
 			String path = request
 					.getSession()
-					.getServletContext()
+																														.getServletContext()
 					.getRealPath("resource/image/articleImg/" + item.getImage());
 			File file = new File(path);
 			File[] files = file.listFiles();
