@@ -185,7 +185,11 @@
 	SELECT  id,aname,type_id typeId,business_id
 		businessId,describes,price,stock,image,shelfdate 
 		FROM article 
-		WHERE aname REGEXP '#{s}' AND type_id=#{search_category}
+		WHERE
+		<if test="#{s}!=null">
+		 aname REGEXP #{s}
+		AND
+		 </if> type_id=#{search_category}
 		LIMIT #{begin},#{limitPage}
 	</select>
 	

@@ -77,7 +77,8 @@ public class MedicalInstrumentsController {
 		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
 		pageBean.setList(listArticle4);
-		request.setAttribute("url", "toShop_left_sidebar");
+		request.getSession().setAttribute("url", "toShop_left_sidebar");
+	/*	request.setAttribute("url", "toShop_left_sidebar");*/
 		request.setAttribute("pageBean", pageBean);
 
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
@@ -381,7 +382,7 @@ public class MedicalInstrumentsController {
 		List<Article> listArticle5 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
 		pageBean.setList(listArticle5);
-		request.setAttribute("url", "findPriceScope");
+		request.setAttribute("url", "findArticleTitle");
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
