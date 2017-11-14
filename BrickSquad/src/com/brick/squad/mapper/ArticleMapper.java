@@ -82,7 +82,7 @@ public interface ArticleMapper {
 	 * 搜索框搜索商品信息
 	 * */
 	public List<Article> findArticleTitle(PageBeanUtil pageBean);
-
+	public List<Article> findArticleTitles(PageBeanUtil pageBean);
 	/*
 	 * public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int
 	 * page);

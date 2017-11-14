@@ -186,10 +186,18 @@
 		businessId,describes,price,stock,image,shelfdate 
 		FROM article 
 		WHERE
-		<if test="#{s}!=null">
 		 aname REGEXP #{s}
-		AND
-		 </if> type_id=#{search_category}
+			AND
+		 type_id=#{search_category}
+		LIMIT #{begin},#{limitPage}
+	</select>
+	<select id="findArticleTitles" parameterType="com.brick.squad.util.PageBeanUtil"
+	resultType="article">
+	SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{parentId} 
+		AND  type_id=#{search_category}
 		LIMIT #{begin},#{limitPage}
 	</select>
 	
