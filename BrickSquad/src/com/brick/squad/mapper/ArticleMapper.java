@@ -82,7 +82,7 @@ public interface ArticleMapper {
 	 * 搜索框搜索商品信息
 	 * */
 	public List<Article> findArticleTitle(PageBeanUtil pageBean);
-
+	public List<Article> findArticleTitles(PageBeanUtil pageBean);
 	/*
 	 * public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int
 	 * page);
@@ -123,6 +123,12 @@ public interface ArticleMapper {
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 
 	public List<NewsArticle> findNewsArticle(Map<String, Object> map);
+	/**
+	 * 查询用户购买的商品
+	 * @param map 参数
+	 * @return 商品列表
+	 */
+	public List<NewsArticle> findUserArticleIndex(Map<String, Object> map);
 
 
 }

@@ -83,7 +83,7 @@ public interface ArticleService {
 	 */
 
 
-	/*
+	
 	/*public List<Article> findAllMedicalInstruments(PageBeanUtil pageBean)throws Exception;*/
 	/**医疗器械商品分页查询*/
 	public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int page)throws Exception;
@@ -105,7 +105,7 @@ public interface ArticleService {
 	 * 
 	 * @return 数据集合
 	 */
-	public Map<String, Object> shopIndex();
+	public Map<String, Object> shopIndex(String userId);
 
 	/**
 	 * 获取最新添加的商品
@@ -127,5 +127,8 @@ public interface ArticleService {
 	 * */
 	PageBeanUtil findArticleTitle(int page, int limitPage, String s,
 			String search_category)throws Exception;
+
+	public PageBeanUtil findArticleTitles(int page, int limitPage,
+			String search_category);
 
 }

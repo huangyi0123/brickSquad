@@ -54,7 +54,7 @@ public class CollectionControllerFront {
 	@RequestMapping("/collectionMessage")
 	public String collectionMessage(PaginationCollection pagination,HttpServletRequest request){
 		//根据登陆Pid获取收藏信息
-		pagination.setUserId("77c9a2dec44911e7aca65254002ec43c");
+		System.out.println(pagination.getUserId()+"22222");
 		Map<String, Object> articleExpand=collectionService.findCollectionMessage(pagination);
 		request.setAttribute("collectionMessage",articleExpand);
 		return "frontEnd_manage/front_bootstrap/wishlist";
@@ -67,11 +67,8 @@ public class CollectionControllerFront {
 	}
 	//用户添加至购物车
 	@RequestMapping("/addShopCar")
-	public String  addShopCar(String articleId,ShoppingCar shoppingCar) throws Exception {
-		System.out.println(articleId+"qqqqqqqqq");
-		shoppingCar.setArticleId(articleId);
+	public String  addShopCar(ShoppingCar shoppingCar,HttpServletRequest request) throws Exception {
 		shoppingCar.setDate(new Date());
-		shoppingCar.setPerId("77c9a2dec44911e7aca65254002ec43c");
 		shoppingCar.setNumber(1);
 		shoppingCarService.insertShoppingCar(shoppingCar);
 		return "redirect:/collectionFront/collectionMessage";

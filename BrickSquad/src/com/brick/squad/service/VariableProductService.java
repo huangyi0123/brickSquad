@@ -16,6 +16,6 @@ public interface VariableProductService {
 	 * @param userId
 	 *            当前用户ID
 	 */
-	public void userBuyImmediatelyAddOrdersandAddOrderDetails(
+	public String userBuyImmediatelyAddOrdersandAddOrderDetails(
 			int articleNumber, String articleId, String userId) throws Exception;
 }

@@ -378,6 +378,13 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
 													</ul>
 													</c:if>
+													<c:if test="${url=='findArticleTitle'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
 													</li>
 											</ul>
 										</div>
@@ -450,16 +457,14 @@
 								
 								
 								<c:if test="${ url=='findArticleTitle'}">
-							
-									
-									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?limitPage=12&page=1">1</a></span></li>
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=1">1</a></span></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
 									
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?limitPage=12&page=${pageBean.page+1}">2</a></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">2</a></li>
 									
-									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?limitPage=12&page=${pageBean.page+1}">3</a></li>
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
-									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?limitPage=12&page=${pageBean.page+1}">?</a></li>
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								</ul>
@@ -779,6 +784,13 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+												<c:if test="${url=='findArticleTitle'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
 													<c:if test="${url=='toShop_left_sidebar'}">
 												
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
@@ -853,6 +865,18 @@
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+									
+								<c:if test="${ url=='findArticleTitle'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								

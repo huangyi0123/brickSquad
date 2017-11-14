@@ -376,14 +376,21 @@ public class MedicalInstrumentsController {
 		int limitPage = pageBean.getLimitPage();
 		String s=pageBean.getS();
 		String search_category=pageBean.getSearch_category();
+		if(s==""){
+			pageBean = articleService.findArticleTitles(page, limitPage,
+					search_category);
+		}else{	
+		pageBean.setAname(s);
 		pageBean = articleService.findArticleTitle(page, limitPage, s,
 				search_category);
+		}
 		List<Article> listArt = pageBean.getList();
 		List<Article> listArticle5 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
 		pageBean.setList(listArticle5);
 		request.setAttribute("url", "findArticleTitle");
 		request.setAttribute("pageBean", pageBean);
+	
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 }
