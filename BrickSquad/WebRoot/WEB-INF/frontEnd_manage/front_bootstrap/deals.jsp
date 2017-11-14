@@ -2237,8 +2237,8 @@
 																<span class="woocommerce-Price-amount amount"><span
 																	class="woocommerce-Price-currencySymbol">$</span>600.00</span>
 															</del> <ins>
-																<span class="woocommerce-Price-amount amount"><span
-																	class="woocommerce-Price-currencySymbol">$</span>550.00</span>
+																<span class="woocommerce-Price-amount amount">
+																<span class="woocommerce-Price-currencySymbol">$</span>550.00</span>
 															</ins>
 														</span>
 													</div>

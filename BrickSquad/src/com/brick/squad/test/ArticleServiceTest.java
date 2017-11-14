@@ -27,10 +27,20 @@ public class ArticleServiceTest {
 	@Qualifier("articleService")
 	private ArticleService articleService;
 
+	@Autowired
+	@Qualifier("newsArticle")
+	private NewsArticle newsArticle;
+	
+	@Test
+	public void findNewsArticles(Map<String, Object> map){
+	System.out.println(articleMapper.findNewsArticles(map));	
+	}
+	
+	
 	@Test
 	public void findArticleById() throws Exception {
 		System.out.println(articleService.findArticleById(
-				"e6c34424be0911e7aca65254002ec43c").getBuyersNumber());
+				"fee1c768c78911e7aca65254002ec43c"));
 
 	}
 

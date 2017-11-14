@@ -20,15 +20,7 @@ public class Article {
 	private String price;
 	private int stock;
 	private String describes;
-	private int buyersNumber;
-
-	public int getBuyersNumber() {
-		return buyersNumber;
-	}
-
-	public void setBuyersNumber(int buyersNumber) {
-		this.buyersNumber = buyersNumber;
-	}
+	
 
 	public Date getShelfdate() {
 		return shelfdate;

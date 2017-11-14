@@ -97,7 +97,9 @@ public interface ArticleService {
 	/********最新商品分页查询 *********/
 	public Map<String, Object> findArticlePage(PageUtil pageUtil,String path,String order);
 	
+	public Map<String, Object> findArticlePages(PageUtil pageUtil,String path,String order);
 
+	
 	public int selectArticleRatedTotalById(String id);
 
 	/**
@@ -112,6 +114,7 @@ public interface ArticleService {
 	 */
 
 	public List<NewsArticle> findFrontTime();
+	
 	
 	/**获取所有商品数量*/
 

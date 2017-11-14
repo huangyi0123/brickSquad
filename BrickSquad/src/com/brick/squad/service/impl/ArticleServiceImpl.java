@@ -554,16 +554,21 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 	
 	
-	//最新商品分页
+	//最新商品分页//////////////////////////////////////////////////////
 	@Override
 	public Map<String, Object> findArticlePage(PageUtil page,String path,String order){
-		Map<String, Object> map=new HashMap<>();
+			//创建一个map集合，用来装list和page
+			Map<String, Object> map=new HashMap<>();
 			Map<String, Object> m=new HashMap<String, Object>();
 			m.put("order", order);
 			m.put("skli", page.getSkipNum());
 			m.put("take", page.getTakeNum());
+			System.out.println("_________123___________"+m);
+			//创建一个list集合，把传入的order、skil、take参数查询出来的结果给list集合
 			List<NewsArticle> list=articleMapper.findNewsArticle(m);
+			//得到总商品数
 			int n=articleMapper.findFrontTimeNumber();
+			//设置总商品数
 			page.setCount(n);
 			for (NewsArticle item : list) {
 				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
@@ -649,6 +654,32 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		return pageBean;
 	}
+	//团购的分页查询
+	@Override
+	public Map<String, Object> findArticlePages(PageUtil page,String path,String order){
+			//创建一个map集合，用来装list和page
+			Map<String, Object> map=new HashMap<>();
+			Map<String, Object> m=new HashMap<String, Object>();
+			m.put("order", order);
+			m.put("skli", page.getSkipNum());
+			m.put("take", page.getTakeNum());
+			//创建一个list集合，把传入的order、skil、take参数查询出来的结果给list集合
+			List<NewsArticle> list=articleMapper.findNewsArticles(m);
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+list);
+			//得到总团购商品数
+			int n=articleMapper.findNewsArticleNumber();
+			//设置总商品数
+			page.setCount(n);
+			for (NewsArticle item : list) {
+				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+				File[] files=file.listFiles();
+				if (files!=null&&files.length!=0) {
+					item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+				}
+			}
+			map.put("data", list);
+			map.put("page", page);
+		return map;
 
-	
+	}
 }
