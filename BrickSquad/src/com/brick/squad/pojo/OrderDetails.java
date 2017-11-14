@@ -70,4 +70,13 @@ public class OrderDetails {
 	public void setSubtotal(Float subtotal) {
 		this.subtotal = subtotal;
 	}
+
+	@Override
+	public String toString() {
+		return "OrderDetails [id=" + id + ", articleId=" + articleId
+				+ ", ordersId=" + ordersId + ", number=" + number
+				+ ", subtotal=" + subtotal + ", orders=" + orders
+				+ ", article=" + article + "]";
+	}
+	
 }
