@@ -17,8 +17,8 @@ public class CouponPaginationExpand {
 	//type per字段封装
 	private String tId;
 	private String tName;
-	private String pId;
-	private String pName;
+	private String bId;
+	private String bName;
 	public String getId() {
 		return id;
 	}
@@ -91,17 +91,17 @@ public class CouponPaginationExpand {
 	public void settName(String tName) {
 		this.tName = tName;
 	}
-	public String getpId() {
-		return pId;
+	public String getbId() {
+		return bId;
 	}
-	public void setpId(String pId) {
-		this.pId = pId;
+	public void setbId(String bId) {
+		this.bId = bId;
 	}
-	public String getpName() {
-		return pName;
+	public String getbName() {
+		return bName;
 	}
-	public void setpName(String pName) {
-		this.pName = pName;
+	public void setbName(String bName) {
+		this.bName = bName;
 	}
 	@Override
 	public String toString() {
@@ -110,7 +110,7 @@ public class CouponPaginationExpand {
 				+ ", endTime=" + endTime + ", total=" + total + ", surplus="
 				+ surplus + ", fullMoney=" + fullMoney + ", money=" + money
 				+ ", receive=" + receive + ", tId=" + tId + ", tName=" + tName
-				+ ", pId=" + pId + ", pName=" + pName + "]";
+				+ ", bId=" + bId + ", bName=" + bName + "]";
 	}
-	
+
 }

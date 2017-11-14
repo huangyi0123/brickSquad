@@ -233,4 +233,12 @@ public class ArticleServiceTest {
 			System.out.println("=============="+article);
 		}
 	}
+	@Test
+	public void findArticleTitle() throws Exception{
+		PageBeanUtil<Article> pageBean=articleService.findArticleTitle(1, 2, "老", "laorenjianfuyongpin");
+		List<Article> list=pageBean.getList();
+		for(Article article:list){
+			System.out.println("======="+article.getAname());
+		}
+	}
 }

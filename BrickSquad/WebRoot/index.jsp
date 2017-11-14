@@ -31,21 +31,7 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
 
 
 
@@ -60,14 +46,8 @@
 <!--//fonts-->
 <!-- js -->
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <!-- js -->
-<!-- search-scripts -->
-<script src="resource/plugins/layui/layui.js"></script>
-
-
-<!-- //search-scripts -->
 <script>
 	$(document).ready(function() {
 		//Initialize tooltips
@@ -105,26 +85,9 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
-<!-- script-for-menu -->
-<script>
-	$("span.menu").click(function() {
-		$("ul.nav1").slideToggle(300, function() {
-			// Animation complete.
-		});
-	});
-</script>
-<!-- /script-for-menu -->
-<script>
-	layui.use('element', function() {
-		var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
 
-		//监听导航点击
-		element.on('nav(demo)', function(elem) {
-			//console.log(elem)
-			layer.msg(elem.text());
-		});
-	});
-</script>
+
+
 </head>
 
 <body>
@@ -139,9 +102,9 @@
 			<div class="top-nav">
 				<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
 				<ul class="layui-nav"
-					style="margin-left:-150px; margin-top: -25px;background-color: #48CFC1;">
+					style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href=""
+					<li class="layui-nav-item"><a href="shopIndex/toshop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
 					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
@@ -208,9 +171,7 @@
 					<li class="layui-nav-item"><a href="javascript:;"><img
 							src="http://t.cn/RCzsdCq" class="layui-nav-img">登录</a>
 						<dl class="layui-nav-child">
-							<dd>
-								<a href="javascript:;">个人中心</a>
-							</dd>
+
 							<dd>
 								<a href="javascript:;">注册</a>
 							</dd>
@@ -258,18 +219,30 @@
 
 	<div class="content-bottom">
 		<div class="btm-grids">
-			<div class="col-md-4 btm-grid back-col1 text-center">
-				<img src="resource/image/bbbb.png" alt="" />
+			<div class="col-md-4 btm-grid back-col1 text-center"><!-- 
+				<img src="resource/image/timg.jpg" alt="" /> -->
 			</div>
-			<div class="col-md-4 btm-grid btm-wid">
-				<h3>SPECIAL RECHARGE OFFERS</h3>
-				<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-					odit aut fugit, sed quia conse magni dolores eos qui ratione. Nemo
-					enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-					fugit, sed quia conse magni dolores eos qui ratione.</p>
+			<div class="col-md-4 btm-grid btm-wid"
+				style="background-color: #48D2D2;">
+				<input value="社区搜索" class="title">
+				<input class="city_search" type="text" value="请输入城市" style="color:#C5C5C5; "
+					onfocus="if(value=='请输入城市') {value=''}"
+					onblur="if (value=='') {value='请输入城市'}">
+				<label class="search_icon"
+					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
+					href="#"><i class="layui-icon"
+						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
+				<div
+					style="width:100%;height:100px;margin-top:50px; background-color: white;">
+					<label
+						style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
+					<label
+						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+
+				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
-				<img src="resource/image/bbb1.png" alt="" />
+				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -1082,6 +1055,15 @@
 		</div>
 	</div>
 	<!-- //signup -->
+	<!-- script-for-menu -->
+	<script>
+		$("span.menu").click(function() {
+			$("ul.nav1").slideToggle(300, function() {
+				// Animation complete.
+			});
+		});
+	</script>
+	<!-- /script-for-menu -->
 	<script src="resource/js/classie.js"></script>
 	<script src="resource/js/uisearch.js"></script>
 	<script>
@@ -1090,5 +1072,16 @@
 	<!-- for bootstrap working -->
 	<script src="resource/plugins/bootstrap/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
+	<script>
+		layui.use('element', function() {
+			var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+			//监听导航点击
+			element.on('nav(demo)', function(elem) {
+				//console.log(elem)
+				layer.msg(elem.text());
+			});
+		});
+	</script>
 </body>
 </html>

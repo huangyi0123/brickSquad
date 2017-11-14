@@ -181,7 +181,34 @@
 		BETWEEN #{min_price} AND #{max_price}
 		LIMIT #{begin},#{limitPage}
 	</select>
+<<<<<<< HEAD
 
+=======
+	<!-- 搜索框搜索商品信息 -->
+	<select id="findArticleTitle" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="article">
+		SELECT id,aname,type_id typeId,business_id
+		businessId,describes,price,stock,image,shelfdate
+		FROM article
+		WHERE
+		aname REGEXP #{s}
+		AND
+		type_id=#{search_category}
+		LIMIT
+		#{begin},#{limitPage}
+	</select>
+	<select id="findArticleTitles" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="article">
+		SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON
+		a.type_id=t.id
+		WHERE t.parent_id=#{parentId}
+		AND
+		type_id=#{search_category}
+		LIMIT #{begin},#{limitPage}
+	</select>
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 
 
 	<!-- 获取最新商品 首页 -->
@@ -223,7 +250,12 @@
 	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
+<<<<<<< HEAD
 		FROM article a JOIN type t ON a.type_id=t.id
+=======
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 		WHERE t.parent_id=#{parentId}
 		ORDER BY
 		a.shelfdate
@@ -234,8 +266,10 @@
 	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
+
 		FROM article a JOIN type t ON a.type_id=t.id
 		JOIN order_details o ON o.article_id=a.id
+
 		WHERE t.parent_id=#{parentId}
 		ORDER BY o.number DESC
 		limit #{begin},#{limitPage}
@@ -250,14 +284,23 @@
 		a left join (select COALESCE(sum(number),0) total
 		,article_id from
 		order_details group by (article_id))
+<<<<<<< HEAD
 		nn on
 		a.id=nn.article_id order by
+=======
+		nn on a.id=nn.article_id order by
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 		a.shelfdate DESC
 	</select>
 
 	<!-- 查询最新上架商品总数 -->
 	<select id="findFrontTimeNumber" resultType="Integer">
+<<<<<<< HEAD
 		select COUNT(*) from article
+=======
+		select COUNT(*) from
+		article
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 	</select>
 
 	<select id="findNewsArticle" resultType="com.brick.squad.expand.NewsArticle"
@@ -273,6 +316,7 @@
 		${order} DESC
 		LIMIT #{skli},#{take}
 	</select>
+<<<<<<< HEAD
 
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
@@ -340,5 +384,23 @@ LEFT JOIN (
 
 
 	  
+=======
+	<!--查询用户最近购买的商品 -->
+	<select id="findUserArticle" parameterType="map"
+		resultType="com.brick.squad.expand.NewsArticle">
+		SELECT a.id,a.aname,a.price,a.image,COALESCE(s.n,0) totals
+		FROM (SELECT * FROM article
+		WHERE id in(
+		SELECT DISTINCT( od.article_id)
+		id FROM order_details od JOIN
+		(SELECT * FROM orders o WHERE
+		o.buy_id=#{userId}
+		ORDER BY o.production_date
+		DESC) o
+		on o.id=od.orders_id))a LEFT JOIN
+		(SELECT count(*) n,id FROM
+		order_details od GROUP BY od.article_id) s ON
+		a.id=s.id LIMIT 0,#{take}
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 	</select>
 </mapper>

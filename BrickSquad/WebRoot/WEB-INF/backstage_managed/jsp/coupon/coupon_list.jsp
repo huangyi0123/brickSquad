@@ -45,10 +45,6 @@
 	serach();
 	$(".table-div").css('height','calc(100% - 90px)');
 	});
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
-</script>
 </script>
 <style type="text/css">
 .search {
@@ -84,10 +80,9 @@ a:HOVER {
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="relatives/toAddRelatives" 
+				<li><a href="coupon/toAddCoupon" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
-
 			</ul>
 		</div>
 	</div>

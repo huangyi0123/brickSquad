@@ -78,7 +78,11 @@ public interface ArticleMapper {
 	 * 根据价格范围查询商品
 	 * */
 	public List<Article> findPriceScope(PageBeanUtil pageBean);
-
+	/**
+	 * 搜索框搜索商品信息
+	 * */
+	public List<Article> findArticleTitle(PageBeanUtil pageBean);
+	public List<Article> findArticleTitles(PageBeanUtil pageBean);
 	/*
 	 * public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int
 	 * page);
@@ -120,8 +124,16 @@ public interface ArticleMapper {
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 //查询最新商品中的各类信息
 	public List<NewsArticle> findNewsArticle(Map<String, Object> map);
+
 //团购查询团购人数和优惠价格
 	public List<NewsArticle> findNewsArticles(Map<String, Object> map);
+	/**
+	 * 查询用户购买的商品
+	 * @param map 参数
+	 * @return 商品列表
+	 */
+	public List<NewsArticle> findUserArticle(Map<String, Object> map);
+
 
 }
 

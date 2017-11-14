@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.AgedCouponMapper">
+<select id="findAgedCouponById" parameterType="String" resultType="com.brick.squad.pojo.AgedCoupon">
+	select 
+	id,per_id perId,cougon_id cougonId
+	from aged_coupon where id=#{id}
+</select>
+	<insert id="insertAgedCouponById" parameterType="com.brick.squad.pojo.AgedCoupon">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into
+		aged_coupon(id,per_id,cougon_id)
+		values(#{id},#{perId},#{cougonId})
+	</insert>
+	 <update id="updateAgedCouponById" parameterType="com.brick.squad.pojo.AgedCoupon">
+		UPDATE
+		aged_coupon set
+		per_id=#{perId}
+		coupon_id=#{couponId}
+		where id
+		=#{id}
+	</update>
+	<delete id="deleteAgedCouponAllById" parameterType="String">
+	delete from coupon where id=#{id}
+	</delete>
+</mapper>
