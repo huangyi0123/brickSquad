@@ -85,7 +85,6 @@ public class HealthRecordsController {
 					.findHealthRecordsById(id);
 			request.setAttribute("healthRecords", healthRecords);
 
-			System.out.println(healthRecords + "111111111111111111111111111");
 		} else {
 			request.setAttribute("url", "insertHealthRecords");
 			request.setAttribute("msg", "添加");

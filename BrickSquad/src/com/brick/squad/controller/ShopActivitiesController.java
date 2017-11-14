@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.ShopActivitiesExpand;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.util.Pagination;
 
@@ -40,24 +42,27 @@ public class ShopActivitiesController {
 
 	@RequestMapping("/getShopActivitiesList")
 	@ResponseBody
-	public String getShopActivitiesList(int pSize, int cPage, String keyword) {
+	public String getShopActivitiesList(HttpServletRequest request,int pSize, int cPage,String keyword) {
+		System.out.println(request.getSession().getAttribute("userId").toString()+"111111111111");
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		pagination.setUserId(request.getSession().getAttribute("userId").toString());
 		return shopActivitiesService.shopActivitiesPagination(pagination);
 	}
-
 	@RequestMapping("/toAddShopActivities")
-	public String toAddShopActivities(HttpServletRequest request, String id)
+	public String toAddShopActivities(String businessId,HttpServletRequest request, String id)
 			throws Exception {
-		request.setAttribute("type",
-				shopActivitiesService.findAllShopActivities());
+		request.setAttribute("type",shopActivitiesService.findAllShopActivities());
+		Business business =(Business) request.getSession().getAttribute("business");
+		//通过商家ID查询店铺下的商品
+		String data=shopActivitiesService.findArticle(business.getId());
+		request.setAttribute("businessData",data);
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateShopActivitiesById");
-			ShopActivities shopActivities = shopActivitiesService
-					.findShopActivitiesById(id);
+			ShopActivities shopActivities = shopActivitiesService.findShopActivitiesById(id);
 			request.setAttribute("shopActivities", shopActivities);
 		} else {
 			request.setAttribute("url", "addShopActivities");

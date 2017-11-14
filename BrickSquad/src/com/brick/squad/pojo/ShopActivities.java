@@ -17,6 +17,15 @@ public class ShopActivities {
 	@NotEmpty(message = "商品名不能为空！")
 	private String articleId;
 	private String activePrice;
+	//商品活动修改回显信息
+	private String aname;
+	public String getAname() {
+		return aname;
+	}
+
+	public void setAname(String aname) {
+		this.aname = aname;
+	}
 
 	public String getActivePrice() {
 		return activePrice;

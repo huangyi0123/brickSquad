@@ -129,10 +129,10 @@ $(function() {
 		<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
-				<select name="businessId" id="businessId" style="z-index: 1" 
-					val="${article.businessId}" lay-search="" required lay-verify="required">
-					<option value="" >直接选择或搜索选择</option>
-				</select>
+				
+				<input type="hidden" name="businessId" value="${business.id}">
+				<input type="text" value="${business.shopname}"   required
+					lay-verify="required" placeholder="店铺名" autocomplete="off" class="layui-input" readonly="readonly">
 			</div>
 		</div> 
 		

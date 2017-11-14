@@ -4,12 +4,14 @@
 <mapper namespace="com.brick.squad.mapper.ShopActivitiesMapper">
 
 
-	<select id="findShopActivitiesById" resultType="ShopActivities"
+	<select id="findShopActivitiesById" resultType="com.brick.squad.pojo.ShopActivities"
 		parameterType="String">
-		select id,type_id typeId,start_time startTime,end_time
-		endTime,business_id
-		businessId,article_id articleId from
-		shop_activities where id=#{id}
+		select s.id,s.type_id typeId,s.start_time startTime,s.end_time
+		endTime,s.business_id
+		businessId,s.article_id articleId,a.aname,s.active_price activePrice 
+		from shop_activities s
+		JOIN article a ON s.article_id=a.id
+		 where s.id=#{id}
 	</select>
 
 	<insert id="insertShopActivitiesById" parameterType="ShopActivities">
@@ -56,11 +58,11 @@
 		JOIN
 		business b on sa.business_id=b.id
 		JOIN article a on sa.article_id=a.id
-
+		where b.id=#{userId}
 		<if test="keyword!='' and keyword!=null">
-			WHERE t.`name` REGEXP #{keyword} or b.shopname REGEXP
+			and (t.`name` REGEXP #{keyword} or b.shopname REGEXP
 			#{keyword} or
-			a.aname REGEXP #{keyword}
+			a.aname REGEXP #{keyword})
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
