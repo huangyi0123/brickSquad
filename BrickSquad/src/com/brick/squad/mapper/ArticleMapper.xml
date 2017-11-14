@@ -5,7 +5,8 @@
 	<!-- 查询 -->
 	<select id="findArticleById" resultType="article" parameterType="String">
 		select id,aname aname,type_id typeId,business_id
-		businessId,describes,price,stock,image from article where id=#{id}
+		businessId,describes,price,stock,image,buyersNumber buyersNumber from
+		article where id=#{id}
 	</select>
 
 	<insert id="insertArticle" parameterType="article">
@@ -180,6 +181,7 @@
 		BETWEEN #{min_price} AND #{max_price}
 		LIMIT #{begin},#{limitPage}
 	</select>
+
 	<!-- 搜索框搜索商品信息 -->
 	<select id="findArticleTitle" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="article">
@@ -204,6 +206,7 @@
 		type_id=#{search_category}
 		LIMIT #{begin},#{limitPage}
 	</select>
+
 
 
 	<!-- 获取最新商品 首页 -->
@@ -245,8 +248,8 @@
 	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-		FROM article
-		a JOIN type t ON a.type_id=t.id
+
+		FROM article a JOIN type t ON a.type_id=t.id
 		WHERE t.parent_id=#{parentId}
 		ORDER BY
 		a.shelfdate
@@ -257,10 +260,10 @@
 	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-		FROM article
-		a JOIN type t ON a.type_id=t.id
-		JOIN order_details o ON
-		o.article_id=a.id
+
+		FROM article a JOIN type t ON a.type_id=t.id
+		JOIN order_details o ON o.article_id=a.id
+
 		WHERE t.parent_id=#{parentId}
 		ORDER BY o.number DESC
 		limit #{begin},#{limitPage}
@@ -270,8 +273,10 @@
 	<!-- 获取最新添加的商品 -->
 	<select id="findFrontTime" resultType="com.brick.squad.expand.NewsArticle">
 		select
-		a.id,a.aname,a.price,a.image,COALESCE(nn.total,0) totals from article
-		a left join (select COALESCE(sum(number),0) total ,article_id from
+		a.id,a.aname,a.price,a.image,a.buyersNumber,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
 		order_details group by (article_id))
 		nn on a.id=nn.article_id order by
 		a.shelfdate DESC
@@ -279,8 +284,9 @@
 
 	<!-- 查询最新上架商品总数 -->
 	<select id="findFrontTimeNumber" resultType="Integer">
-		select COUNT(*) from
-		article
+
+		select COUNT(*) from article
+
 	</select>
 
 	<select id="findNewsArticle" resultType="com.brick.squad.expand.NewsArticle"
@@ -296,6 +302,73 @@
 		${order} DESC
 		LIMIT #{skli},#{take}
 	</select>
+
+
+	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
+		SELECT
+		saa.*,COALESCE(oa.n,0) totals
+		FROM
+		(
+		SELECT
+		a.id,
+		a.aname,
+		a.price,
+		a.image,
+		sa.buyersNumber,
+		sa.active_price
+		FROM
+		article a
+		JOIN shop_activities sa ON a.id = sa.article_id
+		WHERE
+		sa.type_id = 'tuangou'
+		AND sa.end_time > NOW()
+		) saa
+		LEFT JOIN (
+		SELECT
+		count(*) n,
+		article_id id
+		FROM
+		order_details od
+		GROUP BY
+		(article_id)
+		) oa ON saa.id = oa.id
+		order by
+		'${order}' DESC
+		LIMIT #{skli},#{take}
+	</select>
+	
+	<select id="findNewsArticleNumber" resultType="Integer" >
+	  SELECT
+COUNT(*)
+FROM
+	(
+		SELECT
+			a.id,
+			a.aname,
+			a.price,
+			a.image,
+			a.shelfdate,
+			sa.buyersNumber buyersNumber,
+			sa.active_price active_price
+		FROM
+			article a
+		JOIN shop_activities sa ON a.id = sa.article_id
+		WHERE
+			sa.type_id = 'tuangou'
+		AND sa.end_time > NOW()
+	) saa
+LEFT JOIN (
+	SELECT
+		count(*) n,
+		article_id id
+	FROM
+		order_details od
+	GROUP BY
+		(article_id)
+) oa ON saa.id = oa.id order by 'a.shelfdate'
+</select>
+
 	<!--查询用户最近购买的商品 -->
 	<select id="findUserArticle" parameterType="map"
 		resultType="com.brick.squad.expand.NewsArticle">
