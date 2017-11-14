@@ -48,3 +48,8 @@
 	margin-top:50px;
 	border:1px solid #48D2D2; 
 }
+
+.layui-carousel img{
+    width: 1349px;
+    height: 500px;	
+}
