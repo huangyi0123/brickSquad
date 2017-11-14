@@ -19,7 +19,7 @@ public interface ArticleService {
 	 * @param id
 	 * @return 返回商品列表
 	 */
-
+	
 	public Article findArticleById(String id) throws Exception;
 
 	public void insertArticleById(Article article) throws Exception;
@@ -30,6 +30,8 @@ public interface ArticleService {
 	public void updateArticleById(Article article) throws Exception;
 
 	public String articlePagination(Pagination pagination);
+	/** 查询所有商品总数 */
+	public int findSearchArticleAllCount()throws Exception;
 
 	// public int findArticleAllCount();
 	/**
@@ -96,8 +98,9 @@ public interface ArticleService {
 
 	/********最新商品分页查询 *********/
 	public Map<String, Object> findArticlePage(PageUtil pageUtil,String path,String order);
+	/**查询所有商品信息：搜索框使用*/
+	public Map<String, Object> findSearchAllArticle(PageUtil pageUtil,String path);
 	
-
 	public int selectArticleRatedTotalById(String id);
 
 	/**

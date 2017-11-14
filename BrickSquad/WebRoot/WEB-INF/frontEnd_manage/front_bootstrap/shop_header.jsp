@@ -225,8 +225,9 @@
 						<div class="widget-inner">
 							<div class="top-form top-search">
 								<div class="topsearch-entry">
+								
 									<c:if test="${url=='toShop' }">
-									<form method="get" action="">
+									<form method="get" action="${pageContext.request.contextPath }/new_deals/findAllArticle">
 										<div>
 											<input type="text" value="" name="s"
 												placeholder="Enter your keyword...">
@@ -236,18 +237,9 @@
 													name="search_category" class="s1_option"
 													style="width: 150px; onclick="selectType()">
 															<option value="">所有类别</option>
-															<option value="8">女装</option>
-															<option value="14">男装</option>
-															<option value="16">女鞋</option>
-															<option value="17">男鞋</option>
-															<option value="18">配件配饰</option>
-															<option value="15">运动用品</option>
-															<option value="32">食品</option>
-															<option value="49">滋补养生</option>
-															<option value="13">中西药品</option>
-															<option value="51">保健器械</option>
-															<option value="78">眼镜服务</option>
-															<option value="80">护理护具</option>
+															<c:forEach var="type" items="${listType}">
+															<option value="${type.id }">${type.name }</option>
+															</c:forEach>
 													</select>
 													</label>
 												</div>
@@ -257,6 +249,12 @@
 											</div>
 										</form>
 										</c:if>
+										
+										
+										
+										
+										
+										
 										
 										<c:if test="${url=='toShop_left_sidebar'}">
 										<form method="get" action="${pageContext.request.contextPath }/MedicalInstruments/findArticleTitle">
@@ -299,6 +297,93 @@
 															<option value="${type.id }">${type.name }</option>
 																</c:forEach>
 														
+													</select>
+													</label>
+												</div>
+
+												<button type="submit" title="Search"
+													class="fa fa-search button-search-pro form-button"></button>
+											</div>
+										</form>
+										</c:if>
+										
+										<c:if test="${url=='findAllArticle' }">
+									<form method="get" action="${pageContext.request.contextPath }/new_deals/findAllArticle">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> 
+												<select
+													name="search_category" class="s1_option"
+													style="width: 150px; onclick="selectType()">
+															<option value="">所有类别</option>
+															<option value="">上衣</option>
+															<option value="">裤子</option>
+															<option value="">鞋类</option>
+															<option value="">帽子</option>
+															<option value="">医疗器械</option>
+															<option value="">运动用品</option>
+															<option value="">视频</option>
+															<option value="">滋补养身</option>
+													</select>
+													</label>
+												</div>
+
+												<button type="submit" title="Search"
+													class="fa fa-search button-search-pro form-button"></button>
+											</div>
+										</form>
+										</c:if>
+										
+										<c:if test="${url2=='findHotArticle' }">
+									<form method="get" action="${pageContext.request.contextPath }/new_deals/findAllArticle">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> 
+												<select
+													name="search_category" class="s1_option"
+													style="width: 150px; onclick="selectType()">
+															<option value="">所有类别</option>
+															<option value="">上衣</option>
+															<option value="">裤子</option>
+															<option value="">鞋类</option>
+															<option value="">帽子</option>
+															<option value="">医疗器械</option>
+															<option value="">运动用品</option>
+															<option value="">视频</option>
+															<option value="">滋补养身</option>
+													</select>
+													</label>
+												</div>
+
+												<button type="submit" title="Search"
+													class="fa fa-search button-search-pro form-button"></button>
+											</div>
+										</form>
+										</c:if>
+										
+											<c:if test="${url2=='findHotArticletotonew_deals' }">
+									<form method="get" action="${pageContext.request.contextPath }/new_deals/findAllArticle">
+										<div>
+											<input type="text" value="" name="s"
+												placeholder="Enter your keyword...">
+											<div class="cat-wrapper"">
+												<label class="label-search"> 
+												<select
+													name="search_category" class="s1_option"
+													style="width: 150px; onclick="selectType()">
+															<option value="">所有类别</option>
+															<option value="">上衣</option>
+															<option value="">裤子</option>
+															<option value="">鞋类</option>
+															<option value="">帽子</option>
+															<option value="">医疗器械</option>
+															<option value="">运动用品</option>
+															<option value="">视频</option>
+															<option value="">滋补养身</option>
 													</select>
 													</label>
 												</div>

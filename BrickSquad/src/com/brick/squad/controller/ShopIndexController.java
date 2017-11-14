@@ -13,8 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.expand.SecKill;
+import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.ShopActivitiesService;
@@ -34,7 +36,7 @@ public class ShopIndexController {
 	private ArticleService articalService;
 
 	@RequestMapping("/toShop")
-	public String toShop(HttpServletRequest request) {
+	public String toShop(HttpServletRequest request) throws Exception {
 		Map<String, Object> map = articalService.shopIndex();
 		request.setAttribute("url", "toShop");
 		System.err.println(map);
@@ -68,6 +70,10 @@ public class ShopIndexController {
 		request.setAttribute("rArticlesTop",
 				getImagePath(request, rArticlesTop));
 		request.setAttribute("secKills", secKills);
+		
+		//加载商品所有类型,搜索框
+		List<Type> listType=typeService.findAllTypeByParentId("splb");
+		request.setAttribute("listType", listType);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -110,4 +116,5 @@ public class ShopIndexController {
 		String data = typeService.getArticleType(id);
 		return data;
 	}
+	
 }

@@ -25,7 +25,7 @@ public class TypeServiceTest {
 
 	@Test
 	public void findTypeByParentIdTest() {
-		String data = typeService.findTypeByParentId("xuebiao");
+		String data = typeService.findTypeByParentId("splb");
 		System.out.println(data);
 	}
 
@@ -95,6 +95,13 @@ public class TypeServiceTest {
 				.findIdAndTypeNmae("yiliaoqixie");
 		for (TypeExpand type : listType) {
 			System.err.println(type.getAid() + "=====" + type.getName());
+		}
+	}
+	@Test
+	public void findAllTypeByParentId() throws Exception{
+		List<Type> list=typeService.findAllTypeByParentId("splb");
+		for(Type type:list){
+			System.out.println(type.getName());
 		}
 	}
 }
