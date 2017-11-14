@@ -293,7 +293,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Map<String, Object> shopIndex() {
+	public Map<String, Object> shopIndex(String userId) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> m = new HashMap<>();
 		// 最新商品
@@ -318,6 +318,18 @@ public class ArticleServiceImpl implements ArticleService {
 		// 秒杀
 		List<SecKill> secKills = shopActivitiesMapper.secKillIndex();
 		map.put("secKills", secKills);
+		//猜你喜欢
+		if (userId==null) {
+			map.put("myArticle", rArticles);
+			System.err.println("---------------------------");
+			map.put("myArticleTop", aNewsArticlesTop);
+		}else {
+			m.put("take", 6);
+			m.put("userId", userId);
+			map.put("myArticle", articleMapper.findUserArticle(m));
+			m.put("take", 5);
+			map.put("myArticleTop", articleMapper.findUserArticle(m));
+		}
 		return map;
 	}
 
@@ -554,16 +566,21 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 	
 	
-	//最新商品分页
+	//最新商品分页//////////////////////////////////////////////////////
 	@Override
 	public Map<String, Object> findArticlePage(PageUtil page,String path,String order){
-		Map<String, Object> map=new HashMap<>();
+			//创建一个map集合，用来装list和page
+			Map<String, Object> map=new HashMap<>();
 			Map<String, Object> m=new HashMap<String, Object>();
 			m.put("order", order);
 			m.put("skli", page.getSkipNum());
 			m.put("take", page.getTakeNum());
+			System.out.println("_________123___________"+m);
+			//创建一个list集合，把传入的order、skil、take参数查询出来的结果给list集合
 			List<NewsArticle> list=articleMapper.findNewsArticle(m);
+			//得到总商品数
 			int n=articleMapper.findFrontTimeNumber();
+			//设置总商品数
 			page.setCount(n);
 			for (NewsArticle item : list) {
 				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
@@ -649,6 +666,35 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		return pageBean;
 	}
+	//团购的分页查询
+	@Override
+	public Map<String, Object> findArticlePages(PageUtil page,String path,String order){
+			//创建一个map集合，用来装list和page
+			Map<String, Object> map=new HashMap<>();
+			Map<String, Object> m=new HashMap<String, Object>();
+			m.put("order", order);
+			m.put("skli", page.getSkipNum());
+			m.put("take", page.getTakeNum());
+			//创建一个list集合，把传入的order、skil、take参数查询出来的结果给list集合
+			List<NewsArticle> list=articleMapper.findNewsArticles(m);
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+list);
+			//得到总团购商品数
+			int n=articleMapper.findNewsArticleNumber();
+			//设置总商品数
+			page.setCount(n);
+			for (NewsArticle item : list) {
+				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+				File[] files=file.listFiles();
+				if (files!=null&&files.length!=0) {
+					item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+				}
+			}
+			map.put("data", list);
+			map.put("page", page);
+		return map;
+
+
+	}
 
 	@Override
 	/**
@@ -657,7 +703,7 @@ public class ArticleServiceImpl implements ArticleService {
 	public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
 			String search_category) {
 		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
-		if (page == 0 ||limitPage==0&&s==null||search_category==null) {
+		if (page == 0 ||limitPage==0) {
 			page = 1;
 			limitPage=12;
 			// 设置当前页数:
@@ -689,7 +735,7 @@ public class ArticleServiceImpl implements ArticleService {
 			List<Article> list = articleMapper.findArticleTitle(pageBean);
 			pageBean.setList(list);
 
-		} else {
+		} else{
 
 			// 设置当前页数:
 			pageBean.setPage(page);
@@ -723,5 +769,73 @@ public class ArticleServiceImpl implements ArticleService {
 		return pageBean;
 	}
 
+	@Override
+	public PageBeanUtil findArticleTitles(int page, int limitPage,
+			String search_category) {
+		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
+		if (page == 0 ||limitPage==0) {
+			page = 1;
+			limitPage=12;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setSearch_category(search_category);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findArticleTitles(pageBean);
+			pageBean.setList(list);
+
+		} else{
+
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setSearch_category(search_category);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments("yiliaoqixie");
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId("yiliaoqixie");
+			List<Article> list = articleMapper.findArticleTitles(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
 	
+	}
+
 }

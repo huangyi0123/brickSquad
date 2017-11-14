@@ -17,6 +17,7 @@ public class ShopActivities {
 	@NotEmpty(message = "商品名不能为空！")
 	private String articleId;
 	private String activePrice;
+
 	//商品活动修改回显信息
 	private String aname;
 	public String getAname() {
@@ -25,6 +26,17 @@ public class ShopActivities {
 
 	public void setAname(String aname) {
 		this.aname = aname;
+	}
+	
+	private Integer buyersNumber;
+
+	public Integer getBuyersNumber() {
+		return buyersNumber;
+	}
+
+	public void setBuyersNumber(Integer buyersNumber) {
+		this.buyersNumber = buyersNumber;
+
 	}
 
 	public String getActivePrice() {

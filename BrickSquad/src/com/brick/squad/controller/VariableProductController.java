@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.criteria.Order;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.pojo.OrderRated;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.pojo.User;
+import com.brick.squad.service.AddressService;
 import com.brick.squad.service.ArticleService;
+import com.brick.squad.service.OrderDetailsService;
+import com.brick.squad.service.OrdersService;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.VariableProductService;
@@ -34,6 +38,15 @@ import com.brick.squad.service.VariableProductService;
 @RequestMapping("/variableProduct")
 public class VariableProductController {
 	@Autowired
+	@Qualifier("addressService")
+	private AddressService addressService;
+	@Autowired
+	@Qualifier("orderDetailsService")
+	private OrderDetailsService orderDetailsService;
+	@Autowired
+	@Qualifier("ordersService")
+	private OrdersService ordersService;
+	@Autowired
 	@Qualifier("articleService")
 	private ArticleService articleService;
 	@Autowired
@@ -46,6 +59,68 @@ public class VariableProductController {
 	@Qualifier("variableProductService")
 	private VariableProductService variableProductService;
 
+	@RequestMapping("/userUpdatereceivingAddress")
+	@ResponseBody
+	public String userUpdatereceivingAddress(String orderId,String receivingAddressId) throws Exception {
+		if (receivingAddressId!=null&&orderId!=null) {
+			Orders orders =ordersService.findOrdersById(orderId);
+			if (orders!=null) {
+				orders.setReceivingAddress(receivingAddressId);
+				ordersService.updateOrdersreceivingAddressById(orders);
+			}else {
+				return "fail";
+			}
+		}else{
+			return "fail";
+		}
+		return "success";
+	}
+
+	/**
+	 * 跳转到订单确认页
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/toconfirm_order")
+	public String toconfirm_order(String orderDetailsId,
+			HttpServletRequest request) throws Exception {
+		Orders orders = new Orders();
+		OrderDetails orderDetails = new OrderDetails();
+		Article article = new Article();
+		List<Address> listAddresses = new ArrayList<Address>();
+		if (orderDetailsId != null) {
+			orderDetails = orderDetailsService
+					.findOrderDetailsById(orderDetailsId);
+			if (orderDetails != null) {
+				article = articleService.findArticleById(orderDetails
+						.getArticleId());
+				orders = ordersService.findOrdersById(orderDetails
+						.getOrdersId());
+				listAddresses = addressService.findAddressByBuyersId(orders
+						.getBuyId());
+				if (!(listAddresses.isEmpty())) {
+					for (Address address : listAddresses) {
+						String addressDetailed = addressService
+								.findByIdAllAddress(address.getId())
+								+ "("
+								+ address.getConsigneeName()
+								+ "   "
+								+ address.getConsigneePhone() + ")";
+						address.setDetailed(addressDetailed);
+
+					}
+				}
+
+			}
+		}
+		request.setAttribute("listAddresses", listAddresses);
+		request.setAttribute("article", article);
+		request.setAttribute("orders", orders);
+		request.setAttribute("orderDetails", orderDetails);
+		return "frontEnd_manage/front_bootstrap/confirm_order";
+	}
+
 	/**
 	 * 商品详情页立即购买商品
 	 * 
@@ -56,15 +131,20 @@ public class VariableProductController {
 	 * @param request
 	 */
 	@RequestMapping("/userBuyImmediately")
-	public void userBuyImmediately(int articleNumber, String articleId,
+	@ResponseBody
+	public String userBuyImmediately(int articleNumber, String articleId,
 			HttpServletRequest request) throws Exception {
 		User user = (User) request.getSession().getAttribute("user");
 		if (user != null) {
-			variableProductService
+			String orderDetailsId = variableProductService
 					.userBuyImmediatelyAddOrdersandAddOrderDetails(
 							articleNumber, articleId, user.getId());
+			if (orderDetailsId != null) {
+				return orderDetailsId;
+			}
+			return "fail";
 		}
-
+		return "fail";
 	}
 
 	/**

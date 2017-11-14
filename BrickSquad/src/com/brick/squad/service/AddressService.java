@@ -1,9 +1,17 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.pojo.Address;
 import com.brick.squad.util.Pagination;
 
 public interface AddressService {
+	/**
+	 * 根据用户ID查询address中当前用户的所有地址信息集合
+	 * @param buyersId
+	 * @return
+	 */
+	public List<Address> findAddressByBuyersId(String buyersId);
 	/**
 	 * 在addresssever中写封装地址成字符串的方法，参数为address对象，返回类型为字符串
 	 * 

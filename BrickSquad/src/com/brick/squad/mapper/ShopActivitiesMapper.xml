@@ -6,12 +6,14 @@
 
 	<select id="findShopActivitiesById" resultType="com.brick.squad.pojo.ShopActivities"
 		parameterType="String">
+
 		select s.id,s.type_id typeId,s.start_time startTime,s.end_time
 		endTime,s.business_id
 		businessId,s.article_id articleId,a.aname,s.active_price activePrice 
 		from shop_activities s
 		JOIN article a ON s.article_id=a.id
 		 where s.id=#{id}
+
 	</select>
 
 	<insert id="insertShopActivitiesById" parameterType="ShopActivities">

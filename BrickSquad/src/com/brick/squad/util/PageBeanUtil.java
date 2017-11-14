@@ -17,9 +17,17 @@ public class PageBeanUtil<T> {
 	private double max_price;
 	private String s;
 	private String search_category;
-	
+	private String aname;
 
 	
+
+	public String getAname() {
+		return aname;
+	}
+
+	public void setAname(String aname) {
+		this.aname = aname;
+	}
 
 	public String getS() {
 		return s;

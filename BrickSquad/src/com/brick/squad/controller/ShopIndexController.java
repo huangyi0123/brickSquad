@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.expand.SecKill;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.service.TypeService;
@@ -35,7 +36,9 @@ public class ShopIndexController {
 
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) {
-		Map<String, Object> map = articalService.shopIndex();
+		User user=(User) request.getSession().getAttribute("user");
+		String userId=user==null?null:user.getId();
+		Map<String, Object> map = articalService.shopIndex(userId);
 		request.setAttribute("url", "toShop");
 		System.err.println(map);
 		List<NewsArticle> newsArticles = (List<NewsArticle>) map
@@ -46,10 +49,11 @@ public class ShopIndexController {
 		List<NewsArticle> rArticlesTop = (List<NewsArticle>) map
 				.get("rArticlesTop");
 		List<SecKill> secKills = (List<SecKill>) map.get("secKills");
+		List<NewsArticle> myArticles=(List<NewsArticle>)map.get("myArticle");
+		List<NewsArticle> myArticlesTop=(List<NewsArticle>)map.get("myArticleTop");
 		for (SecKill item : secKills) {
 			String path = request
-					.getSession()
-					.getServletContext()
+					.getSession()																							.getServletContext()
 					.getRealPath("resource/image/articleImg/" + item.getImage());
 			File file = new File(path);
 			File[] files = file.listFiles();
@@ -61,6 +65,7 @@ public class ShopIndexController {
 		List<List<NewsArticle>> nList = avgList(getImagePath(request,
 				newsArticles));
 		List<List<NewsArticle>> rList = avgList(getImagePath(request, rArticles));
+		List<List<NewsArticle>> mList=avgList(getImagePath(request, myArticles));
 		request.setAttribute("aNewsArticles", nList);
 		request.setAttribute("aNewsArticlesTop",
 				getImagePath(request, newsArticlesTop));
@@ -68,6 +73,8 @@ public class ShopIndexController {
 		request.setAttribute("rArticlesTop",
 				getImagePath(request, rArticlesTop));
 		request.setAttribute("secKills", secKills);
+		request.setAttribute("myArticleTop", getImagePath(request, myArticlesTop));
+		request.setAttribute("myArticle", mList);
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
