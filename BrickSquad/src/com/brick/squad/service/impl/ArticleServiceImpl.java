@@ -321,7 +321,8 @@ public class ArticleServiceImpl implements ArticleService {
 		//猜你喜欢
 		if (userId==null) {
 			map.put("myArticle", rArticles);
-			map.put("myArticleTop", rArticles);
+			System.err.println("---------------------------");
+			map.put("myArticleTop", aNewsArticlesTop);
 		}else {
 			map.put("take", 6);
 			map.put("userId", userId);
