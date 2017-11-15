@@ -101,7 +101,9 @@ public interface ArticleService {
 
 	/**查询所有商品信息：搜索框使用*/
 	public Map<String, Object> findSearchAllArticle(PageUtil pageUtil,String path);
-
+	public Map<String, Object> findSearchAllArticleSecond(PageUtil pageUtil,String path);
+	public Map<String, Object> findSearchAllArticleSecondYiLiao(PageUtil pageUtil,String path);
+	public int findSearchAllArticleCountSecond(String typeId);
 	
 	public Map<String, Object> findArticlePages(PageUtil pageUtil,String path,String order);
 
@@ -132,13 +134,5 @@ public interface ArticleService {
 	 * 根据价格范围查询商品	
 	 * */
 	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
-/*	*//**
-	 * 导航搜索框搜索
-	 * *//*
-	PageBeanUtil findArticleTitle(int page, int limitPage, String s,
-			String search_category)throws Exception;
 
-	public PageBeanUtil findArticleTitles(int page, int limitPage,
-			String search_category);
-*/
 }

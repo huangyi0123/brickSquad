@@ -39,6 +39,9 @@ public class NewDealsController {
 		request.setAttribute("url2", "findHotArticletotonew_deals");
 		request.setAttribute("msg", "最新商品");
 		request.setAttribute("map", map);
+		//加载商品所有类型,搜索框
+		List<Type> listType=typeService.findAllTypeByParentId("splb");
+		request.setAttribute("listType", listType);
 		return "frontEnd_manage/front_bootstrap/new_deals";	
 	}
 	@RequestMapping("/findHotArticle")
@@ -67,6 +70,8 @@ public class NewDealsController {
 		String path=request.getSession().getServletContext().getRealPath("");
 		Map<String,Object> map=articleService.findSearchAllArticle(pageUtil, path);
 		map.put("url", "findAllArticle");
+		map.put("s", pageUtil.getS());
+		map.put("search_category", pageUtil.getSearch_category());
 		request.setAttribute("url", "findAllArticle");
 		request.setAttribute("msg", "所有商品");
 		request.setAttribute("map", map);

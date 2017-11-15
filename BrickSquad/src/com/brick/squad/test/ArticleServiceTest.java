@@ -233,5 +233,8 @@ public class ArticleServiceTest {
 			System.out.println("=============="+article);
 		}
 	}
-	
+	@Test
+	public void findSearchAllArticleCountSecond(){
+		System.out.println(articleService.findSearchAllArticleCountSecond("yiliaoqixie"));
+	}
 }

@@ -319,7 +319,7 @@
 											<ul class="pagination">
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+1%>"
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
 														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
 														<span aria-hidden="true">&laquo;</span>
 													</a>
@@ -344,7 +344,7 @@
 												%>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()+1)%>"
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
 														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
 														aria-label="Next">
 														<span aria-hidden="true">&gt;</span>
@@ -465,14 +465,14 @@
 											<ul class="pagination">
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+1%>"
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
 														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
 														<span aria-hidden="true">&laquo;</span>
 													</a>
 												</li>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()-1)%>"
 														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
 														<span aria-hidden="true">&lt;</span>
 													</a>
@@ -483,14 +483,14 @@
 
 												<li>
 													<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
-														href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+														href="new_deals/${map.url }?s=${map.s }&search_category=${map.search_category }&curentPage=<%=i%>"><%=i%></a>
 												</li>
 												<%
 													}
 												%>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()+1)%>"
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
 														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
 														aria-label="Next">
 														<span aria-hidden="true">&gt;</span>
@@ -498,7 +498,7 @@
 												</li>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+pageUtil.getPageCount()%>"
 														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
 														<span aria-hidden="true">&raquo;</span>
 													</a>
