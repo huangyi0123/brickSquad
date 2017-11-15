@@ -142,7 +142,7 @@
 															href="simple_product.html">${listDetailsShoppingCar.aname}</td>
 														<td class="product-price" data-title="Price"><span
 															class="woocommerce-Price-amount amount"><span
-																class="woocommerce-Price-currencySymbol">￥</span>${listDetailsShoppingCar.price}</span>
+																class="woocommerce-Price-currencySymbol">￥</span><span class="pricle">${listDetailsShoppingCar.price}</span></span>
 														</td>
 
 														<td class="product-quantity" data-title="Quantity">
@@ -165,10 +165,10 @@
 																style="border: none;background-color:transparent;"
 																value="${listDetailsShoppingCar.allPrice }"></span></td>
 
-														<td class="product-choice">
+														<td class="product-choice checkedas">
 														<div class="layui-form-item" pane="">
 															<div class="layui-input-block">
-																<input type="checkbox" name="like1[write]"
+																<input class="checksa" type="checkbox" name="like1[write]"
 																	lay-skin="primary" onchange="checkedCar(this)" > 
 															</div>
 														</div>

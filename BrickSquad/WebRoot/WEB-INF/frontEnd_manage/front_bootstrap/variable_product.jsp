@@ -127,23 +127,17 @@ pre {
 
 <body
 	class="product-template-default single single-product woocommerce woocommerce-page">
-	<jsp:include page="shop_header.jsp"></jsp:include>
 	<div class="body-wrapper theme-clearfix">
-	<div class="container">
-			<div class="wrap-title">
+		<jsp:include page="shop_header.jsp"></jsp:include>
 
+		<div class="container">
+			<div class="wrap-title">
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb" style="">
+							<ul class="breadcrumb" style="margin-left: 830px;">
 								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
-								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
-									class="go-page"></span></li>
-								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
-									class="go-page"></span></li> -->
 								<li class="active"><span>商品详情</span></li>
-
-
 							</ul>
 						</div>
 					</div>
@@ -267,19 +261,19 @@ pre {
 										</ul>
 									</div>
 									<div
-										style="margin-top:8px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
-									<label style="margin-left: 50px;margin-top: 10px;">月销量</label>
+										style=" margin-top:8px;margin-left:20px; width: 100%;height: 1px;border-top: 1px #C9C9C9 dashed;"></div>
+									<label style="margin-left: 50px;margin-bottom: 15px;">月销量</label>
 									<label>${SalesNumberTotal }</label>
-									<p style="display:block; margin-top: -26px;margin-left: 180px;">|</p>
+									<p style="display:block; margin-top: -30px;margin-left: 180px;">|</p>
 									<label
-										style="display:block; margin-left: 220px;margin-top: -29px;">累计评价</label>
-									<label style="margin-left: 290px;margin-top: -25px;">${ratedTotal }</label>
-									<p style="margin-top: -26px;margin-left: 350px;">|</p>
+										style="display:block; margin-left: 220px;margin-top: -25px;">累计评价</label>
+									<label style="margin-left: 290px;margin-top: -21px;">${ratedTotal }</label>
+									<p style="display:block;margin-top: -20px;margin-left: 350px;">|</p>
 									<label
-										style="display:block; margin-left: 390px;margin-top: -29px;">天猫积分</label>
-									<label style="margin-left: 460px;margin-top: -25px;">123</label>
+										style="display:block; margin-left: 390px;margin-top: -25px;">天猫积分</label>
+									<label style="margin-left: 460px;margin-top: -23px;">123</label>
 									<div
-										style="margin-top:7px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
+										style="margin-top:10px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
 									<form class="layui-form" action="">
 										<div class="layui-form-item">
 											<label class="layui-form-label"
