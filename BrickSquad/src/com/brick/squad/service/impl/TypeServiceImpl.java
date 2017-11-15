@@ -101,4 +101,13 @@ public class TypeServiceImpl implements TypeService {
 		return jsonArray.toString();
 	}
 
+	@Override
+	/**
+	 * 查询所有的商品类别，用于搜索框
+	 * */
+	public List<Type> findAllTypeByParentId(String parentId) throws Exception {
+		List<Type> listType=typeMapper.findAllTypeByParentId(parentId);
+		return listType;
+	}
+
 }

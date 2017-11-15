@@ -1,5 +1,8 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
+import com.brick.squad.expand.CouponExpand;
 import com.brick.squad.pojo.Coupon;
 import com.brick.squad.util.Pagination;
 
@@ -20,4 +23,10 @@ public interface CouponService {
 	public void deleteCouponAllById(String id);
 	//根据id修改
 	public void updateCouponById(Coupon coupon);
+	/**
+	 * 根据类型查询优惠劵
+	 * @param typpeId 类型id
+	 * @return 优惠劵列表
+	 */
+	public List<CouponExpand> findCouponByTypeId(String typpeId);
 }

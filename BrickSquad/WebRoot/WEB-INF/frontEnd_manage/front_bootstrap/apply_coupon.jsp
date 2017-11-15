@@ -198,12 +198,9 @@
 						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 							<ul class="layui-tab-title" style="margin-top: -30px;">
 								<c:forEach items="${types }" var="a" varStatus="q">
-									<c:if test="${q.index eq 0 }">
-										<li class="layui-this" onclick="types('${a.id}')">${a.name}</li>
-									</c:if>
-									<c:if test="${q.index ne 0 }">
-										<li onclick="types('${a.id}')">${a.name}</li>
-									</c:if>
+
+									<li  class="${a.id eq typeId?'layui-this':'' }" onclick="types('${a.id}')">${a.name}</li>
+
 								</c:forEach>
 							</ul>
 
@@ -230,7 +227,8 @@
 					</div>
 				</div>
 			</div>
-		</div></header>
+		</div>
+		</header>
 		<div class="cou_body">
 			<span
 				style="background: url('resource/image/hot-icons.png') no-repeat 590px 20px; display: block; height: 40px;"></span>
@@ -239,7 +237,46 @@
 				style="background: url('resource/image/hot-icons.png') no-repeat 740px 20px; display: block; height: 40px;margin-top: -45px;"></span>
 
 			<div style="width: 80%;margin: 0 auto;">
-				<div class="coupon">
+				<c:forEach items="${couponExpands }" var="a" varStatus="s">
+					<div class="coupon ${((s.index+1)%2)eq 0?'coupon-diabled':'' }">
+						<div class="coupon-left">
+							<div class="coupon-inner">
+								<div class="coupon-img">
+									<img alt="" src="resource/image/2.png">
+								</div>
+								<div class="coupon-money">
+									<span class="money_icon">￥</span>
+									<span class="sum">${a.money }</span>
+
+								</div>
+								<div class="coupon-describe">
+									<p>${a.shopname }</p>
+								</div>
+
+								<div class="coupon-condition">
+									<p>满${a.fullMoney }可用</p>
+								</div>
+								<div class="coupon-percent">
+									<p>已抢${a.percent }%</p>
+								</div>
+								<div class="layui-progress" style="width: 120px;margin-left: 180px;margin-top: -25px;">
+									<div class="layui-progress-bar layui-bg-orange" lay-percent="${a.percent }%"></div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:;" onclick="receive('${a.id}')" style="z-index: 1">
+							<div class="coupon-right" style="z-index: 10">
+								<div class="coupon-inner">
+									<div class="coupon-time">立即领取</div>
+
+									<i class="coupon-circle top"></i>
+									<i class="coupon-circle bottom"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+				<!-- <div class="coupon">
 					<div class="coupon-left">
 						<div class="coupon-inner">
 							<div class="coupon-img">
@@ -311,9 +348,10 @@
 								<i class="coupon-circle bottom"></i>
 							</div>
 						</div>
-						<!-- <div class="coupon-light"></div> -->
+						<div class="coupon-light"></div>
 					</a>
-				</div>
+				</div> -->
+
 			</div>
 		</div>
 		<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
@@ -368,6 +406,18 @@
 					});
 				});
 			});
+			function receive(id) {
+				$.ajax({
+					url:"agedCoupon/insertAgedCoupon?id="+id,
+					success:function(result){
+						alert(result);
+					}
+				});
+				
+			}
+			function types(id) {
+				window.location.href="coupon/findArticleType?typeId="+id;
+			}
 		</script>
 
 		<!--[if gte IE 9]><!-->
@@ -385,9 +435,7 @@
 			layui.use('element', function() {
 				var $ = layui.jquery, element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
 			});
-			function types(id) {
-				console.log(id);
-			}
+			
 		</script>
 </body>
 </html>

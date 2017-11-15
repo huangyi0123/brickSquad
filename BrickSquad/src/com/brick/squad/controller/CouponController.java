@@ -21,6 +21,7 @@ import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.CouponService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.expand.CouponExpand;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Coupon;
 import com.brick.squad.pojo.Type;
@@ -116,9 +117,16 @@ public class CouponController {
 		return "backstage_managed/jsp/coupon/search_coupon";
 	}
 	@RequestMapping("/findArticleType")
-	public String findArticleType(HttpServletRequest request) {
-		List<Type> types=typeService.getArctre("splb");
+	public String findArticleType(HttpServletRequest request,String typeId) {
+		
+		List<Type> types=typeService.getArctre("c79b8c82c83b11e7aca65254002ec43c");
+		if (typeId==null||typeId.equals("")) {
+			typeId=types.get(0).getId();
+		}
+		List<CouponExpand> couponExpands=couponService.findCouponByTypeId(typeId);
+		request.setAttribute("typeId", typeId);
 		request.setAttribute("types", types);
+		request.setAttribute("couponExpands", couponExpands);
 		return "frontEnd_manage/front_bootstrap/apply_coupon";
 	}
 }

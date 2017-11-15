@@ -594,6 +594,31 @@ public class ArticleServiceImpl implements ArticleService {
 		return map;
 
 	}
+	
+	@Override
+	/**查询所有商品信息：搜索框使用*/
+	public Map<String, Object> findSearchAllArticle(PageUtil page,
+			String path) {
+		Map<String, Object> map=new HashMap<>();
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("skli", page.getSkipNum());
+		m.put("take", page.getTakeNum());
+		List<NewsArticle> list=articleMapper.findSearchAllArticle(m);
+		int count=articleMapper.findSearchArticleAllCount();
+		page.setCount(count);
+		for (NewsArticle item : list) {
+			File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+			File[] files=file.listFiles();
+			if (files!=null&&files.length!=0) {
+				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+			}
+		}
+		map.put("data", list);
+		map.put("page", page);
+		return map;
+	}
+	
+	
 	/**
 	 * 根据商品的价格范围查询商品信息
 	 * */
@@ -836,6 +861,14 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		return pageBean;
 	
+	}
+
+
+	@Override
+	public int findSearchArticleAllCount() throws Exception {
+		/** 查询所有商品总数 */
+		int count=articleMapper.findSearchArticleAllCount();
+		return count;
 	}
 
 }
