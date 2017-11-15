@@ -35,4 +35,10 @@ public class AgedCouponServiceImpl implements AgedCouponService {
 		agedCouponMapper.updateAgedCouponById(agedCoupon);
 	}
 
+	@Override
+	public AgedCoupon findAgedCouponByCouponId(AgedCoupon agedCoupon) {
+		// TODO Auto-generated method stub
+		return agedCouponMapper.findAgedCouponByCouponId(agedCoupon);
+	}
+
 }
