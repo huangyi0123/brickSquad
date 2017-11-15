@@ -318,6 +318,7 @@
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id
+		
 		LIMIT #{skli},#{take}
 </select>
 

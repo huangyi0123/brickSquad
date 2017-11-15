@@ -721,11 +721,11 @@ public class ArticleServiceImpl implements ArticleService {
 
 	}
 
-	@Override
+	/*@Override*/
 	/**
 	 * 导航搜索框搜索
 	 * */
-	public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
+	/*public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
 			String search_category) {
 		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
 		if (page == 0 ||limitPage==0) {
@@ -734,7 +734,7 @@ public class ArticleServiceImpl implements ArticleService {
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			/* int limit = 12; */
+			 int limit = 12; 
 			pageBean.setLimitPage(limitPage);
 			pageBean.setS(s);
 			pageBean.setSearch_category(search_category);
@@ -765,7 +765,7 @@ public class ArticleServiceImpl implements ArticleService {
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			/* int limit = 12; */
+			 int limit = 12; 
 			pageBean.setLimitPage(limitPage);
 			pageBean.setS(s);
 			pageBean.setSearch_category(search_category);
@@ -792,9 +792,9 @@ public class ArticleServiceImpl implements ArticleService {
 			pageBean.setList(list);
 		}
 		return pageBean;
-	}
+	}*/
 
-	@Override
+/*	@Override
 	public PageBeanUtil findArticleTitles(int page, int limitPage,
 			String search_category) {
 		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
@@ -804,7 +804,7 @@ public class ArticleServiceImpl implements ArticleService {
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			/* int limit = 12; */
+			 int limit = 12; 
 			pageBean.setLimitPage(limitPage);
 			pageBean.setSearch_category(search_category);
 			// 设置总记录数:
@@ -834,7 +834,7 @@ public class ArticleServiceImpl implements ArticleService {
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			/* int limit = 12; */
+			 int limit = 12; 
 			pageBean.setLimitPage(limitPage);
 			pageBean.setSearch_category(search_category);
 			// 设置总记录数:
@@ -861,7 +861,7 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		return pageBean;
 	
-	}
+	}*/
 
 
 	@Override
