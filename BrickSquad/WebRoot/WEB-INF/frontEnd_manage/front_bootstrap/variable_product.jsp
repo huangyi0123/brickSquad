@@ -131,16 +131,19 @@ pre {
 	<div class="body-wrapper theme-clearfix">
 	<div class="container">
 			<div class="wrap-title">
+
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb" style="margin-left: 830px;">
+							<ul class="breadcrumb" style="">
 								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
 								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
 									class="go-page"></span></li> -->
 								<li class="active"><span>商品详情</span></li>
+
+
 							</ul>
 						</div>
 					</div>
