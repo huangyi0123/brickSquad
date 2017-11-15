@@ -32,7 +32,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -48,7 +50,8 @@
 <!--//fonts-->
 <!-- js -->
 
-<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 
 <!-- js -->
@@ -203,22 +206,33 @@
 			<div class="clearfix"></div>
 		</div>
 		<div class="layui-carousel" id="test10">
-					<div carousel-item="">
-						<div>
-							<img src="resource/image/1.png">
-						</div>
-						<div>
-							<img src="resource/image/2.png">
-						</div>
-						<div>
-							<img src="resource/image/3.png">
-						</div>
-						<div>
-							<img src="resource/image/4.png">
-						</div>
-					
-					</div>
+			<div carousel-item="">
+				<div>
+					<img src="resource/image/1.png">
 				</div>
+				<div>
+					<img src="resource/image/2.png">
+				</div>
+				<div>
+					<img src="resource/image/3.png">
+				</div>
+				<div>
+					<img src="resource/image/4.png">
+				</div>
+
+			</div>
+			<div class="container">
+			<div class="buttons" style="z-index: 10;">
+				<ul>
+					<li><a class="hvr-shutter-in-vertical" href="#"
+						data-toggle="modal" data-target="#myModal">预约参观</a></li>
+					<li><a class="hvr-shutter-in-vertical" href="#"
+						data-toggle="modal" data-target="#myModal1">我要报名</a></li>
+				</ul>
+
+			</div>
+			</div>
+		</div>
 		<!-- <div class="container">
 			<div class="banner-info">
 				<h3>Get Free Coupons and Discounts on Top Brands With Every
@@ -422,173 +436,9 @@
 									role="tab" title="Complete"> </a></li>
 							</ul>
 						</div>
-
+<!-- 预约参观 -->
 						<form role="form">
-							<div class="tab-content">
-								<div class="tab-pane active" role="tabpanel" id="step1">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/mobile.png" alt="" />
-										</div>
-										<div class="mobile-right">
-											<h4>Enter your mobile number</h4>
-											<label>+91</label>
-											<input type="text" class="mobile-text" value=""
-												onfocus="this.value = '';"
-												onblur="if (this.value == '') {this.value = '';}" required>
-										</div>
-
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
-									</ul>
-								</div>
-								<div class="tab-pane" role="tabpanel" id="step2">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/mobile.png" alt="" />
-										</div>
-										<div class="mobile-right ">
-											<h4>Prepaid or Postpaid?</h4>
-											<div class="radio-btns">
-												<div class="swit">
-													<div class="check_box">
-														<img src="resource/image/card.png" alt="" />
-														<div class="clearfix"></div>
-														<div class="radio">
-															<label> <input type="radio" name="radio"
-																	checked=""><i></i>Prepaid
-															</label>
-														</div>
-													</div>
-													<div class="check_box">
-														<img src="resource/image/card.png" alt="" />
-														<div class="clearfix"></div>
-														<div class="radio">
-															<label> <input type="radio" name="radio"><i></i>Postpaid
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
-									</ul>
-								</div>
-								<div class="tab-pane" role="tabpanel" id="step3">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/mobile.png" alt="" />
-										</div>
-										<div class="mobile-right ">
-											<h4>Which operator?</h4>
-											<ul class="rchge-icons">
-												<li><a href="#">Airtel</a></li>
-												<li><a href="#">Aircel</a></li>
-												<li><a href="#">Bsnl</a></li>
-												<li><a href="#">Idea</a></li>
-												<li><a href="#">Vodafone</a></li>
-												<li><a href="#">Reliance</a></li>
-												<li><a href="#">Uninor</a></li>
-											</ul>
-											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
-													<option value="null">Airtel</option>
-													<option value="null">Aircel</option>
-													<option value="AX">Bsnl</option>
-													<option value="AX">Idea</option>
-													<option value="AX">Tata Docomo</option>
-													<option value="AX">Reliance</option>
-													<option value="AX">Tata Indicom</option>
-													<option value="AX">Uninor</option>
-													<option value="AX">Vodafone</option>
-													<option value="AX">MTS</option>
-												</select>
-											</div>
-										</div>
-
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary btn-info-full next-step">Next</button></li>
-									</ul>
-								</div>
-								<div class="tab-pane" role="tabpanel" id="step4">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/mobile.png" alt="" />
-										</div>
-										<div class="mobile-right ">
-											<h4>Which Circle?</h4>
-											<div class="map-image">
-												<img src="resource/image/map.png" alt="" />
-											</div>
-											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
-													<option value="null">Andhra Pradesh</option>
-													<option value="null">Assam</option>
-													<option value="AX">Bihar</option>
-													<option value="AX">Chennai</option>
-													<option value="AX">Delhi</option>
-													<option value="AX">Gujarat</option>
-													<option value="AX">Haryana</option>
-													<option value="AX">Himachal Pradesh</option>
-													<option value="AX">Karnataka</option>
-													<option value="AX">Madhya Pradesh</option>
-													<option value="AX">Mumbai</option>
-													<option value="AX">Tamil Nadu</option>
-													<option value="AX">Uttar Pradesh</option>
-												</select>
-											</div>
-										</div>
-
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary btn-info-full next-step">Next</button></li>
-									</ul>
-								</div>
-								<div class="tab-pane" role="tabpanel" id="step5">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/mobile.png" alt="" />
-										</div>
-										<div class="mobile-right ">
-											<h4>How Much To Recharge?</h4>
-											<div class="mobile-rchge">
-												<input type="text" value="10" onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = '10';}"
-													required>
-											</div>
-											<div class="mobile-rchge">
-												<a href="single.html">VIEW PLANS</a>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary btn-info-full"
-												data-dismiss="modal">Finish</button></li>
-									</ul>
-								</div>
-								<div class="clearfix"></div>
-							</div>
+							
 						</form>
 					</div>
 					</section>
@@ -637,78 +487,9 @@
 
 							</ul>
 						</div>
+						<!-- 我要去报名 -->
 						<form role="form">
-							<div class="tab-content">
-								<div class="tab-pane active" role="tabpanel" id="step6">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/dth.png" alt="" />
-										</div>
-										<div class="mobile-right ">
-											<h4>Pay your DTH bill. Which operator?</h4>
-											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
-													<option value="null">Select DTH Operator</option>
-													<option value="null">Dish TV</option>
-													<option value="null">Sun Direct</option>
-													<option value="AX">Reliance</option>
-													<option value="AX">Airtel</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
-									</ul>
-								</div>
-								<div class="tab-pane" role="tabpanel" id="step7">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/dth.png" alt="" />
-										</div>
-										<div class="mobile-right">
-											<h4>What's your DTH Number?</h4>
-											<div class="dth-rchge">
-												<input type="text" value="Enter Smart Card Number"
-													onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = 'Enter Smart Card Number';}"
-													required>
-											</div>
-										</div>
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
-									</ul>
-								</div>
-								<div class="tab-pane" role="tabpanel" id="step8">
-									<div class="mobile-grids">
-										<div class="mobile-left text-center">
-											<img src="resource/image/dth.png" alt="" />
-										</div>
-										<div class="mobile-right ">
-											<h4>How Much To Recharge?</h4>
-											<div class="dth-rchge">
-												<input type="text" value="100" onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = '100';}"
-													required>
-											</div>
-										</div>
-									</div>
-									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary btn-info-full"
-												data-dismiss="modal">Finish</button></li>
-									</ul>
-								</div>
-								<div class="clearfix"></div>
-							</div>
+							
 						</form>
 					</div>
 					</section>
@@ -830,7 +611,7 @@
 											</div>
 										</div>
 									</div>
-									<ul class="list-inline pull-right">
+									<ul class="list-inline pull-right"> 
 										<li><button type="button"
 												class="mob-btn btn btn-default prev-step">Previous</button></li>
 										<li><button type="button"
@@ -1104,22 +885,20 @@
 				//console.log(elem)
 				layer.msg(elem.text());
 			});
-			
-			
+
 		});
 	</script>
 	<script type="text/javascript">
-	layui.use(['carousel', 'form'], function(){
-		  var carousel = layui.carousel
-		  ,form = layui.form;
-		  
-		  carousel.render({
-			    elem: '#test10'
-			    ,width: '1349px'
-			    ,height: '500px'
-			    ,interval: 5000
-			  });
-	})
+		layui.use([ 'carousel', 'form' ], function() {
+			var carousel = layui.carousel, form = layui.form;
+
+			carousel.render({
+				elem : '#test10',
+				width : '1349px',
+				height : '500px',
+				interval : 5000
+			});
+		})
 	</script>
 </body>
 </html>

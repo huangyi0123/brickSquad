@@ -1,13 +1,15 @@
 @CHARSET "UTF-8";
-.layui-nav-bar, .layui-nav .layui-this:after, .layui-nav-tree .layui-nav-itemed:after{
+
+.layui-nav-bar,.layui-nav .layui-this:after,.layui-nav-tree .layui-nav-itemed:after
+	{
 	background-color: #17877B;
 }
 
-.top-nav ul li{
+.top-nav ul li {
 	margin-left: -10px;
 }
 
-.back-col1{
+.back-col1 {
 	background-image: url('../image/online.jpg');
 	width: 449px;
 	height: 406.58px;
@@ -15,7 +17,7 @@
 	background-position: center center;
 }
 
-.back-col2{
+.back-col2 {
 	background-image: url('../image/activity.jpg');
 	width: 449px;
 	height: 406.58px;
@@ -23,33 +25,57 @@
 	background-position: center center;
 }
 
-.btm-wid{
+.btm-wid {
 	padding-bottom: 0px;
 	padding-left: 0px;
 	padding-right: 0px;
 }
-.title{
-	margin-left:50px;
+
+.title {
+	margin-left: 50px;
 	width: 350px;
-	height:40px;
-	line-height:40px;
-	color:#48D2D2;
-	font-size:1.2em;
-	letter-spacing:10px;
-	text-align:center;
+	height: 40px;
+	line-height: 40px;
+	color: #48D2D2;
+	font-size: 1.2em;
+	letter-spacing: 10px;
+	text-align: center;
 	border: 1px solid #48D2D2;
 }
 
-.city_search{
+.city_search {
 	width: 200px;
-	height:40px;
-	border-radius:5px 0 0 5px;
-	margin-left:95px;
-	margin-top:50px;
-	border:1px solid #48D2D2; 
+	height: 40px;
+	border-radius: 5px 0 0 5px;
+	margin-left: 95px;
+	margin-top: 50px;
+	border: 1px solid #48D2D2;
 }
 
-.layui-carousel img{
-    width: 1349px;
-    height: 500px;	
+.layui-carousel img {
+	width: 100%;
+	height: 500px;
+}
+
+.buttons {
+	position: absolute;
+	z-index: 999;
+	margin-left: 425px;
+	margin-top: -100px;
+}
+
+.hvr-shutter-in-vertical {
+	border-radius: 10px;
+}
+
+.hvr-shutter-in-vertical:before {
+	border-radius: 10px;
+}
+
+a {
+	border-radius: 10px;
+}
+
+a:hover {
+	border-radius: 10px;
 }
