@@ -19,35 +19,59 @@ function addNumber(o) {
 	});
 }
 function checkedCar(o) {
-	var price=$(o).parent().parent().parent().parent().find(".product-price").find(".pricle").html();
-	var number=$(o).parent().parent().parent().parent().find(".product-quantity").find(".input-text").val();
-	price=parseFloat(price);
-	number=parseInt(number);
-	//计算已经选择或取消选择商品的总价
-	var money=price*number;
-	//获取小计
-	var a=$("#checkeds").html();
-	a=parseInt(a);
+	var price = $(o).parent().parent().parent().parent().find(".product-price")
+			.find(".pricle").html();
+	var number = $(o).parent().parent().parent().parent().find(
+			".product-quantity").find(".input-text").val();
+	price = parseFloat(price);
+	number = parseInt(number);
+	// 计算已经选择或取消选择商品的总价
+	var money = price * number;
+	// 获取小计
+	var a = $("#checkeds").html();
+	a = parseInt(a);
 	console.log(a);
-	
+
 	if ($(o).is(':checked')) {
 		alert("选中后不能修改商品数量");
-		$("#checkeds").html(a+money);
-		$(o).parent().parent().parent().parent().find(".product-quantity").find(".input-text").attr('disabled',"disabled");
-		$(o).parent().parent().parent().parent().find(".product-quantity").find("input[type='button']").attr('disabled',"disabled");
-	}else {
-		$("#checkeds").html(a-money);
-		$(o).parent().parent().parent().parent().find(".product-quantity").find(".input-text").removeAttr('disabled');
-		$(o).parent().parent().parent().parent().find(".product-quantity").find("input[type='button']").removeAttr('disabled');
+		$("#checkeds").html(a + money);
+		$(o).parent().parent().parent().parent().find(".product-quantity")
+				.find(".input-text").attr('disabled', "disabled");
+		$(o).parent().parent().parent().parent().find(".product-quantity")
+				.find("input[type='button']").attr('disabled', "disabled");
+	} else {
+		$("#checkeds").html(a - money);
+		$(o).parent().parent().parent().parent().find(".product-quantity")
+				.find(".input-text").removeAttr('disabled');
+		$(o).parent().parent().parent().parent().find(".product-quantity")
+				.find("input[type='button']").removeAttr('disabled');
 	}
 }
 function submitCar() {
-	var ids=""
-	$(".inputNumber").each(function () {
-		var a=$(this).parent().parent().parent().find(".checkedas").find(".checksa");
-		if ($(a).is(':checked')) {
-			ids=ids+$(this).attr('vai')+",";
+	var ids = ""
+	$(".inputNumber").each(
+			function() {
+				var a = $(this).parent().parent().parent().find(".checkedas")
+						.find(".checksa");
+				if ($(a).is(':checked')) {
+					ids = ids + $(this).attr('vai') + ",";
+				}
+			});
+	var price = $('#checkeds').html();
+	price = parseFloat(price);
+	if (price == 0) {
+		alert("请选择商品");
+		return;
+	}
+	$.ajax({
+		url : 'shoppingCar/shoppingCarAddOrder',
+		type : 'post',
+		data : {
+			"price" : price,
+			"ids" : ids
+		},
+		success : function(result) {
+			
 		}
 	});
-	console.log(ids);
 }

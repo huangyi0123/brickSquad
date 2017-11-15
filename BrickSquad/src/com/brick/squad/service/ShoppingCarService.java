@@ -72,4 +72,12 @@ public interface ShoppingCarService {
 	 * @return 购物车总额
 	 */
 	public float updateShoppingNumber(ShoppingCar shoppingCar);
+	/**
+	 * 将购物车添加到订单
+	 * @param ids 购物车id
+	 * @param price 小计
+	 * @param buyId 买家id
+	 * @return 订单id
+	 */
+	public String shoppingCarAddOrder(String ids,float price,String buyId);
 }
