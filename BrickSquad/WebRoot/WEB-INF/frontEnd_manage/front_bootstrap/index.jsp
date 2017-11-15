@@ -357,7 +357,7 @@
 																		<ul id="menu-vertical-menu-1"
 																			class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=shangyi" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#cac14a"></span>
 																						<span class="menu-title">上衣</span>
