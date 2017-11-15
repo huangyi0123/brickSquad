@@ -96,3 +96,21 @@
 	padding:0px;
 }
 
+.foo-grids div{
+	width: 180px;
+}
+
+.layui-nav-child dl{
+	background-color: #48CFC1;
+}
+
+.layui-nav-child dd{
+	background-color: #48CFC1;
+	border: 1px solid #17877B;
+}
+
+.layui-nav-child{
+	background-color: #48CFC1;
+	padding-top: 0;
+	padding-bottom: 0;
+}
