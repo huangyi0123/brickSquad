@@ -1139,19 +1139,19 @@
 																					style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 																					<div class="module slideshow no-margin">
 																						<div class="item">
-																							<a href="simple_product.html">
+																							<a>
 																								<img src="resource/front_bootstrap/images/1903/slider2.jpg" alt="slider1"
 																									class="img-responsive" height="559">
 																							</a>
 																						</div>
 																						<div class="item">
-																							<a href="simple_product.html">
+																							<a >
 																								<img src="resource/front_bootstrap/images/1903/01_index_v1.jpg"
 																									alt="slider2" class="img-responsive" height="559">
 																							</a>
 																						</div>
 																						<div class="item">
-																							<a href="simple_product.html">
+																							<a >
 																								<img src="resource/front_bootstrap/images/1903/slider3.jpg" alt="slider3"
 																									class="img-responsive" height="559">
 																							</a>
@@ -1168,11 +1168,11 @@
 																<div class="wpb_raw_code wpb_content_element wpb_raw_html">
 																	<div class="wpb_wrapper">
 																		<div class="banner">
-																			<a href="#" class="banner1">
+																			<a class="banner1">
 																				<img src="resource/front_bootstrap/images/1903/banner3.jpg" alt="banner"
 																					title="banner" />
 																			</a>
-																			<a href="#" class="banner2">
+																			<a class="banner2">
 																				<img src="resource/front_bootstrap/images/1903/banner4.jpg" alt="banner"
 																					title="banner" />
 																			</a>
@@ -1188,7 +1188,7 @@
 															<div class="wpb_wrapper">
 																<div
 																	class="wpb_single_image wpb_content_element vc_align_center vc_custom_1481518385054">
-																	<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+																	<figure class="wpb_wrapper vc_figure"> <a target="_self"
 																		class="vc_single_image-wrapper vc_box_border_grey">
 																		<img class="vc_single_image-img"
 																			src="resource/front_bootstrap/images/1903/banner1.jpg" width="193" height="352"
@@ -1197,7 +1197,7 @@
 																</div>
 
 																<div class="wpb_single_image wpb_content_element vc_align_center">
-																	<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+																	<figure class="wpb_wrapper vc_figure"> <a  target="_self"
 																		class="vc_single_image-wrapper vc_box_border_grey">
 																		<img class="vc_single_image-img"
 																			src="resource/front_bootstrap/images/1903/banner2.jpg" width="193" height="175"
@@ -1901,15 +1901,20 @@
 																	<li>
 																		<a href="shop_right_sidebar.html">Headphone</a>
 																	</li>
+																	<li>
+														
+																	</li>
 																</ul>
 															</div>
 
-															<div class="view-all">
-																<a href="shop_right_sidebar.html">
-																	查看更多
-																	<i class="fa  fa-caret-right"></i>
-																</a>
-															</div>
+																														<div class="view-all">
+																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		查看更多</a>
+																		</div>
+
+																<div class="view-all">	
+																		<i class="fa  fa-caret-right"></i>
+																</div>
 														</div>
 													</div>
 
@@ -2218,15 +2223,19 @@
 																	<li>
 																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
+																	<li></li>
 																</ul>
+															
 															</div>
 
-															<div class="view-all">
-																<a href="new_deals/findHotArticle">
-																	查看更多
-																	<i class="fa fa-caret-right"></i>
-																</a>
-															</div>
+																														<div class="view-all">
+																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		查看更多</a>
+																		</div>
+
+																<div class="view-all">	
+																		<i class="fa  fa-caret-right"></i>
+																</div>
 														</div>
 													</div>
 
@@ -2541,14 +2550,22 @@
 																		<li>
 																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
+																		
+																	
+																		<li>
+																			
+																		</li>
+																	
 																	</ul>
+																		
 																</div>
-
 																<div class="view-all">
-																	<a href="new_deals/tonew_deals" style="margin-left: -20px">
-																		查看更多
+																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		查看更多</a>
+																		</div>
+
+																<div class="view-all">	
 																		<i class="fa  fa-caret-right"></i>
-																	</a>
 																</div>
 															</div>
 														</div>
