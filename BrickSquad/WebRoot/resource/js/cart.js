@@ -29,7 +29,9 @@ function checkedCar(o) {
 	var a=$("#checkeds").html();
 	a=parseInt(a);
 	console.log(a);
+	
 	if ($(o).is(':checked')) {
+		alert("选中后不能修改商品数量");
 		$("#checkeds").html(a+money);
 		$(o).parent().parent().parent().parent().find(".product-quantity").find(".input-text").attr('disabled',"disabled");
 		$(o).parent().parent().parent().parent().find(".product-quantity").find("input[type='button']").attr('disabled',"disabled");
@@ -38,4 +40,14 @@ function checkedCar(o) {
 		$(o).parent().parent().parent().parent().find(".product-quantity").find(".input-text").removeAttr('disabled');
 		$(o).parent().parent().parent().parent().find(".product-quantity").find("input[type='button']").removeAttr('disabled');
 	}
+}
+function submitCar() {
+	var ids=""
+	$(".inputNumber").each(function () {
+		var a=$(this).parent().parent().parent().find(".checkedas").find(".checksa");
+		if ($(a).is(':checked')) {
+			ids=ids+$(this).attr('vai')+",";
+		}
+	});
+	console.log(ids);
 }

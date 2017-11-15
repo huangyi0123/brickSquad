@@ -151,7 +151,7 @@
 																	max="${listDetailsShoppingCar.stock}"
 																	name="listDetailsShoppingCar.number"
 																	value="${listDetailsShoppingCar.number}" title="Qty"
-																	class="input-text qty text" size="4" pattern="[0-9]*"
+																	class="input-text qty text inputNumber" size="4" pattern="[0-9]*"
 																	inputmode="numeric" onchange="addNumber(this)"
 																	oninput="addNumber(this)"
 																	val="${listDetailsShoppingCar.price }"
@@ -253,7 +253,7 @@
 												</table>
 
 												<div class="wc-proceed-to-checkout">
-													<a href="checkout.html"
+													<a href="javascript:;" onclick="submitCar()"
 														class="checkout-button button alt wc-forward">继续结账</a>
 												</div>
 											</div>

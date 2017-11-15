@@ -1448,38 +1448,17 @@
 
 																				<!-- add to cart, wishlist, compare -->
 																				<div class="item-bottom clearfix">
-																					<a rel="nofollow" href="#"
-																						class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-																						title="加入购物车2">加入购物车2</a>
-																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																						title="Add to Compare">Compare</a>
-
-																					<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																						<div class="yith-wcwl-add-button show" style="display:block">
-																							<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																								Wishlist</a>
-																							<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																								class="ajax-loading" alt="loading" width="16" height="16"
-																								style="visibility:hidden" />
+																					<a rel="nofollow" href="javascript:;"
+																						class="button product_type_simple  "
+																						title="加入购物车" onclick="addcar('${a.id}')">加入购物车</a>
+																					<div class="yith-wcwl-add-to-wishlist ">
+																						<div class=" show" style="display:block">
+																							<a href="javascript:;" rel="nofollow" title="加入收藏"
+																							onclick="addWish('${a.id}')">
+																								加入收藏</a>
 																						</div>
-
-																						<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																							<span class="feedback">Product added!</span>
-																							<a href="#" rel="nofollow">Browse Wishlist</a>
-																						</div>
-
-																						<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																							<span class="feedback">The product is already in the wishlist!</span>
-																							<a href="#" rel="nofollow">Browse Wishlist</a>
-																						</div>
-
-																						<div style="clear:both"></div>
-																						<div class="yith-wcwl-wishlistaddresponse"></div>
 																					</div>
 
-																					<div class="clear"></div>
-																					<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																						class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																				</div>
 																			</div>
 																		</div>
@@ -1912,9 +1891,7 @@
 																		查看更多</a>
 																		</div>
 
-																<div class="view-all">	
-																		<i class="fa  fa-caret-right"></i>
-																</div>
+															
 														</div>
 													</div>
 
@@ -1970,12 +1947,12 @@
 
 																						<!-- add to cart, wishlist, compare -->
 																						<div class="item-bottom clearfix">
-																							<a rel="nofollow" href="javascript:;" onclick="addcar('${a[0].id}',this)"
+																							<a rel="nofollow" href="javascript:;" onclick="addcar('${a[0].id}')"
 																								class="button product_type_simple" title="加入购物车">加入购物车6</a>
 																							<div class="yith-wcwl-add-to-wishlist ">
 																								<div class=" show" style="display:block">
-																									<a href="javascript:;" onclick="addWish('${a[0].id}',this)" rel="nofollow"
-																										title="添加购物车">添加购物车</a>
+																									<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
+																										title="加入收藏">添加收藏</a>
 																								</div>
 																							</div>
 																						</div>
@@ -2026,33 +2003,15 @@
 																							<!-- add to cart, wishlist, compare -->
 																							<div class="item-bottom clearfix">
 																								<a rel="nofollow" href="javascript:;" onclick="addcar('${a[1].id}')"
-																									class="button product_type_simple" title="加入购物车7">加入购物车7</a>
+																									class="button product_type_simple" title="加入购物车">加入购物车</a>
 
-																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																									<div class="yith-wcwl-add-button show" style="display:block">
+																								<div class="yith-wcwl-add-to-wishlist ">
+																									<div class=" show" style="display:block">
 																										<a href="javascript:;" onclick="addWish('${a[1].id}')" rel="nofollow"
-																											class="">Add to Wishlist</a>
-																										<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																											class="ajax-loading" alt="loading" width="16" height="16"
-																											style="visibility:hidden" />
+																											title="加入收藏">加入收藏</a>
+																										
 																									</div>
-
-																									<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																										<span class="feedback">Product added!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
-																									</div>
-
-																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																										<span class="feedback">The product is already in the wishlist!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
-																									</div>
-
-																									<div style="clear:both"></div>
-																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
-
-																								<div class="clear"></div>
-
 																							</div>
 																						</div>
 																						<div style="clear: both;"></div>
@@ -2288,26 +2247,14 @@
 																							<!-- add to cart, wishlist, compare -->
 																							<div class="item-bottom clearfix">
 																								<a rel="nofollow" href="javascript:;" class="button product_type_simple"
-																									title="加入购物车" onclick="addcar('${a[0].id}')">Add to cart</a>
+																									title="加入购物车" onclick="addcar('${a[0].id}')">加入购物车</a>
 
-																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																									<div class="yith-wcwl-add-button show" style="display:block">
+																								<div class="yith-wcwl-add-to-wishlist ">
+																									<div class=" show" style="display:block">
 																										<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
-																											class="">Add to Wishlist</a>
+																											title="加入收藏">加入收藏</a>
 																									</div>
 
-																									<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																										<span class="feedback">Product added!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
-																									</div>
-
-																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																										<span class="feedback">The product is already in the wishlist!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
-																									</div>
-
-																									<div style="clear:both"></div>
-																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
 																							</div>
 																						</div>
@@ -2354,31 +2301,14 @@
 																						<!-- add to cart, wishlist, compare -->
 																						<div class="item-bottom clearfix">
 																							<a rel="nofollow" href="#" class="button product_type_simple" title="加入购物车"
-																								onclick="addcar('${a[1].id}')">Add to cart</a>
-																							<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																								<div class="yith-wcwl-add-button show" style="display:block">
-																									<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																										Wishlist</a>
-																									<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																										class="ajax-loading" alt="loading" width="16" height="16"
-																										style="visibility:hidden" />
+																								onclick="addcar('${a[1].id}')">加入购物车</a>
+																							<div class="yith-wcwl-add-to-wishlist ">
+																								<div class=" show" style="display:block">
+																									<a href="javascript:;" rel="nofollow" title="加入收藏" 
+																									onclick="addWish('${a[1].id}')">加入收藏</a>
 																								</div>
-
-																								<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																									<span class="feedback">Product added!</span>
-																									<a href="#" rel="nofollow">Browse Wishlist</a>
-																								</div>
-
-																								<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																									<span class="feedback">The product is already in the wishlist!</span>
-																									<a href="#" rel="nofollow">Browse Wishlist</a>
-																								</div>
-
-																								<div style="clear:both"></div>
-																								<div class="yith-wcwl-wishlistaddresponse"></div>
 																							</div>
 
-																							<div class="clear"></div>
 																						</div>
 																					</div>
 																					<div style="clear:both;"></div>
@@ -2617,21 +2547,16 @@
 																							<!-- add to cart, wishlist, compare -->
 																							<div class="item-bottom clearfix">
 																								<a rel="nofollow" href="javascript:;" class="button product_type_simple"
-																									title="加入购物车" onclick="addcar('${a[0].id }')">Add to cart</a>
+																									title="加入购物车" onclick="addcar('${a[0].id }')">加入购物车</a>
 
-																								<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																									<div class="yith-wcwl-add-button show" style="display:block">
+																								<div class="yith-wcwl-add-to-wishlist ">
+																									<div class=" show" style="display:block">
 																										<a href="javascript:;" rel="nofollow" class="" title="添加收藏"
-																											onclick="addWish('${a[0].id}')">Add to Wishlist</a>
+																											onclick="addWish('${a[0].id}')">添加收藏</a>
 																									</div>
 
-																									<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																										<span class="feedback">The product is already in the wishlist!</span>
-																										<a href="#" rel="nofollow">Browse Wishlist</a>
-																									</div>
+																									
 
-																									<div style="clear:both"></div>
-																									<div class="yith-wcwl-wishlistaddresponse"></div>
 																								</div>
 
 																							</div>
@@ -2685,19 +2610,13 @@
 																									<a rel="nofollow" href="javascript:;" class="button product_type_simple"
 																										title="加入购物车" onclick="addcar('${a[1].id }')">Add to cart</a>
 
-																									<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																										<div class="yith-wcwl-add-button show" style="display:block">
+																									<div class="yith-wcwl-add-to-wishlist ">
+																										<div class=" show" style="display:block">
 																											<a href="javascript:;" rel="nofollow" class="" title="添加收藏"
-																												onclick="addWish('${a[1].id}')">Add to Wishlist</a>
+																												onclick="addWish('${a[1].id}')">添加收藏</a>
 																										</div>
 
-																										<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																											<span class="feedback">The product is already in the wishlist!</span>
-																											<a href="#" rel="nofollow">Browse Wishlist</a>
-																										</div>
-
-																										<div style="clear:both"></div>
-																										<div class="yith-wcwl-wishlistaddresponse"></div>
+																										
 																									</div>
 
 																								</div>
@@ -2996,7 +2915,7 @@
 			b[c] = b[c].replace(rcs, ' ');
 			// The customizer requires postMessage and CORS (if the site is cross domain)
 			b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
-			function addcar(id,o) {
+			function addcar(id) {
 				$.ajax({
 					url : 'MedicalInstruments/addCartMedicalInstruments',
 					data:{articleId:id},
@@ -3007,7 +2926,7 @@
 						}
 						if (result == "1") {
 							alert("添加成功");
-							$(o).css('background','red');
+						
 							
 						}
 						if (result == "2") {
