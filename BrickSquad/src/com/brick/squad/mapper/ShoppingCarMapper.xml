@@ -148,6 +148,5 @@
 		(SELECT sc.article_id,sc.number FROM shopping_car sc WHERE
 		per_id=#{userId}) s
 		on a.id=s.article_id
-
 	</select>
 </mapper>

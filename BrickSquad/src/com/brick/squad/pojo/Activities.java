@@ -30,6 +30,15 @@ public class Activities {
 	@Min(value = 3, message = "人数不足")
 	@Max(value = 20, message = "人数过多")
 	private int number;
+	private String movie;
+
+	public String getMovie() {
+		return movie;
+	}
+
+	public void setMovie(String movie) {
+		this.movie = movie;
+	}
 
 	public String getId() {
 		return id;

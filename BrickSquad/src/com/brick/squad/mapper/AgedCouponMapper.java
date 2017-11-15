@@ -19,4 +19,8 @@ public interface AgedCouponMapper {
 	 * 根据id修改
 	 */
 	public void updateAgedCouponById(AgedCoupon agedCoupon);
+	/**
+	 * 根据couponId查询返回对象
+	 */
+	public AgedCoupon findAgedCouponByCouponId(AgedCoupon agedCoupon);
 }

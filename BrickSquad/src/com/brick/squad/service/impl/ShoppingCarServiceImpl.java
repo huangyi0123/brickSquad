@@ -122,8 +122,8 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 	 */
 	@Override
 	public  Map<String, Object> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination) {
-		Map<String, Object> map=new HashMap<String, Object>();
 		
+		Map<String, Object> map=new HashMap<String, Object>();
 		List<ShoppingCarAndArticle> list =shoppingCarMapper.findArticIdAllArtic(shoppingCarPagination);
 		map.put("list", list);
 		int n =shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination); 

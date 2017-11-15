@@ -7,7 +7,23 @@ public class PageUtil {
 	private int pageSize=12;//每页显示记录数
 	private int count;//统计总条数
 	private int pageCount;
+	//搜索需要的字段
+	private String s;
+	private String search_category;
 	
+	
+	public String getS() {
+		return s;
+	}
+	public void setS(String s) {
+		this.s = s;
+	}
+	public String getSearch_category() {
+		return search_category;
+	}
+	public void setSearch_category(String search_category) {
+		this.search_category = search_category;
+	}
 	public int getPageCount() {
 		//math.ceil为向上取整  
 		return pageCount=(int) Math.ceil((float)count/pageSize);

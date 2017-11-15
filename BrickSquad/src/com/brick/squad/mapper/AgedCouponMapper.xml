@@ -19,11 +19,16 @@
 		UPDATE
 		aged_coupon set
 		per_id=#{perId}
-		coupon_id=#{couponId}
+		cougon_id=#{cougonId}
 		where id
 		=#{id}
 	</update>
 	<delete id="deleteAgedCouponAllById" parameterType="String">
-	delete from coupon where id=#{id}
+	delete from aged_coupon where id=#{id}
 	</delete>
+	<!-- 根据couponId查询返回对象 -->
+	<select id="findAgedCouponByCouponId" parameterType="com.brick.squad.pojo.AgedCoupon" resultType="com.brick.squad.pojo.AgedCoupon">
+	select id,per_id perId,cougon_id cougonId 
+	from aged_coupon where cougon_id=#{cougonId} and per_id =#{perId}
+	</select>
 </mapper>

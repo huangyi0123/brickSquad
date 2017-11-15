@@ -61,102 +61,126 @@
 		<header id="header" class="header header-style1">
 		<div class="header-top clearfix">
 			<div class="container">
-				<div class="rows">
-					<!-- SIDEBAR TOP MENU -->
-					<div class="pull-left top1">
-						<div class="widget text-2 widget_text pull-left">
-							<div class="widget-inner">
-								<div class="textwidget">
-									<div class="call-us">
-										<span>Call Us Now: </span>
-										0123-444-666654123
-									</div>
+			<div class="rows">
+				<!-- SIDEBAR TOP MENU -->
+				<div class="pull-left top1">
+					<div class="widget text-2 widget_text pull-left">
+						<div class="widget-inner">
+							<div class="textwidget">
+								<div class="call-us">
+									<span>热线电话: </span>800-820-8820
 								</div>
-							</div>
-						</div>
-
-						<div class="widget text-3 widget_text pull-left">
-							<div class="widget-inner">
-								<div class="textwidget"></div>
 							</div>
 						</div>
 					</div>
 
-					<div class="wrap-myacc pull-right">
-						<div class="sidebar-account pull-left">
-							<div class="account-title">我的淘宝</div>
-
-							<div id="my-account" class="my-account">
-								<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account">
-												<a class="item-link" href="my_account.html">
-													<span class="menu-title" style="font-size: 2px;float: right;">已买到的宝贝</span>
-												</a>
-											</li>
-
-											<li class="menu-cart">
-												<a class="item-link" href="cart.html">
-													<span class="menu-title">我的足迹</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="widget-2 widget-last widget sw_top-4 sw_top">
-									<div class="widget-inner">
-										<div class="top-login"></div>
-									</div>
-								</div>
-							</div>
+					<div class="widget text-3 widget_text pull-left">
+						<div class="widget-inner">
+							<div class="textwidget"></div>
 						</div>
-						<div class="sidebar-account pull-left">
-							<div class="account-title">登录</div>
+					</div>
+				</div>
 
-							<div id="my-account" class="my-account">
-								<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-my-account" class="menu">
-											<li class="menu-my-account">
-												<a class="item-link" href="my_account.html">
-													<span class="menu-title">登录</span>
-												</a>
-											</li>
-
-											<li class="menu-cart">
-												<a class="item-link" href="cart.html">
-													<span class="menu-title">注册</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="widget-2 widget-last widget sw_top-4 sw_top">
-									<div class="widget-inner">
-										<div class="top-login"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="pull-left top2">
-							<div class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+				<div class="wrap-myacc pull-right" ng-app="">
+					<div class="sidebar-account pull-left" ng-if="${user!=null }">
+						<div class="account-title">我的淘宝</div>
+						<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
 								<div class="widget-inner">
-									<ul id="menu-checkout" class="menu">
-										<li class="menu-checkout">
-											<a class="item-link" href="common/toContactUs">
-												<span class="menu-title">联系我们</span>
-											</a>
-										</li>
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="my_account.html"> <span class="menu-title">已买到的宝贝</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+											href="cart.html"> <span class="menu-title">我的足迹</span>
+										</a></li>
 									</ul>
 								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-account pull-left" ng-if="${user!=null }">
+						<div class="account-title">
+							<input type="hidden" id="imagepath" value="${user.userPicPath }">
+							<img
+								style="display:block; border-radius:100%;width: 20px;height: 20px;margin-top: -5px;"
+								alt="还没有图片" src="" id="indexUserPic"><span
+								style="display: block;margin-left: 25px;margin-top: -15px;">${user.username }</span>
+						</div>
+									<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-inner">
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="common/toPersonal" > <span class="menu-title">个人信息</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+										 href="javascript:;" onclick="logout()"> <span
+												class="menu-title">退出登录</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-account pull-left" ng-if="${user==null }">
+						<div class="account-title">登录</div>
+
+						<div id="my-account" class="my-account">
+							<div
+								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
+								<div class="widget-inner">
+									<ul id="menu-my-account" class="menu">
+										<li class="menu-my-account"><a class="item-link"
+											href="javascript:;" id="login"> <span class="menu-title">登录</span>
+										</a></li>
+
+										<li class="menu-cart"><a class="item-link"
+											href="javascript:;" id="register"> <span
+												class="menu-title">注册</span>
+										</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="widget-2 widget-last widget sw_top-4 sw_top">
+								<div class="widget-inner">
+									<div class="top-login"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="pull-left top2">
+						<div
+							class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
+							<div class="widget-inner">
+								<ul id="menu-checkout" class="menu">
+									<li class="menu-checkout"><a class="item-link"
+										href="common/toContactUs"> <span class="menu-title">联系我们</span>
+									</a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 
@@ -198,12 +222,9 @@
 						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 							<ul class="layui-tab-title" style="margin-top: -30px;">
 								<c:forEach items="${types }" var="a" varStatus="q">
-									<c:if test="${q.index eq 0 }">
-										<li class="layui-this" onclick="types('${a.id}')">${a.name}</li>
-									</c:if>
-									<c:if test="${q.index ne 0 }">
-										<li onclick="types('${a.id}')">${a.name}</li>
-									</c:if>
+
+									<li  class="${a.id eq typeId?'layui-this':'' }" onclick="types('${a.id}')">${a.name}</li>
+
 								</c:forEach>
 							</ul>
 
@@ -230,7 +251,8 @@
 					</div>
 				</div>
 			</div>
-		</div></header>
+		</div>
+		</header>
 		<div class="cou_body">
 			<span
 				style="background: url('resource/image/hot-icons.png') no-repeat 590px 20px; display: block; height: 40px;"></span>
@@ -239,7 +261,46 @@
 				style="background: url('resource/image/hot-icons.png') no-repeat 740px 20px; display: block; height: 40px;margin-top: -45px;"></span>
 
 			<div style="width: 80%;margin: 0 auto;">
-				<div class="coupon">
+				<c:forEach items="${couponExpands }" var="a" varStatus="s">
+					<div class="coupon ${((s.index+1)%2)eq 0?'coupon-diabled':'' }">
+						<div class="coupon-left">
+							<div class="coupon-inner">
+								<div class="coupon-img">
+									<img alt="" src="resource/image/2.png">
+								</div>
+								<div class="coupon-money">
+									<span class="money_icon">￥</span>
+									<span class="sum">${a.money }</span>
+
+								</div>
+								<div class="coupon-describe">
+									<p>${a.shopname }</p>
+								</div>
+
+								<div class="coupon-condition">
+									<p>满${a.fullMoney }可用</p>
+								</div>
+								<div class="coupon-percent">
+									<p>已抢${a.percent }%</p>
+								</div>
+								<div class="layui-progress" style="width: 120px;margin-left: 180px;margin-top: -25px;">
+									<div class="layui-progress-bar layui-bg-orange" lay-percent="${a.percent }%"></div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:;" onclick="receive('${a.id}')" style="z-index: 1">
+							<div class="coupon-right" style="z-index: 10">
+								<div class="coupon-inner">
+									<div class="coupon-time">立即领取</div>
+
+									<i class="coupon-circle top"></i>
+									<i class="coupon-circle bottom"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+				<!-- <div class="coupon">
 					<div class="coupon-left">
 						<div class="coupon-inner">
 							<div class="coupon-img">
@@ -311,9 +372,10 @@
 								<i class="coupon-circle bottom"></i>
 							</div>
 						</div>
-						<!-- <div class="coupon-light"></div> -->
+						<div class="coupon-light"></div>
 					</a>
-				</div>
+				</div> -->
+
 			</div>
 		</div>
 		<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
@@ -340,6 +402,65 @@
 		<script type="text/javascript" src="resource/front_bootstrap/js/index.js"></script>
 
 		<script type="text/javascript">
+		$(function() {
+			//头像图片信息
+			var imagepath = $("#imagepath").val();
+			if (imagepath == "") {
+				$("#indexUserPic").attr("src", "resource/image/userdefaultpic.jpg");
+			} else {
+				$("#indexUserPic").attr("src", imagepath);
+			}
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				$("#register").click(function() {
+					layer = layer.open({
+						title : '注册|登录',
+						type : 2,
+						content : "user/toRegister",
+						offset : '100px',
+						area : [ '400px', '450px' ],
+						end : function() {
+							location.reload();
+						}
+					});
+				});
+				$("#login").click(function() {
+					layer = layer.open({
+						title : '注册|登录',
+						type : 2,
+						content : "user/toLogin?type=user",
+						offset : '100px',
+						area : [ '400px', '450px' ],
+						end : function() {
+							location.reload();
+						}
+					});
+				});
+			});
+		});
+		function logout() {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				layer.open({
+					title : '提示',
+					content : "是否退出系统？",
+					offset : '200px',
+					btn : [ "确认", "取消" ],
+					yes : function(index) {
+						$.ajax({
+							url : "user/logout",
+							success : function(data) {
+								window.location = "shopIndex/toShop";
+								layer.close(index);
+							}
+						});
+					}
+				});
+			});
+		}
+		function selectType(){
+			alert("nihao");
+		}
 			var sticky_navigation_offset_top = $("#header .header-bottom")
 					.offset().top;
 			var sticky_navigation = function() {
@@ -368,6 +489,18 @@
 					});
 				});
 			});
+			function receive(id) {
+				$.ajax({
+					url:"agedCoupon/insertAgedCoupon?id="+id,
+					success:function(result){
+						alert(result);
+					}
+				});
+				
+			}
+			function types(id) {
+				window.location.href="coupon/findArticleType?typeId="+id;
+			}
 		</script>
 
 		<!--[if gte IE 9]><!-->
@@ -385,9 +518,7 @@
 			layui.use('element', function() {
 				var $ = layui.jquery, element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
 			});
-			function types(id) {
-				console.log(id);
-			}
+			
 		</script>
 </body>
 </html>

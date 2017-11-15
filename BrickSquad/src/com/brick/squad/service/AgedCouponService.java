@@ -20,4 +20,5 @@ public interface AgedCouponService {
 	 * 根据id修改
 	 */
 	public void updateAgedCouponById(AgedCoupon agedCoupon);
+	public AgedCoupon findAgedCouponByCouponId(AgedCoupon agedCoupon);
 }
