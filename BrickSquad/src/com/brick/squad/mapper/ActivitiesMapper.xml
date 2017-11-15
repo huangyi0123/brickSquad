@@ -17,8 +17,8 @@
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		insert into
-		activities(id,name,centent,type_id,start_time,end_time,user_id,number)
-		values(#{id},#{name},#{centent},#{typeId},#{startTime},#{endTime},#{userId},#{number})
+		activities(id,name,centent,type_id,start_time,end_time,user_id,number,movie)
+		values(#{id},#{name},#{centent},#{typeId},#{startTime},#{endTime},#{userId},#{number},#{movie})
 	</insert>
 
 	<delete id="deleteActivitiesById" parameterType="String">
@@ -35,7 +35,8 @@
 		start_time=#{startTime},
 		end_time=#{endTime},
 		user_id=#{userId},
-		number=#{number}
+		number=#{number},
+		movie=#{movie}
 		where id =#{id}
 	</update>
 

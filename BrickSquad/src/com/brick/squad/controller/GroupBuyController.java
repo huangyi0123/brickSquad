@@ -23,10 +23,8 @@ public class GroupBuyController {
 	@RequestMapping("/togroup_buy")
 	public String findFrontTimeNumber(HttpServletRequest request,PageUtil pageUtil){
 		String  path = request.getSession().getServletContext().getRealPath("");
-		
 		Map<String, Object> map=articleService.findArticlePages(pageUtil, path, "a.shelfdate");
-	
-		request.setAttribute("map", map);
+	    request.setAttribute("map", map);
 		//System.out.println("________________"+map);
 		return "frontEnd_manage/front_bootstrap/group_buy";	
 	}

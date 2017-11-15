@@ -22,4 +22,5 @@ public class AgedCoupon {
 	public void setCougonId(String cougonId) {
 		this.cougonId = cougonId;
 	}
+
 }

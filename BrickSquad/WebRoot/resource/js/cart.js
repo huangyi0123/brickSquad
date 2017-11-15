@@ -14,3 +14,7 @@ function addNumber(o) {
 		}
 	});
 }
+function checkedCar(o) {
+	if($(o).is)
+	$("#checkeds").html("100");
+}
