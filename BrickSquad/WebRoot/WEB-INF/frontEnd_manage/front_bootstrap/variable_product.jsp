@@ -80,7 +80,7 @@
 <link rel="stylesheet"
 	href="resource/plugins/pictureMagnification/css/smoothproducts.css">
 <style type="text/css">
-.page {
+. {
 	padding: 5px 30px 30px 30px;
 	max-width: 800px;
 	margin: 0 auto;
