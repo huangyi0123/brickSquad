@@ -2769,7 +2769,6 @@
 																						<a href="variableProduct/toVariable_product?productId=${a.id }"
 																							title="Vacuum cleaner">${a.aname }</a>
 																					</h4>
-
 																					<div class="item-price">
 																						<ins>
 																							<span class="woocommerce-Price-amount amount">

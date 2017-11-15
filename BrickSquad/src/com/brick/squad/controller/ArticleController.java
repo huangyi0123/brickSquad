@@ -246,11 +246,17 @@ public class ArticleController {
 		imgpath = "resource/image/articleImg/" + imgpath + "/";
 		imgpath = request.getSession().getServletContext().getRealPath(imgpath);
 		List<String> imgpathlList = new ArrayList<String>();
-		File file = new File(imgpath);
-		File[] filess = file.listFiles();
-		for (File file2 : filess) {
-			imgpathlList.add(file2.getName());
+		if (imgpath != null) {
+			File file = new File(imgpath);
+			if (file != null) {
+				File[] filess = file.listFiles();
+				for (File file2 : filess) {
+					imgpathlList.add(file2.getName());
+				}
+			}
+
 		}
+
 		request.setAttribute("images", imgpathlList);
 		return "backstage_managed/jsp/article/search_article";
 	}
