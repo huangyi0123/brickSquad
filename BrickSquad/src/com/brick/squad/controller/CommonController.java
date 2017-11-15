@@ -55,6 +55,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("businessService")
 	private BusinessService businessService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
 
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
@@ -131,9 +134,6 @@ public class CommonController {
 	@Autowired
 	@Qualifier("relativesService")
 	private RelativesService relativesService;
-	@Autowired
-	@Qualifier("typeService")
-	private TypeService typeService;
 	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
@@ -268,7 +268,10 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toabout_us")
-	public String toabout_us() {
+	public String toabout_us(HttpServletRequest request) throws Exception {
+		//加载商品所有类型,搜索框
+		List<Type> listType=typeService.findAllTypeByParentId("splb");
+		request.setAttribute("listType", listType);
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 

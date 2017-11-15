@@ -43,7 +43,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -137,13 +139,16 @@
 					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="">保健产品</a>
+								<a href="">活动预约</a>
 							</dd>
 							<dd>
-								<a href="">修身养性</a>
+								<a href="">乐堡讲座</a>
 							</dd>
 							<dd>
-								<a href="">讲座中心</a>
+								<a href="">乐堡直播</a>
+							</dd>
+							<dd>
+								<a href="">乐堡课程</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
@@ -183,12 +188,6 @@
 								<a href="javascript:;">乐堡简介</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">乐堡使命</a>
-							</dd>
-							<dd>
-								<a href="javascript:;">乐堡团队</a>
-							</dd>
-							<dd>
 								<a href="javascript:;">加入我们</a>
 							</dd>
 							<dd>
@@ -198,7 +197,9 @@
 					<li class="layui-nav-item"><a href="javascript:;"><img
 							src="http://t.cn/RCzsdCq" class="layui-nav-img">登录</a>
 						<dl class="layui-nav-child">
-
+							<dd>
+								<a href="javascript:;">个人中心</a>
+							</dd>
 							<dd>
 								<a href="javascript:;">注册</a>
 							</dd>
@@ -278,9 +279,10 @@
 			<div class="col-md-4 btm-grid back-col1 text-center">
 				<!-- 
 				<img src="resource/image/timg.jpg" alt="" /> -->
+
 			</div>
 			<div class="col-md-4 btm-grid btm-wid"
-				style="background-color: #48D2D2;">
+				style="background-color: #48CFC1;">
 				<input value="社区搜索" class="title">
 				<input class="city_search" type="text" value="请输入城市"
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
@@ -307,11 +309,7 @@
 	<div class="coupons">
 		<div class="container">
 			<div class="coupons-grids text-center">
-				<div class="col-md-3 coupons-gd">
-					<h3>
-						RECHARGE IN <span>3 SIMPLE STEPS</span>
-					</h3>
-				</div>
+
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
@@ -329,6 +327,11 @@
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
 					<p>MAKE PAYMENT</p>
+				</div>
+				<div class="col-md-3 coupons-gd">
+					<h3>
+						RECHARGE IN <span>3 SIMPLE STEPS</span>
+					</h3>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -352,48 +355,52 @@
 	<div class="footer-top">
 		<div class="container">
 			<div class="foo-grids">
-				<div class="col-md-3 foo-grid">
-					<h3>MOBILE RECHARGES</h3>
+				<div class="col-md-3 foo-grid" style="margin-left: 50px;">
+					<a href="#"><h3>首页</h3></a>
 					<ul>
-						<li><a href="#">Airtel</a></li>
+						<li><a href="#"><i class="fa fa-qq"></i></a></li>
 						<li><a href="#">Aircel</a></li>
 						<li><a href="#">BSNL</a></li>
 						<li><a href="#">Idea</a></li>
-						<li><a href="#">MTNL</a></li>
-						<li><a href="#">MTS</a></li>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>乐堡活动</h3></a>
+					<ul>
+						<li><a href="#">活动预约</a></li>
+						<li><a href="#">乐堡讲座</a></li>
+						<li><a href="#">乐堡直播</a></li>
+						<li><a href="#">乐堡课程</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<h3>DTH RECHARGES</h3>
+					<a href="#"><h3>乐堡生活</h3></a>
 					<ul>
-						<li><a href="#">Airtel Digital TV Recharges</a></li>
-						<li><a href="#">Dish TV Recharges</a></li>
-						<li><a href="#">Tata Sky Recharges</a></li>
-						<li><a href="#">Reliance Digital TV Recharges</a></li>
-						<li><a href="#">Sun Direct Recharges</a></li>
-						<li><a href="#">Videocon D2H Recharges</a></li>
+						<li>营养膳食</li>
+						<li>健康管理</li>
+						<li>住户感言</li>
+						<li>住户视频</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<h3>DATACARD RECHARGES</h3>
+					<a href="#"><h3>乐堡服务</h3></a>
 					<ul>
-						<li><a href="#">Airtel 2G Service</a></li>
-						<li><a href="#">Aircel 2G Service</a></li>
-						<li><a href="#">BSNL 2G Service</a></li>
-						<li><a href="#">MTS MBlaze Recharges</a></li>
-						<li><a href="#">Tata Photon Plus Recharges</a></li>
-						<li><a href="#">Reliance NetConnect Recharges</a></li>
+						<li><a href="#">独立生活</a></li>
+						<li><a href="#">协助护理</a></li>
+						<li><a href="#">记忆护理</a></li>
+						<li><a href="#">康复护理</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<h3>PAYMENT OPTIONS</h3>
+					<a href="#"><h3>关于乐堡</h3></a>
 					<ul>
-						<li>Credit Cards</li>
-						<li>Debit Cards</li>
-						<li>Any Visa Debit Card (VBV)</li>
-						<li>Direct Bank Debits</li>
-						<li>Cash Cards</li>
+						<li><a href="#">乐堡简介</a></li>
+						<li><a href="#">加入我们</a></li>
+						<li><a href="#">联系我们</a></li>
 					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>乐堡咨询</h3></a>
+
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -572,7 +579,7 @@
 						</div>
 						<!-- 我要去报名 -->
 						<form role="form">
-						<div class="tab-content">
+							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
 										<label
