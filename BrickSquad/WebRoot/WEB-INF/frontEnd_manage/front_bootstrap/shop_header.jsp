@@ -260,7 +260,7 @@
 									<div class="top-minicart-icon pull-right">
 										<a href="shoppingCar/detailsShoppingCar"><i class="fa fa-shopping-cart" style="margin-left: -55px;margin-top: 8px;"></i></a> <a class="cart-contents"
 											href="shoppingCar/detailsShoppingCar" title="View your shopping cart"> <span
-											class="minicart-number">5</span>
+											class="minicart-number" >5</span>
 										</a>
 									</div>
 								</div>

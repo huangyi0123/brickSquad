@@ -1970,26 +1970,14 @@
 
 																						<!-- add to cart, wishlist, compare -->
 																						<div class="item-bottom clearfix">
-																							<a rel="nofollow" href="javascript:;" onclick="addcar('${a[0].id}')"
-																								class="button product_type_simple" title="加入购物车6">加入购物车6</a>
-																							<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																								<div class="yith-wcwl-add-button show" style="display:block">
-																									<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
-																										class="">Add to Wishlist</a>
-																									<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																										class="ajax-loading" alt="loading" width="16" height="16"
-																										style="visibility:hidden" />
+																							<a rel="nofollow" href="javascript:;" onclick="addcar('${a[0].id}',this)"
+																								class="button product_type_simple" title="加入购物车">加入购物车6</a>
+																							<div class="yith-wcwl-add-to-wishlist ">
+																								<div class=" show" style="display:block">
+																									<a href="javascript:;" onclick="addWish('${a[0].id}',this)" rel="nofollow"
+																										title="添加购物车">添加购物车</a>
 																								</div>
-
-																								<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																									<span class="feedback">Product added!</span>
-																									<a href="#" rel="nofollow">Browse Wishlist</a>
-																								</div>
-																								<div style="clear:both"></div>
-																								<div class="yith-wcwl-wishlistaddresponse"></div>
 																							</div>
-
-																							<div class="clear"></div>
 																						</div>
 																					</div>
 																					<div style="clear: b"></div>
@@ -2783,7 +2771,6 @@
 																						<a href="variableProduct/toVariable_product?productId=${a.id }"
 																							title="Vacuum cleaner">${a.aname }</a>
 																					</h4>
-
 																					<div class="item-price">
 																						<ins>
 																							<span class="woocommerce-Price-amount amount">
@@ -3009,15 +2996,19 @@
 			b[c] = b[c].replace(rcs, ' ');
 			// The customizer requires postMessage and CORS (if the site is cross domain)
 			b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
-			function addcar(id) {
-				$({
+			function addcar(id,o) {
+				$.ajax({
 					url : 'MedicalInstruments/addCartMedicalInstruments',
+					data:{articleId:id},
+					type:'post',
 					success : function(result) {
 						if (result == "3") {
 							alert("请先登录");
 						}
 						if (result == "1") {
 							alert("添加成功");
+							$(o).css('background','red');
+							
 						}
 						if (result == "2") {
 							alert("商品已存在");
@@ -3028,8 +3019,9 @@
 			function addWish(id) {
 				$
 						.ajax({
-							url : 'MedicalInstruments/addWishlistMedicalInstruments?id='
-									+ id,
+							url : 'MedicalInstruments/addWishlistMedicalInstruments',
+							data:{articleId:id},
+							type:'post',
 							success : function(result) {
 								if (result == "3") {
 									alert("请先登录");
