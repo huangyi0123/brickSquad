@@ -80,7 +80,7 @@
 <link rel="stylesheet"
 	href="resource/plugins/pictureMagnification/css/smoothproducts.css">
 <style type="text/css">
-. {
+.page {
 	padding: 5px 30px 30px 30px;
 	max-width: 800px;
 	margin: 0 auto;
@@ -127,23 +127,17 @@ pre {
 
 <body
 	class="product-template-default single single-product woocommerce woocommerce-page">
-	<jsp:include page="shop_header.jsp"></jsp:include>
 	<div class="body-wrapper theme-clearfix">
-	<div class="container">
-			<div class="wrap-title">
+		<jsp:include page="shop_header.jsp"></jsp:include>
 
+		<div class="container">
+			<div class="wrap-title">
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb" style="">
+							<ul class="breadcrumb" style="margin-left: 830px;">
 								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
-								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
-									class="go-page"></span></li>
-								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
-									class="go-page"></span></li> -->
 								<li class="active"><span>商品详情</span></li>
-
-
 							</ul>
 						</div>
 					</div>
