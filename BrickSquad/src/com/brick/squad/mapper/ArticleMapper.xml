@@ -320,7 +320,41 @@
 		a.id=nn.article_id
 		LIMIT #{skli},#{take}
 </select>
+<select id="findSearchAllArticleSecond" resultType="com.brick.squad.expand.NewsArticle"
+	parameterType="map">
+	select
+		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id
+		WHERE  aname REGEXP #{s} 
+		AND type_id=#{search_category}
+		LIMIT #{skli},#{take}
+</select>
 
+<select id="findSearchAllArticleSecondYiLiao" resultType="com.brick.squad.expand.NewsArticle"
+	parameterType="map">
+		select
+		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id JOIN type t ON t.id=a.type_id
+		WHERE  aname REGEXP #{s} 
+		AND t.parent_id=#{search_category}
+		LIMIT #{skli},#{take}
+</select>
+
+	<select id="findSearchAllArticleCountSecond" resultType="int" parameterType="String">
+	SELECT COUNT(*) 
+	FROM article 
+	WHERE article.type_id=#{search_category}
+</select>
 
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">

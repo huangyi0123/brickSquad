@@ -115,8 +115,11 @@
 								<li><a class="J_menuItem" href="collection/toCollection">收藏商品信息列表</a>
 								</li>
 							</c:if>
+							<c:if
+								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' }">
 							<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
 							</li>
+							</c:if>
 							<c:if
 								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' }">
 								<li><a class="J_menuItem"

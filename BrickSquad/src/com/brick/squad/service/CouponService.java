@@ -23,6 +23,8 @@ public interface CouponService {
 	public void deleteCouponAllById(String id);
 	//根据id修改
 	public void updateCouponById(Coupon coupon);
+	
+	public void updateCouponByIdReceiveAndSurplus(Coupon coupon);
 	/**
 	 * 根据类型查询优惠劵
 	 * @param typpeId 类型id

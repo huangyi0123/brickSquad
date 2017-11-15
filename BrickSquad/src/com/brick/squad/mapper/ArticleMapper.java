@@ -139,6 +139,10 @@ public interface ArticleMapper {
 	 * @return 商品列表
 	 */
 	public List<NewsArticle> findUserArticle(Map<String, Object> map);
+	public List<NewsArticle> findSearchAllArticleSecond(Map<String, Object> map);
+	public List<NewsArticle> findSearchAllArticleSecondYiLiao(Map<String, Object> map);
+	
+	public int findSearchAllArticleCountSecond(String typeId);
 
 
 }
