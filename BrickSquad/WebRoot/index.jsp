@@ -35,7 +35,23 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
+
 
 
 
@@ -450,27 +466,60 @@
 										<label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名"
-											style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5; "
+											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 											onfocus="if(value=='请输入联系人姓名') {value=''}"
 											onblur="if (value=='') {value='请输入联系人姓名'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
 										<input type="text" value="请输入联系人电话"
-											style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5; "
+											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="if(value=='请输入联系人电话') {value=''}"
 											onblur="if (value=='') {value='请输入联系人电话'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
-										<input type="text" value="请输入预约时间"
-											style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5; "
-											onfocus="if(value=='请输入预约时间') {value=''}"
-											onblur="if (value=='') {value='请输入预约时间'}">
 										<form class="layui-form" action="">
 											<div class="layui-input-inline">
-        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
-      </div>
-      </form>
+												<input type="text" name="date" id="date" lay-verify="date"
+													autocomplete="off" class="layui-input" value="请输入预约时间"
+													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
+													onfocus="if(value=='请输入预约时间') {value=''}"
+													onblur="if (value=='') {value='请输入预约时间'}">
+											</div>
+										</form>
+										<label
+											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<div class="layui-input-inline">
+													<select name="modules" lay-verify="required" lay-search=""
+														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+														<option value="">请选择</option>
+														<option value="1">layer</option>
+														<option value="2">form</option>
+														<option value="3">layim</option>
+														<option value="4">element</option>
+														<option value="5">laytpl</option>
+														<option value="6">upload</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<p
+											style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+										<label
+											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
+										<div class="layui-form-item layui-form-text">
+											<div class="layui-input-block"
+												style="width: 250px;margin-left: 200px;margin-top: -30px;">
+												<textarea value="" class="layui-textarea"></textarea>
+											</div>
+										</div>
 									</div>
+									<input value="提交"
+										style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
+									<input value="重置"
+										style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
+
 								</div>
 							</div>
 						</form>
@@ -933,21 +982,21 @@
 		})
 	</script>
 	<script>
-layui.use(['form', 'layedit', 'laydate'], function(){
-  var form = layui.form
-  ,layer = layui.layer
-  ,layedit = layui.layedit
-  ,laydate = layui.laydate;
-  
-  //日期
-  laydate.render({
-    elem: '#date'
-  });
-  laydate.render({
-    elem: '#date1'
-  });
-  
-});
-</script>
+		layui
+				.use(
+						[ 'form', 'layedit', 'laydate' ],
+						function() {
+							var form = layui.form, layer = layui.layer, layedit = layui.layedit, laydate = layui.laydate;
+
+							//日期
+							laydate.render({
+								elem : '#date'
+							});
+							laydate.render({
+								elem : '#date1'
+							});
+
+						});
+	</script>
 </body>
 </html>

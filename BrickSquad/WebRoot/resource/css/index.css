@@ -64,6 +64,9 @@
 	margin-top: -100px;
 }
 
+.buttons ul li a{
+	border-radius: 10px;
+}
 .hvr-shutter-in-vertical {
 	border-radius: 10px;
 }
@@ -72,10 +75,24 @@
 	border-radius: 10px;
 }
 
-a {
-	border-radius: 10px;
+.layui-input-inline input{
+	border:1px solid #48CFC1; 
 }
 
-a:hover {
-	border-radius: 10px;
+.layui-input:focus, .layui-textarea:focus{
+	border:1px solid #48CFC1 !important;; 
 }
+
+.layui-input:hover, .layui-textarea:hover{
+		border:1px solid #48CFC1 !important;; 
+	
+}
+
+.layui-input, .layui-textarea, .layui-select{
+	border:1px solid #48CFC1 !important;; 
+}
+
+.layui-input-inline select{
+	padding:0px;
+}
+
