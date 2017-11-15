@@ -154,6 +154,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
 			</div>
 		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">上传视频</label>
+			<div class="layui-input-inline" style="color:white; display:inline-block;position:relative;width:190px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
+				上传视频
+				<input  id="inputImg" type="file" name="files" multiple="multiple"  
+					placeholder="商品图片" autocomplete="off" class="layui-input" 
+						style="position:absolute;z-index:1;left:0px;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;"
+					>
+			</div>
 		
 		<div class="layui-form-item">
     <div class="layui-input-block">
