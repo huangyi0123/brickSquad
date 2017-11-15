@@ -135,15 +135,6 @@
 			</div>
 		</div>
 		
-		<div class="layui-form-item">
-			<label class="layui-form-label">剩余量：</label>
-			<div class="layui-input-inline">
-				<input type="number" name="surplus" required
-					lay-verify="required" min="1" max="20"
-					value="${coupon.surplus}" placeholder="拥有总数"
-					autocomplete="off" class="layui-input">
-			</div>
-		</div>
 
 		<div class="layui-form-item">
 			<label class="layui-form-label">满足价格：</label>

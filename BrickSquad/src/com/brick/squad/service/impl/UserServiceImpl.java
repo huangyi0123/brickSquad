@@ -48,7 +48,9 @@ public class UserServiceImpl implements UserService {
 				.insertPersonalInformation(personalInformation);
 		//判断user是不是商家
 		if(user.getRoleId().equals("9d2a23cac05511e7aca65254002ec43c")){
-			businessMapper.insertBusiness(new Business());
+			Business business=new Business();
+			business.setId(user.getId());
+			businessMapper.insertBusiness(business);
 		}
 
 	}

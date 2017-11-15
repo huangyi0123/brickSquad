@@ -599,17 +599,83 @@ public class ArticleServiceImpl implements ArticleService {
 	/**查询所有商品信息：搜索框使用*/
 	public Map<String, Object> findSearchAllArticle(PageUtil page,
 			String path) {
+		
 		Map<String, Object> map=new HashMap<>();
 		Map<String, Object> m=new HashMap<String, Object>();
 		m.put("skli", page.getSkipNum());
 		m.put("take", page.getTakeNum());
-		List<NewsArticle> list=articleMapper.findSearchAllArticle(m);
-		int count=articleMapper.findSearchArticleAllCount();
+		int count;
+		List<NewsArticle> list;
+		String s=page.getS();
+		String search_category=page.getSearch_category();
+		if(s==""||search_category==""){
+			list=articleMapper.findSearchAllArticle(m);
+		    count=articleMapper.findSearchArticleAllCount();
+		}else{
+			if(search_category.equals("yiliaoqixie")){
+				m.put("s", page.getS());
+				m.put("search_category", page.getSearch_category());
+				list=articleMapper.findSearchAllArticleSecondYiLiao(m);
+				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+			}else{
+				m.put("s", page.getS());
+				m.put("search_category", page.getSearch_category());
+				list=articleMapper.findSearchAllArticleSecond(m);
+				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+			}
+			
+		}
 		page.setCount(count);
 		for (NewsArticle item : list) {
-			File file=new File(path+"/resource/image/articleImg/"+item.getImage());
-			File[] files=file.listFiles();
-			if (files!=null&&files.length!=0) {
+		File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+		File[] files=file.listFiles();
+		if (files!=null&&files.length!=0) {
+				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+			}
+		}
+		map.put("data", list);
+		map.put("page", page);
+		return map;
+	}
+	@Override
+	public Map<String, Object> findSearchAllArticleSecond(PageUtil page,
+			String path) {
+				Map<String, Object> map=new HashMap<>();
+				Map<String, Object> m=new HashMap<String, Object>();
+				m.put("skli", page.getSkipNum());
+				m.put("take", page.getTakeNum());
+				String s=page.getS();
+				String search_category=page.getSearch_category();
+				List<NewsArticle> list=articleMapper.findSearchAllArticleSecond(m);
+				int count=articleMapper.findSearchAllArticleCountSecond(search_category);
+				page.setCount(count);
+				for (NewsArticle item : list) {
+				File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+				File[] files=file.listFiles();
+				if (files!=null&&files.length!=0) {
+						item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+					}
+				}
+				map.put("data", list);
+				map.put("page", page);
+				return map;
+	}
+	@Override
+	public Map<String, Object> findSearchAllArticleSecondYiLiao(
+			PageUtil page, String path) {
+		Map<String, Object> map=new HashMap<>();
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("skli", page.getSkipNum());
+		m.put("take", page.getTakeNum());
+		String s=page.getS();
+		String search_category=page.getSearch_category();
+		List<NewsArticle> list=articleMapper.findSearchAllArticleSecondYiLiao(m);
+		int count=articleMapper.findSearchAllArticleCountSecond(search_category);
+		page.setCount(count);
+		for (NewsArticle item : list) {
+		File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+		File[] files=file.listFiles();
+		if (files!=null&&files.length!=0) {
 				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
 			}
 		}
@@ -618,6 +684,11 @@ public class ArticleServiceImpl implements ArticleService {
 		return map;
 	}
 	
+	@Override
+	public int findSearchAllArticleCountSecond(String typeId) {
+		int count=articleMapper.findSearchAllArticleCountSecond(typeId);
+		return count;
+	}
 	
 	/**
 	 * 根据商品的价格范围查询商品信息
@@ -721,148 +792,6 @@ public class ArticleServiceImpl implements ArticleService {
 
 	}
 
-	@Override
-	/**
-	 * 导航搜索框搜索
-	 * */
-	public PageBeanUtil findArticleTitle(int page, int limitPage, String s,
-			String search_category) {
-		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
-		if (page == 0 ||limitPage==0) {
-			page = 1;
-			limitPage=12;
-			// 设置当前页数:
-			pageBean.setPage(page);
-			// 设置每页显示记录数:
-			/* int limit = 12; */
-			pageBean.setLimitPage(limitPage);
-			pageBean.setS(s);
-			pageBean.setSearch_category(search_category);
-			// 设置总记录数:
-			int totalCount = 0;
-			totalCount = articleMapper
-					.findCountMedicalInstruments("yiliaoqixie");
-			pageBean.setTotalCount(totalCount);
-			// 设置总页数:
-			int totalPage = 0;
-
-			if (totalCount % limitPage == 0) {
-				totalPage = totalCount / limitPage;
-			} else {
-				totalPage = totalCount / limitPage + 1;
-			}
-			pageBean.setTotalPage(totalPage);
-			// 每页显示的数据集合:
-			// 从哪开始:
-			int begin = (page - 1) * limitPage;
-			pageBean.setBegin(begin);
-			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper.findArticleTitle(pageBean);
-			pageBean.setList(list);
-
-		} else{
-
-			// 设置当前页数:
-			pageBean.setPage(page);
-			// 设置每页显示记录数:
-			/* int limit = 12; */
-			pageBean.setLimitPage(limitPage);
-			pageBean.setS(s);
-			pageBean.setSearch_category(search_category);
-			// 设置总记录数:
-			int totalCount = 0;
-			totalCount = articleMapper
-					.findCountMedicalInstruments("yiliaoqixie");
-			pageBean.setTotalCount(totalCount);
-			// 设置总页数:
-			int totalPage = 0;
-			// Math.ceil(totalCount / limit);
-			if (totalCount % limitPage == 0) {
-				totalPage = totalCount / limitPage;
-			} else {
-				totalPage = totalCount / limitPage + 1;
-			}
-			pageBean.setTotalPage(totalPage);
-			// 每页显示的数据集合:
-			// 从哪开始:
-			int begin = (page - 1) * limitPage;
-			pageBean.setBegin(begin);
-			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper.findArticleTitle(pageBean);
-			pageBean.setList(list);
-		}
-		return pageBean;
-	}
-
-	@Override
-	public PageBeanUtil findArticleTitles(int page, int limitPage,
-			String search_category) {
-		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
-		if (page == 0 ||limitPage==0) {
-			page = 1;
-			limitPage=12;
-			// 设置当前页数:
-			pageBean.setPage(page);
-			// 设置每页显示记录数:
-			/* int limit = 12; */
-			pageBean.setLimitPage(limitPage);
-			pageBean.setSearch_category(search_category);
-			// 设置总记录数:
-			int totalCount = 0;
-			totalCount = articleMapper
-					.findCountMedicalInstruments("yiliaoqixie");
-			pageBean.setTotalCount(totalCount);
-			// 设置总页数:
-			int totalPage = 0;
-
-			if (totalCount % limitPage == 0) {
-				totalPage = totalCount / limitPage;
-			} else {
-				totalPage = totalCount / limitPage + 1;
-			}
-			pageBean.setTotalPage(totalPage);
-			// 每页显示的数据集合:
-			// 从哪开始:
-			int begin = (page - 1) * limitPage;
-			pageBean.setBegin(begin);
-			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper.findArticleTitles(pageBean);
-			pageBean.setList(list);
-
-		} else{
-
-			// 设置当前页数:
-			pageBean.setPage(page);
-			// 设置每页显示记录数:
-			/* int limit = 12; */
-			pageBean.setLimitPage(limitPage);
-			pageBean.setSearch_category(search_category);
-			// 设置总记录数:
-			int totalCount = 0;
-			totalCount = articleMapper
-					.findCountMedicalInstruments("yiliaoqixie");
-			pageBean.setTotalCount(totalCount);
-			// 设置总页数:
-			int totalPage = 0;
-			// Math.ceil(totalCount / limit);
-			if (totalCount % limitPage == 0) {
-				totalPage = totalCount / limitPage;
-			} else {
-				totalPage = totalCount / limitPage + 1;
-			}
-			pageBean.setTotalPage(totalPage);
-			// 每页显示的数据集合:
-			// 从哪开始:
-			int begin = (page - 1) * limitPage;
-			pageBean.setBegin(begin);
-			pageBean.setParentId("yiliaoqixie");
-			List<Article> list = articleMapper.findArticleTitles(pageBean);
-			pageBean.setList(list);
-		}
-		return pageBean;
-	
-	}
-
 
 	@Override
 	public int findSearchArticleAllCount() throws Exception {
@@ -870,5 +799,11 @@ public class ArticleServiceImpl implements ArticleService {
 		int count=articleMapper.findSearchArticleAllCount();
 		return count;
 	}
+
+
+
+
+
+
 
 }

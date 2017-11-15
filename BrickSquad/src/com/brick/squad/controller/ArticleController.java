@@ -41,13 +41,15 @@ public class ArticleController {
 
 	@RequestMapping("/getArticleList")
 	@ResponseBody
-	public String getArticleList(HttpServletRequest request,int pSize, int cPage, String keyword) {
+	public String getArticleList(HttpServletRequest request, int pSize,
+			int cPage, String keyword) {
 
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
-		pagination.setUserId(request.getSession().getAttribute("userId").toString());
+		pagination.setUserId(request.getSession().getAttribute("userId")
+				.toString());
 		return articleService.articlePagination(pagination);
 	}
 
@@ -107,16 +109,33 @@ public class ArticleController {
 				// 获取当前文件的后缀名
 				String fileSuffixName = filName.substring(filName
 						.lastIndexOf("."));
-				// 给文件重新命名,序号+文件后缀名
-				String fileNewName = i + fileSuffixName;
-				// 序号累加
-				i++;
-				//  创建文件类型对象: 
-				File file = new File(path, fileNewName);
-				if (!file.exists()) {
-					file.mkdirs();
+				// 如果后缀名为png\jpg\gif\icon\jpeg,才允许上传
+				if (fileSuffixName.equals(".JPG")
+						|| fileSuffixName.equals(".PNG")
+						|| fileSuffixName.equals(".png")
+						|| fileSuffixName.equals(".jpg")
+						|| fileSuffixName.equals(".jpeg")
+						|| fileSuffixName.equals(".gif")) {
+					// 给文件重新命名,序号+文件后缀名
+					String fileNewName = i + fileSuffixName;
+					// 序号累加
+					i++;
+					//  创建文件类型对象: 
+					File file = new File(path, fileNewName);
+					if (!file.exists()) {
+						file.mkdirs();
+					}
+					multipartFile.transferTo(file);
+
+				} else {
+					List<ObjectError> errors = new ArrayList<>();
+					ObjectError oError = new ObjectError("nullImg", "请选择图片");
+					errors.add(oError);
+					request.setAttribute("errors", errors);
+					request.setAttribute("url", "addArticle");
+					request.setAttribute("msg", "添加");
+					return "backstage_managed/jsp/article/add_article";
 				}
-				multipartFile.transferTo(file);
 
 			}
 		} else {
@@ -131,6 +150,7 @@ public class ArticleController {
 
 		return "backstage_managed/jsp/article/article_list";
 	}
+
 	@RequestMapping("/deleteArticleById")
 	@ResponseBody
 	public String deleteArticleById(String id, HttpServletRequest request)
@@ -138,6 +158,7 @@ public class ArticleController {
 		articleService.deleteArticleById(id, request);
 		return "success";
 	}
+
 	@RequestMapping("/updateArticleById")
 	public String updateArticleById(@Validated Article article,
 			BindingResult result, @RequestParam MultipartFile[] files,
@@ -225,11 +246,17 @@ public class ArticleController {
 		imgpath = "resource/image/articleImg/" + imgpath + "/";
 		imgpath = request.getSession().getServletContext().getRealPath(imgpath);
 		List<String> imgpathlList = new ArrayList<String>();
-		File file = new File(imgpath);
-		File[] filess = file.listFiles();
-		for (File file2 : filess) {
-			imgpathlList.add(file2.getName());
+		if (imgpath != null) {
+			File file = new File(imgpath);
+			if (file != null) {
+				File[] filess = file.listFiles();
+				for (File file2 : filess) {
+					imgpathlList.add(file2.getName());
+				}
+			}
+
 		}
+
 		request.setAttribute("images", imgpathlList);
 		return "backstage_managed/jsp/article/search_article";
 	}

@@ -14,8 +14,9 @@
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		insert into
-		address(id,province_id,city_id,county_id,country_id,detailed)
-		value(#{id},#{provinceId},#{cityId},#{countyId},#{countryId},#{detailed})
+		address(id,province_id,city_id,county_id,country_id,detailed,buyers_id,consignee_name,consignee_telephone)
+		value(#{id},#{provinceId},#{cityId},#{countyId},#{countryId},#{detailed},#{buyersId}
+		,#{consigneeName},#{consigneePhone})
 	</insert>
 	<delete id="deleteAddressById" parameterType="String">
 		delete from address
@@ -78,8 +79,10 @@
 		select
 		id,province_id provinceId,city_id cityId,county_id
 		countyId,country_id
-		countryId,detailed,buyers_id buyersId,consignee_name consigneeName,
-		consignee_telephone consigneePhone
+		countryId,detailed,buyers_id
+		buyersId,consignee_name consigneeName,
+		consignee_telephone
+		consigneePhone
 		from address where buyers_id=#{buyersId}
 	</select>
 	<!--通用拼接查询地址sql -->

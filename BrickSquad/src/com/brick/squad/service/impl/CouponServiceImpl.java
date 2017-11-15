@@ -53,5 +53,10 @@ public class CouponServiceImpl implements CouponService {
 	public List<CouponExpand> findCouponByTypeId(String typpeId) {
 		return couponMapper.findCouponByTypeId(typpeId);
 	}
+	@Override
+	public void updateCouponByIdReceiveAndSurplus(Coupon coupon) {
+		// TODO Auto-generated method stub
+		couponMapper.updateCouponByIdReceiveAndSurplus(coupon);
+	}
 
 }

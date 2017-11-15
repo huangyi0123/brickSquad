@@ -76,7 +76,7 @@ $(function() {
 	editor.create();
 	var url = '${url}';
 	var con=$("#con").html();
-	if (url != "insertNews") {
+	if (url != "addArticle") {
 		editor.txt.html(con);
 	}
 
@@ -149,9 +149,6 @@ $(function() {
 			<div class="layui-form-item">
 			<label class="layui-form-label">价格</label>
 			<div class="layui-input-inline">
-			<%-- 	<input type="text" name="price" required lay-verify="required"
-					placeholder="价格" autocomplete="off" class="layui-input"
-					value="${article.price }"> --%>
 					
 				<input type='text' name="price"
 				onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this)" onblur="this.v();"
@@ -182,9 +179,14 @@ $(function() {
 					>
 			</div>
 			<div id="showImg">
+
 			<c:forEach var="a" items="${images}">
 			<img style="width: 80px" alt="" src="resource/image/articleImg/${ article.image}/${a}">
+
 			</c:forEach>
+			</div>
+			<div id="con" style="display: none">
+			${article.describes}
 			</div>
 		</div>
 			<div class="layui-form-item">

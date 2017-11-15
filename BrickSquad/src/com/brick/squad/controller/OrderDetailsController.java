@@ -26,12 +26,14 @@ public class OrderDetailsController {
 
 	@RequestMapping("/getOrderDetailsList")
 	@ResponseBody
-	public String getRegionList(int pSize, int cPage, String keyword)
+	public String getRegionList(int pSize, int cPage, String keyword,HttpServletRequest request)
 			throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		pagination.setKeyword(keyword);
+		//限制该账号只能看到的此账户订单
+		pagination.setUserId(request.getSession().getAttribute("userId").toString());
 		return orderDetailsService.orderDetailsPagination(pagination);
 	}
 
