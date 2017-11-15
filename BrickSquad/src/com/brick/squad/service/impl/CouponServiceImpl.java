@@ -7,6 +7,7 @@ import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.brick.squad.expand.CouponExpand;
 import com.brick.squad.expand.CouponPaginationExpand;
 import com.brick.squad.mapper.CouponMapper;
 import com.brick.squad.pojo.Coupon;
@@ -47,6 +48,10 @@ public class CouponServiceImpl implements CouponService {
 		// TODO Auto-generated method stub
 		
 		return couponMapper.findCouponById(id);
+	}
+	@Override
+	public List<CouponExpand> findCouponByTypeId(String typpeId) {
+		return couponMapper.findCouponByTypeId(typpeId);
 	}
 
 }
