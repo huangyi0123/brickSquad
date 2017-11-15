@@ -17,6 +17,12 @@ public interface AddressMapper {
 	public List<Address> addressPagination(Pagination pagination);
 
 	public int findAddressAllCount(Pagination pagination);
+	/**
+	 * 根据用户ID查询address中当前用户的所有地址信息集合
+	 * @param buyersId
+	 * @return
+	 */
+	public List<Address> findAddressByBuyersId(String buyersId);
 
 	// 根据id查询出所有地址 拼接地址
 	public String findByIdAllAddress(String id);

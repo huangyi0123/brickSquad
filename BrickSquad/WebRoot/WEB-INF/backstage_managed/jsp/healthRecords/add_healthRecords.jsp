@@ -25,13 +25,8 @@
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-
-
-
 <script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
-
 <script type="text/javascript" src="resource/plugins/wang_edit/wangEditor.min.js"></script>
-
 <script type="text/javascript">
 
 	$(function() {
@@ -52,7 +47,6 @@
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 		$(function() {
 		var da = '${typeData}';
-		
 		da=JSON.parse(da);
 		findAll(da, "#JB");
 		form.render('select', 'JB1');

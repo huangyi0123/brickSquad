@@ -118,12 +118,11 @@
 												</tr>
 											</thead>
 
-											<tbody ng-app="">
+											<tbody>
 												<c:forEach var="listDetailsShoppingCar" items="${map.list}"
 													varStatus="a">
 
-													<tr class="cart_item"
-														ng-init="price_${a.index }='${listDetailsShoppingCar.price }';num_${a.index}='${listDetailsShoppingCar.number}'">
+													<tr class="cart_item" >
 														<td class="product-remove"><a
 															href="shoppingCar/IndexDeleteShoppingCar?id=${listDetailsShoppingCar.id}"
 															class="remove" title="Remove this item"><i
@@ -152,16 +151,16 @@
 																	name="listDetailsShoppingCar.number"
 																	value="${listDetailsShoppingCar.number}" title="Qty"
 																	class="input-text qty text" size="4" pattern="[0-9]*"
-																	inputmode="numeric" ng-model="num_${a.index}">
+																	inputmode="numeric" onchange="addNumber(this)" oninput="addNumber(this)" val="${listDetailsShoppingCar.price }" vai="${listDetailsShoppingCar.id }" >
 															</div>
 														</td>
 														<td class="product-subtotal" data-title="Total"><span
 															class="woocommerce-Price-amount amount"><span
 																class="woocommerce-Price-currencySymbol">￥</span> <input
-																type="text" class="allPriceId${a.index}"
+																type="text" class="allPriceId"
 																readonly="readonly"
 																style="border: none;background-color:transparent;"
-																value="{{num_${a.index }*price_${a.index }}}"></span></td>
+																value="${listDetailsShoppingCar.allPrice }"></span></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -227,7 +226,7 @@
 															<th>总计</th>
 															<td data-title="总计"><strong><span
 																	class="woocommerce-Price-amount amount"><span
-																		class="woocommerce-Price-currencySymbol">$</span>300.00</span></strong>
+																		class="woocommerce-Price-currencySymbol">￥</span><span class="mapall">${map.allprice }</span></span></strong>
 															</td>
 														</tr>
 													</tbody>
@@ -417,6 +416,8 @@
 	<script type="text/javascript"
 		src="resource/plugins/angularjs/angular.min.js"></script>
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript" src="resource/js/cart.js"></script>
+	
 	<script type="text/javascript">
 		$(function() {
 		});

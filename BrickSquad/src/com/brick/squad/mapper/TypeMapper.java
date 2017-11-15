@@ -96,5 +96,9 @@ public interface TypeMapper {
 	 * 医疗器械一级分类查询
 	 */
 	public List<TypeExpand> findIdAndTypeNmae(String parentId);
+	/**
+	 * 查询所有的商品类别，用于搜索框
+	 * */
+	public List<Type> findAllTypeByParentId(String parentId);
 
 }

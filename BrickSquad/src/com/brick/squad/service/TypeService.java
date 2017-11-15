@@ -78,4 +78,8 @@ public interface TypeService {
 	 * @return json 字符串
 	 */
 	public String getArticleType(String id);
+	/**
+	 * 查询所有的商品类别，用于搜索框
+	 * */
+	public List<Type> findAllTypeByParentId(String parentId)throws Exception;
 }

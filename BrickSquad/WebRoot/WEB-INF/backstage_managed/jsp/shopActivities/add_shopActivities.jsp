@@ -19,59 +19,25 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css">
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/lay/modules/laydate.js"></script>
-	<script type="text/javascript" src="resource/js/common.js"></script>
-
-<!-- <script type="text/javascript">
-	layui.use('form', function() {
-		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
-	});
-</script>	 -->
-
-
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript" src="resource/js/common.js"></script>
+<script type="text/javascript" src="resource/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
+	
+	
+	
 	$(function() {
 		$.ajax({
 		url : 'shopActivities/findTypeAndArticle',
 		success : function(data) {
 			data = JSON.parse(data);
 			var type = data[0].type;
-			var business = data[0].business;
-			var article =  data[0].article;
 			findAll(type, "#typeId");
-			findAll(business, "#businessId");
-			findAll(article, "#articleId");
-		
-		layui.use('form', function() {
-					var form = layui.form();
-					//监听店铺下拉框的选中事件，根据店铺id查询相应店铺下面的商品
-		form.on('select(bidSelect)', function(data) {
-		console.log(data);
-		$.ajax({
-				url : 'shopActivities/findArticle?businessId=' + data.value,
-				success : function(result) {
-					result = JSON.parse(result);
-					console.log(result)
-					//清空该区域下面的下拉框
-					$("#articleId").empty();
-					$("#articleId").append('<option value="">直接选择或搜索选择</option>');
-					findAll(result, "#articleId");
-					form.render('select','articleIdSelect');
-				}
-			});
-		});
-					
-				});
-				
-		var url = "${url}";
+			var url = "${url}";
 		if (url == 'addShopActivities') {
 		} else {
 			var da = $("#startId").attr('val');
@@ -83,8 +49,23 @@
 			$("#endId").val(dat);
 		}
 		}
-	});
+	}); 
 });
+
+			 layui.use('form', function() {
+					var form = layui.form();
+					//遍店铺下的商品
+					
+					$(function() {
+							var da = '${businessData}';
+							console.log(da);
+							da=JSON.parse(da);
+							findAll(da,"#shopname");
+							form.render('select', 'shopname1');
+						});
+					
+				}); 
+
 
 $(function() {
 		var data="";
@@ -117,21 +98,30 @@ $(function() {
 		<div class="layui-form-item">
 			<label class="layui-form-label">店铺名</label>
 			<div class="layui-input-inline">
-				<select name="businessId" id="businessId" val="${shopActivities.businessId}" lay-filter="bidSelect" lay-search="">
-					<option value=""></option>
-				</select>
+				<input type="hidden" name="businessId" value="${business.id}">
+				<input type="text" value="${business.shopname}"   required
+					lay-verify="required" placeholder="店铺名" autocomplete="off" class="layui-input" readonly="readonly">
 			</div>
 		</div>
 		
+		 
 		<div class="layui-form-item">
-			<label class="layui-form-label">商品名称</label>
+			<label class="layui-form-label" >商品名称</label>
 			<div class="layui-input-inline">
-				<select name="articleId" id="articleId" val="${shopActivities.articleId}" lay-search="" lay-filter="articleIdSelect" >
-					<option value=""></option>
+				<select name="articleId" id="shopname"  lay-search="" val="${shopActivities.articleId}"
+					lay-filter="shopname1">
+					<option value="">请选择添加商品</option>
 				</select>
 			</div>
 		</div>
-		
+
+
+
+
+
+
+		   
+		  
 		<div class="layui-form-item">
 			<label class="layui-form-label">活动价格</label>
 			<div class="layui-input-inline">
@@ -153,7 +143,7 @@ $(function() {
 			<label class="layui-form-label">活动类型</label>
 			<div class="layui-input-inline">
 				<select name="typeId" id="typeId" val="${shopActivities.typeId}" lay-search="">
-					<option value=""></option>
+					<option value="">请选择活动类型</option>
 				</select>
 			</div>
 		</div>

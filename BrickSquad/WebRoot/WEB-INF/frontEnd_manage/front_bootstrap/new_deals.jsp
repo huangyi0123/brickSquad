@@ -92,6 +92,7 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
+									<c:if test="${url2=='findHotArticletotonew_deals' }">
 										<c:forEach items="${map.data }" var="a">
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 												<div class="item-detail">
@@ -162,6 +163,151 @@
 												</div>
 											</div>
 										</c:forEach>
+										</c:if>
+										<c:if test="${url2=='findHotArticle' }">
+										<c:forEach items="${map.data }" var="a">
+											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+												<div class="item-detail">
+													<div class="item-img products-thumb">
+														<span class="onsale">Sale!</span>
+														<a href="variableProduct/toVariable_product?productId=${a.id}">
+															<div class="product-thumb-hover">
+																<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+															</div>
+														</a>
+
+														<!-- add to cart, wishlist, compare -->
+														<div class="item-bottom clearfix">
+															<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
+																class="button product_type_simple" title="加入购物车">加入购物车</a>
+
+															<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																<div class="yith-wcwl-add-button show" style="display:block">
+																	<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
+																</div>
+
+																<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																	<span class="feedback">Product added!</span>
+																	<a href="#" rel="nofollow">Browse Wishlist</a>
+																</div>
+
+																<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																	<span class="feedback">The product is already in the wishlist!</span>
+																	<a href="#" rel="nofollow">浏览</a>
+																</div>
+
+																<div style="clear:both"></div>
+																<div class="yith-wcwl-wishlistaddresponse"></div>
+															</div>
+
+															<!-- <div class="clear"></div>
+															<a href="ajax/fancybox/example.html"
+																data-fancybox-type="ajax"
+																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a> -->
+														</div>
+
+														<!-- 	<div class="sale-off">-13%</div> -->
+													</div>
+
+													<div class="item-content">
+														<!-- rating  -->
+														<div class="reviews-content">
+															<div class="star"></div>
+															<div class="item-number-rating">${a.totals}人已购买</div>
+														</div>
+														<!-- end rating  -->
+
+														<h4>
+															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
+														</h4>
+
+														<!-- price -->
+														<div class="item-price">
+															</del>
+															<ins>
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+																</span>
+															</ins>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
+										</c:if>
+										<c:if test="${url=='findAllArticle' }">
+										<c:forEach items="${map.data }" var="a">
+											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+												<div class="item-detail">
+													<div class="item-img products-thumb">
+														<span class="onsale">Sale!</span>
+														<a href="variableProduct/toVariable_product?productId=${a.id}">
+															<div class="product-thumb-hover">
+																<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+															</div>
+														</a>
+
+														<!-- add to cart, wishlist, compare -->
+														<div class="item-bottom clearfix">
+															<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
+																class="button product_type_simple" title="加入购物车">加入购物车</a>
+
+															<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																<div class="yith-wcwl-add-button show" style="display:block">
+																	<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
+																</div>
+
+																<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																	<span class="feedback">Product added!</span>
+																	<a href="#" rel="nofollow">Browse Wishlist</a>
+																</div>
+
+																<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																	<span class="feedback">The product is already in the wishlist!</span>
+																	<a href="#" rel="nofollow">浏览</a>
+																</div>
+
+																<div style="clear:both"></div>
+																<div class="yith-wcwl-wishlistaddresponse"></div>
+															</div>
+
+															<!-- <div class="clear"></div>
+															<a href="ajax/fancybox/example.html"
+																data-fancybox-type="ajax"
+																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a> -->
+														</div>
+
+														<!-- 	<div class="sale-off">-13%</div> -->
+													</div>
+
+													<div class="item-content">
+														<!-- rating  -->
+														<div class="reviews-content">
+															<div class="star"></div>
+															<div class="item-number-rating">${a.totals}人已购买</div>
+														</div>
+														<!-- end rating  -->
+
+														<h4>
+															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
+														</h4>
+
+														<!-- price -->
+														<div class="item-price">
+															</del>
+															<ins>
+																<span class="woocommerce-Price-amount amount">
+																	<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+																</span>
+															</ins>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
+										</c:if>
 										<div style="clear: both;"></div>
 										<div>
 											<%

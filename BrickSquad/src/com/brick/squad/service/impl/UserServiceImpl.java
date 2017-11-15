@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.UserExpand;
+import com.brick.squad.mapper.BusinessMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.UserMapper;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.UserService;
@@ -33,6 +35,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	@Qualifier("personalInformationMapper")
 	private PersonalInformationMapper personalInformationMapper;
+	@Autowired
+	@Qualifier("businessMapper")
+	private BusinessMapper businessMapper;
 
 	public void addUser(User user) {
 		userMapper.addUser(user);
@@ -41,6 +46,10 @@ public class UserServiceImpl implements UserService {
 		personalInformation.setId(user.getId());
 		personalInformationMapper
 				.insertPersonalInformation(personalInformation);
+		//判断user是不是商家
+		if(user.getRoleId().equals("9d2a23cac05511e7aca65254002ec43c")){
+			businessMapper.insertBusiness(new Business());
+		}
 
 	}
 

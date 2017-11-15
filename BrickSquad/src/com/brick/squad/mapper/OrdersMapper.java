@@ -7,6 +7,16 @@ import com.brick.squad.pojo.Orders;
 import com.brick.squad.util.Pagination;
 
 public interface OrdersMapper {
+	/**
+	 * 根据ID修改收货地址ID
+	 * 
+	 * @param orderId
+	 *            订单ID
+	 * @param receivingAddressId
+	 *            收货地址ID
+	 */
+	public void updateOrdersreceivingAddressById(Orders orders);
+
 	/*
 	 * 根据id查询Orders订单
 	 */

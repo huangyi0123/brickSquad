@@ -14,9 +14,6 @@
 	</select>
 
 	<insert id="insertBusiness" parameterType="Business">
-		<selectKey keyProperty="id" resultType="String" order="BEFORE">
-			select replace(uuid(),'-','') from dual
-		</selectKey>
 		INSERT INTO
 		business(id,name,idcard,shopname,shop_material_path)
 		VALUES(#{id},#{name},#{idcard},#{shopname},#{shopMaterialPath})
@@ -56,8 +53,7 @@
 	</select>
 	
 	<select id="findAllBusiness"  resultType="com.brick.squad.util.Select">
-	select id,name,idcard,shopname,shop_material_path shopMaterialPath
-		from business
+	select id,idcard,shopname name,shop_material_path shopMaterialPath from business
 	</select>
 	
 	<select id="findBusiness" parameterType="java.lang.String" resultType="Business">

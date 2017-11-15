@@ -16,6 +16,8 @@ public interface ArticleMapper {
 	 * 
 	 * @return
 	 */
+	/** 查询所有商品总数 */
+	public int findSearchArticleAllCount();
 	public Article findArticleById(String id);
 
 	public void insertArticle(Article article);
@@ -124,6 +126,10 @@ public interface ArticleMapper {
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
 //查询最新商品中的各类信息
 	public List<NewsArticle> findNewsArticle(Map<String, Object> map);
+
+	/**查询所有商品信息：搜索框使用*/
+	public List<NewsArticle> findSearchAllArticle(Map<String,Object> map);
+
 
 //团购查询团购人数和优惠价格
 	public List<NewsArticle> findNewsArticles(Map<String, Object> map);

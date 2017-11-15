@@ -5,7 +5,7 @@
 	<!-- 查询 -->
 	<select id="findArticleById" resultType="article" parameterType="String">
 		select id,aname aname,type_id typeId,business_id
-		businessId,describes,price,stock,image,buyersNumber buyersNumber from
+		businessId,describes,price,stock,image from
 		article where id=#{id}
 	</select>
 
@@ -39,21 +39,26 @@
 
 	<select id="articlePagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ArticleExpand">
-		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.`name`
+		SELECT a.id,a.aname,t.`name` tname,a.price,a.stock,b.shopname
 		bname,a.describes
 		FROM article a INNER JOIN type t ON a.type_id = t.id
 		INNER JOIN business b
 		ON a.business_id = b.id
+		where b.id=#{userId}
 		<if test="keyword!=''">
-			where a.aname REGEXP #{keyword} or t.`name` REGEXP
+			and(a.aname REGEXP #{keyword} or t.`name` REGEXP
 			#{keyword} or b.`name`
 			REGEXP #{keyword} or a.describes REGEXP
-			#{keyword}
+			#{keyword}) 
 		</if>
 		limit #{skipNum},#{takeNum}
 
 	</select>
-
+	<!-- 查询所有商品总数 -->
+	<select id="findSearchArticleAllCount" resultType="int" 
+	parameterType="String">
+	SELECT COUNT(*) FROM article
+	</select>
 
 	<select id="findArticleAllCount" resultType="int"
 		parameterType="com.brick.squad.util.Pagination">
@@ -302,6 +307,19 @@
 		${order} DESC
 		LIMIT #{skli},#{take}
 	</select>
+	<!-- 查询所有商品信息 -->
+	<select id="findSearchAllArticle" resultType="com.brick.squad.expand.NewsArticle"
+	parameterType="map">
+	select
+		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id
+		LIMIT #{skli},#{take}
+</select>
 
 
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"

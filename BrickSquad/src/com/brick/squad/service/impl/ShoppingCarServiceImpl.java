@@ -129,6 +129,8 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		int n =shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination); 
 		shoppingCarPagination.setCount(n);
 		map.put("shoppingCarPagination", shoppingCarPagination);
+		float allprice=shoppingCarMapper.findUserAllPrice(shoppingCarPagination.getPerId());
+		map.put("allprice", allprice);
 		return map;
 	}
 
@@ -149,6 +151,13 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 		// TODO Auto-generated method stub
 		int row = shoppingCarMapper.findShoppingCarPerIdCount(shoppingCarPagination);
 		return row;
+	}
+
+	@Override
+	public float updateShoppingNumber(ShoppingCar shoppingCar) {
+		shoppingCarMapper.updateShoppingCarNumberById(shoppingCar);
+		float price=shoppingCarMapper.findUserAllPrice(shoppingCar.getPerId());
+		return price;
 	}
 
 

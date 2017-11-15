@@ -13,6 +13,13 @@
 		WHERE
 		parent_id=#{parentId}
 	</select>
+	<select id="findAllTypeByParentId" parameterType="String" resultType="Type">
+		SELECT
+		id ,name
+		FROM type
+		WHERE
+		parent_id=#{parentId}
+	</select>
 	<select id="findTypeById" resultType="Type" parameterType="String">
 		SELECT
 		<include refid="prop" />
