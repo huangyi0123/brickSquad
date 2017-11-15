@@ -12,7 +12,7 @@ public class CouponExpand extends Coupon {
 		this.shopname = shopname;
 	}
 	public float getPercent() {
-		float a=((float)super.getSurplus())/super.getTotal();
+		float a=((float)super.getReceive())/super.getTotal();
 		return a*100;
 	}
 	

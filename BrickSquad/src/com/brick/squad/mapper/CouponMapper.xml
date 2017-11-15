@@ -34,6 +34,15 @@
 		where id
 		=#{id}
 	</update>
+	<!--根据领取优惠券传过来的id修改对应数量  -->
+	<update id="updateCouponByIdReceiveAndSurplus" parameterType="com.brick.squad.pojo.Coupon">
+		UPDATE
+		coupon set
+		surplus=#{surplus},
+		receive=#{receive}
+		where 
+		id=#{id}
+	</update>
 	<select id="findListCouponPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.CouponPaginationExpand">
 		select c.id,c.type_id typeId,c.buyers_id buyersId,c.start_time
@@ -66,6 +75,6 @@
 		SELECT c.id,c.total,c.surplus,c.full_money
 		fullMoney,c.money,b.shopname
 		FROM coupon c JOIN business b on c.buyers_id=b.id
-		WHERE end_time>NOW()AND c.type_id=#{typeId} and c.total>c.surplus
+		WHERE end_time>NOW()AND c.type_id=#{typeId} and c.total>c.receive
 	</select>
 </mapper>
