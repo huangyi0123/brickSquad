@@ -60,8 +60,9 @@
 		ordersId,order_details.number,order_details.subtotal
 		FROM order_details
 		JOIN article ON order_details.article_id=article.id
+		WHERE article.business_id=#{userId}
 		<if test="keyword!=''">
-			WHERE article.aname REGEXP #{keyword}
+			and (article.aname REGEXP #{keyword})
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>

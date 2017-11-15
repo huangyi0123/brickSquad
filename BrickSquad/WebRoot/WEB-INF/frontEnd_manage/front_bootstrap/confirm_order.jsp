@@ -104,7 +104,13 @@
 						<div class="entry-content">
 							<div class="entry-summary">
 								<div class="woocommerce">
-									<label style="display:block; font-size: 20px;">收货地址：</label>
+									<label style="display:block; font-size: 20px; display: inline-block;">收货地址： <input
+											type="button" class="button"
+											onclick="userAddReceivingAddress()" value="添加新地址"> 
+									</label>
+									<!--后期加咯  -->
+										<input type="button" class="button"
+											onclick="userUpdateReceivingAddress()" value="修改收货地址">
 									<c:forEach var="listAddresses" items="${listAddresses }">
 										<label
 											style="display:block;margin-left: 80px; font-size: 15px;"><input
@@ -114,11 +120,15 @@
 												value="${listAddresses.id }">${listAddresses.detailed }</label>
 									</c:forEach>
 									<form action="" method="post">
+										<div>
+											订单号:
+											<input id="orderId" style="width: 350px;" type="text"
+												value="${orders.id }">
+										</div>
 										<table class="shop_table shop_table_responsive cart"
 											cellspacing="0">
 											<thead>
 												<tr>
-												<th>订单号</th>
 													<th class="product-name">宝贝信息</th>
 													<th class="product-price">单价</th>
 													<th class="product-quantity">数量</th>
@@ -128,9 +138,9 @@
 
 											<tbody>
 												<tr>
-												<td >
-												<input id="orderId" style="width: 250px;" type="text" value="${orders.id }">
-												</td>
+
+
+
 													<td>${article.aname }</td>
 													<td>${article.price }</td>
 													<td>${orderDetails.number }</td>
@@ -143,7 +153,7 @@
 														<label for="coupon_code">Coupon:</label>
 														<input type="text" name="coupon_code" class="input-text"
 															id="coupon_code" value="" placeholder="优惠代码">
-														<input type="submit" class="button" name="apply_coupon"
+														<input type="button" class="button" name="apply_coupon"
 															value="使用优惠券">
 													</div>
 												</td>
@@ -164,7 +174,7 @@
 															<th>小计</th>
 															<td data-title="小计">
 																<span class="woocommerce-Price-amount amount"><span
-																	class="woocommerce-Price-currencySymbol">￥</span>300.00</span>
+																	class="woocommerce-Price-currencySymbol">￥</span>${orderDetails.subtotal }</span>
 															</td>
 														</tr>
 														<tr class="order-total">
@@ -172,14 +182,14 @@
 															<td data-title="总计">
 																<strong><span
 																	class="woocommerce-Price-amount amount"><span
-																		class="woocommerce-Price-currencySymbol">￥</span>300.00</span></strong>
+																		class="woocommerce-Price-currencySymbol">￥</span>${orderDetails.subtotal }</span></strong>
 															</td>
 														</tr>
 													</tbody>
 												</table>
 
 												<div class="wc-proceed-to-checkout">
-													<a href="checkout.html"
+													<a href="JavaScript:;" onclick="goOnPay()"
 														class="checkout-button button alt wc-forward">继续结账</a>
 												</div>
 											</div>
@@ -241,22 +251,51 @@
 		src="resource/plugins/angularjs/angular.min.js"></script>
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript">
+		/*继续结账按钮  */
+		function goOnPay() {
+			alert("结账成功！你就等到起收货嘛！");
+		}
+		/* 添加收货地址 */
+		function userAddReceivingAddress() {
+			layui.use('layer', function() {
+				var layer = layui.layer;
+				layer.open({
+					type : 2,
+					area : [ '800px', '530px' ],
+					title : '添加收货地址',
+					offset : '100px',
+					content : 'variableProduct/toUserAddReceivingAddress',
+					end : function() {
+						location.reload();
+					},
+					cancel : function() {
+						//右上角关闭回调
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
+				});
+			});
+		}
 		$(function() {
 			layui
 					.use(
 							'layer',
 							function() {
 								var layer = layui.layer;
+
 								$(".addressRadio")
 										.change(
 												function() {
 													var receivingAddressId = $(
 															'input:radio[name="addressRadio"]:checked')
 															.val();
-													var orderId=$("#orderId").val();
+													var orderId = $("#orderId")
+															.val();
 													$
 															.ajax({
-																url : 'variableProduct/userUpdatereceivingAddress?receivingAddressId='+receivingAddressId+'&orderId='+orderId,
+																url : 'variableProduct/userUpdatereceivingAddress?receivingAddressId='
+																		+ receivingAddressId
+																		+ '&orderId='
+																		+ orderId,
 																success : function(
 																		data) {
 																	if (data == "fail") {
@@ -272,7 +311,7 @@
 																	layer
 																			.msg("服务器错误！！稍后重试");
 																}
-															}); 
+															});
 
 												});
 							});

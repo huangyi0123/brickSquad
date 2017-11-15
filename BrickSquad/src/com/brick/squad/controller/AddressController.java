@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.util.Pagination;
 
@@ -62,6 +63,32 @@ public class AddressController {
 	public String inserAddress(Address address) throws Exception {
 		addressService.insertAddress(address);
 		return "backstage_managed/jsp/address/address_list";
+	}
+
+	/**
+	 * 确认订单时，新增地址
+	 * 
+	 * @param address
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/confirmOrderInsertAddress")
+	@ResponseBody
+	public String confirmOrderInsertAddress(Address address,
+			HttpServletRequest request) throws Exception {
+		User user = (User) request.getSession().getAttribute("user");
+		if (user.getId() != null) {
+			address.setBuyersId(user.getId());
+			addressService.insertAddress(address);
+			if (address.getId() != null) {
+				return "success";
+			} else {
+				return "fail";
+			}
+		} else {
+			return "fail";
+		}
+
 	}
 
 	@RequestMapping("/findRegionsByParentId")

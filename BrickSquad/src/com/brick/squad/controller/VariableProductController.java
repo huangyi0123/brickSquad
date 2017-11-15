@@ -58,7 +58,20 @@ public class VariableProductController {
 	@Autowired
 	@Qualifier("variableProductService")
 	private VariableProductService variableProductService;
-
+	
+	@RequestMapping("/toUserAddReceivingAddress")
+	public  String toUserAddReceivingAddress(HttpServletRequest request){
+		String data = addressService.findRegionsByLevel();
+		request.setAttribute("data", data);
+		return"frontEnd_manage/front_bootstrap/userAddReceivingAddress";
+	}
+/**
+ * 订单页修改收货地址
+ * @param orderId
+ * @param receivingAddressId
+ * @return
+ * @throws Exception
+ */
 	@RequestMapping("/userUpdatereceivingAddress")
 	@ResponseBody
 	public String userUpdatereceivingAddress(String orderId,String receivingAddressId) throws Exception {

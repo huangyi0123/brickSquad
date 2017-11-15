@@ -127,23 +127,23 @@ pre {
 
 <body
 	class="product-template-default single single-product woocommerce woocommerce-page">
+	<jsp:include page="shop_header.jsp"></jsp:include>
 	<div class="body-wrapper theme-clearfix">
-		<jsp:include page="shop_header.jsp"></jsp:include>
-
-		<div class="container">
+	<div class="container">
 			<div class="wrap-title">
-				<h1>${ article.aname}</h1>
+
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
-							<ul class="breadcrumb" style="margin-left: 830px;">
+							<ul class="breadcrumb" style="">
 								<li><a href="shopIndex/toShop">首页</a><span class="go-page"></span></li>
 								<!-- <li><a href="shop_full_width.html">相机 &amp; 配件</a><span
 									class="go-page"></span></li>
 								<li><a href="shop_full_width.html">电池 &amp; 充电器</a><span
 									class="go-page"></span></li> -->
 								<li class="active"><span>商品详情</span></li>
-								<li class="active"><span>${ article.aname}</span></li>
+
+
 							</ul>
 						</div>
 					</div>
