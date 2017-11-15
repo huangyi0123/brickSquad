@@ -73,7 +73,7 @@
 	<select id="findCouponByTypeId" parameterType="String"
 		resultType="com.brick.squad.expand.CouponExpand">
 		SELECT c.id,c.total,c.surplus,c.full_money
-		fullMoney,c.money,b.shopname
+		fullMoney,c.money,b.shopname,c.receive
 		FROM coupon c JOIN business b on c.buyers_id=b.id
 		WHERE end_time>NOW()AND c.type_id=#{typeId} and c.total>c.receive
 	</select>
