@@ -1,5 +1,6 @@
 package com.brick.squad.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
@@ -69,7 +71,8 @@ public class ActivitiesController {
 	// 验证
 	@RequestMapping("/addActivities")
 	public String addActivities(@Validated Activities activities,
-			BindingResult result, HttpServletRequest request) throws Exception {
+			BindingResult result, HttpServletRequest request,
+			MultipartFile files) throws Exception {
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -77,7 +80,45 @@ public class ActivitiesController {
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/activities/add_activities";
 		}
-		activitiesService.insertActivitiesById(activities);
+		if (files != null) {
+			// 获取图片要保存的到的服务器路径
+			String realPath = "resource/movie/activities/";
+			String path = request.getSession().getServletContext()
+					.getRealPath(realPath);
+			// 获取当前文件名
+			String filName = files.getOriginalFilename();
+			// 获取当前文件的后缀名
+			String fileSuffixName = filName.substring(filName.lastIndexOf("."));
+			// 如果后缀名为mp4、mpg、avi、f4v,才允许上传
+			if (fileSuffixName.equals(".mp4") || fileSuffixName.equals(".mpg")
+					|| fileSuffixName.equals(".avi")
+					|| fileSuffixName.equals(".f4v")
+					|| fileSuffixName.equals(".MP4") ) {
+				
+				//  创建文件类型对象: 
+				File file = new File(path, filName);
+				if (!file.exists()) {
+					file.mkdirs();
+				}
+				files.transferTo(file);
+				activities.setMovie(filName);
+				
+			} else {
+				List<ObjectError> errors = result.getAllErrors();
+				request.setAttribute("errors", errors);
+				request.setAttribute("url", "addActivities");
+				request.setAttribute("msg", "添加");
+				return "backstage_managed/jsp/activities/add_activities";
+			}
+		} else {
+			List<ObjectError> errors = result.getAllErrors();
+			request.setAttribute("errors", errors);
+			request.setAttribute("url", "addActivities");
+			request.setAttribute("msg", "添加");
+			return "backstage_managed/jsp/activities/add_activities";
+		}
+		 activitiesService.insertActivitiesById(activities); 
+		 System.out.println(activities.getMovie());
 		return "backstage_managed/jsp/activities/activities_list";
 	}
 
