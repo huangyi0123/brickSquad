@@ -234,11 +234,7 @@ public class ArticleServiceTest {
 		}
 	}
 	@Test
-	public void findArticleTitle() throws Exception{
-		PageBeanUtil<Article> pageBean=articleService.findArticleTitle(1, 2, "老", "laorenjianfuyongpin");
-		List<Article> list=pageBean.getList();
-		for(Article article:list){
-			System.out.println("======="+article.getAname());
-		}
+	public void findSearchAllArticleCountSecond(){
+		System.out.println(articleService.findSearchAllArticleCountSecond("yiliaoqixie"));
 	}
 }

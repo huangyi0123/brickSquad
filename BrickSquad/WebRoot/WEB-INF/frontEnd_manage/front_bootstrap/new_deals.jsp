@@ -92,7 +92,11 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
-									<c:if test="${url2=='findHotArticletotonew_deals' }">
+								
+									
+									
+										
+											<c:if test="${url2=='findHotArticletotonew_deals' }">
 										<c:forEach items="${map.data }" var="a">
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 												<div class="item-detail">
@@ -163,8 +167,77 @@
 												</div>
 											</div>
 										</c:forEach>
-										</c:if>
-										<c:if test="${url2=='findHotArticle' }">
+									
+										<div style="clear: both;"></div>
+										<div>
+											<%
+												Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
+																																																																																	PageUtil pageUtil=(PageUtil)map.get("page");
+											%>
+											<nav aria-label="Page navigation">
+											<ul class="pagination">
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+1%>"
+														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
+														<span aria-hidden="true">&laquo;</span>
+													</a>
+												</li>
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
+														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
+														<span aria-hidden="true">&lt;</span>
+													</a>
+												</li>
+												<%
+													for(int i=1;i<=pageUtil.getPageCount();i++ ){
+												%>
+
+												<li>
+													<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
+														href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+												</li>
+												<%
+													}
+												%>
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()+1)%>"
+														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
+														aria-label="Next">
+														<span aria-hidden="true">&gt;</span>
+													</a>
+												</li>
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
+														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
+														<span aria-hidden="true">&raquo;</span>
+													</a>
+												</li>
+												<li>
+													<span style="padding:0px;border: none;">
+														第
+														<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
+															type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
+															value="${map.page.curentPage }">
+														页
+													</span>
+												</li>
+												<li>
+													<span style="border: none;">共${map.page.count }条记录</span>
+												</li>
+											</ul>
+											</nav>
+										</div>
+											</c:if>
+										
+										
+									
+									
+										
+											<c:if test="${url2=='findHotArticle' }">
 										<c:forEach items="${map.data }" var="a">
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 												<div class="item-detail">
@@ -235,7 +308,81 @@
 												</div>
 											</div>
 										</c:forEach>
-										</c:if>
+									
+										<div style="clear: both;"></div>
+										<div>
+											<%
+												Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
+																																																																																	PageUtil pageUtil=(PageUtil)map.get("page");
+											%>
+											<nav aria-label="Page navigation">
+											<ul class="pagination">
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
+														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
+														<span aria-hidden="true">&laquo;</span>
+													</a>
+												</li>
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
+														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
+														<span aria-hidden="true">&lt;</span>
+													</a>
+												</li>
+												<%
+													for(int i=1;i<=pageUtil.getPageCount();i++ ){
+												%>
+
+												<li>
+													<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
+														href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+												</li>
+												<%
+													}
+												%>
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
+														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
+														aria-label="Next">
+														<span aria-hidden="true">&gt;</span>
+													</a>
+												</li>
+												<li>
+													<a
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
+														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
+														<span aria-hidden="true">&raquo;</span>
+													</a>
+												</li>
+												<li>
+													<span style="padding:0px;border: none;">
+														第
+														<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
+															type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
+															value="${map.page.curentPage }">
+														页
+													</span>
+												</li>
+												<li>
+													<span style="border: none;">共${map.page.count }条记录</span>
+												</li>
+											</ul>
+											</nav>
+										</div>
+											</c:if>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
 										<c:if test="${url=='findAllArticle' }">
 										<c:forEach items="${map.data }" var="a">
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
@@ -307,7 +454,7 @@
 												</div>
 											</div>
 										</c:forEach>
-										</c:if>
+									
 										<div style="clear: both;"></div>
 										<div>
 											<%
@@ -318,14 +465,14 @@
 											<ul class="pagination">
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+1%>"
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
 														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
 														<span aria-hidden="true">&laquo;</span>
 													</a>
 												</li>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
+														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()-1)%>"
 														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
 														<span aria-hidden="true">&lt;</span>
 													</a>
@@ -336,14 +483,14 @@
 
 												<li>
 													<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
-														href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+														href="new_deals/${map.url }?s=${map.s }&search_category=${map.search_category }&curentPage=<%=i%>"><%=i%></a>
 												</li>
 												<%
 													}
 												%>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()+1)%>"
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
 														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
 														aria-label="Next">
 														<span aria-hidden="true">&gt;</span>
@@ -351,7 +498,7 @@
 												</li>
 												<li>
 													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
+														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+pageUtil.getPageCount()%>"
 														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
 														<span aria-hidden="true">&raquo;</span>
 													</a>
@@ -371,7 +518,10 @@
 											</ul>
 											</nav>
 										</div>
-
+											</c:if>
+											
+									
+								
 
 										<!--  <div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 											<div class="item-detail">

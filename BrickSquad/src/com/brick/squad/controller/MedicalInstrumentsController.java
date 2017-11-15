@@ -350,13 +350,13 @@ public class MedicalInstrumentsController {
 	/**
 	 * 头部搜索
 	 * @throws Exception */
-	@RequestMapping("/findArticleTitle")
+	/*@RequestMapping("/findArticleTitle")
 	public String findArticleTitle(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
-		/** 医疗器械一级分类查询 */
+		*//** 医疗器械一级分类查询 *//*
 		List<TypeExpand> listType = typeService
 				.findIdAndTypeNmae("yiliaoqixie");
 		request.setAttribute("listType", listType);
-		/** 医疗器械查询商品图片和商品名称 */
+		*//** 医疗器械查询商品图片和商品名称 *//*
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
 		List<Article> list = articleService
 				.findArticleImgAndName("laorenjianfuyongpin");
@@ -392,5 +392,5 @@ public class MedicalInstrumentsController {
 		request.setAttribute("pageBean", pageBean);
 	
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
-	}
+	}*/
 }
