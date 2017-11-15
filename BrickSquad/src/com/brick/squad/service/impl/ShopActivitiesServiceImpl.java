@@ -72,8 +72,7 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService {
 
 	@Override
 	public String shopActivitiesPagination(Pagination pagination) {
-		List<ShopActivitiesExpand> shopActivities = shopActivitiesMapper
-				.shopActivitiesPagination(pagination);
+		List<ShopActivitiesExpand> shopActivities = shopActivitiesMapper.shopActivitiesPagination(pagination);
 		int row = shopActivitiesMapper.findShopActivitiesAllCount(pagination);
 		Util<ShopActivitiesExpand> util = new Util<ShopActivitiesExpand>();
 		String data = util.SplitPage(shopActivities, row);
@@ -120,6 +119,7 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService {
 
 	@Override
 	public String findArticle(String businessId) {
+		System.out.println("1111111111111111111");
 		List<Select> aname = shopActivitiesMapper.findArticle(businessId);
 		JSONArray jsonArray = new JSONArray();
 		String dataAnames = jsonArray.fromObject(aname).toString();

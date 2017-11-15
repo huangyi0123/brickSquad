@@ -20,6 +20,7 @@ public class Article {
 	private String price;
 	private int stock;
 	private String describes;
+	
 
 	public Date getShelfdate() {
 		return shelfdate;

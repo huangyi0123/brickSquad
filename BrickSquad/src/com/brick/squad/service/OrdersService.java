@@ -8,6 +8,15 @@ import com.brick.squad.util.Pagination;
  * 订单业务层接口
  */
 public interface OrdersService {
+	/**
+	 * 根据ID修改收货地址ID
+	 * 
+	 * @param orderId
+	 *            订单ID
+	 * @param receivingAddressId
+	 *            收货地址ID
+	 */
+	public void updateOrdersreceivingAddressById(Orders orders);
 	/* 根据订单id查询订单信息 */
 	public Orders findOrdersById(String id) throws Exception;
 

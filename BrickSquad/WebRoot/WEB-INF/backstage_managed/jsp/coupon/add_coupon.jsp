@@ -46,7 +46,6 @@
 	layui.use('form', function() {
 		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
 		//获取老人信息表
-		dataBusness
 		var dataBusness = '${dataBusness}';
 		dataBusness = JSON.parse(dataBusness);
 		findAll(dataBusness, "#busnessid");

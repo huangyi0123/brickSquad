@@ -98,8 +98,14 @@ public interface ArticleService {
 
 	/********最新商品分页查询 *********/
 	public Map<String, Object> findArticlePage(PageUtil pageUtil,String path,String order);
+
 	/**查询所有商品信息：搜索框使用*/
 	public Map<String, Object> findSearchAllArticle(PageUtil pageUtil,String path);
+
+	
+	public Map<String, Object> findArticlePages(PageUtil pageUtil,String path,String order);
+
+
 	
 	public int selectArticleRatedTotalById(String id);
 
@@ -108,13 +114,14 @@ public interface ArticleService {
 	 * 
 	 * @return 数据集合
 	 */
-	public Map<String, Object> shopIndex();
+	public Map<String, Object> shopIndex(String userId);
 
 	/**
 	 * 获取最新添加的商品
 	 */
 
 	public List<NewsArticle> findFrontTime();
+	
 	
 	/**获取所有商品数量*/
 

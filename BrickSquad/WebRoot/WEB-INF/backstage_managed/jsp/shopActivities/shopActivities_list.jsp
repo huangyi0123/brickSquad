@@ -74,7 +74,7 @@ a:HOVER {
 				选项<span class="caret" style="margin-left: 80px;"></span>
 			</button>
 			<ul class="dropdown-menu">
-				<li><a href="shopActivities/toAddShopActivities" 
+				<li><a href="shopActivities/toAddShopActivities?businessId=${business.id}" 
 					style="margin-left: 10px;"><i class="fa fa-plus"></i><font
 						style="margin-left: 10px;">添加</font></a></li>
 				<!-- <li><a href="#">导出</a></li>

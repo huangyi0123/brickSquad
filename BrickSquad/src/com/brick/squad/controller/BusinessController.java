@@ -49,6 +49,7 @@ public class BusinessController {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateBusinessById");
 			Business business = businessService.findBusinessById(id);
+			System.out.println(business.getId()+"----------------------------------------------");
 			request.setAttribute("business", business);
 		} else {
 			request.setAttribute("url", "insertBusiness");
@@ -75,6 +76,7 @@ public class BusinessController {
 
 	@RequestMapping("/updateBusinessById")
 	public String updateBusinessById(Business business) {
+		System.out.println(business.getId()+"----------------------------------------------");
 		businessService.updateBusinessById(business);
 		return "backstage_managed/jsp/business/business_list";
 

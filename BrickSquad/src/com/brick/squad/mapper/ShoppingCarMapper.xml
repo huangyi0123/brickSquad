@@ -11,7 +11,7 @@
 		FROM shopping_car
 		WHERE id=#{id,jdbcType=VARCHAR}
 	</select>
-		<select id="findShoppingCarByArticleId" parameterType="java.lang.String"
+	<select id="findShoppingCarByArticleId" parameterType="java.lang.String"
 		resultType="ShoppingCar">
 		SELECT
 		<include refid="Base_Column_List" />
@@ -41,6 +41,13 @@
 		shopping_car
 		WHERE id = #{id,jdbcType=VARCHAR}
 	</delete>
+	<!-- 根据id修改购物车数量 -->
+	<update id="updateShoppingCarNumberById" parameterType="ShoppingCar">
+		UPDATE
+		shopping_car set
+		number = #{number}
+		WHERE id = #{id} and per_id=#{perId}
+	</update>
 	<update id="updateShoppingCarById" parameterType="ShoppingCar">
 		UPDATE
 		shopping_car
@@ -109,8 +116,10 @@
 		WHERE per_id = #{perId,jdbcType=VARCHAR}
 	</delete>
 	<!-- 根据老人id匹配查询出相应的信息，用于前台购物车 -->
-	<select id="findArticIdAllArtic" parameterType="com.brick.squad.util.ShoppingCarPagination" resultType="com.brick.squad.expand.ShoppingCarAndArticle">
-		SELECT s.id,s.article_id articleId,s.per_id perId,s.number,s.date,a.aname,
+	<select id="findArticIdAllArtic" parameterType="com.brick.squad.util.ShoppingCarPagination"
+		resultType="com.brick.squad.expand.ShoppingCarAndArticle">
+		SELECT s.id,s.article_id articleId,s.per_id
+		perId,s.number,s.date,a.aname,
 		a.type_id typeId,a.business_id
 		businessId,a.price,a.stock,a.describes,a.image,p.`name` FROM
 		shopping_car s
@@ -118,18 +127,27 @@
 		personal_information p on s.per_id=p.id
 		WHERE
 		s.per_id=#{perId}
-		LIMIT #{skipNum},#{takeNum}
+		LIMIT
+		#{skipNum},#{takeNum}
 	</select>
-	<!--统计上述信息条数用作分页显示-->
+	<!--统计上述信息条数用作分页显示 -->
 	<select id="findShoppingCarPerIdCount" resultType="Integer"
 		parameterType="com.brick.squad.util.ShoppingCarPagination">
 		SELECT COUNT(*)
 		FROM
 		shopping_car s
-		JOIN article a on s.article_id=a.id JOIN
+		JOIN article a on
+		s.article_id=a.id JOIN
 		personal_information p on s.per_id=p.id
 		WHERE
 		s.per_id=#{perId}
 	</select>
+	<!-- 根据用户id查询购物车总额 -->
+	<select id="findUserAllPrice" parameterType="String" resultType="float">
+		SELECT sum(a.price*s.number) s FROM article a JOIN
+		(SELECT sc.article_id,sc.number FROM shopping_car sc WHERE
+		per_id=#{userId}) s
+		on a.id=s.article_id
 
+	</select>
 </mapper>

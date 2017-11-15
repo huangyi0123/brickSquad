@@ -91,6 +91,8 @@
 			<mvc:exclude-mapping path="/MedicalInstruments/findPriceScope" />
 			<mvc:exclude-mapping path="/MedicalInstruments/findArticleTitle" />
 			<mvc:exclude-mapping path="/deals/todeals" />
+			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
+			<mvc:exclude-mapping path="/group_buy/togroup_buy" />
 			<mvc:exclude-mapping path="/new_deals/*" />
 			<mvc:exclude-mapping path="/shopIndex/**"/>
 			<mvc:exclude-mapping path="/common/toApply_coupon" />

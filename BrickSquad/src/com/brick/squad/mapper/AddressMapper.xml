@@ -72,8 +72,19 @@
 			a.detailed REGEXP #{keyword}
 		</if>
 	</select>
+	<!-- 根据用户ID查询address中当前用户的所有地址信息集合 -->
+	<select id="findAddressByBuyersId" parameterType="String"
+		resultType="com.brick.squad.pojo.Address">
+		select
+		id,province_id provinceId,city_id cityId,county_id
+		countyId,country_id
+		countryId,detailed,buyers_id buyersId,consignee_name consigneeName,
+		consignee_telephone consigneePhone
+		from address where buyers_id=#{buyersId}
+	</select>
 	<!--通用拼接查询地址sql -->
-	<select id="findByIdAllAddress" parameterType="String" resultType="String">
+	<select id="findByIdAllAddress" parameterType="String"
+		resultType="String">
 		SELECT
 		CONCAT(pro.`name`,city.`name`,county.`name`,country.`name`,a.detailed)
 		address FROM address a JOIN
@@ -83,7 +94,8 @@
 		region city ON a.city_id=city.id
 
 		JOIN
-		region county on a.country_id=county.id
+		region county on
+		a.country_id=county.id
 
 		JOIN
 		region country on a.country_id=country.id

@@ -26,6 +26,22 @@ public class Address {
 	 */
 	private String consigneePhone;
 
+	public String getConsigneeName() {
+		return consigneeName;
+	}
+
+	public void setConsigneeName(String consigneeName) {
+		this.consigneeName = consigneeName;
+	}
+
+	public String getConsigneePhone() {
+		return consigneePhone;
+	}
+
+	public void setConsigneePhone(String consigneePhone) {
+		this.consigneePhone = consigneePhone;
+	}
+
 	public String getBuyersId() {
 		return buyersId;
 	}
@@ -87,7 +103,10 @@ public class Address {
 		return "Address [id=" + id + ", provinceId=" + provinceId + ", cityId="
 				+ cityId + ", countyId=" + countyId + ", countryId="
 				+ countryId + ", detailed=" + detailed + ", buyersId="
-				+ buyersId + "]";
+				+ buyersId + ", consigneeName=" + consigneeName
+				+ ", consigneePhone=" + consigneePhone + "]";
 	}
+
+
 
 }

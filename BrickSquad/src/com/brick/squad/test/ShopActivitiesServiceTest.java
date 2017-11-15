@@ -36,7 +36,7 @@ public class ShopActivitiesServiceTest {
 	@Test
 	public void findShopActivitiesById() throws Exception {
 		System.out.println(shopActivitiesService.findShopActivitiesById(
-				"22a7b356bf8d11e7aca65254002ec43c").getTypeId());
+				"a5e490a2c45d11e7aca65254002ec43c").getBuyersNumber());
 	}
 
 	/**

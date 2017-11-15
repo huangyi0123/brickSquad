@@ -41,12 +41,13 @@ public class ArticleController {
 
 	@RequestMapping("/getArticleList")
 	@ResponseBody
-	public String getArticleList(int pSize, int cPage, String keyword) {
+	public String getArticleList(HttpServletRequest request,int pSize, int cPage, String keyword) {
 
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		pagination.setUserId(request.getSession().getAttribute("userId").toString());
 		return articleService.articlePagination(pagination);
 	}
 

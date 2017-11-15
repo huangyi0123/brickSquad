@@ -31,7 +31,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -46,7 +48,9 @@
 <!--//fonts-->
 <!-- js -->
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+
 <!-- js -->
 <script>
 	$(document).ready(function() {
@@ -104,7 +108,7 @@
 				<ul class="layui-nav"
 					style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href=""
+					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
 					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
@@ -198,10 +202,28 @@
 
 			<div class="clearfix"></div>
 		</div>
-		<div class="container">
+		<div class="layui-carousel" id="test10">
+					<div carousel-item="">
+						<div>
+							<img src="resource/image/1.png">
+						</div>
+						<div>
+							<img src="resource/image/2.png">
+						</div>
+						<div>
+							<img src="resource/image/3.png">
+						</div>
+						<div>
+							<img src="resource/image/4.png">
+						</div>
+					
+					</div>
+				</div>
+		<!-- <div class="container">
 			<div class="banner-info">
 				<h3>Get Free Coupons and Discounts on Top Brands With Every
 					Recharge</h3>
+				
 			</div>
 			<div class="buttons">
 				<ul>
@@ -214,19 +236,20 @@
 				</ul>
 
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<div class="content-bottom">
 		<div class="btm-grids">
 			<div class="col-md-4 btm-grid back-col1 text-center">
-				<img src="resource/image/bbbb.png" alt="" />
+				<!-- 
+				<img src="resource/image/timg.jpg" alt="" /> -->
 			</div>
 			<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48D2D2;">
 				<input value="社区搜索" class="title">
-				<input class="city_search" type="text" value="请输入城市" style="color:#C5C5C5; "
-					onfocus="if(value=='请输入城市') {value=''}"
+				<input class="city_search" type="text" value="请输入城市"
+					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
 				<label class="search_icon"
 					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
@@ -242,7 +265,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
-				<img src="resource/image/bbb1.png" alt="" />
+				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -1081,7 +1104,22 @@
 				//console.log(elem)
 				layer.msg(elem.text());
 			});
+			
+			
 		});
+	</script>
+	<script type="text/javascript">
+	layui.use(['carousel', 'form'], function(){
+		  var carousel = layui.carousel
+		  ,form = layui.form;
+		  
+		  carousel.render({
+			    elem: '#test10'
+			    ,width: '1349px'
+			    ,height: '500px'
+			    ,interval: 5000
+			  });
+	})
 	</script>
 </body>
 </html>
