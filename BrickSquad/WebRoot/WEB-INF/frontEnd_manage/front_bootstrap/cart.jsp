@@ -115,6 +115,7 @@
 													<th class="product-price">单价</th>
 													<th class="product-quantity">数量</th>
 													<th class="product-subtotal">总价</th>
+													<th class="product-choice">选择下单宝贝</th>
 												</tr>
 											</thead>
 
@@ -122,7 +123,7 @@
 												<c:forEach var="listDetailsShoppingCar" items="${map.list}"
 													varStatus="a">
 
-													<tr class="cart_item" >
+													<tr class="cart_item">
 														<td class="product-remove"><a
 															href="shoppingCar/IndexDeleteShoppingCar?id=${listDetailsShoppingCar.id}"
 															class="remove" title="Remove this item"><i
@@ -151,16 +152,29 @@
 																	name="listDetailsShoppingCar.number"
 																	value="${listDetailsShoppingCar.number}" title="Qty"
 																	class="input-text qty text" size="4" pattern="[0-9]*"
-																	inputmode="numeric" onchange="addNumber(this)" oninput="addNumber(this)" val="${listDetailsShoppingCar.price }" vai="${listDetailsShoppingCar.id }" >
+																	inputmode="numeric" onchange="addNumber(this)"
+																	oninput="addNumber(this)"
+																	val="${listDetailsShoppingCar.price }"
+																	vai="${listDetailsShoppingCar.id }">
 															</div>
 														</td>
 														<td class="product-subtotal" data-title="Total"><span
 															class="woocommerce-Price-amount amount"><span
 																class="woocommerce-Price-currencySymbol">￥</span> <input
-																type="text" class="allPriceId"
-																readonly="readonly"
+																type="text" class="allPriceId" readonly="readonly"
 																style="border: none;background-color:transparent;"
 																value="${listDetailsShoppingCar.allPrice }"></span></td>
+
+														<td class="product-choice">
+														<div class="layui-form-item" pane="">
+															<div class="layui-input-block">
+																<input type="checkbox" name="like1[write]"
+																	lay-skin="primary" onchange="checkedCar(this)" > 
+															</div>
+														</div>
+														</td>
+
+
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -169,22 +183,28 @@
 													<div>
 														<%
 															Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
-																																						ShoppingCarPagination pagination=(ShoppingCarPagination)map.get("shoppingCarPagination");
+																																																														ShoppingCarPagination pagination=(ShoppingCarPagination)map.get("shoppingCarPagination");
 														%>
 														<nav aria-label="Page navigation">
 														<ul class="pagination">
-															<li><a href="<%=pagination.getCurentPage()==1?"javascript:;":"shoppingCar/detailsShoppingCar?curentPage="+(pagination.getCurentPage()-1) %>" style="<%=pagination.getCurentPage()==1?"color: #ccc":""%>" aria-label="Previous"> <span
-																	aria-hidden="true">&laquo;</span>
+															<li><a
+																href="<%=pagination.getCurentPage()==1?"javascript:;":"shoppingCar/detailsShoppingCar?curentPage="+(pagination.getCurentPage()-1)%>"
+																style="<%=pagination.getCurentPage()==1?"color: #ccc":""%>"
+																aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 															</a></li>
 															<%
 																for(int i=1;i<=pagination.getPageCount();i++) {
 															%>
-															<li><a href="shoppingCar/detailsShoppingCar?curentPage=<%=i %>" style="<%=pagination.getCurentPage()==i?"color:red":""%>"><%=i%></a></li>
+															<li><a
+																href="shoppingCar/detailsShoppingCar?curentPage=<%=i%>"
+																style="<%=pagination.getCurentPage()==i?"color:red":""%>"><%=i%></a></li>
 															<%
 																}
 															%>
-															<li><a href="<%=pagination.getCurentPage()==pagination.getPageCount()?"javascript:;":"shoppingCar/detailsShoppingCar?curentPage="+(pagination.getCurentPage()+1) %>" style="<%=pagination.getCurentPage()==pagination.getPageCount()?"color: #ccc":""%>" aria-label="Next"> <span
-																	aria-hidden="true">&raquo;</span>
+															<li><a
+																href="<%=pagination.getCurentPage()==pagination.getPageCount()?"javascript:;":"shoppingCar/detailsShoppingCar?curentPage="+(pagination.getCurentPage()+1)%>"
+																style="<%=pagination.getCurentPage()==pagination.getPageCount()?"color: #ccc":""%>"
+																aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 															</a></li>
 														</ul>
 														</nav>
@@ -219,15 +239,15 @@
 															<th>小计</th>
 															<td data-title="小计"><span
 																class="woocommerce-Price-amount amount"><span
-																	class="woocommerce-Price-currencySymbol">$</span>300.00</span>
+																	class="woocommerce-Price-currencySymbol">￥</span><span id="checkeds">0</span></span>
 															</td>
 														</tr>
 														<tr class="order-total">
 															<th>总计</th>
 															<td data-title="总计"><strong><span
 																	class="woocommerce-Price-amount amount"><span
-																		class="woocommerce-Price-currencySymbol">￥</span><span class="mapall">${map.allprice }</span></span></strong>
-															</td>
+																		class="woocommerce-Price-currencySymbol">￥</span><span
+																		class="mapall">${map.allprice}</span></span></strong></td>
 														</tr>
 													</tbody>
 												</table>
@@ -417,7 +437,7 @@
 		src="resource/plugins/angularjs/angular.min.js"></script>
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript" src="resource/js/cart.js"></script>
-	
+    <script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
 	<script type="text/javascript">
 		$(function() {
 		});
