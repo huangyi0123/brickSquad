@@ -33,7 +33,11 @@
 	
 	
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 
@@ -222,15 +226,15 @@
 
 			</div>
 			<div class="container">
-			<div class="buttons" style="z-index: 10;">
-				<ul>
-					<li><a class="hvr-shutter-in-vertical" href="#"
-						data-toggle="modal" data-target="#myModal">预约参观</a></li>
-					<li><a class="hvr-shutter-in-vertical" href="#"
-						data-toggle="modal" data-target="#myModal1">我要报名</a></li>
-				</ul>
+				<div class="buttons" style="z-index: 10;">
+					<ul>
+						<li><a class="hvr-shutter-in-vertical" href="#"
+							data-toggle="modal" data-target="#myModal">预约参观</a></li>
+						<li><a class="hvr-shutter-in-vertical" href="#"
+							data-toggle="modal" data-target="#myModal1">我要报名</a></li>
+					</ul>
 
-			</div>
+				</div>
 			</div>
 		</div>
 		<!-- <div class="container">
@@ -436,9 +440,39 @@
 									role="tab" title="Complete"> </a></li>
 							</ul>
 						</div>
-<!-- 预约参观 -->
+						<!-- 预约参观 -->
 						<form role="form">
-							
+							<div class="tab-content">
+								<div class="tab-pane active" role="tabpanel" id="step12">
+									<div class="mobile-grids">
+										<label
+											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">预约参观</label>
+										<label
+											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
+										<input type="text" value="请输入联系人姓名"
+											style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5; "
+											onfocus="if(value=='请输入联系人姓名') {value=''}"
+											onblur="if (value=='') {value='请输入联系人姓名'}">
+										<label
+											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
+										<input type="text" value="请输入联系人电话"
+											style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5; "
+											onfocus="if(value=='请输入联系人电话') {value=''}"
+											onblur="if (value=='') {value='请输入联系人电话'}">
+										<label
+											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
+										<input type="text" value="请输入预约时间"
+											style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5; "
+											onfocus="if(value=='请输入预约时间') {value=''}"
+											onblur="if (value=='') {value='请输入预约时间'}">
+										<form class="layui-form" action="">
+											<div class="layui-input-inline">
+        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+      </div>
+      </form>
+									</div>
+								</div>
+							</div>
 						</form>
 					</div>
 					</section>
@@ -488,9 +522,7 @@
 							</ul>
 						</div>
 						<!-- 我要去报名 -->
-						<form role="form">
-							
-						</form>
+						<form role="form"></form>
 					</div>
 					</section>
 				</div>
@@ -611,7 +643,7 @@
 											</div>
 										</div>
 									</div>
-									<ul class="list-inline pull-right"> 
+									<ul class="list-inline pull-right">
 										<li><button type="button"
 												class="mob-btn btn btn-default prev-step">Previous</button></li>
 										<li><button type="button"
@@ -900,5 +932,22 @@
 			});
 		})
 	</script>
+	<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //日期
+  laydate.render({
+    elem: '#date'
+  });
+  laydate.render({
+    elem: '#date1'
+  });
+  
+});
+</script>
 </body>
 </html>
