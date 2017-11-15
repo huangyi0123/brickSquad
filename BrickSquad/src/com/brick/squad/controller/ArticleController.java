@@ -130,7 +130,6 @@ public class ArticleController {
 
 		return "backstage_managed/jsp/article/article_list";
 	}
-
 	@RequestMapping("/deleteArticleById")
 	@ResponseBody
 	public String deleteArticleById(String id, HttpServletRequest request)
@@ -138,7 +137,6 @@ public class ArticleController {
 		articleService.deleteArticleById(id, request);
 		return "success";
 	}
-
 	@RequestMapping("/updateArticleById")
 	public String updateArticleById(@Validated Article article,
 			BindingResult result, @RequestParam MultipartFile[] files,

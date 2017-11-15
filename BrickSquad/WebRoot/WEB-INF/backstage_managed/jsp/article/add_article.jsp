@@ -182,7 +182,7 @@ $(function() {
 					>
 			</div>
 			<div id="showImg">
-			<c:forEach var="a" items="${images }">
+			<c:forEach var="a" items="${images}">
 			<img style="width: 80px" alt="" src="resource/image/articleImg/${ article.image}/${a}">
 			</c:forEach>
 			</div>
