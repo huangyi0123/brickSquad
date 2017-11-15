@@ -394,11 +394,42 @@ public class MedicalInstrumentsController {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}*/
 	
-	/**衣服类商品 */
+	/**衣服类商品 
+	 * @throws Exception */
 	@RequestMapping("/findColthType")
-	public String findColthType(HttpServletRequest request,String typeId){
-		
-		return null;
+	public String findColthType(HttpServletRequest request,PageBeanUtil pageBean,String typeId) throws Exception{
+		/** 医疗器械一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae("shangyi");
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		List<Article> list = articleService
+				.findArticleImgAndName("shangyi");
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle("shangyi");
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+
+		int page = pageBean.getPage();
+		pageBean = articleService.findArtivleAndMedicalInstrumentsPage(page);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle4);
+		request.getSession().setAttribute("url", "toShop_left_sidebar");
+	/*	request.setAttribute("url", "toShop_left_sidebar");*/
+		request.setAttribute("pageBean", pageBean);
+
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 		
 	}
 	
