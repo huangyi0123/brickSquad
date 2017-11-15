@@ -104,11 +104,21 @@
 						<div class="entry-content">
 							<div class="entry-summary">
 								<div class="woocommerce">
+									<label style="display:block; font-size: 20px;">收货地址：</label>
+									<c:forEach var="listAddresses" items="${listAddresses }">
+										<label
+											style="display:block;margin-left: 80px; font-size: 15px;"><input
+												type="radio" name="addressRadio" class="addressRadio"
+												<c:if test="${orders.receivingAddress eq listAddresses.id }"> checked</c:if>
+												title="${listAddresses.detailed }"
+												value="${listAddresses.id }">${listAddresses.detailed }</label>
+									</c:forEach>
 									<form action="" method="post">
 										<table class="shop_table shop_table_responsive cart"
 											cellspacing="0">
 											<thead>
 												<tr>
+												<th>订单号</th>
 													<th class="product-name">宝贝信息</th>
 													<th class="product-price">单价</th>
 													<th class="product-quantity">数量</th>
@@ -118,6 +128,9 @@
 
 											<tbody>
 												<tr>
+												<td >
+												<input id="orderId" style="width: 250px;" type="text" value="${orders.id }">
+												</td>
 													<td>${article.aname }</td>
 													<td>${article.price }</td>
 													<td>${orderDetails.number }</td>
@@ -229,6 +242,40 @@
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript">
 		$(function() {
+			layui
+					.use(
+							'layer',
+							function() {
+								var layer = layui.layer;
+								$(".addressRadio")
+										.change(
+												function() {
+													var receivingAddressId = $(
+															'input:radio[name="addressRadio"]:checked')
+															.val();
+													var orderId=$("#orderId").val();
+													$
+															.ajax({
+																url : 'variableProduct/userUpdatereceivingAddress?receivingAddressId='+receivingAddressId+'&orderId='+orderId,
+																success : function(
+																		data) {
+																	if (data == "fail") {
+																		layer
+																				.msg("修改收货地址失败！稍后重试");
+																	} else if (data == "success") {
+																		layer
+																				.msg("修改收货地址成功！");
+																	}
+																},
+																error : function(
+																		e) {
+																	layer
+																			.msg("服务器错误！！稍后重试");
+																}
+															}); 
+
+												});
+							});
 		});
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
 		var sticky_navigation = function() {

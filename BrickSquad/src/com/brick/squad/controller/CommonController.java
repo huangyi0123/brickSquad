@@ -23,6 +23,7 @@ import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
@@ -30,6 +31,7 @@ import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.ArticleService;
+import com.brick.squad.service.BusinessService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.LimitsService;
 import com.brick.squad.service.PersonalInformationService;
@@ -50,16 +52,23 @@ public class CommonController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
+	@Autowired
+	@Qualifier("businessService")
+	private BusinessService businessService;
 
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
+		User user=(User) request.getSession().getAttribute("user");
 		// begin 通过权限id查询权限
-		String roleId = ((User) (request.getSession().getAttribute("user")))
+		String roleId =user
 				.getRoleId();
 		Map<String, Limits> limits = limitsService
 				.findAllLimitsByRoleId(roleId);
 		request.getSession().setAttribute("limiterole", limits);
+		
 		// end
+		Business business=businessService.findBusiness(user.getId());
+		request.getSession().setAttribute("business", business);
 		return "backstage_managed/jsp/frame";
 	}
 

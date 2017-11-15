@@ -174,4 +174,11 @@ public class ShoppingCarController {
 		shoppingCarService.deleteShoppingCarById(id);
 		return "redirect:/shoppingCar/detailsShoppingCar";
 	}
+	@RequestMapping("/updateShoppingNumber")
+	@ResponseBody
+	public String updateShoppingNumber(ShoppingCar shoppingCar,HttpServletRequest request) {
+		User user=(User) request.getSession().getAttribute("user");
+		shoppingCar.setPerId(user.getId());
+	return shoppingCarService.updateShoppingNumber(shoppingCar)+"";
+	}
 }

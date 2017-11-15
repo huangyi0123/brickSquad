@@ -65,13 +65,26 @@ public interface ShoppingCarMapper {
 	 * */
 	public List<ShoppingCar> findShoppingCarByArticleId(String articleId);
 
+	public List<ShoppingCarAndArticle> findArticIdAllArtic(
+			ShoppingCarPagination shoppingCarPagination);
 
-	public List<ShoppingCarAndArticle> findArticIdAllArtic(ShoppingCarPagination shoppingCarPagination);
 	/**
 	 * 统计根据老人id查询出来的信息条数
+	 * 
 	 * @param pagination
 	 * @return
 	 */
-	public Integer findShoppingCarPerIdCount(ShoppingCarPagination shoppingCarPagination);
-	
+	public Integer findShoppingCarPerIdCount(
+			ShoppingCarPagination shoppingCarPagination);
+	/**
+	 * 根据id及用户id修改购物车数量
+	 * @param shoppingCar 修改信息
+	 */
+	public void updateShoppingCarNumberById(ShoppingCar shoppingCar);
+	/**
+	 * 根据用户id 查询购物车总额
+	 * @param userId 用户id
+	 * @return 总额
+	 */
+	public float findUserAllPrice(String userId);
 }
