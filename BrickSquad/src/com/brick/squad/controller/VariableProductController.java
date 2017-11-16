@@ -208,9 +208,12 @@ public class VariableProductController {
 		List<String> imgpathlList = new ArrayList<String>();
 		File file = new File(imgpath);
 		File[] files = file.listFiles();
-		for (File file2 : files) {
-			imgpathlList.add(file2.getName());
+		if (files != null && files.length > 0) {
+			for (File file2 : files) {
+				imgpathlList.add(file2.getName());
+			}
 		}
+
 		request.setAttribute("images", imgpathlList);
 		// 根据商品ID查询销售总量
 		int SalesNumberTotal = articleService
