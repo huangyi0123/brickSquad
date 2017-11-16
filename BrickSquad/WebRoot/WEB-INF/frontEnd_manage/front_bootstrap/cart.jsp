@@ -110,7 +110,7 @@
 											<thead>
 												<tr>
 													<th class="product-remove">删除宝贝</th>
-													<th class="product-thumbnail">宝贝例图</th>
+													<!-- <th class="product-thumbnail">宝贝例图</th> -->
 													<th class="product-name">宝贝信息</th>
 													<th class="product-price">单价</th>
 													<th class="product-quantity">数量</th>
@@ -129,7 +129,7 @@
 															class="remove" title="Remove this item"><i
 																class="fa fa-times" aria-hidden="true"></i></a></td>
 
-														<td class="product-thumbnail"><a
+														<!-- <td class="product-thumbnail"><a
 															href="simple_product.html"> <img width="180"
 																height="180"
 																src="resource/front_bootstrap/images/1903/56-180x180.jpg"
@@ -137,7 +137,7 @@
 																alt=""
 																srcset="resource/front_bootstrap/images/1903/56-180x180.jpg 180w, resource/front_bootstrap/images/1903/56-150x150.jpg 150w, resource/front_bootstrap/images/1903/56-300x300.jpg 300w, resource/front_bootstrap/images/1903/56.jpg 600w"
 																sizes="(max-width: 180px) 100vw, 180px">
-														</a></td>
+														</a></td> -->
 														<td class="product-name" data-title="Product"><a
 															href="variableProduct/toVariable_product?productId=${listDetailsShoppingCar.id }">${listDetailsShoppingCar.aname}</td>
 														<td class="product-price" data-title="Price"><span
