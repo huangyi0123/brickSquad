@@ -1808,19 +1808,19 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Television</a>
+																		<a href="">电视机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Air Conditional</a>
+																		<a href="">空气清新剂</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptops & Accessories</a>
+																		<a href="">老人电脑 & 老人手机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories for Tablet</a>
+																		<a href="">古董手表配件</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Headphone</a>
+																		<a href="">锻炼设施</a>
 																	</li>
 																	<li>
 														
