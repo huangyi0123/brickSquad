@@ -555,7 +555,7 @@ public class MedicalInstrumentsController {
 				listArt);
 		pageBean.setList(listArticle4);
 		request.setAttribute("url", "findOrderByTypePop");
-	
+		request.setAttribute("url1", "findColthType");
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
@@ -597,7 +597,7 @@ public class MedicalInstrumentsController {
 		} else {
 			request.setAttribute("url", "findOrderByArticlePrice");
 		}
-		
+		request.setAttribute("url1", "findColthType");
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
