@@ -55,6 +55,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("businessService")
 	private BusinessService businessService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
 
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
@@ -132,9 +135,6 @@ public class CommonController {
 	@Qualifier("relativesService")
 	private RelativesService relativesService;
 	@Autowired
-	@Qualifier("typeService")
-	private TypeService typeService;
-	@Autowired
 	@Qualifier("healthRecordsService")
 	private HealthRecordsService healthRecordsService;
 	@Autowired
@@ -161,6 +161,8 @@ public class CommonController {
 					.setPersonalInformation(personalInformation);
 			if (personalInformation.getAddressId() != null
 					&& personalInformation.getAddressId().length() > 0) {
+				String addres=addressService.findByIdAllAddress(personalInformation.getAddressId());
+				request.setAttribute("address", addres);
 				// start
 				// 根据ID查询信息，得到信息中的地址ID，再根据ID查询address，分别用address中存的ID去region中查询相对应的地区，封装成json字符串，用页面地址回填
 				Address address = personalInformationService
@@ -268,7 +270,10 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toabout_us")
-	public String toabout_us() {
+	public String toabout_us(HttpServletRequest request) throws Exception {
+		//加载商品所有类型,搜索框
+		List<Type> listType=typeService.findAllTypeByParentId("splb");
+		request.setAttribute("listType", listType);
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
 

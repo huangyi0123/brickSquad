@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,6 @@ public class ShoppingCarController {
 	@Autowired
 	@Qualifier("shoppingCarService")
 	private ShoppingCarService shoppingCarService;
-	/*@Autowired
-	@Qualifier("articalService")
-	private ArticalService articalService;
-*/
 	@RequestMapping("/toShoppingCarList")
 	public String toRegionList() {
 		return "backstage_managed/jsp/shoppingcar/shoppingcar_list";
@@ -148,23 +145,7 @@ public class ShoppingCarController {
 			return "frontEnd_manage/front_bootstrap/cartNull";
 		}
 }	
-	/**
-	 * 前端购物车分页显示
-	 * @param pSize
-	 * @param cPage
-	 * @param keyword
-	 * @return
-	 */
-/*	@RequestMapping("/getIndexShoppingCarList")
-	@ResponseBody
-	public String getIndexShoppingCarList(int pSize, int cPage, String keyword){
-		Pagination pagination = new Pagination();
-		pagination.setKeyword(keyword);
-		pagination.setCurentPage(cPage);
-		pagination.setPageSize(pSize);
-		String value = shoppingCarService.findArticIdAllArtic(pagination);
-		return value;
-	}*/
+
 	/**
 	 * 前台删除购物车
 	 * 
@@ -180,5 +161,12 @@ public class ShoppingCarController {
 		User user=(User) request.getSession().getAttribute("user");
 		shoppingCar.setPerId(user.getId());
 	return shoppingCarService.updateShoppingNumber(shoppingCar)+"";
+	}
+	@ResponseBody
+	@RequestMapping("/shoppingCarAddOrder")
+	public String shoppingCarAddOrder(float price,String ids,HttpServletRequest request) {
+		User  user=(User) request.getSession().getAttribute("user");
+		String ordersId=shoppingCarService.shoppingCarAddOrder(ids, price, user.getId());
+		return ordersId;
 	}
 }

@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.util.List;
 
+import com.brick.squad.expand.OrderDetailsAndArticleExtend;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.util.Pagination;
 
@@ -9,6 +10,15 @@ import com.brick.squad.util.Pagination;
  * 业务层：订单项的Service接口
  * */
 public interface OrderDetailsService {
+	/**
+	 * 根据商品ID查询商品明细，以及对应的商品信息
+	 * 
+	 * @param ordersId
+	 * @return
+	 */
+	public List<OrderDetailsAndArticleExtend> findOrderDetailsByOrdersId(
+			String ordersId);
+
 	/**
 	 * 查询订单项
 	 * */
