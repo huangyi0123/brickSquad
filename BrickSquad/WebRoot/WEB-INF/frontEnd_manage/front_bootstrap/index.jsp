@@ -1808,19 +1808,19 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
 																<ul>
 																	<li>
-																		<a href="">电视机</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">电视机</a>
 																	</li>
 																	<li>
-																		<a href="">空气清新剂</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">空气清新剂</a>
 																	</li>
 																	<li>
-																		<a href="">老人电脑 & 老人手机</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">老人电脑 & 老人手机</a>
 																	</li>
 																	<li>
-																		<a href="">古董手表配件</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">古董手表配件</a>
 																	</li>
 																	<li>
-																		<a href="">锻炼设施</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">锻炼设施</a>
 																	</li>
 																	<li>
 														
@@ -2044,7 +2044,7 @@
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_single_image wpb_content_element vc_align_center">
-													<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 														class="vc_single_image-wrapper vc_box_border_grey">
 														<img class="vc_single_image-img"
 															src="resource/front_bootstrap/images/1903/banner6-1.jpg" width="570" height="220"
@@ -2059,7 +2059,7 @@
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
-													<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 														class="vc_single_image-wrapper vc_box_border_grey">
 														<img class="vc_single_image-img"
 															src="resource/front_bootstrap/images/1903/banner7-1.jpg" width="570" height="220"
@@ -2095,22 +2095,22 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_2">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=maozi">帽子</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie">医疗器械</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																	<li></li>
 																</ul>
@@ -2393,22 +2393,22 @@
 																<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_3">
 																	<ul>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=maozi">帽子</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
 																		
 																	
