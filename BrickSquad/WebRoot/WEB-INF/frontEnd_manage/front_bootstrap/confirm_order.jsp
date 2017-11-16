@@ -123,8 +123,8 @@
 									<form action="" method="post">
 										<div>
 											订单号:
-											<input id="orderId" style="width: 350px;border: none;" readonly="readonly"  type="text"
-												value="${orders.id }">
+											<input id="orderId" style="width: 350px;border: none;"
+												readonly="readonly" type="text" value="${orders.id }">
 										</div>
 										<table class="shop_table shop_table_responsive cart"
 											cellspacing="0">
@@ -182,13 +182,13 @@
 														<tr class="order-total">
 															<th>总计</th>
 															<td data-title="总计">
-																
+
 																<strong><span
 																	class="woocommerce-Price-amount amount"><span
-																		class="woocommerce-Price-currencySymbol">￥</span><input style="border: none;" readonly="readonly" type="text" value="${orders.money }"
-																	id="moneyIdchange">
-																	<input type="hidden" value="${orders.money }" id="moneyId">
-																	</span></strong>
+																		class="woocommerce-Price-currencySymbol">￥</span> <input
+																			type="hidden" value="${orders.money }" id="moneyId" />
+																		<input style="border: none;" readonly type="text"
+																			value="${orders.money }" id="moneyIdchange" /> </span></strong>
 															</td>
 														</tr>
 													</tbody>
@@ -270,17 +270,19 @@
 			AllCoupons = JSON.parse(AllCoupons);
 			form.on('select(couponIdSelect)', function(data) {
 				$(AllCoupons).each(function() {
+					//取得订单总额
 					var moneyId = $("#moneyId").val();
+					$("#moneyIdchange").val(moneyId);
 					if (this.id == data.value) {
-						var fullmoney = this.fullMoney;
-						if (moneyId >fullmoney) {
-							moneyId=moneyId-this.money;
+						//取得优惠券的满减金额，当前总额大于满减金额，即再总额的基础上减去优惠金额
+						if (moneyId > this.fullMoney) {
+							moneyId = moneyId - this.money;
 							$("#moneyIdchange").val(moneyId);
 						} else {
 							$("#moneyIdchange").val(moneyId);
-							alert("兄弟，你没满弄个多！不得用");
+							alert("不满"+this.fullMoney+"不能用");
 						}
-					}else {
+					} else {
 						$("#moneyIdchange").val(moneyId);
 					}
 				});
