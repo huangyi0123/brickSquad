@@ -49,16 +49,19 @@ public class ShopActivitiesController {
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		pagination.setUserId(request.getSession().getAttribute("userId").toString());
+		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
 		return shopActivitiesService.shopActivitiesPagination(pagination);
 	}
 	@RequestMapping("/toAddShopActivities")
-	public String toAddShopActivities(String businessId,HttpServletRequest request, String id)
+	public String toAddShopActivities(String businessId,HttpServletRequest request,String id)
 			throws Exception {
 		request.setAttribute("type",shopActivitiesService.findAllShopActivities());
 		Business business =(Business) request.getSession().getAttribute("business");
 		//通过商家ID查询店铺下的商品
 		String data=shopActivitiesService.findArticle(business.getId());
+		System.out.println(data+"66666");
 		request.setAttribute("businessData",data);
+		
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateShopActivitiesById");

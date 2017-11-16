@@ -9,7 +9,7 @@
 
 		select s.id,s.type_id typeId,s.start_time startTime,s.end_time
 		endTime,s.business_id
-		businessId,s.article_id articleId,a.aname,s.active_price activePrice 
+		businessId,s.article_id articleId,a.aname,s.active_price activePrice,a.price price 
 		from shop_activities s
 		JOIN article a ON s.article_id=a.id
 		 where s.id=#{id}
@@ -44,7 +44,7 @@
 	<select id="findArticle" parameterType="String"
 		resultType="com.brick.squad.util.Select">
 
-		SELECT id,aname name FROM article WHERE business_id =
+		SELECT id,aname name,price FROM article WHERE business_id =
 		#{businessId}
 
 	</select>
@@ -60,7 +60,9 @@
 		JOIN
 		business b on sa.business_id=b.id
 		JOIN article a on sa.article_id=a.id
-		where b.id=#{userId}
+		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c'">
+		WHERE  b.id=#{userId}
+		</if>
 		<if test="keyword!='' and keyword!=null">
 			and (t.`name` REGEXP #{keyword} or b.shopname REGEXP
 			#{keyword} or
