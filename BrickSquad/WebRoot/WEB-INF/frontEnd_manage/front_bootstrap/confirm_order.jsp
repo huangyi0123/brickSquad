@@ -123,7 +123,7 @@
 									<form action="" method="post">
 										<div>
 											订单号:
-											<input id="orderId" style="width: 350px;" type="text"
+											<input id="orderId" style="width: 350px;border: none;" readonly="readonly"  type="text"
 												value="${orders.id }">
 										</div>
 										<table class="shop_table shop_table_responsive cart"
@@ -148,21 +148,22 @@
 													</tr>
 												</c:forEach>
 											</tbody>
-											<tr>
-												<td colspan="6" class="actions">
-													<div class="coupon">
-														<label for="coupon_code">Coupon:</label>
-														<input type="text" name="coupon_code" class="input-text"
-															id="coupon_code" value="" placeholder="优惠代码">
-														<input type="button" class="button" name="apply_coupon"
-															value="使用优惠券">
-													</div>
-												</td>
-											</tr>
-
 										</table>
 									</form>
+									<div>
 
+										<form class="layui-form" action="">
+											<div class="layui-form-item">
+												<label class="layui-form-label"
+													style="width: 100px;margin-left:0px">选择优惠券</label>
+												<div class="layui-input-inline">
+													<select id="couponId" lay-filter="couponIdSelect">
+														<option value="">选择优惠券</option>
+													</select>
+												</div>
+											</div>
+										</form>
+									</div>
 									<div class="cart-collaterals">
 										<div class="products-wrapper">
 											<div class="cart_totals ">
@@ -171,7 +172,7 @@
 												<table cellspacing="0"
 													class="shop_table shop_table_responsive">
 													<tbody>
-													<%-- 	<tr class="cart-subtotal">
+														<%-- 	<tr class="cart-subtotal">
 															<th>小计</th>
 															<td data-title="小计">
 																<span class="woocommerce-Price-amount amount"><span
@@ -181,9 +182,13 @@
 														<tr class="order-total">
 															<th>总计</th>
 															<td data-title="总计">
+																
 																<strong><span
 																	class="woocommerce-Price-amount amount"><span
-																		class="woocommerce-Price-currencySymbol">￥</span>${orders.money }</span></strong>
+																		class="woocommerce-Price-currencySymbol">￥</span><input style="border: none;" readonly="readonly" type="text" value="${orders.money }"
+																	id="moneyIdchange">
+																	<input type="hidden" value="${orders.money }" id="moneyId">
+																	</span></strong>
 															</td>
 														</tr>
 													</tbody>
@@ -212,6 +217,7 @@
 	</div>
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="resource/js/common.js"></script>
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript"
@@ -251,6 +257,36 @@
 	<script type="text/javascript"
 		src="resource/plugins/angularjs/angular.min.js"></script>
 	<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var coupons = '${coupons}';
+			coupons = JSON.parse(coupons);
+			findAll(coupons, "#couponId");
+
+		});
+		layui.use('form', function() {
+			var form = layui.form;
+			var AllCoupons = '${AllCoupons}';
+			AllCoupons = JSON.parse(AllCoupons);
+			form.on('select(couponIdSelect)', function(data) {
+				$(AllCoupons).each(function() {
+					var moneyId = $("#moneyId").val();
+					if (this.id == data.value) {
+						var fullmoney = this.fullMoney;
+						if (moneyId >fullmoney) {
+							moneyId=moneyId-this.money;
+							$("#moneyIdchange").val(moneyId);
+						} else {
+							$("#moneyIdchange").val(moneyId);
+							alert("兄弟，你没满弄个多！不得用");
+						}
+					}else {
+						$("#moneyIdchange").val(moneyId);
+					}
+				});
+			});
+		});
+	</script>
 	<script type="text/javascript">
 		/*继续结账按钮  */
 		function goOnPay() {
