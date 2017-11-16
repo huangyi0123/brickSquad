@@ -2,7 +2,7 @@
 
 .layui-nav-bar,.layui-nav .layui-this:after,.layui-nav-tree .layui-nav-itemed:after
 	{
-	background-color: #17877B;
+	background-color: white;
 }
 
 .top-nav ul li {
@@ -105,12 +105,24 @@
 }
 
 .layui-nav-child dd{
-	background-color: #48CFC1;
-	border: 1px solid #17877B;
+	background-color: white;
+	border: 1px solid white;
 }
+
+.top-nav ul li a:hover, .top-nav ul li a.active{
+	border-bottom: 5px solid #48CFC1;
+}
+
+/* .layui-nav-child dd{
+		border: 1px solid #48CFC1;
+} */
 
 .layui-nav-child{
 	background-color: #48CFC1;
 	padding-top: 0;
 	padding-bottom: 0;
+}
+
+.layui-nav .layui-nav-child a:AFTER{
+	background-color: #48CFC1 '';
 }
