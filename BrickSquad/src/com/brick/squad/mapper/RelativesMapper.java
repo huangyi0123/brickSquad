@@ -53,4 +53,10 @@ public interface RelativesMapper {
 	public int findRelativesAllCount(Pagination pagination);
 
 	public void deleteRelativesByPerId(String perId);
+	/**
+	 * 根据老人id查询亲属关系
+	 * @param perId 老人id
+	 * @return 亲属关系
+	 */
+	public Relatives findRelativesByPerId(String perId);
 }
