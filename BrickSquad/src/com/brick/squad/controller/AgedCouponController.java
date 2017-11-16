@@ -53,7 +53,7 @@ public class AgedCouponController {
 				couponService.updateCouponByIdReceiveAndSurplus(coupon);
 				return "领取成功";
 			}
-			return "已经领取了";
+			return "领取了就不要领了";
 		}else {
 			return "请登录再领取";
 		}

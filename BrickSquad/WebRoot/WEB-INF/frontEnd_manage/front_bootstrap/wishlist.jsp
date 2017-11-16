@@ -27,51 +27,36 @@
 	href="resource/front_bootstrap/icons/apple-touch-icon-72-precomposed.png" />
 <link rel="apple-touch-icon-precomposed"
 	href="resource/front_bootstrap/icons/apple-touch-icon-57-precomposed.png" />
-<link rel="shortcut icon"
-	href="resource/front_bootstrap/icons/favicon.png" />
+<link rel="shortcut icon" href="resource/front_bootstrap/icons/favicon.png" />
 
 <!-- GOOGLE WEB FONTS -->
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/font-awesome.min.css">
+<link rel="stylesheet" href="resource/front_bootstrap/css/font-awesome.min.css">
 
 <!-- BOOTSTRAP 3.3.7 CSS -->
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/bootstrap.min.css" />
 
 <!-- SLICK v1.6.0 CSS -->
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/slick-1.6.0/slick.css" />
 
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/jquery.fancybox.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/woocommerce/woocommerce-layout.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/woocommerce/woocommerce-smallscreen.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/jquery.fancybox.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-compare/colorbox.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.carousel.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/owl-carousel/owl.theme.default.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/js_composer/js_composer.min.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-layout.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/woocommerce/woocommerce-smallscreen.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/yith-woocommerce-wishlist/style.css" />
 
 
 <link rel="stylesheet" href="resource/front_bootstrap/css/custom.css" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/app-orange.css" id="theme_color" />
 <link rel="stylesheet" href="" id="rtl" />
-<link rel="stylesheet"
-	href="resource/front_bootstrap/css/app-responsive.css" />
+<link rel="stylesheet" href="resource/front_bootstrap/css/app-responsive.css" />
 </head>
 
 <body class="page woocommerce-wishlist woocommerce woocommerce-page">
-	
+
 
 	<div class="body-wrapper theme-clearfix">
 		<jsp:include page="shop_header.jsp"></jsp:include>
@@ -79,15 +64,19 @@
 
 		<div class="container">
 			<div class="wrap-title">
-			
+
 				<div class="bread">
 					<div class="breadcrumbs theme-clearfix">
 						<div class="container">
 							<ul class="breadcrumb">
-								<li><a href="common/toShop">首页</a> <span class="go-page"></span>
+								<li>
+									<a href="common/toShop">首页</a>
+									<span class="go-page"></span>
 								</li>
 
-								<li class="active"><span>我的收藏</span></li>
+								<li class="active">
+									<span>我的收藏</span>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -98,17 +87,15 @@
 
 	<div class="container">
 		<div class="row">
-			<div id="contents" role="main"
-				class="main-page  col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div id="contents" role="main" class="main-page  col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="post-6 page type-page status-publish hentry">
 					<div class="entry-content">
 						<div class="entry-summary">
 							<div id="yith-wcwl-messages"></div>
-							<form id="yith-wcwl-form" action="" method="post"
-								class="woocommerce">
+							<form id="yith-wcwl-form" action="" method="post" class="woocommerce">
 								<!-- TITLE -->
 								<div class="wishlist-title ">
-									<h2>My wishlist on market store</h2>
+									<h2>我的收藏</h2>
 								</div>
 								<!-- END TITLE -->
 
@@ -116,14 +103,20 @@
 								<table class="shop_table cart wishlist_table">
 									<thead>
 										<tr>
-											<th class="product-remove"><span class="nobr">删除</span></th>
-
-											<th class="product-name"><span class="nobr">宝贝信息</span>
+											<th class="product-remove">
+												<span class="nobr">删除</span>
 											</th>
 
-											<th class="product-price"><span class="nobr">单价</span></th>
+											<th class="product-name">
+												<span class="nobr">宝贝信息</span>
+											</th>
 
-											<th class="product-stock-stauts"><span class="nobr">库存量</span>
+											<th class="product-price">
+												<span class="nobr">单价</span>
+											</th>
+
+											<th class="product-stock-stauts">
+												<span class="nobr">库存量</span>
 											</th>
 
 											<th class="product-add-to-cart"></th>
@@ -132,38 +125,39 @@
 
 									<tbody>
 
-										<c:forEach var="ArticleExpand"
-											items="${collectionMessage.ArticleExpand}" step="1"
-											varStatus="i" >
+										<c:forEach var="ArticleExpand" items="${collectionMessage.ArticleExpand}" step="1"
+											varStatus="i">
 
 											<tr>
 												<td class="product-remove">
-													<div>
+													<%-- <div>
 														<a href="collectionFront/deleteCollectionMessage?collectionId=${ArticleExpand.collectionId}" class="remove remove_from_wishlist"></a>
-													</div>
+													</div> --%>
 												</td>
 
-												<td class="product-name"><a href="simple_product.html"></a>
-													${ArticleExpand.aname}</td>
+												<td class="product-name">
+													<a href="variableProduct/toVariable_product?productId=${ArticleExpand.id }"> ${ArticleExpand.aname}</a>
+												</td>
 
-												<td class="product-price"><del>
-														<span class="woocommerce-Price-amount amount"> <span
-															class="woocommerce-Price-currencySymbol">$</span>5.50
-															${ArticleExpand.price}
-														</span>
-													</del> <ins>
-														<span class="woocommerce-Price-amount amount"> <span
+												<td class="product-price">
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">￥</span>
+														${ArticleExpand.price}
+													</span>
+													<ins>
+														<!-- <span class="woocommerce-Price-amount amount"> <span
 															class="woocommerce-Price-currencySymbol">$</span>
 
-														</span>
-													</ins></td>
+														</span> -->
+													</ins>
+												</td>
 
-												<td class="product-stock-status">
-													${ArticleExpand.stock}</td>
+												<td class="product-stock-status">${ArticleExpand.stock}</td>
 
-												<td class="product-add-to-cart"><a rel="nofollow" 
-												href="collectionFront/addShopCar?articleId=${ArticleExpand.id}&perId=${ArticleExpand.perId}"
-													class="ajax_add_to_cart add_to_cart button">添加至购物车</a>
+												<td class="product-add-to-cart">
+													<a rel="nofollow"
+														href="collectionFront/addShopCar?articleId=${ArticleExpand.id}&perId=${ArticleExpand.perId}"
+														class="ajax_add_to_cart add_to_cart button">添加至购物车</a>
 												</td>
 												<%-- class="<%request.getAttribute("class");%>" --%>
 											</tr>
@@ -172,31 +166,38 @@
 									</tbody>
 									<tr>
 										<td colspan="6">
-											
-											<%	
+
+											<%
 												Map<String,Object> map=(Map<String,Object>)request.getAttribute("collectionMessage");
-												PaginationCollection pagination=(PaginationCollection)map.get("pagination");
-												
-											%> <nav aria-label="Page navigation">
+																					PaginationCollection pagination=(PaginationCollection)map.get("pagination");
+											%>
+											<nav aria-label="Page navigation">
 											<ul class="pagination">
-												<li><a
-													href="<%=pagination.getCurentPage()==1?"javascript:;":"collectionFront/collectionMessage?curentPage="+(pagination.getCurentPage()-1)%>"
-													style="<%=pagination.getCurentPage()==1?"color:#ccc":""%>"
-													aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-												</a></li>
+												<li>
+													<a
+														href="<%=pagination.getCurentPage()==1?"javascript:;":"collectionFront/collectionMessage?curentPage="+(pagination.getCurentPage()-1)%>"
+														style="<%=pagination.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
+														<span aria-hidden="true">&laquo;</span>
+													</a>
+												</li>
 												<%
 													for(int i=1;i<=pagination.getPageCount();i++) {
 												%>
-												<li><a
-													href="collectionFront/collectionMessage?curentPage=<%=i%>"
-													style="<%=pagination.getCurentPage()==i?"color:red":""%>"><%=i%></a></li>
+												<li>
+													<a href="collectionFront/collectionMessage?curentPage=<%=i%>"
+														style="<%=pagination.getCurentPage()==i?"color:red":""%>"><%=i%></a>
+												</li>
 												<%
 													}
 												%>
-												<li><a href="<%=pagination.getCurentPage()==pagination.getPageCount()?"javascript:;":"collectionFront/collectionMessage?curentPage="+(pagination.getCurentPage()+1)%>"
-													style="<%=pagination.getCurentPage()==pagination.getPageCount()?"color:#ccc":""%>" aria-label="Next"> <span
-														aria-hidden="true">&raquo;</span>
-												</a></li>
+												<li>
+													<a
+														href="<%=pagination.getCurentPage()==pagination.getPageCount()?"javascript:;":"collectionFront/collectionMessage?curentPage="+(pagination.getCurentPage()+1)%>"
+														style="<%=pagination.getCurentPage()==pagination.getPageCount()?"color:#ccc":""%>"
+														aria-label="Next">
+														<span aria-hidden="true">&raquo;</span>
+													</a>
+												</li>
 											</ul>
 											</nav>
 										</td>
@@ -222,25 +223,21 @@
 													<h4 class="yith-wcwl-share-title">Share on:</h4>
 													<ul>
 														<li style="list-style-type: none; display: inline-block;">
-															<a target="_blank" class="facebook"
-															href="https://www.facebook.com/" title="Facebook"></a>
+															<a target="_blank" class="facebook" href="https://www.facebook.com/" title="Facebook"></a>
 														</li>
 
 														<li style="list-style-type: none; display: inline-block;">
-															<a target="_blank" class="twitter"
-															href="https://twitter.com/" title="Twitter"></a>
+															<a target="_blank" class="twitter" href="https://twitter.com/" title="Twitter"></a>
 														</li>
 
 														<li style="list-style-type: none; display: inline-block;">
-															<a target="_blank" class="pinterest"
-															href="http://pinterest.com/" title="Pinterest"
-															onclick="window.open(this.href); return false;"></a>
+															<a target="_blank" class="pinterest" href="http://pinterest.com/" title="Pinterest"
+																onclick="window.open(this.href); return false;"></a>
 														</li>
 
 														<li style="list-style-type: none; display: inline-block;">
-															<a target="_blank" class="googleplus"
-															href="https://plus.google.com/" title="Google+"
-															onclick="javascript:window.open(this.href,&quot;&quot;,&quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;"></a>
+															<a target="_blank" class="googleplus" href="https://plus.google.com/" title="Google+"
+																onclick="javascript:window.open(this.href,&quot;&quot;,&quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&quot;);return false;"></a>
 														</li>
 
 														<li style="list-style-type: none; display: inline-block;">
@@ -265,28 +262,21 @@
 	</div>
 
 	<!-- DIALOGS -->
-	<div class="modal fade" id="search_form" tabindex="-1" role="dialog"
-		aria-hidden="true">
+	<div class="modal fade" id="search_form" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog block-popup-search-form">
-			<form role="search" method="get" class="form-search searchform"
-				action="">
-				<input type="text" value="" name="s" class="search-query"
-					placeholder="Enter your keyword..." />
+			<form role="search" method="get" class="form-search searchform" action="">
+				<input type="text" value="" name="s" class="search-query" placeholder="Enter your keyword..." />
 
-				<button type="submit"
-					class="fa fa-search button-search-pro form-button"></button>
+				<button type="submit" class="fa fa-search button-search-pro form-button"></button>
 
-				<a href="javascript:void(0)" title="Close"
-					class="close close-search" data-dismiss="modal">X</a>
+				<a href="javascript:void(0)" title="Close" class="close close-search" data-dismiss="modal">X</a>
 			</form>
 		</div>
 	</div>
 
-	<div class="modal fade" id="login_form" tabindex="-1" role="dialog"
-		aria-hidden="true">
+	<div class="modal fade" id="login_form" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog block-popup-login">
-			<a href="javascript:void(0)" title="Close" class="close close-login"
-				data-dismiss="modal">Close</a>
+			<a href="javascript:void(0)" title="Close" class="close close-login" data-dismiss="modal">Close</a>
 
 			<div class="tt_popup_login">
 				<strong>Sign in Or Register</strong>
@@ -296,24 +286,22 @@
 				<div class="block-content">
 					<div class="col-reg registered-account">
 						<div class="email-input">
-							<input type="text" class="form-control input-text username"
-								name="username" id="username" placeholder="Username" />
+							<input type="text" class="form-control input-text username" name="username" id="username"
+								placeholder="Username" />
 						</div>
 
 						<div class="pass-input">
-							<input class="form-control input-text password" type="password"
-								placeholder="Password" name="password" id="password" />
+							<input class="form-control input-text password" type="password" placeholder="Password"
+								name="password" id="password" />
 						</div>
 
 						<div class="ft-link-p">
-							<a href="lost_password.html" title="Forgot your password">Forgot
-								your password?</a>
+							<a href="lost_password.html" title="Forgot your password">Forgot your password?</a>
 						</div>
 
 						<div class="actions">
 							<div class="submit-login">
-								<input type="submit" class="button btn-submit-login"
-									name="login" value="Login" />
+								<input type="submit" class="button btn-submit-login" name="login" value="Login" />
 							</div>
 						</div>
 					</div>
@@ -331,8 +319,7 @@
 							<li>View and track orders and more</li>
 						</ul>
 
-						<a href="create_account.html" title="Register"
-							class="btn-reg-popup">Create an account</a>
+						<a href="create_account.html" title="Register" class="btn-reg-popup">Create an account</a>
 					</div>
 				</div>
 			</form>
@@ -346,16 +333,15 @@
 		style="background: url(images/icons/bg_newsletter.jpg)">
 		<div class="subscribe-popup-container">
 			<h2>Join our newsletter</h2>
-			<div class="description">Subscribe now to get 40% of on any
-				product!</div>
+			<div class="description">Subscribe now to get 40% of on any product!</div>
 			<div class="subscribe-form">
-				<form id="mc4wp-form-2" class="mc4wp-form mc4wp-form-275"
-					method="post" data-id="275" data-name="">
+				<form id="mc4wp-form-2" class="mc4wp-form mc4wp-form-275" method="post" data-id="275"
+					data-name="">
 					<div class="mc4wp-form-fields">
 						<div class="newsletter-content">
-							<input type="email" class="newsletter-email" name="EMAIL"
-								placeholder="Your email" required="" /> <input
-								class="newsletter-submit" type="submit" value="Subscribe" />
+							<input type="email" class="newsletter-email" name="EMAIL" placeholder="Your email"
+								required="" />
+							<input class="newsletter-submit" type="submit" value="Subscribe" />
 						</div>
 					</div>
 					<div class="mc4wp-response"></div>
@@ -363,62 +349,54 @@
 			</div>
 
 			<div class="subscribe-checkbox">
-				<label for="popup_check"> <input id="popup_check"
-					name="popup_check" type="checkbox" /> <span>Don't show this
-						popup again!</span>
+				<label for="popup_check"> <input id="popup_check" name="popup_check" type="checkbox" />
+					<span>Don't show this popup again!</span>
 				</label>
 			</div>
 
 			<div class="subscribe-social">
 				<div class="subscribe-social-inner">
-					<a href="http://www.facebook.com/" class="social-fb"> <span
-						class="fa fa-facebook"></span>
-					</a> <a href="https://twitter.com/" class="social-tw"> <span
-						class="fa fa-twitter"></span>
-					</a> <a href="https://plus.google.com/" class="social-gplus"> <span
-						class="fa fa-google-plus"></span>
-					</a> <a href="#" class="social-pin"> <span class="fa fa-instagram"></span>
-					</a> <a href="http://www.pinterest.com/" class="social-linkedin"> <span
-						class="fa fa-pinterest-p"></span>
+					<a href="http://www.facebook.com/" class="social-fb">
+						<span class="fa fa-facebook"></span>
+					</a>
+					<a href="https://twitter.com/" class="social-tw">
+						<span class="fa fa-twitter"></span>
+					</a>
+					<a href="https://plus.google.com/" class="social-gplus">
+						<span class="fa fa-google-plus"></span>
+					</a>
+					<a href="#" class="social-pin">
+						<span class="fa fa-instagram"></span>
+					</a>
+					<a href="http://www.pinterest.com/" class="social-linkedin">
+						<span class="fa fa-pinterest-p"></span>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/jquery/js.cookie.min.js"></script>
 
 	<!-- OPEN LIBS JS -->
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/owl-carousel/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/slick-1.6.0/slick.min.js"></script>
 
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/yith-woocommerce-compare/jquery.colorbox-min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/isotope.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_core/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/sw_woocommerce/category-ajax.js"></script>
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/sw_woocommerce/jquery.countdown.min.js"></script>
 	<script type="text/javascript"
 		src="resource/front_bootstrap/js/js_composer/js_composer_front.min.js"></script>
 
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/plugins.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/megamenu.min.js"></script>
-	<script type="text/javascript"
-		src="resource/front_bootstrap/js/main.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/plugins.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/megamenu.min.js"></script>
+	<script type="text/javascript" src="resource/front_bootstrap/js/main.min.js"></script>
 
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;

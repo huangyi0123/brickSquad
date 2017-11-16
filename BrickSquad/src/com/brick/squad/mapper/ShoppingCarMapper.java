@@ -87,4 +87,5 @@ public interface ShoppingCarMapper {
 	 * @return 总额
 	 */
 	public float findUserAllPrice(String userId);
+	
 }
