@@ -365,7 +365,7 @@
 																				</a>
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=kuzi" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
 																						<span class="menu-title">裤子</span>
@@ -373,7 +373,7 @@
 																				</a>
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=xielei" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
 																						<span class="menu-title">鞋类</span>
@@ -382,7 +382,7 @@
 																			</li>
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=maozi" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>
 																						<span class="menu-title">帽子</span>
@@ -391,7 +391,7 @@
 																			</li>
 
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="common/tosimple_product?id=yiliaoqixie" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#42b8d1"></span>
 																						<span class="menu-title">医疗器械</span>
@@ -628,7 +628,7 @@
 
 																			</li>
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yundongyongpin" class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#efc73a"></span>
 																						<span class="menu-title">运动用品</span>
@@ -866,7 +866,7 @@
 																			</li>
 
 																			<li class="menu-television etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#3f5eca"></span>
 																						<span class="menu-title">食品</span>
@@ -875,7 +875,7 @@
 																			</li>
 
 																			<li class="menu-accessories-for-tablet etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#13528c"></span>
 																						<span class="menu-title">滋补养生</span>
@@ -883,7 +883,7 @@
 																				</a>
 																			</li>
 																			<li class="dropdown menu-electronic-component etrostore-mega-menu level1">
-																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f03442"></span>
 																						<span class="menu-title">中西药品</span>
@@ -1094,7 +1094,7 @@
 																				</ul>
 																			</li>
 																			<li class="menu-laptops-accessories etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#2f2e2e"></span>
 																						<span class="menu-title">保健器械</span>
@@ -1209,65 +1209,7 @@
 													</div>
 												</div>
 
-												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
-													<div class="wpb_wrapper">
-														<div class="wrap-transport">
-															<div class="row">
-																<div class="item item-1 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-paper-plane"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Money Back Guarantee</h3>
-																			<p>30 Days Money Back</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-2 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-map-marker"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Free Worldwide Shipping</h3>
-																			<p>On Order Over $100</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-3 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-tag"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Member Discount</h3>
-																			<p>Upto 70 % Discount</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-4 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-life-ring"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>24/7 Online Support</h3>
-																			<p>Technical Support 24/7</p>
-																		</div>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+			
 											</div>
 										</div>
 									</div>
@@ -1286,7 +1228,7 @@
 													<div class="resp-slider-container">
 														<div class="box-title clearfix">
 															<h3>秒杀</h3>
-															<a href="new_deals/findSeckillArticle">查看更多</a>
+															<a href="new_deals/findSeckillArticle" style="margin-right: 70px">查看更多</a>
 														</div>
 
 														<div class="banner-content clearfix">
@@ -1866,19 +1808,19 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Television</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">电视机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Air Conditional</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">空气清新剂</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptops & Accessories</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">老人电脑 & 老人手机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories for Tablet</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">古董手表配件</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Headphone</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">锻炼设施</a>
 																	</li>
 																	<li>
 														
@@ -1887,7 +1829,7 @@
 															</div>
 
 																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
@@ -2102,7 +2044,7 @@
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_single_image wpb_content_element vc_align_center">
-													<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 														class="vc_single_image-wrapper vc_box_border_grey">
 														<img class="vc_single_image-img"
 															src="resource/front_bootstrap/images/1903/banner6-1.jpg" width="570" height="220"
@@ -2117,7 +2059,7 @@
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
-													<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 														class="vc_single_image-wrapper vc_box_border_grey">
 														<img class="vc_single_image-img"
 															src="resource/front_bootstrap/images/1903/banner7-1.jpg" width="570" height="220"
@@ -2153,22 +2095,22 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_2">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=maozi">帽子</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie">医疗器械</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																		<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																	<li></li>
 																</ul>
@@ -2176,7 +2118,7 @@
 															</div>
 
 																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
@@ -2451,22 +2393,22 @@
 																<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_3">
 																	<ul>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=maozi">帽子</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																			<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
 																		
 																	
@@ -2478,7 +2420,7 @@
 																		
 																</div>
 																<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 

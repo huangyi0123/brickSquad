@@ -48,14 +48,17 @@
 		select c.id,c.type_id typeId,c.buyers_id buyersId,c.start_time
 		startTime,c.end_time endTime,
 		c.total,c.surplus,c.full_money
-		fullMoney,c.money,c.receive,t.id tId,t.name tName,b.id bId,b.name
+		fullMoney,c.money,c.receive,t.id tId,t.name tName,b.id bId,b.shopname
 		bName
 		from coupon c JOIN type t on c.type_id=t.id
-		JOIN business b on
-		c.buyers_id=b.id
+		JOIN business b on c.buyers_id=b.id
+		JOIN `user` u ON c.buyers_id=u.id
+		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c'">
+		WHERE  b.id=#{userId}
+		</if>
 		<if test="keyword!=null and keyword!=''">
-			WHERE t.name REGEXP#{keyword} or
-			b.name REGEXP#{keyword}
+			and ( t.name REGEXP#{keyword} or
+			b.shopname REGEXP#{keyword})
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>

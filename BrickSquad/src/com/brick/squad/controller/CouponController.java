@@ -25,6 +25,7 @@ import com.brick.squad.expand.CouponExpand;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Coupon;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.pojo.User;
 
 @Controller
 @RequestMapping("/coupon")
@@ -46,11 +47,13 @@ public class CouponController {
 	}
 	@RequestMapping("getCouponList")
 	@ResponseBody
-	public String getCouponList(int pSize, int cPage, String keyword){
+	public String getCouponList(HttpServletRequest request,int pSize, int cPage, String keyword){
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
+		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
+		pagination.setUserId(request.getSession().getAttribute("userId").toString());
 		return couponService.findListCouponPagination(pagination);
 	}
 	@InitBinder

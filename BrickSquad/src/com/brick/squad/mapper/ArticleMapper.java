@@ -76,6 +76,8 @@ public interface ArticleMapper {
 	public List<Article> findOrderByMedicalInstrumentsDate(PageBeanUtil pageBean);
 
 	public List<Article> findOrderByMedicalInstrumentsPop(PageBeanUtil pageBean);
+	/**首页分类的跳转显示商品信息*/
+	public List<Article> findArtivleTypePage(PageBeanUtil pageBean);
 	/**
 	 * 根据价格范围查询商品
 	 * */

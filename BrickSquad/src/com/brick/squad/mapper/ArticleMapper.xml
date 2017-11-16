@@ -44,7 +44,9 @@
 		FROM article a INNER JOIN type t ON a.type_id = t.id
 		INNER JOIN business b
 		ON a.business_id = b.id
-		where b.id=#{userId}
+		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c'">
+		WHERE  b.id=#{userId}
+		</if>
 		<if test="keyword!=''">
 			and(a.aname REGEXP #{keyword} or t.`name` REGEXP
 			#{keyword} or b.`name`
@@ -169,6 +171,14 @@
 	<select id="findAllMedicalInstruments" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
+		FROM article
+		a JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{parentId} limit
+		#{begin},#{limitPage}
+	</select>
+	<select id="findArtivleTypePage" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="Article">
+			SELECT a.id,a.aname,a.image,a.price,a.describes
 		FROM article
 		a JOIN type t ON a.type_id=t.id
 		WHERE t.parent_id=#{parentId} limit

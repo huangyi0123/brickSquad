@@ -214,8 +214,8 @@
 			<div class="rows">
 				<!-- LOGO -->
 				<div class="etrostore-logo pull-left">
-					<a href="common/toShop"> <img
-						src="resource/front_bootstrap/images/icons/logo-orange.png"
+					<a href="shopIndex/toShop"> <img
+						src="resource/front_bootstrap/images/icons/20171116102946.png"
 						alt="Shoopy">
 					</a>
 				</div>
@@ -757,6 +757,7 @@
 							</li>
 
 
+
 							<li
 								class="dropdown menu-smartphones-tablet etrostore-mega-menu
 								level1">
@@ -1027,6 +1028,11 @@
 								</span>
 							</a></li>
 
+					<li class="menu-about-us etrostore-menu-custom level1"><a
+								href="#" class="item-link"> <span
+									class="have-title"> <span class="menu-title">回到官网</span>
+								</span>
+							</a></li>
 
 						</ul>
 					</div>
