@@ -323,11 +323,19 @@
 											<li><span class="current-li"><span
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
+												<c:if test="${url1 =='toShop_left_sidebar'}">
 													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">默认排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=2&page=1&limitPage=12">人气排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12">日期排序</a></li>
-													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
+													
+													<c:if test="${url1 =='findColthType'}">
+													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=2&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?typeId=${Ctype }&sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
 												</ul></li>
 										</ul>
 
@@ -349,11 +357,26 @@
 											
 												</c:if>
 												
+												<c:if test="${ url=='findOrderByTypePop'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 													<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												<c:if test="${ url=='findOrderByTypeSecondDate'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
 												<c:if test="${ url=='findOrderByMedicalInstruments'}">
@@ -383,6 +406,14 @@
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
+													
+														<c:if test="${url=='findColthType'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=36">36</a></li>
 													</ul>
 													</c:if>
 													</li>
@@ -417,6 +448,16 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+								<c:if test="${ url=='findOrderByTypePop'}">
+								<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
 								
 								<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=1">1</a></span></li>
@@ -426,6 +467,18 @@
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								
+								<c:if test="${ url=='findOrderByTypeSecondDate'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
@@ -467,6 +520,16 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+									<c:if test="${url=='findColthType'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+									</c:if>
 								</ul>
 								</nav>
 							</div>
@@ -735,11 +798,19 @@
 											<li><span class="current-li"><span
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
+												<c:if test="${url1 =='toShop_left_sidebar'}">
 													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">默认排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=2&page=1&limitPage=12">人气排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12">日期排序</a></li>
-													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
+													
+													<c:if test="${url1 =='findColthType'}">
+													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?typeId=${Ctype }&sequence=2&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?typeId=${Ctype }&sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
 												</ul></li>
 										</ul>
 
@@ -761,6 +832,14 @@
 											
 												</c:if>
 												
+												<c:if test="${ url=='findOrderByTypePop'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 													<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
@@ -768,6 +847,15 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+												
+												<c:if test="${ url=='findOrderByTypeSecondDate'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 												<c:if test="${ url=='findOrderByMedicalInstruments'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
@@ -796,6 +884,14 @@
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
+													
+														<c:if test="${url=='findColthType'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=36">36</a></li>
 													</ul>
 													</c:if>
 													</li>
@@ -831,6 +927,17 @@
 								</c:if>
 								</c:if>
 								
+								<c:if test="${ url=='findOrderByTypePop'}">
+								<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=1">1</a></span></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
@@ -839,6 +946,17 @@
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByTypeSecondDate'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
@@ -879,7 +997,16 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
-								
+								<c:if test="${url=='findColthType'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+									</c:if>
 								</ul>
 								</nav>
 							</div>
