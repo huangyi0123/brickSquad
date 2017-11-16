@@ -12,13 +12,17 @@
 <base href="<%=basePath%>">
 
 <title>官网</title>
-
+<link href='https://fonts.googleapis.com/css?family=Varela+Round'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+	rel='stylesheet' type='text/css'>
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
-<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
+
 
 <link href="resource/css/style.css" rel="stylesheet" type="text/css"
 	media="all" />
-
+<link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link href="resource/css/index.css" rel="stylesheet">
 
 <!-- for-mobile-apps -->
@@ -28,47 +32,13 @@
 	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 <!-- //for-mobile-apps -->
 <!--fonts-->
-<link href='https://fonts.googleapis.com/css?family=Varela+Round'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-	rel='stylesheet' type='text/css'>
+
 <!--//fonts-->
 <!-- js -->
 
