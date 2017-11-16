@@ -76,6 +76,7 @@
 	<div class="body-wrapper theme-clearfix">
 
 		<jsp:include page="shop_header.jsp"></jsp:include>
+		 
 
 		<div class="listings-title">
 			<div class="container">

@@ -1209,65 +1209,7 @@
 													</div>
 												</div>
 
-												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
-													<div class="wpb_wrapper">
-														<div class="wrap-transport">
-															<div class="row">
-																<div class="item item-1 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-paper-plane"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Money Back Guarantee</h3>
-																			<p>30 Days Money Back</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-2 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-map-marker"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Free Worldwide Shipping</h3>
-																			<p>On Order Over $100</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-3 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-tag"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Member Discount</h3>
-																			<p>Upto 70 % Discount</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-4 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-life-ring"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>24/7 Online Support</h3>
-																			<p>Technical Support 24/7</p>
-																		</div>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+			
 											</div>
 										</div>
 									</div>
