@@ -30,117 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="wpb_column vc_column_container vc_col-sm-12">
 					<div class="vc_column-inner ">
 						<div class="wpb_wrapper">
-							<div id="sw_testimonial01"
-								class="testimonial-slider client-wrapper-b carousel slide "
-								data-interval="0">
-								<div class="carousel-cl nav-custom">
-									<a class="prev-test fa fa-angle-left" href="#sw_testimonial01"
-										role="button" data-slide="prev"><span></span></a> <a
-										class="next-test fa fa-angle-right" href="#sw_testimonial01"
-										role="button" data-slide="next"><span></span></a>
-								</div>
-
-								<div class="carousel-inner">
-									<div class="item active">
-										<div class="item-inner">
-											<div class="image-client pull-left">
-												<a href="#" title=""> <img width="127" height="127"
-													src="resource/front_bootstrap/images/1903/tm3.jpg"
-													class="attachment-thumbnail size-thumbnail wp-post-image"
-													alt="" />
-												</a>
-											</div>
-
-											<div class="client-say-info">
-												<div class="client-comment">In auctor ex id urna
-													faucibus porttitor. Lorem ipsum dolor sit amet, consectetur
-													adipiscing elit....</div>
-
-												<div class="name-client">
-													<h2>
-														<a href="#" title="">Jerry</a>
-													</h2>
-													<p>Web Developer</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="item-inner">
-											<div class="image-client pull-left">
-												<a href="#" title=""> <img width="127" height="127"
-													src="resource/front_bootstrap/images/1903/tm1.png"
-													class="attachment-thumbnail size-thumbnail wp-post-image"
-													alt="" />
-												</a>
-											</div>
-
-											<div class="client-say-info">
-												<div class="client-comment">In auctor ex id urna
-													faucibus porttitor. Lorem ipsum dolor sit amet, consectetur
-													adipiscing elit....</div>
-
-												<div class="name-client">
-													<h2>
-														<a href="#" title="">David Gand</a>
-													</h2>
-
-													<p>Designer</p>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="item ">
-										<div class="item-inner">
-											<div class="image-client pull-left">
-												<a href="#" title=""> <img width="127" height="127"
-													src="resource/front_bootstrap/images/1903/tm2.png"
-													class="attachment-thumbnail size-thumbnail wp-post-image"
-													alt="" />
-												</a>
-											</div>
-
-											<div class="client-say-info">
-												<div class="client-comment">In auctor ex id urna
-													faucibus porttitor. Lorem ipsum dolor sit amet, consectetur
-													adipiscing elit....</div>
-
-												<div class="name-client">
-													<h2>
-														<a href="#" title="">Taylor Hill</a>
-													</h2>
-
-													<p>Developer</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="item-inner">
-											<div class="image-client pull-left">
-												<a href="#" title=""> <img width="127" height="127"
-													src="resource/front_bootstrap/images/1903/tm3.jpg"
-													class="attachment-thumbnail size-thumbnail wp-post-image"
-													alt="" />
-												</a>
-											</div>
-
-											<div class="client-say-info">
-												<div class="client-comment">In auctor ex id urna
-													faucibus porttitor. Lorem ipsum dolor sit amet, consectetur
-													adipiscing elit....</div>
-
-												<div class="name-client">
-													<h2>
-														<a href="#" title="">JOHN DOE</a>
-													</h2>
-
-													<p>Designer</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -153,68 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					class="container float wpb_column vc_column_container vc_col-sm-12">
 					<div class="vc_column-inner ">
 						<div class="wpb_wrapper">
-							<div class="vc_row wpb_row vc_inner vc_row-fluid footer-top">
-								<div class="wpb_column vc_column_container vc_col-sm-8">
-									<div class="vc_column-inner ">
-										<div class="wpb_wrapper">
-											<div class="wpb_text_column wpb_content_element ">
-												<div class="wpb_wrapper">
-													<div class="wrap-newletter">
-														<h3>NEWSLETTER SIGNUP</h3>
-
-														<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-275"
-															method="post" data-id="275" data-name="">
-															<div class="mc4wp-form-fields">
-																<div class="newsletter-content">
-																	<input type="email" class="newsletter-email"
-																		name="EMAIL" placeholder="Your email" required="" />
-																	<input class="newsletter-submit" type="submit"
-																		value="Subscribe" />
-																</div>
-															</div>
-															<div class="mc4wp-response"></div>
-														</form>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="wpb_column vc_column_container vc_col-sm-4">
-									<div class="vc_column-inner ">
-										<div class="wpb_wrapper">
-											<div class="wpb_raw_code wpb_content_element wpb_raw_html">
-												<div class="wpb_wrapper">
-													<div class="shop-social">
-														<ul>
-															<li><a href="https://www.facebook.com/"> <i
-																	class="fa fa-facebook"></i>
-															</a></li>
-
-															<li><a href="https://twitter.com/"> <i
-																	class="fa fa-twitter"></i>
-															</a></li>
-
-															<li><a href="https://plus.google.com/"> <i
-																	class="fa fa-google-plus"></i>
-															</a></li>
-
-															<li><a href="https://www.linkedin.com/"> <i
-																	class="fa fa-linkedin"></i>
-															</a></li>
-
-															<li><a href="https://www.pinterest.com/"> <i
-																	class="fa fa-pinterest-p"></i>
-															</a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+			
 
 							<div class="vc_row wpb_row vc_inner vc_row-fluid footer-bottom">
 								<div
@@ -225,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<div class="wpb_wrapper">
 													<div class="ya-logo">
 														<a href="home_page_1.html"> <img
-															src="resource/front_bootstrap/images/icons/logo-footer.png"
+															src="resource/front_bootstrap/images/icons/20171116102946.png"
 															alt="logo" />
 														</a>
 													</div>
@@ -235,15 +64,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="wpb_raw_code wpb_content_element wpb_raw_html">
 												<div class="wpb_wrapper">
 													<div class="infomation">
-														<p>Lorem Ipsum is simply dummy text of the printing
-															and typesetting industry. Lorem Ipsum is simply dummy
-															text of the printing and typesetting industry.</p>
+														<p>这是我们小组历经2个月，呕心沥血制作的作品，满足老年人的购物需求，让你的晚年生活有保障，让老年人购物变得轻松起来</p>
 
 														<div class="info-support">
 															<ul>
-																<li>No 1123, Marmora Road, Glasgow, D04 89GR.</li>
-																<li>(801) 2345 - 6788 / (801) 2345 - 6789</li>
-																<li><a href="mailto:contact@etrostore.com">support@etrostore.com</a></li>
+																<li>No 1123版本号, BrickSquad项目组,咨询电话.</li>
+																<li>18798859364 / (0859) 541492</li>
+																<li><a href="https://mail.qq.com/cgi-bin/loginpage?s=session_timeout&from=&r=f10ffa0a07081ac9c86f6c38e282c0a3&tiptype=LOGIN_ERR_COOKIE_FORBIDDEN">
+																1667375996@qq.com</a></li>
 															</ul>
 														</div>
 
@@ -269,36 +97,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="wpb_wrapper">
 											<div class="vc_wp_custommenu wpb_content_element">
 												<div class="widget widget_nav_menu">
-													<h2 class="widgettitle">Support</h2>
+													<h2 class="widgettitle">友情支持</h2>
 
 													<ul id="menu-support" class="menu">
 														<li class="menu-product-support"><a class="item-link"
-															href="#"> <span class="menu-title">Product
-																	Support</span>
+															href=""> <span class="menu-title">花溪人民政府发来贺电</span>
 														</a></li>
 
 														<li class="menu-pc-setup-support-services"><a
-															class="item-link" href="#"> <span class="menu-title">PC
-																	Setup & Support Services</span>
+															class="item-link" href=""> <span class="menu-title">兰州拉面发来贺电</span>
 														</a></li>
 
 														<li class="menu-extended-service-plans"><a
-															class="item-link" href="#"> <span class="menu-title">Extended
-																	Service Plans</span>
+															class="item-link" href=""> <span class="menu-title">畅想KTV发来贺电</span>
 														</a></li>
 
 														<li class="menu-community"><a class="item-link"
-															href="#"> <span class="menu-title">Community</span>
+															href=""> <span class="menu-title">花溪飞碗牛肉粉发来贺电</span>
 														</a></li>
 
 														<li class="menu-product-manuals"><a class="item-link"
-															href="#"> <span class="menu-title">Product
-																	Manuals</span>
+															href=""> <span class="menu-title">欧亚男科医院发来贺电</span>
 														</a></li>
 
 														<li class="menu-product-registration"><a
-															class="item-link" href="#"> <span class="menu-title">Product
-																	Registration</span>
+															class="item-link" href=""> <span class="menu-title">花溪十里河滩发来贺电</span>
 														</a></li>
 													</ul>
 												</div>
@@ -313,43 +136,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="wpb_wrapper">
 											<div class="vc_wp_custommenu wpb_content_element">
 												<div class="widget widget_nav_menu">
-													<h2 class="widgettitle">Your Links</h2>
+													<h2 class="widgettitle">友情链接</h2>
 
 													<ul id="menu-your-links" class="menu">
 														<li class="menu-my-account"><a class="item-link"
-															href="my_account.html"> <span class="menu-title">My
-																	Account</span>
+															href="https://www.baidu.com" target="_blank"> <span class="menu-title">百度</span>
 														</a></li>
 
 														<li class="menu-order-tracking"><a class="item-link"
-															href="#"> <span class="menu-title">Order
-																	Tracking</span>
+															href="https://www.google.com" target="_blank"> <span class="menu-title">谷歌</span>
 														</a></li>
 
 														<li class="menu-watch-list"><a class="item-link"
-															href="#"> <span class="menu-title">Watch List</span>
+															href="https://www.taobao.com" target="_blank"> <span class="menu-title">淘宝天猫</span>
 														</a></li>
 
 														<li class="menu-customer-service"><a
-															class="item-link" href="#"> <span class="menu-title">Customer
-																	Service</span>
+															class="item-link" href="https://www.jd.com" target="_blank"> <span class="menu-title">京东大力支持</span>
 														</a></li>
 
 														<li class="menu-returns-exchanges"><a
-															class="item-link" href="#"> <span class="menu-title">Returns
-																	/ Exchanges</span>
+															class="item-link" href="https://www.aliyun.com" target="_blank"> <span class="menu-title">阿里云
+																	/ ECS</span>
 														</a></li>
 
-														<li class="menu-faqs"><a class="item-link" href="#">
-																<span class="menu-title">FAQs</span>
+														<li class="menu-faqs"><a class="item-link" href="https://www.amazon.cn" target="_blank">
+																<span class="menu-title">亚马逊购物商场</span>
 														</a></li>
 
-														<li class="menu-financing"><a class="item-link"
-															href="#"> <span class="menu-title">Financing</span>
+														<li class="menu-financing" target="_blank"><a class="item-link"
+															href="www.gome.com.cn" target="_blank"> <span class="menu-title">国美大力支持</span>
 														</a></li>
 
-														<li class="menu-card"><a class="item-link" href="#">
-																<span class="menu-title">Card</span>
+														<li class="menu-card"><a class="item-link" href="https://www.pinduoduo.com" target="_blank">
+																<span class="menu-title">拼多多</span>
 														</a></li>
 													</ul>
 												</div>
@@ -366,12 +186,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<div class="wpb_wrapper">
 													<div class="sp-map">
 														<div class="title">
-															<h2>find a store</h2>
+															<h2>找到我们</h2>
 														</div>
 
 														<img src="resource/front_bootstrap/images/1903/map.jpg"
-															alt="map" title="map" /> <a href="#" class="link-map">Store
-															locator</a>
+															alt="map" title="map" /> <a href="http://map.qq.com/?type=marker&isopeninfowin=1&markertype=1&name=%E4%B8%AD%E5%9B%BD%2C%E6%B1%9F%E8%8B%8F%E7%9C%81%2C%E5%8D%97%E9%80%9A%E5%B8%82%2C%E9%80%9A%E5%B7%9E%E5%8C%BA&addr=%E5%A4%8F%E8%8D%B7%E8%B7%AF&pointy=32.182630&pointx=121.383040&coord=32.182630%2C121.383040&ref=pcqq" target="_blank" class="link-map">前往公司住址</a>
 													</div>
 												</div>
 											</div>
@@ -388,21 +207,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</a></li>
 
 										<li class="menu-customer-service"><a class="item-link"
-											href="#"> <span class="menu-title">Customer
-													Service</span>
+											href="#"> <span class="menu-title">客户服务</span>
 										</a></li>
 
 										<li class="menu-privacy-policy"><a class="item-link"
-											href="#"> <span class="menu-title">Privacy Policy</span>
+											href="#"> <span class="menu-title">隐私政策</span>
 										</a></li>
 
 										<li class="menu-site-map"><a class="item-link" href="#">
-												<span class="menu-title">Site Map</span>
+												<span class="menu-title">网站地图</span>
 										</a></li>
 
 										<li class="menu-orders-and-returns"><a class="item-link"
-											href="#"> <span class="menu-title">Orders and
-													Returns</span>
+											href="#"> <span class="menu-title">订单和退货</span>
 										</a></li>
 
 										<li class="menu-contact-us"><a class="item-link"
@@ -416,33 +233,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 			<div class="vc_row-full-width vc_clearfix"></div>
-		</div>
-
-		<div class="footer-copyright style1">
-			<div class="container">
-				<!-- Copyright text -->
-				<div class="copyright-text pull-left">
-					<p>
-						Etro Store - Premium Multipurpose HTML5/CSS3 Theme - Designed by <a
-							href="http://www.smartaddons.com/">SmartAddons.Com</a>.
-					</p>
-				</div>
-
-				<div class="sidebar-copyright pull-right">
-					<div class="widget-1 widget-first widget text-4 widget_text">
-						<div class="widget-inner">
-							<div class="textwidget">
-								<div class="payment">
-									<a href="#"> <img
-										src="resource/front_bootstrap/images/1903/paypal.png"
-										alt="payment" title="payment" />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 		</footer>
   </body>

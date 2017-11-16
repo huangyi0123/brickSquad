@@ -134,5 +134,19 @@ public interface ArticleService {
 	 * 根据价格范围查询商品	
 	 * */
 	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
+	/**首页分类的跳转显示商品信息*/
+	public PageBeanUtil<Article> findArtivleTypePage(int page,String typeId) throws Exception;
+
+	public PageBeanUtil findArtivleAndMedicalInstrumentsPage(int page,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findOrderByTypeSecondDate(int page, int sequence,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findOrderByTypePop(int page, int sequence,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findOrderByArticlePrice(int page, int sequence,
+			int limitPage, String typeId);
 
 }
