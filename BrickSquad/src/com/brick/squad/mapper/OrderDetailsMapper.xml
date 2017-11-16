@@ -14,6 +14,18 @@
 		subtotal)
 		values(#{id},#{articleId},#{ordersId},#{number},#{subtotal})
 	</insert>
+	<!--根据商品ID查询商品明细，以及对应的商品信息 -->
+	<select id="findOrderDetailsByOrdersId" parameterType="String"
+		resultType="com.brick.squad.expand.OrderDetailsAndArticleExtend">
+		select od.id id ,od.article_id articleId,od.orders_id
+		orderId,od.number number ,
+		od.subtotal subtotal,a.aname
+		articleName,a.price articlePrice
+		from order_details od join article a
+		on
+		od.orders_id=#{ordersId}
+		and od.article_id=a.id
+	</select>
 	<select id="findOrderDetails" resultType="OrderDetails">
 		SELECT
 		<include refid="Base_Column_List"></include>
@@ -60,7 +72,8 @@
 		ordersId,order_details.number,order_details.subtotal
 		FROM order_details
 		JOIN article ON order_details.article_id=article.id
-		WHERE article.business_id=#{userId}
+		WHERE
+		article.business_id=#{userId}
 		<if test="keyword!=''">
 			and (article.aname REGEXP #{keyword})
 		</if>

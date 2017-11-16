@@ -1209,65 +1209,7 @@
 													</div>
 												</div>
 
-												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
-													<div class="wpb_wrapper">
-														<div class="wrap-transport">
-															<div class="row">
-																<div class="item item-1 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-paper-plane"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Money Back Guarantee</h3>
-																			<p>30 Days Money Back</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-2 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-map-marker"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Free Worldwide Shipping</h3>
-																			<p>On Order Over $100</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-3 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-tag"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Member Discount</h3>
-																			<p>Upto 70 % Discount</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-4 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-life-ring"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>24/7 Online Support</h3>
-																			<p>Technical Support 24/7</p>
-																		</div>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+			
 											</div>
 										</div>
 									</div>
@@ -1286,7 +1228,7 @@
 													<div class="resp-slider-container">
 														<div class="box-title clearfix">
 															<h3>秒杀</h3>
-															<a href="new_deals/findSeckillArticle">查看更多</a>
+															<a href="new_deals/findSeckillArticle" style="margin-right: 70px">查看更多</a>
 														</div>
 
 														<div class="banner-content clearfix">
@@ -1866,19 +1808,19 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Television</a>
+																		<a href="">电视机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Air Conditional</a>
+																		<a href="">空气清新剂</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptops & Accessories</a>
+																		<a href="">老人电脑 & 老人手机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories for Tablet</a>
+																		<a href="">古董手表配件</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Headphone</a>
+																		<a href="">锻炼设施</a>
 																	</li>
 																	<li>
 														
@@ -1887,7 +1829,7 @@
 															</div>
 
 																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
@@ -2176,7 +2118,7 @@
 															</div>
 
 																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
@@ -2478,7 +2420,7 @@
 																		
 																</div>
 																<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 

@@ -18,8 +18,17 @@ public class PageBeanUtil<T> {
 	private String s;
 	private String search_category;
 	private String aname;
+	private String typeId;
 
 	
+	
+	public String getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
+	}
 
 	public String getAname() {
 		return aname;

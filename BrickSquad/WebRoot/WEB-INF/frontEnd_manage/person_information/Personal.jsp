@@ -31,9 +31,15 @@
 <script>
 	$(function() {
 		uploadImage();
+		var birthday = $("#birthday").html();
+		$("#birthday").html(Format(new Date(birthday), "yyyy-MM-dd"));
 		//判断用户信息是否完善
 		var name = $("#pername").val();
+		console.log(name);
 		if (name == "") {
+			$(".uinfo").show();
+			$(".info").hide();
+		} else {
 			$(".uinfo").hide();
 			$(".info").show();
 		}//js
@@ -120,7 +126,7 @@
 								name="" id="pername">
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 真实姓名：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">男</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.name }</span>
 								<input type="text" value="${addressAndPersonaInformationExpand.personalInformation.name }"
 									name="personalInformation.name" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;" autocomplete="off"
@@ -129,7 +135,7 @@
 
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 性别：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px">男</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
 								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px">
 									<%-- <input type="radio" required lay-verify="required"
 										<c:if test="${addressAndPersonaInformationExpand.personalInformation.gender eq'男'}">checked</c:if>
@@ -149,7 +155,7 @@
 									lay-verify="identity" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;display:inline-block;"
 									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo">
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">520122199508310031</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
 							</div>
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">出生年月：</label>
@@ -158,11 +164,12 @@
 									lay-verify="title" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px; display:inline-block"
 									autocomplete="off" placeholder="出生年月" class="layui-input uinfo">
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">520122199508310031</span>
+								<span id="birthday" class="info"
+									style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
 							</div>
 							<div class="layui-inline">
 								<label style="width: 100px ;float: left;">* 现居住地：</label>
-								<span class="info" style="font-size: 17px;display:block;float: left;margin-top: 25px">520122199508310031</span>
+								<span class="info" style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
 								<div class="uinfo">
 									<div class="layui-input-inline">
 										<select required lay-verify="required"
@@ -200,9 +207,6 @@
 									</div>
 								</div>
 							</div>
-
-							<button style="width: 100px;margin-left: 350px;margin-top: 10px;" type="button" onclick=""
-								class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
 						</form>
 						<!--分割线  -->
 						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
