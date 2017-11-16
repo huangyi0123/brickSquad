@@ -34,8 +34,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
+
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.ShoppingCar;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.util.Pagination;
@@ -54,9 +56,13 @@ public class CollectionControllerFront {
 	@RequestMapping("/collectionMessage")
 	public String collectionMessage(PaginationCollection pagination,HttpServletRequest request){
 		//根据登陆Pid获取收藏信息
-		System.out.println(pagination.getUserId()+"22222");
-		Map<String, Object> articleExpand=collectionService.findCollectionMessage(pagination);
-		request.setAttribute("collectionMessage",articleExpand);
+		User user=(User) request.getSession().getAttribute("user");
+		if (user!=null) {
+			pagination.setUserId(user.getId());
+			Map<String, Object> articleExpand=collectionService.findCollectionMessage(pagination);
+			request.setAttribute("collectionMessage",articleExpand);
+		}
+		
 		return "frontEnd_manage/front_bootstrap/wishlist";
 	}
 	//删除用户收藏信息

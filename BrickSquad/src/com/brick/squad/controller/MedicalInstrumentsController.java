@@ -393,4 +393,13 @@ public class MedicalInstrumentsController {
 	
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}*/
+	
+	/**衣服类商品 */
+	@RequestMapping("/findColthType")
+	public String findColthType(HttpServletRequest request,String typeId){
+		
+		return null;
+		
+	}
+	
 }

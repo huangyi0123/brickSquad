@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.OrderDetailsAndArticleExtend;
 import com.brick.squad.expand.OrderDetailsExpand;
 import com.brick.squad.mapper.OrderDetailsMapper;
 import com.brick.squad.pojo.OrderDetails;
@@ -71,6 +72,13 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 	@Override
 	public OrderDetails findOrderDetailsByIdName(String id) {
 		return orderDetailsMapper.findOrderDetailsByIdName(id);
+	}
+
+	@Override
+	public List<OrderDetailsAndArticleExtend> findOrderDetailsByOrdersId(
+			String ordersId) {
+		// TODO Auto-generated method stub
+		return orderDetailsMapper.findOrderDetailsByOrdersId(ordersId);
 	}
 
 }

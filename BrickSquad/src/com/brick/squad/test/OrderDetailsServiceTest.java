@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.expand.OrderDetailsAndArticleExtend;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.service.OrderDetailsService;
 import com.brick.squad.util.JunitClassRunner;
@@ -19,6 +20,13 @@ public class OrderDetailsServiceTest {
 	@Autowired
 	@Qualifier("orderDetailsService")
 	private OrderDetailsService orderDetailsService;
+
+	@Test
+	public void findOrderDetailsByOrdersIdTest() {
+		List<OrderDetailsAndArticleExtend> llAndArticleExtends = orderDetailsService
+				.findOrderDetailsByOrdersId("7069a42ec87911e7aca65254002ec43c");
+		System.out.println(llAndArticleExtends.size());
+	}
 
 	@Test
 	public void findOrderDetails() throws Exception {
