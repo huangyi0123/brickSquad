@@ -71,7 +71,7 @@ function submitCar() {
 			"ids" : ids
 		},
 		success : function(result) {
-			
+			window.location.href="variableProduct/toconfirm_order?ordersId="+result;
 		}
 	});
 }

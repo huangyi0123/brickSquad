@@ -657,7 +657,7 @@
 						</div>
 
 						<ul id="menu-primary-menu-1"
-							class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
+							class="nav nav-pills nav-mega etrostore-mega etrostore-menures" style="line-height: 15px">
 							<li class="active dropdown menu-home etrostore-mega-menu level1">
 								<a href="shopIndex/toShop" class="item-link dropdown-toggle">
 									<span class="have-title"> <span class="menu-color"

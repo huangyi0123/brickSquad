@@ -2,11 +2,21 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.OrderDetailsAndArticleExtend;
 import com.brick.squad.expand.OrderDetailsExpand;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.util.Pagination;
 
 public interface OrderDetailsMapper {
+	/**
+	 * 根据商品ID查询商品明细，以及对应的商品信息
+	 * 
+	 * @param ordersId
+	 * @return
+	 */
+	public List<OrderDetailsAndArticleExtend> findOrderDetailsByOrdersId(
+			String ordersId);
+
 	public void insertOrderDetails(OrderDetails orderDetails);
 
 	/**
