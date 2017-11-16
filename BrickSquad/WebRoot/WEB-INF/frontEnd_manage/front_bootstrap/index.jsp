@@ -1228,7 +1228,7 @@
 													<div class="resp-slider-container">
 														<div class="box-title clearfix">
 															<h3>秒杀</h3>
-															<a href="new_deals/findSeckillArticle">查看更多</a>
+															<a href="new_deals/findSeckillArticle" style="margin-right: 70px">查看更多</a>
 														</div>
 
 														<div class="banner-content clearfix">
@@ -1829,7 +1829,7 @@
 															</div>
 
 																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
@@ -2118,7 +2118,7 @@
 															</div>
 
 																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
@@ -2420,7 +2420,7 @@
 																		
 																</div>
 																<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
+																		<a href="new_deals/tonew_deals" style="margin-right: 70px">
 																		查看更多</a>
 																		</div>
 
