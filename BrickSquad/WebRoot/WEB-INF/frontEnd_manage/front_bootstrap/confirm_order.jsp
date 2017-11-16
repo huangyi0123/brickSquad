@@ -187,8 +187,7 @@
 																	class="woocommerce-Price-amount amount"><span
 																		class="woocommerce-Price-currencySymbol">￥</span> <input
 																			type="hidden" value="${orders.money }" id="moneyId" />
-																		<input style="border: none;" readonly type="text"
-																			value="${orders.money }" id="moneyIdchange" /> </span></strong>
+																	<span id="moneyIdchange"></span> </span></strong>
 															</td>
 														</tr>
 													</tbody>
@@ -262,7 +261,9 @@
 			var coupons = '${coupons}';
 			coupons = JSON.parse(coupons);
 			findAll(coupons, "#couponId");
-
+			//取得订单总额
+			var moneyId = $("#moneyId").val();
+			$("#moneyIdchange").html(moneyId);
 		});
 		layui.use('form', function() {
 			var form = layui.form;
@@ -277,7 +278,7 @@
 						//取得优惠券的满减金额，当前总额大于满减金额，即再总额的基础上减去优惠金额
 						if (moneyId > this.fullMoney) {
 							moneyId = moneyId - this.money;
-							$("#moneyIdchange").val(moneyId);
+							$("#moneyIdchange").html(moneyId);
 						} else {
 							$("#moneyIdchange").val(moneyId);
 							alert("不满"+this.fullMoney+"不能用");
