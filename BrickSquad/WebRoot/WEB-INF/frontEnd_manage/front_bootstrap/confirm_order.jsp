@@ -270,23 +270,28 @@
 			var AllCoupons = '${AllCoupons}';
 			AllCoupons = JSON.parse(AllCoupons);
 			form.on('select(couponIdSelect)', function(data) {
-				$(AllCoupons).each(function() {
+				if (data.value!="") {
+					$(AllCoupons).each(function() {
+						//取得订单总额
+						var moneyId = $("#moneyId").val();
+						$("#moneyIdchange").val(moneyId);
+						if (this.id == data.value) {
+							//取得优惠券的满减金额，当前总额大于满减金额，即再总额的基础上减去优惠金额
+							if (moneyId > this.fullMoney) {
+								moneyId = moneyId - this.money;
+								$("#moneyIdchange").html(moneyId);
+							} else {
+								$("#moneyIdchange").html(moneyId);
+								alert("不满"+this.fullMoney+"不能用");
+							}
+						} 
+					});
+				}else {
 					//取得订单总额
 					var moneyId = $("#moneyId").val();
-					$("#moneyIdchange").val(moneyId);
-					if (this.id == data.value) {
-						//取得优惠券的满减金额，当前总额大于满减金额，即再总额的基础上减去优惠金额
-						if (moneyId > this.fullMoney) {
-							moneyId = moneyId - this.money;
-							$("#moneyIdchange").html(moneyId);
-						} else {
-							$("#moneyIdchange").val(moneyId);
-							alert("不满"+this.fullMoney+"不能用");
-						}
-					} else {
-						$("#moneyIdchange").val(moneyId);
-					}
-				});
+					$("#moneyIdchange").html(moneyId);
+				}
+			
 			});
 		});
 	</script>
