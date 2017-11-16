@@ -104,13 +104,14 @@
 						<div class="entry-content">
 							<div class="entry-summary">
 								<div class="woocommerce">
-									<label style="display:block; font-size: 20px; display: inline-block;">收货地址： <input
-											type="button" class="button"
-											onclick="userAddReceivingAddress()" value="添加新地址"> 
+									<label
+										style="display:block; font-size: 20px; display: inline-block;">收货地址：
+										<input type="button" class="button"
+											onclick="userAddReceivingAddress()" value="添加新地址">
 									</label>
 									<!--后期加咯  -->
-										<input type="button" class="button"
-											onclick="userUpdateReceivingAddress()" value="修改收货地址">
+									<input type="button" class="button"
+										onclick="userUpdateReceivingAddress()" value="修改收货地址">
 									<c:forEach var="listAddresses" items="${listAddresses }">
 										<label
 											style="display:block;margin-left: 80px; font-size: 15px;"><input
@@ -137,15 +138,15 @@
 											</thead>
 
 											<tbody>
-												<tr>
-
-
-
-													<td>${article.aname }</td>
-													<td>${article.price }</td>
-													<td>${orderDetails.number }</td>
-													<td>${orderDetails.subtotal }</td>
-												</tr>
+												<c:forEach var="OrderDetailsAndArticleExtend"
+													items="${listOrderDetailsAndArticleExtend }">
+													<tr>
+														<td>${OrderDetailsAndArticleExtend.articleName }</td>
+														<td>${OrderDetailsAndArticleExtend.articlePrice }</td>
+														<td>${OrderDetailsAndArticleExtend.number }</td>
+														<td>${OrderDetailsAndArticleExtend.subtotal }</td>
+													</tr>
+												</c:forEach>
 											</tbody>
 											<tr>
 												<td colspan="6" class="actions">
@@ -170,19 +171,19 @@
 												<table cellspacing="0"
 													class="shop_table shop_table_responsive">
 													<tbody>
-														<tr class="cart-subtotal">
+													<%-- 	<tr class="cart-subtotal">
 															<th>小计</th>
 															<td data-title="小计">
 																<span class="woocommerce-Price-amount amount"><span
-																	class="woocommerce-Price-currencySymbol">￥</span>${orderDetails.subtotal }</span>
+																	class="woocommerce-Price-currencySymbol">￥</span>${orders.money }</span>
 															</td>
-														</tr>
+														</tr> --%>
 														<tr class="order-total">
 															<th>总计</th>
 															<td data-title="总计">
 																<strong><span
 																	class="woocommerce-Price-amount amount"><span
-																		class="woocommerce-Price-currencySymbol">￥</span>${orderDetails.subtotal }</span></strong>
+																		class="woocommerce-Price-currencySymbol">￥</span>${orders.money }</span></strong>
 															</td>
 														</tr>
 													</tbody>
