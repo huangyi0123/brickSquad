@@ -365,7 +365,7 @@
 																				</a>
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=kuzi" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
 																						<span class="menu-title">裤子</span>
@@ -373,7 +373,7 @@
 																				</a>
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=xielei" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
 																						<span class="menu-title">鞋类</span>
@@ -382,7 +382,7 @@
 																			</li>
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=maozi" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>
 																						<span class="menu-title">帽子</span>
@@ -391,7 +391,7 @@
 																			</li>
 
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="common/tosimple_product?id=yiliaoqixie" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#42b8d1"></span>
 																						<span class="menu-title">医疗器械</span>
@@ -628,7 +628,7 @@
 
 																			</li>
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yundongyongpin" class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#efc73a"></span>
 																						<span class="menu-title">运动用品</span>
@@ -866,7 +866,7 @@
 																			</li>
 
 																			<li class="menu-television etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#3f5eca"></span>
 																						<span class="menu-title">食品</span>
@@ -875,7 +875,7 @@
 																			</li>
 
 																			<li class="menu-accessories-for-tablet etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#13528c"></span>
 																						<span class="menu-title">滋补养生</span>
@@ -883,7 +883,7 @@
 																				</a>
 																			</li>
 																			<li class="dropdown menu-electronic-component etrostore-mega-menu level1">
-																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f03442"></span>
 																						<span class="menu-title">中西药品</span>
@@ -1094,7 +1094,7 @@
 																				</ul>
 																			</li>
 																			<li class="menu-laptops-accessories etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=" class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#2f2e2e"></span>
 																						<span class="menu-title">保健器械</span>
