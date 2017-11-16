@@ -27,6 +27,7 @@ import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
@@ -145,11 +146,6 @@ public class CommonController {
 	public String toPersonal(HttpServletRequest request) throws Exception {
 		User user = (User) request.getSession().getAttribute("user");
 		if (user != null) {
-			// 进入用户个人信息页面前，先查询region中的所有省份，省份下拉框要用
-			String provinceData = personalInformationService
-					.findRegionsByLevel();
-			request.setAttribute("provinceData", provinceData);
-			// 获得当前用户ID
 			String id = user.getId();
 			// 实例化AddressAndPersonaInformationExpand扩展类
 			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand = new AddressAndPersonaInformationExpand();
@@ -159,6 +155,13 @@ public class CommonController {
 					.findPersonalInformationById(id);
 			addressAndPersonaInformationExpand
 					.setPersonalInformation(personalInformation);
+			//根据老人id查询亲属关系
+			Relatives relatives=relativesService.findRelativesByPerId(user.getId());
+			addressAndPersonaInformationExpand.setRelatives(relatives);
+			if (relatives!=null) {
+				Type type=typeService.findTypeById(relatives.getRelationshipId());
+				request.setAttribute("relationship", type);
+			}
 			if (personalInformation.getAddressId() != null
 					&& personalInformation.getAddressId().length() > 0) {
 				String addres=addressService.findByIdAllAddress(personalInformation.getAddressId());
