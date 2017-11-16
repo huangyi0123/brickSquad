@@ -67,6 +67,9 @@ public class NewDealsController {
 	/**搜索框搜索所有的商品信息*/
 	@RequestMapping("/findAllArticle")
 	public String findArticleAllType(HttpServletRequest request,PageUtil pageUtil) throws Exception{
+		String dataString=pageUtil.getS();
+		String s = new String(dataString.getBytes("ISO-8859-1"), "utf-8");
+		pageUtil.setS(s);
 		String path=request.getSession().getServletContext().getRealPath("");
 		Map<String,Object> map=articleService.findSearchAllArticle(pageUtil, path);
 		map.put("url", "findAllArticle");
@@ -75,6 +78,7 @@ public class NewDealsController {
 		request.setAttribute("url", "findAllArticle");
 		request.setAttribute("msg", "所有商品");
 		request.setAttribute("map", map);
+		
 		//加载商品所有类型,搜索框
 		List<Type> listType=typeService.findAllTypeByParentId("splb");
 		request.setAttribute("listType", listType);

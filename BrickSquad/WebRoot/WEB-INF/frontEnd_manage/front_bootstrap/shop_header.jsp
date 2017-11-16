@@ -214,8 +214,8 @@
 			<div class="rows">
 				<!-- LOGO -->
 				<div class="etrostore-logo pull-left">
-					<a href="common/toShop"> <img
-						src="resource/front_bootstrap/images/icons/logo-orange.png"
+					<a href="shopIndex/toShop"> <img
+						src="resource/front_bootstrap/images/icons/20171116102946.png"
 						alt="Shoopy">
 					</a>
 				</div>

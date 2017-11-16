@@ -58,15 +58,30 @@
 					
 					$(function() {
 							var da = '${businessData}';
-							console.log(da);
 							da=JSON.parse(da);
 							findAll(da,"#shopname");
 							form.render('select', 'shopname1');
 						});
+				
 					
 				}); 
 
 
+		layui.use(['layer','form'],
+					function() {
+						var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+						form.on('select(shopname1)', function(data) {
+							var a = '${businessData}';
+							a = JSON.parse(a);
+							/* 遍历a数据 */
+							for (var i = 0; i < a.length; i++) {
+								if (data.value == a[i].id) {
+									$("#price").val(a[i].price);
+									/* $("#perId").val(a[i].id); */
+								}
+							}
+						});
+						});
 $(function() {
 		var data="";
 		$(".error").each(function() {
@@ -114,9 +129,15 @@ $(function() {
 				</select>
 			</div>
 		</div>
-
-
-
+		
+			<div class="layui-form-item">
+			<label class="layui-form-label">商品价格</label>
+			<div class="layui-input-inline">
+				
+				<input type="text" id="price"  value="${shopActivities.price}"   required
+					lay-verify="required" placeholder="商品价格" autocomplete="off" class="layui-input" readonly="readonly">
+			</div>
+		</div>
 
 
 
