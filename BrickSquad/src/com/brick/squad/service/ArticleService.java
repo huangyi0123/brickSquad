@@ -149,4 +149,7 @@ public interface ArticleService {
 	public PageBeanUtil findOrderByArticlePrice(int page, int sequence,
 			int limitPage, String typeId);
 
+	public PageBeanUtil findTitlePriceScope(int page, int limitPage,
+			double minPrice, double maxPrice, String typeId);
+
 }
