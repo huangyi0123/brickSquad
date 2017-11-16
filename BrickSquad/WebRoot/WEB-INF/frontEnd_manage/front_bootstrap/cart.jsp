@@ -139,7 +139,7 @@
 																sizes="(max-width: 180px) 100vw, 180px">
 														</a></td>
 														<td class="product-name" data-title="Product"><a
-															href="simple_product.html">${listDetailsShoppingCar.aname}</td>
+															href="variableProduct/toVariable_product?productId=${listDetailsShoppingCar.id }">${listDetailsShoppingCar.aname}</td>
 														<td class="product-price" data-title="Price"><span
 															class="woocommerce-Price-amount amount"><span
 																class="woocommerce-Price-currencySymbol">￥</span><span class="pricle">${listDetailsShoppingCar.price}</span></span>
