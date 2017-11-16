@@ -161,6 +161,8 @@ public class CommonController {
 					.setPersonalInformation(personalInformation);
 			if (personalInformation.getAddressId() != null
 					&& personalInformation.getAddressId().length() > 0) {
+				String addres=addressService.findByIdAllAddress(personalInformation.getAddressId());
+				request.setAttribute("address", addres);
 				// start
 				// 根据ID查询信息，得到信息中的地址ID，再根据ID查询address，分别用address中存的ID去region中查询相对应的地区，封装成json字符串，用页面地址回填
 				Address address = personalInformationService

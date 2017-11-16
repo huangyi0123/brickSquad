@@ -1213,7 +1213,7 @@ pre {
 					url : 'variableProduct/userBuyImmediately?articleId='+articleId+'&articleNumber='+articleNumber,
 					success : function(data) {
 					if(data!="fail"){
-						window.location.href="variableProduct/toconfirm_order?orderDetailsId="+data;
+						window.location.href="variableProduct/toconfirm_order?ordersId="+data;
 					}else{
 					layer.msg("服务器错误！！稍后重试");
 					}

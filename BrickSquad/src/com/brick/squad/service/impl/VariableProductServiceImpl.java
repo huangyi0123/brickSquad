@@ -87,7 +87,7 @@ public class VariableProductServiceImpl implements VariableProductService {
 		orderDetails.setSubtotal(money);
 		orderDetailsMapper.insertOrderDetails(orderDetails);
 		// end 订单明细表插入结束
-		return orderDetails.getId();
+		return orders.getId();
 	}
 
 }
