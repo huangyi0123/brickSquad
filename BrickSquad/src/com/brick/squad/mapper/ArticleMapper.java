@@ -145,6 +145,14 @@ public interface ArticleMapper {
 	public List<NewsArticle> findUserArticle(Map<String, Object> map);
 	public List<NewsArticle> findSearchAllArticleSecond(Map<String, Object> map);
 	public List<NewsArticle> findSearchAllArticleSecondYiLiao(Map<String, Object> map);
+	/**
+	 * 根据关键字查询所有商品信息
+	 * */
+	public List<NewsArticle> findSearchAllArticleSecondAll(Map<String, Object> map);
+	/**
+	 * 搜索框根据分类查询商品信息
+	 * */
+	public List<NewsArticle> findSearchAllArticleSecondOther(Map<String, Object> map);
 	
 	public int findSearchAllArticleCountSecond(String typeId);
 

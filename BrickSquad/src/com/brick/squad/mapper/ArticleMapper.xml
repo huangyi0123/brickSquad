@@ -365,6 +365,36 @@
 	FROM article 
 	WHERE article.type_id=#{search_category}
 </select>
+<!-- 根据关键字查询查询所有商品信息 -->
+<select id="findSearchAllArticleSecondAll"  resultType="com.brick.squad.expand.NewsArticle"
+parameterType="map">
+		select
+		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id
+		WHERE  aname REGEXP #{s} 
+		LIMIT #{skli},#{take}
+</select>
+
+
+<select id="findSearchAllArticleSecondOther" resultType="com.brick.squad.expand.NewsArticle"
+parameterType="map">
+select
+		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		totals from article
+		a left join (select COALESCE(sum(number),0) total
+		,article_id from
+		order_details group by (article_id))
+		nn on
+		a.id=nn.article_id
+		WHERE type_id=#{search_category}
+		LIMIT #{skli},#{take}
+</select>
+
 
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">

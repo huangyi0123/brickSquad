@@ -1242,7 +1242,7 @@
 													<div class="resp-slider-container">
 														<div class="box-title clearfix">
 															<h3>秒杀</h3>
-															<a href="new_deals/findSeckillArticle" style="margin-right: 70px">查看更多</a>
+															
 														</div>
 
 														<div class="banner-content clearfix">
