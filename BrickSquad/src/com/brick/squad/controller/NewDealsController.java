@@ -75,6 +75,7 @@ public class NewDealsController {
 		request.setAttribute("url", "findAllArticle");
 		request.setAttribute("msg", "所有商品");
 		request.setAttribute("map", map);
+		
 		//加载商品所有类型,搜索框
 		List<Type> listType=typeService.findAllTypeByParentId("splb");
 		request.setAttribute("listType", listType);

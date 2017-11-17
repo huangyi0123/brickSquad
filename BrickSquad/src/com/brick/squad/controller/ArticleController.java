@@ -50,6 +50,7 @@ public class ArticleController {
 		pagination.setPageSize(pSize);
 		pagination.setUserId(request.getSession().getAttribute("userId")
 				.toString());
+		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
 		return articleService.articlePagination(pagination);
 	}
 

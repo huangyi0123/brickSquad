@@ -44,7 +44,9 @@
 		FROM article a INNER JOIN type t ON a.type_id = t.id
 		INNER JOIN business b
 		ON a.business_id = b.id
-		where b.id=#{userId}
+		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
+		WHERE  b.id=#{userId}
+		</if>
 		<if test="keyword!=''">
 			and(a.aname REGEXP #{keyword} or t.`name` REGEXP
 			#{keyword} or b.`name`
@@ -445,5 +447,12 @@ LEFT JOIN (
 		(SELECT count(*) n,id FROM
 		order_details od GROUP BY od.article_id) s ON
 		a.id=s.id LIMIT 0,#{take}
+	</select>
+	<!-- 根据父类id查找 商品TypeID-->
+	<select id="findArticleTypeIdSecond" parameterType="com.brick.squad.util.PageBeanUtil" 
+	resultType="String">
+	SELECT a.type_id 
+	FROM article a ,type t 
+	WHERE a.type_id=t.id AND t.parent_id=#{parentId}
 	</select>
 </mapper>
