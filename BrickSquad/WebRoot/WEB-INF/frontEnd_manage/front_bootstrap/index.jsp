@@ -1154,7 +1154,7 @@
 																					<div class="module slideshow no-margin">
 																						<div class="item">
 																							<a>
-																								<img src="resource/front_bootstrap/images/1903/slider2.jpg" alt="slider1"
+																								<img src="resource/front_bootstrap/images/1903/lunbo111.jpg" alt="slider1"
 																									class="img-responsive" height="559">
 																							</a>
 																						</div>
