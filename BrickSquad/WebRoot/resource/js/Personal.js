@@ -166,6 +166,33 @@ function updatePinfo(n) {
 			}
 
 		});
+		var porId = $("#prIdas").attr('val');
+		var cityId = $('#cityId').attr('val');
+		var countyId = $('#countyId').attr('val');
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + porId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#cityId");
+				form.render('select', 'cityIdSelect');
+			}
+		});
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + cityId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#countyId");
+				form.render('select', 'countyIdSelect');
+			}
+		});
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + countyId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#countryId");
+				form.render('select', 'countryIdSelect');
+			}
+		});
 		form.on('select(prIds)', function(data) {
 			$.ajax({
 				url : 'address/findRegionsByParentId?pid=' + data.value,
@@ -236,36 +263,17 @@ function savesa(n) {
 		var countyId = $("#countyId").val();
 		var countryId = $("#countryId").val();
 		var detailed = $("#detailed").val();
-
+		console.log(detailed);
 		// 获取亲属信息
 		var gName = $("#gName").val();
 		var gphone = $("#gphone").val();
 		var gtype = $("#qsgx").val();
-		var data = {
-			"personalInformation" : {
-				'name':perName,
-				'gender':perGender,
-				'idCard':idcard,
-				'birthday':birthday
-			},
-			'address':{
-				'provinceId':provinceId,
-				'cityId':cityId,
-				'countyId':countyId,
-				'countryId':countryId,
-				'detailed':detailed
-			},
-			"relatives":{
-				'name':gName,
-				'telephone':gphone,
-				'relationshipId':gtype
-			}
-		};
 		$.ajax({
-			url : '',
+			url : 'personalInformation/updaeInforMation',
 			type : 'POST',
-			data : {
-
+			data : $("#perinformation").serialize(),
+			success : function(result) {
+				console.log(data);
 			}
 		});
 	}
