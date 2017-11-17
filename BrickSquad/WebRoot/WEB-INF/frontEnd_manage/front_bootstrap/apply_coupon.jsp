@@ -497,7 +497,6 @@
 						alert(result);
 					}
 				});
-				
 			}
 			function types(id) {
 				window.location.href="coupon/findArticleType?typeId="+id;
