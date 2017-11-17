@@ -38,6 +38,8 @@ public interface ArticleMapper {
 	public List<ArticleExpand> findAllArticle();
 
 	public String findAllTypeAndBusiness();
+	/**根据type的parentId查询商品的typeId*/
+	public List<String> findArticleTypeIdSecond(PageBeanUtil pageBeanUtil);
 
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
 

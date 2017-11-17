@@ -73,4 +73,12 @@ public interface RelativesService {
 	 */
 	public String usergetrelativesPagination(String id) throws Exception;
 
+	/**
+	 * 根据老人id查询亲属关系
+	 * 
+	 * @param perId
+	 *            老人id
+	 * @return 亲属关系
+	 */
+	public Relatives findRelativesByPerId(String perId);
 }

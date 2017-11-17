@@ -144,7 +144,7 @@
 	</select>
 	<!-- 根据用户id查询购物车总额 -->
 	<select id="findUserAllPrice" parameterType="String" resultType="float">
-		SELECT sum(a.price*s.number) s FROM article a JOIN
+		SELECT COALESCE(sum(a.price*s.number) ,0)s FROM article a JOIN
 		(SELECT sc.article_id,sc.number FROM shopping_car sc WHERE
 		per_id=#{userId}) s
 		on a.id=s.article_id
