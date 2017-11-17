@@ -4,16 +4,17 @@ import com.brick.squad.pojo.Coupon;
 
 public class CouponExpand extends Coupon {
 	private String shopname;
-	private float  percent;
+	private int  percent;
 	public String getShopname() {
 		return shopname;
 	}
 	public void setShopname(String shopname) {
 		this.shopname = shopname;
 	}
-	public float getPercent() {
+	public int getPercent() {
 		float a=((float)super.getReceive())/super.getTotal();
-		return a*100;
+		int s=(int)(a*100);
+		return s;
 	}
 	
 }

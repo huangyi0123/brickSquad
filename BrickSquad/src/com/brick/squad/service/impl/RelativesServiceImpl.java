@@ -223,4 +223,9 @@ public class RelativesServiceImpl implements RelativesService {
 		return data;
 	}
 
+	@Override
+	public Relatives findRelativesByPerId(String perId) {
+		return relativesMapper.findRelativesByPerId(perId);
+	}
+
 }

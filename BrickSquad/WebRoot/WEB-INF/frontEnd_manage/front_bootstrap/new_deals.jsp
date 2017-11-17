@@ -381,9 +381,9 @@
 										
 										
 										
-										
-										
-										<c:if test="${url=='findAllArticle' }">
+							
+									
+										<c:if test="${url eq 'findAllArticle' }">
 										<c:forEach items="${map.data }" var="a">
 											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
 												<div class="item-detail">
