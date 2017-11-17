@@ -1312,6 +1312,7 @@
 	<script type="text/javascript">
 		function myChang(o, a, url) {
 			var n = $(o).val();
+			consolo.log(n+"################################");
 			n = parseInt(n);
 			a = parseInt(a);
 			if (n >= 1 && n <= a) {
