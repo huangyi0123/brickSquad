@@ -697,10 +697,17 @@ public class ArticleServiceImpl implements ArticleService {
 			list=articleMapper.findSearchAllArticleSecondAll(m);
 			 count=articleMapper.findSearchAllArticleCountSecond(search_category);
 		}else{
+			if(search_category.equals("yiliaoqixie")){
+				m.put("s", page.getS());
+				m.put("search_category", page.getSearch_category());
+				list=articleMapper.findSearchAllArticleSecondYiLiaoSecond(m);
+				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+			}else{
 			m.put("s", page.getS());
 			m.put("search_category", page.getSearch_category());
 			list=articleMapper.findSearchAllArticleSecondOther(m);
 			 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+			}
 		}
 		page.setCount(count);
 		for (NewsArticle item : list) {
@@ -800,6 +807,32 @@ public class ArticleServiceImpl implements ArticleService {
 		String s=page.getS();
 		String search_category=page.getSearch_category();
 		List<NewsArticle> list=articleMapper.findSearchAllArticleSecondOther(m);
+		int count=articleMapper.findSearchAllArticleCountSecond(search_category);
+		page.setCount(count);
+		for (NewsArticle item : list) {
+		File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+		File[] files=file.listFiles();
+		if (files!=null&&files.length!=0) {
+				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+			}
+		}
+		map.put("data", list);
+		map.put("page", page);
+		return map;
+	}
+	@Override
+	/**
+	 * 搜索框根据分类查询商品信息,如果是一级分类
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondYiLiaoSecond(
+			PageUtil page, String path) {
+		Map<String, Object> map=new HashMap<>();
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("skli", page.getSkipNum());
+		m.put("take", page.getTakeNum());
+		String s=page.getS();
+		String search_category=page.getSearch_category();
+		List<NewsArticle> list=articleMapper.findSearchAllArticleSecondYiLiaoSecond(m);
 		int count=articleMapper.findSearchAllArticleCountSecond(search_category);
 		page.setCount(count);
 		for (NewsArticle item : list) {
@@ -1255,6 +1288,7 @@ public class ArticleServiceImpl implements ArticleService {
 		return data;
 	}
 
+	
 	
 	
 

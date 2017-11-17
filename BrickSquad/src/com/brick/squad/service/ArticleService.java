@@ -114,6 +114,10 @@ public interface ArticleService {
 	 * 搜索框根据分类查询商品信息
 	 * */
 	public Map<String, Object> findSearchAllArticleSecondOther(PageUtil pageUtil,String path);
+	/**
+	 * 搜索框根据分类查询商品信息,如果是一级分类
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondYiLiaoSecond(PageUtil pageUtil,String path);
 	public Map<String, Object> findArticlePages(PageUtil pageUtil,String path,String order);
 
 
