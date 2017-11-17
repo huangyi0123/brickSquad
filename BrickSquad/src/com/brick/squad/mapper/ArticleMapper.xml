@@ -44,22 +44,23 @@
 		FROM article a INNER JOIN type t ON a.type_id = t.id
 		INNER JOIN business b
 		ON a.business_id = b.id
-		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
-		WHERE  b.id=#{userId}
+		<if
+			test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
+			WHERE b.id=#{userId}
 		</if>
 		<if test="keyword!=''">
 			and(a.aname REGEXP #{keyword} or t.`name` REGEXP
 			#{keyword} or b.`name`
 			REGEXP #{keyword} or a.describes REGEXP
-			#{keyword}) 
+			#{keyword})
 		</if>
 		limit #{skipNum},#{takeNum}
 
 	</select>
 	<!-- 查询所有商品总数 -->
-	<select id="findSearchArticleAllCount" resultType="int" 
-	parameterType="String">
-	SELECT COUNT(*) FROM article
+	<select id="findSearchArticleAllCount" resultType="int"
+		parameterType="String">
+		SELECT COUNT(*) FROM article
 	</select>
 
 	<select id="findArticleAllCount" resultType="int"
@@ -178,9 +179,10 @@
 	</select>
 	<select id="findArtivleTypePage" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
-			SELECT a.id,a.aname,a.image,a.price,a.describes
+		SELECT a.id,a.aname,a.image,a.price,a.describes
 		FROM article
-		a JOIN type t ON a.type_id=t.id
+		a JOIN type t ON
+		a.type_id=t.id
 		WHERE t.parent_id=#{parentId} limit
 		#{begin},#{limitPage}
 	</select>
@@ -223,7 +225,6 @@
 	</select>
 
 
-
 	<!-- 获取最新商品 首页 -->
 	<select id="findNewsArticleByIndex" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
@@ -263,9 +264,7 @@
 	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-
-		FROM article a JOIN type t ON a.type_id=t.id
-		WHERE t.parent_id=#{parentId}
+		FROM article a JOIN type t ON a.type_id=t.id WHERE t.parent_id=#{parentId}
 		ORDER BY
 		a.shelfdate
 		DESC
@@ -275,13 +274,13 @@
 	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-
 		FROM article a JOIN type t ON a.type_id=t.id
-		JOIN order_details o ON o.article_id=a.id
-
+		JOIN order_details o ON
+		o.article_id=a.id
 		WHERE t.parent_id=#{parentId}
 		ORDER BY o.number DESC
-		limit #{begin},#{limitPage}
+		limit
+		#{begin},#{limitPage}
 	</select>
 
 
@@ -292,14 +291,12 @@
 		totals from article
 		a left join (select COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
-		nn on a.id=nn.article_id order by
-		a.shelfdate DESC
+		order_details group by (article_id)) nn on
+		a.id=nn.article_id order by a.shelfdate DESC
 	</select>
 
 	<!-- 查询最新上架商品总数 -->
 	<select id="findFrontTimeNumber" resultType="Integer">
-
 		select COUNT(*) from article
 
 	</select>
@@ -319,96 +316,121 @@
 	</select>
 	<!-- 查询所有商品信息 -->
 	<select id="findSearchAllArticle" resultType="com.brick.squad.expand.NewsArticle"
-	parameterType="map">
-	select
+		parameterType="map">
+		select
 		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
-		totals from article
+		totals
+		from article
 		a left join (select COALESCE(sum(number),0) total
 		,article_id from
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id
 		LIMIT #{skli},#{take}
-</select>
-<select id="findSearchAllArticleSecond" resultType="com.brick.squad.expand.NewsArticle"
-	parameterType="map">
-	select
+	</select>
+	<select id="findSearchAllArticleSecond" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
+		select
 		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
-		totals from article
+		totals
+		from article
 		a left join (select COALESCE(sum(number),0) total
 		,article_id from
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id
-		WHERE  aname REGEXP #{s} 
+		WHERE aname REGEXP #{s}
 		AND type_id=#{search_category}
 		LIMIT #{skli},#{take}
-</select>
+	</select>
 
-<select id="findSearchAllArticleSecondYiLiao" resultType="com.brick.squad.expand.NewsArticle"
-	parameterType="map">
+	<select id="findSearchAllArticleSecondYiLiao" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
 		select
-		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		a.id,a.aname,a.price,a.image,a.describes
+		,COALESCE(nn.total,0)
 		totals from article
-		a left join (select COALESCE(sum(number),0) total
+		a left join (select
+		COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
+		order_details group by
+		(article_id))
 		nn on
 		a.id=nn.article_id JOIN type t ON t.id=a.type_id
-		WHERE  aname REGEXP #{s} 
+		WHERE aname REGEXP #{s}
 		AND t.parent_id=#{search_category}
 		LIMIT #{skli},#{take}
-</select>
-<select id="findSearchAllArticleSecondYiLiaoSecond" resultType="com.brick.squad.expand.NewsArticle"
-parameterType="map">
-select
+	</select>
+	<select id="findSearchAllArticleSecondYiLiaoSecond" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
+		select
 		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
-		totals from article
+		totals
+		from article
 		a left join (select COALESCE(sum(number),0) total
 		,article_id from
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id JOIN type t ON t.id=a.type_id
-		WHERE  
+		WHERE
 		t.parent_id=#{search_category}
 		LIMIT #{skli},#{take}
-</select>
+	</select>
 
-	<select id="findSearchAllArticleCountSecond" resultType="int" parameterType="String">
-	SELECT COUNT(*) 
-	FROM article 
-	WHERE article.type_id=#{search_category}
-</select>
-<!-- 根据关键字查询查询所有商品信息 -->
-<select id="findSearchAllArticleSecondAll"  resultType="com.brick.squad.expand.NewsArticle"
-parameterType="map">
+	<select id="findSearchAllArticleCountSecond" resultType="int"
+		parameterType="String">
+		SELECT COUNT(*)
+		FROM article
+		WHERE article.type_id=#{search_category}
+	</select>
+	<select id="findSearchAllArticleCountSecondOther" resultType="int"
+	parameterType="String">
+		SELECT COUNT(*)
+		FROM article a
+		JOIN type t ON a.type_id=t.id
+		WHERE t.parent_id=#{search_category}
+	</select>
+	<select id="findSearchAllArticleCountThreadOther" resultType="int"
+	parameterType="map" >
+		SELECT COUNT(*)
+		FROM article a
+		JOIN type t ON a.type_id=t.id
+		WHERE a.aname REGEXP #{s} AND t.parent_id=#{search_category}
+	</select>
+	<!-- 根据关键字查询查询所有商品信息 -->
+	<select id="findSearchAllArticleSecondAll" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
 		select
-		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		a.id,a.aname,a.price,a.image,a.describes
+		,COALESCE(nn.total,0)
 		totals from article
-		a left join (select COALESCE(sum(number),0) total
+		a left join (select
+		COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
+		order_details group by
+		(article_id))
 		nn on
 		a.id=nn.article_id
-		WHERE  aname REGEXP #{s} 
+		WHERE aname REGEXP #{s}
 		LIMIT #{skli},#{take}
-</select>
+	</select>
 
 
-<select id="findSearchAllArticleSecondOther" resultType="com.brick.squad.expand.NewsArticle"
-parameterType="map">
-select
+	<select id="findSearchAllArticleSecondOther" resultType="com.brick.squad.expand.NewsArticle"
+		parameterType="map">
+		select
 		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
-		totals from article
+		totals
+		from article
 		a left join (select COALESCE(sum(number),0) total
 		,article_id from
 		order_details group by (article_id))
 		nn on
 		a.id=nn.article_id
 		WHERE type_id=#{search_category}
-		LIMIT #{skli},#{take}
-</select>
-
+		LIMIT
+		#{skli},#{take}
+	</select>
 
 
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
@@ -428,6 +450,42 @@ select
 		article a
 		JOIN shop_activities sa ON a.id = sa.article_id
 		WHERE
+		sa.type_id =
+		'tuangou'
+		AND sa.end_time > NOW()
+		) saa
+		LEFT JOIN (
+		SELECT
+		count(*) n,
+		article_id id
+		FROM
+		order_details od
+		GROUP BY
+		(article_id)
+		) oa ON saa.id =
+		oa.id
+		order by
+		'${order}' DESC
+		LIMIT #{skli},#{take}
+	</select>
+
+	<select id="findNewsArticleNumber" resultType="Integer">
+		SELECT
+		COUNT(*)
+		FROM
+		(
+		SELECT
+		a.id,
+		a.aname,
+		a.price,
+		a.image,
+		a.shelfdate,
+		sa.buyersNumber buyersNumber,
+		sa.active_price active_price
+		FROM
+		article a
+		JOIN shop_activities sa ON a.id = sa.article_id
+		WHERE
 		sa.type_id = 'tuangou'
 		AND sa.end_time > NOW()
 		) saa
@@ -439,42 +497,8 @@ select
 		order_details od
 		GROUP BY
 		(article_id)
-		) oa ON saa.id = oa.id
-		order by
-		'${order}' DESC
-		LIMIT #{skli},#{take}
+		) oa ON saa.id = oa.id order by 'a.shelfdate'
 	</select>
-	
-	<select id="findNewsArticleNumber" resultType="Integer" >
-	  SELECT
-COUNT(*)
-FROM
-	(
-		SELECT
-			a.id,
-			a.aname,
-			a.price,
-			a.image,
-			a.shelfdate,
-			sa.buyersNumber buyersNumber,
-			sa.active_price active_price
-		FROM
-			article a
-		JOIN shop_activities sa ON a.id = sa.article_id
-		WHERE
-			sa.type_id = 'tuangou'
-		AND sa.end_time > NOW()
-	) saa
-LEFT JOIN (
-	SELECT
-		count(*) n,
-		article_id id
-	FROM
-		order_details od
-	GROUP BY
-		(article_id)
-) oa ON saa.id = oa.id order by 'a.shelfdate'
-</select>
 
 	<!--查询用户最近购买的商品 -->
 	<select id="findUserArticle" parameterType="map"
@@ -488,16 +512,18 @@ LEFT JOIN (
 		o.buy_id=#{userId}
 		ORDER BY o.production_date
 		DESC) o
-		on o.id=od.orders_id))a LEFT JOIN
+		on
+		o.id=od.orders_id))a LEFT JOIN
 		(SELECT count(*) n,id FROM
-		order_details od GROUP BY od.article_id) s ON
+		order_details
+		od GROUP BY od.article_id) s ON
 		a.id=s.id LIMIT 0,#{take}
 	</select>
-	<!-- 根据父类id查找 商品TypeID-->
-	<select id="findArticleTypeIdSecond" parameterType="com.brick.squad.util.PageBeanUtil" 
-	resultType="String">
-	SELECT a.type_id 
-	FROM article a ,type t 
-	WHERE a.type_id=t.id AND t.parent_id=#{parentId}
+	<!-- 根据父类id查找 商品TypeID -->
+	<select id="findArticleTypeIdSecond" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="String">
+		SELECT a.type_id
+		FROM article a ,type t
+		WHERE a.type_id=t.id AND t.parent_id=#{parentId}
 	</select>
 </mapper>

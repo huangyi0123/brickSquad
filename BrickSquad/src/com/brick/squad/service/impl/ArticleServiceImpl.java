@@ -684,7 +684,7 @@ public class ArticleServiceImpl implements ArticleService {
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list=articleMapper.findSearchAllArticleSecondYiLiao(m);
-				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+				 count=articleMapper.findSearchAllArticleCountThreadOther(m);
 			}else{
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
@@ -701,7 +701,7 @@ public class ArticleServiceImpl implements ArticleService {
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list=articleMapper.findSearchAllArticleSecondYiLiaoSecond(m);
-				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+				 count=articleMapper.findSearchAllArticleCountSecondOther(search_category);
 			}else{
 			m.put("s", page.getS());
 			m.put("search_category", page.getSearch_category());
@@ -847,7 +847,24 @@ public class ArticleServiceImpl implements ArticleService {
 		return map;
 	}
 
-	
+
+	@Override
+	/**
+	 * 一二级关联查询总数
+	 * */
+	public int findSearchAllArticleCountSecondOther(String typeId) {
+		int count=articleMapper.findSearchAllArticleCountSecondOther(typeId);
+		return count;
+	}
+	@Override
+	/**
+	 * 根据关键字查询商品信息计算总数
+	 * */
+	public int findSearchAllArticleCountThreadOther(Map<String, Object> map) {
+		int count=articleMapper.findSearchAllArticleCountThreadOther(map);
+		return count;
+	}
+
 	@Override
 	public int findSearchAllArticleCountSecond(String typeId) {
 		int count=articleMapper.findSearchAllArticleCountSecond(typeId);
@@ -1287,6 +1304,8 @@ public class ArticleServiceImpl implements ArticleService {
 		List<String> data=articleMapper.findArticleTypeIdSecond(pageBeanUtil);
 		return data;
 	}
+
+
 
 	
 	

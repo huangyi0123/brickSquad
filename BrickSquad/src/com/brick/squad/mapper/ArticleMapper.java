@@ -157,6 +157,14 @@ public interface ArticleMapper {
 	 * 搜索框根据分类查询商品信息,如果是一级分类
 	 * */
 	public List<NewsArticle> findSearchAllArticleSecondYiLiaoSecond(Map<String, Object> map);
+	/**
+	 * 一二级关联查询总数
+	 * */
+	public int findSearchAllArticleCountSecondOther(String typeId);
+	/**
+	 * 根据关键字查询商品信息计算总数
+	 * */
+	public int findSearchAllArticleCountThreadOther(Map<String, Object> map);
 	
 	
 	public int findSearchAllArticleCountSecond(String typeId);
