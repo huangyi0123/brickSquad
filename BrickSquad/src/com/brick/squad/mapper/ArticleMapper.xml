@@ -364,7 +364,7 @@
 	SELECT COUNT(*) 
 	FROM article 
 	WHERE article.type_id=#{search_category}
-</select>
+</select>   
 
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
