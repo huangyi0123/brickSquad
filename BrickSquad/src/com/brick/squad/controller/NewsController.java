@@ -52,6 +52,7 @@ public class NewsController {
 		pagination.setPageSize(pSize);
 		User user = (User) request.getSession().getAttribute("user");
 		pagination.setUserId(user.getId());
+		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
 		return newsService.newsPagination(pagination);
 	}
 
