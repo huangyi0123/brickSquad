@@ -366,6 +366,7 @@
 	WHERE article.type_id=#{search_category}
 </select>
 
+
 	<select id="findNewsArticles" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		SELECT
