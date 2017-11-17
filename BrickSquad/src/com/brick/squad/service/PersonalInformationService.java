@@ -90,4 +90,14 @@ public interface PersonalInformationService {
 	 */
 	public PersonalInformation findThereAllById(String id);
 
+	/**
+	 * 修改老人基本信息
+	 * 
+	 * @param addressAndPersonaInformationExpand
+	 *            老人基本信息
+	 * @return 地址id， 老人亲属关系id
+	 */
+	public String updaeInforMation(
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand);
+
 }
