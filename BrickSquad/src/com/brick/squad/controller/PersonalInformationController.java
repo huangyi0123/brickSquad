@@ -256,6 +256,7 @@ public class PersonalInformationController {
 		return "backstage_managed/jsp/personal_Information/search_personal_Information";
 	}
 	@RequestMapping("/updaeInforMation")
+	@ResponseBody
 	public String updaeInforMation(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand, HttpServletRequest request) {
 		User user=(User) request.getSession().getAttribute("user");
 		addressAndPersonaInformationExpand.getPersonalInformation().setId(user.getId());

@@ -155,6 +155,10 @@ function uploadImage() {
 function updatePinfo(n) {
 	$(".info").hide();
 	$(".uinfo").show();
+	var birthday=$("#birthdayId").attr('val');
+	$("#birthdayId").val(Format(new Date(birthday), "yyyy-MM-dd"));
+	var pgengender=$("#ipgender").html();
+	$("#perGender").find("input[value='"+pgengender+"']").attr('checked','true');
 	layui.use('form', function() {
 		var form = layui.form();
 		$.ajax({
@@ -257,7 +261,7 @@ function savesa(n) {
 		var perGender = $("#perGender").find('input:radio[name="sex"]:checked')
 				.val();
 		var idcard = $("#idcard").val();
-		var birthday = $("#birthday").val();
+		var birthday = $("#birthdayId").val();
 		var provinceId = $("#prIdas").val();
 		var cityId = $("#cityId").val();
 		var countyId = $("#countyId").val();
@@ -273,7 +277,24 @@ function savesa(n) {
 			type : 'POST',
 			data : $("#perinformation").serialize(),
 			success : function(result) {
-				console.log(data);
+				result=JSON.parse(result);
+				console.log(result);
+				$("#ipname").html(perName);
+				$("#ipgender").html(perGender);
+				$("#ipidcard").html(idcard);
+				$("#birthday").html(birthday);
+				$("#addressId").html(result[0].addressId);
+				$("#prIdas").attr('val',provinceId);
+				$("#cityId").attr('val',cityId);
+				$("#countyId").attr('val',countyId);
+				$("#countryId").attr('val',countryId);
+				$("#addressqw").html(result[0].address);
+				$("#gxName").html(gName);
+				$("#gxphone").html(gphone);
+				$("#qsgx").val(gtype);
+				$("#gxtype").html(result[0].relativesName);
+				$(".uinfo").hide();
+				$(".info").show();
 			}
 		});
 	}

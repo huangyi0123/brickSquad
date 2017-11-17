@@ -31,6 +31,7 @@ import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.GuidanceService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
@@ -268,8 +269,9 @@ public class PersonalInformationServiceImpl implements
 		Address address2;
 		if (personalInformation.getAddressId() != null
 				&& !personalInformation.getAddressId().equals("")) {
-			address2 = addressMapper.findAddressById(pInformation
+			address2 = addressMapper.findAddressById(personalInformation
 					.getAddressId());
+			System.out.println(address2);
 		} else {
 			address2 = new Address();
 		}
@@ -281,6 +283,7 @@ public class PersonalInformationServiceImpl implements
 		if (personalInformation.getAddressId() != null
 				&& !personalInformation.getAddressId().equals("")) {
 			addressMapper.updateAddressById(address2);
+			
 		} else {
 			addressMapper.insertAddress(address2);
 			personalInformation.setAddressId(address2.getId());
@@ -304,7 +307,10 @@ public class PersonalInformationServiceImpl implements
 		}
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("addressId", address2.getId());
-		map.put("relativesId", relatives2.getId());
+		String addresse=addressMapper.findByIdAllAddress(address2.getId());
+		map.put("address", addresse);
+		Type type=typeMapper.findTypeById(relatives2.getRelationshipId());
+		map.put("relativesName", type.getName());
 		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}
