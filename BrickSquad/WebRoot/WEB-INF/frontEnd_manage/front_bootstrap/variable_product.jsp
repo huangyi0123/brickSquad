@@ -153,6 +153,7 @@ pre {
 				<div id="container">
 					<div id="content" role="main">
 						<div class="single-product clearfix">
+						<div style="clear: both;"></div>
 							<div class="Pro_info">
 								<div class="comm_img">
 									<div class="page">

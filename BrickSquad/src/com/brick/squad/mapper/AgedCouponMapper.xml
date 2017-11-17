@@ -2,11 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.AgedCouponMapper">
-<select id="findAgedCouponById" parameterType="String" resultType="com.brick.squad.pojo.AgedCoupon">
-	select 
-	id,per_id perId,cougon_id cougonId
-	from aged_coupon where id=#{id}
-</select>
+	<select id="findAgedCouponByUserId" parameterType="String"
+		resultType="com.brick.squad.pojo.Coupon">
+		select c.id id,c.type_id typeId,c.buyers_id
+		buyersId,c.start_time
+		startTime,c.end_time
+		endTime,c.total total,c.surplus surplus,c.full_money
+		fullMoney,c.money money,c.receive receive from
+		aged_coupon ac join coupon c on
+		per_id=#{userId} and ac.cougon_id=c.id
+	</select>
+	<select id="findAgedCouponById" parameterType="String"
+		resultType="com.brick.squad.pojo.AgedCoupon">
+		select
+		id,per_id perId,cougon_id cougonId
+		from aged_coupon
+		where id=#{id}
+	</select>
 	<insert id="insertAgedCouponById" parameterType="com.brick.squad.pojo.AgedCoupon">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
@@ -15,7 +27,7 @@
 		aged_coupon(id,per_id,cougon_id)
 		values(#{id},#{perId},#{cougonId})
 	</insert>
-	 <update id="updateAgedCouponById" parameterType="com.brick.squad.pojo.AgedCoupon">
+	<update id="updateAgedCouponById" parameterType="com.brick.squad.pojo.AgedCoupon">
 		UPDATE
 		aged_coupon set
 		per_id=#{perId}
@@ -24,11 +36,14 @@
 		=#{id}
 	</update>
 	<delete id="deleteAgedCouponAllById" parameterType="String">
-	delete from aged_coupon where id=#{id}
+		delete from
+		aged_coupon where id=#{id}
 	</delete>
 	<!-- 根据couponId查询返回对象 -->
-	<select id="findAgedCouponByCouponId" parameterType="com.brick.squad.pojo.AgedCoupon" resultType="com.brick.squad.pojo.AgedCoupon">
-	select id,per_id perId,cougon_id cougonId 
-	from aged_coupon where cougon_id=#{cougonId} and per_id =#{perId}
+	<select id="findAgedCouponByCouponId" parameterType="com.brick.squad.pojo.AgedCoupon"
+		resultType="com.brick.squad.pojo.AgedCoupon">
+		select id,per_id perId,cougon_id cougonId
+		from aged_coupon
+		where cougon_id=#{cougonId} and per_id =#{perId}
 	</select>
 </mapper>

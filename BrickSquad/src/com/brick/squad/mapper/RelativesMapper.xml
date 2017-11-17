@@ -41,8 +41,10 @@
 		resultType="Relatives">
 		SELECT r.id id,p.`name` perId,r.`name` name,r.telephone
 		telephone,t.`name` relationshipId FROM relatives r
-		JOIN personal_information p on r.per_id=p.id
-		JOIN type t on r.relationship_id=t.id
+		JOIN
+		personal_information p on r.per_id=p.id
+		JOIN type t on
+		r.relationship_id=t.id
 		<if test="keyword!=''">
 			WHERE r.name REGEXP#{keyword} or
 			p.name REGEXP #{keyword}
@@ -70,8 +72,14 @@
 		</if>
 
 	</select>
-		<delete id="deleteRelativesByPerId" parameterType="String">
+	<delete id="deleteRelativesByPerId" parameterType="String">
 		DELETE FROM
 		relatives WHERE per_id=#{perId}
 	</delete>
+	<select id="findRelativesByPerId" parameterType="String"
+		resultType="Relatives">
+		SELECT id,per_id perId, name,telephone,address_id
+		addressId,relationship_id relationshipId FROM relatives WHERE
+		per_id=#{perId} LIMIT 0,1
+	</select>
 </mapper>

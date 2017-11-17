@@ -1113,6 +1113,85 @@ public class ArticleServiceImpl implements ArticleService {
 		return pageBean;
 	}
 
+	@Override
+	public PageBeanUtil findTitlePriceScope(int page, int limitPage,
+			double minPrice, double maxPrice, String typeId) {
+		PageBeanUtil<Article> pageBean = new PageBeanUtil<Article>();
+		if (page == 0 ||limitPage==0 &&maxPrice==0||minPrice==0) {
+			page = 1;
+			limitPage=12;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setMin_price(minPrice);
+			pageBean.setMax_price(maxPrice);
+			pageBean.setTypeId(typeId);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments(typeId);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId(typeId);
+			List<Article> list = articleMapper.findPriceScope(pageBean);
+			pageBean.setList(list);
+
+		} else {
+
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			/* int limit = 12; */
+			pageBean.setLimitPage(limitPage);
+			pageBean.setMin_price(minPrice);
+			pageBean.setMax_price(maxPrice);
+			pageBean.setTypeId(typeId);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = articleMapper
+					.findCountMedicalInstruments(typeId);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limitPage == 0) {
+				totalPage = totalCount / limitPage;
+			} else {
+				totalPage = totalCount / limitPage + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limitPage;
+			pageBean.setBegin(begin);
+			pageBean.setParentId(typeId);
+			List<Article> list = articleMapper.findPriceScope(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**根据type的parentId查询商品的typeId*/
+	public List<String> findArticleTypeIdSecond(PageBeanUtil pageBeanUtil) {
+		List<String> data=articleMapper.findArticleTypeIdSecond(pageBeanUtil);
+		return data;
+	}
+
 
 
 

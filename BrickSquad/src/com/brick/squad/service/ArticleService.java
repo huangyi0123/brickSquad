@@ -60,6 +60,8 @@ public interface ArticleService {
 	 * */
 	public List<ArticleExpand> findArticleBuyNumberAndMedicle(String parentId)
 			throws Exception;
+	/**根据type的parentId查询商品的typeId*/
+	public List<String> findArticleTypeIdSecond(PageBeanUtil pageBeanUtil);
 
 	/*
 	 * 根据商品ID在订单明细表中查询该商品的销售总量
@@ -148,5 +150,8 @@ public interface ArticleService {
 
 	public PageBeanUtil findOrderByArticlePrice(int page, int sequence,
 			int limitPage, String typeId);
+
+	public PageBeanUtil findTitlePriceScope(int page, int limitPage,
+			double minPrice, double maxPrice, String typeId);
 
 }

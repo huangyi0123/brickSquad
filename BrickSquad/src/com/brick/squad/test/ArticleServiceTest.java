@@ -237,4 +237,11 @@ public class ArticleServiceTest {
 	public void findSearchAllArticleCountSecond(){
 		System.out.println(articleService.findSearchAllArticleCountSecond("yiliaoqixie"));
 	}
+	@Test
+	public void findArticleTypeIdSecond(){
+		PageBeanUtil pageBeanUtil=new PageBeanUtil<>();
+		pageBeanUtil.setParentId("yiliaoqixie");
+		List<String> data=articleService.findArticleTypeIdSecond(pageBeanUtil);
+		System.out.println("+++++++++++++++++"+data);
+	}
 }
