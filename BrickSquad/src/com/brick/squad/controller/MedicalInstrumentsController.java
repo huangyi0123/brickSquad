@@ -410,9 +410,17 @@ public class MedicalInstrumentsController {
 				.findIdAndTypeNmae(typeId);
 		request.setAttribute("listType", listType);
 		/** 查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
 		List<Article> list = articleService
-				.findArticleImgAndName(typeId);
+				.findArticleImgAndName(parentId);
 		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
 				list);
 		request.setAttribute("listArticle", listArticle);
@@ -457,10 +465,18 @@ public class MedicalInstrumentsController {
 				.findIdAndTypeNmae(typeId);
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
 		/*String typeSecond=articleService.findTypeSecond(typeId);*/
 		List<Article> list = articleService
-				.findArticleImgAndName(typeId);
+				.findArticleImgAndName(parentId);
 		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
 				list);
 		request.setAttribute("listArticle", listArticle);
@@ -495,9 +511,17 @@ public class MedicalInstrumentsController {
 				.findIdAndTypeNmae(typeId);
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
 		List<Article> list = articleService
-				.findArticleImgAndName(typeId);
+				.findArticleImgAndName(parentId);
 		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
 				list);
 		request.setAttribute("listArticle", listArticle);
@@ -533,9 +557,17 @@ public class MedicalInstrumentsController {
 				.findIdAndTypeNmae(typeId);
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
 		List<Article> list = articleService
-				.findArticleImgAndName(typeId);
+				.findArticleImgAndName(parentId);
 		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
 				list);
 		request.setAttribute("listArticle", listArticle);
@@ -571,9 +603,17 @@ public class MedicalInstrumentsController {
 				.findIdAndTypeNmae(typeId);
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
 		List<Article> list = articleService
-				.findArticleImgAndName(typeId);
+				.findArticleImgAndName(parentId);
 		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
 				list);
 		request.setAttribute("listArticle", listArticle);
@@ -620,10 +660,16 @@ public class MedicalInstrumentsController {
 		request.setAttribute("listType", listType);
 		/** 医疗器械查询商品图片和商品名称 */
 		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
-		/*List<Article> list = articleService
-				.findArticleImgAndName("laorenjianfuyongpin");*/
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
 		List<Article> list = articleService
-				.findArticleImgAndName(typeId);
+				.findArticleImgAndName(parentId);
 		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
 				list);
 		request.setAttribute("listArticle", listArticle);

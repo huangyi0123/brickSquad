@@ -1185,6 +1185,13 @@ public class ArticleServiceImpl implements ArticleService {
 		return pageBean;
 	}
 
+	@Override
+	/**根据type的parentId查询商品的typeId*/
+	public List<String> findArticleTypeIdSecond(PageBeanUtil pageBeanUtil) {
+		List<String> data=articleMapper.findArticleTypeIdSecond(pageBeanUtil);
+		return data;
+	}
+
 
 
 

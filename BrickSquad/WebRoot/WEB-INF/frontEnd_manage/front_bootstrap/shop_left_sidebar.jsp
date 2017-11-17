@@ -836,7 +836,7 @@
 												<span class="onsale">Sale!</span> <a
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
-														<img width="300" height="300"
+														<img width="300px" height="300px"
 															src="resource/image/articleImg/${article3.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""

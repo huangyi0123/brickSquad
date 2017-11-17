@@ -448,4 +448,11 @@ LEFT JOIN (
 		order_details od GROUP BY od.article_id) s ON
 		a.id=s.id LIMIT 0,#{take}
 	</select>
+	<!-- 根据父类id查找 商品TypeID-->
+	<select id="findArticleTypeIdSecond" parameterType="com.brick.squad.util.PageBeanUtil" 
+	resultType="String">
+	SELECT a.type_id 
+	FROM article a ,type t 
+	WHERE a.type_id=t.id AND t.parent_id=#{parentId}
+	</select>
 </mapper>
