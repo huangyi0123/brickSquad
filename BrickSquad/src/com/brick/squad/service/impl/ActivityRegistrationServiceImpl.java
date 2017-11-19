@@ -64,5 +64,7 @@ public class ActivityRegistrationServiceImpl implements
 				.findActivityRegistrationAndPersonalInformationAndActivities(id);
 		return activityRegistrationExpand;
 	}
+	/**首页预约活动信息的添加*/
+	
 
 }
