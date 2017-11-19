@@ -34,8 +34,10 @@
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 </script>
@@ -86,6 +88,23 @@
 	function prevTab(elem) {
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
+<<<<<<< HEAD
+=======
+</script>
+<script type="text/javascript">
+	function findTelephoneView() {
+		$
+				.ajax({
+					url : "${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
+					type : 'post',
+					success : function(data) {
+						var telephone = document.getElementById("telephone");
+						var json = eval(data);
+						telephone.value = "json[0].telephone";
+					}
+				});
+	}
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 </script>
 
 
@@ -111,13 +130,10 @@
 					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="">活动预约</a>
+								<a href="">线上直播</a>
 							</dd>
 							<dd>
-								<a href="">乐堡讲座</a>
-							</dd>
-							<dd>
-								<a href="">乐堡直播</a>
+								<a href="">线下活动</a>
 							</dd>
 							<dd>
 								<a href="">乐堡课程</a>
@@ -129,35 +145,35 @@
 								<a href="">营养膳食</a>
 							</dd>
 							<dd>
-								<a href="">健康管理</a>
+								<a href="">用户视频</a>
 							</dd>
 							<dd>
-								<a href="">住户感言</a>
-							</dd>
-							<dd>
-								<a href="">住户视频</a>
+								<a href="">用户反馈</a>
 							</dd>
 						</dl></li>
 
 					<li class="layui-nav-item"><a href="">乐堡服务</a>
 						<dl class="layui-nav-child">
 							<dd>
+								<a href="">体检预约</a>
+							</dd>
+							<dd>
+								<a href="">生活助手</a>
+							</dd>
+							<dd>
 								<a href="">独立生活</a>
 							</dd>
 							<dd>
-								<a href="">协助护理</a>
-							</dd>
-							<dd>
-								<a href="">记忆护理</a>
-							</dd>
-							<dd>
-								<a href="">康复护理</a>
+								<a href="">康复协助</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">关于乐堡</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="javascript:;">乐堡简介</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">快速上手</a>
 							</dd>
 							<dd>
 								<a href="javascript:;">加入我们</a>
@@ -319,34 +335,32 @@
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡活动</h3></a>
 					<ul>
-						<li><a href="#">活动预约</a></li>
-						<li><a href="#">乐堡讲座</a></li>
-						<li><a href="#">乐堡直播</a></li>
-						<li><a href="#">乐堡课程</a></li>
+						<li><a href="#">线上直播</a></li>
+						<li><a href="#">线下活动</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡生活</h3></a>
 					<ul>
 						<li>营养膳食</li>
-						<li>健康管理</li>
-						<li>住户感言</li>
-						<li>住户视频</li>
+						<li>用户视频</li>
+						<li>用户反馈</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡服务</h3></a>
 					<ul>
+						<li><a href="#">体检预约</a></li>
+						<li><a href="#">生活助手</a></li>
 						<li><a href="#">独立生活</a></li>
-						<li><a href="#">协助护理</a></li>
-						<li><a href="#">记忆护理</a></li>
-						<li><a href="#">康复护理</a></li>
+						<li><a href="#">康复协助</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>关于乐堡</h3></a>
 					<ul>
 						<li><a href="#">乐堡简介</a></li>
+						<li><a href="#">快速上手</a></li>
 						<li><a href="#">加入我们</a></li>
 						<li><a href="#">联系我们</a></li>
 					</ul>
@@ -417,17 +431,17 @@
 									role="tab" title="Complete"> </a></li>
 							</ul>
 						</div>
-						
-						
-					
+
 						<!-- 预约参观 -->
 						<form role="form" method="post" action="${pageContext.request.contextPath }/reservation/findInsertReservation">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
 										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">预约参观</label>
-										<label
+
+											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
+											onclick="findTelephoneView()">预约参观</label> <label
+
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名" name="rname"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
@@ -487,10 +501,10 @@
 								</div>
 							</div>
 						</form>
-						
-						
-						
-						
+
+
+
+
 					</div>
 					</section>
 				</div>
