@@ -107,16 +107,10 @@
 				<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="">活动预约</a>
+							<a href="">线上直播</a>
 						</dd>
 						<dd>
-							<a href="">乐堡讲座</a>
-						</dd>
-						<dd>
-							<a href="">乐堡直播</a>
-						</dd>
-						<dd>
-							<a href="">乐堡课程</a>
+							<a href="">线下活动</a>
 						</dd>
 					</dl></li>
 				<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
@@ -125,35 +119,35 @@
 							<a href="">营养膳食</a>
 						</dd>
 						<dd>
-							<a href="">健康管理</a>
+							<a href="">用户视频</a>
 						</dd>
 						<dd>
-							<a href="">住户感言</a>
-						</dd>
-						<dd>
-							<a href="">住户视频</a>
+							<a href="">用户反馈</a>
 						</dd>
 					</dl></li>
 
 				<li class="layui-nav-item"><a href="">乐堡服务</a>
 					<dl class="layui-nav-child">
 						<dd>
+							<a href="">体检预约</a>
+						</dd>
+						<dd>
+							<a href="">生活助手</a>
+						</dd>
+						<dd>
 							<a href="">独立生活</a>
 						</dd>
 						<dd>
-							<a href="">协助护理</a>
-						</dd>
-						<dd>
-							<a href="">记忆护理</a>
-						</dd>
-						<dd>
-							<a href="">康复护理</a>
+							<a href="">康复协助</a>
 						</dd>
 					</dl></li>
 				<li class="layui-nav-item"><a href="javascript:;">关于乐堡</a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a href="javascript:;">乐堡简介</a>
+						</dd>
+						<dd>
+							<a href="javascript:;">快速上手</a>
 						</dd>
 						<dd>
 							<a href="javascript:;">加入我们</a>

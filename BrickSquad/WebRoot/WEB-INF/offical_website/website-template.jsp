@@ -34,10 +34,12 @@
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="resource/css/website-template.css">
-	<script type="application/x-javascript">
+<script type="application/x-javascript">
+	
 	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 </script>
@@ -88,26 +90,32 @@
 	}
 </script>
 <script type="text/javascript">
-function findTelephoneView() {
-	$.ajax({
-		  url:"${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
-		  type:'post', 
-		  success:function(data){
-			  var telephone=document.getElementById("telephone");
-			 var json = eval(data); 
-			 telephone.value="json[0].telephone";
-		  }
-		  });	
-}
+	function findTelephoneView() {
+		$
+				.ajax({
+					url : "${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
+					type : 'post',
+					success : function(data) {
+						var telephone = document.getElementById("telephone");
+						var json = eval(data);
+						telephone.value = "json[0].telephone";
+					}
+				});
+	}
 </script>
 </head>
 
 <body>
 	<div class="template_body">
 		<jsp:include page="official-header.jsp"></jsp:include>
-<div class="template_img">
-<img alt="" src="resource/image/3_2.png">
-</div>
+		<div class="template_img">
+			<img alt="" src="resource/image/3_2.png">
+		</div>
+		<div class="template_main">
+		<div class="tem_main_left">
+		<input value="">
+		</div>
+		</div>
 		<jsp:include page="official-footer.jsp"></jsp:include>
 	</div>
 	<script>

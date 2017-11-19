@@ -14,3 +14,16 @@
 	width: 100%;
 	height: 200px;
 }
+
+.template_main{
+	width:100%;
+	background-color: white;
+}
+
+.tem_main_left{
+	width: 20%;
+	height:500px;
+	margin-left:150px;
+	background-color: #EBEBEC;
+	
+}

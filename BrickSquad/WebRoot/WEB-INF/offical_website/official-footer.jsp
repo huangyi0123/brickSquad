@@ -37,34 +37,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡活动</h3></a>
 					<ul>
-						<li><a href="#">活动预约</a></li>
-						<li><a href="#">乐堡讲座</a></li>
-						<li><a href="#">乐堡直播</a></li>
-						<li><a href="#">乐堡课程</a></li>
+						<li><a href="#">线上直播</a></li>
+						<li><a href="#">线下活动</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡生活</h3></a>
 					<ul>
 						<li>营养膳食</li>
-						<li>健康管理</li>
-						<li>住户感言</li>
-						<li>住户视频</li>
+						<li>用户视频</li>
+						<li>用户反馈</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡服务</h3></a>
 					<ul>
+						<li><a href="#">体检预约</a></li>
+						<li><a href="#">生活助手</a></li>
 						<li><a href="#">独立生活</a></li>
-						<li><a href="#">协助护理</a></li>
-						<li><a href="#">记忆护理</a></li>
-						<li><a href="#">康复护理</a></li>
+						<li><a href="#">康复协助</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>关于乐堡</h3></a>
 					<ul>
 						<li><a href="#">乐堡简介</a></li>
+						<li><a href="#">快速上手</a></li>
 						<li><a href="#">加入我们</a></li>
 						<li><a href="#">联系我们</a></li>
 					</ul>
