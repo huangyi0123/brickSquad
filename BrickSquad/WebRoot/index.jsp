@@ -32,8 +32,10 @@
 	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -91,7 +93,109 @@
 
 <body>
 	<div class="banner">
-		<jsp:include page="WEB-INF/offical_website/official-header.jsp"></jsp:include>
+		<div class="header" style="height: 66px;">
+			<div class="logo">
+				<h1>
+					<a href="index.html"><i><img src="resource/image/cell.png"
+							alt=" " /></i>Easy Recharge</a>
+				</h1>
+			</div>
+			<div class="top-nav">
+				<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
+				<ul class="layui-nav"
+					style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
+					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
+					<li class="layui-nav-item"><a href="shopIndex/toShop"
+						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
+
+					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">活动预约</a>
+							</dd>
+							<dd>
+								<a href="">乐堡讲座</a>
+							</dd>
+							<dd>
+								<a href="">乐堡直播</a>
+							</dd>
+							<dd>
+								<a href="">乐堡课程</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">营养膳食</a>
+							</dd>
+							<dd>
+								<a href="">健康管理</a>
+							</dd>
+							<dd>
+								<a href="">住户感言</a>
+							</dd>
+							<dd>
+								<a href="">住户视频</a>
+							</dd>
+						</dl></li>
+
+					<li class="layui-nav-item"><a href="">乐堡服务</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">独立生活</a>
+							</dd>
+							<dd>
+								<a href="">协助护理</a>
+							</dd>
+							<dd>
+								<a href="">记忆护理</a>
+							</dd>
+							<dd>
+								<a href="">康复护理</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="javascript:;">关于乐堡</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">乐堡简介</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">加入我们</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">联系我们</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="javascript:;"><img
+							src="http://t.cn/RCzsdCq" class="layui-nav-img">登录</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="javascript:;">个人中心</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">注册</a>
+							</dd>
+							<dd>
+								<a href="javascript:;">注销</a>
+							</dd>
+						</dl></li>
+				</ul>
+
+			</div>
+			<!-- start search-->
+			<div class="search-box">
+				<div id="sb-search" class="sb-search">
+					<form>
+						<input class="sb-search-input" placeholder="请输入您的关键字..."
+							type="search" name="search" id="search">
+						<input class="sb-search-submit" type="submit" value="">
+						<span class="sb-icon-search"> </span>
+					</form>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
 		<div class="layui-carousel" id="test10">
 			<div carousel-item="">
 				<div>
@@ -200,9 +304,81 @@
 				omnis voluptas assumenda est.</p>
 		</div>
 	</div>
-	
-<jsp:include page="WEB-INF/offical_website/official-footer.jsp"></jsp:include>
-	
+
+	<div class="footer-top">
+		<div class="container">
+			<div class="foo-grids">
+				<div class="col-md-3 foo-grid" style="margin-left: 50px;">
+					<a href="#"><h3>首页</h3></a>
+					<ul>
+						<li><a href="#"><i class="fa fa-qq"></i></a></li>
+						<li><a href="#">Aircel</a></li>
+						<li><a href="#">BSNL</a></li>
+						<li><a href="#">Idea</a></li>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>乐堡活动</h3></a>
+					<ul>
+						<li><a href="#">活动预约</a></li>
+						<li><a href="#">乐堡讲座</a></li>
+						<li><a href="#">乐堡直播</a></li>
+						<li><a href="#">乐堡课程</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>乐堡生活</h3></a>
+					<ul>
+						<li>营养膳食</li>
+						<li>健康管理</li>
+						<li>住户感言</li>
+						<li>住户视频</li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>乐堡服务</h3></a>
+					<ul>
+						<li><a href="#">独立生活</a></li>
+						<li><a href="#">协助护理</a></li>
+						<li><a href="#">记忆护理</a></li>
+						<li><a href="#">康复护理</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>关于乐堡</h3></a>
+					<ul>
+						<li><a href="#">乐堡简介</a></li>
+						<li><a href="#">加入我们</a></li>
+						<li><a href="#">联系我们</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 foo-grid">
+					<a href="#"><h3>乐堡咨询</h3></a>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<h2>
+				<a href="index.html">Easy Recharge</a>
+			</h2>
+			<p>
+				Copyright &copy; 2016.Company name All rights reserved.More
+				Templates <a href="http://www.cssmoban.com/" target="_blank"
+					title="模板之家">模板之家</a> - Collect from <a
+					href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+			</p>
+			<ul>
+				<li><a class="face1" href="#"></a></li>
+				<li><a class="face2" href="#"></a></li>
+				<li><a class="face3" href="#"></a></li>
+				<li><a class="face4" href="#"></a></li>
+			</ul>
+		</div>
+	</div>
+
 	<!-- mobile -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
