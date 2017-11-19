@@ -35,13 +35,10 @@
 		$("#birthday").html(Format(new Date(birthday), "yyyy-MM-dd"));
 		//判断用户信息是否完善
 		var name = $("#pername").val();
-		console.log(name);
 		if (name == "") {
-			$(".uinfo").show();
-			$(".info").hide();
+			updatePinfo("1");
 		} else {
-			$(".uinfo").hide();
-			$(".info").show();
+			savesa("1");
 		}//js
 	})
 </script>
@@ -90,8 +87,8 @@
 				</ul>
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
-						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦！<a class="info" href="javascript:;"
-								onclick="updatePinfo()">修改信息</a></label> <label style="display: inline-block;">当前头像：</label>
+						<label>亲爱的${user.username }，填写真实的资料，有助于您更好的使用本系统哦</label> <label
+							style="display: inline-block;">当前头像：</label>
 						<img class="userPicPath" alt="还没有图片"
 							style="border-radius:100%;width: 100px;height: 100px;margin-left:50px;margin-top: 0px;">
 						<form id="formFileData" action="user/userUpdateUserPicPath" enctype="multipart/form-data"
@@ -113,8 +110,8 @@
 						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
 						<!--分割线  -->
 						<!-- 个人信息开始 -->
-						<form class="layui-form" action="personalInformation/userUpdatePersonalInformation"
-							method="post">
+						<form class="layui-form message" action="personalInformation/userUpdatePersonalInformation"
+							method="post" id="perinformation">
 							<input type="hidden" value="${addressAndPersonaInformationExpand.personalInformation.id }"
 								name="personalInformation.id">
 							<input type="hidden"
@@ -126,26 +123,20 @@
 								name="" id="pername">
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 真实姓名：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.name }</span>
-								<input type="text" value="${addressAndPersonaInformationExpand.personalInformation.name }"
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px" id="ipname">${addressAndPersonaInformationExpand.personalInformation.name }</span>
+								<input id="perName" type="text"
+									value="${addressAndPersonaInformationExpand.personalInformation.name }"
 									name="personalInformation.name" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;" autocomplete="off"
 									placeholder="请输入真实姓名" class="layui-input uinfo">
 							</div>
-
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 性别：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
-								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px">
-									<%-- <input type="radio" required lay-verify="required"
-										<c:if test="${addressAndPersonaInformationExpand.personalInformation.gender eq'男'}">checked</c:if>
-										name="
-								personalInformation.gender" value="男" title="男">
-									<input type="radio" required lay-verify="required"
-										<c:if test="${addressAndPersonaInformationExpand.personalInformation.gender eq'女'}">checked</c:if>
-										name="personalInformation.gender" value="女" title="女"> --%>
-									<input type="radio" name="sex" value="男" title="男" checked="">
-									<input type="radio" name="sex" value="女" title="女">
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px" id="ipgender">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
+								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px"
+									id="perGender">
+									<input type="radio" name="personalInformation.gender" value="男" title="男" >
+									<input type="radio" name="personalInformation.gender" value="女" title="女">
 								</div>
 							</div>
 							<div class="layui-form-item">
@@ -154,8 +145,8 @@
 									value="${addressAndPersonaInformationExpand.personalInformation.idCard }"
 									lay-verify="identity" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;display:inline-block;"
-									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo">
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
+									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo" id="idcard">
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px" id="ipidcard">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
 							</div>
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">出生年月：</label>
@@ -163,18 +154,20 @@
 									val="${addressAndPersonaInformationExpand.personalInformation.birthday }"
 									lay-verify="title" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px; display:inline-block"
-									autocomplete="off" placeholder="出生年月" class="layui-input uinfo">
+									autocomplete="off" placeholder="出生年月" class="layui-input uinfo" id="birthday">
 								<span id="birthday" class="info"
-									style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
+									style="font-size: 17px;display: block;float: left;margin-top: 25px" >${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
 							</div>
 							<div class="layui-inline">
 								<label style="width: 100px ;float: left;">* 现居住地：</label>
-								<span class="info" style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+								<span class="info" id="addressqw"  style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
 								<div class="uinfo">
+									<input type="hidden" id="addressId"
+										value="${addressAndPersonaInformationExpand.address.id }">
 									<div class="layui-input-inline">
 										<select required lay-verify="required"
 											val="${addressAndPersonaInformationExpand.address.provinceId}" name="address.provinceId"
-											id="prId" lay-filter="prIds" lay-search="">
+											id="prIdas" lay-filter="prIds" lay-search="">
 											<option value="">选择省份</option>
 										</select>
 									</div>
@@ -203,45 +196,41 @@
 										<input required lay-verify="required" type="text"
 											value="${addressAndPersonaInformationExpand.address.detailed}" name="address.detailed"
 											lay-verify="title" style="width: 350px;margin-left: 30px;margin-top:10px;"
-											autocomplete="off" placeholder="请输入详细地址" class="layui-input">
+											autocomplete="off" id="detailed" placeholder="请输入详细地址" class="layui-input">
 									</div>
 								</div>
 							</div>
-						</form>
 						<!--分割线  -->
 						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
 						<!--分割线  -->
 						<div style="clear:both;"></div>
 						<!--亲属信息  -->
 						<div>
-							<label>* 亲属联系人1：</label> <label>* 联系人姓名：</label>
-							<input type="text" name="title" lay-verify="title"
+							<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
+
+							<input type="text" name="relatives.name" lay-verify="title" id="gName"
 								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input">
-							<label>* 联系人电话：</label>
-							<input type="text" name="title" lay-verify="title"
+								placeholder="请输入联系人姓名" class="layui-input uinfo" value="${addressAndPersonaInformationExpand.relatives.name }">
+							<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
+							<div style="clear: both;"></div>
+							<label style="display:inline-block; ">* 联系人电话：</label>
+							<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
 								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input">
-							<label>* 亲属关系：</label>
-							<form class="layui-form" action="">
-								<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
+								placeholder="请输入联系人电话" class="layui-input uinfo" value="${addressAndPersonaInformationExpand.relatives.telephone }">
+							<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
+							<div style="clear: both;"></div>
+							<label style="display:inline-block; ">* 亲属关系：</label>	
+								<div class="layui-inline uinfo" style="margin-left:0px;margin-top: -15px;">
 									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="">
+										<select name="relatives.relationshipId" lay-verify="required" lay-search="" id="qsgx" val="${relationship.id }" >
 											<option value="">直接选择或搜索选择</option>
-											<option value="1">父女</option>
-											<option value="2">母女</option>
-											<option value="3">父子</option>
-											<option value="4">母子</option>
-											<option value="5">姐弟</option>
-											<option value="6">姐妹</option>
-											<option value="7">兄弟</option>
-											<option value="8">兄妹</option>
 										</select>
 									</div>
 								</div>
 							</form>
+							<span class="info" id="gxtype">${relationship.name }</span>
 						</div>
-						<div>
+						<div style="display: none;">
 							<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
 							<input type="text" name="title" lay-verify="title"
 								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
@@ -254,20 +243,16 @@
 							<form class="layui-form" action="">
 								<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
 									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="">
+										<select name="modules" lay-verify="required" lay-search="" >
 											<option value="">直接选择或搜索选择</option>
-											<option value="1">父女</option>
-											<option value="2">母女</option>
-											<option value="3">父子</option>
-											<option value="4">母子</option>
-											<option value="5">姐弟</option>
-											<option value="6">姐妹</option>
-											<option value="7">兄弟</option>
-											<option value="8">兄妹</option>
 										</select>
 									</div>
 								</div>
 							</form>
+						</div>
+						<div class="layui-inline" style="margin-left: 150px;margin-top: 20px">
+							<button class="layui-btn info" onclick="updatePinfo('0')">修改</button>
+							<button class="layui-btn uinfo" onclick="savesa('0')">保存</button>
 						</div>
 						<!-- 亲属信息 -->
 					</div>
@@ -611,304 +596,303 @@
 	</div>
 
 	<script>
-		/* 开启遮罩 */
-		layui.use('layer', function() {
-			layer.load(1, {
-				shade : [ 0.8, '#393D49' ]
+		layui.use('form', function() {
+			var form = layui.form();
+			$.ajax({
+				url : 'region/findRegionByLevel?level=1',
+				success : function(data) {
+					data = JSON.parse(data);
+					findAll(data, "#prIdas");
+					form.render('select', 'prIds');
+					console.log("qw");
+				}
+			});
+			//只有执行了这一步，部分表单元素才会自动修饰成功
+			//但是，如果你的HTML是动态生成的，自动渲染就会失效
+			//因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+			//以下是个人信息地址下拉框监听事件
+
+			/* form
+					.on(
+							'select(prIds)',
+							function(data) {
+								$
+										.ajax({
+											url : 'address/findRegionsByParentId?pid='
+													+ data.value,
+											success : function(
+													result) {
+												result = JSON
+														.parse(result);
+												$("#cityId")
+														.empty();
+												$("#cityId")
+														.append(
+																'<option value="">选择城市</option>');
+												$("#countyId")
+														.empty();
+												$("#countyId")
+														.append(
+																'<option value="">选择县市</option>');
+												$("#countryId")
+														.empty();
+												$("#countryId")
+														.append(
+																'<option value="">选择乡镇</option>');
+												findAll(result,
+														"#cityId");
+												form
+														.render(
+																'select',
+																'cityIdSelect');
+											}
+										});
+							});
+			form
+					.on(
+							'select(cityIdSelect)',
+							function(data) {
+								$
+										.ajax({
+											url : 'address/findRegionsByParentId?pid='
+													+ data.value,
+											success : function(
+													result) {
+												result = JSON
+														.parse(result);
+												$("#countyId")
+														.empty();
+												$("#countyId")
+														.append(
+																'<option value="">选择县市</option>');
+												$("#countryId")
+														.empty();
+												$("#countryId")
+														.append(
+																'<option value="">选择乡镇</option>');
+												findAll(result,
+														"#countyId");
+
+												console
+														.log(result);
+												form
+														.render(
+																'select',
+																'countyIdSelect');
+											}
+										});
+							});
+			form
+					.on(
+							'select(countyIdSelect)',
+							function(data) {
+								$
+										.ajax({
+											url : 'address/findRegionsByParentId?pid='
+													+ data.value,
+											success : function(
+													result) {
+												result = JSON
+														.parse(result);
+												$("#countryId")
+														.empty();
+												$("#countryId")
+														.append(
+																'<option value="">选择乡镇</option>');
+												findAll(result,
+														"#countryId");
+												form
+														.render(
+																'select',
+																'countryIdSelect');
+											}
+										});
+							});
+			//以下是亲属信息地址下拉框监听事件
+			form
+					.on(
+							'select(relativesprIds)',
+							function(data) {
+								$
+										.ajax({
+											url : 'address/findRegionsByParentId?pid='
+													+ data.value,
+											success : function(
+													result) {
+												result = JSON
+														.parse(result);
+												$(
+														"#relativescityId")
+														.empty();
+												$(
+														"#relativescityId")
+														.append(
+																'<option value="">选择城市</option>');
+												$(
+														"#relativescountyId")
+														.empty();
+												$(
+														"#relativescountyId")
+														.append(
+																'<option value="">选择县市</option>');
+												$(
+														"#relativescountryId")
+														.empty();
+												$(
+														"#relativescountryId")
+														.append(
+																'<option value="">选择乡镇</option>');
+												findAll(result,
+														"#relativescityId");
+												form
+														.render(
+																'select',
+																'relativescityIdSelect');
+											}
+										});
+							});
+			form
+					.on(
+							'select(relativescityIdSelect)',
+							function(data) {
+								$
+										.ajax({
+											url : 'address/findRegionsByParentId?pid='
+													+ data.value,
+											success : function(
+													result) {
+												result = JSON
+														.parse(result);
+												$(
+														"#relativescountyId")
+														.empty();
+												$(
+														"#relativescountyId")
+														.append(
+																'<option value="">选择县市</option>');
+												$(
+														"#relativescountryId")
+														.empty();
+												$(
+														"#relativescountryId")
+														.append(
+																'<option value="">选择乡镇</option>');
+												findAll(result,
+														"#relativescountyId");
+
+												console
+														.log(result);
+												form
+														.render(
+																'select',
+																'relativescountyIdSelect');
+											}
+										});
+							});
+			form
+					.on(
+							'select(relativescountyIdSelect)',
+							function(data) {
+								$
+										.ajax({
+											url : 'address/findRegionsByParentId?pid='
+													+ data.value,
+											success : function(
+													result) {
+												result = JSON
+														.parse(result);
+												$(
+														"#relativescountryId")
+														.empty();
+												$(
+														"#relativescountryId")
+														.append(
+																'<option value="">选择乡镇</option>');
+												findAll(result,
+														"#relativescountryId");
+												form
+														.render(
+																'select',
+																'relativescountryIdSelect');
+											}
+										});
+							});
+			$(function() {
+
+				//没有身体状况数据提示
+				var healthRecords = '${personalInfofmationAndHealthRecordsExpand.healthRecords}';
+				if (healthRecords == "") {
+					$("#nullMessage").html("还没有您的身体状况数据！");
+				}
+
+				//回显address中的省级地址
+				var provinceData = ${provinceData};
+				//个人信息地址省级地址回填
+				findAll(provinceData, "#prId");
+				form.render('select', 'prIds');
+				//亲属联系人地址省级地址回填
+				findAll(provinceData, "#relativesprIds");
+				form.render('select', 'relativesprIds');
+				//个人信息地址回填
+				var addressId = "${addressAndPersonaInformationExpand.personalInformation.addressId}";
+				if (addressId.length > 0) {
+					//回显address中的市级地址
+					var address = '${allRegionResultById}';
+					address = JSON.parse(address);
+					findAll(address[0].city, "#cityId");
+					form.render('select', 'cityIdSelect');
+					//回显address中的县级地址
+					findAll(address[0].county, "#countyId");
+					form.render('select', 'countyIdSelect');
+					//回显address中的乡镇级地址
+					findAll(address[0].country, "#countryId");
+					form.render('select', 'countryIdSelect');
+
+				} else {
+				}
+
+				//亲属地址回填
+				var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
+				if (relativesAddresId.length > 0) {
+					//回显address中的市级地址
+					var address = '${relativesallRegionResultById}';
+					address = JSON.parse(address);
+					findAll(address[0].city, "#relativescityId");
+					form.render('select',
+							'relativescityIdSelect');
+					//回显address中的县级地址
+					findAll(address[0].county,
+							"#relativescountyId");
+					form.render('select',
+							'relativescountyIdSelect');
+					//回显address中的乡镇级地址
+					findAll(address[0].country,
+							"#relativescountryId");
+					form.render('select',
+							'relativescountryIdSelect');
+				} else {
+
+				}
+
+				//页面日期格式回填处理
+				var birthdayId = $("#birthdayId").attr('val');
+				birthdayId = Format(new Date(birthdayId),
+						"yyyy-MM-dd");
+				$("#birthdayId").val(birthdayId);
+				/* 关闭遮罩 */
+			/* layui.use('layer', function() {
+				var layer = layui.layer;
+				layer.closeAll();
+			}); */
+
+			layui.use('element', function() {
+				var element = layui.element();
+				//一些事件监听
+				element.on('tab(demo)', function(data) {
+
+				});
 			});
 		});
-
-		layui
-				.use(
-						'form',
-						function() {
-							var form = layui.form(); //只有执行了这一步，部分表单元素才会自动修饰成功
-							//但是，如果你的HTML是动态生成的，自动渲染就会失效
-							//因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
-							//以下是个人信息地址下拉框监听事件
-							form
-									.on(
-											'select(prIds)',
-											function(data) {
-												$
-														.ajax({
-															url : 'address/findRegionsByParentId?pid='
-																	+ data.value,
-															success : function(
-																	result) {
-																result = JSON
-																		.parse(result);
-																$("#cityId")
-																		.empty();
-																$("#cityId")
-																		.append(
-																				'<option value="">选择城市</option>');
-																$("#countyId")
-																		.empty();
-																$("#countyId")
-																		.append(
-																				'<option value="">选择县市</option>');
-																$("#countryId")
-																		.empty();
-																$("#countryId")
-																		.append(
-																				'<option value="">选择乡镇</option>');
-																findAll(result,
-																		"#cityId");
-																form
-																		.render(
-																				'select',
-																				'cityIdSelect');
-															}
-														});
-											});
-							form
-									.on(
-											'select(cityIdSelect)',
-											function(data) {
-												$
-														.ajax({
-															url : 'address/findRegionsByParentId?pid='
-																	+ data.value,
-															success : function(
-																	result) {
-																result = JSON
-																		.parse(result);
-																$("#countyId")
-																		.empty();
-																$("#countyId")
-																		.append(
-																				'<option value="">选择县市</option>');
-																$("#countryId")
-																		.empty();
-																$("#countryId")
-																		.append(
-																				'<option value="">选择乡镇</option>');
-																findAll(result,
-																		"#countyId");
-
-																console
-																		.log(result);
-																form
-																		.render(
-																				'select',
-																				'countyIdSelect');
-															}
-														});
-											});
-							form
-									.on(
-											'select(countyIdSelect)',
-											function(data) {
-												$
-														.ajax({
-															url : 'address/findRegionsByParentId?pid='
-																	+ data.value,
-															success : function(
-																	result) {
-																result = JSON
-																		.parse(result);
-																$("#countryId")
-																		.empty();
-																$("#countryId")
-																		.append(
-																				'<option value="">选择乡镇</option>');
-																findAll(result,
-																		"#countryId");
-																form
-																		.render(
-																				'select',
-																				'countryIdSelect');
-															}
-														});
-											});
-							//以下是亲属信息地址下拉框监听事件
-							form
-									.on(
-											'select(relativesprIds)',
-											function(data) {
-												$
-														.ajax({
-															url : 'address/findRegionsByParentId?pid='
-																	+ data.value,
-															success : function(
-																	result) {
-																result = JSON
-																		.parse(result);
-																$(
-																		"#relativescityId")
-																		.empty();
-																$(
-																		"#relativescityId")
-																		.append(
-																				'<option value="">选择城市</option>');
-																$(
-																		"#relativescountyId")
-																		.empty();
-																$(
-																		"#relativescountyId")
-																		.append(
-																				'<option value="">选择县市</option>');
-																$(
-																		"#relativescountryId")
-																		.empty();
-																$(
-																		"#relativescountryId")
-																		.append(
-																				'<option value="">选择乡镇</option>');
-																findAll(result,
-																		"#relativescityId");
-																form
-																		.render(
-																				'select',
-																				'relativescityIdSelect');
-															}
-														});
-											});
-							form
-									.on(
-											'select(relativescityIdSelect)',
-											function(data) {
-												$
-														.ajax({
-															url : 'address/findRegionsByParentId?pid='
-																	+ data.value,
-															success : function(
-																	result) {
-																result = JSON
-																		.parse(result);
-																$(
-																		"#relativescountyId")
-																		.empty();
-																$(
-																		"#relativescountyId")
-																		.append(
-																				'<option value="">选择县市</option>');
-																$(
-																		"#relativescountryId")
-																		.empty();
-																$(
-																		"#relativescountryId")
-																		.append(
-																				'<option value="">选择乡镇</option>');
-																findAll(result,
-																		"#relativescountyId");
-
-																console
-																		.log(result);
-																form
-																		.render(
-																				'select',
-																				'relativescountyIdSelect');
-															}
-														});
-											});
-							form
-									.on(
-											'select(relativescountyIdSelect)',
-											function(data) {
-												$
-														.ajax({
-															url : 'address/findRegionsByParentId?pid='
-																	+ data.value,
-															success : function(
-																	result) {
-																result = JSON
-																		.parse(result);
-																$(
-																		"#relativescountryId")
-																		.empty();
-																$(
-																		"#relativescountryId")
-																		.append(
-																				'<option value="">选择乡镇</option>');
-																findAll(result,
-																		"#relativescountryId");
-																form
-																		.render(
-																				'select',
-																				'relativescountryIdSelect');
-															}
-														});
-											});
-							$(function() {
-
-								//没有身体状况数据提示
-								var healthRecords = '${personalInfofmationAndHealthRecordsExpand.healthRecords}';
-								if (healthRecords == "") {
-									$("#nullMessage").html("还没有您的身体状况数据！");
-								}
-
-								//回显address中的省级地址
-								var provinceData = ${provinceData};
-								//个人信息地址省级地址回填
-								findAll(provinceData, "#prId");
-								form.render('select', 'prIds');
-								//亲属联系人地址省级地址回填
-								findAll(provinceData, "#relativesprIds");
-								form.render('select', 'relativesprIds');
-								//个人信息地址回填
-								var addressId = "${addressAndPersonaInformationExpand.personalInformation.addressId}";
-								if (addressId.length > 0) {
-									//回显address中的市级地址
-									var address = '${allRegionResultById}';
-									address = JSON.parse(address);
-									findAll(address[0].city, "#cityId");
-									form.render('select', 'cityIdSelect');
-									//回显address中的县级地址
-									findAll(address[0].county, "#countyId");
-									form.render('select', 'countyIdSelect');
-									//回显address中的乡镇级地址
-									findAll(address[0].country, "#countryId");
-									form.render('select', 'countryIdSelect');
-
-								} else {
-								}
-
-								//亲属地址回填
-								var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
-								if (relativesAddresId.length > 0) {
-									//回显address中的市级地址
-									var address = '${relativesallRegionResultById}';
-									address = JSON.parse(address);
-									findAll(address[0].city, "#relativescityId");
-									form.render('select',
-											'relativescityIdSelect');
-									//回显address中的县级地址
-									findAll(address[0].county,
-											"#relativescountyId");
-									form.render('select',
-											'relativescountyIdSelect');
-									//回显address中的乡镇级地址
-									findAll(address[0].country,
-											"#relativescountryId");
-									form.render('select',
-											'relativescountryIdSelect');
-								} else {
-
-								}
-
-								//页面日期格式回填处理
-								var birthdayId = $("#birthdayId").attr('val');
-								birthdayId = Format(new Date(birthdayId),
-										"yyyy-MM-dd");
-								$("#birthdayId").val(birthdayId);
-								/* 关闭遮罩 */
-								layui.use('layer', function() {
-									var layer = layui.layer;
-									layer.closeAll();
-								});
-
-								layui.use('element', function() {
-									var element = layui.element();
-									//一些事件监听
-									element.on('tab(demo)', function(data) {
-
-									});
-								});
-
-							});
-						});
 		$(function() {
 			init("");
 		});

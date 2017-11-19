@@ -189,8 +189,8 @@
 				<div class="rows">
 					<!-- LOGO -->
 					<div class="etrostore-logo pull-left">
-						<a href="common/toShop">
-							<img src="resource/front_bootstrap/images/icons/logo-orange.png" alt="Shoopy">
+						<a href="shopIndex/toShop">
+							<img src="resource/front_bootstrap/images/icons/20171116102946.png" alt="Shoopy">
 						</a>
 					</div>
 
@@ -375,7 +375,8 @@
 						<div class="coupon-light"></div>
 					</a>
 				</div> -->
-
+				<div style="margin-top: 50px;"></div>
+<jsp:include page="shop_footer.jsp"></jsp:include>
 			</div>
 		</div>
 		<script type="text/javascript" src="resource/front_bootstrap/js/jquery/jquery.min.js"></script>

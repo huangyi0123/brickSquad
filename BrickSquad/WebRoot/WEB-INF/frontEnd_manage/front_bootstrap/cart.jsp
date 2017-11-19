@@ -74,8 +74,9 @@
 
 
 	<div class="body-wrapper theme-clearfix">
-
+<a name="top"></a>
 		<jsp:include page="shop_header.jsp"></jsp:include>
+		 
 
 		<div class="listings-title">
 			<div class="container">
@@ -350,7 +351,7 @@
 		</div>
 	</div>
 
-	<a id="etrostore-totop" href="#"></a>
+	<a  href="#top"></a>
 
 	<div id="subscribe_popup" class="subscribe-popup"
 		style="background: url(resource/front_bootstrap/images/icons/bg_newsletter.jpg)">

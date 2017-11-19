@@ -60,6 +60,8 @@ public interface ArticleService {
 	 * */
 	public List<ArticleExpand> findArticleBuyNumberAndMedicle(String parentId)
 			throws Exception;
+	/**根据type的parentId查询商品的typeId*/
+	public List<String> findArticleTypeIdSecond(PageBeanUtil pageBeanUtil);
 
 	/*
 	 * 根据商品ID在订单明细表中查询该商品的销售总量
@@ -104,10 +106,28 @@ public interface ArticleService {
 	public Map<String, Object> findSearchAllArticleSecond(PageUtil pageUtil,String path);
 	public Map<String, Object> findSearchAllArticleSecondYiLiao(PageUtil pageUtil,String path);
 	public int findSearchAllArticleCountSecond(String typeId);
-	
+	/**
+	 * 根据关键字查询所有商品信息
+	 * */
+	public  Map<String, Object> findSearchAllArticleSecondAll(PageUtil pageUtil,String path);
+	/**
+	 * 搜索框根据分类查询商品信息
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondOther(PageUtil pageUtil,String path);
+	/**
+	 * 搜索框根据分类查询商品信息,如果是一级分类
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondYiLiaoSecond(PageUtil pageUtil,String path);
 	public Map<String, Object> findArticlePages(PageUtil pageUtil,String path,String order);
 
-
+	/**
+	 * 一二级关联查询总数
+	 * */
+	public int findSearchAllArticleCountSecondOther(String typeId);
+	/**
+	 * 根据关键字查询商品信息计算总数
+	 * */
+	public int findSearchAllArticleCountThreadOther(Map<String, Object> map);
 	
 	public int selectArticleRatedTotalById(String id);
 
@@ -134,5 +154,22 @@ public interface ArticleService {
 	 * 根据价格范围查询商品	
 	 * */
 	public PageBeanUtil<Article> findPriceScope(int page,int limitPage,double minPrice,double maxPrice)throws Exception;
+	/**首页分类的跳转显示商品信息*/
+	public PageBeanUtil<Article> findArtivleTypePage(int page,String typeId) throws Exception;
+
+	public PageBeanUtil findArtivleAndMedicalInstrumentsPage(int page,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findOrderByTypeSecondDate(int page, int sequence,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findOrderByTypePop(int page, int sequence,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findOrderByArticlePrice(int page, int sequence,
+			int limitPage, String typeId);
+
+	public PageBeanUtil findTitlePriceScope(int page, int limitPage,
+			double minPrice, double maxPrice, String typeId);
 
 }

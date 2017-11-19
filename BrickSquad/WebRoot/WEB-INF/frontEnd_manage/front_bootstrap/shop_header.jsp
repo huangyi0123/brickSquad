@@ -214,8 +214,8 @@
 			<div class="rows">
 				<!-- LOGO -->
 				<div class="etrostore-logo pull-left">
-					<a href="common/toShop"> <img
-						src="resource/front_bootstrap/images/icons/logo-orange.png"
+					<a href="shopIndex/toShop"> <img
+						src="resource/front_bootstrap/images/icons/20171116102946.png"
 						alt="Shoopy">
 					</a>
 				</div>
@@ -225,7 +225,7 @@
 						<div class="widget-inner">
 							<div class="top-form top-search">
 								<div class="topsearch-entry">
-									<form method="get"
+									<form method="post"
 										action="${pageContext.request.contextPath }/new_deals/findAllArticle">
 										<div>
 											<input type="text" value="" name="s"
@@ -657,7 +657,7 @@
 						</div>
 
 						<ul id="menu-primary-menu-1"
-							class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
+							class="nav nav-pills nav-mega etrostore-mega etrostore-menures" style="line-height: 15px">
 							<li class="active dropdown menu-home etrostore-mega-menu level1">
 								<a href="shopIndex/toShop" class="item-link dropdown-toggle">
 									<span class="have-title"> <span class="menu-color"
@@ -755,6 +755,7 @@
 											</ul></li>
 									</ul> --%>
 							</li>
+
 
 
 							<li
@@ -1027,6 +1028,11 @@
 								</span>
 							</a></li>
 
+					<li class="menu-about-us etrostore-menu-custom level1"><a
+								href="#" class="item-link"> <span
+									class="have-title"> <span class="menu-title">回到官网</span>
+								</span>
+							</a></li>
 
 						</ul>
 					</div>

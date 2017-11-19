@@ -202,13 +202,23 @@
 											<div id="main-slider" class="fullwidthbanner-container"
 												style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 												<div class="module slideshow no-margin">
-												<c:forEach var="article1" items="${listArticle1 }">
+												<%-- <c:forEach var="article1" items="${listArticle1 }"> --%>
 													<div class="item">
-														<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article1.id}"><img
-															src="resource/image/articleImg/${article1.image }" alt="slider1"
+														<a href="javascript:;"><img
+															src="resource/front_bootstrap/images/1903/lubnbo1.jpg" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
-													</c:forEach>
+													<div class="item">
+														<a href="javascript:;"><img
+															src="resource/front_bootstrap/images/1903/lunbo2.jpg" alt="slider1"
+															class="img-responsive" height="559"></a>
+													</div>
+													<div class="item">
+														<a href="javascript:;"><img
+															src="resource/front_bootstrap/images/1903/lunbo3.jpg" alt="slider1"
+															class="img-responsive" height="559"></a>
+													</div>
+													<%-- </c:forEach> --%>
 												</div>
 												<div class="loadeding"></div>
 											</div>
@@ -233,7 +243,7 @@
 									<div class="slider responsive">
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="${pageContext.request.contextPath }/MedicalInstruments/findArticleBrands?">
+												<a href="javascript:;">
 												<img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
@@ -243,7 +253,7 @@
 										<div class="item item-brand-cat">
 											<div class="item-image">
 												<a
-													href="http://demo.smartaddons.com/templates/html/etrostore/shop.html-books"><img
+													href="javascript:;"><img
 													width="173" height="91" src="resource/front_bootstrap/images/1903/br1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -251,7 +261,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173"
+												<a href="javascript:;"><img width="173"
 													src="resource/front_bootstrap/images/1903/br2.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -259,7 +269,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173"
+												<a href="javascript:;"><img width="173"
 													src="resource/front_bootstrap/images/1903/Brand_11.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -267,7 +277,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" 
+												<a href="javascript:;"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_10.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -275,7 +285,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" 
+												<a href="javascript:;"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_111.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -299,7 +309,7 @@
 									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article.id}"
 									title="${article.aname }">
 									 <img src="resource/image/articleImg/${article.image }"
-										alt="${article.aname }" width="300" height="300">
+										alt="${article.aname }" style="width:300px;height:300px;">
 										<h3>
 											${article.aname }
 											<mark class="count">(1)</mark>
@@ -323,11 +333,19 @@
 											<li><span class="current-li"><span
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
+												<c:if test="${url1 =='toShop_left_sidebar'}">
 													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">默认排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=2&page=1&limitPage=12">人气排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12">日期排序</a></li>
-													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
+													
+													<c:if test="${url1 =='findColthType'}">
+													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=2&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
 												</ul></li>
 										</ul>
 
@@ -349,11 +367,26 @@
 											
 												</c:if>
 												
+												<c:if test="${ url=='findOrderByTypePop'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 													<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												<c:if test="${ url=='findOrderByTypeSecondDate'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
 												<c:if test="${ url=='findOrderByMedicalInstruments'}">
@@ -363,11 +396,28 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+												
+												<c:if test="${ url=='findOrderByArticlePrice'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 											<c:if test="${ url=='findPriceScope'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
+												<c:if test="${ url=='findTitlePriceScope'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
 												
@@ -383,6 +433,14 @@
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
+													
+														<c:if test="${url=='findColthType'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=36">36</a></li>
 													</ul>
 													</c:if>
 													</li>
@@ -417,6 +475,16 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+								<c:if test="${ url=='findOrderByTypePop'}">
+								<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
 								
 								<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=1">1</a></span></li>
@@ -429,6 +497,18 @@
 								</c:if>
 								</c:if>
 								
+								
+								<c:if test="${ url=='findOrderByTypeSecondDate'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								<c:if test="${ url=='findOrderByMedicalInstruments'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=1">1</a></span></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
@@ -437,6 +517,17 @@
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByArticlePrice'}">
+								<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
@@ -454,6 +545,21 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+							
+								
+								<c:if test="${ url=='findTitlePriceScope'}">
+							
+									
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
 								
 								
 								<c:if test="${ url=='findArticleTitle'}">
@@ -467,6 +573,16 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+									<c:if test="${url=='findColthType'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+									</c:if>
 								</ul>
 								</nav>
 							</div>
@@ -529,6 +645,71 @@
 							
 							</ul>
 							</c:if>
+							
+							
+							
+							
+							
+							
+							<!-- 按价格范围查询所有商品信息 -->
+							<c:if test="${url =='findTitlePriceScope'}">
+										<ul class="products-loop row grid clearfix">
+							<!-- 商品分页查询 -->
+							
+							<c:if test="${ pageBean.limitPage}!=''">
+							<c:forEach var="article4" items="${ pageBean.list}">
+								<li
+									class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 post-255 product type-product status-publish has-post-thumbnail product_cat-electronics product_cat-home-appliances product_cat-vacuum-cleaner product_brand-apoteket first instock sale featured shipping-taxable purchasable product-type-simple">
+									<div class="products-entry item-wrap clearfix">
+										<div class="item-detail">
+											<div class="item-img products-thumb">
+												<span class="onsale">Sale!</span> <a
+													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}">
+													<div class="product-thumb-hover" style="width:200px;height:200px;">
+														<img width="300" height="300"
+															src="resource/image/articleImg/${article4.image }"
+															class="attachment-shop_catalog size-shop_catalog wp-post-image"
+															alt=""
+															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
+													</div>
+												</a>
+											</div>
+											<div class="item-content products-content">
+												<div class="reviews-content">
+													<div class="star">
+														<span style="width: 63px"></span>
+													</div>
+												</div>
+
+												<h4>
+													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}" title="${article4.aname }">${article4.aname }</a>
+												</h4>
+
+												<span class="item-price"><del>
+														<span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
+													</del> <ins>
+														<span class="woocommerce-Price-amount amount"><span
+															class="woocommerce-Price-currencySymbol">￥</span>${article4.price }</span>
+													</ins></span>
+
+												<div class="item-description">${article4.describes }</div>
+											</div>
+										</div>
+									</div>
+								</li>
+					</c:forEach>
+							
+							</c:if>
+						
+							
+							</ul>
+							</c:if>
+							
+							
+							
+							
+							
 							
 							
 								<!-- 搜索框搜索显示商品信息 -->
@@ -655,7 +836,7 @@
 												<span class="onsale">Sale!</span> <a
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
-														<img width="300" height="300"
+														<img width="300px" height="300px"
 															src="resource/image/articleImg/${article3.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
@@ -735,11 +916,19 @@
 											<li><span class="current-li"><span
 													class="current-li-content"><a>默认排序</a></span></span>
 												<ul>
+												<c:if test="${url1 =='toShop_left_sidebar'}">
 													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/toShop_left_sidebar?page=1">默认排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsPop?sequence=2&page=1&limitPage=12">人气排序</a></li>
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12">日期排序</a></li>
-													
 													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
+													
+													<c:if test="${url1 =='findColthType'}">
+													<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">默认排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=2&page=1&limitPage=12">人气排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12">日期排序</a></li>
+													<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=12">价格排序</a></li>
+													</c:if>
 												</ul></li>
 										</ul>
 
@@ -761,6 +950,14 @@
 											
 												</c:if>
 												
+												<c:if test="${ url=='findOrderByTypePop'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 													<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=12" id="fy">12</a></li>
@@ -768,11 +965,28 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+												
+												<c:if test="${ url=='findOrderByTypeSecondDate'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 												<c:if test="${ url=='findOrderByMedicalInstruments'}">
 													
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstruments?sequence=4&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
+													<c:if test="${ url=='findOrderByArticlePrice'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
 												
@@ -784,6 +998,15 @@
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
 											
 												</c:if>
+												
+												<c:if test="${ url=='findTitlePriceScope'}">
+													
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&page=1&limitPage=36">36</a></li>
+											
+												</c:if>
+												
 												<c:if test="${url=='findArticleTitle'}">
 												
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&page=1&limitPage=12" id="fy">12</a></li>
@@ -796,6 +1019,14 @@
 														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=12" id="fy">12</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=24">24</a></li>
 														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findmedicalpageBean?page=1&limitPage=36">36</a></li>
+													</ul>
+													</c:if>
+													
+														<c:if test="${url=='findColthType'}">
+												
+														<li class="current"><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=12" id="fy">12</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=24">24</a></li>
+														<li class=""><a href="${ pageContext.request.contextPath }/MedicalInstruments/findColthTypepageBean?typeId=${Ctype }&page=1&limitPage=36">36</a></li>
 													</ul>
 													</c:if>
 													</li>
@@ -831,6 +1062,17 @@
 								</c:if>
 								</c:if>
 								
+								<c:if test="${ url=='findOrderByTypePop'}">
+								<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypePop?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								<c:if test="${ url=='findOrderByMedicalInstrumentsDate'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=1">1</a></span></li>
 									<c:if test="${pageBean.page!=pageBean.totalPage }">	
@@ -839,6 +1081,17 @@
 									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
 									
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByMedicalInstrumentsDate?sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
+								<c:if test="${ url=='findOrderByTypeSecondDate'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByTypeSecondDate?typeId=${Ctype }&sequence=3&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
 								
@@ -854,6 +1107,31 @@
 								</c:if>
 								
 									
+								<c:if test="${ url=='findOrderByArticlePrice'}">
+								<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findOrderByArticlePrice?typeId=${Ctype }&sequence=4&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+									
+								<c:if test="${ url=='findTitlePriceScope'}">
+							
+									
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope?typeId=${Ctype }&min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+								</c:if>
+								
 								<c:if test="${ url=='findPriceScope'}">
 							
 									
@@ -867,6 +1145,7 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope?min_price=${ pageBean.min_price}&max_price=${pageBean.max_price }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
+								
 									
 								<c:if test="${ url=='findArticleTitle'}">
 									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=1">1</a></span></li>
@@ -879,7 +1158,16 @@
 									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findArticleTitle?s=${pageBean.s}&search_category=${pageBean.search_category }&limitPage=12&page=${pageBean.page+1}">?</a></li>
 								</c:if>
 								</c:if>
-								
+								<c:if test="${url=='findColthType'}">
+									<li><span class="page-numbers current"><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=1">1</a></span></li>
+									<c:if test="${pageBean.page!=pageBean.totalPage }">	
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">2</a></li>
+									
+									<li><a class="page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">3</a></li>
+									
+									<li><a class="next page-numbers" href="${ pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=${Ctype }&page=${pageBean.page+1}">?</a></li>
+								</c:if>
+									</c:if>
 								</ul>
 								</nav>
 							</div>
@@ -958,7 +1246,8 @@
 					</ul>
 				</div>
 			</div>
-
+			
+			<c:if test="${url1=='toShop_left_sidebar' }">
 			<div
 				class="widget-4 widget woocommerce_price_filter-3 woocommerce widget_price_filter">
 				<div class="widget-inner">
@@ -967,7 +1256,7 @@
 							<span>价格</span>
 						</h2>
 					</div>
-
+					
 					<form method="get" action="${ pageContext.request.contextPath }/MedicalInstruments/findPriceScope">
 						<div class="price_slider_wrapper">
 							<div class="price_slider" style="display:none;"></div>
@@ -977,7 +1266,7 @@
 								<input type="text" id="max_price" name="max_price" value=""
 									data-max="700" placeholder="Max price">
 
-								<button type="submit" class="button">确定</button>
+								<button type="submit" class="button">提交</button>
 
 								<div class="price_label" style="display:none;">
 									Price: <span class="from"></span> � <span class="to"></span>
@@ -986,8 +1275,51 @@
 							</div>
 						</div>
 					</form>
+					
 				</div>
 			</div>
+			</c:if>
+			
+			
+			
+			<c:if test="${url1=='findColthType' }">
+			<div
+				class="widget-4 widget woocommerce_price_filter-3 woocommerce widget_price_filter">
+				<div class="widget-inner">
+					<div class="block-title-widget">
+						<h2>
+							<span>价格</span>
+						</h2>
+					</div>
+					
+					<form method="get" action="${ pageContext.request.contextPath }/MedicalInstruments/findTitlePriceScope">
+						<div class="price_slider_wrapper">
+							<div class="price_slider" style="display:none;"></div>
+							<div class="price_slider_amount">
+								<input type="text" id="min_price" name="min_price" value=""
+									data-min="150" placeholder="Min price">
+								<input type="text" id="max_price" name="max_price" value=""
+									data-max="700" placeholder="Max price">
+									<input type="hidden" id="" name="typeId" value="${Ctype }"
+									data-max="700" placeholder="typeId">
+
+								<button type="submit" class="button">提交</button>
+
+								<div class="price_label" style="display:none;">
+									Price: <span class="from"></span> � <span class="to"></span>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+			</c:if>
+		
+			
+			
+			
 
 			<div
 				class="widget-5 widget etrostore_best_seller_product-3 etrostore_best_seller_product">

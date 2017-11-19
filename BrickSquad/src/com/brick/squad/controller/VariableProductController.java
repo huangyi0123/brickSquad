@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,18 +18,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.OrderDetailsAndArticleExtend;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
+import com.brick.squad.pojo.Coupon;
 import com.brick.squad.pojo.OrderDetails;
 import com.brick.squad.pojo.OrderRated;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.ShoppingCar;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
+import com.brick.squad.service.AgedCouponService;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.OrderDetailsService;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.VariableProductService;
+import com.brick.squad.util.Select;
 
 /**
  * 商品详情页操作相关的controller
@@ -38,6 +43,9 @@ import com.brick.squad.service.VariableProductService;
 @Controller
 @RequestMapping("/variableProduct")
 public class VariableProductController {
+	@Autowired
+	@Qualifier("agedCouponService")
+	private AgedCouponService agedCouponService;
 	@Autowired
 	@Qualifier("addressService")
 	private AddressService addressService;
@@ -105,12 +113,26 @@ public class VariableProductController {
 		Orders orders = new Orders();
 		List<OrderDetailsAndArticleExtend> listOrderDetailsAndArticleExtend = new ArrayList<OrderDetailsAndArticleExtend>();
 		List<Address> listAddresses = new ArrayList<Address>();
+		List<Coupon> listCoupons = new ArrayList<Coupon>();
+		List<Select> couponsSelects = new ArrayList<Select>();
 		if (ordersId != null) {
 			orders = ordersService.findOrdersById(ordersId);
 			// 根据商品ID查询商品明细，以及对应的商品信息
 			listOrderDetailsAndArticleExtend = orderDetailsService
 					.findOrderDetailsByOrdersId(ordersId);
 			if (orders.getBuyId() != null) {
+				// 根据用户ID查询当前用户下的所有优惠券信息
+				listCoupons = agedCouponService.findAgedCouponByUserId(orders
+						.getBuyId());
+
+				for (Coupon coupon : listCoupons) {
+					Select select = new Select();
+					select.setId(coupon.getId());
+					String messageString = "满" + coupon.getFullMoney() + "减"
+							+ coupon.getMoney();
+					select.setName(messageString);
+					couponsSelects.add(select);
+				}
 				// 查询当前账户的所有收货地址信息
 				listAddresses = addressService.findAddressByBuyersId(orders
 						.getBuyId());
@@ -128,7 +150,12 @@ public class VariableProductController {
 			}
 
 		}
-
+		JSONArray jsonArraylistCoupons = JSONArray.fromObject(listCoupons);
+		String AllCoupons = jsonArraylistCoupons.toString();
+		JSONArray jsonArray = JSONArray.fromObject(couponsSelects);
+		String coupons = jsonArray.toString();
+		request.setAttribute("AllCoupons", AllCoupons);
+		request.setAttribute("coupons", coupons);
 		request.setAttribute("listAddresses", listAddresses);
 		request.setAttribute("orders", orders);
 		request.setAttribute("listOrderDetailsAndArticleExtend",
@@ -208,9 +235,12 @@ public class VariableProductController {
 		List<String> imgpathlList = new ArrayList<String>();
 		File file = new File(imgpath);
 		File[] files = file.listFiles();
-		for (File file2 : files) {
-			imgpathlList.add(file2.getName());
+		if (files != null && files.length > 0) {
+			for (File file2 : files) {
+				imgpathlList.add(file2.getName());
+			}
 		}
+
 		request.setAttribute("images", imgpathlList);
 		// 根据商品ID查询销售总量
 		int SalesNumberTotal = articleService

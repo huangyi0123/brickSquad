@@ -6,7 +6,18 @@ public class Pagination {
 
 	private int count;
 	private int pageCount;
-	
+	//根据角色权限分页显示数据
+	private String roleId;
+	public String getRoleId() {
+		return roleId;
+	}
+
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+
+
 	public int getCount() {
 		return count;
 	}

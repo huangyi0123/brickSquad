@@ -78,6 +78,8 @@ public class MedicalInstrumentsController {
 				listArt);
 		pageBean.setList(listArticle4);
 		request.getSession().setAttribute("url", "toShop_left_sidebar");
+		request.getSession().setAttribute("url1", "toShop_left_sidebar");
+		
 	/*	request.setAttribute("url", "toShop_left_sidebar");*/
 		request.setAttribute("pageBean", pageBean);
 
@@ -116,6 +118,7 @@ public class MedicalInstrumentsController {
 				listArt);
 		pageBean.setList(listArticle4);
 		request.setAttribute("pageBean", pageBean);
+		request.getSession().setAttribute("url1", "toShop_left_sidebar");
 		request.setAttribute("url", "toShop_left_sidebar");
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
@@ -157,7 +160,7 @@ public class MedicalInstrumentsController {
 		} else {
 			request.setAttribute("url", "findOrderByMedicalInstruments");
 		}
-
+		
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
@@ -195,7 +198,9 @@ public class MedicalInstrumentsController {
 				listArt);
 		pageBean.setList(listArticle4);
 		request.setAttribute("url", "findOrderByMedicalInstrumentsDate");
+		request.getSession().setAttribute("url1", "toShop_left_sidebar");
 		request.setAttribute("pageBean", pageBean);
+	
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 
@@ -232,6 +237,7 @@ public class MedicalInstrumentsController {
 				listArt);
 		pageBean.setList(listArticle4);
 		request.setAttribute("url", "findOrderByMedicalInstrumentsPop");
+	
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
@@ -344,6 +350,7 @@ public class MedicalInstrumentsController {
 				listArt);
 		pageBean.setList(listArticle5);
 		request.setAttribute("url", "findPriceScope");
+		request.getSession().setAttribute("url1", "toShop_left_sidebar");
 		request.setAttribute("pageBean", pageBean);
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
@@ -394,12 +401,303 @@ public class MedicalInstrumentsController {
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}*/
 	
-	/**衣服类商品 */
+	/**衣服类商品 
+	 * @throws Exception */
 	@RequestMapping("/findColthType")
-	public String findColthType(HttpServletRequest request,String typeId){
+	public String findColthType(HttpServletRequest request,PageBeanUtil pageBean,String typeId) throws Exception{
+		/**一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae(typeId);
+		request.setAttribute("listType", listType);
+		/** 查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		List<Article> list = articleService
+				.findArticleImgAndName(parentId);
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		/**轮播最新商品展示*/
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		/**热门商品查询*/
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle(typeId);
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
 		
-		return null;
+		/**分页查询*/
+		int page = pageBean.getPage();
+		pageBean = articleService.findArtivleTypePage(page,typeId);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle4);
+		request.getSession().setAttribute("url1", "findColthType");
+		request.getSession().setAttribute("url", "findColthType");
+		request.getSession().setAttribute("Ctype", typeId);
+	/*	request.setAttribute("url", "toShop_left_sidebar");*/
+		request.setAttribute("pageBean", pageBean);
 		
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+		
+	}
+	
+	
+	@RequestMapping("/findColthTypepageBean")
+	public String findColthTypepageBean(HttpServletRequest request,
+			PageBeanUtil pageBean,String typeId) throws Exception {
+		/** 医疗器械一级分类查询 */
+		System.out.println("========++++++++++++++========="+typeId);
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae(typeId);
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		/*String typeSecond=articleService.findTypeSecond(typeId);*/
+		List<Article> list = articleService
+				.findArticleImgAndName(parentId);
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle(typeId);
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+		int page = pageBean.getPage();
+		int limitPage = pageBean.getLimitPage();
+		pageBean = articleService.findArtivleAndMedicalInstrumentsPage(page,
+				limitPage,typeId);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle4);
+		request.setAttribute("pageBean", pageBean);
+		request.setAttribute("url1", "findColthType");
+		request.setAttribute("url", "findColthType");
+		request.setAttribute("Ctype", pageBean.getTypeId());
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+	}
+	/**按日期排序*/
+	@RequestMapping("/findOrderByTypeSecondDate")
+	public String findOrderByTypeSecondDate(HttpServletRequest request,
+			PageBeanUtil pageBean,String typeId) throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae(typeId);
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		List<Article> list = articleService
+				.findArticleImgAndName(parentId);
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle(typeId);
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+		int page = pageBean.getPage();
+		int sequence = pageBean.getSequence();
+		int limitPage = pageBean.getLimitPage();
+		pageBean = articleService.findOrderByTypeSecondDate(page,
+				sequence, limitPage,typeId);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle4);
+		request.setAttribute("url1", "findColthType");
+		request.setAttribute("url", "findOrderByTypeSecondDate");
+		request.setAttribute("pageBean", pageBean);
+		request.setAttribute("Ctype", pageBean.getTypeId());
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+	}
+	/**按人气排序*/
+	@RequestMapping("/findOrderByTypePop")
+	public String findOrderByTypePop(HttpServletRequest request,
+			PageBeanUtil pageBean,String typeId) throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae(typeId);
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		List<Article> list = articleService
+				.findArticleImgAndName(parentId);
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle(typeId);
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+		int page = pageBean.getPage();
+		int sequence = pageBean.getSequence();
+		int limitPage = pageBean.getLimitPage();
+		pageBean = articleService.findOrderByTypePop(page,
+				sequence, limitPage,typeId);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle4);
+		request.setAttribute("url", "findOrderByTypePop");
+		request.setAttribute("url1", "findColthType");
+		request.setAttribute("pageBean", pageBean);
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+	}
+	/**按价格排序*/
+	@RequestMapping("/findOrderByArticlePrice")
+	public String findOrderByArticlePrice(HttpServletRequest request,
+			PageBeanUtil pageBean,String typeId) throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae(typeId);
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		List<Article> list = articleService
+				.findArticleImgAndName(parentId);
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle(typeId);
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+		int page = pageBean.getPage();
+		int sequence = pageBean.getSequence();
+		int limitPage = pageBean.getLimitPage();
+		pageBean = articleService.findOrderByArticlePrice(page, sequence,
+				limitPage,typeId);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle4);
+		if (sequence == 3) {
+			request.setAttribute("url", "findOrderByTypeSecondDate");
+		} else {
+			request.setAttribute("url", "findOrderByArticlePrice");
+		}
+		request.setAttribute("url1", "findColthType");
+		request.setAttribute("pageBean", pageBean);
+		request.setAttribute("Ctype", pageBean.getTypeId());
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
+	}
+	
+
+	/**
+	 * 按价格范围查找商品
+	 * 
+	 * @throws Exception
+	 */
+	@RequestMapping("/findTitlePriceScope")
+	public String findTitlePriceScope(HttpServletRequest request,
+			PageBeanUtil pageBean,String typeId) throws Exception {
+		/** 医疗器械一级分类查询 */
+		List<TypeExpand> listType = typeService
+				.findIdAndTypeNmae(typeId);
+		request.setAttribute("listType", listType);
+		/** 医疗器械查询商品图片和商品名称 */
+		YiLiaoUtile yiLiaoUtile = new YiLiaoUtile();
+		pageBean.setParentId(typeId);
+		List<String> listparentId=articleService.findArticleTypeIdSecond(pageBean);
+		String parentId;
+		if(listparentId.size()!=0){
+			 parentId=listparentId.get(0);
+		}else{
+		 parentId=typeId;
+		}
+		List<Article> list = articleService
+				.findArticleImgAndName(parentId);
+		List<Article> listArticle = yiLiaoUtile.findArticleImgAndName(request,
+				list);
+		request.setAttribute("listArticle", listArticle);
+		List<Article> list1 = articleService.findArticleImgAndName("zuixin");
+		List<Article> listArticle1 = yiLiaoUtile.findArticleImgAndName(request,
+				list1);
+		request.setAttribute("listArticle1", listArticle1);
+		List<ArticleExpand> list2 = articleService
+				.findArticleBuyNumberAndMedicle(typeId);
+		List<ArticleExpand> listArticle2 = yiLiaoUtile.findArticleImgAndName(
+				request, list2);
+		request.setAttribute("listArticle2", listArticle2);
+		int page = pageBean.getPage();
+		int limitPage = pageBean.getLimitPage();
+		double minPrice = pageBean.getMin_price();
+		double maxPrice = pageBean.getMax_price();
+		pageBean = articleService.findTitlePriceScope(page, limitPage, minPrice,
+				maxPrice,typeId);
+		List<Article> listArt = pageBean.getList();
+		List<Article> listArticle5 = yiLiaoUtile.findArticleImgAndName(request,
+				listArt);
+		pageBean.setList(listArticle5);
+		request.setAttribute("url", "findTitlePriceScope");
+		request.setAttribute("url1", "findColthType");
+		request.setAttribute("Ctype", pageBean.getTypeId());
+		request.setAttribute("pageBean", pageBean);
+		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 	
 }

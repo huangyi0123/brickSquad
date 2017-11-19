@@ -2,6 +2,7 @@ package com.brick.squad.expand;
 
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Relatives;
 
 /**
  * 地址与个人信息的扩展类，
@@ -11,6 +12,15 @@ import com.brick.squad.pojo.PersonalInformation;
 public class AddressAndPersonaInformationExpand {
 	private Address address;
 	private PersonalInformation personalInformation;
+	private Relatives relatives;
+
+	public Relatives getRelatives() {
+		return relatives;
+	}
+
+	public void setRelatives(Relatives relatives) {
+		this.relatives = relatives;
+	}
 
 	/**
 	 * @return the address

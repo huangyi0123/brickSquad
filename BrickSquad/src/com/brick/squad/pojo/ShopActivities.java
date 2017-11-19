@@ -17,6 +17,15 @@ public class ShopActivities {
 	@NotEmpty(message = "商品名不能为空！")
 	private String articleId;
 	private String activePrice;
+	//为了方便，不写扩展类
+	private String price;
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
 
 	//商品活动修改回显信息
 	private String aname;

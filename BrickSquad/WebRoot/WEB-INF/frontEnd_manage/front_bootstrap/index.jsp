@@ -357,7 +357,9 @@
 																		<ul id="menu-vertical-menu-1"
 																			class="nav vertical-megamenu etrostore-mega etrostore-menures">
 																			<li class="menu-computers-laptops etrostore-menu-custom level1">
-																				<a href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi"
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#cac14a"></span>
 																						<span class="menu-title">上衣</span>
@@ -365,7 +367,9 @@
 																				</a>
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=kuzi" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi"
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
 																						<span class="menu-title">裤子</span>
@@ -373,7 +377,9 @@
 																				</a>
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=xielei" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei"
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
 																						<span class="menu-title">鞋类</span>
@@ -382,7 +388,9 @@
 																			</li>
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
-																				<a href="common/tosimple_product?id=maozi" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi"
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>
 																						<span class="menu-title">帽子</span>
@@ -391,7 +399,9 @@
 																			</li>
 
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="common/tosimple_product?id=yiliaoqixie" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie"
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#42b8d1"></span>
 																						<span class="menu-title">医疗器械</span>
@@ -399,8 +409,10 @@
 																				</a>
 
 																				<ul class="dropdown-menu nav-level1 column-3">
+
 																					<li class="dropdown-submenu column-3 menu-electronics">
-																						<a href="#?id=laorenjianfuyongpin">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=laorenjianfuyongpin">
 																							<span class="have-title">
 																								<span class="menu-title">老人康复用品</span>
 																							</span>
@@ -408,49 +420,58 @@
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-laptop-desktop-accessories">
-																								<a href="#?id=laonianrenyangshengbaojianyongpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人养身保健用品</span>
+																										<span class="menu-title">按摩床</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-storage-external-drives">
-																								<a href="#?id=laonianrenhuliyongpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人护理用品</span>
+																										<span class="menu-title">按摩捶</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-networking-wireless">
-																								<a href="#?id=laonianrendaibuyongpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人代步用品</span>
+																										<span class="menu-title">学步机</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-motherboards-cpus-psus">
-																								<a href="#?id=yanglaojigouyongpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">养老机构用品</span>
+																										<span class="menu-title">按摩坐垫</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-webcams">
-																								<a href="#?id=laonianrenshitingfuzhuyongpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人视听辅助用品</span>
+																										<span class="menu-title">按摩鞋</span>
 																									</span>
 																								</a>
 																							</li>
 																						</ul>
 																					</li>
 
+
+
+
 																					<li class="dropdown-submenu column-3 menu-smartphone">
-																						<a href="#?id=laonianrenrichangshenghuoyongpin">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=laonianrenrichangshenghuoyongpin">
 																							<span class="have-title">
 																								<span class="menu-title">老年人日常生活用品</span>
 																							</span>
@@ -458,83 +479,95 @@
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-mobile-phones">
-																								<a href="#?id=laonianrenyuleyongpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人娱乐用品</span>
+																										<span class="menu-title">老人手机</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-smart-watches-accessories">
-																								<a href="#?id=laonianrenlvyouzhuangbeiyonhpin">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人旅游装备用品</span>
+																										<span class="menu-title">老年服装</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-mobile-accessories">
-																								<a href="#?id=laonianrenjiankangziceyiqi">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">老年人健康自测仪器</span>
+																										<span class="menu-title">老人手电筒</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-cases-covers">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Cases & Covers</span>
+																										<span class="menu-title">老人购物车</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-power-banks">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Power Banks</span>
+																										<span class="menu-title">老人手杖</span>
 																									</span>
 																								</a>
 																							</li>
 																						</ul>
 																					</li>
 
+
+
 																					<li class="dropdown-submenu column-3 menu-tablets">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=laorenyangshenbaojianyongpin">
 																							<span class="have-title">
-																								<span class="menu-title">Tablets</span>
+																								<span class="menu-title">老人养生保健用品</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-tablet-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Tablet Accessories</span>
+																										<span class="menu-title">高血压保健</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-cases-covers">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Cases & Covers</span>
+																										<span class="menu-title">心脑血管保健</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-power-banks">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Power Banks</span>
+																										<span class="menu-title">提高免疫力</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-memory-cards">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Memory Cards</span>
+																										<span class="menu-title">护肝护脾</span>
 																									</span>
 																								</a>
 																							</li>
@@ -542,49 +575,55 @@
 																					</li>
 
 																					<li class="dropdown-submenu column-3 menu-computer">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=laonianrenhuliyongpin">
 																							<span class="have-title">
-																								<span class="menu-title">Computer</span>
+																								<span class="menu-title">老年人护理用品</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-macbooks-imacs">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Macbooks & iMacs</span>
+																										<span class="menu-title">老年人床垫</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-computers-desktops">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Computers & Desktops</span>
+																										<span class="menu-title">老年人护肩</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-printers-scanners-faxs">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Printers, Scanners, & Faxs</span>
+																										<span class="menu-title">老年人护颈</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-laptop-desktop-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Laptop & Desktop Accessories</span>
+																										<span class="menu-title">老年人护膝</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-storage-external-drives">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Storage & External Drives</span>
+																										<span class="menu-title">老年人护腰</span>
 																									</span>
 																								</a>
 																							</li>
@@ -594,41 +633,54 @@
 																					<li class="fix-position dropdown-submenu column-3 menu-image">
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-image-1 etrostore-menu-img">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="">
 																										<span class="menu-img">
-																											<img src="images/1903/menu-bn7.jpg" alt="Menu Image" />
+																											<img src="resource/front_bootstrap/images/1903/yiliao1.jpg"
+																												alt="Menu Image" />
 																										</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-image-2 etrostore-menu-img">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="">
 																										<span class="menu-img">
-																											<img src="images/1903/menu-bn8.jpg" alt="Menu Image" />
+																											<img src="resource/front_bootstrap/images/1903/yiliao2.jpg"
+																												alt="Menu Image" />
 																										</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-image-3 etrostore-menu-img">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="">
 																										<span class="menu-img">
-																											<img src="images/1903/menu-bn9.jpg" alt="Menu Image" />
+																											<img src="resource/front_bootstrap/images/1903/yiliao3.jpg"
+																												alt="Menu Image" />
 																										</span>
 																									</span>
 																								</a>
 																							</li>
 																						</ul>
 																					</li>
+
+
 																				</ul>
+
+
+
 
 																			</li>
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yundongyongpin"
+																					class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#efc73a"></span>
 																						<span class="menu-title">运动用品</span>
@@ -637,49 +689,55 @@
 
 																				<ul class="dropdown-menu nav-level1 column-3">
 																					<li class="dropdown-submenu column-3 menu-electronics">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
-																								<span class="menu-title">Electronics</span>
+																								<span class="menu-title">户外服饰</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-laptop-desktop-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Laptop & Desktop Accessories</span>
+																										<span class="menu-title">羽绒服</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-storage-external-drives">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Storage & External Drives</span>
+																										<span class="menu-title">三合一冲锋衣</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-networking-wireless">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Networking & Wireless</span>
+																										<span class="menu-title">抓绒衣</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-motherboards-cpus-psus">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Motherboards, CPUs & PSUs</span>
+																										<span class="menu-title">软壳外套</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-webcams">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Webcams</span>
+																										<span class="menu-title">冲锋裤</span>
 																									</span>
 																								</a>
 																							</li>
@@ -687,49 +745,55 @@
 																					</li>
 
 																					<li class="dropdown-submenu column-3 menu-smartphone">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
-																								<span class="menu-title">Smartphone</span>
+																								<span class="menu-title">运动智能设备</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-mobile-phones">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Mobile Phones</span>
+																										<span class="menu-title">计时器</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-smart-watches-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Smart Watches & Accessories</span>
+																										<span class="menu-title">智能腕表</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-mobile-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Mobile Accessories</span>
+																										<span class="menu-title">蓝牙手环</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-cases-covers">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Cases & Covers</span>
+																										<span class="menu-title">运动摄像机</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-power-banks">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Power Banks</span>
+																										<span class="menu-title">计步器</span>
 																									</span>
 																								</a>
 																							</li>
@@ -737,41 +801,46 @@
 																					</li>
 
 																					<li class="dropdown-submenu column-3 menu-tablets">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
-																								<span class="menu-title">Tablets</span>
+																								<span class="menu-title">骑行服配</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-tablet-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Tablet Accessories</span>
+																										<span class="menu-title">自行车整车</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-cases-covers">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Cases & Covers</span>
+																										<span class="menu-title">骑行手套</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-power-banks">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Power Banks</span>
+																										<span class="menu-title">自行车附件</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-memory-cards">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Memory Cards</span>
+																										<span class="menu-title">骑行服配</span>
 																									</span>
 																								</a>
 																							</li>
@@ -779,82 +848,87 @@
 																					</li>
 
 																					<li class="dropdown-submenu column-3 menu-computer">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
-																								<span class="menu-title">Computer</span>
+																								<span class="menu-title">户外装备</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-macbooks-imacs">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Macbooks & iMacs</span>
+																										<span class="menu-title">登山杖</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-computers-desktops">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Computers & Desktops</span>
+																										<span class="menu-title">睡袋</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-printers-scanners-faxs">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Printers, Scanners, & Faxs</span>
+																										<span class="menu-title">户外炊具</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-laptop-desktop-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Laptop & Desktop Accessories</span>
+																										<span class="menu-title">户外餐具</span>
 																									</span>
 																								</a>
 																							</li>
 
-																							<li class="menu-storage-external-drives">
-																								<a href="#">
-																									<span class="have-title">
-																										<span class="menu-title">Storage & External Drives</span>
-																									</span>
-																								</a>
-																							</li>
+
 																						</ul>
 																					</li>
 
 																					<li class="fix-position dropdown-submenu column-3 menu-image">
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-image-1 etrostore-menu-img">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="">
 																										<span class="menu-img">
-																											<img src="images/1903/menu-bn7.jpg" alt="Menu Image" />
+																											<img src="resource/front_bootstrap/images/1903/yifu1.jpg"
+																												alt="Menu Image" />
 																										</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-image-2 etrostore-menu-img">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="">
 																										<span class="menu-img">
-																											<img src="images/1903/menu-bn8.jpg" alt="Menu Image" />
+																											<img src="resource/front_bootstrap/images/1903/cuiyin.jpg"
+																												alt="Menu Image" />
 																										</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-image-3 etrostore-menu-img">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="">
 																										<span class="menu-img">
-																											<img src="images/1903/menu-bn9.jpg" alt="Menu Image" />
+																											<img src="resource/front_bootstrap/images/1903/qixing.jpg"
+																												alt="Menu Image" />
 																										</span>
 																									</span>
 																								</a>
@@ -866,7 +940,9 @@
 																			</li>
 
 																			<li class="menu-television etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#3f5eca"></span>
 																						<span class="menu-title">食品</span>
@@ -875,7 +951,9 @@
 																			</li>
 
 																			<li class="menu-accessories-for-tablet etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#13528c"></span>
 																						<span class="menu-title">滋补养生</span>
@@ -883,7 +961,9 @@
 																				</a>
 																			</li>
 																			<li class="dropdown menu-electronic-component etrostore-mega-menu level1">
-																				<a href="common/tosimple_product" class="item-link dropdown-toggle">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f03442"></span>
 																						<span class="menu-title">中西药品</span>
@@ -892,138 +972,155 @@
 
 																				<ul class="dropdown-menu nav-level1 column-3">
 																					<li class="dropdown-submenu column-3 menu-electronics etrostore-menu-img">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
 																								<span class="menu-img">
-																									<img src="images/1903/menu-bn7.jpg" alt="Menu Image" />
+																									<img src="resource/front_bootstrap/images/1903/jinnv.jpg" alt="Menu Image" />
 																								</span>
-																								<span class="menu-title">Electronics</span>
+																								<span class="menu-title">家庭常备</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-leds">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Leds</span>
+																										<span class="menu-title">感冒咳嗽</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-laptop-desktop-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Laptop & Desktop Accessories</span>
+																										<span class="menu-title"> 维矿物质</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-storage-external-drives">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Storage & External Drives</span>
+																										<span class="menu-title">肠胃消化</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-networking-wireless">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Networking & Wireless</span>
+																										<span class="menu-title"> 跌打损伤</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-motherboards-cpus-psus">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Motherboards, CPUs & PSUs</span>
+																										<span class="menu-title">皮肤用药</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-webcams">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Webcams</span>
+																										<span class="menu-title">蚊虫叮咬</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-gaming-mice">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Gaming Mice</span>
+																										<span class="menu-title">耳鼻喉用药</span>
 																									</span>
 																								</a>
 																							</li>
+
+
 																						</ul>
 																					</li>
 
 																					<li class="dropdown-submenu column-3 menu-smartphone etrostore-menu-img">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
 																								<span class="menu-img">
-																									<img src="resource/front_bootstrap/images/1903/menu-bn8.jpg"
-																										alt="Menu Image" />
+																									<img src="resource/front_bootstrap/images/1903/yaowu.jpg" alt="Menu Image" />
 																								</span>
-																								<span class="menu-title">Smartphone</span>
+																								<span class="menu-title">老人用药</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-smartphones">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Smartphones</span>
+																										<span class="menu-title">心脑血管</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-mobile-phones">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Mobile Phones</span>
+																										<span class="menu-title"> 开胃消食</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-smart-watches-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Smart Watches & Accessories</span>
+																										<span class="menu-title">丹参片</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-mobile-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Mobile Accessories</span>
+																										<span class="menu-title">肝胆用药</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-cases-covers">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Cases & Covers</span>
+																										<span class="menu-title">骨质疏松</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-power-banks">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Power Banks</span>
+																										<span class="menu-title">风湿骨痛</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-memory-cards">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Memory Cards</span>
+																										<span class="menu-title">前列腺炎</span>
 																									</span>
 																								</a>
 																							</li>
@@ -1031,61 +1128,76 @@
 																					</li>
 
 																					<li class="dropdown-submenu column-3 menu-tablet etrostore-menu-img">
-																						<a href="#">
+																						<a
+																							href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">
 																							<span class="have-title">
 																								<span class="menu-img">
-																									<img src="resource/front_bootstrap/images/1903/menu-bn9.jpg"
+																									<img src="resource/front_bootstrap/images/1903/pingwei.jpg"
 																										alt="Menu Image" />
 																								</span>
-																								<span class="menu-title">Tablet</span>
+																								<span class="menu-title">保健药</span>
 																							</span>
 																						</a>
 
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-tablets">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Tablets</span>
+																										<span class="menu-title">脂挥家黑茶金花茶珍</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-tablet-accessories">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Tablet Accessories</span>
+																										<span class="menu-title">B族维生素片</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-cases-covers">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Cases & Covers</span>
+																										<span class="menu-title">灵芝</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-power-banks">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Power Banks</span>
+																										<span class="menu-title">护肾宝</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-memory-cards">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Memory Cards</span>
+																										<span class="menu-title">功夫茶</span>
 																									</span>
 																								</a>
 																							</li>
 
 																							<li class="menu-headphonesheadsets">
-																								<a href="#">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
 																									<span class="have-title">
-																										<span class="menu-title">Headphones/Headsets</span>
+																										<span class="menu-title">肾炎片</span>
+																									</span>
+																								</a>
+																							</li>
+																							<li class="menu-headphonesheadsets">
+																								<a
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=">
+																									<span class="have-title">
+																										<span class="menu-title">龙凤宝片</span>
 																									</span>
 																								</a>
 																							</li>
@@ -1094,7 +1206,9 @@
 																				</ul>
 																			</li>
 																			<li class="menu-laptops-accessories etrostore-menu-custom level1">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#2f2e2e"></span>
 																						<span class="menu-title">保健器械</span>
@@ -1103,7 +1217,9 @@
 																			</li>
 
 																			<li class="menu-blender etrostore-menu-custom level1" style="display: none;">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#e93434"></span>
 																						<span class="menu-title">眼镜服务</span>
@@ -1113,7 +1229,9 @@
 
 																			<li class="menu-vacuum-cleaner etrostore-menu-custom level1"
 																				style="display: none;">
-																				<a href="common/tosimple_product" class="item-link">
+																				<a
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
 																						<span class="menu-title">护理护具</span>
@@ -1140,18 +1258,18 @@
 																					<div class="module slideshow no-margin">
 																						<div class="item">
 																							<a>
-																								<img src="resource/front_bootstrap/images/1903/slider2.jpg" alt="slider1"
+																								<img src="resource/front_bootstrap/images/1903/lunbo111.jpg" alt="slider1"
 																									class="img-responsive" height="559">
 																							</a>
 																						</div>
 																						<div class="item">
-																							<a >
+																							<a>
 																								<img src="resource/front_bootstrap/images/1903/01_index_v1.jpg"
 																									alt="slider2" class="img-responsive" height="559">
 																							</a>
 																						</div>
 																						<div class="item">
-																							<a >
+																							<a>
 																								<img src="resource/front_bootstrap/images/1903/slider3.jpg" alt="slider3"
 																									class="img-responsive" height="559">
 																							</a>
@@ -1197,7 +1315,7 @@
 																</div>
 
 																<div class="wpb_single_image wpb_content_element vc_align_center">
-																	<figure class="wpb_wrapper vc_figure"> <a  target="_self"
+																	<figure class="wpb_wrapper vc_figure"> <a target="_self"
 																		class="vc_single_image-wrapper vc_box_border_grey">
 																		<img class="vc_single_image-img"
 																			src="resource/front_bootstrap/images/1903/banner2.jpg" width="193" height="175"
@@ -1209,65 +1327,7 @@
 													</div>
 												</div>
 
-												<div class="wpb_raw_code wpb_content_element wpb_raw_html">
-													<div class="wpb_wrapper">
-														<div class="wrap-transport">
-															<div class="row">
-																<div class="item item-1 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-paper-plane"></i>
-																		</div>
 
-																		<div class="content">
-																			<h3>Money Back Guarantee</h3>
-																			<p>30 Days Money Back</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-2 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-map-marker"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Free Worldwide Shipping</h3>
-																			<p>On Order Over $100</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-3 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-tag"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>Member Discount</h3>
-																			<p>Upto 70 % Discount</p>
-																		</div>
-																	</a>
-																</div>
-
-																<div class="item item-4 col-lg-3 col-md-3 col-sm-6">
-																	<a href="#" class="wrap">
-																		<div class="icon">
-																			<i class="fa fa-life-ring"></i>
-																		</div>
-
-																		<div class="content">
-																			<h3>24/7 Online Support</h3>
-																			<p>Technical Support 24/7</p>
-																		</div>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -1286,7 +1346,7 @@
 													<div class="resp-slider-container">
 														<div class="box-title clearfix">
 															<h3>秒杀</h3>
-															<a href="new_deals/findSeckillArticle">查看更多</a>
+															
 														</div>
 
 														<div class="banner-content clearfix">
@@ -1297,100 +1357,7 @@
 														</div>
 
 														<div class="slider responsive">
-															<!--秒杀开始  -->
-															<%-- <c:forEach items="${secKills }" var="a" varStatus="q">
-																<div class="item-countdown product " id="product_sw_countdown_0${q.index }">
-																	<div class="item-wrap">
-																		<div class="item-detail">
-																			<div class="item-content">
-																				<!-- rating  -->
-																				<div class="reviews-content">
-																					<div class="star">
-																						<span style="width:35px"></span>
-																					</div>
 
-																					<!-- <div class="item-number-rating">2 人已购买</div> -->
-																				</div>
-																				<!-- end rating  -->
-
-																				<h4>
-																					<a href="variableProduct/toVariable_product?productId=${a.id }"
-																						title="veniam dolore">${a.aname }</a>
-																				</h4>
-
-																				<!-- Price -->
-																				<div class="item-price">
-																					<span>
-																						<del>
-																							<span class="woocommerce-Price-amount amount">
-																								<span class="woocommerce-Price-currencySymbol">￥</span>
-																								${a.price }
-																							</span>
-																						</del>
-																						<ins>
-																							<span class="woocommerce-Price-amount amount">
-																								<span class="woocommerce-Price-currencySymbol">￥</span>
-																								${a.activePrice }
-																							</span>
-																						</ins>
-																					</span>
-																				</div>
-
-																				<div class="sale-off">-${a.powsr }%</div>
-
-																				<div class="product-countdown" data-date="${a.timer }" data-price="$390"
-																					data-starttime="1484660800" data-cdtime="1517356800"
-																					data-id="product_sw_countdown_0${q.index }"></div>
-																			</div>
-
-																			<div class="item-image-countdown">
-																				<span class="onsale">Sale!</span>
-																				<a href="variableProduct/toVariable_product?productId=${a.id }">
-																					<div class="product-thumb-hover">
-																					<img alt="" src="${a.image }" style="width: 140px;height: 140px">
-																					</div>
-																				</a>
-
-																				<!-- add to cart, wishlist, compare -->
-																				<div class="item-bottom clearfix">
-																					<a rel="nofollow" href="#"
-																						class="button product_type_simple"
-																						title="加入购物车1">加入购物车1</a>
-																					<a href="javascript:void(0)" class="compare button" rel="nofollow"
-																						title="Add to Compare">Compare</a>
-
-																					<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																						<div class="yith-wcwl-add-button show" style="display:block">
-																							<a href="wishlist.html" rel="nofollow" class="add_to_wishlist">Add to
-																								Wishlist</a>
-																							<img src="resource/front_bootstrap/images/wpspin_light.gif"
-																								class="ajax-loading" alt="loading" width="16" height="16"
-																								style="visibility:hidden" />
-																						</div>
-																						<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																							<span class="feedback">Product added!</span>
-																							<a href="#" rel="nofollow">Browse Wishlist</a>
-																						</div>
-
-																						<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																							<span class="feedback">The product is already in the wishlist!</span>
-																							<a href="#" rel="nofollow">Browse Wishlist</a>
-																						</div>
-
-																						<div style="clear:both"></div>
-																						<div class="yith-wcwl-wishlistaddresponse"></div>
-																					</div>
-
-																					<div class="clear"></div>
-																					<a href="ajax/fancybox/example.html" data-fancybox-type="ajax"
-																						class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</c:forEach> --%>
-															<!--秒杀结束 -->
 															<c:forEach var="a" items="${secKills }" varStatus="q">
 																<div class="item-countdown product" id="product_sw_countdown_0${q.index }">
 																	<div class="item-wrap">
@@ -1448,14 +1415,12 @@
 
 																				<!-- add to cart, wishlist, compare -->
 																				<div class="item-bottom clearfix">
-																					<a rel="nofollow" href="javascript:;"
-																						class="button product_type_simple  "
+																					<a rel="nofollow" href="javascript:;" class="button product_type_simple  "
 																						title="加入购物车" onclick="addcar('${a.id}')">加入购物车</a>
 																					<div class="yith-wcwl-add-to-wishlist ">
 																						<div class=" show" style="display:block">
 																							<a href="javascript:;" rel="nofollow" title="加入收藏"
-																							onclick="addWish('${a.id}')">
-																								加入收藏</a>
+																								onclick="addWish('${a.id}')"> 加入收藏</a>
 																						</div>
 																					</div>
 
@@ -1465,23 +1430,24 @@
 																	</div>
 																</div>
 															</c:forEach>
+															<!-- 
 															<div class="item-countdown product" id="product_sw_countdown_04">
 																<div class="item-wrap">
 																	<div class="item-detail">
 																		<div class="item-content">
-																			<!-- rating  -->
+																			rating 
 																			<div class="reviews-content">
 																				<div class="star"></div>
 
 																				<div class="item-number-rating">0 Review(s)</div>
 																			</div>
-																			<!-- end rating  -->
+																			end rating 
 
 																			<h4>
 																				<a href="simple_product.html" title="philips stand">philips stand</a>
 																			</h4>
 
-																			<!-- Price -->
+																			Price
 																			<div class="item-price">
 																				<span>
 																					<del>
@@ -1517,7 +1483,7 @@
 																				</div>
 																			</a>
 
-																			<!-- add to cart, wishlist, compare -->
+																			add to cart, wishlist, compare
 																			<div class="item-bottom clearfix">
 																				<a rel="nofollow" href="#"
 																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1561,7 +1527,7 @@
 																<div class="item-wrap">
 																	<div class="item-detail">
 																		<div class="item-content">
-																			<!-- rating  -->
+																			rating 
 																			<div class="reviews-content">
 																				<div class="star">
 																					<span style="width:52.5px"></span>
@@ -1569,13 +1535,13 @@
 
 																				<div class="item-number-rating">4 Review(s)</div>
 																			</div>
-																			<!-- end rating  -->
+																			end rating 
 
 																			<h4>
 																				<a href="simple_product.html" title="Vacuum cleaner">Vacuum cleaner</a>
 																			</h4>
 
-																			<!-- Price -->
+																			Price
 																			<div class="item-price">
 																				<span>
 																					<del>
@@ -1611,7 +1577,7 @@
 																				</div>
 																			</a>
 
-																			<!-- add to cart, wishlist, compare -->
+																			add to cart, wishlist, compare
 																			<div class="item-bottom clearfix">
 																				<a rel="nofollow" href="#"
 																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1656,18 +1622,18 @@
 																<div class="item-wrap">
 																	<div class="item-detail">
 																		<div class="item-content">
-																			<!-- rating  -->
+																			rating 
 																			<div class="reviews-content">
 																				<div class="star"></div>
 																				<div class="item-number-rating">0 Review(s)</div>
 																			</div>
-																			<!-- end rating  -->
+																			end rating 
 
 																			<h4>
 																				<a href="simple_product.html" title="nisi ball tip">Nisi ball tip</a>
 																			</h4>
 
-																			<!-- Price -->
+																			Price
 																			<div class="item-price">
 																				<span>
 																					<del>
@@ -1702,7 +1668,7 @@
 																				</div>
 																			</a>
 
-																			<!-- add to cart, wishlist, compare -->
+																			add to cart, wishlist, compare
 																			<div class="item-bottom clearfix">
 																				<a rel="nofollow" href="#"
 																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1747,18 +1713,18 @@
 																<div class="item-wrap">
 																	<div class="item-detail">
 																		<div class="item-content">
-																			<!-- rating  -->
+																			rating 
 																			<div class="reviews-content">
 																				<div class="star"></div>
 																				<div class="item-number-rating">0 Review(s)</div>
 																			</div>
-																			<!-- end rating  -->
+																			end rating 
 
 																			<h4>
 																				<a href="simple_product.html" title="MacBook Air">MacBook Air</a>
 																			</h4>
 
-																			<!-- Price -->
+																			Price
 																			<div class="item-price">
 																				<span>
 																					<del>
@@ -1794,7 +1760,7 @@
 																				</div>
 																			</a>
 
-																			<!-- add to cart, wishlist, compare -->
+																			add to cart, wishlist, compare
 																			<div class="item-bottom clearfix">
 																				<a rel="nofollow" href="#"
 																					class="button product_type_simple add_to_cart_button ajax_add_to_cart"
@@ -1834,6 +1800,8 @@
 																	</div>
 																</div>
 															</div>
+														
+														 -->
 														</div>
 													</div>
 												</div>
@@ -1866,32 +1834,35 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html">Television</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">电视机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Air Conditional</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">空气清新剂</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Laptops & Accessories</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">老人电脑
+																			& 老人手机</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Accessories for Tablet</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">古董手表配件</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html">Headphone</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">锻炼设施</a>
 																	</li>
-																	<li>
-														
-																	</li>
+																	<li></li>
 																</ul>
 															</div>
 
-																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
-																		查看更多</a>
-																		</div>
+															<div class="view-all">
+																<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
+															</div>
 
-															
+
 														</div>
 													</div>
 
@@ -1900,7 +1871,7 @@
 															<!-- Brand -->
 															<div class="child-cat-brand pull-left">
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="87"
 																			src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
@@ -1908,21 +1879,21 @@
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br5.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br2.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br3.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
@@ -2009,7 +1980,7 @@
 																									<div class=" show" style="display:block">
 																										<a href="javascript:;" onclick="addWish('${a[1].id}')" rel="nofollow"
 																											title="加入收藏">加入收藏</a>
-																										
+
 																									</div>
 																								</div>
 																							</div>
@@ -2102,7 +2073,7 @@
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_single_image wpb_content_element vc_align_center">
-													<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 														class="vc_single_image-wrapper vc_box_border_grey">
 														<img class="vc_single_image-img"
 															src="resource/front_bootstrap/images/1903/banner6-1.jpg" width="570" height="220"
@@ -2117,7 +2088,7 @@
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
 												<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
-													<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 														class="vc_single_image-wrapper vc_box_border_grey">
 														<img class="vc_single_image-img"
 															src="resource/front_bootstrap/images/1903/banner7-1.jpg" width="570" height="220"
@@ -2153,36 +2124,41 @@
 															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_2">
 																<ul>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=maozi">帽子</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie">医疗器械</a>
 																	</li>
 																	<li>
-																		<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																	<li></li>
 																</ul>
-															
+
 															</div>
 
-																														<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
-																		查看更多</a>
-																		</div>
+															<div class="view-all">
+																<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
+															</div>
 
-																<div class="view-all">	
-																		<i class="fa  fa-caret-right"></i>
-																</div>
+															<div class="view-all">
+																<i class="fa  fa-caret-right"></i>
+															</div>
 														</div>
 													</div>
 
@@ -2191,35 +2167,35 @@
 															<!-- Brand -->
 															<div class="child-cat-brand pull-left">
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br4.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br2.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br3.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br5.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
 																	</a>
 																</div>
 
 																<div class="item-brand">
-																	<a href="#">
+																	<a href="javascript:;">
 																		<img width="170" height="87"
 																			src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 																			class="attachment-170x90 size-170x90" alt="" />
@@ -2304,8 +2280,8 @@
 																								onclick="addcar('${a[1].id}')">加入购物车</a>
 																							<div class="yith-wcwl-add-to-wishlist ">
 																								<div class=" show" style="display:block">
-																									<a href="javascript:;" rel="nofollow" title="加入收藏" 
-																									onclick="addWish('${a[1].id}')">加入收藏</a>
+																									<a href="javascript:;" rel="nofollow" title="加入收藏"
+																										onclick="addWish('${a[1].id}')">加入收藏</a>
 																								</div>
 																							</div>
 
@@ -2401,7 +2377,7 @@
 											<div class="vc_column-inner ">
 												<div class="wpb_wrapper">
 													<div class="wpb_single_image wpb_content_element vc_align_center">
-														<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+														<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 															class="vc_single_image-wrapper vc_box_border_grey">
 															<img class="vc_single_image-img"
 																src="resource/front_bootstrap/images/1903/banner8-1.jpg" width="570" height="220"
@@ -2416,7 +2392,7 @@
 											<div class="vc_column-inner ">
 												<div class="wpb_wrapper">
 													<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
-														<figure class="wpb_wrapper vc_figure"> <a href="#" target="_self"
+														<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
 															class="vc_single_image-wrapper vc_box_border_grey">
 															<img class="vc_single_image-img"
 																src="resource/front_bootstrap/images/1903/banner9-1.jpg" width="570" height="220"
@@ -2451,39 +2427,42 @@
 																<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_3">
 																	<ul>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=shangyi">上衣</a>
+																			<a
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=kuzi">裤子</a>
+																			<a
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=xielei">鞋类</a>
+																			<a
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=maozi">帽子</a>
+																			<a
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=yiliaoqixie">医疗器械</a>
+																			<a
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yiliaoqixie">医疗器械</a>
 																		</li>
 																		<li>
-																			<a href="shop_right_sidebar.html?id=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
+																			<a
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																		</li>
-																		
-																	
-																		<li>
-																			
-																		</li>
-																	
+
+
+																		<li></li>
+
 																	</ul>
-																		
+
 																</div>
 																<div class="view-all">
-																		<a href="new_deals/tonew_deals" style="margin-right: 60px">
-																		查看更多</a>
-																		</div>
+																	<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
+																</div>
 
-																<div class="view-all">	
-																		<i class="fa  fa-caret-right"></i>
+																<div class="view-all">
+																	<i class="fa  fa-caret-right"></i>
 																</div>
 															</div>
 														</div>
@@ -2493,35 +2472,35 @@
 																<!-- Brand -->
 																<div class="child-cat-brand pull-left">
 																	<div class="item-brand">
-																		<a href="#">
+																		<a href="javascript:;">
 																			<img width="170" height="90" src="resource/front_bootstrap/images/1903/br2.jpg"
 																				class="attachment-170x90 size-170x90" alt="" />
 																		</a>
 																	</div>
 
 																	<div class="item-brand">
-																		<a href="#">
+																		<a href="javascript:;">
 																			<img width="170" height="90" src="resource/front_bootstrap/images/1903/br5.jpg"
 																				class="attachment-170x90 size-170x90" alt="" />
 																		</a>
 																	</div>
 
 																	<div class="item-brand">
-																		<a href="#">
+																		<a href="javascript:;">
 																			<img width="170" height="90" src="resource/front_bootstrap/images/1903/br4.jpg"
 																				class="attachment-170x90 size-170x90" alt="" />
 																		</a>
 																	</div>
 
 																	<div class="item-brand">
-																		<a href="#">
+																		<a href="javascript:;">
 																			<img width="170" height="90" src="resource/front_bootstrap/images/1903/br3.jpg"
 																				class="attachment-170x90 size-170x90" alt="" />
 																		</a>
 																	</div>
 
 																	<div class="item-brand">
-																		<a href="#">
+																		<a href="javascript:;">
 																			<img width="170" height="87"
 																				src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 																				class="attachment-170x90 size-170x90" alt="" />
@@ -2555,7 +2534,7 @@
 																											onclick="addWish('${a[0].id}')">添加收藏</a>
 																									</div>
 
-																									
+
 
 																								</div>
 
@@ -2616,7 +2595,7 @@
 																												onclick="addWish('${a[1].id}')">添加收藏</a>
 																										</div>
 
-																										
+
 																									</div>
 
 																								</div>
@@ -2918,16 +2897,17 @@
 			function addcar(id) {
 				$.ajax({
 					url : 'MedicalInstruments/addCartMedicalInstruments',
-					data:{articleId:id},
-					type:'post',
+					data : {
+						articleId : id
+					},
+					type : 'post',
 					success : function(result) {
 						if (result == "3") {
 							alert("请先登录");
 						}
 						if (result == "1") {
 							alert("添加成功");
-						
-							
+
 						}
 						if (result == "2") {
 							alert("商品已存在");
@@ -2936,23 +2916,24 @@
 				});
 			}
 			function addWish(id) {
-				$
-						.ajax({
-							url : 'MedicalInstruments/addWishlistMedicalInstruments',
-							data:{articleId:id},
-							type:'post',
-							success : function(result) {
-								if (result == "3") {
-									alert("请先登录");
-								}
-								if (result == "1") {
-									alert("添加成功");
-								}
-								if (result == "2") {
-									alert("商品已存在");
-								}
-							}
-						});
+				$.ajax({
+					url : 'MedicalInstruments/addWishlistMedicalInstruments',
+					data : {
+						articleId : id
+					},
+					type : 'post',
+					success : function(result) {
+						if (result == "3") {
+							alert("请先登录");
+						}
+						if (result == "1") {
+							alert("添加成功");
+						}
+						if (result == "2") {
+							alert("商品已存在");
+						}
+					}
+				});
 			}
 		</script>
 		<!--<![endif]-->
