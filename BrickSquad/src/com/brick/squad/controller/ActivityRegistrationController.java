@@ -134,6 +134,7 @@ public class ActivityRegistrationController {
 		String telephone=User.getTelephone();
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(telephone).toString();
+		System.out.println("=================="+data);
 		return data;
 	}
 }

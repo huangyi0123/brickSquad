@@ -90,9 +90,9 @@ function findTelephoneView() {
 		  url:"${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
 		  type:'post', 
 		  success:function(data){
-			  var telephone=document.getElementById("telephone");
-			 var json = eval(data); 
-			 telephone.value="json[0].telephone";
+			 var telephone=document.getElementById("telephone");
+				console.log(data[0]);
+			 
 		  }
 		  });	
 }
@@ -124,7 +124,7 @@ function findTelephoneView() {
 				<div class="buttons" style="z-index: 10;">
 					<ul>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal">预约参观</a></li>
+							data-toggle="modal" data-target="#myModal" onclick="findTelephoneView()">预约参观</a></li>
 						<li><a class="hvr-shutter-in-vertical" href="#"
 							data-toggle="modal" data-target="#myModal1">我要报名</a></li>
 					</ul>
@@ -222,7 +222,7 @@ function findTelephoneView() {
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close" onclick="findTelephoneView()">
+						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -261,7 +261,7 @@ function findTelephoneView() {
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
 										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;" onclick="findTelephoneView()">预约参观</label>
+											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">预约参观</label>
 										<label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名"
