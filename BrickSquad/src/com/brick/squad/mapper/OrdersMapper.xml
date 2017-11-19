@@ -5,7 +5,8 @@
 	<sql id="Base_Column_List">
 		id, no, state_id stateId, production_date
 		productionDate,buy_id buyId,
-		number, money,receiving_address receivingAddress
+		number, money,receiving_address
+		receivingAddress
 	</sql>
 	<select id="findOrdersById" parameterType="java.lang.String"
 		resultType="Orders">
@@ -37,7 +38,7 @@
 		#{number,jdbcType=INTEGER},
 		#{money,jdbcType=REAL},#{receivingAddress})
 	</insert>
-	<!--根据ID修改收货地址ID  -->
+	<!--根据ID修改收货地址ID -->
 	<update id="updateOrdersreceivingAddressById" parameterType="Orders">
 		UPDATE orders
 		SET
@@ -61,11 +62,13 @@
 	<select id="findOrdersCount" resultType="Integer"
 		parameterType="com.brick.squad.util.Pagination">
 		SELECT COUNT(*)
-		FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
+		FROM orders o INNER JOIN buyers b ON o.buy_id=b.id
+		INNER
 		JOIN
 		personal_information p ON b.id=p.id
 		<if test="keyword!=''">
-			WHERE p.`name` REGEXP #{keyword} or o.state_id REGEXP #{keyword} or o.`no`
+			WHERE p.`name` REGEXP #{keyword} or o.state_id REGEXP
+			#{keyword} or o.`no`
 			REGEXP #{keyword}
 			limit #{skipNum},#{takeNum}
 		</if>
@@ -75,17 +78,22 @@
 		<if test="keyword!=''">
 			SELECT o.id,p.`name` name,o.`no`,o.state_id
 			stateId,o.number,o.production_date productionDate,o.money
-			FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
-			JOIN personal_information p ON b.id=p.id
-			WHERE p.`name` REGEXP #{keyword} or o.state_id REGEXP #{keyword} or o.`no`
+			FROM orders
+			o INNER JOIN buyers b ON o.buy_id=b.id INNER
+			JOIN personal_information
+			p ON b.id=p.id
+			WHERE p.`name` REGEXP #{keyword} or o.state_id REGEXP
+			#{keyword} or o.`no`
 			REGEXP #{keyword}
 			limit #{skipNum},#{takeNum}
 		</if>
 		<if test="keyword==''">
 			SELECT o.id,p.`name` name,o.`no`,o.state_id
 			stateId,o.number,o.production_date productionDate,o.money
-			FROM orders o INNER JOIN buyers b ON o.buy_id=b.id INNER
-			JOIN personal_information p ON b.id=p.id limit #{skipNum},#{takeNum}
+			FROM orders
+			o INNER JOIN buyers b ON o.buy_id=b.id INNER
+			JOIN personal_information
+			p ON b.id=p.id limit #{skipNum},#{takeNum}
 		</if>
 	</select>
 	<select id="findBuyserAndPersonalInformation" parameterType="java.lang.String"
@@ -99,11 +107,30 @@
 	</select>
 	<select id="findOrdersAndBuyserById" parameterType="java.lang.String"
 		resultType="com.brick.squad.expand.OrdersExpand">
-		SELECT o.id,p.`name`,o.`no`,o.state_id stateId,o.number,o.production_date
+		SELECT o.id,p.`name`,o.`no`,o.state_id
+		stateId,o.number,o.production_date
 		productionDate,o.money
-		FROM orders o INNER JOIN buyers b ON
+		FROM orders o
+		INNER JOIN buyers b ON
 		o.buy_id=b.id INNER
-		JOIN personal_information p ON b.id=p.id
+		JOIN personal_information p
+		ON b.id=p.id
 		WHERE o.id=#{id,jdbcType=VARCHAR}
+	</select>
+	<select id="findOrderByType" parameterType="map"
+		resultType="com.brick.squad.expand.OrderExpand">
+		SELECT a.aname,a.price,od.number,t.`name` typeName FROM
+		order_details
+		od
+		JOIN orders o on o.id=od.orders_id
+		JOIN article a on
+		od.article_id=a.id
+		JOIN type t ON t.id=o.state_id
+		WHERE
+		o.buy_id=#{buyId}
+		<if test="typeId!=null"> AND
+			t.id=#{typeId}
+		</if>
+
 	</select>
 </mapper>
