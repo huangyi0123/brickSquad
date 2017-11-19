@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -85,19 +86,6 @@
 	function prevTab(elem) {
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
-</script>
-<script type="text/javascript">
-function findTelephoneView() {
-	$.ajax({
-		  url:"${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
-		  type:'post', 
-		  success:function(data){
-			 var telephone=document.getElementById("telephone");
-				console.log("dfsfe");
-			 
-		  }
-		  });	
-}
 </script>
 
 
@@ -228,7 +216,7 @@ function findTelephoneView() {
 				<div class="buttons" style="z-index: 10;">
 					<ul>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal" onclick="findTelephoneView()">预约参观</a></li>
+							data-toggle="modal" data-target="#myModal">预约参观</a></li>
 						<li><a class="hvr-shutter-in-vertical" href="#"
 							data-toggle="modal" data-target="#myModal1">我要报名</a></li>
 					</ul>
@@ -392,6 +380,7 @@ function findTelephoneView() {
 	</div>
 
 	<!-- mobile -->
+	
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -430,9 +419,9 @@ function findTelephoneView() {
 						</div>
 						
 						
-						
+					
 						<!-- 预约参观 -->
-						<form role="form" method="post" action="">
+						<form role="form" method="post" action="${pageContext.request.contextPath }/reservation/findInsertReservation">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
@@ -440,21 +429,21 @@ function findTelephoneView() {
 											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">预约参观</label>
 										<label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="请输入联系人姓名"
+										<input type="text" value="请输入联系人姓名" name="rname"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 											onfocus="if(value=='请输入联系人姓名') {value=''}"
 											onblur="if (value=='') {value='请输入联系人姓名'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话" id="telephone"
+										<input type="text" value="请输入联系人电话" id="telephone" name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="if(value=='请输入联系人电话') {value=''}"
 											onblur="if (value=='') {value='请输入联系人电话'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
-											<div class="layui-input-inline">
-												<input type="text" name="date" id="date" lay-verify="date"
+											<div class="layui-input-inline"> 
+												<input type="text" name="reservationDate" id="date" lay-verify="date" 
 													autocomplete="off" class="layui-input" value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
 													onfocus="if(value=='请输入预约时间') {value=''}"
@@ -466,7 +455,7 @@ function findTelephoneView() {
 										<div class="layui-form-item">
 											<div class="layui-inline">
 												<div class="layui-input-inline">
-													<select name="modules" lay-verify="required" lay-search=""
+													<select name="branchId" lay-verify="required" lay-search=""
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
 														<option value="1">layer</option>
@@ -486,7 +475,7 @@ function findTelephoneView() {
 										<div class="layui-form-item layui-form-text">
 											<div class="layui-input-block"
 												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea"></textarea>
+												<textarea value="" class="layui-textarea" name="remarks"></textarea>
 											</div>
 										</div>
 									</div>

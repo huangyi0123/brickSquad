@@ -29,6 +29,7 @@ import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.PersonalInformationService;
+import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 
 @Controller
@@ -37,6 +38,12 @@ public class ActivityRegistrationController {
 	@Autowired
 	@Qualifier("activityRegistrationService")
 	private ActivityRegistrationService activityRegistrationService;
+	@Autowired
+	@Qualifier("personalInformationService")
+	private PersonalInformationService personalInformationService;
+	@Autowired
+	@Qualifier("userService")
+	private UserService userService;
 
 	@RequestMapping("/toActivityRegistration")
 	public String toActivityRegistration() {
@@ -126,15 +133,5 @@ public class ActivityRegistrationController {
 				activityRegistrationExpand);
 		return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
 	}
-	/**首页预约活动的电话回显*/
-	@RequestMapping("/findTelephoneView")
-	@ResponseBody
-	public String findTelephoneView(HttpServletRequest request){
-		User  User=(User)request.getSession().getAttribute("user");
-		String telephone=User.getTelephone();
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(telephone).toString();
-		System.out.println("=================="+data);
-		return data;
-	}
+	
 }
