@@ -39,7 +39,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	src="resource/plugins/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
 	$(function() {
-		init("");
+		var a='${roleId}';
+		console.log(a);
+		if(a=="ed270512bb8411e78d4f5254002ec43c"){
+		init("",!${limiterole.address.ad},!${limiterole.address.dl},false);
+		}
+		init("",false,false,false);
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
