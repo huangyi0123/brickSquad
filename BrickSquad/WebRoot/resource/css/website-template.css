@@ -27,3 +27,31 @@
 	background-color: #EBEBEC;
 	
 }
+
+.tem_main_left ul{
+	width:100%;
+	color:black;
+	
+	text-align:center;
+	margin-top:100px;
+	background-color: #EBEBEC;
+}
+
+.layui-nav .layui-nav-item a{
+	font-size:1.2em;
+	text-decoration:none;
+	color: black;
+}
+
+.layui-nav-tree .layui-nav-item a:hover{
+	background-color: #48CFC1;
+	
+}
+
+.layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover, .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a{
+		background-color: #48CFC1;
+	
+}
+.layui-nav-tree .layui-nav-bar{
+	background-color: #48CFC1;
+}

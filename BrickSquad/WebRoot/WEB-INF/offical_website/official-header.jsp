@@ -24,6 +24,8 @@
 	media="all" />
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link href="resource/css/index.css" rel="stylesheet">
+<link href="resource/css/website-template.css" rel="stylesheet" 
+	>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
