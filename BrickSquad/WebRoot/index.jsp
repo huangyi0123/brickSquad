@@ -93,7 +93,7 @@ function findTelephoneView() {
 		  type:'post', 
 		  success:function(data){
 			 var telephone=document.getElementById("telephone");
-				console.log(data[0]);
+				console.log("dfsfe");
 			 
 		  }
 		  });	
