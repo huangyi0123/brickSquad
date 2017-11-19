@@ -88,25 +88,8 @@
 	function prevTab(elem) {
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
-<<<<<<< HEAD
-=======
-</script>
-<script type="text/javascript">
-	function findTelephoneView() {
-		$
-				.ajax({
-					url : "${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
-					type : 'post',
-					success : function(data) {
-						var telephone = document.getElementById("telephone");
-						var json = eval(data);
-						telephone.value = "json[0].telephone";
-					}
-				});
-	}
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
-</script>
 
+</script>
 
 </head>
 
