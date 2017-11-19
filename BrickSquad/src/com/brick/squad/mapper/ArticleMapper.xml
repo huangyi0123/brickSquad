@@ -158,6 +158,7 @@
 		o ON a.id=o.article_id JOIN type t
 		ON t.id=a.type_id
 		WHERE t.parent_id=#{parentId}
+		limit 5
 	</select>
 	<!-- 查询医疗器械类的商品总数 -->
 	<select id="findCountMedicalInstruments" resultType="Integer"

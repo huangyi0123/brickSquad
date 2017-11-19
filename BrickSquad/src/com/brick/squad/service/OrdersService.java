@@ -1,5 +1,9 @@
 package com.brick.squad.service;
 
+import java.util.List;
+import java.util.Map;
+
+import com.brick.squad.expand.OrderExpand;
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.util.Pagination;
@@ -17,6 +21,7 @@ public interface OrdersService {
 	 *            收货地址ID
 	 */
 	public void updateOrdersreceivingAddressById(Orders orders);
+
 	/* 根据订单id查询订单信息 */
 	public Orders findOrdersById(String id) throws Exception;
 
@@ -59,4 +64,13 @@ public interface OrdersService {
 	 * 查询订单所有信息关联查询出买家名字
 	 * */
 	public OrdersExpand findOrdersAndBuyserById(String id) throws Exception;
+
+	/**
+	 * 查询订单状态
+	 * 
+	 * @param map
+	 *            参数
+	 * @return 订单信息
+	 */
+	public List<OrderExpand> findOrderByType(Map<String, String> map);
 }

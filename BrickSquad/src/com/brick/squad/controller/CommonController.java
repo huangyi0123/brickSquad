@@ -209,7 +209,6 @@ public class CommonController {
 					}
 				}
 			}
-
 			request.setAttribute("personalInfofmationAndHealthRecordsExpand",
 					personalInfofmationAndHealthRecordsExpand);
 			// end

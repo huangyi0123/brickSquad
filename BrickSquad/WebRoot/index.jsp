@@ -86,7 +86,19 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
-
+<script type="text/javascript">
+function findTelephoneView() {
+	$.ajax({
+		  url:"${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
+		  type:'post', 
+		  success:function(data){
+			  var telephone=document.getElementById("telephone");
+			 var json = eval(data); 
+			 telephone.value="json[0].telephone";
+		  }
+		  });	
+}
+</script>
 
 
 </head>
@@ -386,7 +398,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" onclick="findTelephoneView()">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -416,13 +428,16 @@
 									role="tab" title="Complete"> </a></li>
 							</ul>
 						</div>
+						
+						
+						
 						<!-- 预约参观 -->
-						<form role="form">
+						<form role="form" method="post" action="">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
 										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">预约参观</label>
+											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;" onclick="findTelephoneView()">预约参观</label>
 										<label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名"
@@ -431,7 +446,7 @@
 											onblur="if (value=='') {value='请输入联系人姓名'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话"
+										<input type="text" value="请输入联系人电话" id="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="if(value=='请输入联系人电话') {value=''}"
 											onblur="if (value=='') {value='请输入联系人电话'}">
@@ -475,14 +490,18 @@
 											</div>
 										</div>
 									</div>
-									<input value="提交"
+									<input value="提交" type="submit"
 										style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
-									<input value="重置"
+									<input value="重置" type="reset"
 										style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
 
 								</div>
 							</div>
 						</form>
+						
+						
+						
+						
 					</div>
 					</section>
 				</div>
