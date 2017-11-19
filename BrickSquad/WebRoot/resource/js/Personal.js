@@ -269,6 +269,7 @@ function savesa(n) {
 		var detailed = $("#detailed").val();
 		console.log(detailed);
 		// 获取亲属信息
+		var relativesId=$("#relativesId").val();
 		var gName = $("#gName").val();
 		var gphone = $("#gphone").val();
 		var gtype = $("#qsgx").val();
@@ -293,6 +294,7 @@ function savesa(n) {
 				$("#gxphone").html(gphone);
 				$("#qsgx").val(gtype);
 				$("#gxtype").html(result[0].relativesName);
+				$("#relativesId").val(result[0].relativesId);
 				$(".uinfo").hide();
 				$(".info").show();
 			}

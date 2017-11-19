@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -23,6 +25,7 @@ import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.PersonalInformationService;
@@ -122,5 +125,15 @@ public class ActivityRegistrationController {
 		request.setAttribute("activityRegistrationExpand",
 				activityRegistrationExpand);
 		return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
+	}
+	/**首页预约活动的电话回显*/
+	@RequestMapping("/findTelephoneView")
+	@ResponseBody
+	public String findTelephoneView(HttpServletRequest request){
+		User  User=(User)request.getSession().getAttribute("user");
+		String telephone=User.getTelephone();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(telephone).toString();
+		return data;
 	}
 }
