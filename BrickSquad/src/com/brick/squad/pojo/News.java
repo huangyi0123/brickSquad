@@ -10,8 +10,8 @@ public class News {
 	private String id;
 	private String userId;
 
-	// 正则表达式问题已解决！！！
-	@Pattern(regexp = "<p><br><\\/p>\\w+", message = "新闻内容不能为空")
+	/*// 正则表达式问题已解决！！！
+	@Pattern(regexp = "<p><br><\\/p>\\w+", message = "新闻内容不能为空")*/
 	private String content;
 
 	private String imagePath;

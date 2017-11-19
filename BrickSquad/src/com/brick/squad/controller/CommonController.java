@@ -171,9 +171,6 @@ public class CommonController {
 				Address address = personalInformationService
 						.findAddressById(personalInformation.getAddressId());
 				addressAndPersonaInformationExpand.setAddress(address);
-				String allRegionResultById = addressService
-						.getAllRegion(address);
-				request.setAttribute("allRegionResultById", allRegionResultById);
 				// end
 
 			}

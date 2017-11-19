@@ -204,17 +204,17 @@
 												<div class="module slideshow no-margin">
 												<%-- <c:forEach var="article1" items="${listArticle1 }"> --%>
 													<div class="item">
-														<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article1.id}"><img
+														<a href="javascript:;"><img
 															src="resource/front_bootstrap/images/1903/lubnbo1.jpg" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
 													<div class="item">
-														<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article1.id}"><img
+														<a href="javascript:;"><img
 															src="resource/front_bootstrap/images/1903/lunbo2.jpg" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
 													<div class="item">
-														<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article1.id}"><img
+														<a href="javascript:;"><img
 															src="resource/front_bootstrap/images/1903/lunbo3.jpg" alt="slider1"
 															class="img-responsive" height="559"></a>
 													</div>
@@ -243,7 +243,7 @@
 									<div class="slider responsive">
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="${pageContext.request.contextPath }/MedicalInstruments/findArticleBrands?">
+												<a href="javascript:;">
 												<img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
@@ -253,7 +253,7 @@
 										<div class="item item-brand-cat">
 											<div class="item-image">
 												<a
-													href="http://demo.smartaddons.com/templates/html/etrostore/shop.html-books"><img
+													href="javascript:;"><img
 													width="173" height="91" src="resource/front_bootstrap/images/1903/br1.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -261,7 +261,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173"
+												<a href="javascript:;"><img width="173"
 													src="resource/front_bootstrap/images/1903/br2.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -269,7 +269,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173"
+												<a href="javascript:;"><img width="173"
 													src="resource/front_bootstrap/images/1903/Brand_11.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -277,7 +277,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" 
+												<a href="javascript:;"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_10.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>
@@ -285,7 +285,7 @@
 
 										<div class="item item-brand-cat">
 											<div class="item-image">
-												<a href="shop.html"><img width="173" 
+												<a href="javascript:;"><img width="173" 
 													src="resource/front_bootstrap/images/1903/Brand_111.jpg"
 													class="attachment-173x91 size-173x91" alt=""></a>
 											</div>

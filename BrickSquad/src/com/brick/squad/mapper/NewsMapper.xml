@@ -24,20 +24,18 @@
 		select*from news where content=#{content}
 	</select>
 	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand" parameterType="com.brick.squad.util.Pagination">
-		
+		SELECT n.id,u.username,n.content,n.imgs_path
+		imagePath,n.post_time postTime,n.title
+		FROM news n INNER JOIN `user` u
+		ON n.user_id=u.id 
+		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
+		where n.user_id=#{userId}
+		</if>
 		<if test="keyword!=''">
-		SELECT n.id,u.username,n.content,n.imgs_path
-		imagePath,n.post_time postTime,n.title
-		FROM news n INNER JOIN `user` u
-		ON n.user_id=u.id where n.user_id=#{userId} AND (u.username REGEXP #{keyword} or n.title REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+		 AND (u.username REGEXP #{keyword} or n.title REGEXP #{keyword}) 
 		</if>
-		<if test="keyword==''">
-		SELECT n.id,u.username,n.content,n.imgs_path
-		imagePath,n.post_time postTime,n.title
-		FROM news n INNER JOIN `user` u
-		ON n.user_id=u.id where n.user_id=#{userId}
 		limit #{skipNum},#{takeNum}
-		</if>
+		
 	</select>
 	<select id="findNewsCount" resultType="Integer" parameterType="com.brick.squad.util.Pagination">
 		<if test="keyword==''">

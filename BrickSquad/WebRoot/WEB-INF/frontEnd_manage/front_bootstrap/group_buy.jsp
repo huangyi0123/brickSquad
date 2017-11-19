@@ -199,7 +199,8 @@
 											<nav aria-label="Page navigation">
 											<ul class="pagination">
 												<li><a
-													href="<%=pageUtil.getCurentPage()==1?"javascript:;":"group_buy/togroup_buy?curentPage="+1%>"
+													href="<%=pageUtil.getCurentPage()==1? "javascript:;" : "group_buy/togroup_buy?curentPage="+1%>"
+													
 													style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
 														<span aria-hidden="true">&laquo;</span>
 												</a></li>
@@ -416,6 +417,7 @@
 	<script type="text/javascript">
 		function myChang(o, a) {
 			var n = $(o).val();
+			consolo.log(n+"################################");
 			n = parseInt(n);
 			a = parseInt(a);
 			if (n >= 1 && n <= a) {

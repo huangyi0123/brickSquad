@@ -35,7 +35,6 @@
 		$("#birthday").html(Format(new Date(birthday), "yyyy-MM-dd"));
 		//判断用户信息是否完善
 		var name = $("#pername").val();
-		console.log(name);
 		if (name == "") {
 			updatePinfo("1");
 		} else {
@@ -112,7 +111,7 @@
 						<!--分割线  -->
 						<!-- 个人信息开始 -->
 						<form class="layui-form message" action="personalInformation/userUpdatePersonalInformation"
-							method="post">
+							method="post" id="perinformation">
 							<input type="hidden" value="${addressAndPersonaInformationExpand.personalInformation.id }"
 								name="personalInformation.id">
 							<input type="hidden"
@@ -124,21 +123,20 @@
 								name="" id="pername">
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 真实姓名：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.name }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px" id="ipname">${addressAndPersonaInformationExpand.personalInformation.name }</span>
 								<input id="perName" type="text"
 									value="${addressAndPersonaInformationExpand.personalInformation.name }"
 									name="personalInformation.name" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;" autocomplete="off"
 									placeholder="请输入真实姓名" class="layui-input uinfo">
 							</div>
-
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 性别：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px" id="ipgender">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
 								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px"
 									id="perGender">
-									<input type="radio" name="sex" value="男" title="男" checked="">
-									<input type="radio" name="sex" value="女" title="女">
+									<input type="radio" name="personalInformation.gender" value="男" title="男" >
+									<input type="radio" name="personalInformation.gender" value="女" title="女">
 								</div>
 							</div>
 							<div class="layui-form-item">
@@ -148,7 +146,7 @@
 									lay-verify="identity" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;display:inline-block;"
 									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo" id="idcard">
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px" id="ipidcard">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
 							</div>
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">出生年月：</label>
@@ -158,11 +156,11 @@
 									style="width: 350px;margin-left:0px;margin-top: 10px; display:inline-block"
 									autocomplete="off" placeholder="出生年月" class="layui-input uinfo" id="birthday">
 								<span id="birthday" class="info"
-									style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
+									style="font-size: 17px;display: block;float: left;margin-top: 25px" >${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
 							</div>
 							<div class="layui-inline">
 								<label style="width: 100px ;float: left;">* 现居住地：</label>
-								<span class="info" style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+								<span class="info" id="addressqw"  style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
 								<div class="uinfo">
 									<input type="hidden" id="addressId"
 										value="${addressAndPersonaInformationExpand.address.id }">
@@ -210,27 +208,27 @@
 						<div>
 							<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
 
-							<input type="text" name="title" lay-verify="title" id="gName"
+							<input type="text" name="relatives.name" lay-verify="title" id="gName"
 								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input uinfo">
-							<span class="info">${addressAndPersonaInformationExpand.relatives.name }</span>
+								placeholder="请输入联系人姓名" class="layui-input uinfo" value="${addressAndPersonaInformationExpand.relatives.name }">
+							<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
 							<div style="clear: both;"></div>
 							<label style="display:inline-block; ">* 联系人电话：</label>
-							<input type="text" name="title" lay-verify="title" id="gphone"
+							<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
 								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input uinfo">
-							<span class="info">${addressAndPersonaInformationExpand.relatives.telephone }</span>
+								placeholder="请输入联系人电话" class="layui-input uinfo" value="${addressAndPersonaInformationExpand.relatives.telephone }">
+							<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
 							<div style="clear: both;"></div>
 							<label style="display:inline-block; ">* 亲属关系：</label>	
 								<div class="layui-inline uinfo" style="margin-left:0px;margin-top: -15px;">
 									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="" id="qsgx" val="${relationship.id }">
+										<select name="relatives.relationshipId" lay-verify="required" lay-search="" id="qsgx" val="${relationship.id }" >
 											<option value="">直接选择或搜索选择</option>
 										</select>
 									</div>
 								</div>
 							</form>
-							<span class="info">${relationship.name }</span>
+							<span class="info" id="gxtype">${relationship.name }</span>
 						</div>
 						<div style="display: none;">
 							<label>亲属联系人2：</label> <label>* 联系人姓名：</label>

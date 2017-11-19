@@ -60,7 +60,7 @@
 		JOIN
 		business b on sa.business_id=b.id
 		JOIN article a on sa.article_id=a.id
-		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c'">
+		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
 		WHERE  b.id=#{userId}
 		</if>
 		<if test="keyword!='' and keyword!=null">

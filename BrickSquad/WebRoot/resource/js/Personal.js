@@ -155,6 +155,10 @@ function uploadImage() {
 function updatePinfo(n) {
 	$(".info").hide();
 	$(".uinfo").show();
+	var birthday=$("#birthdayId").attr('val');
+	$("#birthdayId").val(Format(new Date(birthday), "yyyy-MM-dd"));
+	var pgengender=$("#ipgender").html();
+	$("#perGender").find("input[value='"+pgengender+"']").attr('checked','true');
 	layui.use('form', function() {
 		var form = layui.form();
 		$.ajax({
@@ -165,6 +169,33 @@ function updatePinfo(n) {
 				form.render('select', 'prIds');
 			}
 
+		});
+		var porId = $("#prIdas").attr('val');
+		var cityId = $('#cityId').attr('val');
+		var countyId = $('#countyId').attr('val');
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + porId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#cityId");
+				form.render('select', 'cityIdSelect');
+			}
+		});
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + cityId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#countyId");
+				form.render('select', 'countyIdSelect');
+			}
+		});
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + countyId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#countryId");
+				form.render('select', 'countryIdSelect');
+			}
 		});
 		form.on('select(prIds)', function(data) {
 			$.ajax({
@@ -230,42 +261,40 @@ function savesa(n) {
 		var perGender = $("#perGender").find('input:radio[name="sex"]:checked')
 				.val();
 		var idcard = $("#idcard").val();
-		var birthday = $("#birthday").val();
+		var birthday = $("#birthdayId").val();
 		var provinceId = $("#prIdas").val();
 		var cityId = $("#cityId").val();
 		var countyId = $("#countyId").val();
 		var countryId = $("#countryId").val();
 		var detailed = $("#detailed").val();
-
+		console.log(detailed);
 		// 获取亲属信息
 		var gName = $("#gName").val();
 		var gphone = $("#gphone").val();
 		var gtype = $("#qsgx").val();
-		var data = {
-			"personalInformation" : {
-				'name':perName,
-				'gender':perGender,
-				'idCard':idcard,
-				'birthday':birthday
-			},
-			'address':{
-				'provinceId':provinceId,
-				'cityId':cityId,
-				'countyId':countyId,
-				'countryId':countryId,
-				'detailed':detailed
-			},
-			"relatives":{
-				'name':gName,
-				'telephone':gphone,
-				'relationshipId':gtype
-			}
-		};
 		$.ajax({
-			url : '',
+			url : 'personalInformation/updaeInforMation',
 			type : 'POST',
-			data : {
-
+			data : $("#perinformation").serialize(),
+			success : function(result) {
+				result=JSON.parse(result);
+				console.log(result);
+				$("#ipname").html(perName);
+				$("#ipgender").html(perGender);
+				$("#ipidcard").html(idcard);
+				$("#birthday").html(birthday);
+				$("#addressId").html(result[0].addressId);
+				$("#prIdas").attr('val',provinceId);
+				$("#cityId").attr('val',cityId);
+				$("#countyId").attr('val',countyId);
+				$("#countryId").attr('val',countryId);
+				$("#addressqw").html(result[0].address);
+				$("#gxName").html(gName);
+				$("#gxphone").html(gphone);
+				$("#qsgx").val(gtype);
+				$("#gxtype").html(result[0].relativesName);
+				$(".uinfo").hide();
+				$(".info").show();
 			}
 		});
 	}

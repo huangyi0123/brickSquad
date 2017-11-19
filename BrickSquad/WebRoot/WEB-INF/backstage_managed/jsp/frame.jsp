@@ -54,7 +54,8 @@
 				<span> <img style="margin-bottom: 10px;" alt="image"
 					class="img-circle" src="resource/image/logo.png" />
 				</span>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' }">
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+					or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							基本表单 <span class="fa arrow"></span>
 					</a>
@@ -67,7 +68,8 @@
 						</ul></li>
 				</c:if>
 				<c:if
-					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' or user.roleId eq 'b8a7e02ec05511e7aca65254002ec43c' }">
+					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' or user.roleId eq 'b8a7e02ec05511e7aca65254002ec43c' 
+					or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							老人信息管理 <span class="fa arrow"></span>
 					</a>
@@ -101,7 +103,9 @@
 						</ul></li>
 				</c:if>
 				<c:if
-					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' or user.roleId eq '9d2a23cac05511e7aca65254002ec43c' }">
+					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+					or user.roleId eq '9d2a23cac05511e7aca65254002ec43c'
+					or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							电子商务 <span class="fa arrow"></span>
 					</a>
@@ -111,7 +115,7 @@
 							<li><a class="J_menuItem" href="article/toArticleList">商品列表</a>
 							</li>
 							<c:if
-								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' }">
+								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c'}">
 								<li><a class="J_menuItem" href="collection/toCollection">收藏商品信息列表</a>
 								</li>
 							</c:if>
@@ -145,7 +149,9 @@
 						</ul></li>
 				</c:if>
 				<c:if
-					test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' or user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' or user.roleId eq 'b8a7e02ec05511e7aca65254002ec43c' }">
+					test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' 
+					 or user.roleId eq 'ed270512bb8411e78d4f5254002ec43c'	  
+					 or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							老年教育 <span class="fa arrow"></span>
 					</a>
@@ -169,7 +175,8 @@
 						<span class="fa arrow"></span>
 				</a>
 					<ul class="nav nav-second-level"></ul></li>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' }">
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+							or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c'}">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							分店管理 <span class="fa arrow"></span>
 					</a>
@@ -179,7 +186,8 @@
 							</li>
 						</ul></li>
 				</c:if>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' }">
+				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+								or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							权限管理 <span class="fa arrow"></span>
