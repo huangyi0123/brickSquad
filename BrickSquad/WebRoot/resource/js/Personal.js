@@ -155,10 +155,11 @@ function uploadImage() {
 function updatePinfo(n) {
 	$(".info").hide();
 	$(".uinfo").show();
-	var birthday=$("#birthdayId").attr('val');
+	var birthday = $("#birthdayId").attr('val');
 	$("#birthdayId").val(Format(new Date(birthday), "yyyy-MM-dd"));
-	var pgengender=$("#ipgender").html();
-	$("#perGender").find("input[value='"+pgengender+"']").attr('checked','true');
+	var pgengender = $("#ipgender").html();
+	$("#perGender").find("input[value='" + pgengender + "']").attr('checked',
+			'true');
 	layui.use('form', function() {
 		var form = layui.form();
 		$.ajax({
@@ -269,7 +270,7 @@ function savesa(n) {
 		var detailed = $("#detailed").val();
 		console.log(detailed);
 		// 获取亲属信息
-		var relativesId=$("#relativesId").val();
+		var relativesId = $("#relativesId").val();
 		var gName = $("#gName").val();
 		var gphone = $("#gphone").val();
 		var gtype = $("#qsgx").val();
@@ -278,17 +279,17 @@ function savesa(n) {
 			type : 'POST',
 			data : $("#perinformation").serialize(),
 			success : function(result) {
-				result=JSON.parse(result);
+				result = JSON.parse(result);
 				console.log(result);
 				$("#ipname").html(perName);
 				$("#ipgender").html(perGender);
 				$("#ipidcard").html(idcard);
 				$("#birthday").html(birthday);
 				$("#addressId").html(result[0].addressId);
-				$("#prIdas").attr('val',provinceId);
-				$("#cityId").attr('val',cityId);
-				$("#countyId").attr('val',countyId);
-				$("#countryId").attr('val',countryId);
+				$("#prIdas").attr('val', provinceId);
+				$("#cityId").attr('val', cityId);
+				$("#countyId").attr('val', countyId);
+				$("#countryId").attr('val', countryId);
 				$("#addressqw").html(result[0].address);
 				$("#gxName").html(gName);
 				$("#gxphone").html(gphone);
@@ -300,4 +301,55 @@ function savesa(n) {
 			}
 		});
 	}
+}
+function orders() {
+	$("#person").find('li').click(
+			function() {
+				var html = $(this).html();
+				if (html == "订单管理") {
+					$.ajax({
+						url : 'orders/getOrders',
+						success : function(data) {
+							$("#typeStru").html("");
+							data = JSON.parse(data);
+							var html = "";
+							$(data).each(
+									function() {
+										html = html + "<tr>" + "<td>"
+												+ this.aname + "</td>" + "<td>"
+												+ this.price + "</td>" + "<td>"
+												+ this.number + "</td>"
+												+ "<td>" + this.typeName
+												+ "</td>"
+												+ "<td>人生就像是一场修行</td>"
+												+ "</tr>";
+									});
+							$("#typeStru").html(html);
+						}
+					});
+				}
+			});
+}
+function ordersType(id, type) {
+	$.ajax({
+		url : 'orders/getOrders?typeId=' + id,
+		success : function(data) {
+			$(type).html("");
+			data = JSON.parse(data);
+			var html = "";
+			$(data).each(
+					function() {
+						var opr = "";
+						if (type == '#obligations') {
+							opr = "<td><a href='variableProduct/toconfirm_order?ordersId="+this.oId+"'>去支付</a></td>";
+						}
+						html = html + "<tr>" + "<td>" + this.aname + "</td>"
+								+ "<td>" + this.price + "</td>" + "<td>"
+								+ this.number + "</td>" + "<td>"
+								+ this.typeName + "</td>" + opr
+						"</tr>";
+					});
+			$(type).html(html);
+		}
+	});
 }

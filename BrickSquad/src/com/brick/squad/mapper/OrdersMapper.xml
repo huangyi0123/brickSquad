@@ -119,11 +119,13 @@
 	</select>
 	<select id="findOrderByType" parameterType="map"
 		resultType="com.brick.squad.expand.OrderExpand">
-		SELECT a.aname,a.price,od.number,t.`name` typeName FROM
+		SELECT o.id oId,od.id odId, a.aname,a.price,od.number,t.`name`
+		typeName FROM
 		order_details
 		od
 		JOIN orders o on o.id=od.orders_id
-		JOIN article a on
+		JOIN
+		article a on
 		od.article_id=a.id
 		JOIN type t ON t.id=o.state_id
 		WHERE
