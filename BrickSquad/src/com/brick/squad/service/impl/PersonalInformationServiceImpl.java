@@ -311,6 +311,7 @@ public class PersonalInformationServiceImpl implements
 		map.put("address", addresse);
 		Type type=typeMapper.findTypeById(relatives2.getRelationshipId());
 		map.put("relativesName", type.getName());
+		map.put("relativesId", relatives2.getId());
 		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}
