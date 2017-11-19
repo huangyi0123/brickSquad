@@ -145,7 +145,6 @@
 															class="woocommerce-Price-amount amount"><span
 																class="woocommerce-Price-currencySymbol">￥</span><span class="pricle">${listDetailsShoppingCar.price}</span></span>
 														</td>
-
 														<td class="product-quantity" data-title="Quantity">
 															<div class="quantity">
 																<input type="number" step="1" min="1"
