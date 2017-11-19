@@ -281,6 +281,11 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
+	
+	@RequestMapping("/toWebsite_template")
+	public String toWebsite_template() {
+		return "offical_website/website-template";
+	}
 
 	/***
 	 * 医疗器械页面controller
