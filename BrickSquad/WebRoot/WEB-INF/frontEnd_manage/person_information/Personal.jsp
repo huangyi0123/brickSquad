@@ -77,7 +77,7 @@
 		<div class="Person_right">
 			<div class="layui-tab layui-tab-card" lay-filter="demo"
 				style="height:1100px; margin-top: 40px;margin-left: 10px;" lay-filter="demo">
-				<ul class="layui-tab-title">
+				<ul class="layui-tab-title" id="person">
 					<li class="layui-this">个人资料</li>
 					<li>健康管理</li>
 					<li>安全设置</li>
@@ -122,7 +122,8 @@
 								name="" id="pername">
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 真实姓名：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px" id="ipname">${addressAndPersonaInformationExpand.personalInformation.name }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px"
+									id="ipname">${addressAndPersonaInformationExpand.personalInformation.name }</span>
 								<input id="perName" type="text"
 									value="${addressAndPersonaInformationExpand.personalInformation.name }"
 									name="personalInformation.name" required lay-verify="required"
@@ -131,10 +132,11 @@
 							</div>
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 性别：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px" id="ipgender">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px"
+									id="ipgender">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
 								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px"
 									id="perGender">
-									<input type="radio" name="personalInformation.gender" value="男" title="男" >
+									<input type="radio" name="personalInformation.gender" value="男" title="男">
 									<input type="radio" name="personalInformation.gender" value="女" title="女">
 								</div>
 							</div>
@@ -145,7 +147,8 @@
 									lay-verify="identity" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;display:inline-block;"
 									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo" id="idcard">
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px" id="ipidcard">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px"
+									id="ipidcard">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
 							</div>
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">出生年月：</label>
@@ -155,11 +158,12 @@
 									style="width: 350px;margin-left:0px;margin-top: 10px; display:inline-block"
 									autocomplete="off" placeholder="出生年月" class="layui-input uinfo" id="birthday">
 								<span id="birthday" class="info"
-									style="font-size: 17px;display: block;float: left;margin-top: 25px" >${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
+									style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
 							</div>
 							<div class="layui-inline">
 								<label style="width: 100px ;float: left;">* 现居住地：</label>
-								<span class="info" id="addressqw"  style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+								<span class="info" id="addressqw"
+									style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
 								<div class="uinfo">
 									<input type="hidden" id="addressId"
 										value="${addressAndPersonaInformationExpand.address.id }">
@@ -199,384 +203,348 @@
 									</div>
 								</div>
 							</div>
-						<!--分割线  -->
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
-						<!--分割线  -->
-						<div style="clear:both;"></div>
-						<!--亲属信息  -->
-						<div>
-							<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
-							<input type="hidden" name="relatives.id" value="${addressAndPersonaInformationExpand.relatives.id}" id="relativesId">
-							<input type="text" name="relatives.name" lay-verify="title" id="gName"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input uinfo" value="${addressAndPersonaInformationExpand.relatives.name }">
-							<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
-							<div style="clear: both;"></div>
-							<label style="display:inline-block; ">* 联系人电话：</label>
-							<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input uinfo" value="${addressAndPersonaInformationExpand.relatives.telephone }">
-							<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
-							<div style="clear: both;"></div>
-							<label style="display:inline-block; ">* 亲属关系：</label>	
+							<!--分割线  -->
+							<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
+							<!--分割线  -->
+							<div style="clear:both;"></div>
+							<!--亲属信息  -->
+							<div>
+								<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
+								<input type="hidden" name="relatives.id"
+									value="${addressAndPersonaInformationExpand.relatives.id}" id="relativesId">
+								<input type="text" name="relatives.name" lay-verify="title" id="gName"
+									style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+									placeholder="请输入联系人姓名" class="layui-input uinfo"
+									value="${addressAndPersonaInformationExpand.relatives.name }">
+								<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
+								<div style="clear: both;"></div>
+								<label style="display:inline-block; ">* 联系人电话：</label>
+								<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
+									style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+									placeholder="请输入联系人电话" class="layui-input uinfo"
+									value="${addressAndPersonaInformationExpand.relatives.telephone }">
+								<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
+								<div style="clear: both;"></div>
+								<label style="display:inline-block; ">* 亲属关系：</label>
 								<div class="layui-inline uinfo" style="margin-left:0px;margin-top: -15px;">
 									<div class="layui-input-inline">
-										<select name="relatives.relationshipId" lay-verify="required" lay-search="" id="qsgx" val="${relationship.id }" >
+										<select name="relatives.relationshipId" lay-verify="required" lay-search="" id="qsgx"
+											val="${relationship.id }">
 											<option value="">直接选择或搜索选择</option>
 										</select>
 									</div>
 								</div>
-							</form>
-							<span class="info" id="gxtype">${relationship.name }</span>
-						</div>
-						<div style="display: none;">
-							<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
-							<input type="text" name="title" lay-verify="title"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input">
-							<label>* 联系人电话：</label>
-							<input type="text" name="title" lay-verify="title"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input">
-							<label>* 亲属关系：</label>
-							<form class="layui-form" action="">
-								<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
-									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="" >
-											<option value="">直接选择或搜索选择</option>
-										</select>
-									</div>
+						</form>
+						<span class="info" id="gxtype">${relationship.name }</span>
+					</div>
+					<div style="display: none;">
+						<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
+						<input type="text" name="title" lay-verify="title"
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人姓名" class="layui-input">
+						<label>* 联系人电话：</label>
+						<input type="text" name="title" lay-verify="title"
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人电话" class="layui-input">
+						<label>* 亲属关系：</label>
+						<form class="layui-form" action="">
+							<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+									</select>
 								</div>
-							</form>
+							</div>
+						</form>
+					</div>
+					<div class="layui-inline" style="margin-left: 150px;margin-top: 20px">
+						<button class="layui-btn info" onclick="updatePinfo('0')">修改</button>
+						<button class="layui-btn uinfo" onclick="savesa('0')">保存</button>
+					</div>
+				</div>
+
+				<!-- 健康管理 -->
+				<div class="layui-tab-item layui-tab-item3">
+					<label style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
+					<h2 id="nullMessage"></h2>
+					<label>患有疾病：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+					<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.nationName }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+
+					<label>文化程度：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-top: 20px;">身高(cm)：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+					<label style="margin-left: 400px;margin-top: -35px;">体重(kg)：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+					<label style="margin-top: 20px;">血栓：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">血压：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label>饮食状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label>情绪控制：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+
+					<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
+							<div class="layui-colla-content layui-show">${personalInfofmationAndHealthRecordsExpand.personalInformation.familyHistory }</div>
 						</div>
-						<div class="layui-inline" style="margin-left: 150px;margin-top: 20px">
-							<button class="layui-btn info" onclick="updatePinfo('0')">修改</button>
-							<button class="layui-btn uinfo" onclick="savesa('0')">保存</button>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">健康评估</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.healthAssessment }</div>
+						</div>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">危险提示</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.dangerousTips }</div>
+						</div>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">结论建议</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.conclusionSuggestion}</div>
+						</div>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.evaluate }</div>
 						</div>
 					</div>
 
-					<!-- 健康管理 -->
-					<div class="layui-tab-item layui-tab-item3">
-						<label style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
-						<h2 id="nullMessage"></h2>
-						<label>患有疾病：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
+				</div>
+				<!--健康管理结束  -->
+				<div class="layui-tab-item layui-tab-item4">
+					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
 
-						<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.nationName }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
+					<label>用户名：${user.username }</label> <label>绑定手机：${user.telephone }</label>
+					<a href="#"
+						style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
+					<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
+					<!-------------------------------- 身份验证 ---------------------------------->
+					<i class="layui-icon"
+						style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
+					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
+						style="margin-left: 0;margin-top: -60px;">身份验证</label>
+					<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
+					<a style="margin-left: 700px;margin-top: -35px;">查看</a>
+					<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+					<!-------------------------------- 登录密码 ---------------------------------->
+					<i class="layui-icon"
+						style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
+					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
+						style="margin-left: 0px;margin-top: -60px;">登录密码</label>
+					<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
+					<a style="margin-left: 700px;margin-top: -35px;">查看</a>
+					<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
 
+					<!-------------------------------- 绑定手机 ---------------------------------->
+					<i class="layui-icon"
+						style="font-size: 35px;color: ${user.telephone eq ''?'red':'green' };margin-left: 100px;margin-top: 20px;display: block;">${user.telephone eq ''?'&#x1006;':'&#xe618;' }</i>
+					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label> <label
+						style="margin-left:0px;margin-top: -60px;">绑定手机</label>
+					<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
+					<a style="margin-left: 700px;margin-top: -35px;">设置</a>
+				</div>
 
-						<label>文化程度：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-top: 20px;">身高(cm)：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
+				<div class="layui-tab-item layui-tab-item5">5</div>
 
-						<label style="margin-left: 400px;margin-top: -35px;">体重(kg)：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
+				<div class="layui-tab-item layui-tab-item6">
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						<ul class="layui-tab-title">
+							<li class="layui-this">所有订单</li>
+							<li onclick="ordersType('4933fb74c84311e7aca65254002ec43c','#obligations')">待付款</li>
+							<li onclick="ordersType('02cd8aeeccf111e7aca65254002ec43c','#pendingShipment')">待发货</li>
+							<li>待收货</li>
+							<li>待评价</li>
+						</ul>
+						<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
+						<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="typeStru">
 
-						<label style="margin-top: 20px;">血栓：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">血压：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label>饮食状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label>情绪控制：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-
-						<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
-								<div class="layui-colla-content layui-show">${personalInfofmationAndHealthRecordsExpand.personalInformation.familyHistory }</div>
+									</tbody>
+								</table>
 							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">健康评估</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.healthAssessment }</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="obligations">
+										
+									</tbody>
+								</table>
 							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">危险提示</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.dangerousTips }</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="pendingShipment">
+										
+									</tbody>
+								</table>
 							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">结论建议</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.conclusionSuggestion}</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>贤心</td>
+											<td>2016-11-29</td>
+											<td>人生就像是一场修行</td>
+											<td>人生就像是一场修行</td>
+											<td>人生就像是一场修行</td>
+										</tr>
+										<tr>
+											<td>许闲心</td>
+											<td>2016-11-28</td>
+											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.evaluate }</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>贤心</td>
+											<td>2016-11-29</td>
+											<td>人生就像是一场修行</td>
+											<td>人生就像是一场修行</td>
+											<td>人生就像是一场修行</td>
+										</tr>
+										<tr>
+											<td>许闲心</td>
+											<td>2016-11-28</td>
+											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-						</div>
-
-					</div>
-					<!--健康管理结束  -->
-					<div class="layui-tab-item layui-tab-item4">
-						<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
-
-						<label>用户名：${user.username }</label> <label>绑定手机：${user.telephone }</label>
-						<a href="#"
-							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-						<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
-						<!-------------------------------- 身份验证 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
-							style="margin-left: 0;margin-top: -60px;">身份验证</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
-						<!-------------------------------- 登录密码 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
-							style="margin-left: 0px;margin-top: -60px;">登录密码</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
-
-						<!-------------------------------- 绑定手机 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 35px;color: ${user.telephone eq ''?'red':'green' };margin-left: 100px;margin-top: 20px;display: block;">${user.telephone eq ''?'&#x1006;':'&#xe618;' }</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label> <label
-							style="margin-left:0px;margin-top: -60px;">绑定手机</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
-					</div>
-
-					<div class="layui-tab-item layui-tab-item5">5</div>
-
-					<div class="layui-tab-item layui-tab-item6">
-						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-							<ul class="layui-tab-title">
-								<li class="layui-this">所有订单</li>
-								<li>待付款</li>
-								<li>待发货</li>
-								<li>待收货</li>
-								<li>待评价</li>
-							</ul>
-							<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
-							<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
-							<div class="layui-tab-content">
-								<div class="layui-tab-item layui-show">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">6</div>
-							</div>
-							<i class="fa fa-trash-o" style="display:block; margin-left: 900px;margin-top: -60px;"> </i>
+							<div class="layui-tab-item">6</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<script>
@@ -600,7 +568,7 @@
 			});
 		});
 		$(function() {
-			init("");
+			orders();
 		});
 	</script>
 
