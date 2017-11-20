@@ -1,4 +1,4 @@
-function init(keyword) {
+function init(keyword, up, del, query) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
         ajax_url: 'reply/getReplyList',
@@ -23,10 +23,21 @@ function init(keyword) {
                 key: "operation",
                 text: "操作",
                 template: function(noteData,rowData)  {
-					return '<a onclick=deleteById("'
-					+ rowData.ids
-					+ '")><i title="删除" class="fa fa-trash-o" ></i></a>';
-		}
+        			var s = '<span class="optron">';
+        			
+        			if (del) {
+        				if (up) {
+        					s = s + '&nbsp;|&nbsp; ';
+        				}
+        				s = s
+        						+ '<a href="javascript:;" onclick=deleteById("'
+        						+ rowData.id
+        						+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
+        			}
+        			
+        			s = s + "</span>"
+        			return s;
+        		}
             }
         ]
     });
