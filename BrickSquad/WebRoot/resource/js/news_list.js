@@ -1,4 +1,4 @@
-function init(keyword) {
+function init(keyword, up, del, query) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
         ajax_url: 'news/getNewsList',
@@ -23,16 +23,37 @@ function init(keyword) {
                 key: "operation",
                 text: "操作",
                 template : function(noteData, rowData) {
-					return '<a href="news/toAddNews?id='
+				var s = '<span class="optron">';
+				if (up) {
+					s = s
+							+ '<a href="news/toAddNews?id='
 							+ rowData.id
-
-							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:55px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteNews("'
+							+ '"><i title="修改" class="fa fa-pencil-square-o"></i></a>';
+				}
+				if (del) {
+					if (up) {
+						s = s + '&nbsp;|&nbsp; ';
+					}
+					s = s
+							+ '<a href="javascript:;" onclick=deleteById("'
+							+ rowData.id
+							+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
+				}
+				if (query) {
+					if (up || del) {
+						s = s + '&nbsp;|&nbsp; ';
+					}
+					s = s
+							+ '<a href="news/findNews?id='
 
 							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a> &nbsp;|&nbsp; <a href="news/findNews?id='
-					+ rowData.id
-					+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
-                }  
+							+ '"><i title="查看详情" class="fa fa-eye""></i></a>';
+				}
+				s = s + "</span>"
+				return s;
+			}
+            
+            
             }
         ]
     });

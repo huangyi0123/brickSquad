@@ -34,19 +34,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript"
 	src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript">
-
-
-
 	$(function() {
 		var a='${roleId}';
 		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.activityRegistration.ad},!${limiterole.activityRegistration.dl},false);
+		init("",!${limiterole.activity_registration.ad},!${limiterole.activity_registration.dl},false);
 		}
 		init("",false,false,false);
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
-	</script>
+</script>
  <style type="text/css">
 .search {
 	margin-top: 5px;

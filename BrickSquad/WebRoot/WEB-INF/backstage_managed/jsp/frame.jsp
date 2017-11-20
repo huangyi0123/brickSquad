@@ -193,11 +193,15 @@
 							权限管理 <span class="fa arrow"></span>
 					</a>
 						<ul class="nav nav-second-level">
+						
 							<li><a class="J_menuItem" href="user/toUserList">用户信息列表</a>
 							</li>
+						
+						<c:if test="${ user.roleId ne 'b0578c1cc05511e7aca65254002ec43c' }">
 							<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
 							</li>
 							<li><a class="J_menuItem" href="role/toRoleList">角色列表</a></li>
+						</c:if>
 						</ul></li>
 				</c:if>
 			</ul>
