@@ -21,11 +21,16 @@
 }
 
 .tem_main_left {
-	float:left;
-	width: 20%;
-	height: 500px;
+	float: left;
+	width: 20%; 
+	height:500px;
+	/* height:auto!important; */
 	margin-left: 150px;
 	background-color: #EBEBEC;
+	/* overflow: hidden;
+	padding-bottom: 1000px;
+	margin-bottom: -1000px; */
+	
 }
 
 .tem_main_left ul {
@@ -59,10 +64,83 @@
 	background-color: #48CFC1;
 }
 
-.tem_main_right{
-	width:60%;
-	height:500px;
-	float:left;
+.tem_main_right {
+	width: 60%;
+	display: block; float : left;
 	background-color: white;
 	border: 1px solid blue;
+	float: left;
 }
+
+/* .aboutus-intro h4 {
+	color: #60C9BE;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 60px;
+	margin-left: 100px;
+}
+
+.aboutus-intro p {
+	width: 700px;
+	font-size: 1.1em;
+	line-height: 25px;
+	margin-left: 100px;
+	margin-top: 20px;
+} */
+
+.tem_main_right p{
+	width: 700px;
+	font-size: 1.1em;
+	line-height: 25px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.tem_main_right h4 {
+	color: #60C9BE;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 60px;
+	margin-left: 100px;
+}
+
+.tem_main_right h5 {
+	color: black;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-left: 100px;
+}
+.aboutus-join img{
+	width:700px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.aboutus-cont p{
+	margin-top: 5px;
+}
+
+
+.parti-online label{
+	color: #666666;
+	display:block;
+	font-stretch:normal;
+	margin-top: 20px;
+	margin-left: 100px;
+}
+.parti-online .layui-input-inline input{
+	height:30px;
+	width:200px;
+	border-radius:5px;
+	margin-left: 200px;
+	margin-top: -25px;
+}
+
+.layui-input, .layui-textarea, .layui-select{
+	border:1px solid #DEDEDE !important;
+}
+/* .parti-online .layui-input-block input{
+	margin-left: 20px;
+	font-size: 1.5em;
+} */

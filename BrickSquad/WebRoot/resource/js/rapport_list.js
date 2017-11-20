@@ -1,4 +1,4 @@
-function init(keyword) {
+function init(keyword, up, del, query) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
         ajax_url: 'rapport/getRapportList',
@@ -37,17 +37,26 @@ function init(keyword) {
                 key: "operation",
                 text: "操作",
                 template : function(noteData, rowData) {
-					return '<a href="rapport/toAddRapport?id='
-							+ rowData.id
-
-							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:40px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteRapportById("'
-
-							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;|&nbsp; <a href="rapport/findRapportById?id='
-
-							+ rowData.id
-							+ '"><i title="查看详情" class="fa fa-eye" style="margin-right:5px;"></i></a>';
-				}
+    			var s = '<span class="optron">';
+    			if (up) {
+    				s = s
+    						+ '<a href="rapport/toAddRapport?id='
+    						+ rowData.id
+    						+ '"><i title="修改" class="fa fa-pencil-square-o"></i></a>';
+    			}
+    			if (del) {
+    				if (up) {
+    					s = s + '&nbsp;|&nbsp; ';
+    				}
+    				s = s
+    						+ '<a href="javascript:;" onclick=deleteById("'
+    						+ rowData.id
+    						+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
+    			}
+    			
+    			s = s + "</span>"
+    			return s;
+    		}
 			} ]
     });
 }

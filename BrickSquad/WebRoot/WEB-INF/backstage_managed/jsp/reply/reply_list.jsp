@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -41,7 +41,11 @@
 	src="resource/plugins/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
 	$(function() {
-		init("");
+		var a='${roleId}';
+		if(a=="ed270512bb8411e78d4f5254002ec43c"){
+		init("",!${limiterole.reply.ad},!${limiterole.reply.dl},false);
+		}
+		init("",false,false,false);
 		serach();
 		addReply("");
 		$(".table-div").css('height','calc(100% - 90px)');
@@ -74,6 +78,7 @@ a:HOVER {
 	</div>
 	<div class="input-group"
 		style="float: right;margin-right: 30px;margin-top: 5px; ">
+		<c:if test="${user.roleId ne 'b0578c1cc05511e7aca65254002ec43c'}">
 		<div class="input-group-btn" style="width:100px;">
 			<button type="button" style="width: 170px;"
 				class="btn btn-default dropdown-toggle" data-toggle="dropdown"
@@ -90,6 +95,7 @@ a:HOVER {
 				<li><a href="#">Separated link</a></li> -->
 			</ul>
 		</div>
+		</c:if>
 	</div>
 	<div style="clear: both;"></div>
 	<div class="cls"></div>
