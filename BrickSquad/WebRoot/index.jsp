@@ -269,19 +269,19 @@ function findActivitiesName() {
 								<a href="">康复协助</a>
 							</dd>
 						</dl></li>
-					<li class="layui-nav-item"><a href="javascript:;">关于乐堡</a>
+					<li class="layui-nav-item"><a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="javascript:;">乐堡简介</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">快速上手</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">加入我们</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">联系我们</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item" ng-app=""><a href="javascript:;"

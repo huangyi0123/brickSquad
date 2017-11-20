@@ -34,39 +34,55 @@
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("#menu").find("li").click(function() {
-			$(".tem_main_right").html($(this).html());
+		var type='${type}';
+		$("#centent").find('div').hide();
+		$("."+type).show();
+		$("#menu").find('li').each(function() {
+			var val=$(this).attr('val');
+			if(val==type){
+				$(this).attr('class','layui-nav-item layui-this');
+			}
+		});
+		$("#menu").find('li').click(function() {
+			var cls="."+$(this).attr('val');
+			$("#centent").find('div').hide();
+			$(cls).show();
 		});
 	});
+	function openOnlineParticipation() {
+		$("#centent").find('div').hide();
+		$("#menu").find('li').each(function() {
+				$(this).attr('class','layui-nav-item');
+		});
+		$(".parti-online").show();
+	}
 </script>
 </head>
 
 <body>
 	<div class="template_body">
 		<jsp:include page="official-header.jsp"></jsp:include>
-		<div class="template_img">
-			<img alt="" src="resource/image/3_2.png">
-		</div>
 		<div class="template_main">
 			<div class="tem_main_left">
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
 					style="margin-right: 10px;" id="menu">
-					<li class="layui-nav-item layui-this"><a href="javascript:;">乐堡简介</a></li>
+					<li class="layui-nav-item" val="aboutus-intro"><a href="javascript:;" >乐堡简介</a></li>
+					<div style="width: 100%;height: 1px;background-color: #CCCCCC;" ></div>
+					<li class="layui-nav-item" val="aboutus-use"><a href="javascript:;" >快速上手</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item"><a href="javascript:;">快速上手</a></li>
+					<li class="layui-nav-item" val="aboutus-join"><a href="javascript:;">加入我们</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item"><a href="javascript:;">加入我们</a></li>
-					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item"><a href="javascript:;">联系我们</a></li>
+					<li class="layui-nav-item" val="aboutus-cont"><a href="javascript:;">联系我们</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 
 				<label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="#" style="color:white;font-stretch: normal;">在线参与</a></label>
+					href="javascript:;" onclick="openOnlineParticipation()" style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
 			<!-- <div class="clearfix"></div> -->
-			<div class="tem_main_right">
+			<div class="tem_main_right" id="centent">
+			
 				<div class="aboutus-intro">
 					<h4>乐堡 —— 持续全程照料型养老社区</h4>
 					<p>星堡，即星堡（上海）投资咨询有限公司，由复星集团和美国峰堡集团于2012年合资成立，以“改善中国老年生活方式”为己任，立志于成为中国养老服务行业的领导者，为中国长者提供最好的养老服务！星堡也是上海现代服务业联合会养老服务专业委员会副主任单位。
@@ -263,7 +279,6 @@
 			//监听导航点击
 			element.on('nav(demo)', function(elem) {
 				//console.log(elem)
-				layer.msg(elem.text());
 			});
 		});
 		layui.use('form', function() {
