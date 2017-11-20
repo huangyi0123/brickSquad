@@ -176,30 +176,11 @@ function findBranch(){
 		
 	});
 }
-function findSecondBranch(){
-	var user='${user}';
-	if(user!=""){
-		$.ajax({
-			url:'reservation/findBranch',
-			success:function(data){
-				 $("#branchsecondid").html('');
-				data=JSON.parse(data);
-				 for (var i = 0; i < data.length; i++) {
-				$("#branchsecondid").append("<option value='"+data[i].id+"'>" + data[i].name + "</option>");
-				 };
-			}
-			
-		});
-		
-		
-	}else{
-		alert("您还没有登录，请先去登录!");
-	}
-	
-}
 </script>
 <script type="text/javascript">
 function findActivitiesName() {
+	var user='${user}';
+	if(user!=""){
 	$.ajax({
 		url:'activityRegistration/findActivityName',
 		success:function(data){
@@ -224,6 +205,9 @@ function findActivitiesName() {
 		}
 		
 	});
+	}else{
+		alert("您还没有登录，请先去登录!");
+	}
 }
 </script>
 </head>
