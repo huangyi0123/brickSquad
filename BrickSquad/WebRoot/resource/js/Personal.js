@@ -161,7 +161,7 @@ function updatePinfo(n) {
 	$("#perGender").find("input[value='" + pgengender + "']").attr('checked',
 			'true');
 	layui.use('form', function() {
-		var form = layui.form();
+		var form = layui.form;
 		$.ajax({
 			url : 'region/findRegionByLevel?level=1',
 			success : function(data) {
