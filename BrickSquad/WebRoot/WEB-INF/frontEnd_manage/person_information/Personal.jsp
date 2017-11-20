@@ -234,8 +234,53 @@
 										</select>
 									</div>
 								</div>
+
+								<span class="info" id="gxtype">${relationship.name }</span>
+								<div style="clear: both;"></div>
+								<div class="layui-inline" style="display: none;">
+									<label style="width: 100px ;float: left;">* 现居住地：</label>
+									<span class="uinfo" id="addressqw"
+										style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+									<div class="info" style="margin-top: 20px">
+										<input type="hidden" id="addressId"
+											value="${addressAndPersonaInformationExpand.address.id }">
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.provinceId}" name="gaddress.provinceId"
+												id="prIdas" lay-filter="prIds" lay-search="">
+												<option value="">选择省份</option>
+											</select>
+										</div>
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.cityId}" name="gaddress.cityId"
+												id="cityId" lay-filter="cityIdSelect" lay-search="">
+												<option value="">选择城市</option>
+											</select>
+										</div>
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.countyId}" name="gaddress.countyId"
+												id="countyId" lay-filter="countyIdSelect" lay-search="">
+												<option value="">选择县市</option>
+											</select>
+										</div>
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.countryId}" name="gaddress.countryId"
+												id="countryId" lay-filter="countryIdSelect" lay-search="">
+												<option value="">选择乡镇</option>
+											</select>
+										</div>
+										<div class="layui-input-inline" style="margin-left: 120px;">
+											<input required lay-verify="required" type="text"
+												value="${addressAndPersonaInformationExpand.address.detailed}" name="gaddress.detailed"
+												lay-verify="title" style="width: 350px;margin-left: 30px;margin-top:10px;"
+												autocomplete="off" id="detailed" placeholder="请输入详细地址" class="layui-input">
+										</div>
+									</div>
+								</div>
 						</form>
-						<span class="info" id="gxtype">${relationship.name }</span>
 					</div>
 					<div style="display: none;">
 						<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
@@ -369,7 +414,7 @@
 					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
 					<!-------------------------------- 身份验证 ---------------------------------->
 					<i class="layui-icon"
-						style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
+						style="font-size: 30px;color: ${personalInfofmationAndHealthRecordsExpand.personalInformation.idCard eq ''?'red':'green' };margin-left: 100px;margin-top: 20px;display: block;">${personalInfofmationAndHealthRecordsExpand.personalInformation.idCard eq ''?'&#x1006;':'&#xe618;' }</i>
 					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
 						style="margin-left: 0;margin-top: -60px;">身份验证</label>
 					<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
@@ -401,8 +446,8 @@
 							<li class="layui-this">所有订单</li>
 							<li onclick="ordersType('4933fb74c84311e7aca65254002ec43c','#obligations')">待付款</li>
 							<li onclick="ordersType('02cd8aeeccf111e7aca65254002ec43c','#pendingShipment')">待发货</li>
-							<li>待收货</li>
-							<li>待评价</li>
+							<li onclick="ordersType('1e3ea09ecd8f11e7aca65254002ec43c', '#gtbr')">待收货</li>
+							<li onclick="ordersType('9f7aed4ccd9011e7aca65254002ec43c', '#evaluation')">待评价</li>
 						</ul>
 						<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
 						<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
@@ -445,7 +490,7 @@
 										</tr>
 									</thead>
 									<tbody id="obligations">
-										
+
 									</tbody>
 								</table>
 							</div>
@@ -466,7 +511,7 @@
 										</tr>
 									</thead>
 									<tbody id="pendingShipment">
-										
+
 									</tbody>
 								</table>
 							</div>
@@ -486,21 +531,7 @@
 											<th>交易操作</th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr>
-											<td>贤心</td>
-											<td>2016-11-29</td>
-											<td>人生就像是一场修行</td>
-											<td>人生就像是一场修行</td>
-											<td>人生就像是一场修行</td>
-										</tr>
-										<tr>
-											<td>许闲心</td>
-											<td>2016-11-28</td>
-											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-										</tr>
+									<tbody id="gtbr">
 									</tbody>
 								</table>
 							</div>
@@ -520,21 +551,7 @@
 											<th>交易操作</th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr>
-											<td>贤心</td>
-											<td>2016-11-29</td>
-											<td>人生就像是一场修行</td>
-											<td>人生就像是一场修行</td>
-											<td>人生就像是一场修行</td>
-										</tr>
-										<tr>
-											<td>许闲心</td>
-											<td>2016-11-28</td>
-											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-										</tr>
+									<tbody id="evaluation">
 									</tbody>
 								</table>
 							</div>

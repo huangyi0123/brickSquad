@@ -28,12 +28,17 @@
 	rel='stylesheet' type='text/css'>
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
-<link href="resource/css/website-template.css" rel="stylesheet" 
-	>
+<link href="resource/css/website-template.css" rel="stylesheet">
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-
+<script type="text/javascript">
+$(function() {
+	$("#menu").find("li").click(function() {
+		$(".tem_main_right").html($(this).html());
+	});
+});
+</script>
 </head>
 
 <body>
@@ -45,22 +50,27 @@
 		<div class="template_main">
 			<div class="tem_main_left">
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
-					style="margin-right: 10px;">
-					<li class="layui-nav-item"><a href="javascript:;">默认展开</a></li>
+					style="margin-right: 10px;" id="menu">
+					<li class="layui-nav-item layui-this"><a href="javascript:;">乐堡简介</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item"><a href="javascript:;">解决方案</a></li>
+					<li class="layui-nav-item"><a href="javascript:;">快速上手</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item"><a href="javascript:;">云市场</a></li>
+					<li class="layui-nav-item"><a href="javascript:;">加入我们</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item"><a href="javascript:;">社区</a></li>
+					<li class="layui-nav-item"><a href="javascript:;">联系我们</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 
-
+				<label
+					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
+					href="#" style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
-			
+			<div class="tem_main_right">乐堡简介</div>
 		</div>
+		<div class="clearfix"></div>
+	
 		<jsp:include page="official-footer.jsp"></jsp:include>
+		
 	</div>
 	<script>
 		$("span.menu").click(function() {

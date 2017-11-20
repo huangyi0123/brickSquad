@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -35,8 +35,22 @@
 <script type="application/x-javascript">
 	
 	
+	
+	
+	
+	
+	
+	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
 
 
 
@@ -50,7 +64,69 @@
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-
+<script type="text/javascript"
+	src="resource/plugins/angularjs/angular.min.js"></script>
+<script>
+	$(function() {
+		//头像图片信息
+		var imagepath = $("#imagepath").val();
+		if (imagepath == "") {
+			$("#indexUserPic").attr("src", "resource/image/userdefaultpic.jpg");
+		} else {
+			$("#indexUserPic").attr("src", imagepath);
+		}
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			$("#register").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toRegister",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+			$("#login").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toLogin?type=user",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+		});
+	});
+	function logout() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer.open({
+				title : '提示',
+				content : "是否退出系统？",
+				offset : '200px',
+				btn : [ "确认", "取消" ],
+				yes : function(index) {
+					$.ajax({
+						url : "user/logout",
+						success : function(data) {
+							window.location = "common/toIndex";
+							layer.close(index);
+						}
+					});
+				}
+			});
+		});
+	}
+	function selectType() {
+		alert("nihao");
+	}
+</script>
 <!-- js -->
 <script>
 	$(document).ready(function() {
@@ -88,7 +164,6 @@
 	function prevTab(elem) {
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
-
 </script>
 
 </head>
@@ -105,7 +180,7 @@
 			<div class="top-nav">
 				<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
 				<ul class="layui-nav"
-					style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
+					style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
 					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
@@ -165,17 +240,22 @@
 								<a href="javascript:;">联系我们</a>
 							</dd>
 						</dl></li>
-					<li class="layui-nav-item"><a href="javascript:;"><img
-							src="http://t.cn/RCzsdCq" class="layui-nav-img">登录</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="javascript:;">个人中心</a>
+					<li class="layui-nav-item" ng-app=""><a href="javascript:;"
+						ng-if="${user==null }" id="login">登录</a> <a href="javascript:;"
+						ng-if="${user!=null }"> <input type="hidden" id="imagepath"
+								value="${user.userPicPath }"> <img src=""
+							id="indexUserPic" class="layui-nav-img">${user.username }</a>
+						<dl class="layui-nav-child" ng-if="${user!=null }">
+							<dd ng-if="${user!=null }">
+								<a href="common/toPersonal">个人中心</a>
 							</dd>
-							<dd>
-								<a href="javascript:;">注册</a>
+							<dd ng-if="${user!=null }">
+								<a href="javascript:;" onclick="logout()">注销</a>
 							</dd>
+						</dl>
+						<dl class="layui-nav-child" ng-if="${user==null }">
 							<dd>
-								<a href="javascript:;">注销</a>
+								<a href="javascript:;" id="register"> 注册</a>
 							</dd>
 						</dl></li>
 				</ul>
@@ -377,7 +457,7 @@
 	</div>
 
 	<!-- mobile -->
-	
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -416,15 +496,14 @@
 						</div>
 
 						<!-- 预约参观 -->
-						<form role="form" method="post" action="${pageContext.request.contextPath }/reservation/findInsertReservation">
+						<form role="form" method="post"
+							action="${pageContext.request.contextPath }/reservation/findInsertReservation">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
 										<label
-
 											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											onclick="findTelephoneView()">预约参观</label> <label
-
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名" name="rname"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
@@ -432,16 +511,18 @@
 											onblur="if (value=='') {value='请输入联系人姓名'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话" id="telephone" name="telephone"
+										<input type="text" value="请输入联系人电话" id="telephone"
+											name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="if(value=='请输入联系人电话') {value=''}"
 											onblur="if (value=='') {value='请输入联系人电话'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
-											<div class="layui-input-inline"> 
-												<input type="text" name="reservationDate" id="date" lay-verify="date" 
-													autocomplete="off" class="layui-input" value="请输入预约时间"
+											<div class="layui-input-inline">
+												<input type="text" name="reservationDate" id="date"
+													lay-verify="date" autocomplete="off" class="layui-input"
+													value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
 													onfocus="if(value=='请输入预约时间') {value=''}"
 													onblur="if (value=='') {value='请输入预约时间'}">
@@ -1005,7 +1086,7 @@
 
 			carousel.render({
 				elem : '#test10',
-				width : '1349px',
+				width : '100%',
 				height : '500px',
 				interval : 5000
 			});
