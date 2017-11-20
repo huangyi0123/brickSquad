@@ -394,8 +394,8 @@
 					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
 
 					<label>用户名：${user.username }</label> <label>绑定手机：${user.telephone }</label>
-					<a href="#"
-						style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
+					<!-- <a href="#"
+						style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a> -->
 					<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
 					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
 					<!-------------------------------- 身份验证 ---------------------------------->
@@ -435,8 +435,8 @@
 							<li onclick="ordersType('1e3ea09ecd8f11e7aca65254002ec43c', '#gtbr')">待收货</li>
 							<li onclick="ordersType('9f7aed4ccd9011e7aca65254002ec43c', '#evaluation')">待评价</li>
 						</ul>
-						<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
-						<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
+						<!-- <i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i> -->
+						<!-- <a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a> -->
 						<div class="layui-tab-content">
 							<div class="layui-tab-item layui-show">
 								<table class="layui-table">
