@@ -62,7 +62,7 @@
 </head>
 
 <body>
-	<jsp:include page="../util/head.jsp"></jsp:include>
+	<jsp:include page="../../offical_website/official-header.jsp"></jsp:include>
 	<div class="Person_body">
 		<div class="Person_left">
 			<div class="Person_left_src">
