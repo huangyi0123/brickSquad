@@ -11,6 +11,10 @@
 		endTime,user_id userId,number from activities where
 		id=#{id}
 	</select>
+	<!-- 查询活动名称 ,用于首页的报名回显-->
+	<select id="findActivityName" resultType="activities">
+	SELECT id,name FROM activities
+	</select>
 
 	<insert id="insertActivities" parameterType="activities">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">

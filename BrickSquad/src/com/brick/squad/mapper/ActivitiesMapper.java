@@ -44,4 +44,7 @@ public interface ActivitiesMapper {
 	 * @return 最新商品集合
 	 */
 	public List<NewsArticle> findNewsArticleByIndex();
+	/**
+	 * 查询活动名称 ,用于首页的报名回显*/
+	public List<Activities> findActivityName();
 }

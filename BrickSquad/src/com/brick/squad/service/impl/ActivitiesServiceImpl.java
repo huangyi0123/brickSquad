@@ -118,4 +118,14 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 		return dataString;
 	}
 
+	@Override
+	/**
+	 * 查询活动名称 ,用于首页的报名回显*/
+	public String findActivityName() throws Exception {
+		List<Activities> listArticities=activitiesMapper.findActivityName();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(listArticities).toString();
+		return data;
+	}
+
 }
