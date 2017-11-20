@@ -20,9 +20,9 @@
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		INSERT INTO
-		activity_registration(id,per_id,activities_id,registration_date,appointment)
+		activity_registration(id,per_id,activities_id,registration_date,appointment,remarks,reservation_date)
 		VALUES
-		(#{id},#{perId},#{activitiesId},#{registrationDate},#{appointment})
+		(#{id},#{perId},#{activitiesId},#{registrationDate},#{appointment},#{remarks},#{reservationDate})
 	</insert>
 
 	<update id="updateActivityRegistrationById" parameterType="ActivityRegistration">

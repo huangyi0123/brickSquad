@@ -44,6 +44,9 @@ public class ActivityRegistrationController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
+	@Autowired
+	@Qualifier("activitiesService")
+	private ActivitiesService activitiesService;
 
 	@RequestMapping("/toActivityRegistration")
 	public String toActivityRegistration() {
@@ -83,7 +86,7 @@ public class ActivityRegistrationController {
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"yyyy-MM-dd HH:mm:ss");
+				"yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, true));
 	}
@@ -133,5 +136,39 @@ public class ActivityRegistrationController {
 				activityRegistrationExpand);
 		return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
 	}
-	
+	/**
+	 * 报名活动名称的回显
+	 * @throws Exception 
+	 * */
+	@RequestMapping("/findActivityName")
+	@ResponseBody
+	public String findActivityName() throws Exception{
+		String data=activitiesService.findActivityName();
+		return data;
+	}
+	/**
+	 * 报名活动数据的插入
+	 * */
+	@RequestMapping("/insertActivitiesInformation")
+	public String insertActivitiesInformation(HttpServletRequest request,ActivityRegistrationExpand activityRegistrationExpand){
+		User user=(User)request.getSession().getAttribute("user");
+		String perId=user.getId();
+		String telephone1=user.getTelephone();
+		String telephone2=activityRegistrationExpand.getTelephone();
+		if(telephone1.equals(telephone2)){
+			user.setTelephone(telephone2);
+			userService.updateUserById(user);
+		}
+		String activitiesId=activityRegistrationExpand.getActivitiesId();
+		String remarks=activityRegistrationExpand.getRemarks();
+		Date reservationDate=activityRegistrationExpand.getReservationDate();
+		ActivityRegistration activityRegistration=new ActivityRegistration();
+		activityRegistration.setPerId(perId);
+		activityRegistration.setActivitiesId(activitiesId);
+		activityRegistration.setRegistrationDate(new Date());
+		activityRegistration.setRemarks(remarks);
+		activityRegistration.setReservationDate(reservationDate);
+		activityRegistrationService.insertActivityRegistration(activityRegistration);
+		return "redirect:/";
+	}
 }
