@@ -313,7 +313,13 @@ public class RelativesController {
 	}
 
 	@RequestMapping("/deleteRelativesById")
-	public String deleteRelativesById(String id) {
+	public String deleteRelativesById(String id) throws Exception {
+		Relatives relatives =relativesService.findRelativesById(id);
+		if (relatives.getAddressId()!=null) {
+			relativesService.userDeleteRelativesById(id);
+			addressService.deleteAddressById(relatives.getAddressId());
+			return "backstage_managed/jsp/relatives/relatives_list";
+		}
 		relativesService.userDeleteRelativesById(id);
 		return "backstage_managed/jsp/relatives/relatives_list";
 	}

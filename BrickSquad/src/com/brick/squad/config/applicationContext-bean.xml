@@ -44,6 +44,7 @@
 	<bean name="couponService" class="com.brick.squad.service.impl.CouponServiceImpl"></bean>
 	<bean name="variableProductService" class="com.brick.squad.service.impl.VariableProductServiceImpl"></bean>
 	<bean name="agedCouponService" class="com.brick.squad.service.impl.AgedCouponServiceImpl"></bean>
+	<bean name="reservationService" class="com.brick.squad.service.impl.ReservationServiceImpl"></bean>
 </beans>
 
 

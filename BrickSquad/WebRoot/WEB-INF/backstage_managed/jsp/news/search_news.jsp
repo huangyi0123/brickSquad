@@ -19,17 +19,17 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/layui/css/layui.css">
 
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/wang_edit/wangEditor.min.js"></script>
 
 <!-- <script type="text/javascript">
 	layui.use('form', function() {
@@ -39,78 +39,91 @@
 
 
 <script type="text/javascript">
-	$(function() {
-		$.ajax({
-			url : 'news/findUser',
-			success : function(data) {
-				data = JSON.parse(data);
-				var id = $("#userId").attr('val');
+$(function() {
 
-				$(data).each(
-						function() {
-							if (id == this.id) {
-								$("#userId").append(
-										'<option value="'+this.id+'"  selected="selected">'
-												+ this.username + '</option>');
-							} else {
-								$("#userId").append(
-										'<option value="'+this.id+'">'
-												+ this.username + '</option>');
-							}
+	$.ajax({
+		url : 'news/findUser',
+		success : function(data) {
+			data = JSON.parse(data);
+			var id = $("#userId").attr('val');
 
-						});
-				layui.use('form', function() {
-					var form = layui.form();
-				});
-			}
-		});
-		var da = $("#nda").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd");
-		$("#nda").val(dat);
-		//添加wangedit
-		var E = window.wangEditor;
-		var editor = new E('#editor');
-		editor.customConfig.showLinkImg = false;
-		editor.customConfig.menus = [ 'bold', 'italic', 'underline',
-				'strikeThrough', // 删除线
-				'foreColor', // 文字颜色
-				'backColor', // 背景颜色
-				'link', // 插入链接
-				'justify', // 对齐方式
-				'quote', // 引用
-				'image', // 插入图片
-				'table', // 表格
-				'code', // 插入代码
-				'undo', // 撤销
-				'redo' // 重复
-		];
-		editor.customConfig.uploadImgServer = 'common/uploadImg';
-		editor.customConfig.uploadFileName = 'file';
-		editor.customConfig.uploadImgHeaders = {
+			$(data).each(
+					function() {
+						if (id == this.id) {
+							$("#userId").append(
+									'<option value="'+this.id+'"  selected="selected">'
+											+ this.username + '</option>');
+						} else {
+							$("#userId").append(
+									'<option value="'+this.id+'">'
+											+ this.username + '</option>');
+						}
 
-			'Accept' : 'multipart/form-data'
+					});
+			layui.use('form', function() {
+				var form = layui.form();
+			});
+		}
+	});
+	//添加wangedit
+	var E = window.wangEditor;
+	var editor = new E('#editor');
+	editor.customConfig.showLinkImg = false;
+	editor.customConfig.menus = [ 'bold', 'italic', 'underline',
+			'strikeThrough', // 删除线
+			'foreColor', // 文字颜色
+			'backColor', // 背景颜色
+			'link', // 插入链接
+			'justify', // 对齐方式
+			'quote', // 引用
+			'image', // 插入图片
+			'table', // 表格
+			'code', // 插入代码
+			'undo', // 撤销
+			'redo' // 重复
+	];
 
-		};
-		editor.create();
-		var url = '${url}';
-		var con=$("#con").html();
+	editor.customConfig.uploadImgParamsWithUrl = true;
+	editor.customConfig.uploadImgServer = 'common/uploadImg?imgPath=news';
+	editor.customConfig.uploadFileName = 'file';
+	editor.customConfig.uploadImgHeaders = {
+
+		'Accept' : 'multipart/form-data'
+
+	};
+
+	editor.create();
+	//获取type中的新闻类型id
+	layui.use('form', function() {
+		var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+		var dataType = '${dataType}';
+		dataType = JSON.parse(dataType);
+		findAll(dataType, "#typeid");
+		form.render('select', 'typeid1');
+	});
+	var da = $("#nda").attr('val');
+	dat = Format(new Date(da), "yyyy-MM-dd");
+	$("#nda").val(dat);
+
+	var url = '${url}';
+	var con = $("#con").html();
+	if (url != "insertNews") {
+		editor.txt.html(con);
+	}
+
+	$("#reset").click(function() {
 		if (url != "insertNews") {
 			editor.txt.html(con);
+		} else {
+			editor.txt.html("");
 		}
 
-		$("#reset").click(function() {
-			if (url != "insertNews") {
-				editor.txt.html(con);
-			}else {
-				editor.txt.html("");
-			}
-			
-		});
-		$("#form1").submit(function() {
-			var data = editor.txt.html();
-			$("#con1").val(data);
-		});
 	});
+	$("#form1").submit(function() {
+		var data = editor.txt.html();
+		$("#con1").val(data);
+	});
+});
 </script>
 </head>
 
@@ -126,6 +139,15 @@
 					<input type="text" value="${news.title }"  required
 					lay-verify="required"  autocomplete="off" class="layui-input" readonly="readonly">
 					
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">新闻类型</label>
+				<div class="layui-input-inline" style="z-index: 1">
+					<select lay-filter="typeid1" name="typeId" id="typeid"
+						val="${news.typeId}" disabled="disabled" class="layui-input">
+						<option value="">选择新闻类型</option>
+					</select>
 				</div>
 			</div>
 			<input type="hidden" name="content" id="con1">
