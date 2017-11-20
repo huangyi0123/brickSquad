@@ -260,6 +260,8 @@
 		});
 	</script>
 	<!-- /script-for-menu -->
+	<script src="resource/js/classie.js"></script>
+	<script src="resource/js/uisearch.js"></script>
 	<script>
 		new UISearch(document.getElementById('sb-search'));
 	</script>

@@ -13,6 +13,16 @@ public class AddressAndPersonaInformationExpand {
 	private Address address;
 	private PersonalInformation personalInformation;
 	private Relatives relatives;
+	private Address rAddress;
+	
+
+	public Address getrAddress() {
+		return rAddress;
+	}
+
+	public void setrAddress(Address rAddress) {
+		this.rAddress = rAddress;
+	}
 
 	public Relatives getRelatives() {
 		return relatives;
