@@ -1334,7 +1334,7 @@
 								</div>
 
 								<div class="vc_row-full-width vc_clearfix"></div>
-
+								<!-----------------------------------------------------------------------------  -->
 								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
 									<div class="wpb_column vc_column_container vc_col-sm-12">
 										<div class="vc_column-inner ">
@@ -1346,7 +1346,7 @@
 													<div class="resp-slider-container">
 														<div class="box-title clearfix">
 															<h3>秒杀</h3>
-															
+
 														</div>
 
 														<div class="banner-content clearfix">
@@ -1809,298 +1809,9 @@
 										</div>
 									</div>
 								</div>
-
+								<!---------------------------------------------------------------------------  -->
 								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
-									<div class="wpb_column vc_column_container vc_col-sm-12">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div id="slider_sw_woo_slider_widget_1"
-													class="responsive-slider woo-slider-default sw-child-cat clearfix" data-lg="3"
-													data-md="3" data-sm="2" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1"
-													data-interval="5000" data-autoplay="false">
-													<div class="child-top clearfix" data-color="#ff9901">
-														<div class="box-title pull-left">
-															<h3>猜你喜欢</h3>
-
-															<button class="navbar-toggle" type="button" data-toggle="collapse"
-																data-target="#child_sw_woo_slider_widget_1" aria-expanded="false">
-																<span class="icon-bar"></span>
-																<span class="icon-bar"></span>
-																<span class="icon-bar"></span>
-															</button>
-														</div>
-
-														<div class="box-title-right clearfix">
-															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
-																<ul>
-																	<li>
-																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">电视机</a>
-																	</li>
-																	<li>
-																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">空气清新剂</a>
-																	</li>
-																	<li>
-																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">老人电脑
-																			& 老人手机</a>
-																	</li>
-																	<li>
-																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">古董手表配件</a>
-																	</li>
-																	<li>
-																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">锻炼设施</a>
-																	</li>
-																	<li></li>
-																</ul>
-															</div>
-
-															<div class="view-all">
-																<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
-															</div>
-
-
-														</div>
-													</div>
-
-													<div class="content-slider">
-														<div class="childcat-slider-content clearfix">
-															<!-- Brand -->
-															<div class="child-cat-brand pull-left">
-																<div class="item-brand">
-																	<a href="javascript:;">
-																		<img width="170" height="87"
-																			src="resource/front_bootstrap/images/1903/Brand_1.jpg"
-																			class="attachment-170x90 size-170x90" alt="" />
-																	</a>
-																</div>
-
-																<div class="item-brand">
-																	<a href="javascript:;">
-																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br5.jpg"
-																			class="attachment-170x90 size-170x90" alt="" />
-																	</a>
-																</div>
-
-																<div class="item-brand">
-																	<a href="javascript:;">
-																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br2.jpg"
-																			class="attachment-170x90 size-170x90" alt="" />
-																	</a>
-																</div>
-
-																<div class="item-brand">
-																	<a href="javascript:;">
-																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br3.jpg"
-																			class="attachment-170x90 size-170x90" alt="" />
-																	</a>
-																</div>
-															</div>
-
-															<!-- slider content -->
-															<div class="resp-slider-container">
-																<div class="slider responsive">
-																	<c:forEach var="a" items="${myArticle }">
-																		<div class="item product">
-																			<!-- 开始 -->
-																			<div class="item-wrap">
-																				<div class="item-detail">
-																					<div class="item-img products-thumb">
-																						<a href="variableProduct/toVariable_product?productId=${a[0].id }">
-																							<div class="product-thumb-hover">
-																								<img alt="" src="${a[0].image }" style="width: 200px;height: 200px">
-
-																							</div>
-																						</a>
-
-																						<!-- add to cart, wishlist, compare -->
-																						<div class="item-bottom clearfix">
-																							<a rel="nofollow" href="javascript:;" onclick="addcar('${a[0].id}')"
-																								class="button product_type_simple" title="加入购物车">加入购物车6</a>
-																							<div class="yith-wcwl-add-to-wishlist ">
-																								<div class=" show" style="display:block">
-																									<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
-																										title="加入收藏">添加收藏</a>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																					<div style="clear: b"></div>
-																					<div class="item-content">
-																						<!-- rating  -->
-																						<div class="reviews-content">
-																							<div class="star"></div>
-																							<div class="item-number-rating">${a[0].totals }人已购买</div>
-																						</div>
-																						<!-- end rating  -->
-
-																						<h4>
-																							<a href="variableProduct/toVariable_product?productId=${a[0].id }"
-																								title="voluptate ipsum">${a[0].aname }</a>
-																						</h4>
-
-																						<!-- Price -->
-																						<div class="item-price">
-																							<span>
-																								<span class="woocommerce-Price-amount amount">
-																									<span class="woocommerce-Price-currencySymbol">￥</span>
-																									${a[0].price }
-																								</span>
-																							</span>
-																						</div>
-																					</div>
-
-
-																				</div>
-																			</div>
-																			<!--结束  -->
-																			<div class="item-wrap">
-																				<div class="item-detail">
-																					<div class="item-content">
-																						<div class="item-img products-thumb">
-																							<a href="variableProduct/toVariable_product?productId=${a[1].id }">
-																								<div class="product-thumb-hover">
-																									<!-- <img width="300" height="300" src="images/1903/50-300x300.jpg"
-																									class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
-																									srcset="resource/front_bootstrap/images/1903/50-300x300.jpg 300w, resource/front_bootstrap/images/1903/50-150x150.jpg 150w, resource/front_bootstrap/images/1903/50-180x180.jpg 180w, resource/front_bootstrap/images/1903/50.jpg 600w"
-																									sizes="(max-width: 300px) 100vw, 300px" /> -->
-																									<img alt="" src="${a[1].image }" style="width: 200px;height: 200px">
-																								</div>
-																							</a>
-
-																							<!-- add to cart, wishlist, compare -->
-																							<div class="item-bottom clearfix">
-																								<a rel="nofollow" href="javascript:;" onclick="addcar('${a[1].id}')"
-																									class="button product_type_simple" title="加入购物车">加入购物车</a>
-
-																								<div class="yith-wcwl-add-to-wishlist ">
-																									<div class=" show" style="display:block">
-																										<a href="javascript:;" onclick="addWish('${a[1].id}')" rel="nofollow"
-																											title="加入收藏">加入收藏</a>
-
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																						<div style="clear: both;"></div>
-																						<!-- rating  -->
-																						<div class="reviews-content">
-																							<div class="star"></div>
-																							<div class="item-number-rating">${a[1].totals }人已购买</div>
-																						</div>
-																						<!-- end rating  -->
-
-																						<h4>
-																							<a href="variableProduct/toVariable_product?productId=${a[1].id }"
-																								title="veniam dolore">${a[1].aname }</a>
-																						</h4>
-
-																						<!-- Price -->
-																						<div class="item-price">
-																							<span>
-																								<span class="woocommerce-Price-amount amount">
-																									<span class="woocommerce-Price-currencySymbol">￥</span>
-																									${a[1].price }
-																								</span>
-																							</span>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</c:forEach>
-
-																</div>
-															</div>
-														</div>
-
-														<div class="best-seller-product">
-															<div class="box-slider-title">
-																<h2 class="page-title-slider">最近购买</h2>
-															</div>
-
-															<div class="wrap-content">
-																<c:forEach var="a" items="${myArticleTop }" varStatus="s">
-																	<div class="item">
-																		<div class="item-inner">
-																			<div class="item-img">
-																				<a href="variableProduct/toVariable_product?productId=${a.id }"
-																					title="Sony BRAVIA 4K">
-																					<img alt="" src="${a.image }" style="width: 70px;height: 70px">
-																				</a>
-																			</div>
-
-																			<div class="item-sl pull-left">${s.index+1 }</div>
-
-																			<div class="item-content">
-																				<!-- rating  -->
-																				<div class="reviews-content">
-																					<div class="star"></div>
-																					<div class="item-number-rating">${a.totals }人已购买</div>
-																				</div>
-																				<!-- end rating  -->
-
-																				<h4>
-																					<a href="variableProduct/toVariable_product?productId=${a.id }"
-																						title="Sony BRAVIA 4K">${a.aname }</a>
-																				</h4>
-
-																				<div class="item-price">
-																					<span class="woocommerce-Price-amount amount">
-																						<span class="woocommerce-Price-currencySymbol">￥</span>
-																						${a.price }
-																					</span>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</c:forEach>
-
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
-									<div class="wpb_column vc_column_container vc_col-sm-6">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center">
-													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
-														class="vc_single_image-wrapper vc_box_border_grey">
-														<img class="vc_single_image-img"
-															src="resource/front_bootstrap/images/1903/banner6-1.jpg" width="570" height="220"
-															alt="banner6" title="banner6" />
-													</a> </figure>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="wpb_column vc_column_container vc_col-sm-6">
-										<div class="vc_column-inner ">
-											<div class="wpb_wrapper">
-												<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
-													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
-														class="vc_single_image-wrapper vc_box_border_grey">
-														<img class="vc_single_image-img"
-															src="resource/front_bootstrap/images/1903/banner7-1.jpg" width="570" height="220"
-															alt="banner7" title="banner7" />
-													</a> </figure>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+									<!-------------------------------------------------  -->
 									<div class="wpb_column vc_column_container vc_col-sm-12">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
@@ -2371,41 +2082,44 @@
 											</div>
 										</div>
 									</div>
+									<!-----------------------------------------------------------------  -->
+								</div>
 
-									<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
-										<div class="wpb_column vc_column_container vc_col-sm-6">
-											<div class="vc_column-inner ">
-												<div class="wpb_wrapper">
-													<div class="wpb_single_image wpb_content_element vc_align_center">
-														<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
-															class="vc_single_image-wrapper vc_box_border_grey">
-															<img class="vc_single_image-img"
-																src="resource/front_bootstrap/images/1903/banner8-1.jpg" width="570" height="220"
-																alt="banner8" title="banner8" />
-														</a> </figure>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="wpb_column vc_column_container vc_col-sm-6">
-											<div class="vc_column-inner ">
-												<div class="wpb_wrapper">
-													<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
-														<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
-															class="vc_single_image-wrapper vc_box_border_grey">
-															<img class="vc_single_image-img"
-																src="resource/front_bootstrap/images/1903/banner9-1.jpg" width="570" height="220"
-																alt="banner9" title="banner9" />
-														</a> </figure>
-													</div>
+								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+									<div class="wpb_column vc_column_container vc_col-sm-6">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_center">
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
+														class="vc_single_image-wrapper vc_box_border_grey">
+														<img class="vc_single_image-img"
+															src="resource/front_bootstrap/images/1903/banner6-1.jpg" width="570" height="220"
+															alt="banner6" title="banner6" />
+													</a> </figure>
 												</div>
 											</div>
 										</div>
 									</div>
 
-									<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
-										<div class="wpb_column vc_column_container vc_col-sm-12">
+									<div class="wpb_column vc_column_container vc_col-sm-6">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
+													<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
+														class="vc_single_image-wrapper vc_box_border_grey">
+														<img class="vc_single_image-img"
+															src="resource/front_bootstrap/images/1903/banner7-1.jpg" width="570" height="220"
+															alt="banner7" title="banner7" />
+													</a> </figure>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+									<!------------------------------------------------------  -->
+									<div class="wpb_column vc_column_container vc_col-sm-12">
 											<div class="vc_column-inner ">
 												<div class="wpb_wrapper">
 													<div id="slider_sw_woo_slider_widget_3"
@@ -2688,6 +2402,300 @@
 												</div>
 											</div>
 										</div>
+									<!--------------------------------------------------------------  -->
+									<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+										<div class="wpb_column vc_column_container vc_col-sm-6">
+											<div class="vc_column-inner ">
+												<div class="wpb_wrapper">
+													<div class="wpb_single_image wpb_content_element vc_align_center">
+														<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
+															class="vc_single_image-wrapper vc_box_border_grey">
+															<img class="vc_single_image-img"
+																src="resource/front_bootstrap/images/1903/banner8-1.jpg" width="570" height="220"
+																alt="banner8" title="banner8" />
+														</a> </figure>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="wpb_column vc_column_container vc_col-sm-6">
+											<div class="vc_column-inner ">
+												<div class="wpb_wrapper">
+													<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
+														<figure class="wpb_wrapper vc_figure"> <a href="javascript:;" target="_self"
+															class="vc_single_image-wrapper vc_box_border_grey">
+															<img class="vc_single_image-img"
+																src="resource/front_bootstrap/images/1903/banner9-1.jpg" width="570" height="220"
+																alt="banner9" title="banner9" />
+														</a> </figure>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+										<!----------------------------------------------  -->
+										
+										<!-----------------------------------------------------  -->
+									
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner ">
+											<div class="wpb_wrapper">
+												<div id="slider_sw_woo_slider_widget_1"
+													class="responsive-slider woo-slider-default sw-child-cat clearfix" data-lg="3"
+													data-md="3" data-sm="2" data-xs="2" data-mobile="1" data-speed="1000" data-scroll="1"
+													data-interval="5000" data-autoplay="false">
+													<div class="child-top clearfix" data-color="#ff9901">
+														<div class="box-title pull-left">
+															<h3>猜你喜欢</h3>
+
+															<button class="navbar-toggle" type="button" data-toggle="collapse"
+																data-target="#child_sw_woo_slider_widget_1" aria-expanded="false">
+																<span class="icon-bar"></span>
+																<span class="icon-bar"></span>
+																<span class="icon-bar"></span>
+															</button>
+														</div>
+
+														<div class="box-title-right clearfix">
+															<div class="childcat-content pull-left" id="child_sw_woo_slider_widget_1">
+																<ul>
+																	<li>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">电视机</a>
+																	</li>
+																	<li>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">空气清新剂</a>
+																	</li>
+																	<li>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">老人电脑
+																			& 老人手机</a>
+																	</li>
+																	<li>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">古董手表配件</a>
+																	</li>
+																	<li>
+																		<a
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">锻炼设施</a>
+																	</li>
+																	<li></li>
+																</ul>
+															</div>
+
+															<div class="view-all">
+																<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
+															</div>
+
+
+														</div>
+													</div>
+
+													<div class="content-slider">
+														<div class="childcat-slider-content clearfix">
+															<!-- Brand -->
+															<div class="child-cat-brand pull-left">
+																<div class="item-brand">
+																	<a href="javascript:;">
+																		<img width="170" height="87"
+																			src="resource/front_bootstrap/images/1903/Brand_1.jpg"
+																			class="attachment-170x90 size-170x90" alt="" />
+																	</a>
+																</div>
+
+																<div class="item-brand">
+																	<a href="javascript:;">
+																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br5.jpg"
+																			class="attachment-170x90 size-170x90" alt="" />
+																	</a>
+																</div>
+
+																<div class="item-brand">
+																	<a href="javascript:;">
+																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br2.jpg"
+																			class="attachment-170x90 size-170x90" alt="" />
+																	</a>
+																</div>
+
+																<div class="item-brand">
+																	<a href="javascript:;">
+																		<img width="170" height="90" src="resource/front_bootstrap/images/1903/br3.jpg"
+																			class="attachment-170x90 size-170x90" alt="" />
+																	</a>
+																</div>
+															</div>
+
+															<!-- slider content -->
+															<div class="resp-slider-container">
+																<div class="slider responsive">
+																	<c:forEach var="a" items="${myArticle }">
+																		<div class="item product">
+																			<!-- 开始 -->
+																			<div class="item-wrap">
+																				<div class="item-detail">
+																					<div class="item-img products-thumb">
+																						<a href="variableProduct/toVariable_product?productId=${a[0].id }">
+																							<div class="product-thumb-hover">
+																								<img alt="" src="${a[0].image }" style="width: 200px;height: 200px">
+
+																							</div>
+																						</a>
+
+																						<!-- add to cart, wishlist, compare -->
+																						<div class="item-bottom clearfix">
+																							<a rel="nofollow" href="javascript:;" onclick="addcar('${a[0].id}')"
+																								class="button product_type_simple" title="加入购物车">加入购物车6</a>
+																							<div class="yith-wcwl-add-to-wishlist ">
+																								<div class=" show" style="display:block">
+																									<a href="javascript:;" onclick="addWish('${a[0].id}')" rel="nofollow"
+																										title="加入收藏">添加收藏</a>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																					<div style="clear: b"></div>
+																					<div class="item-content">
+																						<!-- rating  -->
+																						<div class="reviews-content">
+																							<div class="star"></div>
+																							<div class="item-number-rating">${a[0].totals }人已购买</div>
+																						</div>
+																						<!-- end rating  -->
+
+																						<h4>
+																							<a href="variableProduct/toVariable_product?productId=${a[0].id }"
+																								title="voluptate ipsum">${a[0].aname }</a>
+																						</h4>
+
+																						<!-- Price -->
+																						<div class="item-price">
+																							<span>
+																								<span class="woocommerce-Price-amount amount">
+																									<span class="woocommerce-Price-currencySymbol">￥</span>
+																									${a[0].price }
+																								</span>
+																							</span>
+																						</div>
+																					</div>
+
+
+																				</div>
+																			</div>
+																			<!--结束  -->
+																			<div class="item-wrap">
+																				<div class="item-detail">
+																					<div class="item-content">
+																						<div class="item-img products-thumb">
+																							<a href="variableProduct/toVariable_product?productId=${a[1].id }">
+																								<div class="product-thumb-hover">
+																									<!-- <img width="300" height="300" src="images/1903/50-300x300.jpg"
+																									class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""
+																									srcset="resource/front_bootstrap/images/1903/50-300x300.jpg 300w, resource/front_bootstrap/images/1903/50-150x150.jpg 150w, resource/front_bootstrap/images/1903/50-180x180.jpg 180w, resource/front_bootstrap/images/1903/50.jpg 600w"
+																									sizes="(max-width: 300px) 100vw, 300px" /> -->
+																									<img alt="" src="${a[1].image }" style="width: 200px;height: 200px">
+																								</div>
+																							</a>
+
+																							<!-- add to cart, wishlist, compare -->
+																							<div class="item-bottom clearfix">
+																								<a rel="nofollow" href="javascript:;" onclick="addcar('${a[1].id}')"
+																									class="button product_type_simple" title="加入购物车">加入购物车</a>
+
+																								<div class="yith-wcwl-add-to-wishlist ">
+																									<div class=" show" style="display:block">
+																										<a href="javascript:;" onclick="addWish('${a[1].id}')" rel="nofollow"
+																											title="加入收藏">加入收藏</a>
+
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																						<div style="clear: both;"></div>
+																						<!-- rating  -->
+																						<div class="reviews-content">
+																							<div class="star"></div>
+																							<div class="item-number-rating">${a[1].totals }人已购买</div>
+																						</div>
+																						<!-- end rating  -->
+
+																						<h4>
+																							<a href="variableProduct/toVariable_product?productId=${a[1].id }"
+																								title="veniam dolore">${a[1].aname }</a>
+																						</h4>
+
+																						<!-- Price -->
+																						<div class="item-price">
+																							<span>
+																								<span class="woocommerce-Price-amount amount">
+																									<span class="woocommerce-Price-currencySymbol">￥</span>
+																									${a[1].price }
+																								</span>
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</c:forEach>
+
+																</div>
+															</div>
+														</div>
+
+														<div class="best-seller-product">
+															<div class="box-slider-title">
+																<h2 class="page-title-slider">最近购买</h2>
+															</div>
+
+															<div class="wrap-content">
+																<c:forEach var="a" items="${myArticleTop }" varStatus="s">
+																	<div class="item">
+																		<div class="item-inner">
+																			<div class="item-img">
+																				<a href="variableProduct/toVariable_product?productId=${a.id }"
+																					title="Sony BRAVIA 4K">
+																					<img alt="" src="${a.image }" style="width: 70px;height: 70px">
+																				</a>
+																			</div>
+
+																			<div class="item-sl pull-left">${s.index+1 }</div>
+
+																			<div class="item-content">
+																				<!-- rating  -->
+																				<div class="reviews-content">
+																					<div class="star"></div>
+																					<div class="item-number-rating">${a.totals }人已购买</div>
+																				</div>
+																				<!-- end rating  -->
+
+																				<h4>
+																					<a href="variableProduct/toVariable_product?productId=${a.id }"
+																						title="Sony BRAVIA 4K">${a.aname }</a>
+																				</h4>
+
+																				<div class="item-price">
+																					<span class="woocommerce-Price-amount amount">
+																						<span class="woocommerce-Price-currencySymbol">￥</span>
+																						${a.price }
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</c:forEach>
+
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
 									</div>
 
 									<div class="vc_row wpb_row vc_row-fluid">
