@@ -49,7 +49,6 @@ public class BusinessController {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateBusinessById");
 			Business business = businessService.findBusinessById(id);
-			System.out.println(business.getId()+"----------------------------------------------");
 			request.setAttribute("business", business);
 		} else {
 			request.setAttribute("url", "insertBusiness");

@@ -1,4 +1,4 @@
-function init(keyword) {
+function init(keyword, up, del, query) {
 	var table = document.querySelector('table[grid-manager="demo-ajaxPageCode"]');
     table.GM({
         ajax_url: 'orders/getOrdersList',
@@ -35,14 +35,28 @@ function init(keyword) {
                 key: "operation",
                 text: "操作",
                 template : function(noteData, rowData) {
-					return '<a href="orders/toAddOrders?id='
-							+ rowData.id
-
-							+ '"><i title="修改" class="fa fa-pencil-square-o" style="margin-left:50px;"></i></a> &nbsp;|&nbsp; <a onclick=deleteOrders("'
-
-							+ rowData.id
-							+ '")><i title="删除" class="fa fa-trash-o" style="margin-right:5px;"></i></a>&nbsp;';
-				}
+    			var s = '<span class="optron">';
+    			if (up) {
+    				s = s
+    						+ '<a href="orders/toAddOrders?id='
+    						+ rowData.id
+    						+ '"><i title="修改" class="fa fa-pencil-square-o"></i></a>';
+    			}
+    			if (del) {
+    				if (up) {
+    					s = s + '&nbsp;|&nbsp; ';
+    				}
+    				s = s
+    						+ '<a href="javascript:;" onclick=deleteById("'
+    						+ rowData.id
+    						+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
+    			}
+    			
+    			s = s + "</span>"
+    			return s;
+    		}
+            
+            
 			} ]
     });
 }

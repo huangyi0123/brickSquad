@@ -22,8 +22,9 @@ function init(keyword, up, del, query) {
 						{
 							key : 'parentId',
 							text : '所属类别'
-						},
-						{
+						}
+						,
+						{	
 							key : "operation",
 							text : "操作",
 							template : function(noteData, rowData) {
@@ -43,16 +44,7 @@ function init(keyword, up, del, query) {
 											+ rowData.id
 											+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
 								}
-								if (query) {
-									if (up || del) {
-										s = s + '&nbsp;|&nbsp; ';
-									}
-									s = s
-											+ '<a href="type/findTypeById?id='
-
-											+ rowData.id
-											+ '"><i title="查看详情" class="fa fa-eye""></i></a>';
-								}
+								
 								s = s + "</span>"
 								return s;
 							}
