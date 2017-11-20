@@ -1,6 +1,7 @@
 package com.brick.squad.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.json.JsonArray;
 
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.OrderExpand;
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.mapper.OrdersMapper;
 import com.brick.squad.pojo.Orders;
@@ -100,6 +102,13 @@ public class OrdersServiceImpl implements OrdersService {
 	@Override
 	public void updateOrdersreceivingAddressById(Orders orders) {
 		ordersMapper.updateOrdersreceivingAddressById(orders);
+	}
+
+	@Override	
+	public String findOrderByType(Map<String, String> map) {
+		List<OrderExpand> data=ordersMapper.findOrderByType(map);
+		JSONArray jsonArray=JSONArray.fromObject(data);
+		return jsonArray.toString();
 	}
 
 }

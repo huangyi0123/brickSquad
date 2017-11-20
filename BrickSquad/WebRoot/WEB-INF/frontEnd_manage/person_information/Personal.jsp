@@ -35,7 +35,6 @@
 		$("#birthday").html(Format(new Date(birthday), "yyyy-MM-dd"));
 		//判断用户信息是否完善
 		var name = $("#pername").val();
-		console.log(name);
 		if (name == "") {
 			updatePinfo("1");
 		} else {
@@ -63,7 +62,7 @@
 </head>
 
 <body>
-	<jsp:include page="../util/head.jsp"></jsp:include>
+	<jsp:include page="../../offical_website/official-header.jsp"></jsp:include>
 	<div class="Person_body">
 		<div class="Person_left">
 			<div class="Person_left_src">
@@ -78,9 +77,8 @@
 		<div class="Person_right">
 			<div class="layui-tab layui-tab-card" lay-filter="demo"
 				style="height:1100px; margin-top: 40px;margin-left: 10px;" lay-filter="demo">
-				<ul class="layui-tab-title">
+				<ul class="layui-tab-title" id="person">
 					<li class="layui-this">个人资料</li>
-					<li>亲属联系人</li>
 					<li>健康管理</li>
 					<li>安全设置</li>
 					<li>活动管理</li>
@@ -112,7 +110,7 @@
 						<!--分割线  -->
 						<!-- 个人信息开始 -->
 						<form class="layui-form message" action="personalInformation/userUpdatePersonalInformation"
-							method="post">
+							method="post" id="perinformation">
 							<input type="hidden" value="${addressAndPersonaInformationExpand.personalInformation.id }"
 								name="personalInformation.id">
 							<input type="hidden"
@@ -124,21 +122,22 @@
 								name="" id="pername">
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 真实姓名：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.name }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px"
+									id="ipname">${addressAndPersonaInformationExpand.personalInformation.name }</span>
 								<input id="perName" type="text"
 									value="${addressAndPersonaInformationExpand.personalInformation.name }"
 									name="personalInformation.name" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;" autocomplete="off"
 									placeholder="请输入真实姓名" class="layui-input uinfo">
 							</div>
-
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">* 性别：</label>
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 15px"
+									id="ipgender">${addressAndPersonaInformationExpand.personalInformation.gender }</span>
 								<div class="layui-inline uinfo" style="display: inline-block; margin-top: 15px"
 									id="perGender">
-									<input type="radio" name="sex" value="男" title="男" checked="">
-									<input type="radio" name="sex" value="女" title="女">
+									<input type="radio" name="personalInformation.gender" value="男" title="男">
+									<input type="radio" name="personalInformation.gender" value="女" title="女">
 								</div>
 							</div>
 							<div class="layui-form-item">
@@ -148,7 +147,8 @@
 									lay-verify="identity" required lay-verify="required"
 									style="width: 350px;margin-left:0px;margin-top: 10px;display:inline-block;"
 									autocomplete="off" placeholder="请输入身份证号" class="layui-input uinfo" id="idcard">
-								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
+								<span class="info" style="font-size: 17px;display: block;float: left;margin-top: 25px"
+									id="ipidcard">${addressAndPersonaInformationExpand.personalInformation.idCard }</span>
 							</div>
 							<div class="layui-form-item">
 								<label style="width: 100px ;float: left;">出生年月：</label>
@@ -162,7 +162,8 @@
 							</div>
 							<div class="layui-inline">
 								<label style="width: 100px ;float: left;">* 现居住地：</label>
-								<span class="info" style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+								<span class="info" id="addressqw"
+									style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
 								<div class="uinfo">
 									<input type="hidden" id="addressId"
 										value="${addressAndPersonaInformationExpand.address.id }">
@@ -202,399 +203,365 @@
 									</div>
 								</div>
 							</div>
-						<!--分割线  -->
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
-						<!--分割线  -->
-						<div style="clear:both;"></div>
-						<!--亲属信息  -->
-						<div>
-							<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
-
-							<input type="text" name="title" lay-verify="title" id="gName"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input uinfo">
-							<span class="info">${addressAndPersonaInformationExpand.relatives.name }</span>
-							<div style="clear: both;"></div>
-							<label style="display:inline-block; ">* 联系人电话：</label>
-							<input type="text" name="title" lay-verify="title" id="gphone"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input uinfo">
-							<span class="info">${addressAndPersonaInformationExpand.relatives.telephone }</span>
-							<div style="clear: both;"></div>
-							<label style="display:inline-block; ">* 亲属关系：</label>	
+							<!--分割线  -->
+							<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
+							<!--分割线  -->
+							<div style="clear:both;"></div>
+							<!--亲属信息  -->
+							<div>
+								<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
+								<input type="hidden" name="relatives.id"
+									value="${addressAndPersonaInformationExpand.relatives.id}" id="relativesId">
+								<input type="text" name="relatives.name" lay-verify="title" id="gName"
+									style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+									placeholder="请输入联系人姓名" class="layui-input uinfo"
+									value="${addressAndPersonaInformationExpand.relatives.name }">
+								<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
+								<div style="clear: both;"></div>
+								<label style="display:inline-block; ">* 联系人电话：</label>
+								<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
+									style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+									placeholder="请输入联系人电话" class="layui-input uinfo"
+									value="${addressAndPersonaInformationExpand.relatives.telephone }">
+								<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
+								<div style="clear: both;"></div>
+								<label style="display:inline-block; ">* 亲属关系：</label>
 								<div class="layui-inline uinfo" style="margin-left:0px;margin-top: -15px;">
 									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="" id="qsgx" val="${relationship.id }">
+										<select name="relatives.relationshipId" lay-verify="required" lay-search="" id="qsgx"
+											val="${relationship.id }">
 											<option value="">直接选择或搜索选择</option>
 										</select>
 									</div>
 								</div>
-							</form>
-							<span class="info">${relationship.name }</span>
-						</div>
-						<div style="display: none;">
-							<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
-							<input type="text" name="title" lay-verify="title"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input">
-							<label>* 联系人电话：</label>
-							<input type="text" name="title" lay-verify="title"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input">
-							<label>* 亲属关系：</label>
-							<form class="layui-form" action="">
-								<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
-									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="" >
-											<option value="">直接选择或搜索选择</option>
-										</select>
+
+								<span class="info" id="gxtype">${relationship.name }</span>
+								<div style="clear: both;"></div>
+								<div class="layui-inline" style="display: none;">
+									<label style="width: 100px ;float: left;">* 现居住地：</label>
+									<span class="uinfo" id="addressqw"
+										style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+									<div class="info" style="margin-top: 20px">
+										<input type="hidden" id="addressId"
+											value="${addressAndPersonaInformationExpand.address.id }">
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.provinceId}" name="gaddress.provinceId"
+												id="prIdas" lay-filter="prIds" lay-search="">
+												<option value="">选择省份</option>
+											</select>
+										</div>
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.cityId}" name="gaddress.cityId"
+												id="cityId" lay-filter="cityIdSelect" lay-search="">
+												<option value="">选择城市</option>
+											</select>
+										</div>
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.countyId}" name="gaddress.countyId"
+												id="countyId" lay-filter="countyIdSelect" lay-search="">
+												<option value="">选择县市</option>
+											</select>
+										</div>
+										<div class="layui-input-inline">
+											<select required lay-verify="required"
+												val="${addressAndPersonaInformationExpand.address.countryId}" name="gaddress.countryId"
+												id="countryId" lay-filter="countryIdSelect" lay-search="">
+												<option value="">选择乡镇</option>
+											</select>
+										</div>
+										<div class="layui-input-inline" style="margin-left: 120px;">
+											<input required lay-verify="required" type="text"
+												value="${addressAndPersonaInformationExpand.address.detailed}" name="gaddress.detailed"
+												lay-verify="title" style="width: 350px;margin-left: 30px;margin-top:10px;"
+												autocomplete="off" id="detailed" placeholder="请输入详细地址" class="layui-input">
+										</div>
 									</div>
 								</div>
-							</form>
+						</form>
+					</div>
+					<div style="display: none;">
+						<label>亲属联系人2：</label> <label>* 联系人姓名：</label>
+						<input type="text" name="title" lay-verify="title"
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人姓名" class="layui-input">
+						<label>* 联系人电话：</label>
+						<input type="text" name="title" lay-verify="title"
+							style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+							placeholder="请输入联系人电话" class="layui-input">
+						<label>* 亲属关系：</label>
+						<form class="layui-form" action="">
+							<div class="layui-inline" style="margin-left: 150px;margin-top: -35px;">
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+									</select>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="layui-inline" style="margin-left: 150px;margin-top: 20px">
+						<button class="layui-btn info" onclick="updatePinfo('0')">修改</button>
+						<button class="layui-btn uinfo" onclick="savesa('0')">保存</button>
+					</div>
+				</div>
+
+				<!-- 健康管理 -->
+				<div class="layui-tab-item layui-tab-item3">
+					<label style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
+					<h2 id="nullMessage"></h2>
+					<label>患有疾病：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+					<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.nationName }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+
+					<label>文化程度：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-top: 20px;">身高(cm)：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+					<label style="margin-left: 400px;margin-top: -35px;">体重(kg)：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+
+					<label style="margin-top: 20px;">血栓：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">血压：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label>饮食状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label>情绪控制：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
+						style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
+					<input type="text" readonly="readonly"
+						value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
+						style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
+						class="layui-input">
+					<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+
+					<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
+							<div class="layui-colla-content layui-show">${personalInfofmationAndHealthRecordsExpand.personalInformation.familyHistory }</div>
 						</div>
-						<div class="layui-inline" style="margin-left: 150px;margin-top: 20px">
-							<button class="layui-btn info" onclick="updatePinfo('0')">修改</button>
-							<button class="layui-btn uinfo" onclick="savesa('0')">保存</button>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">健康评估</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.healthAssessment }</div>
 						</div>
-						<!-- 亲属信息 -->
-					</div>
-					<div class="layui-tab-item layui-tab-item2">
-						<label style="width: 100px;display: inline-block;"> * 亲属联系人：</label>
-						<button type="button" class="layui-btn" onclick="toAddRelatveOnclick()">添加亲属联系人</button>
-						<label>亲爱的${user.username }，填写真实有效的亲属联系方式，联系不到你本人情况下可以更方便的找到您！</label>
-						<!--  引用分页框架开始-->
-						<div class="cls"></div>
-						<table grid-manager="demo-ajaxPageCode"></table>
-						<!-- 引用分页框架结束 -->
-					</div>
-
-					<!-- 健康管理 -->
-					<div class="layui-tab-item layui-tab-item3">
-						<label style="display:block; font-weight: bold;margin-left: 50px;margin-top: 20px;">个人状况数据</label>
-						<h2 id="nullMessage"></h2>
-						<label>患有疾病：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.diseaseName }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-
-						<label style="margin-left: 400px;margin-top: -35px;">民族：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.nationName }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-
-
-						<label>文化程度：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.cultureId }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">婚姻状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.marriageId }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-top: 20px;">身高(cm)：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.height }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-
-						<label style="margin-left: 400px;margin-top: -35px;">体重(kg)：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.personalInformation.weight }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-
-						<label style="margin-top: 20px;">血栓：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.thrombus }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">血压：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.bloodPressure }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label>饮食状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.dietSituation }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">运动状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.sportsSituation }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label>情绪控制：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.emotionControl }"
-							style="width: 100px;margin-left: 120px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<label style="margin-left: 400px;margin-top: -35px;">身体状况：</label>
-						<input type="text" readonly="readonly"
-							value="${personalInfofmationAndHealthRecordsExpand.healthRecords.shape }"
-							style="width: 100px;margin-left: 480px;margin-top: -35px; border: none; border-bottom: 1px solid;border-bottom-color: black;"
-							class="layui-input">
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-
-						<div class="layui-collapse" style="width: 90%;margin: 20px auto;">
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">家族史</h5>
-								<div class="layui-colla-content layui-show">${personalInfofmationAndHealthRecordsExpand.personalInformation.familyHistory }</div>
-							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">健康评估</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.healthAssessment }</div>
-							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">危险提示</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.dangerousTips }</div>
-							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">结论建议</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.conclusionSuggestion}</div>
-							</div>
-							<div class="layui-colla-item">
-								<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价</h5>
-								<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.evaluate }</div>
-							</div>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">危险提示</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.dangerousTips }</div>
 						</div>
-
-					</div>
-					<!--健康管理结束  -->
-					<div class="layui-tab-item layui-tab-item4">
-						<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
-
-						<label>用户名：</label> <label>绑定手机：</label>
-						<a href="#"
-							style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
-						<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
-						<!-------------------------------- 身份验证 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
-							style="margin-left: 0;margin-top: -60px;">身份验证</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
-						<!-------------------------------- 登录密码 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
-							style="margin-left: 0px;margin-top: -60px;">登录密码</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">查看</a>
-						<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
-
-						<!-------------------------------- 绑定手机 ---------------------------------->
-						<i class="layui-icon"
-							style="font-size: 35px;color: red;margin-left: 100px;margin-top: 20px;display: block;">&#x1006;</i>
-						<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label> <label
-							style="margin-left:0px;margin-top: -60px;">绑定手机</label>
-						<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
-						<a style="margin-left: 700px;margin-top: -35px;">设置</a>
-					</div>
-
-					<div class="layui-tab-item layui-tab-item5">5</div>
-
-					<div class="layui-tab-item layui-tab-item6">
-						<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-							<ul class="layui-tab-title">
-								<li class="layui-this">所有订单</li>
-								<li>待付款</li>
-								<li>待发货</li>
-								<li>待收货</li>
-								<li>待评价</li>
-							</ul>
-							<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
-							<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
-							<div class="layui-tab-content">
-								<div class="layui-tab-item layui-show">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">
-									<table class="layui-table">
-										<colgroup>
-											<col width="150">
-											<col width="200">
-											<col>
-										</colgroup>
-										<thead>
-											<tr>
-												<th>宝贝</th>
-												<th>单价</th>
-												<th>数量</th>
-												<th>交易状态</th>
-												<th>交易操作</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>贤心</td>
-												<td>2016-11-29</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-												<td>人生就像是一场修行</td>
-											</tr>
-											<tr>
-												<td>许闲心</td>
-												<td>2016-11-28</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-												<td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="layui-tab-item">6</div>
-							</div>
-							<i class="fa fa-trash-o" style="display:block; margin-left: 900px;margin-top: -60px;"> </i>
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">结论建议</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.conclusionSuggestion}</div>
 						</div>
-
+						<div class="layui-colla-item">
+							<h5 class="layui-colla-title" style="font-weight: bold;">治疗效果评价</h5>
+							<div class="layui-colla-content">${personalInfofmationAndHealthRecordsExpand.healthRecords.evaluate }</div>
+						</div>
 					</div>
-
 
 				</div>
+				<!--健康管理结束  -->
+				<div class="layui-tab-item layui-tab-item4">
+					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的基础信息</label>
+
+					<label>用户名：${user.username }</label> <label>绑定手机：${user.telephone }</label>
+					<a href="#"
+						style="margin-left:400px;margin-top:-25px; line-height:20px; text-decoration: none;display: block; ">修改</a>
+					<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 20px;"></div>
+					<label style="font-weight:bold; margin-top:20px; margin-left:50px; display: block;">您的安全服务</label>
+					<!-------------------------------- 身份验证 ---------------------------------->
+					<i class="layui-icon"
+						style="font-size: 30px;color: ${personalInfofmationAndHealthRecordsExpand.personalInformation.idCard eq ''?'red':'green' };margin-left: 100px;margin-top: 20px;display: block;">${personalInfofmationAndHealthRecordsExpand.personalInformation.idCard eq ''?'&#x1006;':'&#xe618;' }</i>
+					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
+						style="margin-left: 0;margin-top: -60px;">身份验证</label>
+					<p style="width:350px; margin-left: 300px;margin-top: -25px;">用于提升账号的安全性和信任级别。认证后的有卖家记录的账号不能修改认证信息。</p>
+					<a style="margin-left: 700px;margin-top: -35px;">查看</a>
+					<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+					<!-------------------------------- 登录密码 ---------------------------------->
+					<i class="layui-icon"
+						style="font-size: 30px;color: green;margin-left: 100px;margin-top: 20px;display: block;">&#xe618;</i>
+					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">已完成</label> <label
+						style="margin-left: 0px;margin-top: -60px;">登录密码</label>
+					<p style="width:350px; margin-left: 300px;margin-top: -25px;">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</p>
+					<a style="margin-left: 700px;margin-top: -35px;">查看</a>
+					<div style="width: 100%;height: 1px;border-top: 1px dashed #E1E1E1;margin-top: 50px;"></div>
+
+					<!-------------------------------- 绑定手机 ---------------------------------->
+					<i class="layui-icon"
+						style="font-size: 35px;color: ${user.telephone eq ''?'red':'green' };margin-left: 100px;margin-top: 20px;display: block;">${user.telephone eq ''?'&#x1006;':'&#xe618;' }</i>
+					<label style="font-size: 5px;margin-left: 105px;margin-top: -8px;">未设置</label> <label
+						style="margin-left:0px;margin-top: -60px;">绑定手机</label>
+					<p style="width:350px; margin-left: 300px;margin-top: -25px;">绑定手机后，您即可享受淘宝丰富的手机服务，如手机找回密码等。</p>
+					<a style="margin-left: 700px;margin-top: -35px;">设置</a>
+				</div>
+
+				<div class="layui-tab-item layui-tab-item5">5</div>
+
+				<div class="layui-tab-item layui-tab-item6">
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						<ul class="layui-tab-title">
+							<li class="layui-this">所有订单</li>
+							<li onclick="ordersType('4933fb74c84311e7aca65254002ec43c','#obligations')">待付款</li>
+							<li onclick="ordersType('02cd8aeeccf111e7aca65254002ec43c','#pendingShipment')">待发货</li>
+							<li onclick="ordersType('1e3ea09ecd8f11e7aca65254002ec43c', '#gtbr')">待收货</li>
+							<li onclick="ordersType('9f7aed4ccd9011e7aca65254002ec43c', '#evaluation')">待评价</li>
+						</ul>
+						<i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i>
+						<a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="typeStru">
+
+									</tbody>
+								</table>
+							</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="obligations">
+
+									</tbody>
+								</table>
+							</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="pendingShipment">
+
+									</tbody>
+								</table>
+							</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="gtbr">
+									</tbody>
+								</table>
+							</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>宝贝</th>
+											<th>单价</th>
+											<th>数量</th>
+											<th>交易状态</th>
+											<th>交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="evaluation">
+									</tbody>
+								</table>
+							</div>
+							<div class="layui-tab-item">6</div>
+						</div>
+					</div>
+				</div>
 			</div>
-
-
 		</div>
+	</div>
 	</div>
 
 	<script>
@@ -609,284 +576,6 @@
 					console.log("qw");
 				}
 			});
-			//只有执行了这一步，部分表单元素才会自动修饰成功
-			//但是，如果你的HTML是动态生成的，自动渲染就会失效
-			//因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
-			//以下是个人信息地址下拉框监听事件
-
-			/* form
-					.on(
-							'select(prIds)',
-							function(data) {
-								$
-										.ajax({
-											url : 'address/findRegionsByParentId?pid='
-													+ data.value,
-											success : function(
-													result) {
-												result = JSON
-														.parse(result);
-												$("#cityId")
-														.empty();
-												$("#cityId")
-														.append(
-																'<option value="">选择城市</option>');
-												$("#countyId")
-														.empty();
-												$("#countyId")
-														.append(
-																'<option value="">选择县市</option>');
-												$("#countryId")
-														.empty();
-												$("#countryId")
-														.append(
-																'<option value="">选择乡镇</option>');
-												findAll(result,
-														"#cityId");
-												form
-														.render(
-																'select',
-																'cityIdSelect');
-											}
-										});
-							});
-			form
-					.on(
-							'select(cityIdSelect)',
-							function(data) {
-								$
-										.ajax({
-											url : 'address/findRegionsByParentId?pid='
-													+ data.value,
-											success : function(
-													result) {
-												result = JSON
-														.parse(result);
-												$("#countyId")
-														.empty();
-												$("#countyId")
-														.append(
-																'<option value="">选择县市</option>');
-												$("#countryId")
-														.empty();
-												$("#countryId")
-														.append(
-																'<option value="">选择乡镇</option>');
-												findAll(result,
-														"#countyId");
-
-												console
-														.log(result);
-												form
-														.render(
-																'select',
-																'countyIdSelect');
-											}
-										});
-							});
-			form
-					.on(
-							'select(countyIdSelect)',
-							function(data) {
-								$
-										.ajax({
-											url : 'address/findRegionsByParentId?pid='
-													+ data.value,
-											success : function(
-													result) {
-												result = JSON
-														.parse(result);
-												$("#countryId")
-														.empty();
-												$("#countryId")
-														.append(
-																'<option value="">选择乡镇</option>');
-												findAll(result,
-														"#countryId");
-												form
-														.render(
-																'select',
-																'countryIdSelect');
-											}
-										});
-							});
-			//以下是亲属信息地址下拉框监听事件
-			form
-					.on(
-							'select(relativesprIds)',
-							function(data) {
-								$
-										.ajax({
-											url : 'address/findRegionsByParentId?pid='
-													+ data.value,
-											success : function(
-													result) {
-												result = JSON
-														.parse(result);
-												$(
-														"#relativescityId")
-														.empty();
-												$(
-														"#relativescityId")
-														.append(
-																'<option value="">选择城市</option>');
-												$(
-														"#relativescountyId")
-														.empty();
-												$(
-														"#relativescountyId")
-														.append(
-																'<option value="">选择县市</option>');
-												$(
-														"#relativescountryId")
-														.empty();
-												$(
-														"#relativescountryId")
-														.append(
-																'<option value="">选择乡镇</option>');
-												findAll(result,
-														"#relativescityId");
-												form
-														.render(
-																'select',
-																'relativescityIdSelect');
-											}
-										});
-							});
-			form
-					.on(
-							'select(relativescityIdSelect)',
-							function(data) {
-								$
-										.ajax({
-											url : 'address/findRegionsByParentId?pid='
-													+ data.value,
-											success : function(
-													result) {
-												result = JSON
-														.parse(result);
-												$(
-														"#relativescountyId")
-														.empty();
-												$(
-														"#relativescountyId")
-														.append(
-																'<option value="">选择县市</option>');
-												$(
-														"#relativescountryId")
-														.empty();
-												$(
-														"#relativescountryId")
-														.append(
-																'<option value="">选择乡镇</option>');
-												findAll(result,
-														"#relativescountyId");
-
-												console
-														.log(result);
-												form
-														.render(
-																'select',
-																'relativescountyIdSelect');
-											}
-										});
-							});
-			form
-					.on(
-							'select(relativescountyIdSelect)',
-							function(data) {
-								$
-										.ajax({
-											url : 'address/findRegionsByParentId?pid='
-													+ data.value,
-											success : function(
-													result) {
-												result = JSON
-														.parse(result);
-												$(
-														"#relativescountryId")
-														.empty();
-												$(
-														"#relativescountryId")
-														.append(
-																'<option value="">选择乡镇</option>');
-												findAll(result,
-														"#relativescountryId");
-												form
-														.render(
-																'select',
-																'relativescountryIdSelect');
-											}
-										});
-							});
-			$(function() {
-
-				//没有身体状况数据提示
-				var healthRecords = '${personalInfofmationAndHealthRecordsExpand.healthRecords}';
-				if (healthRecords == "") {
-					$("#nullMessage").html("还没有您的身体状况数据！");
-				}
-
-				//回显address中的省级地址
-				var provinceData = ${provinceData};
-				//个人信息地址省级地址回填
-				findAll(provinceData, "#prId");
-				form.render('select', 'prIds');
-				//亲属联系人地址省级地址回填
-				findAll(provinceData, "#relativesprIds");
-				form.render('select', 'relativesprIds');
-				//个人信息地址回填
-				var addressId = "${addressAndPersonaInformationExpand.personalInformation.addressId}";
-				if (addressId.length > 0) {
-					//回显address中的市级地址
-					var address = '${allRegionResultById}';
-					address = JSON.parse(address);
-					findAll(address[0].city, "#cityId");
-					form.render('select', 'cityIdSelect');
-					//回显address中的县级地址
-					findAll(address[0].county, "#countyId");
-					form.render('select', 'countyIdSelect');
-					//回显address中的乡镇级地址
-					findAll(address[0].country, "#countryId");
-					form.render('select', 'countryIdSelect');
-
-				} else {
-				}
-
-				//亲属地址回填
-				var relativesAddresId = "${relativesAndAddressExpand.relatives.addressId}";
-				if (relativesAddresId.length > 0) {
-					//回显address中的市级地址
-					var address = '${relativesallRegionResultById}';
-					address = JSON.parse(address);
-					findAll(address[0].city, "#relativescityId");
-					form.render('select',
-							'relativescityIdSelect');
-					//回显address中的县级地址
-					findAll(address[0].county,
-							"#relativescountyId");
-					form.render('select',
-							'relativescountyIdSelect');
-					//回显address中的乡镇级地址
-					findAll(address[0].country,
-							"#relativescountryId");
-					form.render('select',
-							'relativescountryIdSelect');
-				} else {
-
-				}
-
-				//页面日期格式回填处理
-				var birthdayId = $("#birthdayId").attr('val');
-				birthdayId = Format(new Date(birthdayId),
-						"yyyy-MM-dd");
-				$("#birthdayId").val(birthdayId);
-				/* 关闭遮罩 */
-			/* layui.use('layer', function() {
-				var layer = layui.layer;
-				layer.closeAll();
-			}); */
-
 			layui.use('element', function() {
 				var element = layui.element();
 				//一些事件监听
@@ -896,11 +585,11 @@
 			});
 		});
 		$(function() {
-			init("");
+			orders();
 		});
 	</script>
 
-	<jsp:include page="../util/indexFooter.jsp"></jsp:include>
+	<jsp:include page="../../offical_website/official-footer.jsp"></jsp:include>
 </body>
 
 </html>

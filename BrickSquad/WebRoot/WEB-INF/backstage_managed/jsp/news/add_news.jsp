@@ -22,13 +22,17 @@
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/layui/css/layui.css">
 
-<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
-<script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
-<script type="text/javascript" src="resource/plugins/wang_edit/wangEditor.min.js"></script>
+<script type="text/javascript"
+	src="resource/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+
 		$.ajax({
 			url : 'news/findUser',
 			success : function(data) {
@@ -53,9 +57,6 @@
 				});
 			}
 		});
-		var da = $("#nda").attr('val');
-		dat = Format(new Date(da), "yyyy-MM-dd");
-		$("#nda").val(dat);
 		//添加wangedit
 		var E = window.wangEditor;
 		var editor = new E('#editor');
@@ -82,9 +83,22 @@
 			'Accept' : 'multipart/form-data'
 
 		};
+
 		editor.create();
+		//获取type中的新闻类型id
+		layui.use('form', function() {
+			var form = layui.form(); //只有执行了这一步，部分表单元素才会修饰成功 
+			var dataType = '${dataType}';
+			dataType = JSON.parse(dataType);
+			findAll(dataType, "#typeid");
+			form.render('select', 'typeid1');
+		});
+		var da = $("#nda").attr('val');
+		dat = Format(new Date(da), "yyyy-MM-dd");
+		$("#nda").val(dat);
+
 		var url = '${url}';
-		var con=$("#con").html();
+		var con = $("#con").html();
 		if (url != "insertNews") {
 			editor.txt.html(con);
 		}
@@ -92,10 +106,10 @@
 		$("#reset").click(function() {
 			if (url != "insertNews") {
 				editor.txt.html(con);
-			}else {
+			} else {
 				editor.txt.html("");
 			}
-			
+
 		});
 		$("#form1").submit(function() {
 			var data = editor.txt.html();
@@ -103,18 +117,18 @@
 		});
 	});
 	$(function() {
-		var data="";
+		var data = "";
 		$(".error").each(function() {
-			data=data+"<br>"+$(this).val();
+			data = data + "<br>" + $(this).val();
 		});
-		if (data!="") {
+		if (data != "") {
 			layui.use('layer', function() {
 				var layer = layui.layer;
 				var msg = data;
 				layer.msg(msg);
 			});
 		}
-	});	
+	});
 </script>
 </head>
 <body>
@@ -131,17 +145,22 @@
 					<input type="text" name="title" required lay-verify="required"
 						placeholder="标题" autocomplete="off" class="layui-input"
 						value="${news.title }">
-						
 				</div>
 			</div>
-			<div id="con" style="display: none">
-			${news.content}
+			<div class="layui-form-item">
+				<label class="layui-form-label">新闻类型</label>
+				<div class="layui-input-inline" style="z-index: 1">
+					<select lay-filter="typeid1" name="typeId" id="typeid"
+						val="${news.typeId}">
+						<option value="">选择新闻类型</option>
+					</select>
+				</div>
 			</div>
+			<div id="con" style="display: none">${news.content}</div>
 			<input type="hidden" name="content" id="con1">
 			<div class="layui-form-item layui-form-text">
 				<label class="layui-form-label">编辑内容</label>
-				<div class="layui-input-block" id="editor"></div>
-
+				<div style="z-index: 0" class="layui-input-block" id="editor"></div>
 			</div>
 			<div class="layui-form-item">
 				<div class="layui-input-block">
@@ -150,9 +169,9 @@
 				</div>
 			</div>
 		</form>
-	<c:forEach items="${errors}" var="error">
-   		<input class="error" value="${error.defaultMessage}" type="hidden">
-   	</c:forEach>
+		<c:forEach items="${errors}" var="error">
+			<input class="error" value="${error.defaultMessage}" type="hidden">
+		</c:forEach>
 	</div>
 </body>
 </html>

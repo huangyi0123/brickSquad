@@ -1,6 +1,8 @@
 package com.brick.squad.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -28,6 +30,8 @@ import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Relatives;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.GuidanceService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.util.Pagination;
@@ -249,6 +253,66 @@ public class PersonalInformationServiceImpl implements
 		return PersonalInformation;
 	}
 
-	// 为老人个人详细信息一面做铺垫
-
+	@Override
+	public String updaeInforMation(
+			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand) {
+		PersonalInformation pInformation = addressAndPersonaInformationExpand
+				.getPersonalInformation();
+		Address address = addressAndPersonaInformationExpand.getAddress();
+		Relatives relatives = addressAndPersonaInformationExpand.getRelatives();
+		// 根据id将原始老人信息查询
+		PersonalInformation personalInformation = personalInformationMapper
+				.findPersonalInformationById(pInformation.getId());
+		personalInformation.setName(pInformation.getName());
+		personalInformation.setGender(pInformation.getGender());
+		personalInformation.setBirthday(pInformation.getBirthday());
+		Address address2;
+		if (personalInformation.getAddressId() != null
+				&& !personalInformation.getAddressId().equals("")) {
+			address2 = addressMapper.findAddressById(personalInformation
+					.getAddressId());
+			System.out.println(address2);
+		} else {
+			address2 = new Address();
+		}
+		address2.setProvinceId(address.getProvinceId());
+		address2.setCityId(address.getCityId());
+		address2.setCountryId(address.getCountryId());
+		address2.setCountyId(address.getCountyId());
+		address2.setDetailed(address.getDetailed());
+		if (personalInformation.getAddressId() != null
+				&& !personalInformation.getAddressId().equals("")) {
+			addressMapper.updateAddressById(address2);
+			
+		} else {
+			addressMapper.insertAddress(address2);
+			personalInformation.setAddressId(address2.getId());
+		}
+		personalInformationMapper
+				.updatePersonalInformationById(personalInformation);
+		Relatives relatives2;
+		if (relatives.getId() != null && !relatives.getId().equals("")) {
+			relatives2 = relativesMapper.findRelativesById(relatives.getId());
+		} else {
+			relatives2 = new Relatives();
+		}
+		relatives2.setName(relatives.getName());
+		relatives2.setPerId(personalInformation.getId());
+		relatives2.setRelationshipId(relatives.getRelationshipId());
+		relatives2.setTelephone(relatives.getTelephone());
+		if (relatives.getId() != null && !relatives.getId().equals("")) {
+			relativesMapper.updateRelativesById(relatives2);
+		} else {
+			relativesMapper.insertRelatives(relatives2);
+		}
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("addressId", address2.getId());
+		String addresse=addressMapper.findByIdAllAddress(address2.getId());
+		map.put("address", addresse);
+		Type type=typeMapper.findTypeById(relatives2.getRelationshipId());
+		map.put("relativesName", type.getName());
+		map.put("relativesId", relatives2.getId());
+		JSONArray jsonArray = JSONArray.fromObject(map);
+		return jsonArray.toString();
+	}
 }

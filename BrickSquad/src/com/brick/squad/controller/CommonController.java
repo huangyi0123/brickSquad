@@ -171,9 +171,6 @@ public class CommonController {
 				Address address = personalInformationService
 						.findAddressById(personalInformation.getAddressId());
 				addressAndPersonaInformationExpand.setAddress(address);
-				String allRegionResultById = addressService
-						.getAllRegion(address);
-				request.setAttribute("allRegionResultById", allRegionResultById);
 				// end
 
 			}
@@ -212,7 +209,6 @@ public class CommonController {
 					}
 				}
 			}
-
 			request.setAttribute("personalInfofmationAndHealthRecordsExpand",
 					personalInfofmationAndHealthRecordsExpand);
 			// end
@@ -284,6 +280,11 @@ public class CommonController {
 	public String toShop_right_sidebar() {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
+	}
+	
+	@RequestMapping("/toWebsite_template")
+	public String toWebsite_template() {
+		return "offical_website/website-template";
 	}
 
 	/***

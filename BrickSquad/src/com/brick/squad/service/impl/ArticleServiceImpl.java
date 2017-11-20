@@ -676,22 +676,38 @@ public class ArticleServiceImpl implements ArticleService {
 		List<NewsArticle> list;
 		String s=page.getS();
 		String search_category=page.getSearch_category();
-		if(s==""||search_category==""){
+		if(s==""&&search_category==""){
 			list=articleMapper.findSearchAllArticle(m);
 		    count=articleMapper.findSearchArticleAllCount();
-		}else{
+		}else if(s!=""&&search_category!=""){
 			if(search_category.equals("yiliaoqixie")){
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list=articleMapper.findSearchAllArticleSecondYiLiao(m);
-				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+				 count=articleMapper.findSearchAllArticleCountThreadOther(m);
 			}else{
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list=articleMapper.findSearchAllArticleSecond(m);
 				 count=articleMapper.findSearchAllArticleCountSecond(search_category);
 			}
-			
+		}else if(s!=""&&search_category==""){
+			m.put("s", page.getS());
+			m.put("search_category", page.getSearch_category());
+			list=articleMapper.findSearchAllArticleSecondAll(m);
+			 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+		}else{
+			if(search_category.equals("yiliaoqixie")){
+				m.put("s", page.getS());
+				m.put("search_category", page.getSearch_category());
+				list=articleMapper.findSearchAllArticleSecondYiLiaoSecond(m);
+				 count=articleMapper.findSearchAllArticleCountSecondOther(search_category);
+			}else{
+			m.put("s", page.getS());
+			m.put("search_category", page.getSearch_category());
+			list=articleMapper.findSearchAllArticleSecondOther(m);
+			 count=articleMapper.findSearchAllArticleCountSecond(search_category);
+			}
 		}
 		page.setCount(count);
 		for (NewsArticle item : list) {
@@ -751,7 +767,104 @@ public class ArticleServiceImpl implements ArticleService {
 		map.put("page", page);
 		return map;
 	}
+	@Override
+	/**
+	 * 根据关键字查询所有商品信息
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondAll(PageUtil page,
+			String path) {
+		Map<String, Object> map=new HashMap<>();
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("skli", page.getSkipNum());
+		m.put("take", page.getTakeNum());
+		String s=page.getS();
+		String search_category=page.getSearch_category();
+		List<NewsArticle> list=articleMapper.findSearchAllArticleSecondAll(m);
+		int count=articleMapper.findSearchAllArticleCountSecond(search_category);
+		page.setCount(count);
+		for (NewsArticle item : list) {
+		File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+		File[] files=file.listFiles();
+		if (files!=null&&files.length!=0) {
+				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+			}
+		}
+		map.put("data", list);
+		map.put("page", page);
+		return map;
+	}
 	
+	@Override
+	/**
+	 * 搜索框根据分类查询商品信息
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondOther(
+			PageUtil page, String path) {
+		Map<String, Object> map=new HashMap<>();
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("skli", page.getSkipNum());
+		m.put("take", page.getTakeNum());
+		String s=page.getS();
+		String search_category=page.getSearch_category();
+		List<NewsArticle> list=articleMapper.findSearchAllArticleSecondOther(m);
+		int count=articleMapper.findSearchAllArticleCountSecond(search_category);
+		page.setCount(count);
+		for (NewsArticle item : list) {
+		File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+		File[] files=file.listFiles();
+		if (files!=null&&files.length!=0) {
+				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+			}
+		}
+		map.put("data", list);
+		map.put("page", page);
+		return map;
+	}
+	@Override
+	/**
+	 * 搜索框根据分类查询商品信息,如果是一级分类
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondYiLiaoSecond(
+			PageUtil page, String path) {
+		Map<String, Object> map=new HashMap<>();
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("skli", page.getSkipNum());
+		m.put("take", page.getTakeNum());
+		String s=page.getS();
+		String search_category=page.getSearch_category();
+		List<NewsArticle> list=articleMapper.findSearchAllArticleSecondYiLiaoSecond(m);
+		int count=articleMapper.findSearchAllArticleCountSecond(search_category);
+		page.setCount(count);
+		for (NewsArticle item : list) {
+		File file=new File(path+"/resource/image/articleImg/"+item.getImage());
+		File[] files=file.listFiles();
+		if (files!=null&&files.length!=0) {
+				item.setImage("resource/image/articleImg/"+item.getImage()+"/"+files[0].getName());
+			}
+		}
+		map.put("data", list);
+		map.put("page", page);
+		return map;
+	}
+
+
+	@Override
+	/**
+	 * 一二级关联查询总数
+	 * */
+	public int findSearchAllArticleCountSecondOther(String typeId) {
+		int count=articleMapper.findSearchAllArticleCountSecondOther(typeId);
+		return count;
+	}
+	@Override
+	/**
+	 * 根据关键字查询商品信息计算总数
+	 * */
+	public int findSearchAllArticleCountThreadOther(Map<String, Object> map) {
+		int count=articleMapper.findSearchAllArticleCountThreadOther(map);
+		return count;
+	}
+
 	@Override
 	public int findSearchAllArticleCountSecond(String typeId) {
 		int count=articleMapper.findSearchAllArticleCountSecond(typeId);
@@ -1191,6 +1304,14 @@ public class ArticleServiceImpl implements ArticleService {
 		List<String> data=articleMapper.findArticleTypeIdSecond(pageBeanUtil);
 		return data;
 	}
+
+
+
+	
+	
+	
+
+
 
 
 

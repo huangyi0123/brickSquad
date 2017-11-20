@@ -106,10 +106,28 @@ public interface ArticleService {
 	public Map<String, Object> findSearchAllArticleSecond(PageUtil pageUtil,String path);
 	public Map<String, Object> findSearchAllArticleSecondYiLiao(PageUtil pageUtil,String path);
 	public int findSearchAllArticleCountSecond(String typeId);
-	
+	/**
+	 * 根据关键字查询所有商品信息
+	 * */
+	public  Map<String, Object> findSearchAllArticleSecondAll(PageUtil pageUtil,String path);
+	/**
+	 * 搜索框根据分类查询商品信息
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondOther(PageUtil pageUtil,String path);
+	/**
+	 * 搜索框根据分类查询商品信息,如果是一级分类
+	 * */
+	public Map<String, Object> findSearchAllArticleSecondYiLiaoSecond(PageUtil pageUtil,String path);
 	public Map<String, Object> findArticlePages(PageUtil pageUtil,String path,String order);
 
-
+	/**
+	 * 一二级关联查询总数
+	 * */
+	public int findSearchAllArticleCountSecondOther(String typeId);
+	/**
+	 * 根据关键字查询商品信息计算总数
+	 * */
+	public int findSearchAllArticleCountThreadOther(Map<String, Object> map);
 	
 	public int selectArticleRatedTotalById(String id);
 

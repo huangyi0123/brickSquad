@@ -155,6 +155,11 @@ function uploadImage() {
 function updatePinfo(n) {
 	$(".info").hide();
 	$(".uinfo").show();
+	var birthday = $("#birthdayId").attr('val');
+	$("#birthdayId").val(Format(new Date(birthday), "yyyy-MM-dd"));
+	var pgengender = $("#ipgender").html();
+	$("#perGender").find("input[value='" + pgengender + "']").attr('checked',
+			'true');
 	layui.use('form', function() {
 		var form = layui.form();
 		$.ajax({
@@ -165,6 +170,33 @@ function updatePinfo(n) {
 				form.render('select', 'prIds');
 			}
 
+		});
+		var porId = $("#prIdas").attr('val');
+		var cityId = $('#cityId').attr('val');
+		var countyId = $('#countyId').attr('val');
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + porId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#cityId");
+				form.render('select', 'cityIdSelect');
+			}
+		});
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + cityId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#countyId");
+				form.render('select', 'countyIdSelect');
+			}
+		});
+		$.ajax({
+			url : 'address/findRegionsByParentId?pid=' + countyId,
+			success : function(data) {
+				data = JSON.parse(data);
+				findAll(data, "#countryId");
+				form.render('select', 'countryIdSelect');
+			}
 		});
 		form.on('select(prIds)', function(data) {
 			$.ajax({
@@ -230,43 +262,94 @@ function savesa(n) {
 		var perGender = $("#perGender").find('input:radio[name="sex"]:checked')
 				.val();
 		var idcard = $("#idcard").val();
-		var birthday = $("#birthday").val();
+		var birthday = $("#birthdayId").val();
 		var provinceId = $("#prIdas").val();
 		var cityId = $("#cityId").val();
 		var countyId = $("#countyId").val();
 		var countryId = $("#countryId").val();
 		var detailed = $("#detailed").val();
-
+		console.log(detailed);
 		// 获取亲属信息
+		var relativesId = $("#relativesId").val();
 		var gName = $("#gName").val();
 		var gphone = $("#gphone").val();
 		var gtype = $("#qsgx").val();
-		var data = {
-			"personalInformation" : {
-				'name':perName,
-				'gender':perGender,
-				'idCard':idcard,
-				'birthday':birthday
-			},
-			'address':{
-				'provinceId':provinceId,
-				'cityId':cityId,
-				'countyId':countyId,
-				'countryId':countryId,
-				'detailed':detailed
-			},
-			"relatives":{
-				'name':gName,
-				'telephone':gphone,
-				'relationshipId':gtype
-			}
-		};
 		$.ajax({
-			url : '',
+			url : 'personalInformation/updaeInforMation',
 			type : 'POST',
-			data : {
-
+			data : $("#perinformation").serialize(),
+			success : function(result) {
+				result = JSON.parse(result);
+				console.log(result);
+				$("#ipname").html(perName);
+				$("#ipgender").html(perGender);
+				$("#ipidcard").html(idcard);
+				$("#birthday").html(birthday);
+				$("#addressId").html(result[0].addressId);
+				$("#prIdas").attr('val', provinceId);
+				$("#cityId").attr('val', cityId);
+				$("#countyId").attr('val', countyId);
+				$("#countryId").attr('val', countryId);
+				$("#addressqw").html(result[0].address);
+				$("#gxName").html(gName);
+				$("#gxphone").html(gphone);
+				$("#qsgx").val(gtype);
+				$("#gxtype").html(result[0].relativesName);
+				$("#relativesId").val(result[0].relativesId);
+				$(".uinfo").hide();
+				$(".info").show();
 			}
 		});
 	}
+}
+function orders() {
+	$("#person").find('li').click(
+			function() {
+				var html = $(this).html();
+				if (html == "订单管理") {
+					$.ajax({
+						url : 'orders/getOrders',
+						success : function(data) {
+							$("#typeStru").html("");
+							data = JSON.parse(data);
+							var html = "";
+							$(data).each(
+									function() {
+										html = html + "<tr>" + "<td>"
+												+ this.aname + "</td>" + "<td>"
+												+ this.price + "</td>" + "<td>"
+												+ this.number + "</td>"
+												+ "<td>" + this.typeName
+												+ "</td>"
+												+ "<td>人生就像是一场修行</td>"
+												+ "</tr>";
+									});
+							$("#typeStru").html(html);
+						}
+					});
+				}
+			});
+}
+function ordersType(id, type) {
+	$.ajax({
+		url : 'orders/getOrders?typeId=' + id,
+		success : function(data) {
+			$(type).html("");
+			data = JSON.parse(data);
+			var html = "";
+			$(data).each(
+					function() {
+						var opr = "";
+						if (type == '#obligations') {
+							opr = "<td><a href='variableProduct/toconfirm_order?ordersId="+this.oId+"'>去支付</a></td>";
+						}
+						html = html + "<tr>" + "<td>" + this.aname + "</td>"
+								+ "<td>" + this.price + "</td>" + "<td>"
+								+ this.number + "</td>" + "<td>"
+								+ this.typeName + "</td>" + opr
+						"</tr>";
+					});
+			$(type).html(html);
+		}
+	});
 }

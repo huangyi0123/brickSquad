@@ -443,10 +443,9 @@ public class MedicalInstrumentsController {
 		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
 		pageBean.setList(listArticle4);
-		request.setAttribute("url1", "findColthType");
-		request.setAttribute("url", "findColthType");
-	
-		request.setAttribute("Ctype", typeId);
+		request.getSession().setAttribute("url1", "findColthType");
+		request.getSession().setAttribute("url", "findColthType");
+		request.getSession().setAttribute("Ctype", typeId);
 	/*	request.setAttribute("url", "toShop_left_sidebar");*/
 		request.setAttribute("pageBean", pageBean);
 		
@@ -457,10 +456,9 @@ public class MedicalInstrumentsController {
 	
 	@RequestMapping("/findColthTypepageBean")
 	public String findColthTypepageBean(HttpServletRequest request,
-			PageBeanUtil pageBean) throws Exception {
+			PageBeanUtil pageBean,String typeId) throws Exception {
 		/** 医疗器械一级分类查询 */
-		String typeId=pageBean.getTypeId();
-		System.out.println("========++++++++++++++========="+pageBean.getTypeId());
+		System.out.println("========++++++++++++++========="+typeId);
 		List<TypeExpand> listType = typeService
 				.findIdAndTypeNmae(typeId);
 		request.setAttribute("listType", listType);
@@ -500,6 +498,7 @@ public class MedicalInstrumentsController {
 		request.setAttribute("pageBean", pageBean);
 		request.setAttribute("url1", "findColthType");
 		request.setAttribute("url", "findColthType");
+		request.setAttribute("Ctype", pageBean.getTypeId());
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 	/**按日期排序*/
@@ -546,6 +545,7 @@ public class MedicalInstrumentsController {
 		request.setAttribute("url1", "findColthType");
 		request.setAttribute("url", "findOrderByTypeSecondDate");
 		request.setAttribute("pageBean", pageBean);
+		request.setAttribute("Ctype", pageBean.getTypeId());
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 	/**按人气排序*/
@@ -642,6 +642,7 @@ public class MedicalInstrumentsController {
 		}
 		request.setAttribute("url1", "findColthType");
 		request.setAttribute("pageBean", pageBean);
+		request.setAttribute("Ctype", pageBean.getTypeId());
 		return "frontEnd_manage/front_bootstrap/shop_left_sidebar";
 	}
 	

@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -23,9 +25,11 @@ import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.PersonalInformationService;
+import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 
 @Controller
@@ -34,6 +38,12 @@ public class ActivityRegistrationController {
 	@Autowired
 	@Qualifier("activityRegistrationService")
 	private ActivityRegistrationService activityRegistrationService;
+	@Autowired
+	@Qualifier("personalInformationService")
+	private PersonalInformationService personalInformationService;
+	@Autowired
+	@Qualifier("userService")
+	private UserService userService;
 
 	@RequestMapping("/toActivityRegistration")
 	public String toActivityRegistration() {
@@ -123,4 +133,5 @@ public class ActivityRegistrationController {
 				activityRegistrationExpand);
 		return "backstage_managed/jsp/activityRegistration/search_activityRegistration";
 	}
+	
 }

@@ -24,6 +24,7 @@ import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 
@@ -36,6 +37,9 @@ public class NewsController {
 	@Autowired
 	@Qualifier("userService")
 	private UserService userService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
 
 	@RequestMapping("/toNewsList")
 	public String toRegionList() {
@@ -62,11 +66,13 @@ public class NewsController {
 	@RequestMapping("/toAddNews")
 	public String toAddRapport(HttpServletRequest request, String id)
 			throws Exception {
+		String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+		request.setAttribute("dataType", dataType);
 		if (id != null) {
-			request.setAttribute("msg", "修改");
-			request.setAttribute("url", "updateNews");
 			News news = newsService.findNewsById(id);
 			request.setAttribute("news", news);
+			request.setAttribute("msg", "修改");
+			request.setAttribute("url", "updateNews");
 		} else {
 			request.setAttribute("url", "insertNews");
 			request.setAttribute("msg", "添加");
@@ -86,6 +92,8 @@ public class NewsController {
 			HttpServletRequest request) throws Exception {
 
 		if (result.hasErrors()) {
+			String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+			request.setAttribute("dataType", dataType);
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
 			request.setAttribute("url", "insertNews");
@@ -122,6 +130,8 @@ public class NewsController {
 	@RequestMapping("/findNews")
 	public String findNews(HttpServletRequest request, String id)
 			throws Exception {
+		String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+		request.setAttribute("dataType", dataType);
 		News news = newsService.findNewsById(id);
 		request.setAttribute("news", news);
 		return "backstage_managed/jsp/news/search_news";
