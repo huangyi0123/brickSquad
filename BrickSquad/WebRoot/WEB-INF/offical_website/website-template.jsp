@@ -27,82 +27,13 @@
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
 	rel='stylesheet' type='text/css'>
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
-
-
-<link href="resource/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="resource/css/website-template.css">
-<script type="application/x-javascript">
-	
-	
-
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-</script>
-<!-- //for-mobile-apps -->
-<!--fonts-->
-
-<!--//fonts-->
-<!-- js -->
-
+<link href="resource/css/website-template.css" rel="stylesheet" 
+	>
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-<script>
-	$(document).ready(function() {
-		//Initialize tooltips
-		$('.nav-tabs > li a[title]').tooltip();
 
-		//Wizard
-		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-
-			var $target = $(e.target);
-
-			if ($target.parent().hasClass('disabled')) {
-				return false;
-			}
-		});
-
-		$(".next-step").click(function(e) {
-
-			var $active = $('.wizard .nav-tabs li.active');
-			$active.next().removeClass('disabled');
-			nextTab($active);
-
-		});
-		$(".prev-step").click(function(e) {
-
-			var $active = $('.wizard .nav-tabs li.active');
-			prevTab($active);
-
-		});
-	});
-
-	function nextTab(elem) {
-		$(elem).next().find('a[data-toggle="tab"]').click();
-	}
-	function prevTab(elem) {
-		$(elem).prev().find('a[data-toggle="tab"]').click();
-	}
-</script>
-<script type="text/javascript">
-	function findTelephoneView() {
-		$
-				.ajax({
-					url : "${pageContext.request.contextPath}/activityRegistration/findTelephoneView",
-					type : 'post',
-					success : function(data) {
-						var telephone = document.getElementById("telephone");
-						var json = eval(data);
-						telephone.value = "json[0].telephone";
-					}
-				});
-	}
-</script>
 </head>
 
 <body>
@@ -112,9 +43,22 @@
 			<img alt="" src="resource/image/3_2.png">
 		</div>
 		<div class="template_main">
-		<div class="tem_main_left">
-		<input value="">
-		</div>
+			<div class="tem_main_left">
+				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
+					style="margin-right: 10px;">
+					<li class="layui-nav-item"><a href="javascript:;">默认展开</a></li>
+					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
+					<li class="layui-nav-item"><a href="javascript:;">解决方案</a></li>
+					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
+					<li class="layui-nav-item"><a href="javascript:;">云市场</a></li>
+					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
+					<li class="layui-nav-item"><a href="javascript:;">社区</a></li>
+					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
+				</ul>
+
+
+			</div>
+			
 		</div>
 		<jsp:include page="official-footer.jsp"></jsp:include>
 	</div>
@@ -125,13 +69,6 @@
 			});
 		});
 	</script>
-	<!-- /script-for-menu -->
-	<script src="resource/js/classie.js"></script>
-	<script src="resource/js/uisearch.js"></script>
-	<script>
-		new UISearch(document.getElementById('sb-search'));
-	</script>
-	<!-- for bootstrap working -->
 	<script src="resource/plugins/bootstrap/bootstrap.js"></script>
 	<script>
 		layui.use('element', function() {
@@ -142,7 +79,6 @@
 				//console.log(elem)
 				layer.msg(elem.text());
 			});
-
 		});
 	</script>
 </body>

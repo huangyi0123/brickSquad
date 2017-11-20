@@ -86,7 +86,9 @@
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/group_buy/togroup_buy" />
 			<mvc:exclude-mapping path="/new_deals/*" />
-			<mvc:exclude-mapping path="/shopIndex/**" />
+			<mvc:exclude-mapping path="/shopIndex/**"/>
+			<mvc:exclude-mapping path="/reservation/**"/>
+
 			<mvc:exclude-mapping path="/common/toApply_coupon" />
 			<mvc:exclude-mapping path="/shoppingCar/getIndexShoppingCarList" />
 			<mvc:exclude-mapping path="/coupon/*" />

@@ -1,6 +1,8 @@
 package com.brick.squad.expand;
 
 public class OrderExpand {
+	private String odId;
+	private String oId;
 	private String aname;
 	private float price;
 	private int number;
@@ -36,5 +38,21 @@ public class OrderExpand {
 
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
+	}
+
+	public String getOdId() {
+		return odId;
+	}
+
+	public void setOdId(String odId) {
+		this.odId = odId;
+	}
+
+	public String getoId() {
+		return oId;
+	}
+
+	public void setoId(String oId) {
+		this.oId = oId;
 	}
 }

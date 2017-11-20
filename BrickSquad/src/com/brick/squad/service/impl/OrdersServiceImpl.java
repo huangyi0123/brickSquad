@@ -105,8 +105,10 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 
 	@Override	
-	public List<OrderExpand> findOrderByType(Map<String, String> map) {
-		return ordersMapper.findOrderByType(map);
+	public String findOrderByType(Map<String, String> map) {
+		List<OrderExpand> data=ordersMapper.findOrderByType(map);
+		JSONArray jsonArray=JSONArray.fromObject(data);
+		return jsonArray.toString();
 	}
 
 }

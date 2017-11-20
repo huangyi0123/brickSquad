@@ -20,6 +20,27 @@ public class ActivityRegistration {
 	/* @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") */
 	// @NotEmpty(message="请选择预约类型")
 	private int appointment;
+	//备注
+	private String remarks;
+	//预约时间
+	private Date reservationDate;
+	
+	
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public Date getReservationDate() {
+		return reservationDate;
+	}
+
+	public void setReservationDate(Date reservationDate) {
+		this.reservationDate = reservationDate;
+	}
 
 	public String getId() {
 		return id;

@@ -2,6 +2,8 @@ package com.brick.squad.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.util.Pagination;
@@ -106,5 +109,14 @@ public class OrdersController {
 		OrdersExpand ordersExpand = ordersService.findOrdersAndBuyserById(id);
 		request.setAttribute("ordersExpand", ordersExpand);
 		return "backstage_managed/jsp/orders/search_orders";
+	}
+	@RequestMapping("/getOrders")
+	@ResponseBody
+	public String getOrders(HttpServletRequest request,String typeId) {
+		User user=(User) request.getSession().getAttribute("user");
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("buyId", user.getId());
+		map.put("typeId", typeId);
+		return ordersService.findOrderByType(map);
 	}
 }
