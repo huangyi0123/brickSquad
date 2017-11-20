@@ -20,5 +20,6 @@ public class ReservationServiceImpl implements ReservationService{
 	public void insertReservation(Reservation reservation) throws Exception {
 		reservationMapper.insertReservation(reservation);
 	}
+	
 
 }

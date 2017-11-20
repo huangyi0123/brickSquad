@@ -72,7 +72,7 @@ public class TypeServiceTest {
 
 	@Test
 	public void findTypeByParentId() {
-		String data = typeService.findTypeByParentId("mz");
+		String data = typeService.findTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
 		System.out.println(data);
 	}
 
