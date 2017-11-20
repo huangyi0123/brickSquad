@@ -21,11 +21,15 @@
 }
 
 .tem_main_left {
-	float:left;
-	width: 20%;
-	height: 500px;
+	float: left;
+	width: 20%; 
+	height:auto!important;
 	margin-left: 150px;
 	background-color: #EBEBEC;
+	/* overflow: hidden;
+	padding-bottom: 1000px;
+	margin-bottom: -1000px; */
+	
 }
 
 .tem_main_left ul {
@@ -59,10 +63,26 @@
 	background-color: #48CFC1;
 }
 
-.tem_main_right{
-	width:60%;
-	height:500px;
-	float:left;
+.tem_main_right {
+	width: 60%;
+	display: block; float : left;
 	background-color: white;
 	border: 1px solid blue;
+	float: left;
+}
+
+.aboutus-intro h4 {
+	color: #60C9BE;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 60px;
+	margin-left: 100px;
+}
+
+.aboutus-intro p {
+	width: 700px;
+	font-size: 1.1em;
+	line-height: 25px;
+	margin-left: 100px;
+	margin-top: 20px;
 }
