@@ -23,7 +23,8 @@
 .tem_main_left {
 	float: left;
 	width: 20%; 
-	height:auto!important;
+	height:500px;
+	/* height:auto!important; */
 	margin-left: 150px;
 	background-color: #EBEBEC;
 	/* overflow: hidden;
@@ -115,3 +116,31 @@
 	margin-left: 100px;
 	margin-top: 20px;
 }
+
+.aboutus-cont p{
+	margin-top: 5px;
+}
+
+
+.parti-online label{
+	color: #666666;
+	display:block;
+	font-stretch:normal;
+	margin-top: 20px;
+	margin-left: 100px;
+}
+.parti-online .layui-input-inline input{
+	height:30px;
+	width:200px;
+	border-radius:5px;
+	margin-left: 200px;
+	margin-top: -25px;
+}
+
+.layui-input, .layui-textarea, .layui-select{
+	border:1px solid #DEDEDE !important;
+}
+/* .parti-online .layui-input-block input{
+	margin-left: 20px;
+	font-size: 1.5em;
+} */

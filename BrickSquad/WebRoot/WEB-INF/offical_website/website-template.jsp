@@ -92,7 +92,7 @@
 				<!-- <div class="aboutus-use">
 			
 			</div> -->
-				<div class="aboutus-join">
+				<!-- <div class="aboutus-join">
 					<p>星堡（上海）投资咨询有限公司是由复星集团与美国峰堡投资集团共同建立的一家专业开发与运营养老社区的合资公司。星堡不仅持有与运营养老机构，还涉及其他养老相关业务。
 					</p>
 					<p>星堡在上海的首个养老社区位于宝山中环，是一个提供从自理、护理到临终关怀一站式服务的养老社区。</p>
@@ -147,6 +147,93 @@
 						人力资源部</p>
 					<p>邮箱地址：hr@starcastleliving.com</p>
 					<p>联系电话：021-56508077/021-56508087</p>
+				</div> -->
+				<!-- <div class="aboutus-cont">
+					<h4>养老社区</h4>
+					<p>社区地址：</p>
+					<p>星堡中环养老社区：上海宝山区环镇南路858弄5号楼 预约参观请拨打咨询热线 021-31001500 转 80108</p>
+						<p>星堡浦江养老社区：上海市闵行区联航路1505弄5号楼 021-31001518 转 50107</p>
+					<h4>养老投资咨询</h4>
+					<p>公司地址：上海宝山区环镇南路858弄5号楼4楼</p>
+					<p>联系人：王雪</p>
+					<p>联系方式：021-56508226</p>
+					<p>电子邮箱：ewang@starcastleliving.com</p>
+					<h4>星堡居家</h4>
+					<p>公司地址：上海浦东新区博山东路20弄28号</p>
+					<p>电子邮箱：amysi@starcastleathome.com</p>
+
+				</div> -->
+
+				<div class="parti-online">
+					<h4>欢迎来到星堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
+					<label>* 姓名：</label>
+					<div class="layui-input-inline">
+						<input type="tel" name="phone" lay-verify="required|phone"
+							autocomplete="off" class="layui-input">
+					</div>
+					<label>* 联系方式：</label>
+					<div class="layui-input-inline">
+						<input type="tel" name="phone" lay-verify="required|phone"
+							autocomplete="off" class="layui-input">
+					</div>
+					<label>* 邮箱：</label>
+					<div class="layui-input-inline">
+						<input type="tel" name="phone" lay-verify="required|phone"
+							autocomplete="off" class="layui-input">
+					</div>
+					<label>年龄：</label>
+					<div class="layui-input-inline">
+						<input type="tel" name="phone" lay-verify="required|phone"
+							autocomplete="off" class="layui-input">
+					</div>
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<label>是否与家人一起住：</label>
+							<div class="layui-input-block"
+								style="margin-left: 260px;margin-top: -28px;">
+								<input type="radio" value="在一起" title="在一起" checked="">
+								<input type="radio" name="sex" value="不在一起" title="不在一起">
+							</div>
+						</div>
+					</form>
+					<label>需要参加什么活动：</label>
+					<form class="layui-form" action="">
+						<div class="layui-form-item" pane="">
+							<div class="layui-input-block"
+								style="margin-left: 260px;margin-top: -25px;">
+								<input type="checkbox" name="like1[write]" lay-skin="primary"
+									title="宣传册" checked="">
+								<input type="checkbox" name="like1[read]" lay-skin="primary"
+									title="养生常识">
+								<input type="checkbox" name="like1[game]" lay-skin="primary"
+									title="乐堡新闻">
+								<input type="checkbox" name="like1[write]" lay-skin="primary"
+									title="宣传活动">
+								<input type="checkbox" name="like1[read]" lay-skin="primary"
+									title="优惠活动">
+							</div>
+						</div>
+					</form>
+					<label style="margin-top: -280px;">需要什么样的养老服务：</label>
+					<form class="layui-form" action="">
+						<div class="layui-form-item" pane="">
+							<div class="layui-input-block"
+								style="margin-left: 260px;margin-top: -25px;">
+								<input type="checkbox" name="like1[write]" lay-skin="primary"
+									title="体检预约" checked="">
+								<input type="checkbox" name="like1[read]" lay-skin="primary"
+									title="生活助手">
+								<input type="checkbox" name="like1[write]" lay-skin="primary"
+									title="独立生活">
+								<input type="checkbox" name="like1[read]" lay-skin="primary"
+									title="康复协助">
+								<input type="checkbox" name="like1[read]" lay-skin="primary"
+									title="其他">
+								
+							</div>
+						</div>
+					</form>
+
 				</div>
 
 			</div>
@@ -173,6 +260,9 @@
 				//console.log(elem)
 				layer.msg(elem.text());
 			});
+		});
+		layui.use('form', function() {
+			var form = layui.form;
 		});
 	</script>
 </body>
