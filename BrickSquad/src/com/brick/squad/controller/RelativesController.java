@@ -318,6 +318,7 @@ public class RelativesController {
 		if (relatives.getAddressId()!=null) {
 			relativesService.userDeleteRelativesById(id);
 			addressService.deleteAddressById(relatives.getAddressId());
+			return "backstage_managed/jsp/relatives/relatives_list";
 		}
 		relativesService.userDeleteRelativesById(id);
 		return "backstage_managed/jsp/relatives/relatives_list";
