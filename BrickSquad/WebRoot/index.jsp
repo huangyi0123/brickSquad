@@ -162,9 +162,22 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
-
+<script type="text/javascript">
+function findBranch(){
+	$.ajax({
+		url:'reservation/findBranch',
+		success:function(data){
+			data=JSON.parse(data);
+			 for (var i = 0; i < data.length; i++) {
+			$("#branchid").append("<option value='"+data[i].id+"'>" + data[i].name + "</option>");
+			 };
+		}
+		
+	});
+}
+</script>
 </head>
-
+	
 <body>
 	<div class="banner">
 		<div class="header" style="height: 66px;">
@@ -292,7 +305,7 @@
 				<div class="buttons" style="z-index: 10;">
 					<ul>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal">预约参观</a></li>
+							data-toggle="modal" data-target="#myModal" onclick="findBranch()">预约参观</a></li>
 						<li><a class="hvr-shutter-in-vertical" href="#"
 							data-toggle="modal" data-target="#myModal1">我要报名</a></li>
 					</ul>
@@ -530,15 +543,10 @@
 										<div class="layui-form-item">
 											<div class="layui-inline">
 												<div class="layui-input-inline">
-													<select name="branchId" lay-verify="required" lay-search=""
+													<select name="branchId" lay-verify="required" lay-search="" id="branchid"
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
-														<option value="1">layer</option>
-														<option value="2">form</option>
-														<option value="3">layim</option>
-														<option value="4">element</option>
-														<option value="5">laytpl</option>
-														<option value="6">upload</option>
+														
 													</select>
 												</div>
 											</div>
@@ -614,7 +622,7 @@
 							</ul>
 						</div>
 						<!-- 我要去报名 -->
-						<form role="form">
+						<form role="form" method="post" action="">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
