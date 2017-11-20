@@ -1305,6 +1305,7 @@ background:#9398ec;
 
 }
 .content-bottom-two{
+	background-image: url('../image/3657576.jpg'); 
 	position:relative;
 }
 .btm-pos {
@@ -1332,11 +1333,11 @@ background:#9398ec;
     padding: 80px 0;
 }
 .content-left{
-background:#c2d468;
+
 	
 }
 .content-right{
-background:#48cfc1;
+
 
 }
 .content-left img,.content-right img{

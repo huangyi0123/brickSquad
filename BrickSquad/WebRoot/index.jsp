@@ -416,10 +416,10 @@ function findActivitiesName() {
 	</div>
 	<div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center">
-			<img src="resource/image/bbb5.png" alt="" />
+			<img src="resource/image/bbb1_left.png" alt="" />
 		</div>
 		<div class="col-md-6 content-right text-center">
-			<img src="resource/image/bbb3.png" alt="" />
+			 <img src="resource/image/bbb1_right.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
