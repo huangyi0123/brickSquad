@@ -17,6 +17,7 @@ public class News {
 	private String imagePath;
 	private Date postTime;
 	private String title;
+	private String typeId;
 	/**
 	 * news新闻表与User用户表的关系：一对多
 	 * */
@@ -28,6 +29,15 @@ public class News {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+
+	public String getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
 	}
 
 	public String getId() {
