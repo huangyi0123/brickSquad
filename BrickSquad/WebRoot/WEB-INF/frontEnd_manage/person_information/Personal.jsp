@@ -42,23 +42,6 @@
 		}//js
 	})
 </script>
-<script type="text/javascript">
-	function toAddRelatveOnclick() {
-		layui.use('layer', function() {
-			var layer = layui.layer;
-			layer = layer.open({
-				type : 2,
-				content : "relatives/userToAddRelatives",
-				offset : '100px',
-				area : [ '800px', '500px' ],
-				end : function() {
-					init("");
-				}
-
-			});
-		});
-	}
-</script>
 </head>
 
 <body>
@@ -246,8 +229,8 @@
 											value="${addressAndPersonaInformationExpand.address.id }">
 										<div class="layui-input-inline">
 											<select required lay-verify="required"
-												val="${addressAndPersonaInformationExpand.address.provinceId}" name="gaddress.provinceId"
-												id="prIdas" lay-filter="prIds" lay-search="">
+												val="${addressAndPersonaInformationExpand.address.provinceId}"
+												name="gaddress.provinceId" id="prIdas" lay-filter="prIds" lay-search="">
 												<option value="">选择省份</option>
 											</select>
 										</div>
@@ -565,23 +548,11 @@
 	</div>
 
 	<script>
-		layui.use('form', function() {
-			var form = layui.form();
-			$.ajax({
-				url : 'region/findRegionByLevel?level=1',
-				success : function(data) {
-					data = JSON.parse(data);
-					findAll(data, "#prIdas");
-					form.render('select', 'prIds');
-					console.log("qw");
-				}
-			});
-			layui.use('element', function() {
-				var element = layui.element();
-				//一些事件监听
-				element.on('tab(demo)', function(data) {
+		layui.use('element', function() {
+			var element = layui.element();
+			//一些事件监听
+			element.on('tab(demo)', function(data) {
 
-				});
 			});
 		});
 		$(function() {
