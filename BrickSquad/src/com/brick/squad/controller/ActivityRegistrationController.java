@@ -3,11 +3,13 @@ package com.brick.squad.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -21,14 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.expand.ActivityRegistrationExpand;
-import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
-import com.brick.squad.pojo.Business;
-import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.PersonalInformationService;
+import com.brick.squad.service.TypeService;
 import com.brick.squad.service.UserService;
 import com.brick.squad.util.Pagination;
 
@@ -47,6 +47,9 @@ public class ActivityRegistrationController {
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
 
 	@RequestMapping("/toActivityRegistration")
 	public String toActivityRegistration() {
@@ -143,7 +146,12 @@ public class ActivityRegistrationController {
 	@RequestMapping("/findActivityName")
 	@ResponseBody
 	public String findActivityName() throws Exception{
-		String data=activitiesService.findActivityName();
+		String articleName=activitiesService.findActivityName();
+		String branchData=typeService.findTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		Map<String,String> map=new HashedMap();
+		map.put("articleName", articleName);
+		map.put("branchData", branchData);
+		String data=JSONArray.fromObject(map).toString();
 		return data;
 	}
 	/**

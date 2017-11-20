@@ -205,9 +205,22 @@ function findActivitiesName() {
 		success:function(data){
 			 $("#findActivitiesNameId").html('');
 			data=JSON.parse(data);
+			/* console.log(data[0].articleName); */
+			var dataN;
+			var dataM;
 			 for (var i = 0; i < data.length; i++) {
-			$("#findActivitiesNameId").append("<option value='"+data[i].id+"'>" + data[i].name + "</option>");
+				  dataN=data[i].articleName;
+				  dataM=data[i].branchData;
 			 };
+			 dataN=JSON.parse(dataN);
+			 for(var i=0;i<dataN.length;i++){
+					$("#findActivitiesNameId").append("<option value='"+dataN[i].id+"'>" + dataN[i].name + "</option>"); 
+				}
+			 dataM=JSON.parse(dataM);
+			 console.log(dataM);
+			 for (var i = 0; i < dataM.length; i++) {
+					$("#branchsecondid").append("<option value='"+dataM[i].id+"'>" + dataM[i].name + "</option>");
+					 };
 		}
 		
 	});
@@ -344,7 +357,7 @@ function findActivitiesName() {
 						<li><a class="hvr-shutter-in-vertical" href="#"
 							data-toggle="modal" data-target="#myModal" onclick="findBranch()">预约参观</a></li>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal1" onclick="findSecondBranch()">我要报名</a></li>
+							data-toggle="modal" data-target="#myModal1" onclick="findActivitiesName()">我要报名</a></li>
 					</ul>
 
 				</div>
@@ -686,7 +699,7 @@ function findActivitiesName() {
 											<div class="layui-inline">
 												<div class="layui-input-inline">
 													<select name="activitiesId" lay-verify="required" lay-search="" 
-													id="findActivitiesNameId" onclick="findActivitiesName()"
+													id="findActivitiesNameId" 
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
 														
