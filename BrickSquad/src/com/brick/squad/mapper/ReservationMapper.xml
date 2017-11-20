@@ -9,6 +9,25 @@
 		</selectKey>
 		INSERT INTO reservation (id,rname,telephone,reservation_date,branch_id
 		,remarks)
-		VALUES (#{id},#{rname},#{telephone},#{reservationDate},#{branchId},#{remarks})
+		VALUES
+		(#{id},#{rname},#{telephone},#{reservationDate},#{branchId},#{remarks})
 	</insert>
+	<!--客服后台管理分页显示数据 -->
+	<select id="ReservationPagination" parameterType="com.brick.squad.expand.ReservationPaginationExpand"
+		resultType="com.brick.squad.pojo.Reservation">
+		SELECT
+		re.id,
+		rname,
+		telephone,
+		reservation_date
+		reservationDate,
+		ty.name branchId,
+		remarks
+		FROM
+		reservation re
+		JOIN type
+		ty ON  re.branch_id=#{branchId} and
+		 re.branch_id = ty.id
+		limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

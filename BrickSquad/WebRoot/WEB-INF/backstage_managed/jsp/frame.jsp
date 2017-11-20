@@ -54,7 +54,8 @@
 				<span> <img style="margin-bottom: 10px;" alt="image"
 					class="img-circle" src="resource/image/logo.png" />
 				</span>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+				<c:if
+					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
 					or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							基本表单 <span class="fa arrow"></span>
@@ -89,6 +90,8 @@
 					</a>
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a>
+							<li><a class="J_menuItem"
+								href="reservation/toReservationList">预约表</a>
 						</ul></li>
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							老人健康管理 <span class="fa arrow"></span>
@@ -114,15 +117,14 @@
 								href="shopActivities/toShopActivitiesList">商品活动</a>
 							<li><a class="J_menuItem" href="article/toArticleList">商品列表</a>
 							</li>
-							<c:if
-								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c'}">
+							<c:if test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c'}">
 								<li><a class="J_menuItem" href="collection/toCollection">收藏商品信息列表</a>
 								</li>
 							</c:if>
 							<c:if
 								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' }">
-							<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
-							</li>
+								<li><a class="J_menuItem" href="orders/toOrdersList">订单列表</a>
+								</li>
 							</c:if>
 							<c:if
 								test="${user.roleId ne '9d2a23cac05511e7aca65254002ec43c' }">
@@ -175,7 +177,8 @@
 						<span class="fa arrow"></span>
 				</a>
 					<ul class="nav nav-second-level"></ul></li>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+				<c:if
+					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
 							or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c'}">
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							分店管理 <span class="fa arrow"></span>
@@ -186,22 +189,24 @@
 							</li>
 						</ul></li>
 				</c:if>
-				<c:if test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
+				<c:if
+					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
 								or user.roleId eq 'b0578c1cc05511e7aca65254002ec43c' }">
 
 					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
 							权限管理 <span class="fa arrow"></span>
 					</a>
 						<ul class="nav nav-second-level">
-						
+
 							<li><a class="J_menuItem" href="user/toUserList">用户信息列表</a>
 							</li>
-						
-						<c:if test="${ user.roleId ne 'b0578c1cc05511e7aca65254002ec43c' }">
-							<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
-							</li>
-							<li><a class="J_menuItem" href="role/toRoleList">角色列表</a></li>
-						</c:if>
+
+							<c:if
+								test="${ user.roleId ne 'b0578c1cc05511e7aca65254002ec43c' }">
+								<li><a class="J_menuItem" href="limits/toLimitsList">权限</a>
+								</li>
+								<li><a class="J_menuItem" href="role/toRoleList">角色列表</a></li>
+							</c:if>
 						</ul></li>
 				</c:if>
 			</ul>
@@ -259,10 +264,9 @@
 							href="user/toUpdatePassword?username=${user.username }">修改密码</a>
 						</li>
 						<c:if test="${user.roleId eq '9d2a23cac05511e7aca65254002ec43c' }">
-						
+
 							<li><a style="text-align: center;" class="J_menuItem"
-								href="business/toAddBusiness?id=${user.id }">修改信息</a>
-							</li>
+								href="business/toAddBusiness?id=${user.id }">修改信息</a></li>
 						</c:if>
 						<li class="dropdown"><a style="text-align: center;"
 							class="dropdown-toggle count-info" data-toggle="dropdown"
