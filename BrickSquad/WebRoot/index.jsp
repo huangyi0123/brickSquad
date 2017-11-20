@@ -374,7 +374,6 @@ function findActivitiesName() {
 						style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
 					<label
 						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
-
 				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
