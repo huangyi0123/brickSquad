@@ -71,7 +71,7 @@
 	float: left;
 }
 
-.aboutus-intro h4 {
+/* .aboutus-intro h4 {
 	color: #60C9BE;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -83,6 +83,35 @@
 	width: 700px;
 	font-size: 1.1em;
 	line-height: 25px;
+	margin-left: 100px;
+	margin-top: 20px;
+} */
+
+.tem_main_right p{
+	width: 700px;
+	font-size: 1.1em;
+	line-height: 25px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.tem_main_right h4 {
+	color: #60C9BE;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 60px;
+	margin-left: 100px;
+}
+
+.tem_main_right h5 {
+	color: black;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-left: 100px;
+}
+.aboutus-join img{
+	width:700px;
 	margin-left: 100px;
 	margin-top: 20px;
 }
