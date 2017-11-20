@@ -87,7 +87,66 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
-
+<script type="text/javascript"
+	src="resource/plugins/angularjs/angular.min.js"></script>
+<script>
+	$(function() {
+		//头像图片信息
+		var imagepath = $("#imagepath").val();
+		if (imagepath == "") {
+			$("#indexUserPic").attr("src", "resource/image/userdefaultpic.jpg");
+		} else {
+			$("#indexUserPic").attr("src", imagepath);
+		}
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			$("#register").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toRegister",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+			$("#login").click(function() {
+				layer = layer.open({
+					title : '注册|登录',
+					type : 2,
+					content : "user/toLogin?type=user",
+					offset : '100px',
+					area : [ '400px', '450px' ],
+					end : function() {
+						location.reload();
+					}
+				});
+			});
+		});
+	});
+	function logout() {
+		layui.use('layer', function() {
+			var layer = layui.layer;
+			layer.open({
+				title : '提示',
+				content : "是否退出系统？",
+				offset : '200px',
+				btn : [ "确认", "取消" ],
+				yes : function(index) {
+					$.ajax({
+						url : "user/logout",
+						success : function(data) {
+							window.location = "common/toIndex";
+							layer.close(index);
+						}
+					});
+				}
+			});
+		});
+	}
+</script>
 </head>
 
 <body>
@@ -101,7 +160,7 @@
 		<div class="top-nav">
 			<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
 			<ul class="layui-nav"
-				style="margin-left:-170px; margin-top: -25px;background-color: #48CFC1;">
+				style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
 				<li class="layui-nav-item layui-this"><a href="">首页</a></li>
 				<li class="layui-nav-item"><a href="shopIndex/toShop"
 					style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
@@ -158,19 +217,24 @@
 							<a href="javascript:;">联系我们</a>
 						</dd>
 					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;"><img
-						src="http://t.cn/RCzsdCq" class="layui-nav-img">登录</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;">个人中心</a>
-						</dd>
-						<dd>
-							<a href="javascript:;">注册</a>
-						</dd>
-						<dd>
-							<a href="javascript:;">注销</a>
-						</dd>
-					</dl></li>
+				<li class="layui-nav-item" ng-app=""><a href="javascript:;"
+						ng-if="${user==null }" id="login">登录</a> <a href="javascript:;"
+						ng-if="${user!=null }"> <input type="hidden" id="imagepath"
+								value="${user.userPicPath }"> <img src=""
+							id="indexUserPic" class="layui-nav-img">${user.username }</a>
+						<dl class="layui-nav-child" ng-if="${user!=null }">
+							<dd ng-if="${user!=null }">
+								<a href="common/toPersonal">个人中心</a>
+							</dd>
+							<dd ng-if="${user!=null }">
+								<a href="javascript:;" onclick="logout()">注销</a>
+							</dd>
+						</dl>
+						<dl class="layui-nav-child" ng-if="${user==null }">
+							<dd>
+								<a href="javascript:;" id="register"> 注册</a>
+							</dd>
+						</dl></li>
 			</ul>
 
 		</div>

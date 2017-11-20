@@ -123,9 +123,6 @@
 			});
 		});
 	}
-	function selectType() {
-		alert("nihao");
-	}
 </script>
 <!-- js -->
 <script>
