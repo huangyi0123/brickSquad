@@ -157,6 +157,12 @@ public class CommonController {
 					.setPersonalInformation(personalInformation);
 			//根据老人id查询亲属关系
 			Relatives relatives=relativesService.findRelativesByPerId(user.getId());
+			if (relatives!=null&&relatives.getAddressId()!=null) {
+				Address rAddress=addressService.findAddressById(relatives.getAddressId());
+				addressAndPersonaInformationExpand.setrAddress(rAddress);
+				String radderss=addressService.findByIdAllAddress(relatives.getAddressId());
+				request.setAttribute("raddress", radderss);
+			}
 			addressAndPersonaInformationExpand.setRelatives(relatives);
 			if (relatives!=null) {
 				Type type=typeService.findTypeById(relatives.getRelationshipId());

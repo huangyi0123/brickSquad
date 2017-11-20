@@ -14,14 +14,14 @@
 
 <title>个人信息</title>
 
-<link rel="stylesheet" type="text/css" href="resource/plugins/layui/css/layui.css" media="all">
+<link rel="stylesheet" type="text/css" href="resource/plugins/laysui/css/layui.css" media="all">
 <link href="resource/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"
 	media="all" />
 <link rel="stylesheet" type="text/css" href="resource/plugins/grid_manager/GridManager.min.css">
 <link rel="stylesheet" type="text/css" href="resource/plugins/fonts/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="resource/css/Personal.css">
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="resource/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript" src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="resource/plugins/layui/lay/modules/laydate.js"></script>
 <script type="text/javascript" src="resource/js/common.js"></script>
@@ -40,24 +40,8 @@
 		} else {
 			savesa("1");
 		}//js
+		orders();
 	})
-</script>
-<script type="text/javascript">
-	function toAddRelatveOnclick() {
-		layui.use('layer', function() {
-			var layer = layui.layer;
-			layer = layer.open({
-				type : 2,
-				content : "relatives/userToAddRelatives",
-				offset : '100px',
-				area : [ '800px', '500px' ],
-				end : function() {
-					init("");
-				}
-
-			});
-		});
-	}
 </script>
 </head>
 
@@ -160,6 +144,7 @@
 								<span id="birthday" class="info"
 									style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
 							</div>
+							<div style="clear: both;"></div>
 							<div class="layui-inline">
 								<label style="width: 100px ;float: left;">* 现居住地：</label>
 								<span class="info" id="addressqw"
@@ -193,6 +178,7 @@
 											val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
 											id="countryId" lay-filter="countryIdSelect" lay-search="">
 											<option value="">选择乡镇</option>
+											
 										</select>
 									</div>
 									<div class="layui-input-inline">
@@ -237,7 +223,7 @@
 
 								<span class="info" id="gxtype">${relationship.name }</span>
 								<div style="clear: both;"></div>
-								<div class="layui-inline" style="display: none;">
+								<%-- <div class="layui-inline" style="display: none;">
 									<label style="width: 100px ;float: left;">* 现居住地：</label>
 									<span class="uinfo" id="addressqw"
 										style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
@@ -246,8 +232,8 @@
 											value="${addressAndPersonaInformationExpand.address.id }">
 										<div class="layui-input-inline">
 											<select required lay-verify="required"
-												val="${addressAndPersonaInformationExpand.address.provinceId}" name="gaddress.provinceId"
-												id="prIdas" lay-filter="prIds" lay-search="">
+												val="${addressAndPersonaInformationExpand.address.provinceId}"
+												name="gaddress.provinceId" id="prIdas" lay-filter="prIds" lay-search="">
 												<option value="">选择省份</option>
 											</select>
 										</div>
@@ -279,7 +265,7 @@
 												autocomplete="off" id="detailed" placeholder="请输入详细地址" class="layui-input">
 										</div>
 									</div>
-								</div>
+								</div> --%>
 						</form>
 					</div>
 					<div style="display: none;">
@@ -565,31 +551,19 @@
 	</div>
 
 	<script>
-		layui.use('form', function() {
-			var form = layui.form();
-			$.ajax({
-				url : 'region/findRegionByLevel?level=1',
-				success : function(data) {
-					data = JSON.parse(data);
-					findAll(data, "#prIdas");
-					form.render('select', 'prIds');
-					console.log("qw");
-				}
-			});
-			layui.use('element', function() {
-				var element = layui.element();
-				//一些事件监听
-				element.on('tab(demo)', function(data) {
+		layui.use('element', function() {
+			var element = layui.element;
+			//一些事件监听
+			element.on('tab(demo)', function(data) {
 
-				});
 			});
 		});
 		$(function() {
-			orders();
+			
 		});
 	</script>
 
-	<jsp:include page="../util/indexFooter.jsp"></jsp:include>
+	<jsp:include page="../../offical_website/official-footer.jsp"></jsp:include>
 </body>
 
 </html>

@@ -123,9 +123,6 @@
 			});
 		});
 	}
-	function selectType() {
-		alert("nihao");
-	}
 </script>
 <!-- js -->
 <script>
@@ -165,9 +162,56 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
-
+<script type="text/javascript">
+function findBranch(){
+	$.ajax({
+		url:'reservation/findBranch',
+		success:function(data){
+			 $("#branchid").html('');
+			data=JSON.parse(data);
+			 for (var i = 0; i < data.length; i++) {
+			$("#branchid").append("<option value='"+data[i].id+"'>" + data[i].name + "</option>");
+			 };
+		}
+		
+	});
+}
+</script>
+<script type="text/javascript">
+function findActivitiesName() {
+	var user='${user}';
+	if(user!=""){
+	$.ajax({
+		url:'activityRegistration/findActivityName',
+		success:function(data){
+			 $("#findActivitiesNameId").html('');
+			data=JSON.parse(data);
+			/* console.log(data[0].articleName); */
+			var dataN;
+			var dataM;
+			 for (var i = 0; i < data.length; i++) {
+				  dataN=data[i].articleName;
+				  dataM=data[i].branchData;
+			 };
+			 dataN=JSON.parse(dataN);
+			 for(var i=0;i<dataN.length;i++){
+					$("#findActivitiesNameId").append("<option value='"+dataN[i].id+"'>" + dataN[i].name + "</option>"); 
+				}
+			 dataM=JSON.parse(dataM);
+			 console.log(dataM);
+			 for (var i = 0; i < dataM.length; i++) {
+					$("#branchsecondid").append("<option value='"+dataM[i].id+"'>" + dataM[i].name + "</option>");
+					 };
+		}
+		
+	});
+	}else{
+		alert("您还没有登录，请先去登录!");
+	}
+}
+</script>
 </head>
-
+	
 <body>
 	<div class="banner">
 		<div class="header" style="height: 66px;">
@@ -297,9 +341,9 @@
 				<div class="buttons" style="z-index: 10;">
 					<ul>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal">预约参观</a></li>
+							data-toggle="modal" data-target="#myModal" onclick="findBranch()">预约参观</a></li>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal1">我要报名</a></li>
+							data-toggle="modal" data-target="#myModal1" onclick="findActivitiesName()">我要报名</a></li>
 					</ul>
 
 				</div>
@@ -533,15 +577,10 @@
 										<div class="layui-form-item">
 											<div class="layui-inline">
 												<div class="layui-input-inline">
-													<select name="branchId" lay-verify="required" lay-search=""
+													<select name="branchId" lay-verify="required" lay-search="" id="branchid"
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
-														<option value="1">layer</option>
-														<option value="2">form</option>
-														<option value="3">layim</option>
-														<option value="4">element</option>
-														<option value="5">laytpl</option>
-														<option value="6">upload</option>
+														
 													</select>
 												</div>
 											</div>
@@ -579,6 +618,7 @@
 	<div class="copyrights">
 		Collect from <a href="http://www.cssmoban.com/">手机网站模板</a>
 	</div>
+	<c:if test="${user ne null }">
 	<!-- Dth -->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
@@ -617,33 +657,50 @@
 							</ul>
 						</div>
 						<!-- 我要去报名 -->
-						<form role="form">
+							<form role="form" method="post"
+							action="activityRegistration/insertActivitiesInformation">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
 										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">我要报名</label>
-										<label
+											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
+											>我要报名</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="请输入联系人姓名"
+										<input type="text" value="${user.username }" name="pname"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 											onfocus="if(value=='请输入联系人姓名') {value=''}"
 											onblur="if (value=='') {value='请输入联系人姓名'}">
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话"
+										<input type="text" value="${user.telephone }" id="telephone"
+											name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="if(value=='请输入联系人电话') {value=''}"
 											onblur="if (value=='') {value='请输入联系人电话'}">
+											<label
+											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
+											<div class="layui-form-item">
+											<div class="layui-inline">
+												<div class="layui-input-inline">
+													<select name="activitiesId" lay-verify="required" lay-search="" 
+													id="findActivitiesNameId" 
+														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+														<option value="">请选择</option>
+														
+													</select>
+												</div>
+											</div>
+										</div>
 										<label
-											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">报名时间</label>
+											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
 											<div class="layui-input-inline">
-												<input type="text" name="date" id="date" lay-verify="date"
-													autocomplete="off" class="layui-input" value="请输入报名时间"
+												<input type="text" name="reservationDate" id="date"
+													lay-verify="date" autocomplete="off" class="layui-input"
+													value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="if(value=='请输入报名时间') {value=''}"
-													onblur="if (value=='') {value='请输入报名时间'}">
+													onfocus="if(value=='请输入预约时间') {value=''}"
+													onblur="if (value=='') {value='请输入预约时间'}">
 											</div>
 										</form>
 										<label
@@ -651,15 +708,10 @@
 										<div class="layui-form-item">
 											<div class="layui-inline">
 												<div class="layui-input-inline">
-													<select name="modules" lay-verify="required" lay-search=""
+													<select name="branchId" lay-verify="required" lay-search="" id="branchsecondid"
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
-														<option value="1">layer</option>
-														<option value="2">form</option>
-														<option value="3">layim</option>
-														<option value="4">element</option>
-														<option value="5">laytpl</option>
-														<option value="6">upload</option>
+														
 													</select>
 												</div>
 											</div>
@@ -671,13 +723,13 @@
 										<div class="layui-form-item layui-form-text">
 											<div class="layui-input-block"
 												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea"></textarea>
+												<textarea value="" class="layui-textarea" name="remarks"></textarea>
 											</div>
 										</div>
 									</div>
-									<input value="提交"
+									<input value="提交" type="submit"
 										style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
-									<input value="重置"
+									<input value="重置" type="reset"
 										style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
 
 								</div>
@@ -689,6 +741,7 @@
 			</div>
 		</div>
 	</div>
+	</c:if>
 	<!-- //Dth -->
 	<!-- datacard -->
 	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"

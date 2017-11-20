@@ -34,5 +34,8 @@ public interface ActivitiesService {
 	 * 查询出所有活动的需求字段
 	 */
 	public String findAllActivitiesIdAndName();
+	/**
+	 * 查询活动名称 ,用于首页的报名回显*/
+	public String findActivityName()throws Exception;
 
 }

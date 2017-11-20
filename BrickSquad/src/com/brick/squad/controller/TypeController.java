@@ -38,11 +38,12 @@ public class TypeController {
 
 	@RequestMapping("/getTypeList")
 	@ResponseBody
-	public String getTypeList(int pSize, int cPage, String keyword) {
+	public String getTypeList(int pSize, int cPage, String keyword,HttpServletRequest request) {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		pagination.setKeyword(keyword);
+		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
 		String data = typeService.typePagination(pagination);
 		return data;
 	}

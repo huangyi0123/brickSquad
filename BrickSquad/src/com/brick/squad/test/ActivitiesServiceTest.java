@@ -105,4 +105,9 @@ public class ActivitiesServiceTest {
 		String data = activitiesService.findAllActivitiesIdAndName();
 		System.out.println("测试+++++++++++++" + data);
 	}
+	@Test
+	public void findActivityName() throws Exception{
+		String data=activitiesService.findActivityName();
+	System.out.println(data);
+	}
 }
