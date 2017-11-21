@@ -363,5 +363,10 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/apply_coupon";
 
 	}
+	
+	@RequestMapping("/toActivity_carousel")
+	public String toActivity_carousel() {
+		return "offical_website/activity";
+	}
 
 }
