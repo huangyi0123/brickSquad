@@ -331,25 +331,76 @@ function orders() {
 			});
 }
 function ordersType(id, type) {
+	$
+			.ajax({
+				url : 'orders/getOrders?typeId=' + id,
+				success : function(data) {
+					$(type).html("");
+					data = JSON.parse(data);
+					var html = "";
+					$(data)
+							.each(
+									function() {
+										var opr = "";
+										if (type == '#obligations') {
+											opr = "<td><a href='variableProduct/toconfirm_order?ordersId="
+													+ this.oId
+													+ "'>去支付</a></td>";
+										}
+										html = html + "<tr>" + "<td>"
+												+ this.aname + "</td>" + "<td>"
+												+ this.price + "</td>" + "<td>"
+												+ this.number + "</td>"
+												+ "<td>" + this.typeName
+												+ "</td>" + opr
+										"</tr>";
+									});
+					$(type).html(html);
+				}
+			});
+}
+function onshop() {
 	$.ajax({
-		url : 'orders/getOrders?typeId=' + id,
+		url : 'buyers/getBuyGrade',
 		success : function(data) {
-			$(type).html("");
 			data = JSON.parse(data);
-			var html = "";
-			$(data).each(
-					function() {
-						var opr = "";
-						if (type == '#obligations') {
-							opr = "<td><a href='variableProduct/toconfirm_order?ordersId="+this.oId+"'>去支付</a></td>";
-						}
-						html = html + "<tr>" + "<td>" + this.aname + "</td>"
-								+ "<td>" + this.price + "</td>" + "<td>"
-								+ this.number + "</td>" + "<td>"
-								+ this.typeName + "</td>" + opr
-						"</tr>";
-					});
-			$(type).html(html);
+			console.log(data[0].state);
+			if (data[0].state == 'success') {
+				$("#Integral").html(data[0].Integral);
+				$("#grade").html(data[0].grade);
+			}
 		}
 	});
+}
+function buyaddress() {
+	console.log("123");
+	$
+			.ajax({
+				url : 'buyers/getBuyAddress',
+				success : function(result) {
+					result = JSON.parse(result);
+					console.log(result);
+					$("#buyaddtable").html('');
+					$(result)
+							.each(
+									function() {
+										var html = '<tr>'
+												+ '<th>'
+												+ this.consigneeName
+												+ '</th>'
+												+ '<th>'
+												+ this.consigneePhone
+												+ '</th>'
+												+ '<th>'
+												+ this.detailed
+												+ '</th>'
+												+ '<th style="text-align: center;">'
+												+ '<a title="修改" href="javascript:;"><i class="fa fa-pencil-square-o"></i></a>'
+												+'&nbsp;|&nbsp;'
+												+ '<a title="删除" href="javascript:;"><i class="fa fa-trash-o"></i></a>'
+												+ '</th>' + '</tr>';
+										$("#buyaddtable").append(html);
+									});
+				}
+			});
 }
