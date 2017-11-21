@@ -424,13 +424,13 @@ function onfus5(){
 			</div>
 			<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48CFC1;">
-				<input value="社区搜索" class="title">
-				<input class="city_search" type="text" value="请输入城市"
+				<input value="社区搜索" class="title" readonly="readonly">
+				<input class="city_search" type="text" value=""
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
 				<label class="search_icon"
 					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
-					href="#"><i class="layui-icon"
+					href="type/searchContent?type=aboutus-intro"><i class="layui-icon"
 						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
 				<div
 					style="width:100%;height:100px;margin-top:50px; background-color: white;">

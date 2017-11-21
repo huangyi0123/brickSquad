@@ -97,4 +97,11 @@ public class TypeController {
 		typeService.deleteTypeById(id);
 		return "success";
 	}
+	@RequestMapping("/searchContent")
+	public String searchContent(HttpServletRequest request,String type){
+		request.setAttribute("type", type);
+		
+		
+		return "offical_website/search-template";
+	}
 }
