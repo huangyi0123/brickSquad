@@ -1,7 +1,9 @@
 package com.brick.squad.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONArray;
 
@@ -12,10 +14,13 @@ import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.mapper.AddressMapper;
 import com.brick.squad.mapper.BuyersMapper;
 import com.brick.squad.mapper.CollectionMapper;
+import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.RegionMapper;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Buyers;
+import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.service.BuyersService;
+import com.brick.squad.util.Common;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -33,7 +38,9 @@ public class BuyersServiceImpl implements BuyersService {
 	@Autowired
 	@Qualifier("collectionMapper")
 	private CollectionMapper collectionMapper;
-
+	@Autowired
+	@Qualifier("personalInformationMapper")
+	private PersonalInformationMapper personalInformationMapper;
 	/**
 	 * 将address的id获取到buyers对象中
 	 */
@@ -112,6 +119,48 @@ public class BuyersServiceImpl implements BuyersService {
 		JSONArray jsonArray = new JSONArray();
 		String dataBnames = jsonArray.fromObject(Bnames).toString();
 		return dataBnames;
+	}
+
+	@Override
+	public String getBuyGrade(String userId) {
+		Map<String, Object> map=new HashMap<String, Object>();
+		Buyers buyers=buyersMapper.findBuyersById(userId);
+		if (buyers==null) {
+			PersonalInformation personalInformation=personalInformationMapper.findPersonalInformationById(userId);
+			if (personalInformation.getAddressId()==null) {
+				map.put("state", "error");
+				map.put("msg", "请完善个人地址");
+			}else {
+				buyers=new Buyers();
+				buyers.setId(userId);
+				buyers.setDeliveryAddressId(personalInformation.getAddressId());
+				try {
+					buyersMapper.insertBuyers(buyers);
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}else {
+			int grade=buyers.getHistoricalIntegral();
+			map.put("Integral", grade);
+			map.put("grade", Common.rank(grade));
+			map.put("state", "success");
+			map.put("data", buyers);
+		}
+		JSONArray jsonArray=JSONArray.fromObject(map);
+		return jsonArray.toString();
+	}
+
+	@Override
+	public String getBuyAddress(String userId) {
+		List<Address> addresses=addressMapper.findAddressByBuyersId(userId);
+		for (Address address : addresses) {
+			address.setDetailed(addressMapper.findByIdAllAddress(address.getId()));
+		}
+		JSONArray jsonArray=JSONArray.fromObject(addresses);
+		return jsonArray.toString();
 	}
 
 }
