@@ -386,10 +386,10 @@ function onfus5(){
 		<div class="layui-carousel" id="test10">
 			<div carousel-item="">
 				<div>
-					<img src="resource/image/lb6.jpg">
+					<img src="resource/image/lb1.jpg">
 				</div>
 				<div>
-					<img src="resource/image/lb7.jpg">
+					<img src="resource/image/lb2.jpg">
 				</div>
 				<div>
 					<img src="resource/image/lb3.jpg">
@@ -399,6 +399,12 @@ function onfus5(){
 				</div>
 				<div>
 					<img src="resource/image/lb5.jpg">
+				</div>
+				<div>
+					<img src="resource/image/lb6.jpg">
+				</div>
+				<div>
+					<img src="resource/image/lb7.jpg">
 				</div>
 			</div>
 			<div class="container">
