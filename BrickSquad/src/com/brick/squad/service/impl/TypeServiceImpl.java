@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.mapper.TypeMapper;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -108,6 +110,79 @@ public class TypeServiceImpl implements TypeService {
 	public List<Type> findAllTypeByParentId(String parentId) throws Exception {
 		List<Type> listType=typeMapper.findAllTypeByParentId(parentId);
 		return listType;
+	}
+
+	@Override
+	/**
+	 * 官网首页搜索
+	 * */
+	public PageBeanUtil<Type> searchName(int page, String search)
+			throws Exception {
+		PageBeanUtil<Type> pageBean = new PageBeanUtil<Type>();
+		pageBean.setSearch(search);
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			
+			// 设置每页显示记录数:
+			int limit = 12;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = typeMapper.findCountSearch(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<Type> list = typeMapper.searchName(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 12;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = typeMapper.findCountSearch(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<Type> list = typeMapper.searchName(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**
+	 * 查询总数根据关键字
+	 * */
+	public int findCountSearch(PageBeanUtil pageBean) throws Exception {
+		int count=typeMapper.findCountSearch(pageBean);
+		return count;
 	}
 
 }
