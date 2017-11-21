@@ -290,7 +290,7 @@ function search(){
 			<div class="logo">
 				<h1>
 					<a href="index.html"><i><img src="resource/image/cell.png"
-							alt=" " /></i>Easy Recharge</a>
+							alt=" " /></i>养乐堡</a>
 				</h1>
 			</div>
 			<div class="top-nav">
@@ -308,9 +308,6 @@ function search(){
 							</dd>
 							<dd>
 								<a href="">线下活动</a>
-							</dd>
-							<dd>
-								<a href="">乐堡课程</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
@@ -473,22 +470,22 @@ function search(){
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
 					</h4>
-					<p>生活社区</p>
+					<p>生活</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/credit.png" alt=" " /></span>
 					</h4>
-					<p>秀出你的个性</p>
+					<p>服务</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
-					<p>这有你想要的</p>
+					<p>活动</p>
 				</div>
-				<div class="col-md-3 coupons-gd">
-					<h3>
+				<div class="col-md-3 coupons-gd">  
+					<h3>  
 						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
