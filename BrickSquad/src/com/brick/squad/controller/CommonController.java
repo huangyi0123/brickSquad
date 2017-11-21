@@ -60,18 +60,24 @@ public class CommonController {
 	@Qualifier("typeService")
 	private TypeService typeService;
 
+	@RequestMapping("/toWebsiteTemplate")
+	public String toWebsiteTemplate(String type,HttpServletRequest request) {
+		request.setAttribute("type", type);
+		return "offical_website/website-template";
+
+	}
+
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
-		User user=(User) request.getSession().getAttribute("user");
+		User user = (User) request.getSession().getAttribute("user");
 		// begin 通过权限id查询权限
-		String roleId =user
-				.getRoleId();
+		String roleId = user.getRoleId();
 		Map<String, Limits> limits = limitsService
 				.findAllLimitsByRoleId(roleId);
 		request.getSession().setAttribute("limiterole", limits);
-		
+
 		// end
-		Business business=businessService.findBusiness(user.getId());
+		Business business = businessService.findBusiness(user.getId());
 		request.getSession().setAttribute("business", business);
 		return "backstage_managed/jsp/frame";
 	}
@@ -155,22 +161,27 @@ public class CommonController {
 					.findPersonalInformationById(id);
 			addressAndPersonaInformationExpand
 					.setPersonalInformation(personalInformation);
-			//根据老人id查询亲属关系
-			Relatives relatives=relativesService.findRelativesByPerId(user.getId());
-			if (relatives!=null&&relatives.getAddressId()!=null) {
-				Address rAddress=addressService.findAddressById(relatives.getAddressId());
+			// 根据老人id查询亲属关系
+			Relatives relatives = relativesService.findRelativesByPerId(user
+					.getId());
+			if (relatives != null && relatives.getAddressId() != null) {
+				Address rAddress = addressService.findAddressById(relatives
+						.getAddressId());
 				addressAndPersonaInformationExpand.setrAddress(rAddress);
-				String radderss=addressService.findByIdAllAddress(relatives.getAddressId());
+				String radderss = addressService.findByIdAllAddress(relatives
+						.getAddressId());
 				request.setAttribute("raddress", radderss);
 			}
 			addressAndPersonaInformationExpand.setRelatives(relatives);
-			if (relatives!=null) {
-				Type type=typeService.findTypeById(relatives.getRelationshipId());
+			if (relatives != null) {
+				Type type = typeService.findTypeById(relatives
+						.getRelationshipId());
 				request.setAttribute("relationship", type);
 			}
 			if (personalInformation.getAddressId() != null
 					&& personalInformation.getAddressId().length() > 0) {
-				String addres=addressService.findByIdAllAddress(personalInformation.getAddressId());
+				String addres = addressService
+						.findByIdAllAddress(personalInformation.getAddressId());
 				request.setAttribute("address", addres);
 				// start
 				// 根据ID查询信息，得到信息中的地址ID，再根据ID查询address，分别用address中存的ID去region中查询相对应的地区，封装成json字符串，用页面地址回填
@@ -276,8 +287,8 @@ public class CommonController {
 
 	@RequestMapping("/toabout_us")
 	public String toabout_us(HttpServletRequest request) throws Exception {
-		//加载商品所有类型,搜索框
-		List<Type> listType=typeService.findAllTypeByParentId("splb");
+		// 加载商品所有类型,搜索框
+		List<Type> listType = typeService.findAllTypeByParentId("splb");
 		request.setAttribute("listType", listType);
 		return "frontEnd_manage/front_bootstrap/about_us";
 	}
@@ -287,7 +298,7 @@ public class CommonController {
 
 		return "frontEnd_manage/front_bootstrap/shop_right_sidebar";
 	}
-	
+
 	@RequestMapping("/toWebsite_template")
 	public String toWebsite_template() {
 		return "offical_website/website-template";

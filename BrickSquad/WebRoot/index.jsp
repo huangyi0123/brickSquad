@@ -333,19 +333,19 @@ function onfus5(){
 								<a href="">康复协助</a>
 							</dd>
 						</dl></li>
-					<li class="layui-nav-item"><a href="javascript:;">关于乐堡</a>
+					<li class="layui-nav-item"><a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="javascript:;">乐堡简介</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">快速上手</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">加入我们</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
 							</dd>
 							<dd>
-								<a href="javascript:;">联系我们</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item" ng-app=""><a href="javascript:;"
@@ -386,18 +386,20 @@ function onfus5(){
 		<div class="layui-carousel" id="test10">
 			<div carousel-item="">
 				<div>
-					<img src="resource/image/1.png">
+					<img src="resource/image/lb1.jpg">
 				</div>
 				<div>
-					<img src="resource/image/2.png">
+					<img src="resource/image/lb2.jpg">
 				</div>
 				<div>
-					<img src="resource/image/3.png">
+					<img src="resource/image/lb3.jpg">
 				</div>
 				<div>
-					<img src="resource/image/4.png">
+					<img src="resource/image/lb4.jpg">
 				</div>
-
+				<div>
+					<img src="resource/image/lb5.jpg">
+				</div>
 			</div>
 			<div class="container">
 				<div class="buttons" style="z-index: 10;">
@@ -436,7 +438,6 @@ function onfus5(){
 						style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
 					<label
 						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
-
 				</div>
 			</div>
 			<div class="col-md-4 btm-grid back-col2 text-center">
@@ -478,17 +479,15 @@ function onfus5(){
 	</div>
 	<div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center">
-			<img src="resource/image/bbb5.png" alt="" />
+			<img src="resource/image/bbb1_left.png" alt="" />
 		</div>
 		<div class="col-md-6 content-right text-center">
-			<img src="resource/image/bbb3.png" alt="" />
+			 <img src="resource/image/bbb1_right.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
-			<h3>Exclusive Offers</h3>
-			<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque
-				nihil impedit quo minus id quod maxime placeat facere possimus,
-				omnis voluptas assumenda est.</p>
+			<h3>关爱老人</h3>
+			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情; 折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
 		</div>
 	</div>
 
