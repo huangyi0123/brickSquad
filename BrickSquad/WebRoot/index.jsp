@@ -466,31 +466,19 @@ function onfus5(){
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
 					</h4>
-<<<<<<< HEAD
 					<p>生活</p>
-=======
-					<p>生活社区</p>
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/credit.png" alt=" " /></span>
 					</h4>
-<<<<<<< HEAD
 					<p>服务</p>
-=======
-					<p>秀出你的个性</p>
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
-<<<<<<< HEAD
 					<p>活动</p>
-=======
-					<p>这有你想要的</p>
->>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h3>
