@@ -420,15 +420,19 @@ function onfus5(){
 			</div>
 		</div>
 	</div>
-
-	<div class="content-bottom">
-		<div class="btm-grids">
-			<div class="col-md-4 btm-grid back-col1 text-center">
+<div class="layui-row">
+	<div class="content-bottom ">
+		<div class="btm-grids ">
+		
+		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+			<div class="btm-grid back-col1 text-center" >
 				<!-- 
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
 			</div>
-			<div class="col-md-4 btm-grid btm-wid">
+			</div>
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+			<div class=" btm-grid btm-wid" >
 				<input value="社区搜索" class="title">
 				<input class="city_search" type="text" value="请输入城市"
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
@@ -445,11 +449,15 @@ function onfus5(){
 						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
 				</div>
 			</div>
-			<div class="col-md-4 btm-grid back-col2 text-center">
+			</div>
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+			<div class="btm-grid back-col2 text-center ">
 				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
+			</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
+	</div>
 	</div>
 	<div class="coupons">
 		<div class="container">
@@ -483,19 +491,19 @@ function onfus5(){
 		</div>
 	</div>
 	<div class="content-bottom-two">
-		<div class="col-md-6 content-left text-center">
-			<img src="resource/image/bbb1_left.png" alt="" />
+		<div class="col-md-6 content-left text-center imagess">
+			<img src="resource/image/bf.png" alt="" style="position:absolute;width:10%;z-index:1;top:45%;left:45%;"/>
+			<img src="resource/image/bbb1_left.png" alt=""  style="z-index:0;position:relative" />
 		</div>
-		<div class="col-md-6 content-right text-center">
+		<div class="col-md-6 content-right text-center imagess">
 			 <img src="resource/image/bbb1_right.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
 			<h3>关爱老人</h3>
-			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情; 折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
+			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情;折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
 		</div>
 	</div>
-
 	<div class="footer-top">
 		<div class="container">
 			<div class="foo-grids">

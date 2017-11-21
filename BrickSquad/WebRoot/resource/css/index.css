@@ -126,3 +126,6 @@
 .layui-nav .layui-nav-child a:AFTER{
 	background-color: #48CFC1 '';
 }
+.imagess:hover{
+	opacity:0.6;
+}
