@@ -92,20 +92,35 @@
 					<li><span style="float:right;margin-right:50px;"><a href>点击详情</a></span></li>
 					<hr style="margin-top:-4px;">
 					</c:forEach>
-					
 					<c:if test="${pageBean.totalCount==0}">
 					<center>
 					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
+					<span><a href="javascript:;" >下一页 ></a></span>
 					</center>
 					</c:if>
 					<c:if test="${pageBean.totalCount!=0}">
+					<c:if test="${pageBean.page==1}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
 					<center>
 					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
 					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
 					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="javascript:;" >下一页  ></a></span>
+					</center>
+					</c:if>
 					</c:if>
 					</ul>
 				</div>
