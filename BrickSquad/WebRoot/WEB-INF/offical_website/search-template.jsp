@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -82,13 +83,19 @@
 			
 				<div class="aboutus-intro">
 					<h4>搜索到的结果</h4>
-					<ul style="margin-left:3%;line-height:32px;margin-top:22px;">
-					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
+					
+					<ul style="margin-left:10%;line-height:32px;margin-top:22px;">
+					<c:forEach  var="type" items="${pageBean.list }">
+					<li>
+					<span><a href>${type.name }</a> </span>
+					<span style="padding-left:80%"><a href>点击详情</a></span>
+					</li>
+					<hr style="margin-top:-4px;">
+					</c:forEach>
+					<!-- <li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
 					<hr style="margin-top:-4px;">
 					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
-					<hr style="margin-top:-4px;">
-					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
-					<hr style="margin-top:-4px;">
+					<hr style="margin-top:-4px;"> -->
 					<center>
 					<a href="" ><span> < 上一页</span></a>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
