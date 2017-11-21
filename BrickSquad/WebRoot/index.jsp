@@ -390,19 +390,19 @@ function findActivitiesName() {
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
 					</h4>
-					<p>LOGIN TO YOUR ACCOUNT</p>
+					<p>生活</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/credit.png" alt=" " /></span>
 					</h4>
-					<p>ENTER RECHARGE DETAILS</p>
+					<p>服务</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
-					<p>MAKE PAYMENT</p>
+					<p>活动</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h3>
