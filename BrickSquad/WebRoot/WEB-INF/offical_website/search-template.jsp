@@ -83,9 +83,13 @@
 			
 				<div class="aboutus-intro">
 					<h4>搜索到的结果</h4>
+					
+					<ul style="margin-left:10%;line-height:32px;margin-top:22px;">
 					<c:forEach  var="type" items="${pageBean.list }">
-					<ul style="margin-left:3%;line-height:32px;margin-top:22px;">
-					<li><a href><span>${type.name }</span><span style="margin-left:86%">点击详情</span></a></li>
+					<li>
+					<span><a href>${type.name }</a> </span>
+					<span style="padding-left:80%"><a href>点击详情</a></span>
+					</li>
 					<hr style="margin-top:-4px;">
 					</c:forEach>
 					<!-- <li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
