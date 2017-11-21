@@ -480,7 +480,7 @@ function onfus5(){
 					</h4>
 					<p>活动</p>
 				</div>
-				<div class="col-md-3 coupons-gd">
+				<div class="col-md-3 coupons-gd">  
 					<h3>
 						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
