@@ -481,7 +481,7 @@ function onfus5(){
 					<p>活动</p>
 				</div>
 				<div class="col-md-3 coupons-gd">  
-					<h3>
+					<h3>  
 						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
