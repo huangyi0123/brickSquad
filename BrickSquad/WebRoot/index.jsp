@@ -322,10 +322,10 @@ function findActivitiesName() {
 		<div class="layui-carousel" id="test10">
 			<div carousel-item="">
 				<div>
-					<img src="resource/image/lb1.jpg">
+					<img src="resource/image/lb6.jpg">
 				</div>
 				<div>
-					<img src="resource/image/lb2.jpg">
+					<img src="resource/image/lb7.jpg">
 				</div>
 				<div>
 					<img src="resource/image/lb3.jpg">
@@ -358,8 +358,7 @@ function findActivitiesName() {
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
 			</div>
-			<div class="col-md-4 btm-grid btm-wid"
-				style="background-color: #48CFC1;">
+			<div class="col-md-4 btm-grid btm-wid">
 				<input value="社区搜索" class="title">
 				<input class="city_search" type="text" value="请输入城市"
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
@@ -390,23 +389,23 @@ function findActivitiesName() {
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
 					</h4>
-					<p>LOGIN TO YOUR ACCOUNT</p>
+					<p>生活社区</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/credit.png" alt=" " /></span>
 					</h4>
-					<p>ENTER RECHARGE DETAILS</p>
+					<p>秀出你的个性</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
-					<p>MAKE PAYMENT</p>
+					<p>这有你想要的</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h3>
-						RECHARGE IN <span>3 SIMPLE STEPS</span>
+						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
 				<div class="clearfix"></div>
