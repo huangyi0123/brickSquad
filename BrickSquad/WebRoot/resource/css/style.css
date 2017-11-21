@@ -1307,6 +1307,7 @@ background:#9398ec;
 .content-bottom-two{
 	background-image: url('../image/3657576.jpg'); 
 	position:relative;
+	background-size: 100% 100%;
 }
 .btm-pos {
     position: absolute;
@@ -1887,6 +1888,7 @@ ul.dropdown-menu.drp-mnu span {
 	}
 	.coupons {
 		padding: 120px 0 90px 0;
+		background: #fffef9;
 	}
 	.btm-pos {
 		padding: 2% 2%;
