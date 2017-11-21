@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 @Controller
@@ -96,5 +97,13 @@ public class TypeController {
 	public String deleteTypeById(String id) {
 		typeService.deleteTypeById(id);
 		return "success";
+	}
+	@RequestMapping("/searchContent")
+	public String searchContent(HttpServletRequest request,String type,PageBeanUtil  pageBean) throws Exception{
+		request.setAttribute("type", type);
+		System.out.println("==========="+pageBean.getSearch());
+		PageBeanUtil<Type> pageBean1=typeService.searchName(pageBean.getPage(), pageBean.getSearch());
+		request.setAttribute("pageBean", pageBean1);
+		return "offical_website/search-template";
 	}
 }
