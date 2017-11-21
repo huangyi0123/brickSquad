@@ -52,37 +52,151 @@
 					href="javascript:;" onclick="openOnlineParticipation()"
 					style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
-			<div class="activity_excellent_course">
-				<label
-					style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">精品课程</label>
-				<a href="#"
-					style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
-				<div class="act_exce_list">
-					<div class="layui-row">
-						<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-							<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
-							<span>石立勇</span> <i class="layui-icon">&#xe613;</i>
-							<label style="margin-left: 210px;margin-top: -15px;"><font
-								style="color: #F7A01F;">10</font>人学习</label>
-						</div>
-						<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-							<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
-							<span>石立勇</span> <i class="layui-icon">&#xe613;</i>
-							<label style="margin-left: 210px;margin-top: -15px;"><font
-								style="color: #F7A01F;">10</font>人学习</label>
-						</div>
-						<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-							<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
-							<span>石立勇</span> <i class="layui-icon">&#xe613;</i>
-							<label style="margin-left: 210px;margin-top: -15px;"><font
-								style="color: #F7A01F;">10</font>人学习</label>
-						</div>
+			<div class="activity_main_right">
+				<div class="activity_excellent_course">
+					<label
+						style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">精品课程</label>
+					<a href="#"
+						style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
+					<div class="act_exce_list">
+						<div class="layui-row">
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
 
+						</div>
 					</div>
+					<div
+						style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
+
 				</div>
+				<!---------------------------------- 饮食健康 ------------------------------------>
+				<div class="activity_excellent_course">
+					<label
+						style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
+					<a href="#"
+						style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
+					<div class="act_exce_list">
+						<div class="layui-row">
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
 
+						</div>
+					</div>
+					<div
+						style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
+
+				</div>
+				<!---------------------------------- 运动健康 ------------------------------------>
+				<div class="activity_excellent_course">
+					<label
+						style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
+					<a href="#"
+						style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
+					<div class="act_exce_list">
+						<div class="layui-row">
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+
+						</div>
+					</div>
+					<div
+						style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
+
+				</div>
+				<!---------------------------------- 修身养性 ------------------------------------>
+				<div class="activity_excellent_course">
+					<label
+						style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
+					<a href="#"
+						style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
+					<div class="act_exce_list">
+						<div class="layui-row">
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+							<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+								<img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <label>互联网＋与阿里云【贵大软件学院】</label>
+								<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
+									style="margin-left: 210px;margin-top: -15px;"><font
+									style="color: #F7A01F;">10</font>人学习</label>
+							</div>
+
+						</div>
+					</div>
+					<div
+						style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
+
+				</div>
 			</div>
-
 		</div>
 
 
