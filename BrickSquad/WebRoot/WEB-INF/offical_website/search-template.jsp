@@ -86,21 +86,27 @@
 					
 					<ul style="margin-left:10%;line-height:32px;margin-top:22px;">
 					<c:forEach  var="type" items="${pageBean.list }">
-					<li>
+					<li style="float:left;">
 					<span><a href>${type.name }</a> </span>
-					<span style="padding-left:80%"><a href>点击详情</a></span>
 					</li>
+					<li><span style="float:right;margin-right:50px;"><a href>点击详情</a></span></li>
 					<hr style="margin-top:-4px;">
 					</c:forEach>
-					<!-- <li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
-					<hr style="margin-top:-4px;">
-					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
-					<hr style="margin-top:-4px;"> -->
+					
+					<c:if test="${pageBean.totalCount==0}">
 					<center>
-					<a href="" ><span> < 上一页</span></a>
+					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<a href="" ><span>下一页  ></span></a>
+					<span><a href="javascript:;" >下一页  ></a></span>
 					</center>
+					</c:if>
+					<c:if test="${pageBean.totalCount!=0}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
+					</center>
+					</c:if>
 					</ul>
 				</div>
 				 <div class="parti-online">
