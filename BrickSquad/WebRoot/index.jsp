@@ -210,6 +210,70 @@ function findActivitiesName() {
 	}
 }
 </script>
+<script type="text/javascript">
+function check(){
+	var name=document.getElementById("name").value;
+	var telephone=document.getElementById("telephone").value;
+		var nameText=document.getElementById("nameText");
+		if (name == "") {
+				 nameText.innerHTML="<span style='color:#C5C5C5'>姓名不能为空</span>";
+				return false;
+			}
+		 var phoneText=document.getElementById("telephoneText");
+		if (telephone == "") {
+			 phoneText.innerHTML="<span style='color:#C5C5C5'>手机号不能为空</span>";
+			return false;
+		}else if(telephone.match('\\d{11}')!=telephone){
+			phoneText.innerHTML="<span style='color:#C5C5C5'>手机号格式不正确</span>"; 
+			return false;
+		} 
+}
+function onfus1(){
+   	var nameText=document.getElementById('nameText');
+   	nameText.innerHTML="<span style='color:#C5C5C5'></span>";
+   }
+function onfus2(){
+   	var phoneText=document.getElementById('telephoneText');
+   	phoneText.innerHTML="<span style='color:#C5C5C5'></span>";
+   }
+function check1(){
+	var name=document.getElementById("name3").value;
+	var telephone=document.getElementById("telephone4").value;
+	var date=document.getElementById("date").value;
+		var nameText=document.getElementById("nameText3");
+		if (name == "") {
+				 nameText.innerHTML="<span style='color:#C5C5C5'>姓名不能为空</span>";
+				return false;
+			}
+		 var phoneText=document.getElementById("telephoneText4");
+		if (telephone == "") {
+			 phoneText.innerHTML="<span style='color:#C5C5C5'>手机号不能为空</span>";
+			return false;
+		}else if(telephone.match('\\d{11}')!=telephone){
+			phoneText.innerHTML="<span style='color:#C5C5C5'>手机号格式不正确</span>"; 
+			return false;
+		} 
+		 var dateText=document.getElementById("dateText5");
+		if (date == "") {
+			dateText.innerHTML="<span style='color:#C5C5C5'>时间不能为空</span>";
+			return false;
+		}
+}
+
+function onfus3(){
+   	var nameText=document.getElementById('nameText3');
+   	nameText.innerHTML="<span style='color:#C5C5C5'></span>";
+   }
+function onfus4(){
+   	var phoneText=document.getElementById('telephoneText4');
+   	phoneText.innerHTML="<span style='color:#C5C5C5'></span>";
+   }
+function onfus5(){
+   	var dateText=document.getElementById('dateText5');
+   	dateText.innerHTML="<span style='color:#C5C5C5'></span>";
+   }
+
+</script>
 </head>
 	
 <body>
@@ -336,6 +400,12 @@ function findActivitiesName() {
 				<div>
 					<img src="resource/image/lb5.jpg">
 				</div>
+				<div>
+					<img src="resource/image/lb6.jpg">
+				</div>
+				<div>
+					<img src="resource/image/lb7.jpg">
+				</div>
 			</div>
 			<div class="container">
 				<div class="buttons" style="z-index: 10;">
@@ -358,15 +428,21 @@ function findActivitiesName() {
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
 			</div>
-			<div class="col-md-4 btm-grid btm-wid"
+
+		<!-- 	<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48CFC1;">
-				<input value="社区搜索" class="title">
-				<input class="city_search" type="text" value="请输入城市"
+				<input value="社区搜索" class="title" readonly="readonly">
+				<input class="city_search" type="text" value="" -->
+
+			<div class="col-md-4 btm-grid btm-wid">
+				<input value="社区搜索" class="title" readonly="readonly">
+				<input class="city_search" type="text" value="请输入城市" 
+
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
 				<label class="search_icon"
 					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
-					href="#"><i class="layui-icon"
+					href="type/searchContent?type=aboutus-intro"><i class="layui-icon"
 						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
 				<div
 					style="width:100%;height:100px;margin-top:50px; background-color: white;">
@@ -390,23 +466,35 @@ function findActivitiesName() {
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
 					</h4>
+<<<<<<< HEAD
 					<p>生活</p>
+=======
+					<p>生活社区</p>
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/credit.png" alt=" " /></span>
 					</h4>
+<<<<<<< HEAD
 					<p>服务</p>
+=======
+					<p>秀出你的个性</p>
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
+<<<<<<< HEAD
 					<p>活动</p>
+=======
+					<p>这有你想要的</p>
+>>>>>>> branch 'master' of https://github.com/huangyi0123/brickSquad.git
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h3>
-						RECHARGE IN <span>3 SIMPLE STEPS</span>
+						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
 				<div class="clearfix"></div>
@@ -539,7 +627,7 @@ function findActivitiesName() {
 						</div>
 
 						<!-- 预约参观 -->
-						<form role="form" method="post"
+						<form role="form" method="post" onsubmit="return check()"
 							action="${pageContext.request.contextPath }/reservation/findInsertReservation">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
@@ -548,17 +636,19 @@ function findActivitiesName() {
 											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											onclick="findTelephoneView()">预约参观</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="请输入联系人姓名" name="rname"
+										<input type="text" value="请输入联系人姓名" name="rname" id="name"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
-											onfocus="if(value=='请输入联系人姓名') {value=''}"
-											onblur="if (value=='') {value='请输入联系人姓名'}">
+											
+											onfocus="onfus1()"><br>
+											<span id="nameText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话" id="telephone"
+										<input type="text" value="请输入联系人电话" id="telephone" 
 											name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-											onfocus="if(value=='请输入联系人电话') {value=''}"
-											onblur="if (value=='') {value='请输入联系人电话'}">
+											onfocus="onfus2()"
+											><br>
+											<span id="telephoneText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
@@ -568,7 +658,8 @@ function findActivitiesName() {
 													value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
 													onfocus="if(value=='请输入预约时间') {value=''}"
-													onblur="if (value=='') {value='请输入预约时间'}">
+													onblur="if (value=='') {value='请输入预约时间'}"><br>
+													<span id="dateText" style="margin-left:44%"></span>
 											</div>
 										</form>
 										<label
@@ -591,7 +682,10 @@ function findActivitiesName() {
 										<div class="layui-form-item layui-form-text">
 											<div class="layui-input-block"
 												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea" name="remarks"></textarea>
+												<textarea value="" class="layui-textarea" name="remarks" id="remarks"
+												onfocus="onfus4()"></textarea>
+												<br>
+													<span id="remarksText" style="margin-left:44%"></span>
 											</div>
 										</div>
 									</div>
@@ -656,7 +750,7 @@ function findActivitiesName() {
 							</ul>
 						</div>
 						<!-- 我要去报名 -->
-							<form role="form" method="post"
+							<form role="form" method="post" onsubmit="return check1()"
 							action="activityRegistration/insertActivitiesInformation">
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
@@ -665,17 +759,18 @@ function findActivitiesName() {
 											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											>我要报名</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="${user.username }" name="pname"
+										<input type="text" value="${user.username }" name="pname" id="name3"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
-											onfocus="if(value=='请输入联系人姓名') {value=''}"
-											onblur="if (value=='') {value='请输入联系人姓名'}">
+											onfocus="onfus3()"><br>
+											<span id="nameText3" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="${user.telephone }" id="telephone"
-											name="telephone"
+										<input type="text" value="${user.telephone }" id="telephone4"
+											name="telephone" 
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-											onfocus="if(value=='请输入联系人电话') {value=''}"
-											onblur="if (value=='') {value='请输入联系人电话'}">
+											onfocus="onfus4()"
+											onblur="if (value=='') {value='请输入联系人电话'}"><br>
+											<span id="telephoneText4" style="margin-left:44%"></span>
 											<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
 											<div class="layui-form-item">
@@ -698,8 +793,9 @@ function findActivitiesName() {
 													lay-verify="date" autocomplete="off" class="layui-input"
 													value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="if(value=='请输入预约时间') {value=''}"
-													onblur="if (value=='') {value='请输入预约时间'}">
+													onfocus="onfus5()"
+													onblur="if (value=='') {value='请输入预约时间'}"><br>
+											<span id="dateText5" style="margin-left:44%"></span>
 											</div>
 										</form>
 										<label
