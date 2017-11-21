@@ -282,7 +282,7 @@ function onfus5(){
 			<div class="logo">
 				<h1>
 					<a href="index.html"><i><img src="resource/image/cell.png"
-							alt=" " /></i>Easy Recharge</a>
+							alt=" " /></i>养乐堡</a>
 				</h1>
 			</div>
 			<div class="top-nav">
