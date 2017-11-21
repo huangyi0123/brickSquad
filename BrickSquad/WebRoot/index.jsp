@@ -435,8 +435,8 @@ function onfus5(){
 				<input class="city_search" type="text" value="" -->
 
 			<div class="col-md-4 btm-grid btm-wid">
-				<input value="社区搜索" class="title">
-				<input class="city_search" type="text" value="请输入城市"
+				<input value="社区搜索" class="title" readonly="readonly">
+				<input class="city_search" type="text" value="请输入城市" 
 
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
