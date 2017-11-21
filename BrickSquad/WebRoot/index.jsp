@@ -282,7 +282,7 @@ function onfus5(){
 			<div class="logo">
 				<h1>
 					<a href="index.html"><i><img src="resource/image/cell.png"
-							alt=" " /></i>Easy Recharge</a>
+							alt=" " /></i>养乐堡</a>
 				</h1>
 			</div>
 			<div class="top-nav">
@@ -425,14 +425,21 @@ function onfus5(){
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
 			</div>
+
+		<!-- 	<div class="col-md-4 btm-grid btm-wid"
+				style="background-color: #48CFC1;">
+				<input value="社区搜索" class="title" readonly="readonly">
+				<input class="city_search" type="text" value="" -->
+
 			<div class="col-md-4 btm-grid btm-wid">
-				<input value="社区搜索" class="title">
-				<input class="city_search" type="text" value="请输入城市"
+				<input value="社区搜索" class="title" readonly="readonly">
+				<input class="city_search" type="text" value="请输入城市" 
+
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
 				<label class="search_icon"
 					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
-					href="#"><i class="layui-icon"
+					href="type/searchContent?type=aboutus-intro"><i class="layui-icon"
 						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
 				<div
 					style="width:100%;height:100px;margin-top:50px; background-color: white;">
@@ -456,22 +463,22 @@ function onfus5(){
 					<h4>
 						<span><img src="resource/image/web.png" alt=" " /></span>
 					</h4>
-					<p>生活社区</p>
+					<p>生活</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/credit.png" alt=" " /></span>
 					</h4>
-					<p>秀出你的个性</p>
+					<p>服务</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span><img src="resource/image/security.png" alt=" " /></span>
 					</h4>
-					<p>这有你想要的</p>
+					<p>活动</p>
 				</div>
-				<div class="col-md-3 coupons-gd">
-					<h3>
+				<div class="col-md-3 coupons-gd">  
+					<h3>  
 						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
