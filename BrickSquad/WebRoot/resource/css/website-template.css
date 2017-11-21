@@ -22,15 +22,14 @@
 
 .tem_main_left {
 	float: left;
-	width: 20%; 
-	height:500px;
+	width: 20%;
+	height: 500px;
 	/* height:auto!important; */
 	margin-left: 150px;
 	background-color: #EBEBEC;
 	/* overflow: hidden;
 	padding-bottom: 1000px;
 	margin-bottom: -1000px; */
-	
 }
 
 .tem_main_left ul {
@@ -66,10 +65,13 @@
 
 .tem_main_right {
 	width: 60%;
-	display: block; float : left;
-	background-color: white;
-	border: 1px solid blue;
+	display: block;
 	float: left;
+	background-color: white;
+	float: left;
+	/* margin-bottom: -9999px;
+	overflow: hidden;
+	padding-bottom: 9999px; */
 }
 
 /* .aboutus-intro h4 {
@@ -87,8 +89,7 @@
 	margin-left: 100px;
 	margin-top: 20px;
 } */
-
-.tem_main_right p{
+.tem_main_right p {
 	width: 700px;
 	font-size: 1.1em;
 	line-height: 25px;
@@ -111,34 +112,35 @@
 	margin-top: 15px;
 	margin-left: 100px;
 }
-.aboutus-join img{
-	width:700px;
+
+.aboutus-join img {
+	width: 700px;
 	margin-left: 100px;
 	margin-top: 20px;
 }
 
-.aboutus-cont p{
+.aboutus-cont p {
 	margin-top: 5px;
 }
 
-
-.parti-online label{
+.parti-online label {
 	color: #666666;
-	display:block;
-	font-stretch:normal;
+	display: block;
+	font-stretch: normal;
 	margin-top: 20px;
 	margin-left: 100px;
 }
-.parti-online .layui-input-inline input{
-	height:30px;
-	width:200px;
-	border-radius:5px;
+
+.parti-online .layui-input-inline input {
+	height: 30px;
+	width: 200px;
+	border-radius: 5px;
 	margin-left: 200px;
 	margin-top: -25px;
 }
 
-.layui-input, .layui-textarea, .layui-select{
-	border:1px solid #DEDEDE !important;
+.layui-input,.layui-textarea,.layui-select {
+	border: 1px solid #DEDEDE !important;
 }
 /* .parti-online .layui-input-block input{
 	margin-left: 20px;

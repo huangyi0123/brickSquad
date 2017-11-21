@@ -23,10 +23,12 @@
 		class="com.brick.squad.service.impl.PersonalInformationServiceImpl" />
 	<bean name="ordersService" class="com.brick.squad.service.impl.OrdersServiceImpl" />
 	<bean name="activitiesService" class="com.brick.squad.service.impl.ActivitiesServiceImpl" />
-	
+
 	<bean name="articleService" class="com.brick.squad.service.impl.ArticleServiceImpl" />
-    <bean name="shopActivitiesService" class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
-	<bean name="memberShipApplicationService" class="com.brick.squad.service.impl.MemberShipApplicationServiceImpl"/>
+	<bean name="shopActivitiesService"
+		class="com.brick.squad.service.impl.ShopActivitiesServiceImpl" />
+	<bean name="memberShipApplicationService"
+		class="com.brick.squad.service.impl.MemberShipApplicationServiceImpl" />
 
 
 	<bean name="addressService" class="com.brick.squad.service.impl.AddressServiceImpl" />
@@ -42,9 +44,12 @@
 	<bean name="orderDetailsService" class="com.brick.squad.service.impl.OrderDetailsServiceImpl" />
 	<bean name="guidanceService" class="com.brick.squad.service.impl.GuidanceServiceImpl" />
 	<bean name="couponService" class="com.brick.squad.service.impl.CouponServiceImpl"></bean>
-	<bean name="variableProductService" class="com.brick.squad.service.impl.VariableProductServiceImpl"></bean>
+	<bean name="variableProductService"
+		class="com.brick.squad.service.impl.VariableProductServiceImpl"></bean>
 	<bean name="agedCouponService" class="com.brick.squad.service.impl.AgedCouponServiceImpl"></bean>
 	<bean name="reservationService" class="com.brick.squad.service.impl.ReservationServiceImpl"></bean>
+	<bean name="onlineParticipationInfoService"
+		class="com.brick.squad.service.impl.OnlineParticipationInfoServiceImpl"></bean>
 </beans>
 
 
