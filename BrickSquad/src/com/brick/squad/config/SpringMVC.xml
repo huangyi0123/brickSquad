@@ -40,7 +40,7 @@
 	</bean>
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="104857600" />
+		<property name="maxUploadSize" value="10485760000" />
 		<property name="maxInMemorySize" value="4096" />
 		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
@@ -62,16 +62,7 @@
 			<mvc:exclude-mapping path="/user/toUserAccountAuthentication" />
 			<mvc:exclude-mapping path="/news/findNewsExpandById" />
 			<mvc:exclude-mapping path="/news/findNewsReturnIndex" />
-			<mvc:exclude-mapping path="/common/indexBusiness" />
-			<mvc:exclude-mapping path="/common/toProductDetails" />
-			<mvc:exclude-mapping path="/common/toIndex" />
-			<mvc:exclude-mapping path="/common/toShop" />
-			<mvc:exclude-mapping path="/common/toContactUs" />
-			<mvc:exclude-mapping path="/common/toWishlist" />
-			<mvc:exclude-mapping path="/common/tosimple_product" />
-			<mvc:exclude-mapping path="/common/toabout_us" />
-			<mvc:exclude-mapping path="/common/todeals" />
-			<mvc:exclude-mapping path="/common/toWebsiteTemplate" />
+			<mvc:exclude-mapping path="/common/**" />
 			<mvc:exclude-mapping path="/agedCoupon/insertAgedCoupon" />
 			<mvc:exclude-mapping path="/common/toShop_right_sidebar" />
 			<mvc:exclude-mapping path="/common/toShop_left_sidebar" />
@@ -97,8 +88,11 @@
 			<mvc:exclude-mapping path="/common/toWebsite_template" />
 			<mvc:exclude-mapping path="/onlineParticipationInfo/userInsertOnlineParticipationInfo" />
 			<mvc:exclude-mapping path="/type/**" />
+				<mvc:exclude-mapping path="/activities/**" />
+
 			<mvc:exclude-mapping path="/common/toActivity_carousel" />
 			<mvc:exclude-mapping path="/common/toVedio_Details" />
+
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>

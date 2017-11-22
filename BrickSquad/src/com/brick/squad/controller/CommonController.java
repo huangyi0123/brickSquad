@@ -17,10 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
-import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
-import com.brick.squad.expand.ShoppingCarAndArticle;
 import com.brick.squad.expand.TypeExpand;
+import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Business;
@@ -30,6 +29,7 @@ import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.pojo.User;
+import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.BusinessService;
@@ -40,9 +40,7 @@ import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
-import com.brick.squad.util.Pagination;
 import com.brick.squad.util.UpLoadFile;
-import com.brick.squad.util.YiLiaoUtile;
 
 @Controller
 @RequestMapping("/common")
@@ -61,9 +59,17 @@ public class CommonController {
 	private TypeService typeService;
 
 	@RequestMapping("/toWebsiteTemplate")
-	public String toWebsiteTemplate(String type,HttpServletRequest request) {
+	public String toWebsiteTemplate(String type, HttpServletRequest request) {
 		request.setAttribute("type", type);
 		return "offical_website/website-template";
+
+	}
+	
+	/**官网乐堡服务*/
+	@RequestMapping("/serverWebsiteTemplate")
+	public String serverWebsiteTemplate(String type,HttpServletRequest request) {
+		request.setAttribute("type", type);
+		return "offical_website/server-template";
 
 	}
 
@@ -374,12 +380,24 @@ public class CommonController {
 		return "frontEnd_manage/front_bootstrap/apply_coupon";
 
 	}
-	
+
+	@Autowired
+	@Qualifier("activitiesService")
+	private ActivitiesService activitiesService;
+
 	@RequestMapping("/toActivity_carousel")
-	public String toActivity_carousel() {
+	public String toActivity_carousel(String type, HttpServletRequest request)
+			throws Exception {
+		List<Activities> listMovie = activitiesService
+				.findActivitiesMovieByTypeId("tiaowu");
+		for (Activities activities : listMovie) {
+			System.out.println(activities.toString());
+		}
+		request.setAttribute("listMovie", listMovie);
+		request.setAttribute("type", type);
 		return "offical_website/activity";
 	}
-	
+
 	@RequestMapping("/toVedio_Details")
 	public String toVedio_Details() {
 		return "offical_website/vedio-details";

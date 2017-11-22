@@ -577,7 +577,6 @@
 											<th>收货人</th>
 											<th>联系方式</th>
 											<th>详细地址</th>
-											<th style="text-align: center;">交易操作</th>
 										</tr>
 									</thead>
 									<tbody id="buyaddtable">
@@ -618,24 +617,18 @@
 						</select>
 					</div>
 					<div class="layui-input-inline">
-						<select name="cityId" id="addcity"  val="" lay-ignore style="width: 180px;height: 30px">
+						<select name="cityId" id="addcity"   lay-ignore style="width: 180px;height: 30px">
 							<option value="">请选择市</option>
 						</select>
 					</div>
 					<div class="layui-input-inline">
-						<select name="quiz1" lay-ignore style="width: 180px;height: 30px">
+						<select name="countryId" id="addcountry" lay-ignore style="width: 180px;height: 30px">
 							<option value="">请选择区县</option>
-							<option value="浙江" selected="">浙江省</option>
-							<option value="你的工号">江西省</option>
-							<option value="你最喜欢的老师">福建省</option>
 						</select>
 					</div>
 					<div class="layui-input-inline">
-						<select name="quiz1" lay-ignore style="width: 180px;height: 30px">
+						<select name="countyId" id="addcounty" lay-ignore style="width: 180px;height: 30px">
 							<option value="">请选择乡镇</option>
-							<option value="浙江" selected="">浙江省</option>
-							<option value="你的工号">江西省</option>
-							<option value="你最喜欢的老师">福建省</option>
 						</select>
 					</div>
 					<div class="layui-input-inline">

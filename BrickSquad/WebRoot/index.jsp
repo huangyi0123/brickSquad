@@ -274,6 +274,14 @@ function onfus5(){
    }
 
 </script>
+<script type="text/javascript">
+function findType(){
+	var typeValue=$("#searchType").val();
+	var ahref=document.getElementById("searchQue");
+	 ahref.href="type/searchContent?type=aboutus-intro&search="+typeValue;
+}
+ 
+</script>
 </head>
 	
 <body>
@@ -293,13 +301,13 @@ function onfus5(){
 					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
-					<li class="layui-nav-item"><a href="javascript:;">乐堡活动</a>
+					<li class="layui-nav-item"><a href="common/toActivity_carousel?type=online_course">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="">线上直播</a>
+								<a href="common/toActivity_carousel?type=online_course">线上直播</a>
 							</dd>
 							<dd>
-								<a href="">线下活动</a>
+								<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 							</dd>
 							<dd>
 								<a href="">乐堡课程</a>
@@ -318,19 +326,19 @@ function onfus5(){
 							</dd>
 						</dl></li>
 
-					<li class="layui-nav-item"><a href="">乐堡服务</a>
+					<li class="layui-nav-item"><a href="common/serverWebsiteTemplate?type=aboutus-intro">乐堡服务</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="">体检预约</a>
+								<a href="common/serverWebsiteTemplate?type=aboutus-intro">体检预约</a>
 							</dd>
 							<dd>
-								<a href="">生活助手</a>
+								<a href="common/serverWebsiteTemplate?type=aboutus-use">生活助手</a>
 							</dd>
 							<dd>
-								<a href="">独立生活</a>
+								<a href="common/serverWebsiteTemplate?type=aboutus-join">独立生活</a>
 							</dd>
 							<dd>
-								<a href="">康复协助</a>
+								<a href="common/serverWebsiteTemplate?type=aboutus-cont">康复协助</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
@@ -372,7 +380,7 @@ function onfus5(){
 			<!-- start search-->
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
-					<form>
+					<form method="post" action="activities/findActivitesName">
 						<input class="sb-search-input" placeholder="请输入您的关键字..."
 							type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
@@ -380,7 +388,7 @@ function onfus5(){
 					</form>
 				</div>
 			</div>
-
+	
 			<div class="clearfix"></div>
 		</div>
 		<div class="layui-carousel" id="test10">
@@ -420,29 +428,31 @@ function onfus5(){
 			</div>
 		</div>
 	</div>
-
+<div class="layui-row">
 	<div class="content-bottom">
 		<div class="btm-grids">
-			<div class="col-md-4 btm-grid back-col1 text-center">
+		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+			<div class=" btm-grid back-col1 text-center">
 				<!-- 
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
 			</div>
-
+</div>
 		<!-- 	<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48CFC1;">
 				<input value="社区搜索" class="title" readonly="readonly">
 				<input class="city_search" type="text" value="" -->
-
-			<div class="col-md-4 btm-grid btm-wid">
+<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+			<div class=" btm-grid btm-wid">
 				<input value="社区搜索" class="title" readonly="readonly">
-				<input class="city_search" type="text" value="请输入城市" 
+				<input class="city_search" type="text" value="请输入城市"  id="searchType"
 
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
-				<label class="search_icon"
-					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
-					href="type/searchContent?type=aboutus-intro"><i class="layui-icon"
+				<label class="search_icon" 
+					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
+					<a
+					href="" id="searchQue" ><i class="layui-icon"  onclick="findType()"
 						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
 				<div
 					style="width:100%;height:100px;margin-top:50px; background-color: white;">
@@ -452,12 +462,16 @@ function onfus5(){
 						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
 				</div>
 			</div>
-			<div class="col-md-4 btm-grid back-col2 text-center">
+			</div>
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+			<div class="btm-grid back-col2 text-center">
 				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
+			</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
+</div>
 	<div class="coupons">
 		<div class="container">
 			<div class="coupons-grids text-center">
@@ -489,17 +503,18 @@ function onfus5(){
 			</div>
 		</div>
 	</div>
-	<div class="content-bottom-two">
-		<div class="col-md-6 content-left text-center">
-			<img src="resource/image/bbb1_left.png" alt="" />
+		<div class="content-bottom-two">
+		<div class="col-md-6 content-left text-center imagess">
+			<img src="resource/image/bf.png" alt="" style="position:absolute;width:10%;z-index:1;top:45%;left:45%;"/>
+			<img src="resource/image/bbb1_left.png" alt=""  style="z-index:0;position:relative" />
 		</div>
-		<div class="col-md-6 content-right text-center">
+		<div class="col-md-6 content-right text-center imagess">
 			 <img src="resource/image/bbb1_right.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
 			<h3>关爱老人</h3>
-			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情; 折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
+			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情;折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
 		</div>
 	</div>
 
@@ -558,13 +573,13 @@ function onfus5(){
 	<div class="footer">
 		<div class="container">
 			<h2>
-				<a href="index.html">Easy Recharge</a>
+				<a href="index.html">养乐堡</a>
 			</h2>
 			<p>
-				Copyright &copy; 2016.Company name All rights reserved.More
-				Templates <a href="http://www.cssmoban.com/" target="_blank"
-					title="模板之家">模板之家</a> - Collect from <a
-					href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+				版权 &copy; 2017.团 队 名  7brickSquad.更多
+				咨询 <a href="http://www.yanglebao.com/" target="_blank"
+					title="老人之家">老人之家</a> - 来源 <a
+					href="http://www.yanglebao.com/" title="网页模板" target="_blank">搬砖小分队</a>
 			</p>
 			<ul>
 				<li><a class="face1" href="#"></a></li>

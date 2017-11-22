@@ -104,4 +104,12 @@ public class Activities {
 		this.endTime = endTime;
 	}
 
+	@Override
+	public String toString() {
+		return "Activities [id=" + id + ", name=" + name + ", centent="
+				+ centent + ", typeId=" + typeId + ", startTime=" + startTime
+				+ ", endTime=" + endTime + ", userId=" + userId + ", number="
+				+ number + ", movie=" + movie + "]";
+	}
+
 }

@@ -104,6 +104,7 @@ public class TypeController {
 		System.out.println("==========="+pageBean.getSearch());
 		PageBeanUtil<Type> pageBean1=typeService.searchName(pageBean.getPage(), pageBean.getSearch());
 		request.setAttribute("pageBean", pageBean1);
+		request.setAttribute("typeContent", "typeContent");
 		return "offical_website/search-template";
 	}
 }

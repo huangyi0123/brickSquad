@@ -25,6 +25,7 @@ import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ActivitiesService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/activities")
@@ -90,12 +91,8 @@ public class ActivitiesController {
 			String filName = files.getOriginalFilename();
 			// 获取当前文件的后缀名
 			String fileSuffixName = filName.substring(filName.lastIndexOf("."));
-			// 如果后缀名为mp4、mpg、avi、f4v,才允许上传
-			if (fileSuffixName.equals(".mp4") || fileSuffixName.equals(".mpg")
-					|| fileSuffixName.equals(".avi")
-					|| fileSuffixName.equals(".f4v")
-					|| fileSuffixName.equals(".MP4") ) {
-				
+			// 如果后缀名为mp4,才允许上传
+			if (fileSuffixName.equals(".mp4")|| fileSuffixName.equals(".MP4") ) {
 				//  创建文件类型对象: 
 				File file = new File(path, filName);
 				if (!file.exists()) {
@@ -181,6 +178,21 @@ public class ActivitiesController {
 	@ResponseBody
 	public String findAllTypeAndUser() throws Exception {
 		return activitiesService.findAllTypeAndUser();
+	}
+	/**
+	 * 根据关键字模糊查询活动名称
+	 * @throws Exception 
+	 * */
+	@RequestMapping("/findActivitesName")
+	public String findActivitesName(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
+		String type="aboutus-intro";
+		int page=pageBean.getPage();
+		String search=pageBean.getSearch();
+		PageBeanUtil<Activities> paBean= activitiesService.findActivitesName(page, search);
+		request.setAttribute("pageBean", paBean);
+		request.setAttribute("type", type);
+		request.setAttribute("findActivitesName", "findActivitesName");
+		return "offical_website/search-template";
 	}
 
 }

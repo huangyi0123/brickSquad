@@ -140,16 +140,16 @@
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
 					style="margin-right: 10px;" id="menu">
 					<li class="layui-nav-item" val="aboutus-intro"><a
-						href="javascript:;">乐堡简介</a></li>
+						href="javascript:;">体检预约</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 					<li class="layui-nav-item" val="aboutus-use"><a
-						href="javascript:;">快速上手</a></li>
+						href="javascript:;">生活助手</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 					<li class="layui-nav-item" val="aboutus-join"><a
-						href="javascript:;">加入我们</a></li>
+						href="javascript:;">独立生活</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 					<li class="layui-nav-item" val="aboutus-cont"><a
-						href="javascript:;">联系我们</a></li>
+						href="javascript:;">康复协助</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 

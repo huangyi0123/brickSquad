@@ -5,9 +5,20 @@ import java.util.List;
 
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.Type;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface ActivitiesService {
+
+	/**
+	 * 根据类型ID查询视频路径，用于官网线上视频
+	 * 
+	 * @param typeId
+	 *            类型id
+	 * @return
+	 */
+	public List<Activities> findActivitiesMovieByTypeId(String typeId) throws Exception;
 	/**
 	 * 
 	 * @param id
@@ -38,5 +49,13 @@ public interface ActivitiesService {
 	/**
 	 * 查询活动名称 ,用于首页的报名回显*/
 	public String findActivityName()throws Exception;
+	/**
+	 * 根据关键字模糊查询活动名称
+	 * */
+	public  PageBeanUtil<Activities>  findActivitesName(int page,String search )throws Exception;
+	/**
+	 * 根据关键字模糊查询活动名称总数
+	 * */
+	public int findCountActivitesName(PageBeanUtil pageBeanUtil)throws Exception;
 
 }
