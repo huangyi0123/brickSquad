@@ -29,7 +29,7 @@ public class ReplyServiceTest {
 	}
 
 	@Test
-	public void replyPaginationTest() {
+	public void replyPaginationTest() throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
 		pagination.setPageSize(5);
@@ -38,14 +38,14 @@ public class ReplyServiceTest {
 	}
 
 	@Test
-	public void findReplyById() {
+	public void findReplyById() throws Exception {
 		Reply reply = replyService
 				.findReplyById("e9809af8b4e111e78d4f5254002ec43c");
 		System.out.println(reply.getCentent());
 	}
 
 	@Test
-	public void insertReply() {
+	public void insertReply() throws Exception {
 		for (int i = 0; i < 10; i++) {
 			Reply reply = new Reply();
 			reply.setRatedId("setRatedId" + i);
@@ -70,7 +70,7 @@ public class ReplyServiceTest {
 	}
 
 	@Test
-	public void findAllReply() {
+	public void findAllReply() throws Exception {
 		String data = replyService.findAllReply();
 		System.out.println(data);
 	}
