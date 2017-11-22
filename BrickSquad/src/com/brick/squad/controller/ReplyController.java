@@ -26,7 +26,7 @@ public class ReplyController {
 
 	@RequestMapping("/getReplyList")
 	@ResponseBody
-	public String getReplyList(int pSize, int cPage, String keyword) {
+	public String getReplyList(int pSize, int cPage, String keyword) throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setKeyword(keyword);
 		pagination.setCurentPage(cPage);
@@ -37,12 +37,12 @@ public class ReplyController {
 
 	@RequestMapping("/findAllReply")
 	@ResponseBody
-	public String findAllReply() {
+	public String findAllReply() throws Exception {
 		return replyService.findAllReply();
 	}
 
 	@RequestMapping("/toAddReply")
-	public String toAddReply(HttpServletRequest request, String id) {
+	public String toAddReply(HttpServletRequest request, String id) throws Exception {
 		if (id != null) {
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "updateReplyById");
@@ -56,7 +56,7 @@ public class ReplyController {
 	}
 
 	@RequestMapping("/addReply")
-	public String addReply(Reply reply) {
+	public String addReply(Reply reply) throws Exception {
 		replyService.insertReply(reply);
 		return "backstage_managed/jsp/reply/reply_list";
 	}

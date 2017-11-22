@@ -65,33 +65,64 @@
 	}
 
 	function toSubmitForm() {
-		var userName = $("#userName").val();
-		var phone = $("#phone").val();
-		var age = $("#age").val();
-		if (userName == "") {
-			alert("姓名不能为空！");
-		} else if (phone == "") {
-			alert("电话不能为空!");
-		} else if (age == "") {
-			alert("年龄不能为空!");
-		} else {
-			$
-					.ajax({
-						url : 'onlineParticipationInfo/userInsertOnlineParticipationInfo',
-						type : 'POST',
-						data : $("#onlineParticipationInfo").serialize(),
-						success : function(result) {
-							if (result == "fail") {
-								alert("请填写正确的数据格式！");
-							} else if (result == "success") {
-								alert("提交成功！");
-								$("#centent").children().hide();
-								 $(".aboutus-intro").show(); 
+		layui
+				.use(
+						'layer',
+						function() {
+							var layer = layui.layer;
+							var userName = $("#userName").val();
+							var phone = $("#phone").val();
+							var age = $("#age").val();
+							var email = $("#email").val();
+							if (userName == "") {
+								layer.msg("姓名不能为空！");
+							}else if (!userName.match(/^[\u4e00-\u9fa5]+$/)) {
+								layer.msg("名字必须为汉字!");
+							} 
+							else if (phone == "") {
+								layer.msg("手机号码不能为空!");
+							} else if ((age != "") && (!(age > 1)
+									|| !(age < 255)
+									|| (!(age.match(/^[0-9]+.?[0-9]*$/))))) {
+								layer.msg("年龄格式不符合要求!");
+							} else if (age == "") {
+								layer.msg("年龄不能为空!");
+							} else if (!(phone == "")
+									&& (!(phone.match(/^1[34578]\d{9}$/)))) {
+								layer.msg("手机号码格式不符合!");
+							} else if ((!(email == "") && !(email
+									.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)))) {
+								layer.msg("邮箱格式不符合!");
+							} else {
+								var index = layer.load(2, {
+									time : 10 * 1000
+								}); //又换了种风格，并且设定最长等待10秒
+								$
+										.ajax({
+											url : 'onlineParticipationInfo/userInsertOnlineParticipationInfo',
+											type : 'POST',
+											data : $("#onlineParticipationInfo")
+													.serialize(),
+											success : function(result) {
+												//关闭
+												layer.close(index);
+												if (result == "fail") {
+													layer.msg("请填写正确的数据格式！");
+												} else if (result == "success") {
+													layer.msg("提交成功！");
+													$("#centent").children()
+															.hide();
+													$(".aboutus-intro").show();
+												} else {
+													layer.msg("接口异常，稍后重试！");
+												}
+											},
+											error : function(e) {
+												layer.msg("接口异常，稍后重试！");
+											}
+										});
 							}
-						}
-					});
-		}
-
+						});
 	}
 </script>
 </head>
@@ -240,7 +271,7 @@
 						</div>
 						<label>邮箱(选填)：</label>
 						<div class="layui-input-inline">
-							<input type="tel" name="email" autocomplete="off"
+							<input type="tel" id="email" name="email" autocomplete="off"
 								class="layui-input">
 						</div>
 						<label>*年龄：</label>

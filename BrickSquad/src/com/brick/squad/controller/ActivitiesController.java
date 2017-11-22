@@ -1,6 +1,7 @@
 package com.brick.squad.controller;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -43,7 +44,7 @@ public class ActivitiesController {
 
 	@RequestMapping("/getActivitiesList")
 	@ResponseBody
-	public String getActivitiesList(int pSize, int cPage, String keyword) {
+	public String getActivitiesList(int pSize, int cPage, String keyword) throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
@@ -140,7 +141,7 @@ public class ActivitiesController {
 
 	@RequestMapping("/findAllActivities")
 	@ResponseBody
-	public String findAllActivities() {
+	public String findAllActivities() throws Exception {
 		return activitiesService.findAllActivities();
 	}
 
@@ -160,7 +161,7 @@ public class ActivitiesController {
 	}
 
 	@RequestMapping("/findActivitiesById")
-	public String findActivitiesById(HttpServletRequest request, String id) {
+	public String findActivitiesById(HttpServletRequest request, String id) throws Exception {
 		ActivitiesExpand activitiesExpand = activitiesService
 				.findActivitiesAndTpyeAndUser(id);
 		request.setAttribute("activitiesExpand", activitiesExpand);
@@ -173,13 +174,13 @@ public class ActivitiesController {
 	 */
 	@RequestMapping("/findAllActivitiesIdAndName")
 	@ResponseBody
-	public String findAllActivitiesIdAndName() {
+	public String findAllActivitiesIdAndName() throws Exception {
 		return activitiesService.findAllActivitiesIdAndName();
 	}
 
 	@RequestMapping("/findAllTypeAndUser")
 	@ResponseBody
-	public String findAllTypeAndUser() {
+	public String findAllTypeAndUser() throws Exception {
 		return activitiesService.findAllTypeAndUser();
 	}
 	/**

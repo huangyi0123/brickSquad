@@ -89,21 +89,23 @@
 							老人客户关系管理 <span class="fa arrow"></span>
 					</a>
 						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a>
+							<li><a class="J_menuItem" href="rapport/toRapportList">老人客户沟通列表</a></li>
 							<li><a class="J_menuItem"
-								href="reservation/toReservationList">预约表</a>
-						</ul></li>
-					<li><a class="J_menuItem"> <i class="fa fa-table"></i>
-							老人健康管理 <span class="fa arrow"></span>
-					</a>
-						<ul class="nav nav-second-level">
+								href="onlineParticipationInfo/toOnlineParticipationInfoList">在线参与表</a></li>
 							<li><a class="J_menuItem"
-								href="healthRecords/toHealthRecordsList">老人健康档案列表</a></li>
-							<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
-							</li>
-							<li><a class="J_menuItem" href="guidance/toGuidanceList">老人健康指导列表</a>
-							</li>
-						</ul></li>
+								href="reservation/toReservationList">预约表</a></li>
+							</ul></li>
+							<li><a class="J_menuItem"> <i class="fa fa-table"></i>
+									老人健康管理 <span class="fa arrow"></span>
+							</a>
+								<ul class="nav nav-second-level">
+									<li><a class="J_menuItem"
+										href="healthRecords/toHealthRecordsList">老人健康档案列表</a></li>
+									<li><a class="J_menuItem" href="medical/toMedicalList">病历列表</a>
+									</li>
+									<li><a class="J_menuItem" href="guidance/toGuidanceList">老人健康指导列表</a>
+									</li>
+								</ul></li>
 				</c:if>
 				<c:if
 					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 

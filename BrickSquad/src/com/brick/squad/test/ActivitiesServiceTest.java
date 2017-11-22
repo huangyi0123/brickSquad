@@ -1,5 +1,6 @@
 package com.brick.squad.test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +63,7 @@ public class ActivitiesServiceTest {
 
 	// 分页测试
 	@Test
-	public void testActivitiesPagination() {
+	public void testActivitiesPagination() throws Exception {
 		List<Activities> activities = new ArrayList<>();
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(1);
@@ -77,7 +78,7 @@ public class ActivitiesServiceTest {
 	}
 
 	@Test
-	public void findAllActivities() {
+	public void findAllActivities() throws Exception {
 		System.out.println(activitiesService.findAllActivities());
 	}
 
@@ -89,20 +90,20 @@ public class ActivitiesServiceTest {
 	}
 
 	@Test
-	public void findAllTypeAndUser() {
+	public void findAllTypeAndUser() throws Exception {
 		String data = activitiesService.findAllTypeAndUser();
 		System.out.println("+++++++" + data + "++++++");
 	}
 
 	@Test
-	public void findActivitiesAndTpyeAndUser() {
+	public void findActivitiesAndTpyeAndUser() throws Exception {
 		ActivitiesExpand activitiesExpand = activitiesService
 				.findActivitiesAndTpyeAndUser("4492fddeb79c11e78d4f5254002ec43c");
 		System.out.println("测试" + activitiesExpand);
 	}
 
 	@Test
-	public void findAllActivitiesIdAndName() {
+	public void findAllActivitiesIdAndName() throws Exception {
 		String data = activitiesService.findAllActivitiesIdAndName();
 		System.out.println("测试+++++++++++++" + data);
 	}

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.ReplyMapper;
 import com.brick.squad.pojo.Reply;
 import com.brick.squad.service.ReplyService;
+import com.brick.squad.util.Filter;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
 
@@ -21,14 +22,16 @@ public class ReplyServiceImpl implements ReplyService {
 	@Qualifier("replyMapper")
 	private ReplyMapper replyMapper;
 
-	public Reply findReplyById(String id) {
-
-		return replyMapper.findReplyById(id);
+	public Reply findReplyById(String id) throws Exception {
+		Reply reply=replyMapper.findReplyById(id);
+		reply=(Reply) Filter.filterObject(reply);
+		return reply;
 	}
 
 	@Override
-	public void insertReply(Reply reply) {
+	public void insertReply(Reply reply) throws Exception {
 		reply.setReplyDate(new Date());
+		reply=(Reply) Filter.filterObject(reply);
 		replyMapper.insertReply(reply);
 
 	}
@@ -46,8 +49,11 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public String replyPagination(Pagination pagination) {
+	public String replyPagination(Pagination pagination) throws Exception {
 		List<Reply> replies = replyMapper.replyPagination(pagination);
+		for (Reply reply : replies) {
+			reply=(Reply) Filter.filterObject(reply);
+		}
 		int row = replyMapper.findReplyAllCount();
 		Util<Reply> util = new Util<Reply>();
 		String data = util.SplitPage(replies, row);
@@ -61,8 +67,11 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public String findAllReply() {
+	public String findAllReply() throws Exception {
 		List<Reply> replies = replyMapper.findAllReply();
+		for (Reply reply : replies) {
+			reply=(Reply) Filter.filterObject(reply);
+		}
 		JSONArray jsonArray = new JSONArray();
 		String replydata = jsonArray.fromObject(replies).toString();
 		return replydata;

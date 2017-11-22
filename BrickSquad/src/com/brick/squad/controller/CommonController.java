@@ -379,5 +379,10 @@ public class CommonController {
 	public String toActivity_carousel() {
 		return "offical_website/activity";
 	}
+	
+	@RequestMapping("/toVedio_Details")
+	public String toVedio_Details() {
+		return "offical_website/vedio-details";
+	}
 
 }
