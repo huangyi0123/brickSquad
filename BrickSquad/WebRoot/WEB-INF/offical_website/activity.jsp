@@ -64,16 +64,19 @@
 						<div class="act_exce_list">
 							<div class="layui-row">
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#" style="display: block;"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png">
-									</a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
+										
+											<!-- <img alt="" src="resource/image/float.png" class="act_play"
+												style="position: absolute;top: 0px;opacity:0.75;display: block;z-index: 2;"> -->
+										 </a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
 										class="layui-icon">&#xe613;</i> <label
 										style="margin-left: 210px;margin-top: -15px;"><font
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
 									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
@@ -81,7 +84,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png">
 									</a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
@@ -105,7 +108,7 @@
 						<div class="act_exce_list">
 							<div class="layui-row">
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a>
 									<label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
@@ -114,7 +117,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png">
 									</a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
@@ -123,7 +126,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
 									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
@@ -146,7 +149,7 @@
 						<div class="act_exce_list">
 							<div class="layui-row">
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a>
 									<label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
@@ -155,7 +158,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
 									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
@@ -163,7 +166,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
 									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
@@ -186,7 +189,7 @@
 						<div class="act_exce_list">
 							<div class="layui-row">
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
 									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
@@ -194,7 +197,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a>
 									<label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
@@ -203,7 +206,7 @@
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
 								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#"><img alt=""
+									<a href="#"><img class="act_bg" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
 									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
@@ -227,27 +230,37 @@
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="offline_list">
-							<img alt=""
-								src="resource/image/3736651_1426063184096_800x600.jpg"> <label><a
+							<a href="#"><img alt=""
+								src="resource/image/3736651_1426063184096_800x600.jpg"></a> <label><a
 								href="#" class="titles"> 【乐活在星堡】夏日好心情 走近星堡消暑音乐会</a></label>
 							<p>2017年仲夏八月，在星堡浦江老年社区的活动中心展开了一场别开生面的生快派对和消暑音乐节。这次演唱会邀请了来自各个社区的热爱音乐的长者。对于热爱..</p>
-							<label style="margin-left: 20px;"><a href="#" class="details">查看详情 ></a></label>
+							<label style="margin-left: 20px;"><a href="#"
+								class="details">查看详情 ></a></label>
+						</div>
+						<div class="offline_list" style="margin-top: 30px;">
+							<a href="#"><img alt=""
+								src="resource/image/3736651_1426063184096_800x600.jpg"></a> <label><a
+								href="#" class="titles"> 【乐活在星堡】夏日好心情 走近星堡消暑音乐会</a></label>
+							<p>2017年仲夏八月，在星堡浦江老年社区的活动中心展开了一场别开生面的生快派对和消暑音乐节。这次演唱会邀请了来自各个社区的热爱音乐的长者。对于热爱..</p>
+							<label style="margin-left: 20px;"><a href="#"
+								class="details">查看详情 ></a></label>
 						</div>
 						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
 					</div>
-					
-				<div class=" Lecture">
+
+					<div class=" Lecture">
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">讲座中心</label>
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="offline_list">
-							<img alt=""
-								src="resource/image/3736651_1426063184096_800x600.jpg"> <label><a
+							<a href="#"><img alt=""
+								src="resource/image/3736651_1426063184096_800x600.jpg"></a> <label><a
 								href="#" class="titles"> 【乐活在星堡】夏日好心情 走近星堡消暑音乐会</a></label>
 							<p>2017年仲夏八月，在星堡浦江老年社区的活动中心展开了一场别开生面的生快派对和消暑音乐节。这次演唱会邀请了来自各个社区的热爱音乐的长者。对于热爱..</p>
-							<label style="margin-left: 20px;"><a href="#" class="details">查看详情 ></a></label>
+							<label style="margin-left: 20px;"><a href="#"
+								class="details">查看详情 ></a></label>
 						</div>
 					</div>
 				</div>
