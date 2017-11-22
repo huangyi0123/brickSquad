@@ -41,6 +41,7 @@ public class BuyersServiceImpl implements BuyersService {
 	@Autowired
 	@Qualifier("personalInformationMapper")
 	private PersonalInformationMapper personalInformationMapper;
+
 	/**
 	 * 将address的id获取到buyers对象中
 	 */
@@ -123,54 +124,65 @@ public class BuyersServiceImpl implements BuyersService {
 
 	@Override
 	public String getBuyGrade(String userId) {
-		Map<String, Object> map=new HashMap<String, Object>();
-		Buyers buyers=buyersMapper.findBuyersById(userId);
-		if (buyers==null) {
-			PersonalInformation personalInformation=personalInformationMapper.findPersonalInformationById(userId);
-			if (personalInformation.getAddressId()==null) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Buyers buyers = buyersMapper.findBuyersById(userId);
+		if (buyers == null) {
+			PersonalInformation personalInformation = personalInformationMapper
+					.findPersonalInformationById(userId);
+			if (personalInformation.getAddressId() == null) {
 				map.put("state", "error");
 				map.put("msg", "请完善个人地址");
-			}else {
-				buyers=new Buyers();
+			} else {
+				buyers = new Buyers();
 				buyers.setId(userId);
 				buyers.setDeliveryAddressId(personalInformation.getAddressId());
 				try {
 					buyersMapper.insertBuyers(buyers);
-					
+
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-		}else {
-			int grade=buyers.getHistoricalIntegral();
+		} else {
+			int grade = buyers.getHistoricalIntegral();
 			map.put("Integral", grade);
 			map.put("grade", Common.rank(grade));
 			map.put("state", "success");
 			map.put("data", buyers);
 		}
-		JSONArray jsonArray=JSONArray.fromObject(map);
+		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}
 
 	@Override
 	public String getBuyAddress(String userId) {
-		List<Address> addresses=addressMapper.findAddressByBuyersId(userId);
+		List<Address> addresses = addressMapper.findAddressByBuyersId(userId);
 		for (Address address : addresses) {
-			address.setDetailed(addressMapper.findByIdAllAddress(address.getId()));
+			address.setDetailed(addressMapper.findByIdAllAddress(address
+					.getId()));
 		}
-		JSONArray jsonArray=JSONArray.fromObject(addresses);
+		JSONArray jsonArray = JSONArray.fromObject(addresses);
 		return jsonArray.toString();
 	}
 
 	@Override
 	public String getBuyAdd(String addressid) {
-		Address address=addressMapper.findAddressByAddressId(addressid);
-		List<Select> por=regionMapper.findRegionsByLevel(1);
-		Map<String, Object> map=new HashMap<String, Object>();
+		Address address = addressMapper.findAddressByAddressId(addressid);
+		List<Select> por = regionMapper.findRegionsByLevel(1);
+		List<Select> city = regionMapper.findRegionsByParentId(address
+				.getCityId());
+		List<Select> county = regionMapper.findRegionsByParentId(address
+				.getCountyId());
+		List<Select> country = regionMapper.findRegionsByParentId(address
+				.getCountryId());
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("address", address);
 		map.put("por", por);
-		JSONArray jsonArray=JSONArray.fromObject(map);
+		map.put("city", city);
+		map.put("county", county);
+		map.put("country", country);
+		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}
 
