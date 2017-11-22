@@ -5,6 +5,7 @@ import java.util.List;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -47,4 +48,12 @@ public interface ActivitiesMapper {
 	/**
 	 * 查询活动名称 ,用于首页的报名回显*/
 	public List<Activities> findActivityName();
+	/**
+	 * 根据关键字模糊查询活动名称
+	 * */
+	public List<Activities> findActivitesName(PageBeanUtil pageBean);
+	/**
+	 * 根据关键字模糊查询活动名称总数
+	 * */
+	public int findCountActivitesName(PageBeanUtil pageBeanUtil);
 }

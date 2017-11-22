@@ -24,6 +24,7 @@ import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ActivitiesService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/activities")
@@ -180,6 +181,21 @@ public class ActivitiesController {
 	@ResponseBody
 	public String findAllTypeAndUser() {
 		return activitiesService.findAllTypeAndUser();
+	}
+	/**
+	 * 根据关键字模糊查询活动名称
+	 * @throws Exception 
+	 * */
+	@RequestMapping("/findActivitesName")
+	public String findActivitesName(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
+		String type="aboutus-intro";
+		int page=pageBean.getPage();
+		String search=pageBean.getSearch();
+		PageBeanUtil<Activities> paBean= activitiesService.findActivitesName(page, search);
+		request.setAttribute("pageBean", paBean);
+		request.setAttribute("type", type);
+		request.setAttribute("findActivitesName", "findActivitesName");
+		return "offical_website/search-template";
 	}
 
 }

@@ -18,6 +18,7 @@ import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ActivitiesService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -126,6 +127,80 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 		JSONArray jsonArray=new JSONArray();
 		String data=jsonArray.fromObject(listArticities).toString();
 		return data;
+	}
+
+	@Override
+	/**
+	 * 根据关键字模糊查询活动名称
+	 * */
+	public PageBeanUtil<Activities> findActivitesName(int page, String search)
+			throws Exception {
+		PageBeanUtil<Activities> pageBean = new PageBeanUtil<Activities>();
+		pageBean.setSearch(search);
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountActivitesName(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<Activities> list = activitiesMapper.findActivitesName(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountActivitesName(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<Activities> list = activitiesMapper.findActivitesName(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**
+	 * 根据关键字模糊查询活动名称总数
+	 * */
+	public int findCountActivitesName(PageBeanUtil pageBeanUtil)
+			throws Exception {
+		int count =activitiesMapper.findCountActivitesName(pageBeanUtil);
+		return count;
 	}
 
 }

@@ -93,6 +93,18 @@
 		WHERE a.id = #{id,jdbcType=VARCHAR}
 
 	</select>
-
+	<select id="findActivitesName" resultType="activities"
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT id, name 
+	FROM activities 
+	WHERE `name` REGEXP  #{search}
+	</select>
+	<select id="findCountActivitesName" resultType="int"
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT COUNT(*) 
+	FROM activities 
+	WHERE `name` REGEXP  #{search}
+	</select>
+	
 
 </mapper>

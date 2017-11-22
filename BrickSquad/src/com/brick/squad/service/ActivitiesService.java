@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.Type;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface ActivitiesService {
@@ -37,5 +39,13 @@ public interface ActivitiesService {
 	/**
 	 * 查询活动名称 ,用于首页的报名回显*/
 	public String findActivityName()throws Exception;
+	/**
+	 * 根据关键字模糊查询活动名称
+	 * */
+	public  PageBeanUtil<Activities>  findActivitesName(int page,String search )throws Exception;
+	/**
+	 * 根据关键字模糊查询活动名称总数
+	 * */
+	public int findCountActivitesName(PageBeanUtil pageBeanUtil)throws Exception;
 
 }

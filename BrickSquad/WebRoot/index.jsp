@@ -377,7 +377,7 @@ function search(){
 			<!-- start search-->
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
-					<form>
+					<form method="get" action="activities/findActivitesName">
 						<input class="sb-search-input" placeholder="请输入您的关键字..."
 							type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
@@ -385,7 +385,7 @@ function search(){
 					</form>
 				</div>
 			</div>
-
+	
 			<div class="clearfix"></div>
 		</div>
 		<div class="layui-carousel" id="test10">
