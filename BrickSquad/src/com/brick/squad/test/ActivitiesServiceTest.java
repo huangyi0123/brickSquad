@@ -28,6 +28,16 @@ public class ActivitiesServiceTest {
 	private ActivitiesService activitiesService;
 
 	@Test
+	public void findActivitiesMovieByTypeIdTest() throws Exception {
+
+		List<Activities> list = activitiesService
+				.findActivitiesMovieByTypeId("tiaowu");
+		for (Activities activities : list) {
+			System.out.println(activities.toString());
+		}
+	}
+
+	@Test
 	public void findActivitiesById() throws Exception {
 		Activities activities = activitiesService.findActivitiesById("1");
 		System.out.println(activitiesService.findActivitiesById("1").getName());

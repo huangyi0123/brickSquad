@@ -19,11 +19,8 @@ import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.service.ActivitiesService;
-
 import com.brick.squad.util.PageBeanUtil;
-
 import com.brick.squad.util.Filter;
-
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -44,15 +41,15 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 
 	@Override
 	public Activities findActivitiesById(String id) throws Exception {
-		Activities activities=activitiesMapper.findActivitiesById(id);
-		activities=(Activities) Filter.filterObject(activities);
+		Activities activities = activitiesMapper.findActivitiesById(id);
+		activities = (Activities) Filter.filterObject(activities);
 		return activities;
 	}
 
 	@Override
 	public void insertActivitiesById(Activities activities) throws Exception {
 		// TODO Auto-generated method stub
-		activities=(Activities) Filter.filterObject(activities);
+		activities = (Activities) Filter.filterObject(activities);
 		activitiesMapper.insertActivities(activities);
 	}
 
@@ -65,7 +62,7 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	@Override
 	public void updateActivitiesById(Activities activities) throws Exception {
 		// TODO Auto-generated method stub
-		activities=(Activities) Filter.filterObject(activities);
+		activities = (Activities) Filter.filterObject(activities);
 		activitiesMapper.updateActivitiesById(activities);
 	}
 
@@ -75,9 +72,9 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 
 		List<Activities> listactivities = activitiesMapper
 				.activitiesPagination(pagination);
-for (Activities activities : listactivities) {
-	activities=(Activities) Filter.filterObject(activities);
-}
+		for (Activities activities : listactivities) {
+			activities = (Activities) Filter.filterObject(activities);
+		}
 		int row = activitiesMapper.findActivitiesAllCount();
 
 		Util<Activities> util = new Util<Activities>();
@@ -93,11 +90,12 @@ for (Activities activities : listactivities) {
 	}
 
 	@Override
-	public String findAllActivities() throws Exception{
+	public String findAllActivities() throws Exception {
 		List<ActivitiesExpand> activities = activitiesMapper
 				.findAllActivities();
 		for (ActivitiesExpand activitiesExpand : activities) {
-			activitiesExpand=(ActivitiesExpand) Filter.filterObject(activitiesExpand);
+			activitiesExpand = (ActivitiesExpand) Filter
+					.filterObject(activitiesExpand);
 		}
 		JSONArray jsonArray = new JSONArray();
 		String data = jsonArray.fromObject(activities).toString();
@@ -105,14 +103,14 @@ for (Activities activities : listactivities) {
 	}
 
 	@Override
-	public String findAllTypeAndUser()throws Exception {
+	public String findAllTypeAndUser() throws Exception {
 		List<Select> user = userMapper.findAllUser();
 		for (Select select : user) {
-			select=(Select) Filter.filterObject(select);
+			select = (Select) Filter.filterObject(select);
 		}
 		List<Select> type = typeMapper.findTypeByParentId("lrhd");
 		for (Select select : type) {
-			select=(Select) Filter.filterObject(select);
+			select = (Select) Filter.filterObject(select);
 		}
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("user", user);
@@ -123,10 +121,12 @@ for (Activities activities : listactivities) {
 	}
 
 	@Override
-	public ActivitiesExpand findActivitiesAndTpyeAndUser(String id) throws Exception {
+	public ActivitiesExpand findActivitiesAndTpyeAndUser(String id)
+			throws Exception {
 		ActivitiesExpand activitiesExpand = activitiesMapper
 				.findActivitiesAndTpyeAndUser(id);
-		activitiesExpand=(ActivitiesExpand) Filter.filterObject(activitiesExpand);
+		activitiesExpand = (ActivitiesExpand) Filter
+				.filterObject(activitiesExpand);
 		return activitiesExpand;
 	}
 
@@ -135,7 +135,7 @@ for (Activities activities : listactivities) {
 		// TODO Auto-generated method stub
 		List<Select> list = activitiesMapper.findAllActivitiesIdAndName();
 		for (Select select : list) {
-			select=(Select) Filter.filterObject(select);
+			select = (Select) Filter.filterObject(select);
 		}
 		JSONArray jsonArray = new JSONArray();
 		String dataString = jsonArray.fromObject(list).toString();
@@ -146,12 +146,12 @@ for (Activities activities : listactivities) {
 	/**
 	 * 查询活动名称 ,用于首页的报名回显*/
 	public String findActivityName() throws Exception {
-		List<Activities> listArticities=activitiesMapper.findActivityName();
+		List<Activities> listArticities = activitiesMapper.findActivityName();
 		for (Activities activities : listArticities) {
-			activities=(Activities) Filter.filterObject(activities);
+			activities = (Activities) Filter.filterObject(activities);
 		}
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(listArticities).toString();
+		JSONArray jsonArray = new JSONArray();
+		String data = jsonArray.fromObject(listArticities).toString();
 		return data;
 	}
 
@@ -167,7 +167,7 @@ for (Activities activities : listactivities) {
 			page = 1;
 			// 设置当前页数:
 			pageBean.setPage(page);
-			
+
 			// 设置每页显示记录数:
 			int limit = 4;
 			pageBean.setLimitPage(limit);
@@ -188,7 +188,8 @@ for (Activities activities : listactivities) {
 			// 从哪开始:
 			int begin = (page - 1) * limit;
 			pageBean.setBegin(begin);
-			List<Activities> list = activitiesMapper.findActivitesName(pageBean);
+			List<Activities> list = activitiesMapper
+					.findActivitesName(pageBean);
 			pageBean.setList(list);
 		} else {
 			// 设置当前页数:
@@ -213,7 +214,8 @@ for (Activities activities : listactivities) {
 			// 从哪开始:
 			int begin = (page - 1) * limit;
 			pageBean.setBegin(begin);
-			List<Activities> list = activitiesMapper.findActivitesName(pageBean);
+			List<Activities> list = activitiesMapper
+					.findActivitesName(pageBean);
 			pageBean.setList(list);
 		}
 		return pageBean;
@@ -225,8 +227,19 @@ for (Activities activities : listactivities) {
 	 * */
 	public int findCountActivitesName(PageBeanUtil pageBeanUtil)
 			throws Exception {
-		int count =activitiesMapper.findCountActivitesName(pageBeanUtil);
+		int count = activitiesMapper.findCountActivitesName(pageBeanUtil);
 		return count;
+	}
+
+	@Override
+	public List<Activities> findActivitiesMovieByTypeId(String typeId)
+			throws Exception {
+		List<Activities> list = activitiesMapper
+				.findActivitiesMovieByTypeId(typeId);
+		for (Activities activities : list) {
+			activities = (Activities) Filter.filterObject(activities);
+		}
+		return list;
 	}
 
 }

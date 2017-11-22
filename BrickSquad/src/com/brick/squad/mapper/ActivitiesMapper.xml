@@ -2,18 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ActivitiesMapper">
-
+<!--根据类型ID查询视频路径，用于官网线上视频  -->
+	<select id="findActivitiesMovieByTypeId" resultType="activities"
+		parameterType="String">
+		select id,name,centent,type_id typeId,start_time
+		startTime,end_time
+		endTime,user_id userId,number,movie from activities
+		where
+		movie is not null and
+		type_id=#{typeId}
+	</select>
 	<!-- 查询 -->
 	<select id="findActivitiesById" resultType="activities"
 		parameterType="String">
 		select id,name,centent,type_id typeId,start_time
 		startTime,end_time
-		endTime,user_id userId,number from activities where
+		endTime,user_id userId,number,movie from activities
+		where
 		id=#{id}
 	</select>
-	<!-- 查询活动名称 ,用于首页的报名回显-->
+	<!-- 查询活动名称 ,用于首页的报名回显 -->
 	<select id="findActivityName" resultType="activities">
-	SELECT id,name FROM activities
+		SELECT id,name FROM
+		activities
 	</select>
 
 	<insert id="insertActivities" parameterType="activities">
@@ -49,14 +60,18 @@
 	<select id="activitiesPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ActivitiesExpand">
 		SELECT a.id,u.username,t.`name` tname,a.centent,a.`name`
-		,a.start_time startTime,a.end_time endTime,a.number
+		,a.start_time
+		startTime,a.end_time endTime,a.number
 		from activities a
-		INNER JOIN type t ON a.type_id =t.id INNER
+		INNER JOIN type
+		t ON a.type_id =t.id INNER
 		JOIN `user` u ON
 		a.user_id=u.id
 		<if test="keyword!=''and keyword!=null">
-		WHERE u.username REGEXP #{keyword} or t.`name` REGEXP #{keyword}
-		 or a.`name` REGEXP #{keyword} or a.centent REGEXP #{keyword}
+			WHERE u.username REGEXP #{keyword} or t.`name` REGEXP
+			#{keyword}
+			or a.`name` REGEXP #{keyword} or a.centent REGEXP
+			#{keyword}
 		</if>
 		limit #{skipNum},#{takeNum}
 	</select>
@@ -65,7 +80,8 @@
 	<select id="findActivitiesAllCount" resultType="int">
 		select count(*)
 		from activities a INNER JOIN type t ON a.type_id =t.id INNER
-		JOIN `user` u ON a.user_id=u.id
+		JOIN
+		`user` u ON a.user_id=u.id
 	</select>
 
 
@@ -74,10 +90,11 @@
 		select
 		activities.centent from activities
 	</select>
-	
+
 	<!-- 查询活动中的id和活动名称 -->
 	<select id="findAllActivitiesIdAndName" resultType="com.brick.squad.util.Select">
-	select id,name from activities
+		select
+		id,name from activities
 	</select>
 
 	<select id="findActivitiesAndTpyeAndUser" parameterType="java.lang.String"
@@ -94,17 +111,19 @@
 
 	</select>
 	<select id="findActivitesName" resultType="activities"
-	parameterType="com.brick.squad.util.PageBeanUtil">
-	SELECT id, name 
-	FROM activities 
-	WHERE `name` REGEXP  #{search}
+		parameterType="com.brick.squad.util.PageBeanUtil">
+		SELECT id, name
+		FROM activities
+		WHERE `name` REGEXP
+		#{search}
 	</select>
 	<select id="findCountActivitesName" resultType="int"
-	parameterType="com.brick.squad.util.PageBeanUtil">
-	SELECT COUNT(*) 
-	FROM activities 
-	WHERE `name` REGEXP  #{search}
+		parameterType="com.brick.squad.util.PageBeanUtil">
+		SELECT COUNT(*)
+		FROM activities
+		WHERE `name` REGEXP
+		#{search}
 	</select>
-	
+
 
 </mapper>

@@ -10,6 +10,15 @@ import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface ActivitiesService {
+
+	/**
+	 * 根据类型ID查询视频路径，用于官网线上视频
+	 * 
+	 * @param typeId
+	 *            类型id
+	 * @return
+	 */
+	public List<Activities> findActivitiesMovieByTypeId(String typeId) throws Exception;
 	/**
 	 * 
 	 * @param id
