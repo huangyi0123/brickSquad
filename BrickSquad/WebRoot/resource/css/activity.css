@@ -65,17 +65,11 @@
 	height: 200px;
 	margin-left: 28px;
 }
-/* .act_float{
-	wid
-	border: 1px solid blue;
-} */
-/* .layui-row a:HOVER {
-	opacity: 0.4;
-	filter: Alpha(opacity = 50);
-} */
-.act_bg{
+
+.act_bg {
 	z-index: 3;
 }
+
 .act_bg:HOVER {
 	opacity: 0.7;
 	filter: Alpha(opacity = 50);
