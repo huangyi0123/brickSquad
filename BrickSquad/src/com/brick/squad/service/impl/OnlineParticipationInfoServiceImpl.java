@@ -36,10 +36,12 @@ public class OnlineParticipationInfoServiceImpl implements
 	public String findOnlineParticipationInfoPagination(Pagination pagination) throws Exception {
 		List<OnlineParticipationInfo> list = onlineParticipationInfoMapper
 				.findOnlineParticipationInfoPagination(pagination);
+	
 		for (OnlineParticipationInfo onlineParticipationInfo : list) {
 			onlineParticipationInfo = (OnlineParticipationInfo) Filter
 					.filterObject(onlineParticipationInfo);
 		}
+
 		int row = list.size();
 		Util<OnlineParticipationInfo> oUtil = new Util<OnlineParticipationInfo>();
 		String dataString = oUtil.SplitPage(list, row);
