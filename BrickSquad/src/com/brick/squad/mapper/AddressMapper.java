@@ -26,4 +26,5 @@ public interface AddressMapper {
 
 	// 根据id查询出所有地址 拼接地址
 	public String findByIdAllAddress(String id);
+	public Address findAddressByAddressId(String addressId);
 }

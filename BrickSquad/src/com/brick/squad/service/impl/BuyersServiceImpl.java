@@ -163,4 +163,15 @@ public class BuyersServiceImpl implements BuyersService {
 		return jsonArray.toString();
 	}
 
+	@Override
+	public String getBuyAdd(String addressid) {
+		Address address=addressMapper.findAddressByAddressId(addressid);
+		List<Select> por=regionMapper.findRegionsByLevel(1);
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("address", address);
+		map.put("por", por);
+		JSONArray jsonArray=JSONArray.fromObject(map);
+		return jsonArray.toString();
+	}
+
 }

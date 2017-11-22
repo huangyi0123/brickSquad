@@ -57,4 +57,10 @@ public interface BuyersService {
 	 * @return 地址列表集合
 	 */
 	public String getBuyAddress(String userId);
+	/**
+	 * 根据地址id查询地址信息
+	 * @param addressid 地址id
+	 * @return 地址信息
+	 */
+	public String getBuyAdd(String addressid);
 }

@@ -11,16 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>活动界面</title>
-
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<title>活动</title>
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/laysui/css/layui.css" media="all">
 <link rel="stylesheet" type="text/css" href="resource/css/activity.css">
@@ -28,8 +19,13 @@
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-
-
+<script type="text/javascript" src="resource/js/index_activity.js"></script>
+<script type="text/javascript">
+$(function() {
+	var type = '${type}';
+	init(type);
+});
+</script>
 </head>
 
 <body>
@@ -39,20 +35,20 @@
 			<div class="activity_main_left">
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
 					style="margin-right: 10px;" id="menu">
-					<li class="layui-nav-item" val="aboutus-intro"><a
-						href="javascript:;">线上直播</a></li>
+					<li class="layui-nav-item" val="online_course"><a
+						href="javascript:;" >线上直播</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-use"><a
-						href="javascript:;">线下活动</a></li>
+					<li class="layui-nav-item" val="offline_course"><a
+						href="javascript:;" >线下活动</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 
 				<label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="javascript:;" onclick="openOnlineParticipation()"
+					href="common/toWebsiteTemplate?type=parti-online" 
 					style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
-			<div class="activity_main_right">
+			<div class="activity_main_right" id="centent">
 				<!----------------------------------- 线上课程 ---------------------------------->
 				<div class="online_course">
 
@@ -267,12 +263,6 @@
 
 			</div>
 		</div>
-
-
 	</div>
-
-
-
-
 </body>
 </html>
