@@ -82,9 +82,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</h2>
 			<p>
 				版权 &copy; 2017.团 队 名  7brickSquad.更多
-				咨询 <a href="http://www.yanglebao.com/" target="_blank"
+				咨询 <a href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank"
 					title="老人之家">老人之家</a> - 来源 <a
-					href="http://www.yanglebao.com/" title="网页模板" target="_blank">搬砖小分队</a>
+					href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队" target="_blank">搬砖小分队</a>
 			</p>
 			<ul>
 				<li><a class="face1" href="#"></a></li>
