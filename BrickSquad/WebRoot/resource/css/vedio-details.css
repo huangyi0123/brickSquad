@@ -19,12 +19,38 @@
 	border: 1px solid red;
 }
 
+.layui-row .vedio_plays {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 45px;
+	left: 70px;
+	z-index: 99;
+}
+.vedio_recom>a>img[class='vedio_plays']:hover{
+	opacity: 0.7;
+}
+.vedio_bg:hover{
+	opacity: 0.7;
+	filter: Alpha(opacity = 50);
+}
+.rbtj>li{
+}
+.vedio_bg {
+	z-index: 3;
+}
+
+.vedio_recom .vedio_bg:HOVER {
+	opacity: 0.7;
+	filter: Alpha(opacity = 50);
+}
+
 .vedio_recom {
 	width: 100%;
 	height: 460px;
 	float: left;
 	margin-top: 20px;
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 }
 
 .vedio_recom label {
@@ -33,40 +59,78 @@
 }
 
 .vedio_recom a:HOVER {
-	text-decoration: none;
+	/* background-image:url('resource/image/3736651_1426063184096_800x600.jpg'); */
 	color: #48CFC1;
+	text-decoration: none;
 }
 
 .vedio_recom img {
-	display:block;
+	display: block;
+	width: 220px;
+	height: 120px;
 	width: 220px;
 	height: 120px;
 	margin: 30px 0px;
 }
 
-.vedio_guess{
-	width:85%;
-	margin-left:120px;
-	border: 1px solid green;
+.vedio_guess {
+	width: 85%;
+	height: 200px;
+	margin-left: 120px;
+	/* border: 1px solid green; */
 }
 
-.vedio_guess .more{
-	float:right;
-	margin-right:25px;
+.vedio_guess .more {
+	float: right;
+	margin-right: 25px;
 }
 
-.vedio_guess .more:HOVER{
+.vedio_guess .more:HOVER {
 	text-decoration: none;
-	color:#48CFC1;
+	color: #48CFC1;
 }
-.vedio_info .vedio_guess label{
-	color:#48CFC1;
+
+.vedio_info .vedio_guess label {
+	color: #48CFC1;
 	font-size: 1.2em;
 }
 
-.vedio_info .vedio_guess img{
-	width:220px;
-	height:150px;
+.vedio_info .vedio_guess img {
+	width: 220px;
+	height: 150px;
 	margin-top: 10px;
 	margin-left: 35px;
+}
+
+.vedio_details {
+	width: 100%;
+	height: 200px;
+}
+
+.vedio_comm{
+	width:85%;
+	margin-left:120px;
+	border: 1px solid red;
+}
+.vedio_comm label{
+	font-size: 1.2em;
+	color:#48CFC1;
+	letter-spacing: 5px;
+}
+
+.vedio_comm .layui-textarea{
+	display:block;
+	width: 750px;
+	margin-left: -110px;
+	margin-top:10px;
+	border: 1px solid #DEDEDE !important;
+	
+}
+
+.vedio_comm .layui-textarea:hover{
+	border: 1px solid #DEDEDE !important;
+}
+
+.vedio_comm .layui-textarea:focus{
+	border: 1px solid #DEDEDE !important;
 }
