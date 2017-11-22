@@ -78,13 +78,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="footer">
 		<div class="container">
 			<h2>
-				<a href="index.html">Easy Recharge</a>
+				<a href="index.html">养乐堡</a>
 			</h2>
 			<p>
-				Copyright &copy; 2016.Company name All rights reserved.More
-				Templates <a href="http://www.cssmoban.com/" target="_blank"
-					title="模板之家">模板之家</a> - Collect from <a
-					href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+				版权 &copy; 2017.团 队 名  7brickSquad.更多
+				咨询 <a href="http://www.yanglebao.com/" target="_blank"
+					title="老人之家">老人之家</a> - 来源 <a
+					href="http://www.yanglebao.com/" title="网页模板" target="_blank">搬砖小分队</a>
 			</p>
 			<ul>
 				<li><a class="face1" href="#"></a></li>

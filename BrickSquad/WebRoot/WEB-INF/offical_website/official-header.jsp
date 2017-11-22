@@ -153,11 +153,11 @@
 <body>
 	<div class="header" style="height: 66px;">
 		<div class="logo">
-			<h1>
-				<a href="index.html"><i><img src="resource/image/cell.png"
-						alt=" " /></i>Easy Recharge</a>
-			</h1>
-		</div>
+				<h1>
+					<a href="index.html"><i><img src="resource/image/cell.png"
+							alt=" " /></i>养乐堡</a>
+				</h1>
+			</div>
 		<div class="top-nav">
 			<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
 			<ul class="layui-nav"
@@ -192,19 +192,19 @@
 						</dd>
 					</dl></li>
 
-				<li class="layui-nav-item"><a href="">乐堡服务</a>
+				<li class="layui-nav-item"><a href="common/serverWebsiteTemplate?type=aboutus-intro">乐堡服务</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="">体检预约</a>
+							<a href="common/serverWebsiteTemplate?type=aboutus-intro">体检预约</a>
 						</dd>
 						<dd>
-							<a href="">生活助手</a>
+							<a href="common/serverWebsiteTemplate?type=aboutus-use">生活助手</a>
 						</dd>
 						<dd>
-							<a href="">独立生活</a>
+							<a href="common/serverWebsiteTemplate?type=aboutus-join">独立生活</a>
 						</dd>
 						<dd>
-							<a href="">康复协助</a>
+							<a href="common/serverWebsiteTemplate?type=aboutus-cont">康复协助</a>
 						</dd>
 					</dl></li>
 				<li class="layui-nav-item"><a

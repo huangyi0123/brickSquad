@@ -393,14 +393,7 @@ function buyaddress() {
 												+ '</th>'
 												+ '<th>'
 												+ this.detailed
-												+ '</th>'
-												+ '<th style="text-align: center;">'
-												+ '<a title="修改" href="javascript:;" onclick="updateAddress(\''
-												+ this.id
-												+ '\')"><i class="fa fa-pencil-square-o"></i></a>'
-												+ '&nbsp;|&nbsp;'
-												+ '<a title="删除" href="javascript:;"><i class="fa fa-trash-o"></i></a>'
-												+ '</th>' + '</tr>';
+												+ '</th>'+ '</tr>';
 										$("#buyaddtable").append(html);
 									});
 				}
@@ -419,6 +412,11 @@ function updateAddress(id) {
 				$("#addDetailed").val(data[0].address.detailed);
 				var da = data[0].por;
 				printSelect("#addPor", da, data[0].address.provinceId);
+				printSelect("#addcity", data[0].city, data[0].address.cityId);
+				printSelect("#addcounty", data[0].county,
+						data[0].address.countryId);
+				printSelect("#addcountry", data[0].country,
+						data[0].address.countryId)
 			}
 		});
 
