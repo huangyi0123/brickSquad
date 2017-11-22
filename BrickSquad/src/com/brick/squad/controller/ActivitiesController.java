@@ -90,12 +90,8 @@ public class ActivitiesController {
 			String filName = files.getOriginalFilename();
 			// 获取当前文件的后缀名
 			String fileSuffixName = filName.substring(filName.lastIndexOf("."));
-			// 如果后缀名为mp4、mpg、avi、f4v,才允许上传
-			if (fileSuffixName.equals(".mp4") || fileSuffixName.equals(".mpg")
-					|| fileSuffixName.equals(".avi")
-					|| fileSuffixName.equals(".f4v")
-					|| fileSuffixName.equals(".MP4") ) {
-				
+			// 如果后缀名为mp4,才允许上传
+			if (fileSuffixName.equals(".mp4")|| fileSuffixName.equals(".MP4") ) {
 				//  创建文件类型对象: 
 				File file = new File(path, filName);
 				if (!file.exists()) {
