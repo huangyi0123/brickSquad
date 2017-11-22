@@ -10,4 +10,8 @@
 		OnlineParticipationInfo(id,username,sex,phone,age,email,IsLiveAlone,activities,pensionService,submit_time)
 		VALUES(#{id},#{userName},#{sex},#{phone},#{age},#{email},#{IsLiveAlone},#{activities},#{pensionService},#{submitTime})
 	</insert>
+	<select id="findOnlineParticipationInfoPagination" parameterType="com.brick.squad.util.Pagination" resultType="onlineParticipationInfo">
+	select id,username,sex,phone,age,email,IsLiveAlone,activities,pensionService,submit_time submitTime from OnlineParticipationInfo
+	limit #{skipNum},#{takeNum}
+	</select>
 </mapper>

@@ -10,6 +10,7 @@ import com.brick.squad.expand.ReservationPaginationExpand;
 import com.brick.squad.mapper.ReservationMapper;
 import com.brick.squad.pojo.Reservation;
 import com.brick.squad.service.ReservationService;
+import com.brick.squad.util.Filter;
 import com.brick.squad.util.Util;
 
 @Transactional
@@ -24,6 +25,7 @@ public class ReservationServiceImpl implements ReservationService {
 	 * 
 	 * */
 	public void insertReservation(Reservation reservation) throws Exception {
+		reservation=(Reservation) Filter.filterObject(reservation);
 		reservationMapper.insertReservation(reservation);
 	}
 
@@ -36,6 +38,9 @@ public class ReservationServiceImpl implements ReservationService {
 
 		List<Reservation> listReservations = reservationMapper
 				.ReservationPagination(reservationPaginationExpand);
+		for (Reservation reservation : listReservations) {
+			reservation=(Reservation) Filter.filterObject(reservation);
+		}
 		int row = listReservations.size();
 		Util<Reservation> utilReservation = new Util<Reservation>();
 		String data = utilReservation.SplitPage(listReservations, row);

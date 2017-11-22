@@ -34,7 +34,7 @@
 <script type="text/javascript"
 	src="resource/plugins/grid_manager/GridManager.min.js"></script>
 <script type="text/javascript"
-	src="resource/js/reservation_list.js"></script>
+	src="resource/js/onlineParticipationInfo_list.js"></script>
 <script type="text/javascript"
 	src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript"
