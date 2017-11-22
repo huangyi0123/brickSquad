@@ -3,7 +3,9 @@ package com.brick.squad.service;
 import java.util.List;
 
 import com.brick.squad.expand.TypeExpand;
+import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -82,4 +84,12 @@ public interface TypeService {
 	 * 查询所有的商品类别，用于搜索框
 	 * */
 	public List<Type> findAllTypeByParentId(String parentId)throws Exception;
+	/**
+	 * 官网首页搜索
+	 * */
+	public PageBeanUtil<Type> searchName(int page,String search)throws Exception;
+	/**
+	 * 查询总数根据关键字
+	 * */
+	public int findCountSearch(PageBeanUtil pageBean)throws Exception;
 }

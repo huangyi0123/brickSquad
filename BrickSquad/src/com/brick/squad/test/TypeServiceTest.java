@@ -12,6 +12,7 @@ import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.JunitClassRunner;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -103,5 +104,12 @@ public class TypeServiceTest {
 		for(Type type:list){
 			System.out.println(type.getName());
 		}
+	}
+	@Test
+	public void fingCountSearch() throws Exception{
+		PageBeanUtil pageBean=new PageBeanUtil<>();
+		pageBean.setSearch("店");
+		int count=typeService.findCountSearch(pageBean);
+		System.out.println(count);
 	}
 }

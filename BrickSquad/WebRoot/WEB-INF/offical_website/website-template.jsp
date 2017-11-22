@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>官网模板</title>
+<title>关于我们</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -34,27 +34,95 @@
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
-		var type='${type}';
-		$("#centent").find('div').hide();
-		$("."+type).show();
+		var type = '${type}';
+		$("#centent").children().hide();
+		$("." + type).show();
 		$("#menu").find('li').each(function() {
-			var val=$(this).attr('val');
-			if(val==type){
-				$(this).attr('class','layui-nav-item layui-this');
+			var val = $(this).attr('val');
+			if (val == type) {
+				$(this).attr('class', 'layui-nav-item layui-this');
+			} else {
+				$(".parti-online").show();
 			}
 		});
 		$("#menu").find('li').click(function() {
-			var cls="."+$(this).attr('val');
-			$("#centent").find('div').hide();
+			var cls = "." + $(this).attr('val');
+			$("#centent").children().hide();
 			$(cls).show();
+
 		});
 	});
 	function openOnlineParticipation() {
-		$("#centent").find('div').hide();
+		$("#centent").children().hide();
 		$("#menu").find('li').each(function() {
-				$(this).attr('class','layui-nav-item');
+			$(this).attr('class', 'layui-nav-item');
 		});
 		$(".parti-online").show();
+		layui.use('form', function() {
+			var form = layui.form, layer = layui.layer;
+			form.render();
+		});
+	}
+
+	function toSubmitForm() {
+		layui
+				.use(
+						'layer',
+						function() {
+							var layer = layui.layer;
+							var userName = $("#userName").val();
+							var phone = $("#phone").val();
+							var age = $("#age").val();
+							var email = $("#email").val();
+							if (userName == "") {
+								layer.msg("姓名不能为空！");
+							}else if (!userName.match(/^[\u4e00-\u9fa5]+$/)) {
+								layer.msg("名字必须为汉字!");
+							} 
+							else if (phone == "") {
+								layer.msg("手机号码不能为空!");
+							} else if ((age != "") && (!(age > 1)
+									|| !(age < 255)
+									|| (!(age.match(/^[0-9]+.?[0-9]*$/))))) {
+								layer.msg("年龄格式不符合要求!");
+							} else if (age == "") {
+								layer.msg("年龄不能为空!");
+							} else if (!(phone == "")
+									&& (!(phone.match(/^1[34578]\d{9}$/)))) {
+								layer.msg("手机号码格式不符合!");
+							} else if ((!(email == "") && !(email
+									.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)))) {
+								layer.msg("邮箱格式不符合!");
+							} else {
+								var index = layer.load(2, {
+									time : 10 * 1000
+								}); //又换了种风格，并且设定最长等待10秒
+								$
+										.ajax({
+											url : 'onlineParticipationInfo/userInsertOnlineParticipationInfo',
+											type : 'POST',
+											data : $("#onlineParticipationInfo")
+													.serialize(),
+											success : function(result) {
+												//关闭
+												layer.close(index);
+												if (result == "fail") {
+													layer.msg("请填写正确的数据格式！");
+												} else if (result == "success") {
+													layer.msg("提交成功！");
+													$("#centent").children()
+															.hide();
+													$(".aboutus-intro").show();
+												} else {
+													layer.msg("接口异常，稍后重试！");
+												}
+											},
+											error : function(e) {
+												layer.msg("接口异常，稍后重试！");
+											}
+										});
+							}
+						});
 	}
 </script>
 </head>
@@ -66,23 +134,28 @@
 			<div class="tem_main_left">
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
 					style="margin-right: 10px;" id="menu">
-					<li class="layui-nav-item" val="aboutus-intro"><a href="javascript:;" >乐堡简介</a></li>
-					<div style="width: 100%;height: 1px;background-color: #CCCCCC;" ></div>
-					<li class="layui-nav-item" val="aboutus-use"><a href="javascript:;" >快速上手</a></li>
+					<li class="layui-nav-item" val="aboutus-intro"><a
+						href="javascript:;">乐堡简介</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-join"><a href="javascript:;">加入我们</a></li>
+					<li class="layui-nav-item" val="aboutus-use"><a
+						href="javascript:;">快速上手</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-cont"><a href="javascript:;">联系我们</a></li>
+					<li class="layui-nav-item" val="aboutus-join"><a
+						href="javascript:;">加入我们</a></li>
+					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
+					<li class="layui-nav-item" val="aboutus-cont"><a
+						href="javascript:;">联系我们</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 
 				<label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="javascript:;" onclick="openOnlineParticipation()" style="color:white;font-stretch: normal;">在线参与</a></label>
+					href="javascript:;" onclick="openOnlineParticipation()"
+					style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
 			<!-- <div class="clearfix"></div> -->
 			<div class="tem_main_right" id="centent">
-			
+
 				<div class="aboutus-intro">
 					<h4>乐堡 —— 持续全程照料型养老社区</h4>
 					<p>星堡，即星堡（上海）投资咨询有限公司，由复星集团和美国峰堡集团于2012年合资成立，以“改善中国老年生活方式”为己任，立志于成为中国养老服务行业的领导者，为中国长者提供最好的养老服务！星堡也是上海现代服务业联合会养老服务专业委员会副主任单位。
@@ -165,6 +238,7 @@
 					<p>邮箱地址：hr@starcastleliving.com</p>
 					<p>联系电话：021-56508077/021-56508087</p>
 				</div>
+
 				<div class="aboutus-cont">
 					<h4>养老社区</h4>
 					<p>社区地址：</p>
@@ -182,79 +256,90 @@
 				</div>
 
 				<div class="parti-online">
-					<h4>欢迎来到星堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
-					<label>* 姓名：</label>
-					<div class="layui-input-inline">
-						<input type="tel" name="phone" lay-verify="required|phone"
-							autocomplete="off" class="layui-input">
-					</div>
-					<label>* 联系方式：</label>
-					<div class="layui-input-inline">
-						<input type="tel" name="phone" lay-verify="required|phone"
-							autocomplete="off" class="layui-input">
-					</div>
-					<label>* 邮箱：</label>
-					<div class="layui-input-inline">
-						<input type="tel" name="phone" lay-verify="required|phone"
-							autocomplete="off" class="layui-input">
-					</div>
-					<label>年龄：</label>
-					<div class="layui-input-inline">
-						<input type="tel" name="phone" lay-verify="required|phone"
-							autocomplete="off" class="layui-input">
-					</div>
-					<form class="layui-form" action="">
+					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
+					<form class="layui-form" id="onlineParticipationInfo" method="post">
+						<label>* 姓名：</label>
+						<div class="layui-input-inline">
+							<input id="userName" type="tel" name="userName"
+								lay-verify="required" autocomplete="off" class="layui-input">
+						</div>
+						<label>* 联系方式：</label>
+						<div class="layui-input-inline">
+							<input id="phone" type="tel" name="phone"
+								lay-verify="required|phone" autocomplete="off"
+								class="layui-input">
+						</div>
+						<label>邮箱(选填)：</label>
+						<div class="layui-input-inline">
+							<input type="tel" id="email" name="email" autocomplete="off"
+								class="layui-input">
+						</div>
+						<label>*年龄：</label>
+						<div class="layui-input-inline">
+							<input id="age" type="tel" name="age" lay-verify="required"
+								autocomplete="off" class="layui-input">
+						</div>
 						<div class="layui-form-item">
 							<label>是否与家人一起住：</label>
+							<div class="layui-form-item">
+								<div class="layui-input-block"
+									style="margin-left: 260px; width: 500px;margin-top: -25px;">
+									<input type="radio" name="IsLiveAlone" value="与家人在一起"
+										title="与家人在一起" checked="checked">
+									<input type="radio" name="IsLiveAlone" value="与家人不在一起"
+										title="与家人不在一起">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label>性别</label>
 							<div class="layui-input-block"
-								style="margin-left: 260px;margin-top: -30px;">
-								<input type="radio" name="sex" value="在一起" title="在一起"
-									checked="">
-								<input type="radio" name="sex" value="不在一起" title="不在一起">
+								style="margin-left: 260px; width: 500px;margin-top: -25px;">
+								<input type="radio" name="sex" value="男" title="男"
+									checked="checked">
+								<input type="radio" name="sex" value="女" title="女">
 							</div>
 						</div>
-					</form>
-
-					<form class="layui-form" action="">
-						<div class="layui-form-item" pane="">
+						<div class="layui-form-item">
 							<label>需要参加什么活动：</label>
-							<div class="layui-input-block" style="margin-left: 260px;margin-top: -26px;">
-								<input type="checkbox" name="like1[write]" lay-skin="primary"
-									title="宣传册" checked="">
-								<input type="checkbox" name="like1[read]" lay-skin="primary"
-									title="养生常识">
-								<input type="checkbox" name="like1[game]" lay-skin="primary"
-									title="乐堡新闻">
-								<input type="checkbox" name="like1[activity]" lay-skin="primary"
-									title="宣传活动">
-								<input type="checkbox" name="like1[deal]" lay-skin="primary"
-									title="优惠活动">
+							<div class="layui-input-block"
+								style="margin-left: 260px; width: 500px;margin-top: -25px;">
+								<input type="checkbox" name="activities" lay-skin="primary"
+									title="宣传册" checked="" value="宣传册">
+								<input type="checkbox" name="activities" lay-skin="primary"
+									title="养生常识" value="养生常识">
+								<input type="checkbox" name="activities" lay-skin="primary"
+									title="乐堡新闻" value="乐堡新闻">
+								<input type="checkbox" name="activities" lay-skin="primary"
+									title="宣传活动" value="宣传活动">
+								<input type="checkbox" name="activities" lay-skin="primary"
+									title="优惠活动" value="优惠活动">
 							</div>
 						</div>
-					</form>
-
-					<form class="layui-form" action="" style="position:relative; margin-top: -500px;">
-						<div class="layui-form-item" pane="">
+						<div class="layui-form-item" style="margin-top: -600px;">
 							<label>需要什么样的养老服务：</label>
-							<div class="layui-input-block" style="margin-left: 260px;margin-top: -26px;">
-								<input type="checkbox" name="like1[write]" lay-skin="primary"
-									title="体检预约" checked="">
-								<input type="checkbox" name="like1[read]" lay-skin="primary"
-									title="生活助手">
-								<input type="checkbox" name="like1[write]" lay-skin="primary"
-									title="独立生活">
-								<input type="checkbox" name="like1[read]" lay-skin="primary"
-									title="康复协助">
-								<input type="checkbox" name="like1[read]" lay-skin="primary"
-									title="其他">
-
+							<div class="layui-input-block"
+								style="margin-left: 260px; width: 500px;margin-top: -25px;">
+								<input type="checkbox" name="pensionService" lay-skin="primary"
+									value="体检预约" title="体检预约" checked="">
+								<input type="checkbox" name="pensionService" lay-skin="primary"
+									title="生活助手" value="生活助手">
+								<input type="checkbox" name="pensionService" lay-skin="primary"
+									title="独立生活" value="独立生活">
+								<input type="checkbox" name="pensionService" lay-skin="primary"
+									title="康复协助" value="康复协助">
+								<input type="checkbox" name="pensionService" lay-skin="primary"
+									title="其他" value="其他">
+							</div>
+						</div>
+						<div class="layui-form-item"
+							style="margin-top: -600px;text-align: center;">
+							<div class="layui-input-block">
+								<button type="button" class="layui-btn" onclick="toSubmitForm()">立即提交</button>
+								<button type="reset" class="layui-btn">重置</button>
 							</div>
 						</div>
 					</form>
-					<input value="提交信息"
-						style="display:block; text-align:center;font-size:1.2em;color:white; width: 150px;height: 35px;background-color: #A6F1E9;border: 1px solid #A6F1E9;border-radius:5px;margin-left: 210px;margin-top: -500px;">
-					<input value="重置"
-						style="text-align:center;font-size:1.2em;color:white; width: 150px;height: 35px;background-color: #D5D5D6;border: 1px solid #D5D5D6;border-radius:5px;margin-left: 440px;margin-top: -35px;">
 				</div>
 
 			</div>
@@ -280,9 +365,6 @@
 			element.on('nav(demo)', function(elem) {
 				//console.log(elem)
 			});
-		});
-		layui.use('form', function() {
-			var form = layui.form;
 		});
 	</script>
 </body>

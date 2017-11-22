@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.OnlineParticipationInfoMapper">
+	<insert id="insertOnlineParticipationInfo" parameterType="onlineParticipationInfo">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		insert into
+		OnlineParticipationInfo(id,username,sex,phone,age,email,IsLiveAlone,activities,pensionService,submit_time)
+		VALUES(#{id},#{userName},#{sex},#{phone},#{age},#{email},#{IsLiveAlone},#{activities},#{pensionService},#{submitTime})
+	</insert>
+</mapper>

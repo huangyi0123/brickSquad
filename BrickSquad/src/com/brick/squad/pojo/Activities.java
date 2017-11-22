@@ -27,8 +27,8 @@ public class Activities {
 	private Date endTime;
 	@NotEmpty(message = "请添加本次活动负责人")
 	private String userId;
-	@Min(value = 3, message = "人数不足")
-	@Max(value = 20, message = "人数过多")
+	@Min(value = 0, message = "人数不足")
+	@Max(value = 100000, message = "人数过多")
 	private int number;
 	private String movie;
 

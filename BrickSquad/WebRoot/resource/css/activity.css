@@ -1,14 +1,154 @@
 @CHARSET "UTF-8";
-.activity_body{
-	width:100%;
-	border: 1px solid blue;
+
+.activity_body {
+	width: 100%;
+	height: 100%;
 }
 
-.activity_carousel{
-	width:100%;
-	height:300px;
+.activity_main {
+	width: 100%;
+	background-color: white;
 }
 
-.layui-carousel img{
-	width:1349px;
+.activity_main_left {
+	float: left;
+	width: 20%;
+	height: 500px;
+	margin-left: 150px;
+	background-color: #EBEBEC;
+}
+
+.activity_main_left ul {
+	width: 100%;
+	color: black;
+	text-align: center;
+	margin-top: 50px;
+	background-color: #EBEBEC;
+}
+
+.activity_main_left .layui-nav .layui-nav-item a {
+	font-size: 1.2em;
+	text-decoration: none;
+	color: black;
+}
+
+.activity_main_right{
+	width: 60%;
+	display: block;
+	float: left;
+	margin-top: 30px;
+	border: 1px solid #EAEAEA;
+}
+
+.activity_excellent_course {
+	width: 100%;
+	display: block;
+	float: left;
+	margin-top: 30px;/* 
+	border: 1px solid #EAEAEA; */
+}
+
+.activity_excellent_course a:HOVER {
+	text-decoration: none;
+	color: #48CFC1;
+}
+
+.act_exce_list{
+	width:100%;
+	height:260px;
+	margin-top: 10px;/* 
+	border: 1px solid blue; */
+}
+
+.layui-row img{
+	width:240px;
+	height:200px;
+	margin-left:28px;
+}
+
+.layui-row label{
+	color:black;
+	font-stretch: normal;
+	font-size: 0.5em;
+	margin-top: 5px;
+	margin-left: 28px;
+}
+
+.layui-row span{
+	width:50px;
+	height:20px;
+	display:block;
+	color:white;
+	margin-left:28px;
+	margin-top:5px;
+	text-align:center;
+	background-color: #48CFC1;
+}
+
+.layui-row i{
+	display:block; 
+	color: #9EB8CE;
+	font-size: 10px;
+	margin-top: -15px;
+	margin-left: 190px;
+}
+
+.layui-row .act_play{
+	width:100px;
+	height:100px;
+	position: absolute;
+	top:50px;
+	left:70px;
+}
+.Lecture{
+	width: 100%;
+	display: block;
+	float: left;
+	margin-top: 30px;
+}
+
+.offline_list{
+	width: 100%;
+	height:100px;
+}
+.offline_list img{
+	float:left;
+	width:150px;
+	height:100px;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+.offline_list label{
+	padding-top: 10px;
+	margin-left: 10px;
+}
+
+	
+.offline_list .titles{
+	text-decoration: none;
+	font-size: 1.2em;
+	
+}
+
+.offline_list .titles:HOVER {
+	color: #48CFC1;
+	text-decoration: none;
+}
+
+.offline_list p{
+	width:600px;
+	margin-left: 200px;
+	margin-top:10px;
+	line-height: 20px;
+}
+
+.offline_list .details{
+	text-decoration: none;
+	color: #7C9A60;
+}
+
+.offline_list .details:HOVER {
+	color: #48CFC1;
+	text-decoration: none;
 }

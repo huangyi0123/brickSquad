@@ -12,6 +12,7 @@ import com.brick.squad.expand.AddressAndBuyersExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.Buyers;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.AddressService;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.PersonalInformationService;
@@ -124,5 +125,20 @@ public class BuyersController {
 		request.setAttribute("addressAndBuyersExpand", addressAndBuyersExpand);
 
 		return "backstage_managed/jsp/buyers/search_buyers";
+	}
+
+	@RequestMapping("/getBuyGrade")
+	@ResponseBody
+	public String getBuyGrade(HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		String data = buyersService.getBuyGrade(user.getId());
+		return data;
+	}
+
+	@RequestMapping("/getBuyAddress")
+	@ResponseBody
+	public String getBuyAddress(HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute("user");
+		return buyersService.getBuyAddress(user.getId());
 	}
 }

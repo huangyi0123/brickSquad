@@ -94,4 +94,17 @@
 		id,t1.`name` name FROM type t1 WHERE t1.parent_id in
 		(SELECT t.id FROM type t WHERE t.parent_id='splb') or t1.parent_id='splb'
 	</select>
+	<select id="searchName" resultType="type" 
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT id,name FROM type 
+	WHERE parent_id ='594cf09abc4c11e7aca65254002ec43c' 
+	AND `name` REGEXP #{search}
+	LIMIT #{begin},#{limitPage}
+	</select>
+	<select id="findCountSearch" resultType="int"
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT COUNT(*) FROM type 
+	WHERE parent_id='594cf09abc4c11e7aca65254002ec43c' 
+	AND `name` REGEXP #{search}
+	</select>
 </mapper>

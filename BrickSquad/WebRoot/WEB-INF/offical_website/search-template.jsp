@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -82,18 +83,45 @@
 			
 				<div class="aboutus-intro">
 					<h4>搜索到的结果</h4>
-					<ul style="margin-left:3%;line-height:32px;margin-top:22px;">
-					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
+					
+					<ul style="margin-left:10%;line-height:32px;margin-top:22px;">
+					<c:forEach  var="type" items="${pageBean.list }">
+					<li style="float:left;">
+					<span><a href>${type.name }</a> </span>
+					</li>
+					<li><span style="float:right;margin-right:50px;"><a href>点击详情</a></span></li>
 					<hr style="margin-top:-4px;">
-					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
-					<hr style="margin-top:-4px;">
-					<li><a href><span>花溪区</span><span style="margin-left:86%">点击详情</span></a></li>
-					<hr style="margin-top:-4px;">
+					</c:forEach>
+					<c:if test="${pageBean.totalCount==0}">
 					<center>
-					<a href="" ><span> < 上一页</span></a>
+					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<a href="" ><span>下一页  ></span></a>
+					<span><a href="javascript:;" >下一页 ></a></span>
 					</center>
+					</c:if>
+					<c:if test="${pageBean.totalCount!=0}">
+					<c:if test="${pageBean.page==1}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="javascript:;" >下一页  ></a></span>
+					</center>
+					</c:if>
+					</c:if>
 					</ul>
 				</div>
 				 <div class="parti-online">
