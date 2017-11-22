@@ -23,7 +23,8 @@
 	-->
 <link rel="stylesheet" type="text/css"
 	href="resource/plugins/laysui/css/layui.css" media="all">
-<link rel="stylesheet" type="text/css" href="resource/css/vedio-details.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/css/vedio-details.css">
 
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
@@ -51,15 +52,22 @@
 					style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
 			<div class="vedio_main_right">
-			<div class="vedio_play"></div>
-			<div class="vedio_info">
-			<!------------------------ 热播推荐 ----------------------->
-			<div class="vedio_recom">
-			
-			</div>
-			</div>
-			</div>
+				<div class="vedio_play"></div>
+				<div class="vedio_info">
+					<!------------------------ 热播推荐 ----------------------->
+					<div class="vedio_recom">
+						<label>热播推荐</label> <a href="#"> 更多</a>
+						<div class="vedio_list">
+							<div class="layui-row">
+								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
