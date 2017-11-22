@@ -524,9 +524,9 @@ function onfus5(){
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡生活</h3></a>
 					<ul>
-						<li>营养膳食</li>
-						<li>用户视频</li>
-						<li>用户反馈</li>
+						<li><a href="#">营养膳食</a></li>
+						<li><a href="#">用户视频</a></li>
+						<li><a href="#">用户反馈</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
