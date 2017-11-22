@@ -64,4 +64,22 @@ public class Common {
 			return true;
 		}
 	}
+	/**
+	 * 根据积分计算等级
+	 * @param grade
+	 * @return
+	 */
+	public static String rank(int grade) {
+		String string="";
+		if (grade<500) {
+			string="大众会员";
+		}else if (grade<1500) {
+			string="黄金会员";
+		}else if (grade<3000) {
+			string="铂金会员";
+		}else {
+			string="钻石会员";
+		}
+		return string;
+	}
 }

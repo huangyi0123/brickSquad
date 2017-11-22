@@ -5,6 +5,7 @@ import java.util.List;
 import com.brick.squad.expand.TypeExpand;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.Type;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -100,5 +101,13 @@ public interface TypeMapper {
 	 * 查询所有的商品类别，用于搜索框
 	 * */
 	public List<Type> findAllTypeByParentId(String parentId);
+	/**
+	 * 官网首页搜索
+	 * */
+	public List<Type> searchName(PageBeanUtil pageBean);
+	/**
+	 * 查询总数根据关键字
+	 * */
+	public int findCountSearch(PageBeanUtil pageBean);
 
 }

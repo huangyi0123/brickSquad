@@ -16,6 +16,7 @@ import com.brick.squad.pojo.Activities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.StringParameterFiltering;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -105,9 +106,10 @@ public class ActivitiesServiceTest {
 		String data = activitiesService.findAllActivitiesIdAndName();
 		System.out.println("测试+++++++++++++" + data);
 	}
+
 	@Test
-	public void findActivityName() throws Exception{
-		String data=activitiesService.findActivityName();
-	System.out.println(data);
+	public void findActivityName() throws Exception {
+		String data = activitiesService.findActivityName();
+		System.out.println(data);
 	}
 }

@@ -67,6 +67,7 @@
 					<li>安全设置</li>
 					<li>活动管理</li>
 					<li>订单管理</li>
+					<li onclick="onshop()">购物中心</li>
 				</ul>
 				<div class="layui-tab-content" style="height: 900px;">
 					<div class="layui-tab-item layui-show  layui-tab-item1">
@@ -178,7 +179,7 @@
 											val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
 											id="countryId" lay-filter="countryIdSelect" lay-search="">
 											<option value="">选择乡镇</option>
-											
+
 										</select>
 									</div>
 									<div class="layui-input-inline">
@@ -545,11 +546,67 @@
 						</div>
 					</div>
 				</div>
+				<div class="layui-tab-item layui-tab-item7">
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						<ul class="layui-tab-title">
+							<li class="layui-this ">我的积分</li>
+							<li onclick="buyaddress()">收货地址</li>
+						</ul>
+						<div class="layui-tab-content">
+							<div class="layui-tab-item layui-show">
+								<div style="margin-top: 40px;margin-left: 20px">
+									<span style="font-size: 30px;display: block;">
+										我的积分：
+										<i style="color: green;font-weight: bold;" id="Integral"></i>
+									</span>
+									<span style="font-size: 30px;display: block;margin-top: 20px">
+										会员等级：
+										<i style="color: green;font-weight: bold;" id="grade"></i>
+									</span>
+								</div>
+							</div>
+							<div class="layui-tab-item">
+								<table class="layui-table">
+									<colgroup>
+										<col width="150">
+										<col width="200">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>收货人</th>
+											<th>联系方式</th>
+											<th>详细地址</th>
+											<th style="text-align: center;">交易操作</th>
+										</tr>
+									</thead>
+									<tbody id="buyaddtable">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	</div>
-
+	<div style="clear: both;"></div>
+	<form action="" class="layui-form" style="z-index: 100">
+		<div class="layui-form-item">
+			<label class="layui-form-label">选择框</label>
+			<div class="layui-input-block">
+				<select name="city" lay-verify="required">
+					<option value=""></option>
+					<option value="0">北京</option>
+					<option value="1">上海</option>
+					<option value="2">广州</option>
+					<option value="3">深圳</option>
+					<option value="4">杭州</option>
+				</select>
+			</div>
+		</div>
+	</form>
 	<script>
 		layui.use('element', function() {
 			var element = layui.element;
@@ -559,7 +616,7 @@
 			});
 		});
 		$(function() {
-			
+
 		});
 	</script>
 

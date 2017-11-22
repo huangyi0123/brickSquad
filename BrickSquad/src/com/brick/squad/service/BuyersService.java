@@ -39,4 +39,22 @@ public interface BuyersService {
 
 	// public int findBuyersAllCount() throws Exception;
 	public String findPnameByBuyersId();
+
+	/**
+	 * 根据用户id获取积分
+	 * 
+	 * @param userId
+	 *            用户id
+	 * @return 用户积分信息
+	 */
+	public String getBuyGrade(String userId);
+
+	/**
+	 * 获取收货地址列表
+	 * 
+	 * @param userId
+	 *            用户id
+	 * @return 地址列表集合
+	 */
+	public String getBuyAddress(String userId);
 }
