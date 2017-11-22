@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+.vedio_body{
+	width:100%;
+	height:100%;
+	
+}
+
+.vedio_main {
+	width: 100%;
+	background-color: white;
+}
+
+.vedio_main_left {
+	float: left;
+	width: 20%;
+	height: 500px;
+	margin-left: 150px;
+	background-color: #EBEBEC;
+}
+
+.vedio_main_left ul {
+	width: 100%;
+	color: black;
+	text-align: center;
+	margin-top: 50px;
+	background-color: #EBEBEC;
+}
+
+.vedio_main_left .layui-nav .layui-nav-item a {
+	font-size: 1.2em;
+	text-decoration: none;
+	color: black;
+}
+
+.vedio_main_right {
+	width: 60%;
+	display: block;
+	float: left;
+	margin-top: 30px;
+	border: 1px solid #EAEAEA;
+}
+
+.vedio_play{
+	width:90%;
+	height:400px;
+	margin:auto;
+	margin-top:20px;
+	border:1px solid red;
+}
+
+.vedio_recom{
+	width:100%;
+	height:200px;
+	border: 1px solid blue;
+	
+}

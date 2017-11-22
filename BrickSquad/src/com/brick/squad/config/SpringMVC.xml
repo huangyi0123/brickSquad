@@ -98,6 +98,7 @@
 			<mvc:exclude-mapping path="/onlineParticipationInfo/userInsertOnlineParticipationInfo" />
 			<mvc:exclude-mapping path="/type/**" />
 			<mvc:exclude-mapping path="/common/toActivity_carousel" />
+			<mvc:exclude-mapping path="/common/toVedio_Details" />
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
