@@ -592,22 +592,65 @@
 	</div>
 	</div>
 	<div style="clear: both;"></div>
-	<form action="" class="layui-form" style="z-index: 100">
-		<div class="layui-form-item">
-			<label class="layui-form-label">选择框</label>
-			<div class="layui-input-block">
-				<select name="city" lay-verify="required">
-					<option value=""></option>
-					<option value="0">北京</option>
-					<option value="1">上海</option>
-					<option value="2">广州</option>
-					<option value="3">深圳</option>
-					<option value="4">杭州</option>
-				</select>
+	<div style="height: 200px;display: none;padding:20px; padding-top: 40px;" id="addre">
+		<form id="addre" action="" class="layui-form">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="color:#000;width: 100px">收货人：</label>
+				<div class="layui-input-block">
+					<input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off"
+						class="layui-input" id="addName" value="">
+				</div>
 			</div>
-		</div>
-	</form>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="color:#000;width: 100px">联系方式：</label>
+				<div class="layui-input-block">
+					<input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off"
+						class="layui-input" id="addPhone">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="color: #000;width: 100px">收货地址：</label>
+				<div class="layui-input-block">
+					<div class="layui-input-inline">
+						<select name="provinceId" id="addPor" lay-filter="addPor" lay-ignore
+							style="width: 180px;height: 30px" onchange="changePor(this)">
+							<option value="">请选择省</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<select name="cityId" id="addcity"  val="" lay-ignore style="width: 180px;height: 30px">
+							<option value="">请选择市</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<select name="quiz1" lay-ignore style="width: 180px;height: 30px">
+							<option value="">请选择区县</option>
+							<option value="浙江" selected="">浙江省</option>
+							<option value="你的工号">江西省</option>
+							<option value="你最喜欢的老师">福建省</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<select name="quiz1" lay-ignore style="width: 180px;height: 30px">
+							<option value="">请选择乡镇</option>
+							<option value="浙江" selected="">浙江省</option>
+							<option value="你的工号">江西省</option>
+							<option value="你最喜欢的老师">福建省</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入详细地址"
+							class="layui-input" id="addDetailed">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
 	<script>
+		layui.use('form', function() {
+			var form = layui.form;
+		});
 		layui.use('element', function() {
 			var element = layui.element;
 			//一些事件监听
