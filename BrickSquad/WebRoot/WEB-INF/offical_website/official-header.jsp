@@ -241,7 +241,7 @@
 		<!-- start search-->
 		<div class="search-box">
 			<div id="sb-search" class="sb-search">
-				<form>
+				<form action="activities/findActivitesName" method="post">
 					<input class="sb-search-input" placeholder="请输入您的关键字..."
 						type="search" name="search" id="search">
 					<input class="sb-search-submit" type="submit" value="">

@@ -274,6 +274,14 @@ function onfus5(){
    }
 
 </script>
+<script type="text/javascript">
+function findType(){
+	var typeValue=$("#searchType").val();
+	var ahref=document.getElementById("searchQue");
+	 ahref.href="type/searchContent?type=aboutus-intro&search="+typeValue;
+}
+ 
+</script>
 </head>
 	
 <body>
@@ -372,7 +380,7 @@ function onfus5(){
 			<!-- start search-->
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
-					<form method="get" action="activities/findActivitesName">
+					<form method="post" action="activities/findActivitesName">
 						<input class="sb-search-input" placeholder="请输入您的关键字..."
 							type="search" name="search" id="search">
 						<input class="sb-search-submit" type="submit" value="">
@@ -436,13 +444,14 @@ function onfus5(){
 
 			<div class="col-md-4 btm-grid btm-wid">
 				<input value="社区搜索" class="title" readonly="readonly">
-				<input class="city_search" type="text" value="请输入城市" 
+				<input class="city_search" type="text" value="请输入城市"  id="searchType"
 
 					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
 					onblur="if (value=='') {value='请输入城市'}">
-				<label class="search_icon"
-					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;"><a
-					href="type/searchContent?type=aboutus-intro"><i class="layui-icon"
+				<label class="search_icon" 
+					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
+					<a
+					href="" id="searchQue" ><i class="layui-icon"  onclick="findType()"
 						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
 				<div
 					style="width:100%;height:100px;margin-top:50px; background-color: white;">
