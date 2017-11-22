@@ -45,15 +45,28 @@ public interface ActivitiesMapper {
 	 * @return 最新商品集合
 	 */
 	public List<NewsArticle> findNewsArticleByIndex();
+
 	/**
-	 * 查询活动名称 ,用于首页的报名回显*/
+	 * 查询活动名称 ,用于首页的报名回显
+	 */
 	public List<Activities> findActivityName();
+
 	/**
 	 * 根据关键字模糊查询活动名称
 	 * */
 	public List<Activities> findActivitesName(PageBeanUtil pageBean);
+
 	/**
 	 * 根据关键字模糊查询活动名称总数
 	 * */
 	public int findCountActivitesName(PageBeanUtil pageBeanUtil);
+
+	/**
+	 * 根据类型ID查询视频路径，用于官网线上视频
+	 * 
+	 * @param typeId
+	 *            类型id
+	 * @return
+	 */
+	public List<Activities> findActivitiesMovieByTypeId(String typeId);
 }
