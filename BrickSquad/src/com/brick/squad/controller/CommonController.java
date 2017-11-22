@@ -66,6 +66,14 @@ public class CommonController {
 		return "offical_website/website-template";
 
 	}
+	
+	/**官网乐堡服务*/
+	@RequestMapping("/serverWebsiteTemplate")
+	public String serverWebsiteTemplate(String type,HttpServletRequest request) {
+		request.setAttribute("type", type);
+		return "offical_website/server-template";
+
+	}
 
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
