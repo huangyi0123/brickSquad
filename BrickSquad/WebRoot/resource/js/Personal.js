@@ -395,12 +395,76 @@ function buyaddress() {
 												+ this.detailed
 												+ '</th>'
 												+ '<th style="text-align: center;">'
-												+ '<a title="修改" href="javascript:;"><i class="fa fa-pencil-square-o"></i></a>'
-												+'&nbsp;|&nbsp;'
+												+ '<a title="修改" href="javascript:;" onclick="updateAddress(\''
+												+ this.id
+												+ '\')"><i class="fa fa-pencil-square-o"></i></a>'
+												+ '&nbsp;|&nbsp;'
 												+ '<a title="删除" href="javascript:;"><i class="fa fa-trash-o"></i></a>'
 												+ '</th>' + '</tr>';
 										$("#buyaddtable").append(html);
 									});
 				}
 			});
+}
+function updateAddress(id) {
+	layui.use('form', function() {
+		var form = layui.form;
+		$.ajax({
+			url : 'buyers/getBuyAdd?id=' + id,
+			success : function(data) {
+				data = JSON.parse(data);
+				console.log(data);
+				$("#addName").val(data[0].address.consigneeName);
+				$("#addPhone").val(data[0].address.consigneePhone);
+				$("#addDetailed").val(data[0].address.detailed);
+				var da = data[0].por;
+				printSelect("#addPor", da, data[0].address.provinceId);
+			}
+		});
+
+	});
+	layui.use('layer', function() {
+		var layer = layui.layer;
+		layer.open({
+			type : 1,
+			offset : '100px',
+			area : [ '790px', '500px' ],
+			content : $("#addre"),
+			btn : [ '确认' ],
+			yes : function(index, layero) {
+				console.log($(layero).find('form').html());
+				layer.close(index);
+			}
+		});
+	});
+}
+/**
+ * 弹出下拉框
+ * 
+ * @param id
+ *            下拉框id
+ * @param init
+ *            初始值集合
+ * @param select
+ *            选中值
+ */
+function printSelect(id, init, select) {
+
+	$(id).html('');
+	$(id).append('<option>请选择省</optio>');
+	$(init).each(
+			function() {
+				if (this.id == select) {
+					$(id).append(
+							'<option value="' + this.id + '" selected>'
+									+ this.name + '</optio>');
+				} else {
+					$(id).append(
+							'<option value="' + this.id + '">' + this.name
+									+ '</optio>');
+				}
+			});
+}
+function changePor(o) {
+	console.log($(o).val());
 }

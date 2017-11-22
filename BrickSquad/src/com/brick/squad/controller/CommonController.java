@@ -376,7 +376,8 @@ public class CommonController {
 	}
 	
 	@RequestMapping("/toActivity_carousel")
-	public String toActivity_carousel() {
+	public String toActivity_carousel(String type,HttpServletRequest request) {
+		request.setAttribute("type", type);
 		return "offical_website/activity";
 	}
 	

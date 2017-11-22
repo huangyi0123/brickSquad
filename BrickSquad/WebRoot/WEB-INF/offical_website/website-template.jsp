@@ -37,6 +37,12 @@
 		var type = '${type}';
 		$("#centent").children().hide();
 		$("." + type).show();
+		if (type == "parti-online") {
+			layui.use('form', function() {
+				var form = layui.form, layer = layui.layer;
+				form.render();
+			});
+		}
 		$("#menu").find('li').each(function() {
 			var val = $(this).attr('val');
 			if (val == type) {
@@ -76,14 +82,13 @@
 							var email = $("#email").val();
 							if (userName == "") {
 								layer.msg("姓名不能为空！");
-							}else if (!userName.match(/^[\u4e00-\u9fa5]+$/)) {
+							} else if (!userName.match(/^[\u4e00-\u9fa5]+$/)) {
 								layer.msg("名字必须为汉字!");
-							} 
-							else if (phone == "") {
+							} else if (phone == "") {
 								layer.msg("手机号码不能为空!");
-							} else if ((age != "") && (!(age > 1)
-									|| !(age < 255)
-									|| (!(age.match(/^[0-9]+.?[0-9]*$/))))) {
+							} else if ((age != "")
+									&& (!(age > 1) || !(age < 255) || (!(age
+											.match(/^[0-9]+.?[0-9]*$/))))) {
 								layer.msg("年龄格式不符合要求!");
 							} else if (age == "") {
 								layer.msg("年龄不能为空!");

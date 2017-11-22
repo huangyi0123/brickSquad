@@ -35,35 +35,45 @@
 	<div class="vedio_body">
 		<jsp:include page="official-header.jsp"></jsp:include>
 		<div class="vedio_main">
-			<div class="vedio_main_left">
-				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
-					style="margin-right: 10px;" id="menu">
-					<li class="layui-nav-item" val="aboutus-intro"><a
-						href="javascript:;">线上直播</a></li>
-					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-use"><a
-						href="javascript:;">线下活动</a></li>
-					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-				</ul>
+			<div class="layui-row">
+				<div class="layui-col-xs12 layui-col-md9">
+					<div class="vedio_play_main">
 
-				<label
-					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="javascript:;" onclick="openOnlineParticipation()"
-					style="color:white;font-stretch: normal;">在线参与</a></label>
-			</div>
-			<div class="vedio_main_right">
-				<div class="vedio_play"></div>
-				<div class="vedio_info">
-					<!------------------------ 热播推荐 ----------------------->
+						<div class="vedio_play"></div>
+					</div>
+				</div>
+				<div class="layui-col-xs6 layui-col-md3">
 					<div class="vedio_recom">
-						<label>热播推荐</label> <a href="#"> 更多</a>
-						<div class="vedio_list">
-							<div class="layui-row">
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-								<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
-								</div>
+						<label>热播推荐</label> <a href="#"><img alt=""
+							style="margin-top: 10px;"
+							src="resource/image/3736651_1426063184096_800x600.jpg"></a> <a
+							href="#"><img alt=""
+							src="resource/image/3736651_1426063184096_800x600.jpg"></a> <a
+							href="#"><img alt=""
+							src="resource/image/3736651_1426063184096_800x600.jpg"></a>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!------------------------ 猜你喜欢 ----------------------->
+			<div class="vedio_info">
+				<div class="layui-row">
+					<div class="layui-col-xs12 layui-col-md8">
+						<div class="vedio_guess">
+							<label>猜你喜欢</label> <a href="#" class="more"> 更多</a>
+							<div class="vedio_list">
+								<a href="#"><img alt="" style="margin-left: 0px;"
+									src="resource/image/3736651_1426063184096_800x600.jpg"></a>
+									<a href="#"><img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"></a>
+									<a href="#"><img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"></a>
 							</div>
 						</div>
+					</div>
+					<div class="layui-col-xs6 layui-col-md4" style="border: 1px solid red;">
 					</div>
 				</div>
 			</div>
