@@ -105,5 +105,16 @@
 
 		WHERE a.id=#{id}
 	</select>
-
+	<!-- 根据用户ID查询address中当前用户的所有地址信息集合 -->
+	<select id="findAddressByAddressId" parameterType="String"
+		resultType="com.brick.squad.pojo.Address">
+		select
+		id,province_id provinceId,city_id cityId,county_id
+		countyId,country_id
+		countryId,detailed,buyers_id
+		buyersId,consignee_name consigneeName,
+		consignee_telephone
+		consigneePhone
+		from address where id=#{addressId}
+	</select>
 </mapper>

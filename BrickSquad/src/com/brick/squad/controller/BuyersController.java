@@ -141,4 +141,10 @@ public class BuyersController {
 		User user = (User) request.getSession().getAttribute("user");
 		return buyersService.getBuyAddress(user.getId());
 	}
+
+	@RequestMapping("/getBuyAdd")
+	@ResponseBody
+	public String getBuyAdd(String id) {
+		return buyersService.getBuyAdd(id);
+	}
 }
