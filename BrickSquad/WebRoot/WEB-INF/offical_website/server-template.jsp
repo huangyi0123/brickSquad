@@ -225,8 +225,8 @@ function reservation(id) {
 				<c:forEach var="activites" items="${pageBean.list }">
 					<li ><span style="font-size:1.2em;"><a href="javascript:;" onclick="findInformation('${activites.id}')" id="yuyuea" style="color:#7C9A60">【${activites.name }】</a></span>
 					<ul style="margin-top:2%;width:100%">
-						<li ><span style="width:100%"><a href="">${activites.centent }
-						<span style="width:100%;float:right;"><a href="javascript:;" id="xiangqing" onclick="findInformation('${activites.id}')" style="color:#7C9A60">查看详情>></a></span></a></span></li>
+						<li ><span style="width:100%">${activites.centent }
+						<span style="width:100%;float:right;"><a href="javascript:;" id="xiangqing" onclick="findInformation('${activites.id}')" style="color:#7C9A60;float:right">查看详情>></a></span></span></li>
 					</ul>
 				</li>
 				<hr>
@@ -276,10 +276,10 @@ function reservation(id) {
 				<ul style="margin-left:6%;margin-top:5%">
 					<li ><span style="font-size:1.2em;"><a href="" id="yuyuea">【通州湾老人体检区】</a></span>
 					<ul style="margin-top:2%;width:100%">
-						<li ><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						<li ><span style="width:100%">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
 						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
 						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href="" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></a></span></li>
+						<span style="width:100%;float:right;"><a href="" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></span></li>
 					</ul>
 				</li>
 				<hr>
