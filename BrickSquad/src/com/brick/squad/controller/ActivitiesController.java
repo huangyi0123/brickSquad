@@ -106,10 +106,9 @@ public class ActivitiesController {
 		System.out.println(activities.getMovie() + "*****");
 		String moviePath = activities.getMovie();
 		if (moviePath != null && !moviePath.trim().equals("")) {
-			System.out.println("*****");
-			moviePath = moviePath.substring(moviePath.indexOf("'", 1),
-					moviePath.indexOf("'", 2));
-			System.out.println(moviePath);
+			moviePath = moviePath.substring(moviePath.indexOf("'", 1) + 1,
+					moviePath.length());
+			moviePath = moviePath.substring(0, moviePath.indexOf("'", 1));
 			activities.setMovie(moviePath);
 		}
 		activitiesService.insertActivitiesById(activities);

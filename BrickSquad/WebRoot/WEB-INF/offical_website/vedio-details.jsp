@@ -25,7 +25,8 @@
 	href="resource/plugins/laysui/css/layui.css" media="all">
 <link rel="stylesheet" type="text/css"
 	href="resource/css/vedio-details.css">
-
+<link rel="stylesheet" type="text/css"
+	href="resource/plugins/fonts/font-awesome.min.css">
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
@@ -113,10 +114,19 @@
 								<input type="text" value="提交评论" readonly>
 							</div>
 							<div class="vedio_comms">
-							<label style="margin-top: 30px;">全部评论</label>
-							<i class="fa fa-edit" style="color: black;"></i>
+								<label style="margin-top: 30px;">全部评论<font
+									style="color: #909EBF;size: 0.6em;letter-spacing: 0px;font-stretch: normal;">(0)</font></label>
+								<i class="fa fa-edit"
+									style="color: black;float: right;margin-right: 80px;margin-top: 40px;"></i>
+								<label><a href="#" class="vedio_publish">发表评论</a></label>
+								<div
+									style="width: 100%;border: 1px solid #E3E7E8;margin-top: 10px;"></div>
+								<label
+									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 10px;">第1页
+									/ 共5页</label> <label
+									style="display: block;color: black;margin-top: 20px;letter-spacing: 0px;font-size: 1em;">热门评论</label>
 							</div>
-							
+
 						</div>
 
 						<div class="layui-col-xs6 layui-col-md4"
@@ -133,7 +143,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>

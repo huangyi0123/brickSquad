@@ -211,3 +211,18 @@
 	background-color: #F2F2F2;
 	border: 1px solid #F2F2F2;
 }
+
+.vedio_comms .vedio_publish {
+	display:block;
+	float: right;
+	position:absolute;
+	color: #555555;
+	font-size: 0.8em;
+	letter-spacing: 0px;
+	margin-left: 580px;
+	margin-top: -10px;
+}
+
+.vedio_comms .vedio_publish:HOVER {
+	color: #48CFC1;
+}
