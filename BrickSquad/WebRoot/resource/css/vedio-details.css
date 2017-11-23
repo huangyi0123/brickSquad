@@ -37,7 +37,6 @@
 	filter: Alpha(opacity = 50);
 }
 
-
 .vedio_bg {
 	z-index: 3;
 }
@@ -111,8 +110,8 @@
 
 .vedio_comm {
 	width: 85%;
-	margin-left: 120px;
-	border: 1px solid red;
+	margin-left: 120px;/* 
+	border: 1px solid red; */
 }
 
 .vedio_comm label {
@@ -210,9 +209,9 @@
 }
 
 .vedio_comms .vedio_publish {
-	display:block;
+	display: block;
 	float: right;
-	position:absolute;
+	position: absolute;
 	color: #555555;
 	font-size: 0.8em;
 	letter-spacing: 0px;
@@ -224,75 +223,76 @@
 	color: #48CFC1;
 }
 
-.vedio_comm_cont{
-	display:block;
+.vedio_comm_cont {
+	display: block;
 	width: 100%;
-	height:auto;
+	height: auto;
 	margin-top: 20px;
 }
 
-.vedio_comm_cont img{
-	float:left;
+.vedio_comm_cont img {
+	float: left; width : 60px;
+	height: 60px;
+	border-radius: 30px;
 	width: 60px;
-	height:60px;
-	border-radius:30px;
 }
 
-.vedio_comm_cont .vedio_comm_cont_name{
-	 float: left;
-	 display: block;
-	 font-size: 0.8em;
-	 color: #FC3200;
-	 margin-left: 15px;
-	 letter-spacing: 0px;
+.vedio_comm_cont .vedio_comm_cont_name {
+	float: left;
+	display: block;
+	font-size: 0.8em;
+	color: #FC3200;
+	margin-left: 15px;
+	letter-spacing: 0px;
 }
 
-.vedio_comm_cont .vedio_comm_cont_time{
-	 float:left; 
-	 font-size: 0.8em;
-	 color: #CABBC1;
-	 letter-spacing: 0px;
-	 margin-left: 30px;
+.vedio_comm_cont .vedio_comm_cont_time {
+	float: left;
+	font-size: 0.8em;
+	color: #CABBC1;
+	letter-spacing: 0px;
+	margin-left: 30px;
 }
 
-.vedio_comm_cont .vedio_comm_cont_conts{
-	 display:block;
-	 float:left; 
-	 width: 680px;
-	 min-height:50px;
-	 height:auto;
-	 margin-top: 10px;
-	 margin-left: 15px;
+.vedio_comm_cont .vedio_comm_cont_conts {
+	display: block;
+	float: left;
+	width: 680px;
+	min-height: 50px;
+	height: auto;
+	margin-top: 10px;
+	margin-left: 15px;
 }
 
-.vedio_comm_cont a{
+.vedio_comm_cont a {
 	font-size: 20px;
 }
-.vedio_comm_cont i{
+
+.vedio_comm_cont i {
 	display: block;
 	float: left;
 	margin-left: 20px;
-	color:#DDDDDD;
+	color: #DDDDDD;
 	font-size: 20px;
 }
-.vedio_comm_cont font{
-	 float: left; 
-	 margin-left: 3px;
-	 color: #DDDDDD;
+
+.vedio_comm_cont font {
+	float: left;
+	margin-left: 3px;
+	color: #DDDDDD;
 }
 
-.vedio_comm_cont i[class='layui-icon praise']:hover{
-	color:red
+.vedio_comm_cont i[class='layui-icon praise']:hover {
+	color: red
 }
+
 .vedio_comm_cont i[class='layui-icon stamp']:HOVER {
-	color:#48CFC1;
+	color: #48CFC1;
 }
 
 .vedio_comm_cont i[class='layui-icon dialogue']:HOVER {
-	color:#CABBC1;
+	color: #CABBC1;
 }
-
-
 
 .vedio_related>a>img[class='vedio_rel_plays']:hover {
 	opacity: 0.7;

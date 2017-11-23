@@ -166,8 +166,7 @@
 
 						</div>
 
-						<div class="layui-col-xs6 layui-col-md4"
-							style="border: 1px solid red;">
+						<div class="layui-col-xs6 layui-col-md4">
 							<div class="vedio_related">
 								<label>相关推荐</label> <a href="#" class="vedio_rel_bg"> <img
 									alt="" style="margin-top: 10px;"
