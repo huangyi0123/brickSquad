@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.ActivityRegistration;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
+import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.PageBeanUtil;
 
@@ -24,6 +27,9 @@ public class LeFortServiceController {
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
+	@Autowired
+	@Qualifier("activityRegistrationService")
+	private ActivityRegistrationService activityRegistrationService;
 	/**官网乐堡服务
 	 * @throws Exception */
 	@RequestMapping("/serverWebsiteTemplate")
@@ -49,9 +55,18 @@ public class LeFortServiceController {
 		String data=jsonArray.fromObject(activities,jsonConfig).toString();
 		return data;
 	}
-	@RequestMapping("/returnInformation")
-	public String returnInformation(){
-		return "redirect:findInformation";
+	/***体检预约信息添加*/
+	@RequestMapping("/insertArtivitesInformation")
+	@ResponseBody
+	public String insertArtivitesInformation(HttpServletRequest request,  String activitiesId){
+		ActivityRegistration activityRegistration=new ActivityRegistration();
+		User user=(User) request.getSession().getAttribute("user");
+		activityRegistration.setPerId(user.getId());
+		activityRegistration.setActivitiesId(activitiesId);
+		activityRegistration.setRegistrationDate(new Date());
+		activityRegistrationService.insertActivityRegistration(activityRegistration);
+		String data="success";
+		return data;
 	}
 
 }
