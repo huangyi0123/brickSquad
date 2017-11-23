@@ -145,7 +145,7 @@
 				 $("#findInformationArtivites").append("<h4>"+data[0].name+"</h4><p>"+data[0].centent+
 						 "</p><hr style='margin-left:12%;'><span style='margin-left:12%;'>开始时间："+data[0].startTime+"</span><br><hr style='margin-left:12%;'> <span style='margin-left:12%;'>结束时间："+
 						 data[0].endTime+"</span> <hr style='margin-left:12%;'><span style='margin-left:12%;'>准预定人数："+data[0].number+
-						 "</span><hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a href='' style='color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"+
+						 "</span><hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a href='javascript:;' onclick='reservation()' style='color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"+
 						 "");
 		}
 	});
@@ -189,7 +189,7 @@ function returnIn() {
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 
-				<label
+				 <label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
 					href="javascript:;" onclick="openOnlineParticipation()"
 					style="color:white;font-stretch: normal;">在线参与</a></label>
@@ -198,13 +198,13 @@ function returnIn() {
 			<div class="tem_main_right" id="centent">
 
 				<div class="aboutus-intro" >
-				<center><h4>体检预约信息品台</h4></center>
+				<center><h4>体检预约信息平台</h4></center>
 				<ul style="margin-left:6%;margin-top:5%">
 				<c:forEach var="activites" items="${pageBean.list }">
 					<li ><span style="font-size:1.2em;"><a href="javascript:;" onclick="findInformation('${activites.id}')" id="yuyuea" style="color:#7C9A60">【${activites.name }】</a></span>
 					<ul style="margin-top:2%;width:100%">
 						<li ><span style="width:100%"><a href="">${activites.centent }
-						<span style="width:100%;float:right;"><a href="${pageContext.request.contextPath }/find/id=${activites.id}" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></a></span></li>
+						<span style="width:100%;float:right;"><a href="javascript:;" id="xiangqing" onclick="findInformation('${activites.id}')" style="color:#7C9A60">查看详情>></a></span></a></span></li>
 					</ul>
 				</li>
 				<hr>
@@ -248,6 +248,139 @@ function returnIn() {
 			
 				</div>
 				<div id="findInformationArtivites"></div>
+				
+				<c:if test="${user ne null }">
+	<!-- Dth -->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<section>
+					<div class="wizard">
+						<div class="wizard-inner">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a href="#step6"
+									data-toggle="tab" aria-controls="step6" role="tab"
+									title="Step 6"> <span class="round-tab"> <i
+											class="glyphicon glyphicon-folder-open"></i>
+									</span>
+								</a></li>
+								<li role="presentation" class="disabled"><a href="#step7"
+									data-toggle="tab" aria-controls="step7" role="tab"
+									title="Step 7"> <span class="round-tab"> <i
+											class="glyphicon glyphicon-pencil"></i>
+									</span>
+								</a></li>
+								<li role="presentation" class="disabled"><a href="#step8"
+									data-toggle="tab" aria-controls="step8" role="tab"
+									title="Step 8"> <span class="round-tab"> <i
+											class="glyphicon glyphicon-picture"></i>
+									</span>
+								</a></li>
+
+							</ul>
+						</div>
+						<!-- 我要去报名 -->
+							<form role="form" method="post" onsubmit="return check1()"
+							action="activityRegistration/insertActivitiesInformation">
+							<div class="tab-content">
+								<div class="tab-pane active" role="tabpanel" id="step12">
+									<div class="mobile-grids">
+										<label
+											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
+											>我要报名</label> <label
+											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
+										<input type="text" value="${user.username }" name="pname" id="name3"
+											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
+											onfocus="onfus3()"><br>
+											<span id="nameText3" style="margin-left:44%"></span>
+										<label
+											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
+										<input type="text" value="${user.telephone }" id="telephone4"
+											name="telephone" 
+											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
+											onfocus="onfus4()"
+											onblur="if (value=='') {value='请输入联系人电话'}"><br>
+											<span id="telephoneText4" style="margin-left:44%"></span>
+											<label
+											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
+											<div class="layui-form-item">
+											<div class="layui-inline">
+												<div class="layui-input-inline">
+													<select name="activitiesId" lay-verify="required" lay-search="" 
+													id="findActivitiesNameId" 
+														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+														<option value="">请选择</option>
+														
+													</select>
+												</div>
+											</div>
+										</div>
+										<label
+											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
+										<form class="layui-form" action="">
+											<div class="layui-input-inline">
+												<input type="text" name="reservationDate" id="date"
+													lay-verify="date" autocomplete="off" class="layui-input"
+													value="请输入预约时间"
+													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
+													onfocus="onfus5()"
+													onblur="if (value=='') {value='请输入预约时间'}"><br>
+											<span id="dateText5" style="margin-left:44%"></span>
+											</div>
+										</form>
+										<label
+											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
+										<div class="layui-form-item">
+											<div class="layui-inline">
+												<div class="layui-input-inline">
+													<select name="branchId" lay-verify="required" lay-search="" id="branchsecondid"
+														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+														<option value="">请选择</option>
+														
+													</select>
+												</div>
+											</div>
+										</div>
+										<p
+											style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+										<label
+											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
+										<div class="layui-form-item layui-form-text">
+											<div class="layui-input-block"
+												style="width: 250px;margin-left: 200px;margin-top: -30px;">
+												<textarea value="" class="layui-textarea" name="remarks"></textarea>
+											</div>
+										</div>
+									</div>
+									<input value="提交" type="submit"
+										style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
+									<input value="重置" type="reset"
+										style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
+
+								</div>
+							</div>
+						</form>
+					</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	</c:if>
+				
+				
+				
+				
+				
+				
 				<div class="aboutus-use">
 				
 				<center><h4>生活助手信息品台</h4></center>
@@ -359,7 +492,7 @@ function returnIn() {
 			</div>
 				</div>
 
-				<div class="parti-online">
+				<!-- <div class="parti-online">
 					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
 					<form class="layui-form" id="onlineParticipationInfo" method="post">
 						<label>* 姓名：</label>
@@ -444,7 +577,7 @@ function returnIn() {
 							</div>
 						</div>
 					</form>
-				</div>
+				</div> -->
 </div>
 			</div>
 			<div class="clearfix"></div>
