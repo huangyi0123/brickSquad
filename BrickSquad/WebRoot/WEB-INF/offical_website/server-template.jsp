@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -164,6 +165,57 @@
 				<div class="aboutus-intro">
 				<center><h4>体检预约信息品台</h4></center>
 				<ul style="margin-left:6%;margin-top:5%">
+				<c:forEach var="activites" items="${pageBean.list }">
+					<li ><span style="font-size:1.2em;"><a href="${pageContext.request.contextPath }/find/id=${activites.id}" id="yuyuea" style="color:#7C9A60">【${activites.name }】</a></span>
+					<ul style="margin-top:2%;width:100%">
+						<li ><span style="width:100%"><a href="">${activites.centent }
+						<span style="width:100%;float:right;"><a href="${pageContext.request.contextPath }/find/id=${activites.id}" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></a></span></li>
+					</ul>
+				</li>
+				<hr>
+				</c:forEach>
+					
+				<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
+					<c:if test="${pageBean.totalCount==0}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
+					;margin-left:20px;margin-right:20px;margin-top:20px;" readonly="readonly">
+					<span><a href="javascript:;" >下一页 ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalCount!=0}">
+					<c:if test="${pageBean.page==1}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="javascript:;" >下一页  ></a></span>
+					</center>
+					</c:if>
+					</c:if> 
+					</c:if>
+				</ul>
+				
+			
+				</div>
+				<div class="aboutus-use">
+				
+				<center><h4>生活助手信息品台</h4></center>
+				<ul style="margin-left:6%;margin-top:5%">
 					<li ><span style="font-size:1.2em;"><a href="" id="yuyuea">【通州湾老人体检区】</a></span>
 					<ul style="margin-top:2%;width:100%">
 						<li ><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
@@ -200,108 +252,75 @@
 					<span><a href="javascript:;" >下一页 ></a></span>
 					</center>
 					</c:if>
-				<%-- 	<c:if test="${pageBean.totalCount!=0}">
-					<c:if test="${pageBean.page==1}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
-					</center>
-					</c:if>
-					</c:if> --%>
-					</c:if>
-				</ul>
-				
-				
-				
-				
 				</div>
-				<div class="aboutus-use"></div>
+				</c:if>
+				</ul>
+				</div>
+
+				
+				
 				<div class="aboutus-join">
-					<p>星堡（上海）投资咨询有限公司是由复星集团与美国峰堡投资集团共同建立的一家专业开发与运营养老社区的合资公司。星堡不仅持有与运营养老机构，还涉及其他养老相关业务。
-					</p>
-					<p>星堡在上海的首个养老社区位于宝山中环，是一个提供从自理、护理到临终关怀一站式服务的养老社区。</p>
-					<h4>Join Us！—— 与星堡一起改善中国老年生活方式</h4>
-					<img alt="" src="resource/image/aboutus_img.jpg">
-					<h4>老年生活顾问</h4>
-					<h5>任职要求：</h5>
-					<p>- 学历背景：大专以上学历</p>
-					<p>- 工作经验：具备一定的销售技巧及经验，市场营销经验及渠道拓展经验；</p>
-					<p>- 性格特质：品行正直、思路清晰、具备原动力；</p>
-					<p>- 相关技能：较强的沟通能力、执行能力；较强的抗压能力、良好的亲和力。</p>
-					<h5>岗位描述：</h5>
-					<p>- 为初次拜访的客户提供专业的养老服务咨询；</p>
-					<p>- 以优质的服务标准接待客户，推广公司形象，传递公司信息；</p>
-					<p>- 精准、及时地完成销售系统客户资料的录入，使用销售系统导出报表分析工作进展情况；</p>
-					<p>- 定期进行客户电话跟进，上门拜访及客户追踪，完成个人销售指标；</p>
-					<p>- 销售合同的签订，并将合同原件根据公司相关管理规定归档，妥善管理并录入合同信息；</p>
-					<p>- 做好客户积累、维持良好的客户关系；</p>
-					<p>- 客户入住初期，为客户提供良好的售后服务工作；</p>
-					<p>- 协同团队完成年终销售指标；</p>
-					<h4>活动协调员</h4>
-					<h5>任职要求：</h5>
-					<p>－本科以上学历，社工或市场策划等相关专业毕业</p>
-					<p>－有1年以上相关工作经验</p>
-					<p>－热爱养老事业</p>
-					<p>－优秀的沟通能力、语言表达及团队协作能力</p>
-					<p>－流利的普通话，可英语交流为佳。</p>
-					<p>－优秀应届生也可考虑</p>
-					<h5>岗位描述：</h5>
-					<p>－协同住户，开发由老年人主导的俱乐部和活动</p>
-					<p>－在新住户搬入时，记录新住户的兴趣爱好</p>
-					<p>－帮助有类似兴趣的住户建立联系和沟通</p>
-					<p>－创建并维护活动和兴趣小组的活动日程</p>
-					<p>－组织上海范围内的参观、旅游等外出活动</p>
-					<h5 style="margin-top: 50px;">立刻加入星堡的团队！</h5>
-					<p>中国60岁以上的老年人已超过两亿 我们的成长与成功是由全情投入并关爱老年事业的团队帮助我们发展有意义的长期关系开始建立的
-						。 我们的业务是通过以人为本的销售和服务来发展良好的关系并不断维护。我们最在乎的是为顾客提供合适的方案和创建顾客忠诚度。</p>
-					<p>我们为员工提供全面的培训、积极地激励及辅导，不断培养我们的员工，实现您的个人价值。
-						我们的团队致力于取得积极的工作成果，并通过健康、幸福、质量及诚信来衡量。
-						通过您的帮助，老人们能在享受独立的生活同时还可追求更高的生活质量。 立刻加入我们的成为星堡大家庭的一员 --
-						为您的职业生涯添彩，您的辛勤工作亦会得到嘉奖！</p>
-					<h5 style="margin-top: 50px;">我们为您提供：</h5>
-					<p>• 具有竞争力的薪酬</p>
-					<p>• 每年带薪年假</p>
-					<p>• 国家规定社保</p>
-					<p>• 健康体检及额外的医疗保险</p>
-					<p>• 丰富多彩的社会活动和公司内部活动</p>
-					<h5 style="margin-top: 50px;">面试地址交通指南：</h5>
-					<p>1. 地铁7号线大华三路2号口搭乘公交923至终点站</p>
-					<p>2. 周一至周五可于地铁7号线行知路站1号口搭乘中环天地班车（需投币1元）班车时间：
-						10:15/11:15/13:15/14:15/15:15/16:15 联系地址：上海宝山区环镇南路858弄中环天地4号楼1楼
-						人力资源部</p>
-					<p>邮箱地址：hr@starcastleliving.com</p>
-					<p>联系电话：021-56508077/021-56508087</p>
+				
+				<center><h4>安心托付与自在生活</h4></center>
+					<p style="font-size:1.1em">星堡致力于将寻求精彩、与时代接轨的活力长者们从家务、琐事和照顾另一半的压力中释放出来。优雅充
+					实的老年生活离不开一个健康的体魄，良好的机体与认知功能以及积极地从事参与社会群体和有创造性、
+					有意义的各项活动。星堡，致力于改善中国老年的生活方式，在充分尊重各位长者的个人爱好、意愿、权
+					利的前提下，为长者举办丰富多彩的日常活动，营造一个充满活力的社区环境。</p>
+					<p style="font-size:1.1em">星堡悉心为每位长者营造独立而舒适的生活空间，为社区里的每一位住户提供完善的设施和细致的服务</p>
+ 					<p style="font-size:1.1em;"><img alt="" src="resource/image/lamian.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">均衡膳食，吃出健康；人性化的就餐服务，灵活的就餐时间</p>
+  					<p style="font-size:1.1em"><img alt="" src="resource/image/secai.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">社区活动丰富多彩，充实乐活每一天；定期外出活动，与时代接轨</p>
+  					<p style="font-size:1.1em"><img alt="" src="resource/image/fucai.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">家庭医生制度，为您提供24小时健康陪伴；三甲医院医师坐诊，建立专属健康档案；代配药系统，人性化专业服务</p>
+				       <p style="font-size:1.1em"> <img alt="" src="resource/image/jiaoji.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;"> 老年大学充实精神、趣味交流小组形式丰富，结识好友享受生活</p>
+				       <p style="font-size:1.1em"><img alt="" src="resource/image/paizhao.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;"> 定期房间深度清洁，免去家务劳顿之忧</p>
+
+					<p style="font-size:1.1em">为了更好地为自理型长者提供服务，我们还额外提供上门补充护理服务；在长者身体需要额外照料的时候，适当提供付费护理服务，使长者生活更加安心。</p>
 				</div>
 
 				<div class="aboutus-cont">
-					<h4>养老社区</h4>
-					<p>社区地址：</p>
-					<p>星堡中环养老社区：上海宝山区环镇南路858弄5号楼 预约参观请拨打咨询热线 021-31001500 转 80108</p>
-					<p>星堡浦江养老社区：上海市闵行区联航路1505弄5号楼 021-31001518 转 50107</p>
-					<h4>养老投资咨询</h4>
-					<p>公司地址：上海宝山区环镇南路858弄5号楼4楼</p>
-					<p>联系人：王雪</p>
-					<p>联系方式：021-56508226</p>
-					<p>电子邮箱：ewang@starcastleliving.com</p>
-					<h4>星堡居家</h4>
-					<p>公司地址：上海浦东新区博山东路20弄28号</p>
-					<p>电子邮箱：amysi@starcastleathome.com</p>
-
+						<div class="aboutus-intro">
+				<center><h4>康复协助信息品台</h4></center>
+				<ul style="margin-left:6%;margin-top:5%">
+					<li ><span style="font-size:1.2em;"><a href="" id="yuyuea">【通州湾老人体检区】</a></span>
+					<ul style="margin-top:2%;width:100%">
+						<li ><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
+						<span style="width:100%;float:right;"><a href="" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></a></span></li>
+					</ul>
+				</li>
+				<hr>
+					<li><span style="font-size:1.2em;"><a href="">【通州湾老人体检区】</a></span>
+					<ul  style="margin-top:2%">
+						<li><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
+						<span style="width:100%;float:right;"><a href=""  style="color:#7C9A60">查看详情>></a></span></a></span></li>
+					</ul>
+				</li>
+				<hr>
+				<li><span style="font-size:1.2em;"><a href="">【通州湾老人体检区】</a></span>
+					<ul  style="margin-top:2%">
+						<li><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
+						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
+						<span style="width:100%;float:right;"><a href=""  style="color:#7C9A60">查看详情>></a></span></a></span></li>
+					</ul>
+				</li>
+				<hr>
+				<c:if test="${findActivitesName=='findActivitesName' }">
+					<c:if test="${pageBean.totalCount==0}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
+					;margin-left:20px;margin-right:20px;margin-top:20px;" readonly="readonly">
+					<span><a href="javascript:;" >下一页 ></a></span>
+					</center>
+					</c:if>
+				</div>
+				</c:if>
+				</ul>
+		
+			</div>
 				</div>
 
 				<div class="parti-online">
@@ -390,7 +409,7 @@
 						</div>
 					</form>
 				</div>
-
+</div>
 			</div>
 			<div class="clearfix"></div>
 

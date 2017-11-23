@@ -1,6 +1,5 @@
 package com.brick.squad.test;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,14 +9,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.JunitClassRunner;
 import com.brick.squad.util.Pagination;
-import com.brick.squad.util.StringParameterFiltering;
 
 @RunWith(JunitClassRunner.class)
 @ContextConfiguration(locations = "classpath:com/brick/squad/config/applicationContext.xml")
@@ -26,6 +23,19 @@ public class ActivitiesServiceTest {
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
+
+	@Test
+	public void subStringTest() {
+		String moviePath = "<iframe height=498 width=510 src='http://player.youku.com/embed/XODk2MTIyNzAw' frameborder=0 'allowfullscreen'></iframe>";	
+		System.out.println(moviePath.indexOf("'", 1));
+		System.out.println(moviePath.indexOf("'", 2));
+	moviePath = moviePath.substring(moviePath.indexOf("'", 1)+1,
+					moviePath.length());
+	moviePath=moviePath.substring(0, moviePath.indexOf("'", 1));
+			System.out.println(moviePath);
+		
+		
+	}
 
 	@Test
 	public void findActivitiesMovieByTypeIdTest() throws Exception {

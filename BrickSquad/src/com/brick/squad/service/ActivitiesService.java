@@ -57,5 +57,11 @@ public interface ActivitiesService {
 	 * 根据关键字模糊查询活动名称总数
 	 * */
 	public int findCountActivitesName(PageBeanUtil pageBeanUtil)throws Exception;
+	/***
+	 *  官网，乐堡服务中的体检预约 信息显示
+	 *  */
+	public PageBeanUtil<Activities>  findServerWebsiteTemplate(int page ,String typeId)throws Exception;
+	/**统计总记录数*/
+	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil)throws Exception;
 
 }

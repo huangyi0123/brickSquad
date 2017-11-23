@@ -33,10 +33,7 @@
 <script type="text/javascript">
 	$(function() {
 		var a='${roleId}';
-		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.news.ad},!${limiterole.news.dl},false);
-		}
-		init("",false,false,false);
+		init("",${limiterole.news.ad},${limiterole.news.dl},false);
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
