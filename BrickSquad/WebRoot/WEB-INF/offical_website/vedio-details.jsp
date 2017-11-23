@@ -125,20 +125,60 @@
 									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 10px;">第1页
 									/ 共5页</label> <label
 									style="display: block;color: black;margin-top: 20px;letter-spacing: 0px;font-size: 1em;">热门评论</label>
+								<div style="clear: both;"></div>
+								<div class="vedio_comm_cont">
+									<img style="display: block;" alt=""
+										src="resource/image/3736651_1426063184096_800x600.jpg">
+
+									<label class="vedio_comm_cont_name">傻丫头~</label> <label
+										class="vedio_comm_cont_time">10小时前</label>
+									<p class="vedio_comm_cont_conts">大叔马克面临中年危机，却并不能像一个中年男人那样妥善应对:他话唠，经济虽不至于捉襟见肘，但因不善理财，经济危机好像随时有可能发生。王小米以为嫁了和自己母亲一样大的大叔马克就能实现被宠爱的梦想，但她没想到享受了大叔的成熟和稳定，就要承受他性格中已经既定无法和你磨合的部分。大叔马克面临中年危机，却并不能像一个中年男人那样妥善应对:他话唠，经济虽不至于捉襟见肘，但因不善理财，经济危机好像随时有可能发生。王小米以为嫁了和自己母亲一样大的大叔马克就能实现被宠爱的梦想，但她没想到享受了大叔的成熟和稳定，就要承受他性格中已经既定无法和你磨合的部分。</p>
+									<div
+										style="display:block;margin-left: 60px;position: relative;">
+										<a href="#"><i class="layui-icon praise">&#xe6c6;</i></a><font>6</font>
+										<a href="#"><i class="layui-icon stamp">&#xe6c5;</i></a><font>2</font>
+										<a href="#"><i class="layui-icon dialogue">&#xe611;</i></a>
+									</div>
+									<font>3</font>
+								</div>
+
+								<div style="clear: both;"></div>
+								<div
+									style="display:block; width: 100%;border: 1px solid #E5E5E5;margin-top: 10px;"></div>
+								<div class="vedio_comm_cont">
+									<img style="display: block;" alt=""
+										src="resource/image/3736651_1426063184096_800x600.jpg">
+
+									<label class="vedio_comm_cont_name">傻丫头~</label> <label
+										class="vedio_comm_cont_time">10小时前</label>
+									<p class="vedio_comm_cont_conts">励志好剧！</p>
+									<div
+										style="display:block;margin-left: 60px;position: relative;">
+										<a href="#"><i class="layui-icon praise">&#xe6c6;</i></a><font>6</font>
+										<a href="#"><i class="layui-icon stamp">&#xe6c5;</i></a><font>1</font>
+										<a href="#"><i class="layui-icon dialogue">&#xe611;</i></a><font>4</font>
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+								<div
+									style="display:block; width: 100%;border: 1px solid #E5E5E5;margin-top: 10px;"></div>
 							</div>
 
 						</div>
 
-						<div class="layui-col-xs6 layui-col-md4"
-							style="border: 1px solid red;">
-							<div class="vedio_details">
-								<label
-									style="font-size: 1.2em;color: black;letter-spacing: 5px;">简介</label>
-								<label style="color: black;display: block;margin-top: 10px;">主讲人：</label>
-								<label style="float: left;margin-left: 70px;margin-top: -18px;"><a
-									href="#" style="color: #48CFC1;">石立勇</a></label> <label
-									style="color: black;display: block;margin-top: 10px;">内容：</label>
-								<p style="width: 300px;margin-left: 50px;margin-top: -18px;">大叔马克面临中年危机，却并不能像一个中年男人那样妥善应对:他话唠，经济虽不至于捉襟见肘，但因不善理财，经济危机好像随时有可能发生。王小米以为嫁了和自己母亲一样大的大叔马克就能实现被宠爱的梦想，但她没想到享受了大叔的成熟和稳定，就要承受他性格中已经既定无法和你磨合的部分。</p>
+						<div class="layui-col-xs6 layui-col-md4">
+							<div class="vedio_related">
+								<label>相关推荐</label> <a href="#" class="vedio_rel_bg"> <img
+									alt="" style="margin-top: 10px;"
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <img
+									class="vedio_rel_plays" alt="" src="resource/image/play.png"></a>
+								<a href="#" class="vedio_rel_bg"><img alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <img
+									class="vedio_rel_plays" alt="" src="resource/image/play.png"></a>
+								<div style="clear: both;"></div>
+								<a href="#"><img class="vedio_rel_bg" alt=""
+									src="resource/image/3736651_1426063184096_800x600.jpg"> <img
+									class="vedio_rel_plays" alt="" src="resource/image/play.png"></a>
 							</div>
 						</div>
 					</div>

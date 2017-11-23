@@ -37,10 +37,6 @@
 	filter: Alpha(opacity = 50);
 }
 
-.rbtj>li {
-	
-}
-
 .vedio_bg {
 	z-index: 3;
 }
@@ -114,8 +110,8 @@
 
 .vedio_comm {
 	width: 85%;
-	margin-left: 120px;
-	border: 1px solid red;
+	margin-left: 120px;/* 
+	border: 1px solid red; */
 }
 
 .vedio_comm label {
@@ -213,9 +209,9 @@
 }
 
 .vedio_comms .vedio_publish {
-	display:block;
+	display: block;
 	float: right;
-	position:absolute;
+	position: absolute;
 	color: #555555;
 	font-size: 0.8em;
 	letter-spacing: 0px;
@@ -225,4 +221,128 @@
 
 .vedio_comms .vedio_publish:HOVER {
 	color: #48CFC1;
+}
+
+.vedio_comm_cont {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
+}
+
+.vedio_comm_cont img {
+	float: left; width : 60px;
+	height: 60px;
+	border-radius: 30px;
+	width: 60px;
+}
+
+.vedio_comm_cont .vedio_comm_cont_name {
+	float: left;
+	display: block;
+	font-size: 0.8em;
+	color: #FC3200;
+	margin-left: 15px;
+	letter-spacing: 0px;
+}
+
+.vedio_comm_cont .vedio_comm_cont_time {
+	float: left;
+	font-size: 0.8em;
+	color: #CABBC1;
+	letter-spacing: 0px;
+	margin-left: 30px;
+}
+
+.vedio_comm_cont .vedio_comm_cont_conts {
+	display: block;
+	float: left;
+	width: 680px;
+	min-height: 50px;
+	height: auto;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.vedio_comm_cont a {
+	font-size: 20px;
+}
+
+.vedio_comm_cont i {
+	display: block;
+	float: left;
+	margin-left: 20px;
+	color: #DDDDDD;
+	font-size: 20px;
+}
+
+.vedio_comm_cont font {
+	float: left;
+	margin-left: 3px;
+	color: #DDDDDD;
+}
+
+.vedio_comm_cont i[class='layui-icon praise']:hover {
+	color: red
+}
+
+.vedio_comm_cont i[class='layui-icon stamp']:HOVER {
+	color: #48CFC1;
+}
+
+.vedio_comm_cont i[class='layui-icon dialogue']:HOVER {
+	color: #CABBC1;
+}
+
+.vedio_related>a>img[class='vedio_rel_plays']:hover {
+	opacity: 0.7;
+}
+
+.vedio_rel_bg:hover {
+	opacity: 0.7;
+	filter: Alpha(opacity = 50);
+}
+
+.vedio_rel_bg {
+	z-index: 3;
+}
+
+.vedio_related .vedio_rel_bg:HOVER {
+	opacity: 0.7;
+	filter: Alpha(opacity = 50);
+}
+
+.vedio_related {
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+	/* border: 1px solid blue; */
+}
+
+.vedio_related label {
+	color: #48CFC1;
+	font-size: 1.2em;
+	margin-left: 70px;
+}
+
+.vedio_related a:HOVER {
+	/* background-image:url('resource/image/3736651_1426063184096_800x600.jpg'); */
+	color: #48CFC1;
+	text-decoration: none;
+}
+
+.vedio_related img {
+	display: block;
+	width: 260px;
+	height: 150px;
+	margin: 30px 70px;
+}
+
+.layui-row .vedio_rel_plays {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 45px;
+	left: 70px;
+	z-index: 99;
 }
