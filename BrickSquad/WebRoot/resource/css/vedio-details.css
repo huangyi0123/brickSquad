@@ -27,15 +27,20 @@
 	left: 70px;
 	z-index: 99;
 }
-.vedio_recom>a>img[class='vedio_plays']:hover{
+
+.vedio_recom>a>img[class='vedio_plays']:hover {
 	opacity: 0.7;
 }
-.vedio_bg:hover{
+
+.vedio_bg:hover {
 	opacity: 0.7;
 	filter: Alpha(opacity = 50);
 }
-.rbtj>li{
+
+.rbtj>li {
+	
 }
+
 .vedio_bg {
 	z-index: 3;
 }
@@ -107,30 +112,102 @@
 	height: 200px;
 }
 
-.vedio_comm{
-	width:85%;
-	margin-left:120px;
+.vedio_comm {
+	width: 85%;
+	margin-left: 120px;
 	border: 1px solid red;
 }
-.vedio_comm label{
+
+.vedio_comm label {
 	font-size: 1.2em;
-	color:#48CFC1;
+	color: #48CFC1;
 	letter-spacing: 5px;
 }
 
-.vedio_comm .layui-textarea{
-	display:block;
+.vedio_comm .layui-textarea {
+	display: block;
 	width: 750px;
 	margin-left: -110px;
-	margin-top:10px;
-	border: 1px solid #DEDEDE !important;
-	
-}
-
-.vedio_comm .layui-textarea:hover{
+	margin-top: 10px;
 	border: 1px solid #DEDEDE !important;
 }
 
-.vedio_comm .layui-textarea:focus{
+.vedio_comm .layui-textarea:hover {
 	border: 1px solid #DEDEDE !important;
+}
+
+.vedio_comm .layui-textarea:focus {
+	border: 1px solid #DEDEDE !important;
+}
+
+.comm_register {
+	width: 750px;
+	height: 50px;
+	border: 1px solid #DDDDDD;
+	border-top: none;
+}
+
+.vedio_comm .comm_register img {
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	margin: 5px 10px;
+}
+
+.vedio_comm .comm_register .vedio_reg_name {
+	float: left;
+	line-height: 50px;
+	font-size: 0.8em;
+	color: black;
+	letter-spacing: 0px;
+}
+
+.vedio_comm .comm_register .vedio_reg_change {
+	float: left;
+	color: #999999;
+	font-size: 0.8em;
+	letter-spacing: 0px;
+	line-height: 50px;
+	margin-left: 5px;
+}
+
+.vedio_comm .comm_register .vedio_reg_change:HOVER {
+	color: #555555;
+}
+
+.vedio_comm .comm_register .vedio_comm_img {
+	float: left;
+	color: black;
+	font-size: 0.8em;
+	letter-spacing: 0px;
+	line-height: 50px;
+	margin-left: 5px;
+}
+
+.vedio_comm .comm_register .vedio_comm_img:HOVER {
+	color: #48CFC1;
+}
+
+.vedio_comm .comm_register .vedio_reg {
+	display: block;
+	float: left;
+	font-size: 1em;
+	position: absolute;
+	margin-left: 620px;
+	margin-top: 30px;
+}
+
+.vedio_comm .comm_register input {
+	float: right;
+	width: 80px;
+	position: relative;
+	height: 30px;
+	color: #555555;
+	text-align: center;
+	line-height: 50px;
+	margin-top: 15px;
+	margin-right: 10px;
+	background-color: #F2F2F2;
+	border: 1px solid #F2F2F2;
 }
