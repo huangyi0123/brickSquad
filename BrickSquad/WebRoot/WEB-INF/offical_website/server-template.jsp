@@ -131,6 +131,41 @@
 						});
 	}
 </script>
+<script type="text/javascript">
+ function findInformation(id) {
+	$.ajax({
+		url:'LeFortServiceController/findInformation?type=aboutus-intro&id='+id,
+		type: 'post',
+		success:function(data){
+			 $("#findInformationArtivites").html('');
+				data=JSON.parse(data);
+				console.log(data);
+				$(".aboutus-intro").hide();
+				$("#findInformationArtivites").show();
+				 $("#findInformationArtivites").append("<h4>"+data[0].name+"</h4><p>"+data[0].centent+
+						 "</p><hr style='margin-left:12%;'><span style='margin-left:12%;'>开始时间："+data[0].startTime+"</span><br><hr style='margin-left:12%;'> <span style='margin-left:12%;'>结束时间："+
+						 data[0].endTime+"</span> <hr style='margin-left:12%;'><span style='margin-left:12%;'>准预定人数："+data[0].number+
+						 "</span><hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a href='' style='color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"+
+						 "");
+		}
+	});
+}
+
+</script>
+<script type="text/javascript">
+function returnIn() {
+	$("#findInformationArtivites").hide();
+	$(".aboutus-intro").show();
+	$("#menu").find('li').each(function() {
+		var val = $(this).attr('val');
+		if (val == "aboutus-intro") {
+			$(this).attr('class', 'layui-nav-item layui-this');
+		} else {
+			$(this).attr('class', 'layui-nav-item');
+		}
+	});
+} 
+</script>
 </head>
 
 <body>
@@ -162,11 +197,11 @@
 			<!-- <div class="clearfix"></div> -->
 			<div class="tem_main_right" id="centent">
 
-				<div class="aboutus-intro">
+				<div class="aboutus-intro" >
 				<center><h4>体检预约信息品台</h4></center>
 				<ul style="margin-left:6%;margin-top:5%">
 				<c:forEach var="activites" items="${pageBean.list }">
-					<li ><span style="font-size:1.2em;"><a href="${pageContext.request.contextPath }/find/id=${activites.id}" id="yuyuea" style="color:#7C9A60">【${activites.name }】</a></span>
+					<li ><span style="font-size:1.2em;"><a href="javascript:;" onclick="findInformation('${activites.id}')" id="yuyuea" style="color:#7C9A60">【${activites.name }】</a></span>
 					<ul style="margin-top:2%;width:100%">
 						<li ><span style="width:100%"><a href="">${activites.centent }
 						<span style="width:100%;float:right;"><a href="${pageContext.request.contextPath }/find/id=${activites.id}" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></a></span></li>
@@ -212,6 +247,7 @@
 				
 			
 				</div>
+				<div id="findInformationArtivites"></div>
 				<div class="aboutus-use">
 				
 				<center><h4>生活助手信息品台</h4></center>
