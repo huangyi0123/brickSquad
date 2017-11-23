@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -60,27 +60,18 @@
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
 							<div class="layui-row">
-							<c:forEach var="movie" items="${listMovie }">
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-
-									<a href="#" class="act_bg" style="display: block;"><img
-
-									<a href="#" style="display: block;"><img class="act_bg"
-										alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+								<c:forEach var="movie" items="${listMovie }">
+								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+									<a href="#" class="act_bg"><img alt=""
+										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png">
-									</a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
-
-										<!-- <img alt="" src="resource/image/float.png" class="act_play"
-												style="position: absolute;top: 0px;opacity:0.75;display: block;z-index: 2;"> -->
-									</a><label>${movie.name }</label> <span>石立勇</span> <i
+									</a><label>【${movie.name }】</label> <span>石立勇</span> <i
 										class="layui-icon">&#xe613;</i> <label
 										style="margin-left: 210px;margin-top: -15px;"><font
 										style="color: #F7A01F;">10</font>人学习</label>
 								</div>
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
 								</c:forEach>
-						<!-- 		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+								<!-- 		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
 									<a href="#"><img class="act_bg" alt=""
 
 										src="resource/image/3736651_1426063184096_800x600.jpg">
@@ -93,7 +84,7 @@
 									<a href="#" class="act_bg"><img alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="act_play" alt="" src="resource/image/play.png">
-									</a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
+									</a><label>【${movie.name }】</label> <span>石立勇</span> <i
 										class="layui-icon">&#xe613;</i> <label
 										style="margin-left: 210px;margin-top: -15px;"><font
 										style="color: #F7A01F;">10</font>人学习</label>
