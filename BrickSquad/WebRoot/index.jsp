@@ -326,19 +326,19 @@ function findType(){
 							</dd>
 						</dl></li>
 
-					<li class="layui-nav-item"><a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro">乐堡服务</a>
+					<li class="layui-nav-item"><a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro">体检预约</a>
+								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 							</dd>
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use">生活助手</a>
+								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 							</dd>
 							<dd>
-								<a href="common/serverWebsiteTemplate?type=aboutus-join">独立生活</a>
+								<a href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 							</dd>
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont">康复协助</a>
+								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>

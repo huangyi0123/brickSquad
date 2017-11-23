@@ -18,6 +18,7 @@ import com.brick.squad.mapper.ActivitiesMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Filter;
@@ -240,6 +241,78 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 			activities = (Activities) Filter.filterObject(activities);
 		}
 		return list;
+	}
+
+	@Override
+	/***
+	 *  官网，乐堡服务中的体检预约 信息显示
+	 *  */
+	public PageBeanUtil<Activities> findServerWebsiteTemplate(int page,
+			String typeId) throws Exception {
+		PageBeanUtil<Activities> pageBean = new PageBeanUtil<Activities>();
+		pageBean.setTypeId(typeId);
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountActivitesName(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<Activities> list = activitiesMapper.findServerWebsiteTemplate(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountActivitesName(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<Activities> list = activitiesMapper.findServerWebsiteTemplate(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**统计总记录数*/
+	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil)
+			throws Exception {
+		int count=activitiesMapper.findCountServerWebsiteTemplate(pageBeanUtil);
+		return count;
 	}
 
 }

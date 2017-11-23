@@ -124,6 +124,22 @@
 		WHERE `name` REGEXP
 		#{search}
 	</select>
-
+	<!-- 官网，乐堡服务中的体检预约 信息显示-->
+	<select id="findServerWebsiteTemplate" resultType="activities"
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT a.id ,a.`name` ,a.centent,a.start_time,a.end_time,a.number 
+	FROM activities a 
+	JOIN type t 
+	ON a.type_id=t.id AND t.id=#{typeId}
+	LIMIT #{begin},#{limitPage}
+	</select>
+	<select id="findCountServerWebsiteTemplate" resultType="int"
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT count(*) 
+	FROM activities a 
+	JOIN type t 
+	ON a.type_id=t.id AND t.id=#{typeId}
+	</select>
+	
 
 </mapper>
