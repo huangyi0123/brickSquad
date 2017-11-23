@@ -44,7 +44,8 @@ public class ActivitiesController {
 
 	@RequestMapping("/getActivitiesList")
 	@ResponseBody
-	public String getActivitiesList(int pSize, int cPage, String keyword) throws Exception {
+	public String getActivitiesList(int pSize, int cPage, String keyword)
+			throws Exception {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
@@ -73,8 +74,7 @@ public class ActivitiesController {
 	// 验证
 	@RequestMapping("/addActivities")
 	public String addActivities(@Validated Activities activities,
-			BindingResult result, HttpServletRequest request,
-			MultipartFile files) throws Exception {
+			BindingResult result, HttpServletRequest request) throws Exception {
 		if (result.hasErrors()) {
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -82,41 +82,37 @@ public class ActivitiesController {
 			request.setAttribute("msg", "添加");
 			return "backstage_managed/jsp/activities/add_activities";
 		}
-		if (files != null) {
-			// 获取图片要保存的到的服务器路径
-			String realPath = "resource/movie/activities/";
-			String path = request.getSession().getServletContext()
-					.getRealPath(realPath);
-			// 获取当前文件名
-			String filName = files.getOriginalFilename();
-			// 获取当前文件的后缀名
-			String fileSuffixName = filName.substring(filName.lastIndexOf("."));
-			// 如果后缀名为mp4,才允许上传
-			if (fileSuffixName.equals(".mp4")|| fileSuffixName.equals(".MP4") ) {
-				//  创建文件类型对象: 
-				File file = new File(path, filName);
-				if (!file.exists()) {
-					file.mkdirs();
-				}
-				files.transferTo(file);
-				activities.setMovie(filName);
-				
-			} else {
-				List<ObjectError> errors = result.getAllErrors();
-				request.setAttribute("errors", errors);
-				request.setAttribute("url", "addActivities");
-				request.setAttribute("msg", "添加");
-				return "backstage_managed/jsp/activities/add_activities";
-			}
-		} else {
-			List<ObjectError> errors = result.getAllErrors();
-			request.setAttribute("errors", errors);
-			request.setAttribute("url", "addActivities");
-			request.setAttribute("msg", "添加");
-			return "backstage_managed/jsp/activities/add_activities";
+		// 以下注释是上传视频到服务器的代码
+		/*
+		 * if (files != null) { // 获取要保存的到的服务器路径 String realPath =
+		 * "resource/movie/activities/"; String path =
+		 * request.getSession().getServletContext() .getRealPath(realPath); //
+		 * 获取当前文件名 String filName = files.getOriginalFilename(); // 获取当前文件的后缀名
+		 * String fileSuffixName = filName.substring(filName.lastIndexOf("."));
+		 * // 如果后缀名为mp4,才允许上传 if (fileSuffixName.equals(".mp4")||
+		 * fileSuffixName.equals(".MP4") ) { //  创建文件类型对象:  File file = new
+		 * File(path, filName); if (!file.exists()) { file.mkdirs(); }
+		 * files.transferTo(file); activities.setMovie(filName);
+		 * 
+		 * } else { List<ObjectError> errors = result.getAllErrors();
+		 * request.setAttribute("errors", errors); request.setAttribute("url",
+		 * "addActivities"); request.setAttribute("msg", "添加"); return
+		 * "backstage_managed/jsp/activities/add_activities"; } }else {
+		 * List<ObjectError> errors = result.getAllErrors();
+		 * request.setAttribute("errors", errors); request.setAttribute("url",
+		 * "addActivities"); request.setAttribute("msg", "添加"); return
+		 * "backstage_managed/jsp/activities/add_activities"; }
+		 */
+		System.out.println(activities.getMovie() + "*****");
+		String moviePath = activities.getMovie();
+		if (moviePath != null && !moviePath.trim().equals("")) {
+			System.out.println("*****");
+			moviePath = moviePath.substring(moviePath.indexOf("'", 1),
+					moviePath.indexOf("'", 2));
+			System.out.println(moviePath);
+			activities.setMovie(moviePath);
 		}
-		 activitiesService.insertActivitiesById(activities); 
-		 System.out.println(activities.getMovie());
+		activitiesService.insertActivitiesById(activities);
 		return "backstage_managed/jsp/activities/activities_list";
 	}
 
@@ -157,7 +153,8 @@ public class ActivitiesController {
 	}
 
 	@RequestMapping("/findActivitiesById")
-	public String findActivitiesById(HttpServletRequest request, String id) throws Exception {
+	public String findActivitiesById(HttpServletRequest request, String id)
+			throws Exception {
 		ActivitiesExpand activitiesExpand = activitiesService
 				.findActivitiesAndTpyeAndUser(id);
 		request.setAttribute("activitiesExpand", activitiesExpand);
@@ -179,16 +176,20 @@ public class ActivitiesController {
 	public String findAllTypeAndUser() throws Exception {
 		return activitiesService.findAllTypeAndUser();
 	}
+
 	/**
 	 * 根据关键字模糊查询活动名称
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 * */
 	@RequestMapping("/findActivitesName")
-	public String findActivitesName(HttpServletRequest request,PageBeanUtil pageBean) throws Exception{
-		String type="aboutus-intro";
-		int page=pageBean.getPage();
-		String search=pageBean.getSearch();
-		PageBeanUtil<Activities> paBean= activitiesService.findActivitesName(page, search);
+	public String findActivitesName(HttpServletRequest request,
+			PageBeanUtil pageBean) throws Exception {
+		String type = "aboutus-intro";
+		int page = pageBean.getPage();
+		String search = pageBean.getSearch();
+		PageBeanUtil<Activities> paBean = activitiesService.findActivitesName(
+				page, search);
 		request.setAttribute("pageBean", paBean);
 		request.setAttribute("type", type);
 		request.setAttribute("findActivitesName", "findActivitesName");

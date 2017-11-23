@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 	<div style="padding-left: 130px;font-size:16;">${msg }添加活动信息</div>
 	<br>
-   <form class="layui-form" action="activities/${url }" id="form1" method="post" enctype="multipart/form-data">
+   <form class="layui-form" action="activities/${url }" id="form1" method="post">
   <input type="hidden" name="id" value="${activities.id}">
 		<div class="layui-form-item">
 			<label class="layui-form-label">活动名称</label>
@@ -99,13 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="text" name="number" required lay-verify="required"
 					placeholder="参会人数" value="${activities.number }" autocomplete="off" class="layui-input">
 			</div>
-		</div>
-		
-		
-		
-		
-	
-		
+		</div>				
 		<div class="layui-form-item" style="width: 300px;">
 			<label class="layui-form-label">活动类型id</label>
 			<div class="layui-input-block">
@@ -134,11 +128,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</select>
 			</div>
 		</div>
-		
-		
-		
-		
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">开始时间</label>
 			<div class="layui-input-inline logstart_time">
@@ -154,8 +143,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">上传视频</label>
-			<div class="layui-input-inline" style="color:white; display:inline-block;position:relative;width:190px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
+			<label class="layui-form-label">视频链接</label>
+			<div class="layui-input-inline">
+				<input type="text" name="movie" 
+					placeholder="复制视频链接"  autocomplete="off" class="layui-input">
+			</div>
+		<!-- 	<div class="layui-input-inline" style="color:white; display:inline-block;position:relative;width:190px; height:34px; border:1px solid #1AA194;text-align:center;line-height:34px;background-color: #1AA194">
 				上传视频
 				<input  id="inputImg" type="file" name="files" multiple="multiple"  
 					placeholder="商品图片" autocomplete="off" class="layui-input" 
@@ -163,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					>
 			<div id="showImg">
 			</div>	
-			</div>
+			</div> -->
 		
 		<div class="layui-form-item">
     <div class="layui-input-block">
