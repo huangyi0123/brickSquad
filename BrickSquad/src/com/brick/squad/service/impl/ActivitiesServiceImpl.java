@@ -230,7 +230,8 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	}
 
 	@Override
-	public List<Activities> findActivitiesMovieByTypeId(ActivitiesAndPaginationExtend activitiesAndPaginationExtend)
+	public List<Activities> findActivitiesMovieByTypeId(
+			ActivitiesAndPaginationExtend activitiesAndPaginationExtend)
 			throws Exception {
 		List<Activities> list = activitiesMapper
 				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
@@ -252,7 +253,7 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 			page = 1;
 			// 设置当前页数:
 			pageBean.setPage(page);
-			
+
 			// 设置每页显示记录数:
 			int limit = 4;
 			pageBean.setLimitPage(limit);
@@ -273,7 +274,8 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 			// 从哪开始:
 			int begin = (page - 1) * limit;
 			pageBean.setBegin(begin);
-			List<Activities> list = activitiesMapper.findServerWebsiteTemplate(pageBean);
+			List<Activities> list = activitiesMapper
+					.findServerWebsiteTemplate(pageBean);
 			pageBean.setList(list);
 		} else {
 			// 设置当前页数:
@@ -298,7 +300,8 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 			// 从哪开始:
 			int begin = (page - 1) * limit;
 			pageBean.setBegin(begin);
-			List<Activities> list = activitiesMapper.findServerWebsiteTemplate(pageBean);
+			List<Activities> list = activitiesMapper
+					.findServerWebsiteTemplate(pageBean);
 			pageBean.setList(list);
 		}
 		return pageBean;
@@ -308,8 +311,21 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	/**统计总记录数*/
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil)
 			throws Exception {
-		int count=activitiesMapper.findCountServerWebsiteTemplate(pageBeanUtil);
+		int count = activitiesMapper
+				.findCountServerWebsiteTemplate(pageBeanUtil);
 		return count;
+	}
+
+	@Override
+	public void updateClickAmountById(String id) {
+		activitiesMapper.updateClickAmountById(id);
+
+	}
+
+	@Override
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(String typeId) {
+		// TODO Auto-generated method stub
+		return activitiesMapper.findActivitiesMovieClickAmountByTypeId(typeId);
 	}
 
 }

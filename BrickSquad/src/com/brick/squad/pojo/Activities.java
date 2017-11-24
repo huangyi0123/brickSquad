@@ -31,6 +31,19 @@ public class Activities {
 	@Max(value = 100000, message = "人数过多")
 	private int number;
 	private String movie;
+	/**
+	 * 视频点击量
+	 */
+	private int clickAmount;
+	
+
+	public int getClickAmount() {
+		return clickAmount;
+	}
+
+	public void setClickAmount(int clickAmount) {
+		this.clickAmount = clickAmount;
+	}
 
 	public String getMovie() {
 		return movie;
@@ -109,7 +122,10 @@ public class Activities {
 		return "Activities [id=" + id + ", name=" + name + ", centent="
 				+ centent + ", typeId=" + typeId + ", startTime=" + startTime
 				+ ", endTime=" + endTime + ", userId=" + userId + ", number="
-				+ number + ", movie=" + movie + "]";
+				+ number + ", movie=" + movie + ", clickAmount=" + clickAmount
+				+ "]";
 	}
+
+
 
 }

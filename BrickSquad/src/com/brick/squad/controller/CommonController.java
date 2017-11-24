@@ -399,7 +399,15 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toVedio_Details")
-	public String toVedio_Details() {
+	public String toVedio_Details(String id,String typeId, HttpServletRequest request)
+			throws Exception {
+		Activities activitiesMoviePAth = activitiesService
+				.findActivitiesById(id);
+		// 每次给视频点击量+1
+		activitiesService.updateClickAmountById(id);
+		request.setAttribute("activitiesMoviePAth", activitiesMoviePAth);
+		List<Activities> listacActivitiesClickAmount =activitiesService.findActivitiesMovieClickAmountByTypeId(typeId);
+		request.setAttribute("listacActivitiesClickAmount", listacActivitiesClickAmount);
 		return "offical_website/vedio-details";
 	}
 
