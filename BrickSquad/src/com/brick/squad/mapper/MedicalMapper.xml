@@ -76,5 +76,21 @@
 	<delete id="deleteMedicalByPerId" parameterType="String"> 
 	delete from medical where per_id=#{perId}
 	</delete>
-	
+	<!-- 查询用户病史 -->
+	<select id="findMedicalByUser" parameterType="com.brick.squad.util.PageBeanUtil" 
+	resultType="com.brick.squad.expand.MedicalExpand">
+	SELECT m.id,m.per_id perId ,m.inspection_date inspectionDate,m.hospital,t.`name`,
+	 m.content,m.attending_surgeon attendingSurgeon
+	FROM personal_information p 
+	JOIN medical m ON p.id=m.per_id 
+	JOIN type t ON t.id=m.type_id where p.id=#{pId} ORDER BY inspection_date 
+	LIMIT #{page},#{limitPage}
+	</select>
+	<select id="findCountMedicalByUser" resultType="int" 
+	parameterType="com.brick.squad.util.PageBeanUtil">
+	SELECT COUNT(*)
+	FROM personal_information p 
+	JOIN medical m ON p.id=m.per_id 
+	JOIN type t ON t.id=m.type_id AND m.per_id=#{pId}
+	</select>
 </mapper>

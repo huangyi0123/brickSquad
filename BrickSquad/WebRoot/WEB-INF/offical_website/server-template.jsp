@@ -333,39 +333,29 @@ function reservation(id) {
 
 					<p style="font-size:1.1em">为了更好地为自理型长者提供服务，我们还额外提供上门补充护理服务；在长者身体需要额外照料的时候，适当提供付费护理服务，使长者生活更加安心。</p>
 				</div>
-
+				
+				
 				<div class="aboutus-cont">
 						<div class="aboutus-intro">
-				<center><h4>康复协助信息品台</h4></center>
+				<center><h4>健康检查病历史</h4></center>
+				
+				<c:if test="${user ne  null}">
 				<ul style="margin-left:6%;margin-top:5%">
-					<li ><span style="font-size:1.2em;"><a href="" id="yuyuea">【通州湾老人体检区】</a></span>
-					<ul style="margin-top:2%;width:100%">
-						<li ><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href="" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></a></span></li>
+					<c:forEach var="medical" items="${pageBean1.list }">
+					<li ><span style="font-size:1.1em;"><a href="" id="yuyuea">姓名：${user.username }</a></span>
+					<ul style="margin-top:2%;width:100%;margin-top:-1px;">
+						<li ><span style=""><span style="font-size:1.1em">检查病类：</span>${medical.name }</span><br>
+						<span style="width:100%"><span style="font-size:1.1em">检查内容：</span>${medical.content } 
+						<br><span style=""><span style="font-size:1.1em">检查时间：</span>${medical.inspectionDate }</span>
+						<span style="float:right;"><a href="" style="color:#7C9A60">查看详情>></a></span>
+						</span></li>
 					</ul>
 				</li>
 				<hr>
-					<li><span style="font-size:1.2em;"><a href="">【通州湾老人体检区】</a></span>
-					<ul  style="margin-top:2%">
-						<li><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href=""  style="color:#7C9A60">查看详情>></a></span></a></span></li>
-					</ul>
-				</li>
-				<hr>
-				<li><span style="font-size:1.2em;"><a href="">【通州湾老人体检区】</a></span>
-					<ul  style="margin-top:2%">
-						<li><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href=""  style="color:#7C9A60">查看详情>></a></span></a></span></li>
-					</ul>
-				</li>
-				<hr>
-				<c:if test="${findActivitesName=='findActivitesName' }">
+				</c:forEach>
+					
+					
+				<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
 					<c:if test="${pageBean.totalCount==0}">
 					<center>
 					<span><a href="javascript:;" >< 上一页</a></span>
@@ -374,11 +364,41 @@ function reservation(id) {
 					<span><a href="javascript:;" >下一页 ></a></span>
 					</center>
 					</c:if>
-				</div>
-				</c:if>
+					<c:if test="${pageBean.totalCount!=0}">
+					<c:if test="${pageBean.page==1}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="javascript:;" >下一页  ></a></span>
+					</center>
+					</c:if>
+					</c:if> 
+					</c:if>
+				
+				
+					</c:if>
+					<c:if test="${user eq null }">
+					<h5 style="color:gray;margin-top:62px;">你还没有登录，请先去登录......</h5>
+					</c:if>
 				</ul>
 		
 			</div>
+		
+			
 				</div>
 
 				<!-- <div class="parti-online">

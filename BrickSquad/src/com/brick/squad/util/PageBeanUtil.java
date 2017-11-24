@@ -20,9 +20,19 @@ public class PageBeanUtil<T> {
 	private String aname;
 	private String typeId;
 	private String search;
+	private String pId;
+	
 
 	
 	
+	public String getpId() {
+		return pId;
+	}
+
+	public void setpId(String pId) {
+		this.pId = pId;
+	}
+
 	public String getSearch() {
 		return search;
 	}

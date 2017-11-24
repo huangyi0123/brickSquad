@@ -14,6 +14,7 @@ import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.mapper.MedicalMapper;
 import com.brick.squad.mapper.PersonalInformationMapper;
 import com.brick.squad.mapper.TypeMapper;
+import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.Medical;
 import com.brick.squad.pojo.PersonalInformation;
@@ -21,6 +22,7 @@ import com.brick.squad.pojo.Region;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.MedicalService;
 import com.brick.squad.util.GridManagerList;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
 
@@ -108,5 +110,77 @@ public class MedicalServiceImpl implements MedicalService {
 				.findPersonalInformationAndType(id);
 		return medicalExpand;
 	}
+
+	@Override
+	/**查看用户检查病历史*/
+	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page, String pId)
+			throws Exception {
+		PageBeanUtil<MedicalExpand> pageBean = new PageBeanUtil<MedicalExpand>();
+		pageBean.setpId(pId);
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			
+			// 设置每页显示记录数:
+			int limit = 3;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = medicalMapper.findCountMedicalByUser(pageBean);
+		
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<MedicalExpand> list = medicalMapper.findMedicalByUser(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 3;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = medicalMapper.findCountMedicalByUser(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<MedicalExpand> list = medicalMapper.findMedicalByUser(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**查看用户检查病历史记录数*/
+	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil)
+			throws Exception {
+		int count=medicalMapper.findCountMedicalByUser(pageBeanUtil);
+		return count;
+	}
+
 
 }

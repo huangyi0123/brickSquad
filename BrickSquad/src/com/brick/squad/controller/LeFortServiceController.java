@@ -1,6 +1,7 @@
 package com.brick.squad.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,11 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
+import com.brick.squad.service.MedicalService;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.PageBeanUtil;
 
@@ -30,6 +33,9 @@ public class LeFortServiceController {
 	@Autowired
 	@Qualifier("activityRegistrationService")
 	private ActivityRegistrationService activityRegistrationService;
+	@Autowired
+	@Qualifier("medicalService")
+	private MedicalService medicalService;
 	/**官网乐堡服务
 	 * @throws Exception */
 	@RequestMapping("/serverWebsiteTemplate")
@@ -40,6 +46,14 @@ public class LeFortServiceController {
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
+		
+		User user=(User) request.getSession().getAttribute("user");
+		if(user==null){
+		}else{
+		String pId=user.getId();
+		PageBeanUtil<MedicalExpand> pageBeanUtil2=medicalService.findMedicalByUser(page, pId);
+		request.setAttribute("pageBean1", pageBeanUtil2);
+		}
 		return "offical_website/server-template";
 	}
 	@RequestMapping("/findInformation")

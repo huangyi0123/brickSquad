@@ -1,7 +1,10 @@
 package com.brick.squad.service;
 
+import java.util.List;
+
 import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Medical;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface MedicalService {
@@ -34,5 +37,9 @@ public interface MedicalService {
 	public String findAllPersonalInformationAndType();
 
 	public MedicalExpand findPersonalInformationAndType(String id);
+	/**查看用户检查病历史*/
+	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page,String pId)throws Exception;
+	/**查看用户检查病历史记录数*/
+	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil)throws Exception;
 
 }
