@@ -294,9 +294,6 @@
 	color: #CABBC1;
 }
 
-.vedio_related>a>img[class='vedio_rel_plays']:hover {
-	opacity: 0.7;
-}
 
 .vedio_rel_bg:hover {
 	opacity: 0.7;
@@ -345,4 +342,10 @@
 	top: 45px;
 	left: 70px;
 	z-index: 99;
+}
+.vedio_list>a:hover img[class='mybg']{
+	opacity: 0.7;
+}
+.vedio_related>a:hover img[class='mybg']{
+	opacity: 0.7;
 }

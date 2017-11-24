@@ -27,16 +27,20 @@
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript">
-$(function () {
-	$("#playitem").find('a').hover(function() {
-		var p=$(this).find('p');
-		p.slideToggle("slow");
+	$(function() {
+		$("#playitem").find('a').hover(function() {
+			var p = $(this).find('p');
+			p.slideToggle();
+		});
+		$(".vedio_list").find('a').hover(function() {
+			var p = $(this).find('p');
+			p.slideToggle();
+		});
+		$(".vedio_related").find('a').hover(function() {
+			var p = $(this).find('p');
+			p.slideToggle();
+		});
 	});
-   /*  $("#playitem").find('a').mouseout(function(){
-    	var p=$(this).find('p').hide();
-		
-		 }); */
-});
 </script>
 </head>
 
@@ -59,17 +63,22 @@ $(function () {
 							<img alt="" class="vedio_bg" style="margin-top: 10px;"
 								src="resource/image/3736651_1426063184096_800x600.jpg">
 							<img class="vedio_plays" alt="" src="resource/image/play.png">
-							<p style="display: none; height:30px;width:120px; background-color:#999;opacity:0.4; position:absolute; top: 148px">你好</p>
+							<p
+								style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 140px">你好</p>
 						</a>
 						<a href="#" class="vedio_bg">
 							<img alt="" class="vedio_bg" src="resource/image/3736651_1426063184096_800x600.jpg">
 							<img class="vedio_plays" alt="" src="resource/image/play.png" style="top: 190px">
+							<p
+								style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 290px">你好</p>
 						</a>
 						<div style="clear: both;"></div>
 						<a href="#">
 							<img class="vedio_bg" alt="" class="vedio_bg"
 								src="resource/image/3736651_1426063184096_800x600.jpg">
 							<img class="vedio_plays" alt="" src="resource/image/play.png" style="top: 340px">
+							<p
+								style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 440px">你好</p>
 						</a>
 					</div>
 
@@ -86,14 +95,26 @@ $(function () {
 							<a href="#" class="more"> 更多</a>
 							<div class="vedio_list">
 								<a href="#">
-									<img alt="" style="margin-left: 0px;"
+									<img class="mybg" alt="" style="margin-left: 0px;"
 										src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="vedio_plays" alt="" src="resource/image/play.png"
+										style="width:80px;height: 80px;left: 150px;top: 60px">
+									<p
+										style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top:150px">你好</p>
 								</a>
 								<a href="#">
-									<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="mybg" alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="vedio_plays" alt="" src="resource/image/play.png"
+										style="width:80px;height: 80px;left: 410px;top: 60px">
+									<p
+										style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top:150px;left: 380px">你好</p>
 								</a>
 								<a href="#">
-									<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="mybg" alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="vedio_plays" alt="" src="resource/image/play.png"
+										style="width:80px;height: 80px;left: 660px;top: 60px">
+									<p
+										style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top:150px;left: 638px">你好</p>
 								</a>
 							</div>
 						</div>
@@ -199,18 +220,24 @@ $(function () {
 							<div class="vedio_related">
 								<label>相关推荐</label>
 								<a href="#" class="vedio_rel_bg">
-									<img alt="" style="margin-top: 10px;"
+									<img class="mybg" alt="" style="margin-top: 10px;"
 										src="resource/image/3736651_1426063184096_800x600.jpg">
-									<img class="vedio_rel_plays" alt="" src="resource/image/play.png">
+									<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 60px">
+									<p
+										style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 170px;left: 70px">你好</p>
 								</a>
 								<a href="#" class="vedio_rel_bg">
-									<img alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
-									<img class="vedio_rel_plays" alt="" src="resource/image/play.png">
+									<img class="mybg" alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 240px">
+									<p
+										style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 350px;left: 70px">你好</p>
 								</a>
 								<div style="clear: both;"></div>
 								<a href="#">
-									<img class="vedio_rel_bg" alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
-									<img class="vedio_rel_plays" alt="" src="resource/image/play.png">
+									<img class="mybg" alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+									<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top:420px">
+									<p
+										style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 530px;left: 70px">你好</p>
 								</a>
 							</div>
 						</div>
