@@ -29,4 +29,6 @@ public interface MedicalMapper {
 	public List<MedicalExpand> findMedicalByUser(PageBeanUtil pageBeanUtil);
 	/**查看用户检查病历史记录数*/
 	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil);
+	/** 根据ID查找详细信息 */
+	public  MedicalExpand  findViewInformation(String id);
 }

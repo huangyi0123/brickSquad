@@ -182,5 +182,12 @@ public class MedicalServiceImpl implements MedicalService {
 		return count;
 	}
 
+	@Override
+	/** 根据ID查找详细信息 */
+	public MedicalExpand findViewInformation(String id) throws Exception {
+		MedicalExpand medicalExpand=medicalMapper.findViewInformation(id);
+		return medicalExpand;
+	}
+
 
 }

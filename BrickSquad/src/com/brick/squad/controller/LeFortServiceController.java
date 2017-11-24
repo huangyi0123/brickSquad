@@ -40,12 +40,14 @@ public class LeFortServiceController {
 	 * @throws Exception */
 	@RequestMapping("/serverWebsiteTemplate")
 	public String serverWebsiteTemplate(String type,HttpServletRequest request,PageBeanUtil pageBean) throws Exception {
+		type = "aboutus-intro";
 		request.setAttribute("type", type);
 		int page=pageBean.getPage();
 		String typeId=pageBean.getTypeId();
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
+		
 		
 		User user=(User) request.getSession().getAttribute("user");
 		if(user==null){
@@ -56,6 +58,13 @@ public class LeFortServiceController {
 		}
 		return "offical_website/server-template";
 	}
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping("/findInformation")
 	@ResponseBody
 	public String findInformation(String type,HttpServletRequest request,String id) throws Exception {
@@ -69,6 +78,23 @@ public class LeFortServiceController {
 		String data=jsonArray.fromObject(activities,jsonConfig).toString();
 		return data;
 	}
+	
+	
+	
+	@RequestMapping("/findViewInformation")
+	@ResponseBody
+	public String findViewInformation(String type,HttpServletRequest request,String id) throws Exception {
+		request.setAttribute("type", type);
+		MedicalExpand medicalExpand=medicalService.findViewInformation(id);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor());
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(medicalExpand,jsonConfig).toString();
+		return data;
+	}
+	
+	
 	/***体检预约信息添加*/
 	@RequestMapping("/insertArtivitesInformation")
 	@ResponseBody
