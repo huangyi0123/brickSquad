@@ -399,15 +399,25 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toVedio_Details")
-	public String toVedio_Details(String id,String typeId, HttpServletRequest request)
+	public String toVedio_Details(String id, HttpServletRequest request)
 			throws Exception {
 		Activities activitiesMoviePAth = activitiesService
 				.findActivitiesById(id);
 		// 每次给视频点击量+1
 		activitiesService.updateClickAmountById(id);
 		request.setAttribute("activitiesMoviePAth", activitiesMoviePAth);
-		List<Activities> listacActivitiesClickAmount =activitiesService.findActivitiesMovieClickAmountByTypeId(typeId);
-		request.setAttribute("listacActivitiesClickAmount", listacActivitiesClickAmount);
+		// 热播视频
+		List<Activities> listacActivitiesClickAmount = activitiesService
+				.findActivitiesMovieClickAmountByTypeId(activitiesMoviePAth);
+		request.setAttribute("listacActivitiesClickAmount",
+				listacActivitiesClickAmount);
+		// 相关推荐
+		List<Activities> relatedRecommendation = activitiesService
+				.findActivitiesMovieClickAmountByRegexp(activitiesMoviePAth);
+		for (Activities activities : relatedRecommendation) {
+			System.out.println(activities.toString());
+		}
+		request.setAttribute("relatedRecommendation", relatedRecommendation);
 		return "offical_website/vedio-details";
 	}
 

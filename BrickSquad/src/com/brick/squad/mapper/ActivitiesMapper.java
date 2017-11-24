@@ -12,12 +12,18 @@ import com.brick.squad.util.Select;
 
 public interface ActivitiesMapper {
 	/**
+	 * 根据视频类型id name centent 模糊 查询当前类型点击量最多的前三条
+	 * @param activities
+	 * @return
+	 */
+	public List<Activities> findActivitiesMovieClickAmountByRegexp(Activities activities);
+	/**
 	 * 据视频类型id 查询当前类型点击量最多的前三条
 	 * 
 	 * @param typeId
 	 * @return
 	 */
-	public List<Activities> findActivitiesMovieClickAmountByTypeId(String typeId);
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(Activities activities);
 
 	/**
 	 * 修改视频点击量,每次+1

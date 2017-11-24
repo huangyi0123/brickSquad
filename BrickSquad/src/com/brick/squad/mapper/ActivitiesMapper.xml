@@ -2,15 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.brick.squad.mapper.ActivitiesMapper">
+	<!--根据视频类型id name centent 模糊 查询当前类型点击量最多的前三条 -->
+	<select id="findActivitiesMovieClickAmountByRegexp"
+		parameterType="activities" resultType="activities">
+		select id,name,centent,type_id
+		typeId,start_time
+		startTime,end_time
+		endTime,user_id
+		userId,number,movie,click_amount
+		clickAmount from activities where
+		type_id=#{typeId} and id not in (#{id}) 
+		and centent REGEXP #{centent} or name REGEXP #{name}
+		ORDER BY
+		click_amount DESC
+		LIMIT 0 ,3
+	</select>
 	<!--根据视频类型id 查询当前类型点击量最多的前三条 -->
 	<select id="findActivitiesMovieClickAmountByTypeId"
-		parameterType="String" resultType="activities">
-		select id,name,centent,type_id typeId,start_time
+		parameterType="activities" resultType="activities">
+		select id,name,centent,type_id
+		typeId,start_time
 		startTime,end_time
-		endTime,user_id userId,number,movie,click_amount
+		endTime,user_id
+		userId,number,movie,click_amount
 		clickAmount from activities where
-		type_id=#{typeId} ORDER BY
-		click_amount DESC LIMIT 0 ,3
+		type_id=#{typeId} and id not in (#{id}) ORDER BY
+		click_amount DESC
+		LIMIT 0 ,3
 	</select>
 	<!-- 根据id 修改视频点击量每次+1 -->
 	<update id="updateClickAmountById" parameterType="String">
