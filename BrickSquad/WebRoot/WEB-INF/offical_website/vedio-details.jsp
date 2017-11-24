@@ -30,16 +30,26 @@
 	$(function() {
 		$("#playitem").find('a').hover(function() {
 			var p = $(this).find('p');
+			p.css('z-index', 100);
 			p.slideToggle();
 		});
 		$(".vedio_list").find('a').hover(function() {
 			var p = $(this).find('p');
+
 			p.slideToggle();
 		});
 		$(".vedio_related").find('a').hover(function() {
 			var p = $(this).find('p');
 			p.slideToggle();
 		});
+		$("#playitem").find('a').click(
+				function() {
+					var p = $(this).find('p');
+					var src = $(p).attr('src');
+					var html = '<embed  src="' + src
+							+ '" style="width:100%;height: 100%">'
+					$(".vedio_play").html(html);
+				});
 	});
 </script>
 </head>
@@ -52,33 +62,33 @@
 				<div class="layui-col-xs12 layui-col-md9">
 					<div class="vedio_play_main">
 						<div class="vedio_play">
-							<embed src="http://player.youku.com/embed/XMzE3ODE5MTQyMA==" style="width:100%;height: 100%">
+							<embed src="${activitiesMoviePAth.movie }" style="width:100%;height: 100%">
 						</div>
 					</div>
 				</div>
 				<div class="layui-col-xs6 layui-col-md3">
 					<div class="vedio_recom" id="playitem">
 						<label>热播推荐</label>
-						<a href="#" style="display: block;" class="vedio_bg">
+						<a href="javascript:;" style="display: block;" class="vedio_bg">
 							<img alt="" class="vedio_bg" style="margin-top: 10px;"
 								src="resource/image/3736651_1426063184096_800x600.jpg">
 							<img class="vedio_plays" alt="" src="resource/image/play.png">
-							<p
-								style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 140px">你好</p>
+							<p src="${listacActivitiesClickAmount[0].movie }"
+								style="display: none;color:#000; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 140px">${listacActivitiesClickAmount[0].centent }</p>
 						</a>
-						<a href="#" class="vedio_bg">
+						<a href="javascript:;" class="vedio_bg">
 							<img alt="" class="vedio_bg" src="resource/image/3736651_1426063184096_800x600.jpg">
 							<img class="vedio_plays" alt="" src="resource/image/play.png" style="top: 190px">
-							<p
-								style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 290px">你好</p>
+							<p src="${listacActivitiesClickAmount[1].movie }"
+								style="display: none; height:30px;width:220px;color:#000; background-color:#999;opacity:0.4; position:absolute; top: 290px">${listacActivitiesClickAmount[1].centent }</p>
 						</a>
 						<div style="clear: both;"></div>
-						<a href="#">
+						<a href="javasrcipt:;">
 							<img class="vedio_bg" alt="" class="vedio_bg"
 								src="resource/image/3736651_1426063184096_800x600.jpg">
 							<img class="vedio_plays" alt="" src="resource/image/play.png" style="top: 340px">
-							<p
-								style="display: none; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 440px">你好</p>
+							<p src="${listacActivitiesClickAmount[2].movie }"
+								style="display: none;color:#000; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 440px">${listacActivitiesClickAmount[2].centent }</p>
 						</a>
 					</div>
 
@@ -121,12 +131,12 @@
 					</div>
 					<div class="layui-col-xs6 layui-col-md4">
 						<div class="vedio_details">
-							<label style="font-size: 1.2em;color: black;letter-spacing: 5px;">简介</label> <label
+							<label style="font-size: 1.2em;color: black;letter-spacing: 5px;">简介</label> <!-- <label
 								style="color: black;display: block;margin-top: 10px;">主讲人：</label> <label
 								style="float: left;margin-left: 70px;margin-top: -18px;"><a href="#"
-									style="color: #48CFC1;">石立勇</a></label> <label
+									style="color: #48CFC1;">石立勇</a></label> --> <label
 								style="color: black;display: block;margin-top: 10px;">内容：</label>
-							<p style="width: 300px;margin-left: 50px;margin-top: -18px;">大叔马克面临中年危机，却并不能像一个中年男人那样妥善应对:他话唠，经济虽不至于捉襟见肘，但因不善理财，经济危机好像随时有可能发生。王小米以为嫁了和自己母亲一样大的大叔马克就能实现被宠爱的梦想，但她没想到享受了大叔的成熟和稳定，就要承受他性格中已经既定无法和你磨合的部分。</p>
+							<p style="width: 300px;margin-left: 50px;margin-top: -18px;">${activitiesMoviePAth.centent }</p>
 						</div>
 					</div>
 				</div>

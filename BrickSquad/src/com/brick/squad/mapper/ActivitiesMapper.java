@@ -12,6 +12,21 @@ import com.brick.squad.util.Select;
 
 public interface ActivitiesMapper {
 	/**
+	 * 据视频类型id 查询当前类型点击量最多的前三条
+	 * 
+	 * @param typeId
+	 * @return
+	 */
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(String typeId);
+
+	/**
+	 * 修改视频点击量,每次+1
+	 * 
+	 * @param activities
+	 */
+	public void updateClickAmountById(String id);
+
+	/**
 	 * 
 	 * @param id
 	 * @return 返回活动列表
@@ -69,11 +84,14 @@ public interface ActivitiesMapper {
 	 *            类型id
 	 * @return
 	 */
-	public List<Activities> findActivitiesMovieByTypeId(ActivitiesAndPaginationExtend activitiesAndPaginationExtend);
+	public List<Activities> findActivitiesMovieByTypeId(
+			ActivitiesAndPaginationExtend activitiesAndPaginationExtend);
+
 	/***
-	 *  官网，乐堡服务中的体检预约 信息显示
-	 *  */
+	 * 官网，乐堡服务中的体检预约 信息显示
+	 * */
 	public List<Activities> findServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
-	/**统计总记录数*/
+
+	/** 统计总记录数 */
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
 }

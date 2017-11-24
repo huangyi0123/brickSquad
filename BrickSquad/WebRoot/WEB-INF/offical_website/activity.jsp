@@ -133,7 +133,7 @@
 							<div class="layui-row">
 								<c:forEach var="movie" items="${tiaowulistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="#" class="act_bg"><img alt=""
+										<a href="common/toVedio_Details?id=${movie.id }&typeId=${movie.typeId }" class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
 										</a><label style="font-size: 18px;">【${movie.name }】</label> <span>石立勇</span> <i
