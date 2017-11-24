@@ -40,11 +40,7 @@ public class ActivitiesServiceTest {
 	@Test
 	public void findActivitiesMovieByTypeIdTest() throws Exception {
 
-		List<Activities> list = activitiesService
-				.findActivitiesMovieByTypeId("tiaowu");
-		for (Activities activities : list) {
-			System.out.println(activities.toString());
-		}
+		
 	}
 
 	@Test

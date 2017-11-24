@@ -131,12 +131,12 @@
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
 							<div class="layui-row">
-								<c:forEach var="movie" items="${listMovie }">
+								<c:forEach var="movie" items="${tiaowulistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
 										<a href="#" class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
-										</a><label>【${movie.name }】</label> <span>石立勇</span> <i
+										</a><label style="font-size: 18px;">【${movie.name }】</label> <span>石立勇</span> <i
 											class="layui-icon">&#xe613;</i> <label
 											style="margin-left: 210px;margin-top: -15px;"><font
 											style="color: #F7A01F;">10</font>人学习</label>
