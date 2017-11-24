@@ -2,6 +2,7 @@ package com.brick.squad.mapper;
 
 import java.util.List;
 
+import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.expand.NewsArticle;
 import com.brick.squad.pojo.Activities;
@@ -68,7 +69,7 @@ public interface ActivitiesMapper {
 	 *            类型id
 	 * @return
 	 */
-	public List<Activities> findActivitiesMovieByTypeId(String typeId);
+	public List<Activities> findActivitiesMovieByTypeId(ActivitiesAndPaginationExtend activitiesAndPaginationExtend);
 	/***
 	 *  官网，乐堡服务中的体检预约 信息显示
 	 *  */

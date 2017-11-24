@@ -103,7 +103,7 @@ public class ActivitiesController {
 		 * "addActivities"); request.setAttribute("msg", "添加"); return
 		 * "backstage_managed/jsp/activities/add_activities"; }
 		 */
-		System.out.println(activities.getMovie() + "*****");
+
 		String moviePath = activities.getMovie();
 		if (moviePath != null && !moviePath.trim().equals("")) {
 			moviePath = moviePath.substring(moviePath.indexOf("'", 1) + 1,
