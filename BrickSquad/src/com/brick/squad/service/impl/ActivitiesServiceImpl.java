@@ -1,11 +1,8 @@
 package com.brick.squad.service.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.annotation.processing.Filer;
 
 import net.sf.json.JSONArray;
 
@@ -13,15 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.mapper.ActivitiesMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Activities;
-import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ActivitiesService;
-import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Filter;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 import com.brick.squad.util.Util;
@@ -233,10 +230,10 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	}
 
 	@Override
-	public List<Activities> findActivitiesMovieByTypeId(String typeId)
+	public List<Activities> findActivitiesMovieByTypeId(ActivitiesAndPaginationExtend activitiesAndPaginationExtend)
 			throws Exception {
 		List<Activities> list = activitiesMapper
-				.findActivitiesMovieByTypeId(typeId);
+				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
 		for (Activities activities : list) {
 			activities = (Activities) Filter.filterObject(activities);
 		}

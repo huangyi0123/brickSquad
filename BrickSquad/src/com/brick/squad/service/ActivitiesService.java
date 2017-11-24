@@ -3,6 +3,7 @@ package com.brick.squad.service;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.Type;
@@ -18,7 +19,7 @@ public interface ActivitiesService {
 	 *            类型id
 	 * @return
 	 */
-	public List<Activities> findActivitiesMovieByTypeId(String typeId) throws Exception;
+	public List<Activities> findActivitiesMovieByTypeId(ActivitiesAndPaginationExtend activitiesAndPaginationExtend) throws Exception;
 	/**
 	 * 
 	 * @param id

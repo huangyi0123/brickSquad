@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.expand.TypeExpand;
@@ -64,7 +65,6 @@ public class CommonController {
 		return "offical_website/website-template";
 
 	}
-
 
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
@@ -381,12 +381,19 @@ public class CommonController {
 	@RequestMapping("/toActivity_carousel")
 	public String toActivity_carousel(String type, HttpServletRequest request)
 			throws Exception {
-		List<Activities> listMovie = activitiesService
-				.findActivitiesMovieByTypeId("tiaowu");
-		for (Activities activities : listMovie) {
-			System.out.println(activities.toString());
+		if (type.equals("online_course")) {
+			ActivitiesAndPaginationExtend activitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+			activitiesAndPaginationExtend.setMovieTypeId("tiaowu");
+			activitiesAndPaginationExtend.setCurentPage(1);
+			activitiesAndPaginationExtend.setPageSize(6);
+			List<Activities> tiaowulistMovie = activitiesService
+					.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
+
+			request.setAttribute("tiaowulistMovie", tiaowulistMovie);
 		}
-		request.setAttribute("listMovie", listMovie);
+		if (type.equals("offline_course")) {
+
+		}
 		request.setAttribute("type", type);
 		return "offical_website/activity";
 	}

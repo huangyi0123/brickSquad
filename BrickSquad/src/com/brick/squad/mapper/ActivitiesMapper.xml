@@ -4,13 +4,14 @@
 <mapper namespace="com.brick.squad.mapper.ActivitiesMapper">
 <!--根据类型ID查询视频路径，用于官网线上视频  -->
 	<select id="findActivitiesMovieByTypeId" resultType="activities"
-		parameterType="String">
+		parameterType="com.brick.squad.expand.ActivitiesAndPaginationExtend">
 		select id,name,centent,type_id typeId,start_time
 		startTime,end_time
 		endTime,user_id userId,number,movie from activities
 		where
 		movie is not null and
-		type_id=#{typeId}
+		type_id=#{movieTypeId}
+		limit #{skipNum},#{takeNum}
 	</select>
 	<!-- 查询 -->
 	<select id="findActivitiesById" resultType="activities"

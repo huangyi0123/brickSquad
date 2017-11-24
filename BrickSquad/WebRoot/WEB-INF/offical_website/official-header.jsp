@@ -175,9 +175,6 @@
 						<dd>
 							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</dd>
-						<dd>
-							<a href="">乐堡课程</a>
-						</dd>
 					</dl></li>
 				<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
 					<dl class="layui-nav-child">
