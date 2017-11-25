@@ -42,10 +42,8 @@
 <script type="text/javascript">
 	$(function() {
 		var a='${roleId}';
-		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.activities.ad},!${limiterole.activities.dl},false);
-		}
-		init("",false,false,false);
+		init("",${limiterole.activities.ad},${limiterole.activities.dl},${limiterole.activities.query});
+	
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});

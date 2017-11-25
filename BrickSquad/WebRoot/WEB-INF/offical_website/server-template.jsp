@@ -33,8 +33,13 @@
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+	<script type="text/javascript"
+	src="resource/js/common.js"></script>
 <script type="text/javascript">
 	$(function() {
+		var da=$("#inspectionDate").html();
+		da=Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
+		$("#inspectionDate").html(da);
 		var type = '${type}';
 		$("#centent").children().hide();
 		$("." + type).show();
@@ -151,6 +156,25 @@
 	});
 }
 
+ function findViewInformation(id) {
+		$.ajax({
+			url:'LeFortServiceController/findViewInformation?type=aboutus-intro&id='+id,
+			type: 'post',
+			success:function(data){
+				 $("#findViewInformationArtivites").html('');
+					data=JSON.parse(data);
+					console.log(data);
+					$(".aboutus-cont").hide();
+					$("#findViewInformationArtivites").show();
+					 $("#findViewInformationArtivites").append("<h4>个人病历详情单</h4><hr style='width:80%;margin-left:100px;'><div style='margin-left:100px;margin-top:20px;width:80%;'><span><span style='font-size:1.1em;margin-left:8px;'>姓名：</span>"+${user.username}+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查病类：</span>"+data[0].name+"</span><hr>"+
+							 "<span><span style='font-size:1.1em;margin-left:8px;'>病历详情：</span>"+data[0].content+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查时间：</span>"+data[0].inspectionDate+"</span><hr>"+
+							 "<span><span style='font-size:1.1em;margin-left:8px;'>主治医生：</span>"+data[0].attendingSurgeon+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查医院：</span>"+data[0].hospital+"</span><hr>"+
+							 "<a href='javascript:;' onclick='returnViewIn() ' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>返回</span></a></div><hr style='margin-top:-1px;width:1000px'>");
+							 
+			}
+		});
+	}
+ 
 </script>
 <script type="text/javascript">
 function returnIn() {
@@ -159,6 +183,19 @@ function returnIn() {
 	$("#menu").find('li').each(function() {
 		var val = $(this).attr('val');
 		if (val == "aboutus-intro") {
+			$(this).attr('class', 'layui-nav-item layui-this');
+		} else {
+			$(this).attr('class', 'layui-nav-item');
+		}
+	});
+} 
+
+function returnViewIn() {
+	$("#findViewInformationArtivites").hide();
+	$(".aboutus-cont").show();
+	$("#menu").find('li').each(function() {
+		var val = $(this).attr('val');
+		if (val == "aboutus-cont") {
 			$(this).attr('class', 'layui-nav-item layui-this');
 		} else {
 			$(this).attr('class', 'layui-nav-item');
@@ -246,19 +283,19 @@ function reservation(id) {
 					<center>
 					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page+1}" >下一页 ></a></span>
 					</center>
 					</c:if>
 					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
 					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page-1}" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page+1}" >下一页  ></a></span>
 					</center>
 					</c:if>
 					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
 					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page-1}" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
 					<span><a href="javascript:;" >下一页  ></a></span>
 					</center>
@@ -270,6 +307,7 @@ function reservation(id) {
 			
 				</div>
 				<div id="findInformationArtivites"></div>
+				
 				<div class="aboutus-use">
 				
 				<center><h4>生活助手信息品台</h4></center>
@@ -336,7 +374,7 @@ function reservation(id) {
 				
 				
 				<div class="aboutus-cont">
-						<div class="aboutus-intro">
+						<!-- <div class="aboutus-intro"> -->
 				<center><h4>健康检查病历史</h4></center>
 				
 				<c:if test="${user ne  null}">
@@ -346,8 +384,8 @@ function reservation(id) {
 					<ul style="margin-top:2%;width:100%;margin-top:-1px;">
 						<li ><span style=""><span style="font-size:1.1em">检查病类：</span>${medical.name }</span><br>
 						<span style="width:100%"><span style="font-size:1.1em">检查内容：</span>${medical.content } 
-						<br><span style=""><span style="font-size:1.1em">检查时间：</span>${medical.inspectionDate }</span>
-						<span style="float:right;"><a href="" style="color:#7C9A60">查看详情>></a></span>
+						<br><span style=""><span style="font-size:1.1em">检查时间：</span><span id="inspectionDate"> ${medical.inspectionDate }</span></span>
+						<span style="float:right;"><a href="javascript:;" id="tijian" onclick="findViewInformation('${medical.id }')" style="color:#7C9A60">查看详情>></a></span>
 						</span></li>
 					</ul>
 				</li>
@@ -356,7 +394,7 @@ function reservation(id) {
 					
 					
 				<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
-					<c:if test="${pageBean.totalCount==0}">
+					<c:if test="${pageBean1.totalCount==0}">
 					<center>
 					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
@@ -364,24 +402,24 @@ function reservation(id) {
 					<span><a href="javascript:;" >下一页 ></a></span>
 					</center>
 					</c:if>
-					<c:if test="${pageBean.totalCount!=0}">
-					<c:if test="${pageBean.page==1}">
+					<c:if test="${pageBean1.totalCount!=0}">
+					<c:if test="${pageBean1.page==1}">
 					<center>
 					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
+					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean1.page+1}" >下一页 ></a></span>
 					</center>
 					</c:if>
-					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
+					<c:if test="${pageBean1.totalPage!=pageBean.page && pageBean1.page!=1}">
 					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<span><a href="${pageContext.request.contextPath }/LeFortServiceControllers/serverWebsiteTemplate?page=${pageBean1.page-1}" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
+					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean1.page+1}" >下一页  ></a></span>
 					</center>
 					</c:if>
-					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
+					<c:if test="${pageBean1.totalPage==pageBean1.page&& pageBean1.totalPage!=1}">
 					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
+					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean1.page-1}" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
 					<span><a href="javascript:;" >下一页  ></a></span>
 					</center>
@@ -395,11 +433,12 @@ function reservation(id) {
 					<h5 style="color:gray;margin-top:62px;">你还没有登录，请先去登录......</h5>
 					</c:if>
 				</ul>
-		
-			</div>
-		
+			
+			<!-- </div> -->
+				
 			
 				</div>
+				<div id="findViewInformationArtivites"></div>
 
 				<!-- <div class="parti-online">
 					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
@@ -493,8 +532,7 @@ function reservation(id) {
 
 			<jsp:include page="official-footer.jsp"></jsp:include>
 
-		</div>
-	</div>
+	
 	<script>
 		$("span.menu").click(function() {
 			$("ul.nav1").slideToggle(300, function() {

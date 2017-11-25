@@ -577,7 +577,6 @@
 											<th>收货人</th>
 											<th>联系方式</th>
 											<th>详细地址</th>
-											<th style="text-align: center;">交易操作</th>
 										</tr>
 									</thead>
 									<tbody id="buyaddtable">

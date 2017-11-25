@@ -41,5 +41,7 @@ public interface MedicalService {
 	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page,String pId)throws Exception;
 	/**查看用户检查病历史记录数*/
 	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil)throws Exception;
+	/** 根据ID查找详细信息 */
+	public  MedicalExpand  findViewInformation(String id)throws Exception;
 
 }
