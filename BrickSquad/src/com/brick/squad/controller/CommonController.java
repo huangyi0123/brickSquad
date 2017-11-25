@@ -418,6 +418,15 @@ public class CommonController {
 			System.out.println(activities.toString());
 		}
 		request.setAttribute("relatedRecommendation", relatedRecommendation);
+		// 相关推荐等查询都为空的时候去根据类型查询几条填充内容
+		ActivitiesAndPaginationExtend activitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		activitiesAndPaginationExtend.setMovieTypeId(activitiesMoviePAth.getTypeId());
+		activitiesAndPaginationExtend.setCurentPage(1);
+		activitiesAndPaginationExtend.setPageSize(3);
+		List<Activities> listMovie = activitiesService
+				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
+
+		request.setAttribute("listMovie", listMovie);
 		return "offical_website/vedio-details";
 	}
 
