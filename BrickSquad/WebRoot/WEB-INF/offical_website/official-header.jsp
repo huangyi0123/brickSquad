@@ -12,11 +12,11 @@
 <base href="<%=basePath%>">
 
 <title>My JSP 'official-header.jsp' starting page</title>
-<link href='https://fonts.googleapis.com/css?family=Varela+Round'
+<!-- <link href='https://fonts.googleapis.com/css?family=Varela+Round'
 	rel='stylesheet' type='text/css'>
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-	rel='stylesheet' type='text/css'>
+	rel='stylesheet' type='text/css'> -->
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 
 
@@ -255,7 +255,7 @@
 
 		<div class="clearfix"></div>
 	</div>
-	<script>
+	<script type="text/javascript">
 		$("span.menu").click(function() {
 			$("ul.nav1").slideToggle(300, function() {
 				// Animation complete.
@@ -265,13 +265,13 @@
 	<!-- /script-for-menu -->
 	<script src="resource/js/classie.js"></script>
 	<script src="resource/js/uisearch.js"></script>
-	<script>
+	<script type="text/javascript">
 		new UISearch(document.getElementById('sb-search'));
 	</script>
 	<!-- for bootstrap working -->
 	<script src="resource/plugins/bootstrap/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
-	<script>
+	<script type="text/javascript">
 		layui.use('element', function() {
 			var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
 

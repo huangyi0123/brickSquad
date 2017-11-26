@@ -56,7 +56,8 @@ public class NewsController {
 		pagination.setPageSize(pSize);
 		User user = (User) request.getSession().getAttribute("user");
 		pagination.setUserId(user.getId());
-		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
+		pagination.setRoleId(request.getSession().getAttribute("roleId")
+				.toString());
 		return newsService.newsPagination(pagination);
 	}
 
@@ -66,7 +67,8 @@ public class NewsController {
 	@RequestMapping("/toAddNews")
 	public String toAddRapport(HttpServletRequest request, String id)
 			throws Exception {
-		String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+		String dataType = typeService
+				.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
 		request.setAttribute("dataType", dataType);
 		if (id != null) {
 			News news = newsService.findNewsById(id);
@@ -92,7 +94,8 @@ public class NewsController {
 			HttpServletRequest request) throws Exception {
 
 		if (result.hasErrors()) {
-			String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+			String dataType = typeService
+					.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
 			request.setAttribute("dataType", dataType);
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -130,7 +133,8 @@ public class NewsController {
 	@RequestMapping("/findNews")
 	public String findNews(HttpServletRequest request, String id)
 			throws Exception {
-		String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+		String dataType = typeService
+				.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
 		request.setAttribute("dataType", dataType);
 		News news = newsService.findNewsById(id);
 		request.setAttribute("news", news);
@@ -157,5 +161,11 @@ public class NewsController {
 		NewsExpand newsExpand = newsService.findNewsExpandById(id);
 		request.setAttribute("news", newsExpand);
 		return "frontEnd_manage/news/newsDetail";
+	}
+
+	@RequestMapping("/getNutritionalDietList")
+	@ResponseBody
+	public String getNutritionalDietList(Pagination pagination) {
+		return newsService.NutritionalDietListPagination(pagination);
 	}
 }

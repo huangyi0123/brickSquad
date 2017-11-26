@@ -410,5 +410,9 @@ public class CommonController {
 		request.setAttribute("listacActivitiesClickAmount", listacActivitiesClickAmount);
 		return "offical_website/vedio-details";
 	}
-
+	@RequestMapping("/toLife")
+	public String toLife(HttpServletRequest request,String type) {
+		request.setAttribute("type", type);
+		return "offical_website/life";
+	}
 }

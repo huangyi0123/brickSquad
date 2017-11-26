@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.expand.NewsExpand;
+import com.brick.squad.expand.NutritionalDiet;
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
@@ -121,6 +123,15 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public NewsExpand findNewsExpandById(String id) {
 		return newsMapper.findNewsExpandById(id);
+	}
+
+	@Override
+	public String NutritionalDietListPagination(Pagination pagination) {
+		GridManagerList<NutritionalDiet> nManagerList=new GridManagerList<NutritionalDiet>();
+		nManagerList.setData(newsMapper.NutritionalDietList(pagination));
+		nManagerList.setTotals(newsMapper.NutritionalDietCount());
+		JSONArray jsonArray=JSONArray.fromObject(nManagerList);
+		return jsonArray.toString();
 	}
 
 }

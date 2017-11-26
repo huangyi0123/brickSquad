@@ -78,21 +78,23 @@
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/group_buy/togroup_buy" />
 			<mvc:exclude-mapping path="/new_deals/*" />
-			<mvc:exclude-mapping path="/shopIndex/**"/>
-			<mvc:exclude-mapping path="/reservation/**"/>
-			<mvc:exclude-mapping path="/activityRegistration/**"/>
+			<mvc:exclude-mapping path="/shopIndex/**" />
+			<mvc:exclude-mapping path="/reservation/**" />
+			<mvc:exclude-mapping path="/activityRegistration/**" />
 
 			<mvc:exclude-mapping path="/common/toApply_coupon" />
 			<mvc:exclude-mapping path="/shoppingCar/getIndexShoppingCarList" />
 			<mvc:exclude-mapping path="/coupon/*" />
 			<mvc:exclude-mapping path="/common/toWebsite_template" />
-			<mvc:exclude-mapping path="/onlineParticipationInfo/userInsertOnlineParticipationInfo" />
+			<mvc:exclude-mapping
+				path="/onlineParticipationInfo/userInsertOnlineParticipationInfo" />
 			<mvc:exclude-mapping path="/type/**" />
-				<mvc:exclude-mapping path="/activities/**" />
+			<mvc:exclude-mapping path="/activities/**" />
 
 			<mvc:exclude-mapping path="/common/toActivity_carousel" />
 			<mvc:exclude-mapping path="/common/toVedio_Details" />
 			<mvc:exclude-mapping path="/LeFortServiceController/**" />
+			<mvc:exclude-mapping path="/news/**" />
 
 
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
