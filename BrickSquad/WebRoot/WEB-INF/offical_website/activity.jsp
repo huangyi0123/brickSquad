@@ -131,157 +131,91 @@
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
 							<div class="layui-row">
-								<c:forEach var="movie" items="${tiaowulistMovie }">
+								<c:forEach var="movie" items="${topQualityCourselistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
 										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
-										</a><label style="font-size: 18px;">【${movie.name }】</label> <span>石立勇</span> <i
-											class="layui-icon">&#xe613;</i> <label
+										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
 											style="margin-left: 210px;margin-top: -15px;"><font
-											style="color: #F7A01F;">10</font>人学习</label>
+											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
 									</div>
 								</c:forEach>
-								<!-- 		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#"><img class="act_bg" alt=""
-
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
-									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png">
-									</a><label>【${movie.name }】</label> <span>石立勇</span> <i
-										class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div> -->
-
 							</div>
 						</div>
-						<div
-							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
-
+						
 					</div>
+					
 					<!---------------------------------- 饮食健康 ------------------------------------>
 					<div class="activity_excellent_course">
+					<div
+							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a>
-									<label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
-										class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png">
-									</a><label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
-										class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
-									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-
+					<div class="layui-row">
+								<c:forEach var="movie" items="${dieteticHealthlistMovie }">
+									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+											src="resource/image/3736651_1426063184096_800x600.jpg">
+											<img class="act_play" alt="" src="resource/image/play.png">
+										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
+											style="margin-left: 210px;margin-top: -15px;"><font
+											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
-						<div
-							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
+					
 
 					</div>
 					<!---------------------------------- 运动健康 ------------------------------------>
 					<div class="activity_excellent_course">
+						<div
+							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
-							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
+							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">运动健康</label>
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a>
-									<label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
-										class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
-									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
-									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-
+						<div class="layui-row">
+								<c:forEach var="movie" items="${sportsHealthlistMovie }">
+									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+											src="resource/image/3736651_1426063184096_800x600.jpg">
+											<img class="act_play" alt="" src="resource/image/play.png">
+										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
+											style="margin-left: 210px;margin-top: -15px;"><font
+											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
-						<div
-							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
+						
 
 					</div>
 					<!---------------------------------- 修身养性 ------------------------------------>
 					<div class="activity_excellent_course">
+					<div
+							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
-							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
+							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;"> 修身养性</label>
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
-									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a>
-									<label>互联网＋与阿里云【贵大软件学院】</label> <span>石立勇</span> <i
-										class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-								<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-									<a href="#" class="act_bg"><img alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="act_play" alt="" src="resource/image/play.png"></a><label>互联网＋与阿里云【贵大软件学院】</label>
-									<span>石立勇</span> <i class="layui-icon">&#xe613;</i> <label
-										style="margin-left: 210px;margin-top: -15px;"><font
-										style="color: #F7A01F;">10</font>人学习</label>
-								</div>
-
+				<div class="layui-row">
+								<c:forEach var="movie" items="${selfCultivationlistMovie }">
+									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
+										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+											src="resource/image/3736651_1426063184096_800x600.jpg">
+											<img class="act_play" alt="" src="resource/image/play.png">
+										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
+											style="margin-left: 210px;margin-top: -15px;"><font
+											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 						<div
