@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.brick.squad.mapper.VideoCommentMapper;
 import com.brick.squad.pojo.VideoComment;
 import com.brick.squad.service.VideoCommentService;
-import com.brick.squad.util.Filter;
 
 /**
  * 视频评论ServiceImpl,事物处理层，参数过滤等
@@ -25,8 +24,6 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 
 	@Override
 	public void insertVideoComment(VideoComment videoComment) throws Exception {
-
-		videoComment = (VideoComment) Filter.filterObject(videoComment);
 		videoComment.setCommentTime(new Date());
 		videoCommentMapper.insertVideoComment(videoComment);
 	}

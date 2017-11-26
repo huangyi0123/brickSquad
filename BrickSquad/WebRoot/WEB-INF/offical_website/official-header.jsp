@@ -49,7 +49,6 @@
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-
 <!-- js -->
 <script>
 	$(document).ready(function() {
