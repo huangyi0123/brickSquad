@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.VideoCommentMapper">
+	<insert id="insertVideoComment" parameterType="com.brick.squad.pojo.VideoComment">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO
+		video_comment(id,be_commented_id,content,commont_userId,commentTime)
+		VALUES(#{id},#{beCommentedId},#{content},#{commontUserId},#{commentTime})
+	</insert>
+</mapper>

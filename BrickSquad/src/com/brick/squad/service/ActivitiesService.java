@@ -12,12 +12,20 @@ import com.brick.squad.util.Pagination;
 
 public interface ActivitiesService {
 	/**
+	 * 根据视频类型id name centent 模糊 查询当前类型点击量最多的前三条
+	 * @param activities
+	 * @return
+	 * @throws Exception 
+	 */
+	public List<Activities> findActivitiesMovieClickAmountByRegexp(Activities activities) throws Exception;
+	/**
 	 * 据视频类型id 查询当前类型点击量最多的前三条
 	 * 
 	 * @param typeId
 	 * @return
+	 * @throws Exception 
 	 */
-	public List<Activities> findActivitiesMovieClickAmountByTypeId(String typeId);
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(Activities activities) throws Exception;
 	/**
 	 * 修改视频点击量,每次+1
 	 * 

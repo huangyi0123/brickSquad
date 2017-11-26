@@ -323,9 +323,28 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	}
 
 	@Override
-	public List<Activities> findActivitiesMovieClickAmountByTypeId(String typeId) {
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(
+			Activities activities) throws Exception {
 		// TODO Auto-generated method stub
-		return activitiesMapper.findActivitiesMovieClickAmountByTypeId(typeId);
+		activities = (Activities) Filter.filterObject(activities);
+		List<Activities> list = activitiesMapper
+				.findActivitiesMovieClickAmountByTypeId(activities);
+		for (Activities activities2 : list) {
+			activities2 = (Activities) Filter.filterObject(activities2);
+		}
+		return list;
+	}
+
+	@Override
+	public List<Activities> findActivitiesMovieClickAmountByRegexp(
+			Activities activities) throws Exception {
+		activities = (Activities) Filter.filterObject(activities);
+		List<Activities> list = activitiesMapper
+				.findActivitiesMovieClickAmountByRegexp(activities);
+		for (Activities activities2 : list) {
+			activities2 = (Activities) Filter.filterObject(activities2);
+		}
+		return list;
 	}
 
 }
