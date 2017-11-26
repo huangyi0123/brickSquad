@@ -171,7 +171,7 @@
 									<i class="layui-icon"
 									style="float:left; line-height:50px; font-size: 20px;margin-left: 10px;color: #999999;">&#xe60d;</i>
 									<span class="vedio_comm_img">图片</span>
-								</a> <label class="vedio_reg">登录</label>
+								</a><!--  <label class="vedio_reg">登录</label> -->
 								<input type="text" value="提交评论" readonly>
 							</div>
 							<div class="vedio_comms">
