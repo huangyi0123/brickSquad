@@ -52,9 +52,10 @@ function setContent(str) {
 		
 		
 		var str=$(".newsContent").text();
+		
 		var newsc=setContent(str);
 		$(".newsContent").html(newsc);
-	
+		
 	
 		var type = '${type}';
 		$("#centent").children().hide();
@@ -191,6 +192,26 @@ function setContent(str) {
 		});
 	}
  
+ 
+
+ 
+</script>
+<script type="text/javascript">
+function findNewsInformation(id) {
+		$.ajax({
+			url:'LeFortServiceController/findViewInformationNews?type=aboutus-intro&id='+id,
+			type: 'post',
+			success:function(data){
+				 $("#findViewInformationNews").html('');
+				 data=JSON.parse(data);
+				 console.log(data);
+				 $(".aboutus-use").hide();
+				 $("#findViewInformationNews").show();
+				 $("#findViewInformationNews").append("<center style='margin-top:40px;'><span style='font-size:1.4em;'>"+data[0].title+"</span></center><br><span>"+data[0].content+
+						 "</span><br><span style='float:right;'><span>编辑者："+data[0].username+"</span><span>&nbsp;  时间："+data[0].postTime+"</span></span><hr>");
+			}
+		});
+	}
 </script>
 <script type="text/javascript">
 function returnIn() {
@@ -240,6 +261,8 @@ function reservation(id) {
 		
 	}
 }
+
+ 
 </script>
 </head>
 
@@ -331,15 +354,15 @@ function reservation(id) {
 				<c:forEach var="news" items="${pageBean3.list }">
 				<li style="widht:40px;">
 				<ul>
-				<li style="float:left;width:80px;margin-right:20px;"><a href=""><image src="resource/image/news.jpg" style="width:80px;height:70px;"></image></a></li>
-				<li style=""><span style="margin-left:40px;margin-left:20px;"><a href=""><h3><span style="font-size:1.2em;margin-left:20px;color:#7C9A60">
+				<li style="float:left;width:80px;margin-right:20px;"><image src="${news.imagePath }" style="width:80px;height:70px;"></image></li>
+				<li style=""><span style="margin-left:40px;margin-left:20px;"><a href="LeFortServiceController/findViewInformationNews?id=${news.id }"><h3><span style="font-size:1.2em;margin-left:20px;color:#7C9A60">
 				【${news.title }】</span></h3><br>
 						<span style="margin-left:28px;">
 						<div  class="newsContent" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width:85%;margin-top:10px;margin-left:125px;">
 						${news.content }
 						</div></span>
 						</a>
-						<a href=""><span style="float:right;margin-right:12px;color:#7C9A60;margin-top:15px;">查看更多>></span></a>
+						<span style="float:right;margin-right:12px;color:#7C9A60;margin-top:15px;"><a href="javascript:;"  onclick="findNewsInformation('${news.id}')">查看更多>></a></span>
 						</span>
 				</li>
 				</ul>
@@ -389,6 +412,7 @@ function reservation(id) {
 				</div>
 
 				
+				<div id="findViewInformationNews"></div>
 				
 				<div class="aboutus-join">
 				

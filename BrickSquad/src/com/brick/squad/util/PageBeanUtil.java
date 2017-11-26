@@ -21,9 +21,8 @@ public class PageBeanUtil<T> {
 	private String typeId;
 	private String search;
 	private String pId;
-	
 
-	
+
 	
 	public String getpId() {
 		return pId;

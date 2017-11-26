@@ -86,11 +86,12 @@
 	resultType="news">
 	SELECT n.id,n.user_id,n.content,n.post_time,n.title 
 	FROM news n JOIN type t ON n.type_id=t.id 
-	WHERE t.parent_id='b6492682cd0011e7aca65254002ec43c' 
+	WHERE t.id='6cb594f6d24b11e7880a5254002ec43c' ORDER BY n.post_time
 	LIMIT #{begin},#{limitPage} 
 	</select>
 	<select id="findCountNewsLeBaoServer" resultType="int">
 	SELECT COUNT(*) FROM news n JOIN type t ON n.type_id=t.id 
 	WHERE t.parent_id='b6492682cd0011e7aca65254002ec43c'  
 	</select>
+
 </mapper>

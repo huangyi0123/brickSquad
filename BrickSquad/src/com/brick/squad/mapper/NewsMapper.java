@@ -74,4 +74,5 @@ public interface NewsMapper {
 	 * 乐堡服务生活助手新闻显示总记录数
 	 * */
 	public int findCountNewsLeBaoServer();
+	
 }
