@@ -22,8 +22,8 @@ public class Pagination {
 		return count;
 	}
 
-	private int curentPage;// 当前页
-	private int pageSize;// 每页显示记录数
+	private int curentPage=1;// 当前页
+	private int pageSize=10;// 每页显示记录数
 	private String keyword;
 	private  String userId;
 

@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.expand.NewsExpand;
+import com.brick.squad.expand.NutritionalDiet;
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -126,6 +128,7 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
+
 	/**
 	 * 乐堡服务生活助手新闻显示
 	 * */
@@ -194,6 +197,14 @@ public class NewsServiceImpl implements NewsService {
 	public int findCountNewsLeBaoServer() throws Exception {
 	int count=newsMapper.findCountNewsLeBaoServer();
 		return count;
+	}
+	public String NutritionalDietListPagination(Pagination pagination) {
+		GridManagerList<NutritionalDiet> nManagerList=new GridManagerList<NutritionalDiet>();
+		nManagerList.setData(newsMapper.NutritionalDietList(pagination));
+		nManagerList.setTotals(newsMapper.NutritionalDietCount());
+		JSONArray jsonArray=JSONArray.fromObject(nManagerList);
+		return jsonArray.toString();
+
 	}
 
 }

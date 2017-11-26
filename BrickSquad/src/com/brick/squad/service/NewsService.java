@@ -66,4 +66,13 @@ public interface NewsService {
 	 * */
 	public int findCountNewsLeBaoServer()throws Exception;
 
+	/**
+	 * 根据分页信息查询营养膳食记录
+	 * 
+	 * @param pagination
+	 *            分页信息
+	 * @return 营养膳食记录
+	 */
+	public String NutritionalDietListPagination(Pagination pagination);
+
 }

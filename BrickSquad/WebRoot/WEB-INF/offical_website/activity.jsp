@@ -117,7 +117,7 @@
 
 				<label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="javascript:;"onclick="openOnlineParticipation()"
+					href="javascript:;" onclick="openOnlineParticipation()"
 					style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
 			<div class="activity_main_right" id="centent">
@@ -133,7 +133,8 @@
 							<div class="layui-row">
 								<c:forEach var="movie" items="${topQualityCourselistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+										<a href="common/toVedio_Details?id=${movie.id }"
+											class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
 										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
@@ -143,22 +144,23 @@
 								</c:forEach>
 							</div>
 						</div>
-						
+
 					</div>
-					
+
 					<!---------------------------------- 饮食健康 ------------------------------------>
 					<div class="activity_excellent_course">
-					<div
+						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-					<div class="layui-row">
+							<div class="layui-row">
 								<c:forEach var="movie" items="${dieteticHealthlistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+										<a href="common/toVedio_Details?id=${movie.id }"
+											class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
 										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
@@ -168,7 +170,7 @@
 								</c:forEach>
 							</div>
 						</div>
-					
+
 
 					</div>
 					<!---------------------------------- 运动健康 ------------------------------------>
@@ -180,10 +182,11 @@
 						<a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-						<div class="layui-row">
+							<div class="layui-row">
 								<c:forEach var="movie" items="${sportsHealthlistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+										<a href="common/toVedio_Details?id=${movie.id }"
+											class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
 										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
@@ -193,22 +196,23 @@
 								</c:forEach>
 							</div>
 						</div>
-						
+
 
 					</div>
 					<!---------------------------------- 修身养性 ------------------------------------>
 					<div class="activity_excellent_course">
-					<div
+						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
-							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;"> 修身养性</label>
-						<a href="#"
+							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">
+							修身养性</label> <a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-				<div class="layui-row">
+							<div class="layui-row">
 								<c:forEach var="movie" items="${selfCultivationlistMovie }">
 									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }" class="act_bg"><img alt=""
+										<a href="common/toVedio_Details?id=${movie.id }"
+											class="act_bg"><img alt=""
 											src="resource/image/3736651_1426063184096_800x600.jpg">
 											<img class="act_play" alt="" src="resource/image/play.png">
 										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
