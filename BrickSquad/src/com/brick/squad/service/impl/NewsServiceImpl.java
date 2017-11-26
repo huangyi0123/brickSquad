@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.NewsService;
 import com.brick.squad.util.JsonDateValueProcessor;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
 
@@ -121,6 +123,77 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public NewsExpand findNewsExpandById(String id) {
 		return newsMapper.findNewsExpandById(id);
+	}
+
+	@Override
+	/**
+	 * 乐堡服务生活助手新闻显示
+	 * */
+	public PageBeanUtil findNewsLeBaoServer(int page) {
+		PageBeanUtil<News> pageBean = new PageBeanUtil<News>();
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage(page);
+			
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = newsMapper.findCountNewsLeBaoServer();
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<News> list = newsMapper.findNewsLeBaoServer(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage(page);
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = newsMapper.findCountNewsLeBaoServer();
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin(begin);
+			List<News> list = newsMapper.findNewsLeBaoServer(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**
+	 * 乐堡服务生活助手新闻显示总记录数
+	 * */
+	public int findCountNewsLeBaoServer() throws Exception {
+	int count=newsMapper.findCountNewsLeBaoServer();
+		return count;
 	}
 
 }

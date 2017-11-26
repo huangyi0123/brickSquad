@@ -82,4 +82,15 @@
 		FROM news n JOIN `user` u on n.user_id=u.id
 		WHERE n.id=#{id}
 	</select>
+	<select id="findNewsLeBaoServer" parameterType="com.brick.squad.util.PageBeanUtil"
+	resultType="news">
+	SELECT n.id,n.user_id,n.content,n.post_time,n.title 
+	FROM news n JOIN type t ON n.type_id=t.id 
+	WHERE t.parent_id='b6492682cd0011e7aca65254002ec43c' 
+	LIMIT #{begin},#{limitPage} 
+	</select>
+	<select id="findCountNewsLeBaoServer" resultType="int">
+	SELECT COUNT(*) FROM news n JOIN type t ON n.type_id=t.id 
+	WHERE t.parent_id='b6492682cd0011e7aca65254002ec43c'  
+	</select>
 </mapper>

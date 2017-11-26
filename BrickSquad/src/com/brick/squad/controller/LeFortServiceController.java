@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.pojo.ActivityRegistration;
+import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ActivityRegistrationService;
 import com.brick.squad.service.MedicalService;
+import com.brick.squad.service.NewsService;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.PageBeanUtil;
 
@@ -36,19 +38,26 @@ public class LeFortServiceController {
 	@Autowired
 	@Qualifier("medicalService")
 	private MedicalService medicalService;
+	@Autowired
+	@Qualifier("newsService")
+	private NewsService newsService;
 	/**官网乐堡服务
 	 * @throws Exception */
 	@RequestMapping("/serverWebsiteTemplate")
 	public String serverWebsiteTemplate(String type,HttpServletRequest request,PageBeanUtil pageBean) throws Exception {
 		type = "aboutus-intro";
 		request.setAttribute("type", type);
+		//体检预约
 		int page=pageBean.getPage();
 		String typeId=pageBean.getTypeId();
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
+		//生活助手	
+		PageBeanUtil pageBean3=newsService.findNewsLeBaoServer(page);
+		request.setAttribute("pageBean3", pageBean3);
 		
-		
+		//健康协助
 		User user=(User) request.getSession().getAttribute("user");
 		if(user==null){
 		}else{

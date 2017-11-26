@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.pojo.News;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface NewsMapper {
@@ -65,4 +66,12 @@ public interface NewsMapper {
 	 * @return 新闻详情
 	 */
 	public NewsExpand findNewsExpandById(String id);
+	/**
+	 * 乐堡服务生活助手新闻显示
+	 * */
+	public List<News> findNewsLeBaoServer(PageBeanUtil pageBeanUtil);
+	/**
+	 * 乐堡服务生活助手新闻显示总记录数
+	 * */
+	public int findCountNewsLeBaoServer();
 }

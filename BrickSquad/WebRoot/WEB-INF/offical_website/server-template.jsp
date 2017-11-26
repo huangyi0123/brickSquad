@@ -35,11 +35,27 @@
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 	<script type="text/javascript"
 	src="resource/js/common.js"></script>
+
+<script type="text/javascript">
+function setContent(str) {
+	str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+	str.value = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+	//str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+	return str;
+	}
+</script>
 <script type="text/javascript">
 	$(function() {
-		var da=$("#inspectionDate").html();
+		var da=$(".inspectionDate").html();
 		da=Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
-		$("#inspectionDate").html(da);
+		$(".inspectionDate").html(da);
+		
+		
+		var str=$(".newsContent").text();
+		var newsc=setContent(str);
+		$(".newsContent").html(newsc);
+	
+	
 		var type = '${type}';
 		$("#centent").children().hide();
 		$("." + type).show();
@@ -312,44 +328,63 @@ function reservation(id) {
 				
 				<center><h4>生活助手信息品台</h4></center>
 				<ul style="margin-left:6%;margin-top:5%">
-					<li ><span style="font-size:1.2em;"><a href="" id="yuyuea">【通州湾老人体检区】</a></span>
-					<ul style="margin-top:2%;width:100%">
-						<li ><span style="width:100%">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href="" id="xiangqing" style="color:#7C9A60">查看详情>></a></span></span></li>
-					</ul>
+				<c:forEach var="news" items="${pageBean3.list }">
+				<li style="widht:40px;">
+				<ul>
+				<li style="float:left;width:80px;margin-right:20px;"><a href=""><image src="resource/image/news.jpg" style="width:80px;height:70px;"></image></a></li>
+				<li style=""><span style="margin-left:40px;margin-left:20px;"><a href=""><h3><span style="font-size:1.2em;margin-left:20px;color:#7C9A60">
+				【${news.title }】</span></h3><br>
+						<span style="margin-left:28px;">
+						<div  class="newsContent" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width:85%;margin-top:10px;margin-left:125px;">
+						${news.content }
+						</div></span>
+						</a>
+						<a href=""><span style="float:right;margin-right:12px;color:#7C9A60;margin-top:15px;">查看更多>></span></a>
+						</span>
 				</li>
-				<hr>
-					<li><span style="font-size:1.2em;"><a href="">【通州湾老人体检区】</a></span>
-					<ul  style="margin-top:2%">
-						<li><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href=""  style="color:#7C9A60">查看详情>></a></span></a></span></li>
-					</ul>
+				</ul>
 				</li>
-				<hr>
-				<li><span style="font-size:1.2em;"><a href="">【通州湾老人体检区】</a></span>
-					<ul  style="margin-top:2%">
-						<li><span style="width:100%"><a href="">通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等
-						通州湾老人体检区，主要是针对于50岁以上的高龄老年人，高血压等。
-						<span style="width:100%;float:right;"><a href=""  style="color:#7C9A60">查看详情>></a></span></a></span></li>
-					</ul>
-				</li>
-				<hr>
-				<c:if test="${findActivitesName=='findActivitesName' }">
+				<hr style="margin-top:2%;">
+				</c:forEach>
+				
+			
+				
+				
+				
+				
+					<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
 					<c:if test="${pageBean.totalCount==0}">
-					<center>
+					<center style="margin-top:-20px;margin-bottom:20px;">
 					<span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
 					;margin-left:20px;margin-right:20px;margin-top:20px;" readonly="readonly">
 					<span><a href="javascript:;" >下一页 ></a></span>
 					</center>
 					</c:if>
-				</div>
-				</c:if>
+					<c:if test="${pageBean.totalCount!=0}">
+					<c:if test="${pageBean.page==1}">
+					<center>
+					<span><a href="javascript:;" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page+1}" >下一页 ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page+1}" >下一页  ></a></span>
+					</center>
+					</c:if>
+					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
+					<center>
+					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?page=${pageBean.page-1}" >< 上一页</a></span>
+					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
+					<span><a href="javascript:;" >下一页  ></a></span>
+					</center>
+					</c:if>
+					</c:if> 
+					</c:if>
 				</ul>
 				</div>
 
@@ -384,7 +419,7 @@ function reservation(id) {
 					<ul style="margin-top:2%;width:100%;margin-top:-1px;">
 						<li ><span style=""><span style="font-size:1.1em">检查病类：</span>${medical.name }</span><br>
 						<span style="width:100%"><span style="font-size:1.1em">检查内容：</span>${medical.content } 
-						<br><span style=""><span style="font-size:1.1em">检查时间：</span><span id="inspectionDate"> ${medical.inspectionDate }</span></span>
+						<br><span style=""><span style="font-size:1.1em">检查时间：</span><span class="inspectionDate"> ${medical.inspectionDate }</span></span>
 						<span style="float:right;"><a href="javascript:;" id="tijian" onclick="findViewInformation('${medical.id }')" style="color:#7C9A60">查看详情>></a></span>
 						</span></li>
 					</ul>
