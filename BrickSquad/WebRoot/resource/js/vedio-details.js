@@ -5,7 +5,7 @@ function submitComment(videoId, userId) {
 		var content = $.trim($("#comment_content").val());
 		alert(content.length);
 		if (content == "") {
-			layer.msg("评论不能为空，请先输入您的精彩评论！");
+			layer.msg("评论不能为空或者有非法字符，请先输入您的精彩评论！");
 		} else if (content.length>250) {
 			layer.msg("评论内容不能超过250个汉字！");
 		} else if (userId == "") {
