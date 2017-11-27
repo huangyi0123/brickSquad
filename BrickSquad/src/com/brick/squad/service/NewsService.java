@@ -57,14 +57,16 @@ public interface NewsService {
 	 * @return 新闻详情
 	 */
 	public NewsExpand findNewsExpandById(String id);
+
 	/**
 	 * 乐堡服务生活助手新闻显示
 	 * */
-	public PageBeanUtil findNewsLeBaoServer(int page)throws Exception;
+	public PageBeanUtil findNewsLeBaoServer(int page) throws Exception;
+
 	/**
 	 * 乐堡服务生活助手新闻显示总记录数
 	 * */
-	public int findCountNewsLeBaoServer()throws Exception;
+	public int findCountNewsLeBaoServer() throws Exception;
 
 	/**
 	 * 根据分页信息查询营养膳食记录
@@ -74,5 +76,14 @@ public interface NewsService {
 	 * @return 营养膳食记录
 	 */
 	public String NutritionalDietListPagination(Pagination pagination);
+
+	/**
+	 * 根据id查询营养膳食
+	 * 
+	 * @param id
+	 *            id
+	 * @return 营养膳食
+	 */
+	public String NutritionalDietInfoById(String id);
 
 }

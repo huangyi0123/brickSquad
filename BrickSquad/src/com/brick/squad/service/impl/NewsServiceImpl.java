@@ -3,7 +3,10 @@ package com.brick.squad.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.json.JsonObject;
+
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -128,7 +131,6 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
-
 	/**
 	 * 乐堡服务生活助手新闻显示
 	 * */
@@ -138,7 +140,7 @@ public class NewsServiceImpl implements NewsService {
 			page = 1;
 			// 设置当前页数:
 			pageBean.setPage(page);
-			
+
 			// 设置每页显示记录数:
 			int limit = 4;
 			pageBean.setLimitPage(limit);
@@ -195,16 +197,24 @@ public class NewsServiceImpl implements NewsService {
 	 * 乐堡服务生活助手新闻显示总记录数
 	 * */
 	public int findCountNewsLeBaoServer() throws Exception {
-	int count=newsMapper.findCountNewsLeBaoServer();
+		int count = newsMapper.findCountNewsLeBaoServer();
 		return count;
 	}
+
 	public String NutritionalDietListPagination(Pagination pagination) {
-		GridManagerList<NutritionalDiet> nManagerList=new GridManagerList<NutritionalDiet>();
+		GridManagerList<NutritionalDiet> nManagerList = new GridManagerList<NutritionalDiet>();
 		nManagerList.setData(newsMapper.NutritionalDietList(pagination));
 		nManagerList.setTotals(newsMapper.NutritionalDietCount());
-		JSONArray jsonArray=JSONArray.fromObject(nManagerList);
+		JSONArray jsonArray = JSONArray.fromObject(nManagerList);
 		return jsonArray.toString();
 
+	}
+
+	@Override
+	public String NutritionalDietInfoById(String id) {
+		NutritionalDiet nutritionalDiet = newsMapper.NutritionalDietById(id);
+		JSONObject jsonObject = JSONObject.fromObject(nutritionalDiet);
+		return jsonObject.toString();
 	}
 
 }

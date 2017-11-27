@@ -28,108 +28,35 @@
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link href="resource/css/website-template.css" rel="stylesheet">
-<link href="resource/css/life.css" rel="stylesheet">
+<script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
+<script type="text/javascript" src="resource/js/life.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var type = '${type}';
 		$("#centent").children().hide();
-		$(".yhsp").show();
-		/* $("." + type).show(); */
-		/* if (type == "parti-online") {
-			layui.use('form', function() {
-				var form = layui.form, layer = layui.layer;
-				form.render();
-			});
-		}
-		$("#menu").find('li').each(function() {
-			var val = $(this).attr('val');
-			if (val == type) {
-				$(this).attr('class', 'layui-nav-item layui-this');
-			} else {
-				$(".parti-online").show();
+		$("." + type).show();
+		if (type == 'aboutus-intro' || type == 'aboutus-use') {
+			$(".pager").show();
+			if (type == "aboutus-intro") {
+				NutritionalDiet(1, 2);
 			}
-		}); */
+		}
+		$("#menu").find('li[val="' + type + '"]').attr('class',
+				'layui-nav-item layui-this');
 		$("#menu").find('li').click(function() {
 			var cls = "." + $(this).attr('val');
 			$("#centent").children().hide();
 			$(cls).show();
-			$(".pager").show();
+			if (cls == ".aboutus-intro" || cls == ".aboutus-use") {
+				$(".pager").show();
+				if (cls == ".aboutus-intro") {
+					NutritionalDiet(1, 6);
+				}
+			}
 		});
-		$(".pager").show();
 	});
-	function openOnlineParticipation() {
-		$("#centent").children().hide();
-		$("#menu").find('li').each(function() {
-			$(this).attr('class', 'layui-nav-item');
-		});
-		$(".parti-online").show();
-		layui.use('form', function() {
-			var form = layui.form, layer = layui.layer;
-			form.render();
-		});
-	}
-
-	function toSubmitForm() {
-		layui
-				.use(
-						'layer',
-						function() {
-							var layer = layui.layer;
-							var userName = $("#userName").val();
-							var phone = $("#phone").val();
-							var age = $("#age").val();
-							var email = $("#email").val();
-							if (userName == "") {
-								layer.msg("姓名不能为空！");
-							} else if (!userName.match(/^[\u4e00-\u9fa5]+$/)) {
-								layer.msg("名字必须为汉字!");
-							} else if (phone == "") {
-								layer.msg("手机号码不能为空!");
-							} else if ((age != "")
-									&& (!(age > 1) || !(age < 255) || (!(age
-											.match(/^[0-9]+.?[0-9]*$/))))) {
-								layer.msg("年龄格式不符合要求!");
-							} else if (age == "") {
-								layer.msg("年龄不能为空!");
-							} else if (!(phone == "")
-									&& (!(phone.match(/^1[34578]\d{9}$/)))) {
-								layer.msg("手机号码格式不符合!");
-							} else if ((!(email == "") && !(email
-									.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)))) {
-								layer.msg("邮箱格式不符合!");
-							} else {
-								var index = layer.load(2, {
-									time : 10 * 1000
-								}); //又换了种风格，并且设定最长等待10秒
-								$
-										.ajax({
-											url : 'onlineParticipationInfo/userInsertOnlineParticipationInfo',
-											type : 'POST',
-											data : $("#onlineParticipationInfo")
-													.serialize(),
-											success : function(result) {
-												//关闭
-												layer.close(index);
-												if (result == "fail") {
-													layer.msg("请填写正确的数据格式！");
-												} else if (result == "success") {
-													layer.msg("提交成功！");
-													$("#centent").children()
-															.hide();
-													$(".aboutus-intro").show();
-												} else {
-													layer.msg("接口异常，稍后重试！");
-												}
-											},
-											error : function(e) {
-												layer.msg("接口异常，稍后重试！");
-											}
-										});
-							}
-						});
-	}
 </script>
 <style type="text/css">
 .pager ul li {
@@ -139,6 +66,22 @@
 .pager ul li:HOVER {
 	background-color: #888;
 	cursor: pointer;
+}
+
+.tltie {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 80%;
+}
+
+.tesat {
+	font-size: 20px;
+	border-bottom: 1px solid #E6E6E6;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	line-height: 40px;
+	
 }
 </style>
 </head>
@@ -162,7 +105,6 @@
 						<a href="javascript:;">用户反馈</a>
 					</li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-
 				</ul>
 
 				<label
@@ -174,41 +116,9 @@
 			<div class="tem_main_right" id="centent">
 
 				<div class="aboutus-intro">
-					<ul style="width:70%; margin: 80px auto; ">
-						<li>
-							<a href="#">
-								<h2
-									style="font-size: 30px;border-bottom: 1px solid #E6E6E6; padding-bottom: 10px;margin-top:20px">标题</h2>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<h2
-									style="font-size: 30px;border-bottom: 1px solid #E6E6E6; padding-bottom: 10px;margin-top:20px">标题</h2>
-							</a>
-						</li>
-
-						<li>
-							<a href="#">
-								<h2
-									style="font-size: 30px;border-bottom: 1px solid #E6E6E6; padding-bottom: 10px;margin-top:20px">标题</h2>
-							</a>
-						</li>
-
-						<li>
-							<a href="#">
-								<h2
-									style="font-size: 30px;border-bottom: 1px solid #E6E6E6; padding-bottom: 10px;margin-top:20px">标题</h2>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<h2
-									style="font-size: 30px;border-bottom: 1px solid #E6E6E6; padding-bottom: 10px;margin-top:20px">标题</h2>
-							</a>
-						</li>
+					<ul id="NutritionalDiet" style="width:70%; margin: 80px auto; ">
+					
 					</ul>
-
 
 				</div>
 				<div class="aboutus-use">
@@ -240,7 +150,7 @@
 					</ul>
 				</div>
 				<div class="pager" style="width: 70%;margin: auto;margin-top: -30px">
-					<ul style="margin-top:-20px">
+					<ul id="pager" style="margin-top:-20px">
 						<li>上一页</li>
 						<li>1</li>
 						<li>2</li>
@@ -339,12 +249,12 @@
 					</form>
 				</div>
 				<div class="yyss" style="width:80%; margin: 60px auto;">
-					<h1 style="text-align: center; font-size: 25px;">标题</h1>
+					<h1 style="text-align: center; font-size: 25px;" id="yyss_title">标题</h1>
 					<span style="margin-top:20px; display: block;">
 						文章来源：
-						<span>通州湾分店</span>
+						<span id="yyss_name">通州湾分店</span>
 					</span>
-					<div style="margin-top: 20px">
+					<div id="yyss_content" style="margin-top: 20px">
 						2016年9月25日，中国贵州省黔南州平塘县的名字一夜之间传遍了全世界，因为这里建成了一个了不起的项目“中国天眼”，它还有一个好听的名字“FAST”。这个FAST到底有多厉害？为什么它一经建成就吸引了全世界的目光？11月23日，跟随着中外青年学者交流团进行实地考察后，我终于得到了答案。
 
 						FAST是Five-hundred-meter Aperture Spherical radio
@@ -353,7 +263,7 @@
 						想要进入“中国天眼”核心观景台，目睹这座庞大的“天文机器”，所有人需要经过比机场还要严格的安检，包括手机、相机等在内的电子设备一律寄存，不能随身带入景区，这主要是为了保护全球最大最强的射电望远镜免受电磁波的干扰。
 
 						“中国天眼”看上去就是一个巨大的“锅”，中间悬着一个接收器。据介绍，这个所谓的大锅足有30个足球场那么大，就是靠着这</div>
-					<span style="display:block; margin-top:20px; text-align: right">2017年11月26日</span>
+					<span style="display:block; margin-top:20px; text-align: right" id="yyss_date">2017年11月26日</span>
 				</div>
 				<div class="yhsp" style="width:80%; margin: 60px auto;">
 					<h1 style="text-align: center; font-size: 25px;">视频标题</h1>
