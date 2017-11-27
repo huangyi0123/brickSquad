@@ -168,4 +168,10 @@ public class NewsController {
 	public String getNutritionalDietList(Pagination pagination) {
 		return newsService.NutritionalDietListPagination(pagination);
 	}
+
+	@RequestMapping("/getNutritionalDietInfo")
+	@ResponseBody
+	public String getNutritionalDietInfo(String id) {
+		return newsService.NutritionalDietInfoById(id);
+	}
 }
