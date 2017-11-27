@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -174,4 +176,16 @@ public class NewsController {
 	public String getNutritionalDietInfo(String id) {
 		return newsService.NutritionalDietInfoById(id);
 	}
+		// 官网首页 ：动态新闻查询，日常新闻 
+	@RequestMapping("/findNewsDaily")
+	@ResponseBody
+	public String findNewsDaily() throws Exception{
+		//id:日常新闻的ID
+		List<News> list=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(list).toString();
+		System.out.println(data);
+		return data;
+	}
+
 }
