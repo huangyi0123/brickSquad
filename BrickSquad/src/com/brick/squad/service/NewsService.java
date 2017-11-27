@@ -60,7 +60,7 @@ public interface NewsService {
 	/**
 	 * 乐堡服务生活助手新闻显示
 	 * */
-	public PageBeanUtil findNewsLeBaoServer(int page)throws Exception;
+	public PageBeanUtil findNewsLeBaoServer(int page3)throws Exception;
 	/**
 	 * 乐堡服务生活助手新闻显示总记录数
 	 * */
