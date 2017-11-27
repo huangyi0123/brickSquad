@@ -8,6 +8,9 @@ function submitComment(videoId, userId) {
 		} else if (userId == "") {
 			layer.msg("未登录不能提交评论，请先登录！");
 		} else {
+			var index = layer.load(2, {
+				time : 10 * 1000
+			}); // 又换了种风格，并且设定最长等待10秒
 			$.ajax({
 				url : 'videoComment/videoCommentService',
 				type : "post",
@@ -16,6 +19,8 @@ function submitComment(videoId, userId) {
 					"content" : content
 				},
 				success : function(data) {
+					// 关闭
+					layer.close(index);
 					if (data == "success") {
 						layer.msg("您的精彩评论提交成功！");
 						window.location.reload();
@@ -25,6 +30,8 @@ function submitComment(videoId, userId) {
 
 				},
 				error : function(e) {
+					// 关闭
+					layer.close(index);
 					layer.msg("接口异常，稍后重试！");
 				}
 			});
