@@ -69,7 +69,7 @@
 
 	$(function() {
 	
-		initInfor();
+		
 		//新闻滚动
 	/* 	initInfor(); */
 		   var roll_box = document.getElementById('roll_box');
@@ -96,12 +96,7 @@
 			$('#roll_box').mouseout(function(){
 				interval = window.setInterval(autoScroll,40);
 			});
-			
-			
-			
-			
-		
-		
+			initInfor();
 		//头像图片信息
 		var imagepath = $("#imagepath").val();
 		if (imagepath == "") {
@@ -172,12 +167,14 @@ function initInfor() {
 		url:'news/findNewsDaily',
 		success:function(data){
 			data=JSON.parse(data);
-			
-			for(var i=0;data.length;i++){
-			$(".uli").append("<h4>"+"fdsfs"+"</h4>");
-			console.log(data[0].title);
+			console.log(data.length);
+			for(var i=0;i<data.length;i++){
+			$(".uli").append("<a href=''  style='margin-left:-12px;' ><div style='overflow: hidden; white-space: nowrap; text-overflow: ellipsis;'>"+
+			data[i].title+"</div><span style='float: right;margin-right:8px;'>"+data[i].postTime+"</span></a>"+
+			"");
 			}
 		}
+	
 	});
 };
 </script> 
@@ -600,12 +597,10 @@ function initInfor() {
 		    	<ul style="line-height: 32px;margin-left: 10px;">
 				    <!--滚动内容start-->
 				
-				    <li><a href=""  style="margin-left:-12px;">
-				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" class="uli">
+				    <li class="uli">
 				    	
-				    	</div> 
-				    	<span style="float: right;margin-right:8px;">${news.postTime }</span>
-				    </a>
+				    	
+				   
 				 
 				    </li>
 				

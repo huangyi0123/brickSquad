@@ -181,10 +181,7 @@ public class NewsController {
 	@ResponseBody
 	public String findNewsDaily() throws Exception{
 		//id:日常新闻的ID
-		List<News> list=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(list).toString();
-		System.out.println(data);
+		String data=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
 		return data;
 	}
 

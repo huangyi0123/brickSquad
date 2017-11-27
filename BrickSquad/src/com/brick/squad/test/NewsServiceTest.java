@@ -127,10 +127,10 @@ public class NewsServiceTest {
 	}
 	@Test
 	public void findNewsDail() throws Exception{
-		List<News> list=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
-		for(News news:list){
-			System.out.println("================="+news.getTitle());
-		}
+		String data=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
+		
+			System.out.println("================="+data);
+		
 	}
 
 }

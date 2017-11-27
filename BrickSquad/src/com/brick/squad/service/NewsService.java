@@ -87,6 +87,6 @@ public interface NewsService {
 	/***
 	 *  官网首页 ：动态新闻查询，日常新闻 
 	 * */
-	public List<News> findNewsDaily(String id)throws Exception;
+	public String findNewsDaily(String id)throws Exception;
 
 }
