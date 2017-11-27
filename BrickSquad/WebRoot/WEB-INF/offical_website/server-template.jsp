@@ -289,8 +289,8 @@ function reservation(id) {
 
 				 <label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="javascript:;" onclick="openOnlineParticipation()"
-					style="color:white;font-stretch: normal;">在线参与</a></label>
+					href="common/toWebsiteTemplate?type=aboutus-intro" onclick="openOnlineParticipation()"
+					style="color:white;font-stretch: normal;">乐堡简介</a></label>
 			</div>
 			<!-- <div class="clearfix"></div> -->
 			<div class="tem_main_right" id="centent">
