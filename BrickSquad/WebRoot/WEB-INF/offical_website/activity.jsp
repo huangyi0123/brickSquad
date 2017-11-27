@@ -222,9 +222,6 @@
 								</c:forEach>
 							</div>
 						</div>
-						<div
-							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
-
 					</div>
 
 				</div>
