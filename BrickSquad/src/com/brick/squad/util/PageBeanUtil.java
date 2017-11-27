@@ -22,8 +22,101 @@ public class PageBeanUtil<T> {
 	private String search;
 	private String pId;
 
-
+	private int page3; // 当前页
+	private int totalCount3;// 总记录
+	private int totalPage3;// 总页数
+	private int limitPage3;// 页数
+	private int begin3;
 	
+	
+	private int page1; // 当前页
+	private int totalCount1;// 总记录
+	private int totalPage1;// 总页数
+	private int limitPage1;// 页数
+	private int begin1;
+	
+	public int getPage1() {
+		return page1;
+	}
+
+	public void setPage1(int page1) {
+		this.page1 = page1;
+	}
+
+	public int getTotalCount1() {
+		return totalCount1;
+	}
+
+	public void setTotalCount1(int totalCount1) {
+		this.totalCount1 = totalCount1;
+	}
+
+	public int getTotalPage1() {
+		return totalPage1;
+	}
+
+	public void setTotalPage1(int totalPage1) {
+		this.totalPage1 = totalPage1;
+	}
+
+	public int getLimitPage1() {
+		return limitPage1;
+	}
+
+	public void setLimitPage1(int limitPage1) {
+		this.limitPage1 = limitPage1;
+	}
+
+	public int getBegin1() {
+		return begin1;
+	}
+
+	public void setBegin1(int begin1) {
+		this.begin1 = begin1;
+	}
+
+	public int getBegin3() {
+		return begin3;
+	}
+
+	public void setBegin3(int begin3) {
+		this.begin3 = begin3;
+	}
+
+	public int getPage3() {
+		return page3;
+	}
+
+	public void setPage3(int page3) {
+		this.page3 = page3;
+	}
+
+
+
+	public int getTotalCount3() {
+		return totalCount3;
+	}
+
+	public void setTotalCount3(int totalCount3) {
+		this.totalCount3 = totalCount3;
+	}
+
+	public int getTotalPage3() {
+		return totalPage3;
+	}
+
+	public void setTotalPage3(int totalPage3) {
+		this.totalPage3 = totalPage3;
+	}
+
+	public int getLimitPage3() {
+		return limitPage3;
+	}
+
+	public void setLimitPage3(int limitPage3) {
+		this.limitPage3 = limitPage3;
+	}
+
 	public String getpId() {
 		return pId;
 	}

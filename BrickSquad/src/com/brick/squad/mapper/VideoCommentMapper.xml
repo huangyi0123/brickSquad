@@ -10,4 +10,23 @@
 		video_comment(id,be_commented_id,content,commont_userId,commentTime)
 		VALUES(#{id},#{beCommentedId},#{content},#{commontUserId},#{commentTime})
 	</insert>
+	<!-- 根据被 评论的ID分页查询评论，时间降序 -->
+	<select id="findVideoCommentCountByBeCommentedIdPagination"
+		parameterType="com.brick.squad.expand.VideoCommentPagination"
+		resultType="com.brick.squad.expand.VideoCommentExtend">
+		select vc.id,vc.be_commented_id
+		beCommentedId,vc.content,vc.commont_userId
+		commontUserId,vc.commentTime,vc.belittleAmout,vc.praiseAmout,u.userName,u.userPicPath
+		from video_comment vc join user u on
+		vc.be_commented_id=#{id} and
+		vc.commont_userId=u.id ORDER BY commentTime desc
+		limit
+		#{skipNum},#{takeNum}
+	</select>
+	<!-- 根据被 评论的ID查询评论总数 -->
+	<select id="findVideoCommentCountByBeCommentedId" parameterType="String"
+		resultType="int">
+		select count(*) from video_comment vc where
+		vc.be_commented_id=#{beCommentedId}
+	</select>
 </mapper>

@@ -49,14 +49,18 @@ public class LeFortServiceController {
 	public String serverWebsiteTemplate(String type,HttpServletRequest request,PageBeanUtil pageBean) throws Exception {
 		type = "aboutus-intro";
 		request.setAttribute("type", type);
+	
 		//体检预约
 		int page=pageBean.getPage();
+		int page1=pageBean.getPage1();
+		int page3=pageBean.getPage3();
 		String typeId=pageBean.getTypeId();
+		request.setAttribute("typeId", typeId);
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
 		//生活助手	
-		PageBeanUtil pageBean3=newsService.findNewsLeBaoServer(page);
+		PageBeanUtil pageBean3=newsService.findNewsLeBaoServer(page3);
 		List<News> list=pageBean3.getList();
 		String content;
 		for(News news:list){
@@ -75,12 +79,13 @@ public class LeFortServiceController {
 		if(user==null){
 		}else{
 		String pId=user.getId();
-		PageBeanUtil<MedicalExpand> pageBeanUtil2=medicalService.findMedicalByUser(page, pId);
+		pageBean.setpId(pId);
+		PageBeanUtil<MedicalExpand> pageBeanUtil2=medicalService.findMedicalByUser(page1, pId);
 		request.setAttribute("pageBean1", pageBeanUtil2);
 		}
 		return "offical_website/server-template";
 	}
-	
+
 	
 	
 	

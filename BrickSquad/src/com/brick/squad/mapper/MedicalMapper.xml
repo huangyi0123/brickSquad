@@ -84,7 +84,7 @@
 	FROM personal_information p 
 	JOIN medical m ON p.id=m.per_id 
 	JOIN type t ON t.id=m.type_id WHERE m.per_id=#{pId} ORDER BY inspection_date 
-	LIMIT #{begin},#{limitPage}
+	LIMIT #{begin1},#{limitPage1}
 	</select>
 	<select id="findCountMedicalByUser" resultType="int" 
 	parameterType="com.brick.squad.util.PageBeanUtil">

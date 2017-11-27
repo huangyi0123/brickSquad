@@ -38,7 +38,7 @@ public interface MedicalService {
 
 	public MedicalExpand findPersonalInformationAndType(String id);
 	/**查看用户检查病历史*/
-	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page,String pId)throws Exception;
+	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page1,String pId)throws Exception;
 	/**查看用户检查病历史记录数*/
 	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil)throws Exception;
 	/** 根据ID查找详细信息 */

@@ -134,20 +134,20 @@ public class NewsServiceImpl implements NewsService {
 	/**
 	 * 乐堡服务生活助手新闻显示
 	 * */
-	public PageBeanUtil findNewsLeBaoServer(int page) {
+	public PageBeanUtil findNewsLeBaoServer(int page3) {
 		PageBeanUtil<News> pageBean = new PageBeanUtil<News>();
-		if (page == 0) {
-			page = 1;
+		if (page3 == 0) {
+			page3 = 1;
 			// 设置当前页数:
-			pageBean.setPage(page);
-
+			pageBean.setPage3(page3);
+			
 			// 设置每页显示记录数:
 			int limit = 4;
-			pageBean.setLimitPage(limit);
+			pageBean.setLimitPage3(limit);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = newsMapper.findCountNewsLeBaoServer();
-			pageBean.setTotalCount(totalCount);
+			pageBean.setTotalCount3(totalCount);
 			// 设置总页数:
 			int totalPage = 0;
 			// Math.ceil(totalCount / limit);
@@ -156,23 +156,23 @@ public class NewsServiceImpl implements NewsService {
 			} else {
 				totalPage = totalCount / limit + 1;
 			}
-			pageBean.setTotalPage(totalPage);
+			pageBean.setTotalPage3(totalPage);
 			// 每页显示的数据集合:
 			// 从哪开始:
-			int begin = (page - 1) * limit;
-			pageBean.setBegin(begin);
+			int begin = (page3 - 1) * limit;
+			pageBean.setBegin3(begin);
 			List<News> list = newsMapper.findNewsLeBaoServer(pageBean);
 			pageBean.setList(list);
 		} else {
 			// 设置当前页数:
-			pageBean.setPage(page);
+			pageBean.setPage3(page3);
 			// 设置每页显示记录数:
 			int limit = 4;
-			pageBean.setLimitPage(limit);
+			pageBean.setLimitPage3(limit);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = newsMapper.findCountNewsLeBaoServer();
-			pageBean.setTotalCount(totalCount);
+			pageBean.setTotalCount3(totalCount);
 			// 设置总页数:
 			int totalPage = 0;
 			// Math.ceil(totalCount / limit);
@@ -181,11 +181,11 @@ public class NewsServiceImpl implements NewsService {
 			} else {
 				totalPage = totalCount / limit + 1;
 			}
-			pageBean.setTotalPage(totalPage);
+			pageBean.setTotalPage3(totalPage);
 			// 每页显示的数据集合:
 			// 从哪开始:
-			int begin = (page - 1) * limit;
-			pageBean.setBegin(begin);
+			int begin = (page3 - 1) * limit;
+			pageBean.setBegin3(begin);
 			List<News> list = newsMapper.findNewsLeBaoServer(pageBean);
 			pageBean.setList(list);
 		}
