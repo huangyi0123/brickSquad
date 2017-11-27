@@ -66,6 +66,36 @@
 <script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
 <script>
 	$(function() {
+		//新闻滚动
+		
+		   var roll_box = document.getElementById('roll_box');
+			var roll_content = document.getElementById('roll_content');
+			var roll_temp = document.getElementById('roll_temp');
+			//相当于让roll_box中足够的内容并产生滚动条
+			roll_temp.innerHTML = roll_content.innerHTML+roll_content.innerHTML;
+			function autoScroll(){
+				if(roll_box.scrollTop>=roll_content.offsetHeight){
+					 roll_box.scrollTop = 0;	//obj.scrollTop表示滚动条上边的元素的高度，为0表示让滚动条到顶部位置
+				}else{
+					roll_box.scrollTop++;		//让滚动条向下移动，相当于内容向上移动
+				}
+			}	
+			
+	        var interval = window.setInterval(autoScroll,40);
+
+			//鼠标进入，停止滚动
+			$('#roll_box').mousemove(function(){
+				window.clearInterval(interval);
+			});
+
+			//鼠标移出，继续滚动
+			$('#roll_box').mouseout(function(){
+				interval = window.setInterval(autoScroll,40);
+			});
+      
+	
+		
+		
 		//头像图片信息
 		var imagepath = $("#imagepath").val();
 		if (imagepath == "") {
@@ -527,11 +557,80 @@
 					</h4>
 					<p>活动</p>
 				</div>
-				<div class="col-md-3 coupons-gd">
-					<h3>
-						新闻快讯
-						<span>生活中你不知道的几个知识点</span>
-					</h3>
+				<div class="col-md-3 coupons-gd" style="margin-top:-95px;">
+				
+			<div style="width: 300px;">
+	  		<div style="height: 30px;line-height:30px;border:1px solid #dedede;">
+	  		<span style="text-indent: 20px;"><h4 style="font-size:1.4em;color:#48CFC1">乐堡新闻</h4></span>
+	  		</div>
+	   	 <div id="roll_box" style="height:250px;overflow:hidden;margin-top:-1px;border:1px solid #dedede;">
+		    <div id="roll_content">
+		    	<ul style="line-height: 32px;margin-left: 10px;">
+				    <!--滚动内容start-->
+				    <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
+				    	获湖北省著名商标著名商标</div> 
+				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
+				    </a>
+				    </li>
+			    </ul>                  
+			</div>
+			<div id="roll_temp"></div>
+		</div>
+		</div>
+					</div>
+				
+				
 				</div>
 				<div class="clearfix"></div>
 			</div>
