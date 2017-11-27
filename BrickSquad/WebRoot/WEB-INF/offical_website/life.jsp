@@ -81,9 +81,9 @@
 	padding-bottom: 10px;
 	margin-top: 20px;
 	line-height: 40px;
-	
 }
-#yyss_content p{
+
+#yyss_content p {
 	margin-left: 0px;
 	width: 100%;
 }
@@ -121,7 +121,7 @@
 
 				<div class="aboutus-intro">
 					<ul id="NutritionalDiet" style="width:70%; margin: 80px auto; ">
-					
+
 					</ul>
 
 				</div>
@@ -253,21 +253,12 @@
 					</form>
 				</div>
 				<div class="yyss" style="width:80%; margin: 60px auto;">
-					<h1 style="text-align: center; font-size: 25px;" id="yyss_title">标题</h1>
+					<h1 style="text-align: center; font-size: 25px;" id="yyss_title"></h1>
 					<span style="margin-top:20px; display: block;">
-						文章来源：
-						<span id="yyss_name">通州湾分店</span>
+						<span id="yyss_name"></span>
 					</span>
-					<div id="yyss_content" style="margin-top: 20px">
-						2016年9月25日，中国贵州省黔南州平塘县的名字一夜之间传遍了全世界，因为这里建成了一个了不起的项目“中国天眼”，它还有一个好听的名字“FAST”。这个FAST到底有多厉害？为什么它一经建成就吸引了全世界的目光？11月23日，跟随着中外青年学者交流团进行实地考察后，我终于得到了答案。
-
-						FAST是Five-hundred-meter Aperture Spherical radio
-						Telescope的简称，意为500米口径球面射电望远镜，被称为“中国天眼”，是世界上口径最大的单口径射电望远镜。与原记录保持者美国的阿雷西博射电望远镜相比，“中国天眼”的灵敏度和综合性提升了近10倍，这也就意味着，中国天眼可以接受到来自外太空更远的信号。也许未来的某一天，我们就可以通过它来寻找外星人，探寻宇宙之迷。
-
-						想要进入“中国天眼”核心观景台，目睹这座庞大的“天文机器”，所有人需要经过比机场还要严格的安检，包括手机、相机等在内的电子设备一律寄存，不能随身带入景区，这主要是为了保护全球最大最强的射电望远镜免受电磁波的干扰。
-
-						“中国天眼”看上去就是一个巨大的“锅”，中间悬着一个接收器。据介绍，这个所谓的大锅足有30个足球场那么大，就是靠着这</div>
-					<span style="display:block; margin-top:20px; text-align: right" id="yyss_date">2017年11月26日</span>
+					<div id="yyss_content" style="margin-top: 20px"></div>
+					<span style="display:block; margin-top:20px; text-align: right" id="yyss_date"></span>
 				</div>
 				<div class="yhsp" style="width:80%; margin: 60px auto;">
 					<h1 style="text-align: center; font-size: 25px;">视频标题</h1>
