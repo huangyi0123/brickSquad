@@ -62,28 +62,46 @@ public class UserVedioController {
 			HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		userVedio.setUserId(user.getId());
+		String src = userVedio.getVediopath();
+		src = src.substring(src.indexOf("'") + 1);
+		src = src.substring(0, src.indexOf("'"));
+		userVedio.setVediopath(src);
+		userVedio.setPosttime(new Date());
+		userVedioService.insertUserVedio(userVedio);
 		return "backstage_managed/jsp/user_vedio/user_vedio_list";
 	}
 
 	@RequestMapping("/uploadImage")
 	@ResponseBody
-	private String uploadImage(MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
-		
-		String path = request.getSession().getServletContext()
-				.getRealPath("/");
+	private String uploadImage(MultipartFile file, HttpServletRequest request)
+			throws IllegalStateException, IOException {
+
+		String path = request.getSession().getServletContext().getRealPath("/");
 		String name = file.getOriginalFilename();
 		File file1 = new File(path, name);
 		if (!file1.exists()) {
 			file1.mkdirs();
 		}
 		file.transferTo(file1);
-		String p=file1.getAbsolutePath();
-		COS cos=new COS();
+		String p = file1.getAbsolutePath();
+		COS cos = new COS();
 		cos.setBucketName("bricksquad");
 		cos.setRegion("sh");
-		String s=new Date().getTime()+""+p.substring(p.lastIndexOf("."));
-		String string=cos.upLoadImageToCOS(p, "/user_vedio/"+s);
+		String s = new Date().getTime() + "" + p.substring(p.lastIndexOf("."));
+		String string = cos.upLoadImageToCOS(p, "/user_vedio/" + s);
 		file1.delete();
 		return string;
+	}
+
+	@RequestMapping("/getUserVedio")
+	@ResponseBody
+	public String getUserVedio(Pagination pagination) {
+		return userVedioService.findUserVedioList(pagination);
+	}
+
+	@RequestMapping("/findUserVedioById")
+	@ResponseBody
+	public String findUserVedioById(String id) {
+		return userVedioService.findUserVedioById(id);
 	}
 }
