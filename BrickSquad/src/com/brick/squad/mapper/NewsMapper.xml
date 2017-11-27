@@ -144,7 +144,7 @@
 	</select>
 	<!-- 官网首页 ：动态新闻查询，日常新闻 -->
 	<select id="findNewsDaily" resultType="news" parameterType="String">
-	SELECT n.title,n.post_time postTime
+	SELECT n.id,n.title,n.post_time postTime
 	FROM news n JOIN type t ON t.id=n.type_id 
 	AND t.id=#{id}
 	ORDER BY n.post_time DESC

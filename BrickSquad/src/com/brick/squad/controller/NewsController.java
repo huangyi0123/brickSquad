@@ -1,5 +1,6 @@
 package com.brick.squad.controller;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -183,6 +184,16 @@ public class NewsController {
 		//id:日常新闻的ID
 		String data=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
 		return data;
+	}
+	@RequestMapping("/findNewsInformation")
+	public String findNewsInformation(HttpServletRequest request,String id){
+		NewsExpand newsExpand=newsService.findNewsExpandById(id);
+		Date date = newsExpand.getPostTime();
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date1=formatter.format(date);
+		newsExpand.setDate(date1);
+		request.setAttribute("news", newsExpand);
+		return "offical_website/news";
 	}
 
 }

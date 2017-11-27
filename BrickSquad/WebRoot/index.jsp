@@ -167,9 +167,9 @@ function initInfor() {
 		url:'news/findNewsDaily',
 		success:function(data){
 			data=JSON.parse(data);
-			console.log(data.length);
+			console.log(data);
 			for(var i=0;i<data.length;i++){
-			$(".uli").append("<a href=''  style='margin-left:-12px;' ><div style='overflow: hidden; white-space: nowrap; text-overflow: ellipsis;'>"+
+			$(".uli").append("<a href='news/findNewsInformation?id="+data[i].id+"'  style='margin-left:-12px;' ><div style='overflow: hidden; white-space: nowrap; text-overflow: ellipsis;'>"+
 			data[i].title+"</div><span style='float: right;margin-right:8px;'>"+data[i].postTime+"</span></a>"+
 			"");
 			}
