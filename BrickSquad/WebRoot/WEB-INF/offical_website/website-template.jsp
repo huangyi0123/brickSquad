@@ -260,7 +260,7 @@
 
 				</div>
 
-				<div class="parti-online">
+				<div class="parti-online" style="display: none;">
 					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
 					<form class="layui-form" id="onlineParticipationInfo" method="post">
 						<label>* 姓名：</label>

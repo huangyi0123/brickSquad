@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JsonConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,6 +17,7 @@ import com.brick.squad.pojo.VideoComment;
 import com.brick.squad.service.VideoCommentService;
 import com.brick.squad.util.Filter;
 import com.brick.squad.util.GridManagerList;
+import com.brick.squad.util.JsonDateValueProcessor;
 
 /**
  * 视频评论ServiceImpl,事物处理层，参数过滤等
@@ -42,6 +44,7 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 		GridManagerList<VideoCommentExtend> list = new GridManagerList<VideoCommentExtend>();
 		List<VideoCommentExtend> videoCommentExtends = videoCommentMapper
 				.findVideoCommentCountByBeCommentedIdPagination(videoCommentPagination);
+
 		// 参数过滤
 		for (VideoCommentExtend videoCommentExtend : videoCommentExtends) {
 			videoCommentExtend = (VideoCommentExtend) Filter
@@ -51,8 +54,23 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 		list.setTotals(videoCommentMapper
 				.findVideoCommentCountByBeCommentedId(videoCommentPagination
 						.getBeCommentedId()));
-		JSONArray jsonArray = JSONArray.fromObject(list);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy年MM月dd日hh:mm:ss"));
+		JSONArray jsonArray = JSONArray.fromObject(list, jsonConfig);
 		return jsonArray.toString();
+
+	}
+
+	@Override
+	public void updateBelittleAmout(String id) {
+		videoCommentMapper.updateBelittleAmout(id);
+
+	}
+
+	@Override
+	public void updatePraiseAmout(String id) {
+		videoCommentMapper.updatePraiseAmout(id);
 
 	}
 

@@ -1,12 +1,22 @@
 package com.brick.squad.service;
 
-import java.util.List;
-
-import com.brick.squad.expand.VideoCommentExtend;
 import com.brick.squad.expand.VideoCommentPagination;
 import com.brick.squad.pojo.VideoComment;
 
 public interface VideoCommentService {
+	/**
+	 * 贬低评论
+	 * 
+	 * @param id
+	 */
+	public void updateBelittleAmout(String id);
+
+	/**
+	 * 为评论点赞
+	 * 
+	 * @param id
+	 */
+	public void updatePraiseAmout(String id);
 	public void insertVideoComment(VideoComment videoComment) throws Exception;
 
 	/**
