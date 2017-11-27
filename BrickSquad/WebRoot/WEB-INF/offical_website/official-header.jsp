@@ -20,8 +20,7 @@
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 
 
-<link href="resource/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href="resource/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link href="resource/css/index.css" rel="stylesheet">
 <link href="resource/css/website-template.css" rel="stylesheet">
@@ -38,6 +37,7 @@
 	
 	
 	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
@@ -45,9 +45,9 @@
 
 
 
+
 </script>
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <!-- js -->
 <script>
@@ -87,8 +87,7 @@
 		$(elem).prev().find('a[data-toggle="tab"]').click();
 	}
 </script>
-<script type="text/javascript"
-	src="resource/plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
 <script>
 	$(function() {
 		//头像图片信息
@@ -152,21 +151,29 @@
 <body>
 	<div class="header" style="height: 66px;">
 		<div class="logo">
-				<h1>
-					<a href="index.html"><i><img src="resource/image/cell.png"
-							alt=" " /></i>养乐堡</a>
-				</h1>
-			</div>
+			<h1>
+				<a href="index.html">
+					<i>
+						<img src="resource/image/cell.png" alt=" " />
+					</i>
+					养乐堡
+				</a>
+			</h1>
+		</div>
 		<div class="top-nav">
-			<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
-			<ul class="layui-nav"
-				style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
-				<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-				<li class="layui-nav-item"><a href="shopIndex/toShop"
-					style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
+			<span class="menu">
+				<img src="resource/image/menu.png" alt=" " />
+			</span>
+			<ul class="layui-nav" style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
+				<li class="layui-nav-item layui-this">
+					<a href="">首页</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="shopIndex/toShop" style="font-size:1.5em;color: #FF9F59;">乐堡商城</a>
+				</li>
 
-				<li class="layui-nav-item"><a
-					href="common/toActivity_carousel?type=online_course">乐堡活动</a>
+				<li class="layui-nav-item">
+					<a href="common/toActivity_carousel?type=online_course">乐堡活动</a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a href="common/toActivity_carousel?type=online_course">线上直播</a>
@@ -174,37 +181,47 @@
 						<dd>
 							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
+					</dl>
+				</li>
+				<li class="layui-nav-item">
+					<a href="common/toLife?type=aboutus-intro">乐堡生活</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="">营养膳食</a>
+							<a href="common/toLife?type=aboutus-intro">营养膳食</a>
 						</dd>
 						<dd>
-							<a href="">用户视频</a>
+							<a href="common/toLife?type=aboutus-use">用户视频</a>
 						</dd>
 						<dd>
-							<a href="">用户反馈</a>
+							<a href="common/toLife?type=aboutus-join">用户反馈</a>
 						</dd>
-					</dl></li>
+					</dl>
+				</li>
 
-				<li class="layui-nav-item"><a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
+				<li class="layui-nav-item">
+					<a
+						href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 						</dd>
 						<dd>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 						</dd>
 						<dd>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 						</dd>
 						<dd>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 						</dd>
-					</dl></li>
-				<li class="layui-nav-item"><a
-					href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
+					</dl>
+				</li>
+				<li class="layui-nav-item">
+					<a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
@@ -218,12 +235,13 @@
 						<dd>
 							<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 						</dd>
-					</dl></li>
-				<li class="layui-nav-item" ng-app=""><a href="javascript:;"
-					ng-if="${user==null }" id="login">登录</a> <a href="javascript:;"
-					ng-if="${user!=null }"> <input type="hidden" id="imagepath"
-							value="${user.userPicPath }"> <img src=""
-						id="indexUserPic" class="layui-nav-img">${user.username }</a>
+					</dl>
+				</li>
+				<li class="layui-nav-item" ng-app="">
+					<a href="javascript:;" ng-if="${user==null }" id="login">登录</a>
+					<a href="javascript:;" ng-if="${user!=null }">
+						<input type="hidden" id="imagepath" value="${user.userPicPath }">
+						<img src="" id="indexUserPic" class="layui-nav-img">${user.username }</a>
 					<dl class="layui-nav-child" ng-if="${user!=null }">
 						<dd ng-if="${user!=null }">
 							<a href="common/toPersonal">个人中心</a>
@@ -236,7 +254,8 @@
 						<dd>
 							<a href="javascript:;" id="register"> 注册</a>
 						</dd>
-					</dl></li>
+					</dl>
+				</li>
 			</ul>
 
 		</div>
@@ -244,8 +263,8 @@
 		<div class="search-box">
 			<div id="sb-search" class="sb-search">
 				<form action="activities/findActivitesName" method="post">
-					<input class="sb-search-input" placeholder="请输入您的关键字..."
-						type="search" name="search" id="search">
+					<input class="sb-search-input" placeholder="请输入您的关键字..." type="search" name="search"
+						id="search">
 					<input class="sb-search-submit" type="submit" value="">
 					<span class="sb-icon-search"> </span>
 				</form>

@@ -13,16 +13,14 @@
 <base href="<%=basePath%>">
 
 <title>官网</title>
-<link href='https://fonts.googleapis.com/css?family=Varela+Round'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
 	rel='stylesheet' type='text/css'>
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 
 
-<link href="resource/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href="resource/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link href="resource/css/index.css" rel="stylesheet">
 
@@ -33,6 +31,7 @@
 	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	
 	
 	
@@ -54,6 +53,7 @@
 
 
 
+
 </script>
 <!-- //for-mobile-apps -->
 <!--fonts-->
@@ -61,11 +61,9 @@
 <!--//fonts-->
 <!-- js -->
 
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
 <script>
 	$(function() {
 		//头像图片信息
@@ -163,145 +161,162 @@
 	}
 </script>
 <script type="text/javascript">
-function findBranch(){
-	$.ajax({
-		url:'reservation/findBranch',
-		success:function(data){
-			 $("#branchid").html('');
-			data=JSON.parse(data);
-			 for (var i = 0; i < data.length; i++) {
-			$("#branchid").append("<option value='"+data[i].id+"'>" + data[i].name + "</option>");
-			 };
-		}
-		
-	});
-}
-</script>
-<script type="text/javascript">
-function findActivitiesName() {
-	var user='${user}';
-	if(user!=""){
-	$.ajax({
-		url:'activityRegistration/findActivityName',
-		success:function(data){
-			 $("#findActivitiesNameId").html('');
-			data=JSON.parse(data);
-			/* console.log(data[0].articleName); */
-			var dataN;
-			var dataM;
-			 for (var i = 0; i < data.length; i++) {
-				  dataN=data[i].articleName;
-				  dataM=data[i].branchData;
-			 };
-			 dataN=JSON.parse(dataN);
-			 for(var i=0;i<dataN.length;i++){
-					$("#findActivitiesNameId").append("<option value='"+dataN[i].id+"'>" + dataN[i].name + "</option>"); 
+	function findBranch() {
+		$.ajax({
+			url : 'reservation/findBranch',
+			success : function(data) {
+				$("#branchid").html('');
+				data = JSON.parse(data);
+				for (var i = 0; i < data.length; i++) {
+					$("#branchid").append(
+							"<option value='"+data[i].id+"'>" + data[i].name
+									+ "</option>");
 				}
-			 dataM=JSON.parse(dataM);
-			 console.log(dataM);
-			 for (var i = 0; i < dataM.length; i++) {
-					$("#branchsecondid").append("<option value='"+dataM[i].id+"'>" + dataM[i].name + "</option>");
-					 };
-		}
-		
-	});
-	}else{
-		alert("您还没有登录，请先去登录!");
+				;
+			}
+
+		});
 	}
-}
 </script>
 <script type="text/javascript">
-function check(){
-	var name=document.getElementById("name").value;
-	var telephone=document.getElementById("telephone").value;
-		var nameText=document.getElementById("nameText");
+	function findActivitiesName() {
+		var user = '${user}';
+		if (user != "") {
+			$.ajax({
+				url : 'activityRegistration/findActivityName',
+				success : function(data) {
+					$("#findActivitiesNameId").html('');
+					data = JSON.parse(data);
+					/* console.log(data[0].articleName); */
+					var dataN;
+					var dataM;
+					for (var i = 0; i < data.length; i++) {
+						dataN = data[i].articleName;
+						dataM = data[i].branchData;
+					}
+					;
+					dataN = JSON.parse(dataN);
+					for (var i = 0; i < dataN.length; i++) {
+						$("#findActivitiesNameId").append(
+								"<option value='"+dataN[i].id+"'>"
+										+ dataN[i].name + "</option>");
+					}
+					dataM = JSON.parse(dataM);
+					console.log(dataM);
+					for (var i = 0; i < dataM.length; i++) {
+						$("#branchsecondid").append(
+								"<option value='"+dataM[i].id+"'>"
+										+ dataM[i].name + "</option>");
+					}
+					;
+				}
+
+			});
+		} else {
+			alert("您还没有登录，请先去登录!");
+		}
+	}
+</script>
+<script type="text/javascript">
+	function check() {
+		var name = document.getElementById("name").value;
+		var telephone = document.getElementById("telephone").value;
+		var nameText = document.getElementById("nameText");
 		if (name == "") {
-				 nameText.innerHTML="<span style='color:#C5C5C5'>姓名不能为空</span>";
-				return false;
-			}
-		 var phoneText=document.getElementById("telephoneText");
-		if (telephone == "") {
-			 phoneText.innerHTML="<span style='color:#C5C5C5'>手机号不能为空</span>";
-			return false;
-		}else if(telephone.match('\\d{11}')!=telephone){
-			phoneText.innerHTML="<span style='color:#C5C5C5'>手机号格式不正确</span>"; 
-			return false;
-		} 
-}
-function onfus1(){
-   	var nameText=document.getElementById('nameText');
-   	nameText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function onfus2(){
-   	var phoneText=document.getElementById('telephoneText');
-   	phoneText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function check1(){
-	var name=document.getElementById("name3").value;
-	var telephone=document.getElementById("telephone4").value;
-	var date=document.getElementById("date").value;
-		var nameText=document.getElementById("nameText3");
-		if (name == "") {
-				 nameText.innerHTML="<span style='color:#C5C5C5'>姓名不能为空</span>";
-				return false;
-			}
-		 var phoneText=document.getElementById("telephoneText4");
-		if (telephone == "") {
-			 phoneText.innerHTML="<span style='color:#C5C5C5'>手机号不能为空</span>";
-			return false;
-		}else if(telephone.match('\\d{11}')!=telephone){
-			phoneText.innerHTML="<span style='color:#C5C5C5'>手机号格式不正确</span>"; 
-			return false;
-		} 
-		 var dateText=document.getElementById("dateText5");
-		if (date == "") {
-			dateText.innerHTML="<span style='color:#C5C5C5'>时间不能为空</span>";
+			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
 			return false;
 		}
-}
+		var phoneText = document.getElementById("telephoneText");
+		if (telephone == "") {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号不能为空</span>";
+			return false;
+		} else if (telephone.match('\\d{11}') != telephone) {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号格式不正确</span>";
+			return false;
+		}
+	}
+	function onfus1() {
+		var nameText = document.getElementById('nameText');
+		nameText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function onfus2() {
+		var phoneText = document.getElementById('telephoneText');
+		phoneText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function check1() {
+		var name = document.getElementById("name3").value;
+		var telephone = document.getElementById("telephone4").value;
+		var date = document.getElementById("date").value;
+		var nameText = document.getElementById("nameText3");
+		if (name == "") {
+			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
+			return false;
+		}
+		var phoneText = document.getElementById("telephoneText4");
+		if (telephone == "") {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号不能为空</span>";
+			return false;
+		} else if (telephone.match('\\d{11}') != telephone) {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号格式不正确</span>";
+			return false;
+		}
+		var dateText = document.getElementById("dateText5");
+		if (date == "") {
+			dateText.innerHTML = "<span style='color:#C5C5C5'>时间不能为空</span>";
+			return false;
+		}
+	}
 
-function onfus3(){
-   	var nameText=document.getElementById('nameText3');
-   	nameText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function onfus4(){
-   	var phoneText=document.getElementById('telephoneText4');
-   	phoneText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function onfus5(){
-   	var dateText=document.getElementById('dateText5');
-   	dateText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-
+	function onfus3() {
+		var nameText = document.getElementById('nameText3');
+		nameText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function onfus4() {
+		var phoneText = document.getElementById('telephoneText4');
+		phoneText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function onfus5() {
+		var dateText = document.getElementById('dateText5');
+		dateText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
 </script>
 <script type="text/javascript">
-function findType(){
-	var typeValue=$("#searchType").val();
-	var ahref=document.getElementById("searchQue");
-	 ahref.href="type/searchContent?type=aboutus-intro&search="+typeValue;
-}
- 
+	function findType() {
+		var typeValue = $("#searchType").val();
+		var ahref = document.getElementById("searchQue");
+		ahref.href = "type/searchContent?type=aboutus-intro&search="
+				+ typeValue;
+	}
 </script>
 </head>
-	
+
 <body>
 	<div class="banner">
 		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
-					<a href="index.html"><i><img src="resource/image/cell.png"
-							alt=" " /></i>养乐堡</a>
+					<a href="index.html">
+						<i>
+							<img src="resource/image/cell.png" alt=" " />
+						</i>
+						养乐堡
+					</a>
 				</h1>
 			</div>
 			<div class="top-nav">
-				<span class="menu"><img src="resource/image/menu.png" alt=" " /></span>
-				<ul class="layui-nav"
-					style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
-					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href="shopIndex/toShop"
-						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
+				<span class="menu">
+					<img src="resource/image/menu.png" alt=" " />
+				</span>
+				<ul class="layui-nav" style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
+					<li class="layui-nav-item layui-this">
+						<a href="">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="shopIndex/toShop" style="font-size:1.5em;color: #FF9F59;">乐堡商城</a>
+					</li>
 
-					<li class="layui-nav-item"><a href="common/toActivity_carousel?type=online_course">乐堡活动</a>
+					<li class="layui-nav-item">
+						<a href="common/toActivity_carousel?type=online_course">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toActivity_carousel?type=online_course">线上直播</a>
@@ -309,36 +324,47 @@ function findType(){
 							<dd>
 								<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item"><a href="javascript:;">乐堡生活</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="common/toLife?type=aboutus-intro">乐堡生活</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="">营养膳食</a>
+								<a href="common/toLife?type=aboutus-intro">营养膳食</a>
 							</dd>
 							<dd>
-								<a href="">用户视频</a>
+								<a href="common/toLife?type=aboutus-use">用户视频</a>
 							</dd>
 							<dd>
-								<a href="">用户反馈</a>
+								<a href="common/toLife?type=aboutus-join">用户反馈</a>
 							</dd>
-						</dl></li>
+						</dl>
+					</li>
 
-					<li class="layui-nav-item"><a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
+					<li class="layui-nav-item">
+						<a
+							href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+								<a
+									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 							</dd>
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+								<a
+									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 							</dd>
 							<dd>
-								<a href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+								<a
+									href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 							</dd>
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+								<a
+									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item"><a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
@@ -352,12 +378,13 @@ function findType(){
 							<dd>
 								<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item" ng-app=""><a href="javascript:;"
-						ng-if="${user==null }" id="login">登录</a> <a href="javascript:;"
-						ng-if="${user!=null }"> <input type="hidden" id="imagepath"
-								value="${user.userPicPath }"> <img src=""
-							id="indexUserPic" class="layui-nav-img">${user.username }</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item" ng-app="">
+						<a href="javascript:;" ng-if="${user==null }" id="login">登录</a>
+						<a href="javascript:;" ng-if="${user!=null }">
+							<input type="hidden" id="imagepath" value="${user.userPicPath }">
+							<img src="" id="indexUserPic" class="layui-nav-img">${user.username }</a>
 						<dl class="layui-nav-child" ng-if="${user!=null }">
 							<dd ng-if="${user!=null }">
 								<a href="common/toPersonal">个人中心</a>
@@ -370,7 +397,8 @@ function findType(){
 							<dd>
 								<a href="javascript:;" id="register"> 注册</a>
 							</dd>
-						</dl></li>
+						</dl>
+					</li>
 				</ul>
 
 			</div>
@@ -378,14 +406,14 @@ function findType(){
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
 					<form method="post" action="activities/findActivitesName">
-						<input class="sb-search-input" placeholder="请输入您的关键字..."
-							type="search" name="search" id="search">
+						<input class="sb-search-input" placeholder="请输入您的关键字..." type="search" name="search"
+							id="search">
 						<input class="sb-search-submit" type="submit" value="">
 						<span class="sb-icon-search"> </span>
 					</form>
 				</div>
 			</div>
-	
+
 			<div class="clearfix"></div>
 		</div>
 		<div class="layui-carousel" id="test10">
@@ -415,103 +443,113 @@ function findType(){
 			<div class="container">
 				<div class="buttons" style="z-index: 10;">
 					<ul>
-						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal" onclick="findBranch()">预约参观</a></li>
-						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal1" onclick="findActivitiesName()">我要报名</a></li>
+						<li>
+							<a class="hvr-shutter-in-vertical" href="#" data-toggle="modal" data-target="#myModal"
+								onclick="findBranch()">预约参观</a>
+						</li>
+						<li>
+							<a class="hvr-shutter-in-vertical" href="#" data-toggle="modal" data-target="#myModal1"
+								onclick="findActivitiesName()">我要报名</a>
+						</li>
 					</ul>
 
 				</div>
 			</div>
 		</div>
 	</div>
-<div class="layui-row">
-	<div class="content-bottom">
-		<div class="btm-grids">
-		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-			<div class=" btm-grid back-col1 text-center">
-				<!-- 
+	<div class="layui-row">
+		<div class="content-bottom">
+			<div class="btm-grids">
+				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+					<div class=" btm-grid back-col1 text-center">
+						<!-- 
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
-			</div>
-</div>
-		<!-- 	<div class="col-md-4 btm-grid btm-wid"
+					</div>
+				</div>
+				<!-- 	<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48CFC1;">
 				<input value="社区搜索" class="title" readonly="readonly">
 				<input class="city_search" type="text" value="" -->
-<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-			<div class=" btm-grid btm-wid">
-				<input value="社区搜索" class="title" readonly="readonly">
-				<input class="city_search" type="text" value="请输入城市"  id="searchType"
-
-					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
-					onblur="if (value=='') {value='请输入城市'}">
-				<label class="search_icon" 
-					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
-					<a
-					href="" id="searchQue" ><i class="layui-icon"  onclick="findType()"
-						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
-				<div
-					style="width:100%;height:100px;margin-top:50px; background-color: white;">
-					<label
-						style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
-					<label
-						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+					<div class=" btm-grid btm-wid">
+						<input value="社区搜索" class="title" readonly="readonly">
+						<input class="city_search" type="text" value="请输入城市" id="searchType" style="color:#C5C5C5; "
+							onfocus="if(value=='请输入城市') {value=''}" onblur="if (value=='') {value='请输入城市'}">
+						<label class="search_icon"
+							style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
+							<a href="" id="searchQue">
+								<i class="layui-icon" onclick="findType()"
+									style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i>
+							</a>
+						</label>
+						<div style="width:100%;height:100px;margin-top:50px; background-color: white;">
+							<label
+								style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
+							<label style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+						</div>
+					</div>
 				</div>
+				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+					<div class="btm-grid back-col2 text-center">
+						<!-- <img src="resource/image/bbb1.png" alt="" /> -->
+					</div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			</div>
-			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-			<div class="btm-grid back-col2 text-center">
-				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
-			</div>
-			</div>
-			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
 	<div class="coupons">
 		<div class="container">
 			<div class="coupons-grids text-center">
 
 				<div class="col-md-3 coupons-gd">
 					<h4>
-						<span><img src="resource/image/web.png" alt=" " /></span>
+						<span>
+							<img src="resource/image/web.png" alt=" " />
+						</span>
 					</h4>
 					<p>生活</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
-						<span><img src="resource/image/credit.png" alt=" " /></span>
+						<span>
+							<img src="resource/image/credit.png" alt=" " />
+						</span>
 					</h4>
 					<p>服务</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
-						<span><img src="resource/image/security.png" alt=" " /></span>
+						<span>
+							<img src="resource/image/security.png" alt=" " />
+						</span>
 					</h4>
 					<p>活动</p>
 				</div>
-				<div class="col-md-3 coupons-gd">  
-					<h3>  
-						新闻快讯 <span>生活中你不知道的几个知识点</span>
+				<div class="col-md-3 coupons-gd">
+					<h3>
+						新闻快讯
+						<span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
-		<div class="content-bottom-two">
+	<div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center imagess">
-			<img src="resource/image/bf.png" alt="" style="position:absolute;width:10%;z-index:1;top:45%;left:45%;"/>
-			<img src="resource/image/bbb1_left.png" alt=""  style="z-index:0;position:relative" />
+			<img src="resource/image/bf.png" alt=""
+				style="position:absolute;width:10%;z-index:1;top:45%;left:45%;" />
+			<img src="resource/image/bbb1_left.png" alt="" style="z-index:0;position:relative" />
 		</div>
 		<div class="col-md-6 content-right text-center imagess">
-			 <img src="resource/image/bbb1_right.png" alt="" />
+			<img src="resource/image/bbb1_right.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
 			<h3>关爱老人</h3>
-			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情;折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
+			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情;折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！</p>
 		</div>
 	</div>
 
@@ -519,48 +557,96 @@ function findType(){
 		<div class="container">
 			<div class="foo-grids">
 				<div class="col-md-3 foo-grid" style="margin-left: 50px;">
-					<a href="#"><h3>首页</h3></a>
+					<a href="#">
+						<h3>首页</h3>
+					</a>
 					<ul>
-						<li><a href="#"><i class="fa fa-qq"></i></a></li>
-						<li><a href="#">Aircel</a></li>
-						<li><a href="#">BSNL</a></li>
-						<li><a href="#">Idea</a></li>
+						<li>
+							<a href="#">
+								<i class="fa fa-qq"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">Aircel</a>
+						</li>
+						<li>
+							<a href="#">BSNL</a>
+						</li>
+						<li>
+							<a href="#">Idea</a>
+						</li>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡活动</h3></a>
+					<a href="#">
+						<h3>乐堡活动</h3>
+					</a>
 					<ul>
-						<li><a href="#">线上直播</a></li>
-						<li><a href="#">线下活动</a></li>
+						<li>
+							<a href="#">线上直播</a>
+						</li>
+						<li>
+							<a href="#">线下活动</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡生活</h3></a>
+					<a href="#">
+						<h3>乐堡生活</h3>
+					</a>
 					<ul>
-						<li><a href="#">营养膳食</a></li>
-						<li><a href="#">用户视频</a></li>
-						<li><a href="#">用户反馈</a></li>
+						<li>
+							<a href="#">营养膳食</a>
+						</li>
+						<li>
+							<a href="#">用户视频</a>
+						</li>
+						<li>
+							<a href="#">用户反馈</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡服务</h3></a>
+					<a href="#">
+						<h3>乐堡服务</h3>
+					</a>
 					<ul>
-						<li><a href="#">体检预约</a></li>
-						<li><a href="#">生活助手</a></li>
-						<li><a href="#">独立生活</a></li>
-						<li><a href="#">康复协助</a></li>
+						<li>
+							<a href="#">体检预约</a>
+						</li>
+						<li>
+							<a href="#">生活助手</a>
+						</li>
+						<li>
+							<a href="#">独立生活</a>
+						</li>
+						<li>
+							<a href="#">康复协助</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>关于乐堡</h3></a>
+					<a href="#">
+						<h3>关于乐堡</h3>
+					</a>
 					<ul>
-						<li><a href="#">乐堡简介</a></li>
-						<li><a href="#">快速上手</a></li>
-						<li><a href="#">加入我们</a></li>
-						<li><a href="#">联系我们</a></li>
+						<li>
+							<a href="#">乐堡简介</a>
+						</li>
+						<li>
+							<a href="#">快速上手</a>
+						</li>
+						<li>
+							<a href="#">加入我们</a>
+						</li>
+						<li>
+							<a href="#">联系我们</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡咨询</h3></a>
+					<a href="#">
+						<h3>乐堡咨询</h3>
+					</a>
 
 				</div>
 				<div class="clearfix"></div>
@@ -573,29 +659,35 @@ function findType(){
 				<a href="index.html">养乐堡</a>
 			</h2>
 			<p>
-				版权 &copy; 2017.团 队 名  7brickSquad.更多
-				咨询 <a href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank"
-					title="老人之家">老人之家</a> - 来源 <a
-					href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队" target="_blank">搬砖小分队</a>
+				版权 &copy; 2017.团 队 名 7brickSquad.更多 咨询
+				<a href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank" title="老人之家">老人之家</a>
+				- 来源
+				<a href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队" target="_blank">搬砖小分队</a>
 			</p>
 			<ul>
-				<li><a class="face1" href="#"></a></li>
-				<li><a class="face2" href="#"></a></li>
-				<li><a class="face3" href="#"></a></li>
-				<li><a class="face4" href="#"></a></li>
+				<li>
+					<a class="face1" href="#"></a>
+				</li>
+				<li>
+					<a class="face2" href="#"></a>
+				</li>
+				<li>
+					<a class="face3" href="#"></a>
+				</li>
+				<li>
+					<a class="face4" href="#"></a>
+				</li>
 			</ul>
 		</div>
 	</div>
 
 	<!-- mobile -->
 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -604,25 +696,26 @@ function findType(){
 					<div class="wizard">
 						<div class="wizard-inner">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step1"
-									data-toggle="tab" aria-controls="step1" role="tab"
-									title="Step 1"> </a></li>
+								<li role="presentation" class="active">
+									<a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1"> </a>
+								</li>
 
-								<li role="presentation" class="disabled"><a href="#step2"
-									data-toggle="tab" aria-controls="step2" role="tab"
-									title="Step 2"> </a></li>
-								<li role="presentation" class="disabled"><a href="#step3"
-									data-toggle="tab" aria-controls="step3" role="tab"
-									title="Step 3"> </a></li>
-								<li role="presentation" class="disabled"><a href="#step4"
-									data-toggle="tab" aria-controls="step4" role="tab"
-									title="Step 4"> </a></li>
-								<li role="presentation" class="disabled"><a href="#step5"
-									data-toggle="tab" aria-controls="step5" role="tab"
-									title="Step 5"> </a></li>
-								<li role="presentation" class="disabled"><a
-									href="#complete" data-toggle="tab" aria-controls="complete"
-									role="tab" title="Complete"> </a></li>
+								<li role="presentation" class="disabled">
+									<a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+									</a>
+								</li>
 							</ul>
 						</div>
 
@@ -632,34 +725,31 @@ function findType(){
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
-										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
+										<label style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											onclick="findTelephoneView()">预约参观</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名" name="rname" id="name"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
-											
-											onfocus="onfus1()"><br>
-											<span id="nameText" style="margin-left:44%"></span>
+											onfocus="onfus1()">
+										<br>
+										<span id="nameText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话" id="telephone" 
-											name="telephone"
+										<input type="text" value="请输入联系人电话" id="telephone" name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-											onfocus="onfus2()"
-											><br>
-											<span id="telephoneText" style="margin-left:44%"></span>
+											onfocus="onfus2()">
+										<br>
+										<span id="telephoneText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
 											<div class="layui-input-inline">
-												<input type="text" name="reservationDate" id="date"
-													lay-verify="date" autocomplete="off" class="layui-input"
-													value="请输入预约时间"
+												<input type="text" name="reservationDate" id="date" lay-verify="date" autocomplete="off"
+													class="layui-input" value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="if(value=='请输入预约时间') {value=''}"
-													onblur="if (value=='') {value='请输入预约时间'}"><br>
-													<span id="dateText" style="margin-left:44%"></span>
+													onfocus="if(value=='请输入预约时间') {value=''}" onblur="if (value=='') {value='请输入预约时间'}">
+												<br>
+												<span id="dateText" style="margin-left:44%"></span>
 											</div>
 										</form>
 										<label
@@ -670,22 +760,19 @@ function findType(){
 													<select name="branchId" lay-verify="required" lay-search="" id="branchid"
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
-														
+
 													</select>
 												</div>
 											</div>
 										</div>
-										<p
-											style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+										<p style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
 										<div class="layui-form-item layui-form-text">
-											<div class="layui-input-block"
-												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea" name="remarks" id="remarks"
-												onfocus="onfus4()"></textarea>
+											<div class="layui-input-block" style="width: 250px;margin-left: 200px;margin-top: -30px;">
+												<textarea value="" class="layui-textarea" name="remarks" id="remarks" onfocus="onfus4()"></textarea>
 												<br>
-													<span id="remarksText" style="margin-left:44%"></span>
+												<span id="remarksText" style="margin-left:44%"></span>
 											</div>
 										</div>
 									</div>
@@ -709,143 +796,140 @@ function findType(){
 	</div>
 	<!-- //mobile -->
 	<div class="copyrights">
-		Collect from <a href="http://www.cssmoban.com/">手机网站模板</a>
+		Collect from
+		<a href="http://www.cssmoban.com/">手机网站模板</a>
 	</div>
 	<c:if test="${user ne null }">
-	<!-- Dth -->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<section>
-					<div class="wizard">
-						<div class="wizard-inner">
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step6"
-									data-toggle="tab" aria-controls="step6" role="tab"
-									title="Step 6"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-folder-open"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step7"
-									data-toggle="tab" aria-controls="step7" role="tab"
-									title="Step 7"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-pencil"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step8"
-									data-toggle="tab" aria-controls="step8" role="tab"
-									title="Step 8"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-picture"></i>
-									</span>
-								</a></li>
+		<!-- Dth -->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<section>
+						<div class="wizard">
+							<div class="wizard-inner">
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active">
+										<a href="#step6" data-toggle="tab" aria-controls="step6" role="tab" title="Step 6">
+											<span class="round-tab">
+												<i class="glyphicon glyphicon-folder-open"></i>
+											</span>
+										</a>
+									</li>
+									<li role="presentation" class="disabled">
+										<a href="#step7" data-toggle="tab" aria-controls="step7" role="tab" title="Step 7">
+											<span class="round-tab">
+												<i class="glyphicon glyphicon-pencil"></i>
+											</span>
+										</a>
+									</li>
+									<li role="presentation" class="disabled">
+										<a href="#step8" data-toggle="tab" aria-controls="step8" role="tab" title="Step 8">
+											<span class="round-tab">
+												<i class="glyphicon glyphicon-picture"></i>
+											</span>
+										</a>
+									</li>
 
-							</ul>
-						</div>
-						<!-- 我要去报名 -->
+								</ul>
+							</div>
+							<!-- 我要去报名 -->
 							<form role="form" method="post" onsubmit="return check1()"
-							action="activityRegistration/insertActivitiesInformation">
-							<div class="tab-content">
-								<div class="tab-pane active" role="tabpanel" id="step12">
-									<div class="mobile-grids">
-										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
-											>我要报名</label> <label
-											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="${user.username }" name="pname" id="name3"
-											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
-											onfocus="onfus3()"><br>
+								action="activityRegistration/insertActivitiesInformation">
+								<div class="tab-content">
+									<div class="tab-pane active" role="tabpanel" id="step12">
+										<div class="mobile-grids">
+											<label style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">我要报名</label>
+											<label
+												style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
+											<input type="text" value="${user.username }" name="pname" id="name3"
+												style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
+												onfocus="onfus3()">
+											<br>
 											<span id="nameText3" style="margin-left:44%"></span>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="${user.telephone }" id="telephone4"
-											name="telephone" 
-											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-											onfocus="onfus4()"
-											onblur="if (value=='') {value='请输入联系人电话'}"><br>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
+											<input type="text" value="${user.telephone }" id="telephone4" name="telephone"
+												style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
+												onfocus="onfus4()" onblur="if (value=='') {value='请输入联系人电话'}">
+											<br>
 											<span id="telephoneText4" style="margin-left:44%"></span>
 											<label
-											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
+												style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
 											<div class="layui-form-item">
-											<div class="layui-inline">
-												<div class="layui-input-inline">
-													<select name="activitiesId" lay-verify="required" lay-search="" 
-													id="findActivitiesNameId" 
-														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
-														<option value="">请选择</option>
-														
-													</select>
-												</div>
-											</div>
-										</div>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
-										<form class="layui-form" action="">
-											<div class="layui-input-inline">
-												<input type="text" name="reservationDate" id="date"
-													lay-verify="date" autocomplete="off" class="layui-input"
-													value="请输入预约时间"
-													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="onfus5()"
-													onblur="if (value=='') {value='请输入预约时间'}"><br>
-											<span id="dateText5" style="margin-left:44%"></span>
-											</div>
-										</form>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
-										<div class="layui-form-item">
-											<div class="layui-inline">
-												<div class="layui-input-inline">
-													<select name="branchId" lay-verify="required" lay-search="" id="branchsecondid"
-														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
-														<option value="">请选择</option>
-														
-													</select>
-												</div>
-											</div>
-										</div>
-										<p
-											style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
-										<div class="layui-form-item layui-form-text">
-											<div class="layui-input-block"
-												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea" name="remarks"></textarea>
-											</div>
-										</div>
-									</div>
-									<input value="提交" type="submit"
-										style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
-									<input value="重置" type="reset"
-										style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
+												<div class="layui-inline">
+													<div class="layui-input-inline">
+														<select name="activitiesId" lay-verify="required" lay-search=""
+															id="findActivitiesNameId"
+															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+															<option value="">请选择</option>
 
+														</select>
+													</div>
+												</div>
+											</div>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
+											<form class="layui-form" action="">
+												<div class="layui-input-inline">
+													<input type="text" name="reservationDate" id="date" lay-verify="date"
+														autocomplete="off" class="layui-input" value="请输入预约时间"
+														style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
+														onfocus="onfus5()" onblur="if (value=='') {value='请输入预约时间'}">
+													<br>
+													<span id="dateText5" style="margin-left:44%"></span>
+												</div>
+											</form>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
+											<div class="layui-form-item">
+												<div class="layui-inline">
+													<div class="layui-input-inline">
+														<select name="branchId" lay-verify="required" lay-search="" id="branchsecondid"
+															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+															<option value="">请选择</option>
+
+														</select>
+													</div>
+												</div>
+											</div>
+											<p style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
+											<div class="layui-form-item layui-form-text">
+												<div class="layui-input-block"
+													style="width: 250px;margin-left: 200px;margin-top: -30px;">
+													<textarea value="" class="layui-textarea" name="remarks"></textarea>
+												</div>
+											</div>
+										</div>
+										<input value="提交" type="submit"
+											style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
+										<input value="重置" type="reset"
+											style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
+
+									</div>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
+						</section>
 					</div>
-					</section>
 				</div>
 			</div>
 		</div>
-	</div>
 	</c:if>
 	<!-- //Dth -->
 	<!-- datacard -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -854,24 +938,27 @@ function findType(){
 					<div class="wizard">
 						<div class="wizard-inner">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step9"
-									data-toggle="tab" aria-controls="step9" role="tab"
-									title="Step 9"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-folder-open"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step10"
-									data-toggle="tab" aria-controls="step10" role="tab"
-									title="Step 10"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-pencil"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step11"
-									data-toggle="tab" aria-controls="step11" role="tab"
-									title="Step 11"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-picture"></i>
-									</span>
-								</a></li>
+								<li role="presentation" class="active">
+									<a href="#step9" data-toggle="tab" aria-controls="step9" role="tab" title="Step 9">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-folder-open"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step10" data-toggle="tab" aria-controls="step10" role="tab" title="Step 10">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-pencil"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step11" data-toggle="tab" aria-controls="step11" role="tab" title="Step 11">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-picture"></i>
+										</span>
+									</a>
+								</li>
 
 							</ul>
 						</div>
@@ -885,15 +972,15 @@ function findType(){
 										<div class="mobile-right ">
 											<h4>Enter your data card number</h4>
 											<label>+91</label>
-											<input type="text" class="mobile-text" value=""
-												onfocus="this.value = '';"
+											<input type="text" class="mobile-text" value="" onfocus="this.value = '';"
 												onblur="if (this.value == '') {this.value = '';}" required>
 
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
+										<li>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
+										</li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="step10">
@@ -904,17 +991,30 @@ function findType(){
 										<div class="mobile-right ">
 											<h4>Which operator?</h4>
 											<ul class="rchge-icons">
-												<li><a href="#">Airtel</a></li>
-												<li><a href="#">Aircel</a></li>
-												<li><a href="#">Bsnl</a></li>
-												<li><a href="#">Idea</a></li>
-												<li><a href="#">Vodafone</a></li>
-												<li><a href="#">Reliance</a></li>
-												<li><a href="#">Uninor</a></li>
+												<li>
+													<a href="#">Airtel</a>
+												</li>
+												<li>
+													<a href="#">Aircel</a>
+												</li>
+												<li>
+													<a href="#">Bsnl</a>
+												</li>
+												<li>
+													<a href="#">Idea</a>
+												</li>
+												<li>
+													<a href="#">Vodafone</a>
+												</li>
+												<li>
+													<a href="#">Reliance</a>
+												</li>
+												<li>
+													<a href="#">Uninor</a>
+												</li>
 											</ul>
 											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
+												<select id="country" onchange="change_country(this.value)" class="frm-field required">
 													<option value="null">Airtel</option>
 													<option value="null">Aircel</option>
 													<option value="AX">Bsnl</option>
@@ -931,10 +1031,12 @@ function findType(){
 
 									</div>
 									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
+										<li>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
+										</li>
+										<li>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
+										</li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="step11">
@@ -946,17 +1048,17 @@ function findType(){
 											<h4>How much to recharge?</h4>
 											<div class="dth-rchge">
 												<input type="text" value="100" onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = '100';}"
-													required>
+													onblur="if (this.value == '') {this.value = '100';}" required>
 											</div>
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary btn-info-full"
-												data-dismiss="modal">Finish</button></li>
+										<li>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
+										</li>
+										<li>
+											<button type="button" class="mob-btn btn btn-primary btn-info-full" data-dismiss="modal">Finish</button>
+										</li>
 									</ul>
 								</div>
 								<div class="clearfix"></div>
@@ -970,13 +1072,11 @@ function findType(){
 	</div>
 	<!-- //datacard -->
 	<!-- landline -->
-	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -985,24 +1085,27 @@ function findType(){
 					<div class="wizard">
 						<div class="wizard-inner">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step12"
-									data-toggle="tab" aria-controls="step12" role="tab"
-									title="Step 12"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-folder-open"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step13"
-									data-toggle="tab" aria-controls="step13" role="tab"
-									title="Step 13"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-pencil"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step14"
-									data-toggle="tab" aria-controls="step14" role="tab"
-									title="Step 14"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-picture"></i>
-									</span>
-								</a></li>
+								<li role="presentation" class="active">
+									<a href="#step12" data-toggle="tab" aria-controls="step12" role="tab" title="Step 12">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-folder-open"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step13" data-toggle="tab" aria-controls="step13" role="tab" title="Step 13">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-pencil"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step14" data-toggle="tab" aria-controls="step14" role="tab" title="Step 14">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-picture"></i>
+										</span>
+									</a>
+								</li>
 
 							</ul>
 						</div>
@@ -1016,8 +1119,7 @@ function findType(){
 										<div class="mobile-right">
 											<h4>Pay your landline bill.Which Provider?</h4>
 											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
+												<select id="country" onchange="change_country(this.value)" class="frm-field required">
 													<option value="null">Enter Landline Provider Name</option>
 													<option value="null">Airtel Landline</option>
 													<option value="AX">Bsnl Landline</option>
@@ -1027,8 +1129,9 @@ function findType(){
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
+										<li>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
+										</li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="step13">
@@ -1046,10 +1149,12 @@ function findType(){
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button></li>
+										<li>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
+										</li>
+										<li>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
+										</li>
 									</ul>
 								</div>
 								<div class="tab-pane" role="tabpanel" id="step14">
@@ -1061,18 +1166,18 @@ function findType(){
 											<h4>How much did you wish to pay?</h4>
 											<div class="dth-rchge">
 												<input type="text" value="100" onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = '100';}"
-													required>
+													onblur="if (this.value == '') {this.value = '100';}" required>
 												<p>Please enter an amount between Rs.10 and Rs.1000.</p>
 											</div>
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
-										<li><button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button></li>
-										<li><button type="button"
-												class="mob-btn btn btn-primary btn-info-full"
-												data-dismiss="modal">Finish</button></li>
+										<li>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
+										</li>
+										<li>
+											<button type="button" class="mob-btn btn btn-primary btn-info-full" data-dismiss="modal">Finish</button>
+										</li>
 									</ul>
 								</div>
 								<div class="clearfix"></div>
@@ -1086,13 +1191,11 @@ function findType(){
 	</div>
 	<!-- //landline -->
 	<!-- login -->
-	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-info">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -1101,28 +1204,38 @@ function findType(){
 						<div class="login">
 							<div class="login-left">
 								<ul>
-									<li><a class="fb" href="#"><i></i>Sign in with
-											Facebook</a></li>
-									<li><a class="goog" href="#"><i></i>Sign in with
-											Google</a></li>
-									<li><a class="linkin" href="#"><i></i>Sign in with
-											Linkedin</a></li>
+									<li>
+										<a class="fb" href="#">
+											<i></i>
+											Sign in with Facebook
+										</a>
+									</li>
+									<li>
+										<a class="goog" href="#">
+											<i></i>
+											Sign in with Google
+										</a>
+									</li>
+									<li>
+										<a class="linkin" href="#">
+											<i></i>
+											Sign in with Linkedin
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="login-right">
 								<form>
 									<h3>Signin with your account</h3>
-									<input type="text" value="Enter your mobile number or Email"
-										onfocus="this.value = '';"
+									<input type="text" value="Enter your mobile number or Email" onfocus="this.value = '';"
 										onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}"
 										required>
-									<input type="password" value="Password"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Password';}"
-										required>
+									<input type="password" value="Password" onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Password';}" required>
 									<h4>
-										<a href="#">Forgot password</a> / <a href="#">Create new
-											password</a>
+										<a href="#">Forgot password</a>
+										/
+										<a href="#">Create new password</a>
 									</h4>
 									<div class="single-bottom">
 										<input type="checkbox" id="brand" value="">
@@ -1134,8 +1247,10 @@ function findType(){
 							<div class="clearfix"></div>
 						</div>
 						<p>
-							By logging in you agree to our <span>Terms and Conditions</span>
-							and <span>Privacy Policy</span>
+							By logging in you agree to our
+							<span>Terms and Conditions</span>
+							and
+							<span>Privacy Policy</span>
 						</p>
 					</div>
 				</div>
@@ -1144,13 +1259,11 @@ function findType(){
 	</div>
 	<!-- //login -->
 	<!-- signup -->
-	<div class="modal fade" id="myModal5" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-info">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -1159,12 +1272,24 @@ function findType(){
 						<div class="login">
 							<div class="login-left">
 								<ul>
-									<li><a class="fb" href="#"><i></i>Sign in with
-											Facebook</a></li>
-									<li><a class="goog" href="#"><i></i>Sign in with
-											Google</a></li>
-									<li><a class="linkin" href="#"><i></i>Sign in with
-											Linkedin</a></li>
+									<li>
+										<a class="fb" href="#">
+											<i></i>
+											Sign in with Facebook
+										</a>
+									</li>
+									<li>
+										<a class="goog" href="#">
+											<i></i>
+											Sign in with Google
+										</a>
+									</li>
+									<li>
+										<a class="linkin" href="#">
+											<i></i>
+											Sign in with Linkedin
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="login-right">
@@ -1172,17 +1297,12 @@ function findType(){
 									<h3>Create your account</h3>
 									<input type="text" value="Name" onfocus="this.value = '';"
 										onblur="if (this.value == '') {this.value = 'Name';}" required>
-									<input type="text" value="Mobile number"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Mobile number';}"
-										required>
+									<input type="text" value="Mobile number" onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Mobile number';}" required>
 									<input type="text" value="Email id" onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Email id';}"
-										required>
-									<input type="password" value="Password"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Password';}"
-										required>
+										onblur="if (this.value == '') {this.value = 'Email id';}" required>
+									<input type="password" value="Password" onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Password';}" required>
 
 									<input type="submit" value="CREATE ACCOUNT">
 								</form>
@@ -1190,8 +1310,10 @@ function findType(){
 							<div class="clearfix"></div>
 						</div>
 						<p>
-							By logging in you agree to our <span>Terms and Conditions</span>
-							and <span>Privacy Policy</span>
+							By logging in you agree to our
+							<span>Terms and Conditions</span>
+							and
+							<span>Privacy Policy</span>
 						</p>
 					</div>
 				</div>
