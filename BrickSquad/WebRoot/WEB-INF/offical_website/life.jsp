@@ -40,7 +40,7 @@
 		if (type == 'aboutus-intro' || type == 'aboutus-use') {
 			$(".pager").show();
 			if (type == "aboutus-intro") {
-				NutritionalDiet(1, 2);
+				NutritionalDiet(1, 6);
 			}
 		}
 		$("#menu").find('li[val="' + type + '"]').attr('class',
@@ -82,6 +82,10 @@
 	margin-top: 20px;
 	line-height: 40px;
 	
+}
+#yyss_content p{
+	margin-left: 0px;
+	width: 100%;
 }
 </style>
 </head>

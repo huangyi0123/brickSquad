@@ -137,8 +137,7 @@ function NutritionalDietInfo(o) {
 			$('#yyss_title').html(data.title);
 			$("#yyss_name").html(data.name);
 			$('#yyss_content').html(data.content);
-			
-			$("#yyss_date").html(Format(new Date(data.postTime), "yyyy年MM月dd日"));
+			$("#yyss_date").html(data.postTime);
 		}
 	});
 }

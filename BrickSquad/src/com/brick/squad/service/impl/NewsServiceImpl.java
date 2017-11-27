@@ -140,7 +140,7 @@ public class NewsServiceImpl implements NewsService {
 			page3 = 1;
 			// 设置当前页数:
 			pageBean.setPage3(page3);
-			
+
 			// 设置每页显示记录数:
 			int limit = 4;
 			pageBean.setLimitPage3(limit);
@@ -213,7 +213,10 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public String NutritionalDietInfoById(String id) {
 		NutritionalDiet nutritionalDiet = newsMapper.NutritionalDietById(id);
-		JSONObject jsonObject = JSONObject.fromObject(nutritionalDiet);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy年MM月dd日"));
+		JSONObject jsonObject = JSONObject.fromObject(nutritionalDiet,jsonConfig);
 		return jsonObject.toString();
 	}
 
