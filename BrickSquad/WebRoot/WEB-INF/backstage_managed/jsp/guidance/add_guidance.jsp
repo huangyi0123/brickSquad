@@ -51,10 +51,8 @@
 		$("#assessment").val(guidance);
 		var guidance = $("#disease").attr('val');
 		$("#disease").val(guidance);
-		
 		/*$绑定从输入框身份证号码id的监听事件，change input设置监听事件的实现方式，鼠标点击输入就启动 */
 		$("#perIdCardId").bind('change input',
-				/*  */
 				function(){
 			/*定义一个变量d，让perIdCardId的输入值传进去  */
 					var d=$("#perIdCardId").val();
@@ -73,7 +71,6 @@
 	});
 </script>
 </head>
-  
   <body>
   <br>
 	<div style="padding-left: 120px;font-size:16;">${msg}老人健康指导信息</div>

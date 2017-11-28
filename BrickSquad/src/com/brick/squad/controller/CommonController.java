@@ -41,6 +41,7 @@ import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.UpLoadFile;
 
 @Controller
@@ -379,8 +380,9 @@ public class CommonController {
 	private ActivitiesService activitiesService;
 
 	@RequestMapping("/toActivity_carousel")
-	public String toActivity_carousel(String type, HttpServletRequest request)
+	public String toActivity_carousel(String type, HttpServletRequest request,PageBeanUtil pageBean)
 			throws Exception {
+	
 		// 精品课程
 		ActivitiesAndPaginationExtend topQualityCourseactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
 		topQualityCourseactivitiesAndPaginationExtend
@@ -419,9 +421,18 @@ public class CommonController {
 				.findActivitiesMovieByTypeId(selfCultivationactivitiesAndPaginationExtend);
 		request.setAttribute("selfCultivationlistMovie",
 				selfCultivationlistMovie);
+		//线下活动预约
+		int page=pageBean.getPage();
 
+		String typeId=pageBean.getTypeId();
+		typeId="10ed2648d25a11e7880a5254002ec43c";
+		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
+		request.setAttribute("pageBean", pageBeanUtil);
+		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
+		
 		request.setAttribute("type", type);
 		return "offical_website/activity";
+		
 	}
 
 	@RequestMapping("/toVedio_Details")
