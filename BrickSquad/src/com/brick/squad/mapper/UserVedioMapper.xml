@@ -4,7 +4,7 @@
 <mapper namespace="com.brick.squad.mapper.UserVedioMapper">
 	<select id="findUserVedioPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="UserVedio">
-		SELECT uv.id,uv.title,uv.posttime FROM user_vedio uv
+		SELECT uv.id,uv.title,uv.posttime,uv.imgpath FROM user_vedio uv
 		<if test="keyword!=null and keyword!=''">
 			WHERE uv.title REGEXP#{keyword}
 		</if>
@@ -16,7 +16,6 @@
 		<if test="keyword!=null and keyword!=''">
 			WHERE uv.title REGEXP#{keyword}
 		</if>
-		limit #{skipNum},#{takeNum}
 	</select>
 	<insert id="insertUserVedio" parameterType="UserVedio">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
@@ -26,4 +25,13 @@
 		user_vedio(id,title,imgpath,vediopath,posttime,user_id)
 		VALUES(#{id},#{title},#{imgpath},#{vediopath},#{posttime},#{userId})
 	</insert>
+	<select id="findUserVedioById" parameterType="String"
+		resultType="UserVedio">
+		SELECT uv.title,t.`name` userId, uv.vediopath,uv.posttime FROM
+		user_vedio uv
+		JOIN `user` u ON uv.user_id=u.id
+		JOIN type t ON u.branch_id=t.id
+		WHERE
+		uv.id=#{id}
+	</select>
 </mapper>

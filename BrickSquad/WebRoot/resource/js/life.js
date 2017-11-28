@@ -69,67 +69,72 @@ function toSubmitForm() {
 					});
 }
 function NutritionalDiet(curentPage, pageSize) {
-	$.ajax({
-		url : 'news/getNutritionalDietList',
-		data : {
-			'curentPage' : curentPage,
-			'pageSize' : pageSize
-		},
-		success : function(data) {
-			data = JSON.parse(data);
-			console.log(data);
-			var item = data[0].data;
-			var n = data[0].totals;
-			n = Math.ceil(n / pageSize);
-			console.log(n);
-			$("#NutritionalDiet").html('');
-			$(item).each(
-					function() {
-						var html = '<li>' + '<a href="javascript:;" onclick="NutritionalDietInfo(\''+this.id+'\')">'
-								+ '<h2 class="tesat">' + this.title + '</h2>'
-								+ '</a>' + '</li>';
-						$("#NutritionalDiet").append(html);
-					});
-			$("#pager").html('');
-			var por = 0;
-			var next = 0;
-			if (curentPage == 1) {
-				por = 1;
-			} else {
-				por = curentPage - 1;
-			}
-			if (curentPage == n) {
-				next = n;
-			} else {
-				next = curentPage + 1;
-			}
-			$("#pager").append(
-					'<li onclick="NutritionalDiet(' + (curentPage - 1) + ','
-							+ pageSize + ')">上一页</li>');
-			for (var int = 1; int <= n; int++) {
-				if (curentPage == int) {
+	$
+			.ajax({
+				url : 'news/getNutritionalDietList',
+				data : {
+					'curentPage' : curentPage,
+					'pageSize' : pageSize
+				},
+				success : function(data) {
+					data = JSON.parse(data);
+					console.log(data);
+					var item = data[0].data;
+					var n = data[0].totals;
+					n = Math.ceil(n / pageSize);
+					console.log(n);
+					$("#NutritionalDiet").html('');
+					$(item)
+							.each(
+									function() {
+										var html = '<li>'
+												+ '<a href="javascript:;" onclick="NutritionalDietInfo(\''
+												+ this.id + '\')">'
+												+ '<h2 class="tesat">'
+												+ this.title + '</h2>' + '</a>'
+												+ '</li>';
+										$("#NutritionalDiet").append(html);
+									});
+					$("#pager").html('');
+					var por = 0;
+					var next = 0;
+					if (curentPage == 1) {
+						por = 1;
+					} else {
+						por = curentPage - 1;
+					}
+					if (curentPage == n) {
+						next = n;
+					} else {
+						next = curentPage + 1;
+					}
 					$("#pager").append(
-							'<li style="color:red" onclick="NutritionalDiet('
-									+ int + ',' + pageSize + ')">' + int
-									+ '</li>');
-				} else {
-					$("#pager").append(
-							'<li onclick="NutritionalDiet(' + int + ','
-									+ pageSize + ')">' + int + '</li>');
-				}
+							'<li onclick="NutritionalDiet(' + (curentPage - 1)
+									+ ',' + pageSize + ')">上一页</li>');
+					for (var int = 1; int <= n; int++) {
+						if (curentPage == int) {
+							$("#pager").append(
+									'<li style="color:red" onclick="NutritionalDiet('
+											+ int + ',' + pageSize + ')">'
+											+ int + '</li>');
+						} else {
+							$("#pager").append(
+									'<li onclick="NutritionalDiet(' + int + ','
+											+ pageSize + ')">' + int + '</li>');
+						}
 
-			}
-			$("#pager").append(
-					'<li onclick="NutritionalDiet(' + (curentPage + 1) + ','
-							+ pageSize + ')">下一页</li>');
-		}
-	});
+					}
+					$("#pager").append(
+							'<li onclick="NutritionalDiet(' + (curentPage + 1)
+									+ ',' + pageSize + ')">下一页</li>');
+				}
+			});
 }
 function NutritionalDietInfo(o) {
 	$.ajax({
-		url:'news/getNutritionalDietInfo?id='+o,
-		success:function(data){
-			data=JSON.parse(data);
+		url : 'news/getNutritionalDietInfo?id=' + o,
+		success : function(data) {
+			data = JSON.parse(data);
 			console.log(data);
 			$('.pager').hide();
 			$('.aboutus-intro').hide();
@@ -138,6 +143,82 @@ function NutritionalDietInfo(o) {
 			$("#yyss_name").html(data.name);
 			$('#yyss_content').html(data.content);
 			$("#yyss_date").html(data.postTime);
+		}
+	});
+}
+function userVedioList(curentPage, pageSize) {
+	$
+			.ajax({
+				url : 'userVedio/getUserVedio',
+				data : {
+					'curentPage' : curentPage,
+					'pageSize' : pageSize
+				},
+				success : function(data) {
+					data = JSON.parse(data);
+					console.log(data.data);
+					var item = data.data;
+					var n = data.totals;
+					n = Math.ceil(n / pageSize);
+					$("#userVedio").html("");
+					$(item)
+							.each(
+									function() {
+										var html = '<li >'
+												+ '<a href="javascript:;" onclick="userVedioInfo(\''
+												+ this.id + '\')">'
+												+ '<img src="' + this.imgpath
+												+ '">' + '<h1>' + this.title
+												+ '</h1>' + '</a>' + '</li>';
+										$("#userVedio").append(html);
+									});
+					$("#pager").html('');
+					var por = 0;
+					var next = 0;
+					if (curentPage == 1) {
+						por = 1;
+					} else {
+						por = curentPage - 1;
+					}
+					if (curentPage == n) {
+						next = n;
+					} else {
+						next = curentPage + 1;
+					}
+					$("#pager").append(
+							'<li onclick="userVedioList(' + (curentPage - 1)
+									+ ',' + pageSize + ')">上一页</li>');
+					for (var int = 1; int <= n; int++) {
+						if (curentPage == int) {
+							$("#pager").append(
+									'<li style="color:red" onclick="userVedioList('
+											+ int + ',' + pageSize + ')">'
+											+ int + '</li>');
+						} else {
+							$("#pager").append(
+									'<li onclick="userVedioList(' + int + ','
+											+ pageSize + ')">' + int + '</li>');
+						}
+
+					}
+					$("#pager").append(
+							'<li onclick="userVedioList(' + (curentPage + 1)
+									+ ',' + pageSize + ')">下一页</li>');
+				}
+			});
+}
+function userVedioInfo(id) {
+	$.ajax({
+		url : 'userVedio/findUserVedioById?id=' + id,
+		success : function(data) {
+			data = JSON.parse(data);
+			$('.pager').hide();
+			$('.aboutus-use').hide();
+			$(".yhsp").show();
+			$("#yhsp_title").html(data.title);
+			$("#yhsp_user").html(data.userId);
+			$("#yhsp_vedio").html('<embed style="margin-top: 20px;text-align: center;" width="100%" height="350px" src="'+data.vediopath+'">');
+			$("#yhsp_postTime").html(data.posttime);
 		}
 	});
 }

@@ -68,16 +68,17 @@
 					autocomplete="off" class="layui-input" value="${vedio.vediopath }">
 			</div>
 		</div>
+		<input id="imgpath" type="hidden" name="imgpath" value="${vedio.imgpath }">
 		<div class="layui-upload" style="margin-left: 120px">
 			<button type="button" class="layui-btn" id="test1">上传图片</button>
 			<div class="layui-upload-list">
-				<img class="layui-upload-img" id="demo1">
+				<img class="layui-upload-img" id="demo1" src="${vedio.imgpath }">
 				<p id="demoText"></p>
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+				<button id="testListAction" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
@@ -112,6 +113,7 @@
 												return layer.msg('上传失败');
 											}
 											console.log(res);
+											$('#imgpath').val(res.data.access_url);
 											//上传成功
 										},
 										error : function() {

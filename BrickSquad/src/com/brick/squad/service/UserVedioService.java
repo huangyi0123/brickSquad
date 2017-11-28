@@ -20,4 +20,13 @@ public interface UserVedioService {
 	 *            用户视频
 	 */
 	public void insertUserVedio(UserVedio userVedio);
+
+	/**
+	 * 根据id查询用户视频
+	 * 
+	 * @param id
+	 *            id
+	 * @return 用户视频
+	 */
+	public String findUserVedioById(String id);
 }

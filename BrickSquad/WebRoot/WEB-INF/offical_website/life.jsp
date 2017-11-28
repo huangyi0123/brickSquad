@@ -42,6 +42,9 @@
 			if (type == "aboutus-intro") {
 				NutritionalDiet(1, 6);
 			}
+			if (type == "aboutus-use") {
+				userVedioList(1, 4);
+			}
 		}
 		$("#menu").find('li[val="' + type + '"]').attr('class',
 				'layui-nav-item layui-this');
@@ -53,6 +56,9 @@
 				$(".pager").show();
 				if (cls == ".aboutus-intro") {
 					NutritionalDiet(1, 6);
+				}
+				if (cls == ".aboutus-use") {
+					userVedioList(1, 4);
 				}
 			}
 		});
@@ -86,6 +92,26 @@
 #yyss_content p {
 	margin-left: 0px;
 	width: 100%;
+}
+
+.aboutus-use>ul>li {
+	border-bottom: 1px solid #E6E6E6;
+	display: block;
+	height: 100px;
+	margin: 10px
+}
+
+.aboutus-use>ul>li>a>img {
+	height: 70px;
+	display: block;
+	float: left;
+}
+
+.aboutus-use>ul>li>a>h1 {
+	float: left;
+	margin-left: 40px;
+	line-height: 70px;
+	font-size: 20px;
 }
 </style>
 </head>
@@ -126,41 +152,12 @@
 
 				</div>
 				<div class="aboutus-use">
-					<ul style="width: 70%;margin: 80px auto;">
-						<li style="border-bottom: 1px solid #E6E6E6;height: 80px;margin: 10px">
-							<a href="#">
-								<img alt="图片" src="resource/image/dth.png" height="70px" style="display: block;float: left;">
-								<h1 style="float: left;margin-left:20px; line-height: 70px;font-size: 30px;">标题</h1>
-							</a>
-						</li>
-						<li style="border-bottom: 1px solid #E6E6E6;height: 80px;margin: 10px">
-							<a href="#">
-								<img alt="图片" src="resource/image/dth.png" height="70px" style="display: block;float: left;">
-								<h1 style="float: left;margin-left:20px; line-height: 70px;font-size: 30px;">标题</h1>
-							</a>
-						</li>
-						<li style="border-bottom: 1px solid #E6E6E6;height: 80px;margin: 10px">
-							<a href="#">
-								<img alt="图片" src="resource/image/dth.png" height="70px" style="display: block;float: left;">
-								<h1 style="float: left;margin-left:20px; line-height: 70px;font-size: 30px;">标题</h1>
-							</a>
-						</li>
-						<li style="border-bottom: 1px solid #E6E6E6;height: 80px;margin: 10px">
-							<a href="#">
-								<img alt="图片" src="resource/image/dth.png" height="70px" style="display: block;float: left;">
-								<h1 style="float: left;margin-left:20px; line-height: 70px;font-size: 30px;">标题</h1>
-							</a>
-						</li>
+					<ul style="width: 70%;margin: 80px auto;" id="userVedio">
+
 					</ul>
 				</div>
 				<div class="pager" style="width: 70%;margin: auto;margin-top: -30px">
 					<ul id="pager" style="margin-top:-20px">
-						<li>上一页</li>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>下一页</li>
 					</ul>
 				</div>
 				<div class="aboutus-join">
@@ -261,14 +258,15 @@
 					<span style="display:block; margin-top:20px; text-align: right" id="yyss_date"></span>
 				</div>
 				<div class="yhsp" style="width:80%; margin: 60px auto;">
-					<h1 style="text-align: center; font-size: 25px;">视频标题</h1>
+					<h1 style="text-align: center; font-size: 25px;" id="yhsp_title"></h1>
 					<span style="margin-top:20px; display: block;">
 						视频来源：
-						<span>通州湾分店</span>
+						<span id="yhsp_user"></span>
 					</span>
-					<embed style="margin-top: 20px;text-align: center;" width="100%" height="350px"
-						src="http://player.youku.com/embed/XMzE4NTIzNzI5Ng==">
-					<span style="display:block; margin-top:20px; text-align: right">2017年11月26日</span>
+					<div id="yhsp_vedio">
+						
+					</div>
+					<span style="display:block; margin-top:20px; text-align: right" id="yhsp_postTime"></span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
