@@ -300,8 +300,8 @@ public class UserController {
 							String paths=cos.upLoadImageToCOS(file.getAbsolutePath(), "/user_head/"+pa);
 							JSONObject jsonObject=JSONObject.fromObject(paths);
 							jsonObject=JSONObject.fromObject(jsonObject.get("data"));
-							System.out.println(jsonObject.get("access_url"));
 							paths=jsonObject.get("access_url").toString();
+							file.delete();
 							// 取得数据库存的路径
 							String databaseuserPicPath = paths;
 							// 上传成功后，将路径保存到数据库中

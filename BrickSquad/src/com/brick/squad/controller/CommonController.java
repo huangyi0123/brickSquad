@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -45,6 +46,7 @@ import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.UpLoadFile;
 
 @Controller
@@ -112,7 +114,8 @@ public class CommonController {
 		String name = file.getOriginalFilename();
 		String pix = name.substring(name.lastIndexOf("."));
 		String fileName = new Date().getTime() + pix;
-		list.add(realPath + fileName);
+	
+		
 		upLoadFile.setData(list);
 		File file1 = new File(path, fileName);
 		if (!file1.exists()) {
@@ -120,6 +123,17 @@ public class CommonController {
 		}
 		try {
 			file.transferTo(file1);
+			
+			COS cos=new COS();
+			cos.setBucketName("bricksquad");
+			cos.setRegion("sh");
+			String paths=cos.upLoadImageToCOS(file1.getAbsolutePath(), "/news/"+fileName);
+			System.out.println(paths);
+			JSONObject jsonObject=JSONObject.fromObject(paths);
+			jsonObject=JSONObject.fromObject(jsonObject.get("data"));
+			paths=jsonObject.get("access_url").toString();
+			list.add(paths);
+			file1.delete();
 			upLoadFile.setErrno(0);
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
