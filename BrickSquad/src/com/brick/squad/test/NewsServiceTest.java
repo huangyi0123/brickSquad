@@ -125,5 +125,12 @@ public class NewsServiceTest {
 		System.out.println(newsService
 				.findNewsById("12e109b4bbb311e78d4f5254002ec43c"));
 	}
+	@Test
+	public void findNewsDail() throws Exception{
+		String data=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
+		
+			System.out.println("================="+data);
+		
+	}
 
 }

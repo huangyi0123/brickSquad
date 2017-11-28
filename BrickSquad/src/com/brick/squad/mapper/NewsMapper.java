@@ -102,5 +102,9 @@ public interface NewsMapper {
 	 * @return 详情
 	 */
 	public NutritionalDiet NutritionalDietById(String id);
+	/***
+	 *  官网首页 ：动态新闻查询，日常新闻 
+	 * */
+	public List<News> findNewsDaily(String id);
 
 }

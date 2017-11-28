@@ -50,8 +50,8 @@
 	<bean name="reservationService" class="com.brick.squad.service.impl.ReservationServiceImpl"></bean>
 	<bean name="onlineParticipationInfoService"
 		class="com.brick.squad.service.impl.OnlineParticipationInfoServiceImpl"></bean>
-		<bean name="videoCommentService"
-		class="com.brick.squad.service.impl.VideoCommentServiceImpl"></bean>
+	<bean name="videoCommentService" class="com.brick.squad.service.impl.VideoCommentServiceImpl"></bean>
+	<bean name="userVedioService" class="com.brick.squad.service.impl.UserVedioServiceImpl" />
 </beans>
 
 

@@ -34,6 +34,9 @@
 <script type="text/javascript" src="resource/js/vedio-details.js"></script>
 <script type="text/javascript">
 	$(function() {
+		//加载评论
+		getVideoCommentByPagination(1, 1);
+		//
 		$("#playitem").find('a').hover(function() {
 			var p = $(this).find('p');
 			p.css('z-index', 100);
@@ -68,6 +71,8 @@
 				<div class="layui-col-xs12 layui-col-md9">
 					<div class="vedio_play_main">
 						<div class="vedio_play">
+							<input type="hidden" id="beCommentedId"
+								value="${activitiesMoviePAth.id }">
 							<embed src="${activitiesMoviePAth.movie }"
 								style="width:100%;height: 100%">
 						</div>
@@ -158,7 +163,7 @@
 						<div class="layui-col-xs12 layui-col-md8">
 							<label>我来评论</label>
 							<div class="layui-input-block">
-								<textarea id="comment_content" placeholder="请输入内容"
+								<textarea id="comment_content" placeholder="请输入内容,评论内容不能超过250个汉字！"
 									class="layui-textarea"></textarea>
 							</div>
 							<div class="comm_register">
@@ -185,21 +190,11 @@
 									onclick="submitComment('${activitiesMoviePAth.id }','${user.id }')"
 									class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal">提交评论</button>
 							</div>
-							<div class="vedio_comms">
-								<label style="margin-top: 30px;">全部评论<font
-									style="color: #909EBF;size: 0.6em;letter-spacing: 0px;font-stretch: normal;">(0)</font></label>
-								<!-- <i class="fa fa-edit"
-									style="color: black;float: right;margin-right: 80px;margin-top: 40px;"></i>
-								<label><a href="#" class="vedio_publish">发表评论</a></label> -->
-								<div
-									style="width: 100%;border: 1px solid #E3E7E8;margin-top: 10px;"></div>
-								<label
-									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 10px;">第1页
-									/ 共5页</label> <label
-									style="display: block;color: black;margin-top: 20px;letter-spacing: 0px;font-size: 1em;">最新评论</label>
+							<div class="vedio_comms" style="font-size: 20px;">
 								<div style="clear: both;"></div>
-								<div class="vedio_comm_cont">
-									<img style="display: block;" alt=""
+								<div class="vedio_comm_cont" id="VideoComment">
+								<!-- <label class="vedio_comm_cont_name">还没有评论</label> -->
+									<!-- <img style="display: block;" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 
 									<label class="vedio_comm_cont_name">傻丫头~</label> <label
@@ -213,29 +208,23 @@
 											class="layui-icon dialogue">&#xe611;</i>
 										</a>
 									</div>
-									<font>3</font>
+									<font>3</font> -->
 								</div>
 
 								<div style="clear: both;"></div>
+								<div id="pager" style="text-align: center;">
+			<!-- 					<label style="margin-top: 30px;">全部评论<font
+									style="color: #909EBF;size: 0.6em;letter-spacing: 0px;font-stretch: normal;">(0)</font></label>
 								<div
-									style="display:block; width: 100%;border: 1px solid #E5E5E5;margin-top: 10px;"></div>
-								<div class="vedio_comm_cont">
-									<img style="display: block;" alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-
-									<label class="vedio_comm_cont_name">傻丫头~</label> <label
-										class="vedio_comm_cont_time">10小时前</label>
-									<p class="vedio_comm_cont_conts">励志好剧！</p>
-									<div
-										style="display:block;margin-left: 60px;position: relative;">
-										<a href="#"> <i class="layui-icon praise">&#xe6c6;</i>
-										</a> <font>6</font> <a href="#"> <i class="layui-icon stamp">&#xe6c5;</i>
-										</a> <font>1</font> <a href="#"> <i
-											class="layui-icon dialogue">&#xe611;</i>
-										</a> <font>4</font>
-									</div>
+									style="width: 100%;border: 1px solid #E3E7E8;margin-top: 10px;"></div>
+								<label
+									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 10px;">第1页
+									/ 共5页</label> 
+									<label
+									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 50px;">上一页</label>
+									<label
+									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 80px;">下一页</label>   -->
 								</div>
-								<div style="clear: both;"></div>
 								<div
 									style="display:block; width: 100%;border: 1px solid #E5E5E5;margin-top: 10px;"></div>
 							</div>

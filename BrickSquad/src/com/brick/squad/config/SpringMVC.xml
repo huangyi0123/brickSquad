@@ -95,8 +95,10 @@
 			<mvc:exclude-mapping path="/common/toVedio_Details" />
 			<mvc:exclude-mapping path="/LeFortServiceController/**" />
 			<mvc:exclude-mapping path="/news/**" />
-
-
+			<mvc:exclude-mapping path="/videoComment/getVideoCommentByPagination" />
+			<mvc:exclude-mapping path="/videoComment/updatePraiseAmout" />
+			<mvc:exclude-mapping path="/videoComment/updateBelittleAmout" />
+			<mvc:exclude-mapping path="/userVedio/**"/>
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>

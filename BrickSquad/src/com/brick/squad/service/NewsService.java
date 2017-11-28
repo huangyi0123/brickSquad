@@ -84,5 +84,9 @@ public interface NewsService {
 	 * @return 营养膳食
 	 */
 	public String NutritionalDietInfoById(String id);
+	/***
+	 *  官网首页 ：动态新闻查询，日常新闻 
+	 * */
+	public String findNewsDaily(String id)throws Exception;
 
 }

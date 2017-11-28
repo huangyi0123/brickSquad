@@ -26,6 +26,7 @@ import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
+import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
@@ -36,6 +37,7 @@ import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.BusinessService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.LimitsService;
+import com.brick.squad.service.NewsService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
@@ -59,6 +61,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
+	@Autowired
+	@Qualifier("newsService")
+	private NewsService newsService;
 
 	@RequestMapping("/toWebsiteTemplate")
 	public String toWebsiteTemplate(String type, HttpServletRequest request) {
@@ -88,8 +93,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal(HttpServletRequest request) {
+	public String toIndexModal(HttpServletRequest request)  {
 		request.setAttribute("url", "common/toIndex");
+		
 		return "frontEnd_manage/util/turn";
 	}
 
@@ -465,11 +471,15 @@ public class CommonController {
 				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
 
 		request.setAttribute("listMovie", listMovie);
+		
 		return "offical_website/vedio-details";
 	}
 	@RequestMapping("/toLife")
 	public String toLife(HttpServletRequest request,String type) {
 		request.setAttribute("type", type);
+		
 		return "offical_website/life";
 	}
+
+	
 }

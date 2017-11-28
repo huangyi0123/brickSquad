@@ -64,10 +64,14 @@
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
+
 <script>
+
 	$(function() {
-		//新闻滚动
+	
 		
+		//新闻滚动
+	/* 	initInfor(); */
 		   var roll_box = document.getElementById('roll_box');
 			var roll_content = document.getElementById('roll_content');
 			var roll_temp = document.getElementById('roll_temp');
@@ -92,10 +96,7 @@
 			$('#roll_box').mouseout(function(){
 				interval = window.setInterval(autoScroll,40);
 			});
-      
-	
-		
-		
+			initInfor();
 		//头像图片信息
 		var imagepath = $("#imagepath").val();
 		if (imagepath == "") {
@@ -131,6 +132,7 @@
 			});
 		});
 	});
+	
 	function logout() {
 		layui.use('layer', function() {
 			var layer = layui.layer;
@@ -150,11 +152,37 @@
 				}
 			});
 		});
+		
 	}
+	
+	
+	
+	
+
+ 
 </script>
-<!-- js -->
+ <script type="text/javascript">
+function initInfor() {
+	$.ajax({
+		url:'news/findNewsDaily',
+		success:function(data){
+			data=JSON.parse(data);
+			console.log(data);
+			for(var i=0;i<data.length;i++){
+			$(".uli").append("<a href='news/findNewsInformation?id="+data[i].id+"'  style='margin-left:-12px;' ><div style='overflow: hidden; white-space: nowrap; text-overflow: ellipsis;'>"+
+			data[i].title+"</div><span style='float: right;margin-right:8px;'>"+data[i].postTime+"</span></a>"+
+			"");
+			}
+		}
+	
+	});
+};
+</script> 
 <script>
+
 	$(document).ready(function() {
+		
+		
 		//Initialize tooltips
 		$('.nav-tabs > li a[title]').tooltip();
 
@@ -563,11 +591,20 @@
 	  		<div style="height: 30px;line-height:30px;border:1px solid #dedede;">
 	  		<span style="text-indent: 20px;"><h4 style="font-size:1.4em;color:#48CFC1">乐堡新闻</h4></span>
 	  		</div>
+	  		
 	   	 <div id="roll_box" style="height:250px;overflow:hidden;margin-top:-1px;border:1px solid #dedede;">
 		    <div id="roll_content">
 		    	<ul style="line-height: 32px;margin-left: 10px;">
 				    <!--滚动内容start-->
-				    <li><a href="" target="_blank" style="margin-left:-12px;">
+				
+				    <li class="uli">
+				    	
+				    	
+				   
+				 
+				    </li>
+				
+				<!--      <li><a href=""  style="margin-left:-12px;">
 				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
@@ -575,7 +612,7 @@
 				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
 				    </a>
 				    </li>
-				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				      <li><a href=""  style="margin-left:-12px;">
 				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
@@ -583,7 +620,7 @@
 				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
 				    </a>
 				    </li>
-				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				      <li><a href=""  style="margin-left:-12px;">
 				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
@@ -591,7 +628,7 @@
 				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
 				    </a>
 				    </li>
-				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				      <li><a href=""  style="margin-left:-12px;">
 				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
@@ -599,7 +636,7 @@
 				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
 				    </a>
 				    </li>
-				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				      <li><a href=""  style="margin-left:-12px;">
 				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
@@ -607,22 +644,14 @@
 				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
 				    </a>
 				    </li>
-				      <li><a href="" target="_blank" style="margin-left:-12px;">
+				      <li><a href=""  style="margin-left:-12px;">
 				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
 				    	获湖北省著名商标著名商标</div> 
 				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
 				    </a>
-				    </li>
-				      <li><a href="" target="_blank" style="margin-left:-12px;">
-				    	<div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-				    	我公司喜获湖北省获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
-				    	获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标获湖北省著名商标
-				    	获湖北省著名商标著名商标</div> 
-				    	<span style="float: right;margin-right:8px;">2017-12-15</span>
-				    </a>
-				    </li>
+				    </li>  -->
 			    </ul>                  
 			</div>
 			<div id="roll_temp"></div>
@@ -1478,5 +1507,6 @@
 
 						});
 	</script>
+
 </body>
 </html>

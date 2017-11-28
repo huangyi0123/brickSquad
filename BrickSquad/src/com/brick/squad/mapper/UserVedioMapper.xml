@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.UserVedioMapper">
+	<select id="findUserVedioPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="UserVedio">
+		SELECT uv.id,uv.title,uv.posttime,uv.imgpath FROM user_vedio uv
+		<if test="keyword!=null and keyword!=''">
+			WHERE uv.title REGEXP#{keyword}
+		</if>
+		limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findUserVedioPaginationCount" parameterType="com.brick.squad.util.Pagination"
+		resultType="int">
+		SELECT count(1) FROM user_vedio uv
+		<if test="keyword!=null and keyword!=''">
+			WHERE uv.title REGEXP#{keyword}
+		</if>
+	</select>
+	<insert id="insertUserVedio" parameterType="UserVedio">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO
+		user_vedio(id,title,imgpath,vediopath,posttime,user_id)
+		VALUES(#{id},#{title},#{imgpath},#{vediopath},#{posttime},#{userId})
+	</insert>
+	<select id="findUserVedioById" parameterType="String"
+		resultType="UserVedio">
+		SELECT uv.title,t.`name` userId, uv.vediopath,uv.posttime FROM
+		user_vedio uv
+		JOIN `user` u ON uv.user_id=u.id
+		JOIN type t ON u.branch_id=t.id
+		WHERE
+		uv.id=#{id}
+	</select>
+</mapper>
