@@ -42,8 +42,12 @@
 	
 	
 	
+	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 
 
@@ -163,127 +167,135 @@
 	}
 </script>
 <script type="text/javascript">
-function findBranch(){
-	$.ajax({
-		url:'reservation/findBranch',
-		success:function(data){
-			 $("#branchid").html('');
-			data=JSON.parse(data);
-			 for (var i = 0; i < data.length; i++) {
-			$("#branchid").append("<option value='"+data[i].id+"'>" + data[i].name + "</option>");
-			 };
-		}
-		
-	});
-}
-</script>
-<script type="text/javascript">
-function findActivitiesName() {
-	var user='${user}';
-	if(user!=""){
-	$.ajax({
-		url:'activityRegistration/findActivityName',
-		success:function(data){
-			 $("#findActivitiesNameId").html('');
-			data=JSON.parse(data);
-			/* console.log(data[0].articleName); */
-			var dataN;
-			var dataM;
-			 for (var i = 0; i < data.length; i++) {
-				  dataN=data[i].articleName;
-				  dataM=data[i].branchData;
-			 };
-			 dataN=JSON.parse(dataN);
-			 for(var i=0;i<dataN.length;i++){
-					$("#findActivitiesNameId").append("<option value='"+dataN[i].id+"'>" + dataN[i].name + "</option>"); 
+	function findBranch() {
+		$.ajax({
+			url : 'reservation/findBranch',
+			success : function(data) {
+				$("#branchid").html('');
+				data = JSON.parse(data);
+				for (var i = 0; i < data.length; i++) {
+					$("#branchid").append(
+							"<option value='"+data[i].id+"'>" + data[i].name
+									+ "</option>");
 				}
-			 dataM=JSON.parse(dataM);
-			 console.log(dataM);
-			 for (var i = 0; i < dataM.length; i++) {
-					$("#branchsecondid").append("<option value='"+dataM[i].id+"'>" + dataM[i].name + "</option>");
-					 };
-		}
-		
-	});
-	}else{
-		alert("您还没有登录，请先去登录!");
+				;
+			}
+
+		});
 	}
-}
 </script>
 <script type="text/javascript">
-function check(){
-	var name=document.getElementById("name").value;
-	var telephone=document.getElementById("telephone").value;
-		var nameText=document.getElementById("nameText");
+	function findActivitiesName() {
+		var user = '${user}';
+		if (user != "") {
+			$.ajax({
+				url : 'activityRegistration/findActivityName',
+				success : function(data) {
+					$("#findActivitiesNameId").html('');
+					data = JSON.parse(data);
+					/* console.log(data[0].articleName); */
+					var dataN;
+					var dataM;
+					for (var i = 0; i < data.length; i++) {
+						dataN = data[i].articleName;
+						dataM = data[i].branchData;
+					}
+					;
+					dataN = JSON.parse(dataN);
+					for (var i = 0; i < dataN.length; i++) {
+						$("#findActivitiesNameId").append(
+								"<option value='"+dataN[i].id+"'>"
+										+ dataN[i].name + "</option>");
+					}
+					dataM = JSON.parse(dataM);
+					console.log(dataM);
+					for (var i = 0; i < dataM.length; i++) {
+						$("#branchsecondid").append(
+								"<option value='"+dataM[i].id+"'>"
+										+ dataM[i].name + "</option>");
+					}
+					;
+				}
+
+			});
+		} else {
+			alert("您还没有登录，请先去登录!");
+		}
+	}
+</script>
+<script type="text/javascript">
+	function check() {
+		var name = document.getElementById("name").value;
+		var telephone = document.getElementById("telephone").value;
+		var nameText = document.getElementById("nameText");
 		if (name == "") {
-				 nameText.innerHTML="<span style='color:#C5C5C5'>姓名不能为空</span>";
-				return false;
-			}
-		 var phoneText=document.getElementById("telephoneText");
-		if (telephone == "") {
-			 phoneText.innerHTML="<span style='color:#C5C5C5'>手机号不能为空</span>";
-			return false;
-		}else if(telephone.match('\\d{11}')!=telephone){
-			phoneText.innerHTML="<span style='color:#C5C5C5'>手机号格式不正确</span>"; 
-			return false;
-		} 
-}
-function onfus1(){
-   	var nameText=document.getElementById('nameText');
-   	nameText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function onfus2(){
-   	var phoneText=document.getElementById('telephoneText');
-   	phoneText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function check1(){
-	var name=document.getElementById("name3").value;
-	var telephone=document.getElementById("telephone4").value;
-	var date=document.getElementById("date").value;
-		var nameText=document.getElementById("nameText3");
-		if (name == "") {
-				 nameText.innerHTML="<span style='color:#C5C5C5'>姓名不能为空</span>";
-				return false;
-			}
-		 var phoneText=document.getElementById("telephoneText4");
-		if (telephone == "") {
-			 phoneText.innerHTML="<span style='color:#C5C5C5'>手机号不能为空</span>";
-			return false;
-		}else if(telephone.match('\\d{11}')!=telephone){
-			phoneText.innerHTML="<span style='color:#C5C5C5'>手机号格式不正确</span>"; 
-			return false;
-		} 
-		 var dateText=document.getElementById("dateText5");
-		if (date == "") {
-			dateText.innerHTML="<span style='color:#C5C5C5'>时间不能为空</span>";
+			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
 			return false;
 		}
-}
+		var phoneText = document.getElementById("telephoneText");
+		if (telephone == "") {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号不能为空</span>";
+			return false;
+		} else if (telephone.match('\\d{11}') != telephone) {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号格式不正确</span>";
+			return false;
+		}
+	}
+	function onfus1() {
+		var nameText = document.getElementById('nameText');
+		nameText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function onfus2() {
+		var phoneText = document.getElementById('telephoneText');
+		phoneText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function check1() {
+		var name = document.getElementById("name3").value;
+		var telephone = document.getElementById("telephone4").value;
+		var date = document.getElementById("date").value;
+		var nameText = document.getElementById("nameText3");
+		if (name == "") {
+			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
+			return false;
+		}
+		var phoneText = document.getElementById("telephoneText4");
+		if (telephone == "") {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号不能为空</span>";
+			return false;
+		} else if (telephone.match('\\d{11}') != telephone) {
+			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号格式不正确</span>";
+			return false;
+		}
+		var dateText = document.getElementById("dateText5");
+		if (date == "") {
+			dateText.innerHTML = "<span style='color:#C5C5C5'>时间不能为空</span>";
+			return false;
+		}
+	}
 
-function onfus3(){
-   	var nameText=document.getElementById('nameText3');
-   	nameText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function onfus4(){
-   	var phoneText=document.getElementById('telephoneText4');
-   	phoneText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-function onfus5(){
-   	var dateText=document.getElementById('dateText5');
-   	dateText.innerHTML="<span style='color:#C5C5C5'></span>";
-   }
-
+	function onfus3() {
+		var nameText = document.getElementById('nameText3');
+		nameText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function onfus4() {
+		var phoneText = document.getElementById('telephoneText4');
+		phoneText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
+	function onfus5() {
+		var dateText = document.getElementById('dateText5');
+		dateText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
 </script>
 <script type="text/javascript">
-function findType(){
-	var typeValue=$("#searchType").val();
-	var ahref=document.getElementById("searchQue");
-	 ahref.href="type/searchContent?type=aboutus-intro&search="+typeValue;
-}
- 
+	function findType() {
+		var typeValue = $("#searchType").val();
+		var ahref = document.getElementById("searchQue");
+		ahref.href = "type/searchContent?type=aboutus-intro&search="
+				+ typeValue;
+	}
 </script>
 </head>
-	
+
 <body>
 	<div class="banner">
 		<div class="header" style="height: 66px;">
@@ -301,7 +313,8 @@ function findType(){
 					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
-					<li class="layui-nav-item"><a href="common/toActivity_carousel?type=online_course">乐堡活动</a>
+					<li class="layui-nav-item"><a
+						href="common/toActivity_carousel?type=online_course">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toActivity_carousel?type=online_course">线上直播</a>
@@ -326,22 +339,28 @@ function findType(){
 							</dd>
 						</dl></li>
 
-					<li class="layui-nav-item"><a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
+					<li class="layui-nav-item"><a
+						href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+								<a
+									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 							</dd>
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+								<a
+									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 							</dd>
 							<dd>
-								<a href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+								<a
+									href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 							</dd>
 							<dd>
-								<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+								<a
+									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 							</dd>
 						</dl></li>
-					<li class="layui-nav-item"><a href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
+					<li class="layui-nav-item"><a
+						href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
@@ -388,7 +407,7 @@ function findType(){
 					</form>
 				</div>
 			</div>
-	
+
 			<div class="clearfix"></div>
 		</div>
 		<div class="layui-carousel" id="test10">
@@ -421,57 +440,59 @@ function findType(){
 						<li><a class="hvr-shutter-in-vertical" href="#"
 							data-toggle="modal" data-target="#myModal" onclick="findBranch()">预约参观</a></li>
 						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal1" onclick="findActivitiesName()">我要报名</a></li>
+							data-toggle="modal" data-target="#myModal1"
+							onclick="findActivitiesName()">我要报名</a></li>
 					</ul>
 
 				</div>
 			</div>
 		</div>
 	</div>
-<div class="layui-row">
-	<div class="content-bottom">
-		<div class="btm-grids">
-		<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-			<div class=" btm-grid back-col1 text-center">
-				<!-- 
+	<div class="layui-row">
+		<div class="content-bottom">
+			<div class="btm-grids">
+				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+					<div class=" btm-grid back-col1 text-center">
+						<!-- 
 				<img src="resource/image/timg.jpg" alt="" /> -->
 
-			</div>
-</div>
-		<!-- 	<div class="col-md-4 btm-grid btm-wid"
+					</div>
+				</div>
+				<!-- 	<div class="col-md-4 btm-grid btm-wid"
 				style="background-color: #48CFC1;">
 				<input value="社区搜索" class="title" readonly="readonly">
 				<input class="city_search" type="text" value="" -->
-<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-			<div class=" btm-grid btm-wid">
-				<input value="社区搜索" class="title" readonly="readonly">
-				<input class="city_search" type="text" value="请输入城市"  id="searchType"
-
-					style="color:#C5C5C5; " onfocus="if(value=='请输入城市') {value=''}"
-					onblur="if (value=='') {value='请输入城市'}">
-				<label class="search_icon" 
-					style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
-					<a
-					href="" id="searchQue" ><i class="layui-icon"  onclick="findType()"
-						style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a></label>
-				<div
-					style="width:100%;height:100px;margin-top:50px; background-color: white;">
-					<label
-						style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
-					<label
-						style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+					<div class=" btm-grid btm-wid">
+						<input value="社区搜索" class="title" readonly="readonly">
+						<input class="city_search" type="text" value="请输入城市"
+							id="searchType" style="color:#C5C5C5; "
+							onfocus="if(value=='请输入城市') {value=''}"
+							onblur="if (value=='') {value='请输入城市'}">
+						<label class="search_icon"
+							style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
+							<a href="" id="searchQue"><i class="layui-icon"
+								onclick="findType()"
+								style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i></a>
+						</label>
+						<div
+							style="width:100%;height:100px;margin-top:50px; background-color: white;">
+							<label
+								style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
+							<label
+								style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+						</div>
+					</div>
 				</div>
+				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+					<div class="btm-grid back-col2 text-center">
+						<!-- <img src="resource/image/bbb1.png" alt="" /> -->
+					</div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			</div>
-			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
-			<div class="btm-grid back-col2 text-center">
-				<!-- <img src="resource/image/bbb1.png" alt="" /> -->
-			</div>
-			</div>
-			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
 	<div class="coupons">
 		<div class="container">
 			<div class="coupons-grids text-center">
@@ -494,8 +515,8 @@ function findType(){
 					</h4>
 					<p>活动</p>
 				</div>
-				<div class="col-md-3 coupons-gd">  
-					<h3>  
+				<div class="col-md-3 coupons-gd">
+					<h3>
 						新闻快讯 <span>生活中你不知道的几个知识点</span>
 					</h3>
 				</div>
@@ -503,18 +524,21 @@ function findType(){
 			</div>
 		</div>
 	</div>
-		<div class="content-bottom-two">
+	<div class="content-bottom-two">
 		<div class="col-md-6 content-left text-center imagess">
-			<img src="resource/image/bf.png" alt="" style="position:absolute;width:10%;z-index:1;top:45%;left:45%;"/>
-			<img src="resource/image/bbb1_left.png" alt=""  style="z-index:0;position:relative" />
+			<img src="resource/image/bf.png" alt=""
+				style="position:absolute;width:10%;z-index:1;top:45%;left:45%;" />
+			<img src="resource/image/bbb1_left.png" alt=""
+				style="z-index:0;position:relative" />
 		</div>
 		<div class="col-md-6 content-right text-center imagess">
-			 <img src="resource/image/bbb1_right.png" alt="" />
+			<img src="resource/image/bbb1_right.png" alt="" />
 		</div>
 		<div class="clearfix"></div>
 		<div class="btm-pos">
 			<h3>关爱老人</h3>
-			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情;折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！ </p>
+			<p>摘一千颗星星照亮您的前程；种一千朵玫瑰陶醉您的心情;折一千只纸鹤放飞您的欢乐；找一千种理由让您幸福安宁；说一千个句子祝您春节团圆喜庆！
+			</p>
 		</div>
 	</div>
 
@@ -564,7 +588,17 @@ function findType(){
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="#"><h3>乐堡咨询</h3></a>
+					<ul>
+						<li><input
+								style="width: 200px;height: 30px;border-radius:5px;border: 1px solid white;color:#C5C5C5; "
+							onfocus="if(value=='请输入城市') {value=''}"
+							onblur="if (value=='') {value='请输入城市'}" value="请输入城市"
+							><a
+							href="#"><i class="layui-icon"
+								style="display:block; color:#666666;font-size: 20px;margin-left: 175px;margin-top: -30px;">&#xe615;</i></a>
 
+						</li>
+					</ul>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -576,10 +610,11 @@ function findType(){
 				<a href="index.html">养乐堡</a>
 			</h2>
 			<p>
-				版权 &copy; 2017.团 队 名  7brickSquad.更多
-				咨询 <a href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank"
+				版权 &copy; 2017.团 队 名 7brickSquad.更多 咨询 <a
+					href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank"
 					title="老人之家">老人之家</a> - 来源 <a
-					href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队" target="_blank">搬砖小分队</a>
+					href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队"
+					target="_blank">搬砖小分队</a>
 			</p>
 			<ul>
 				<li><a class="face1" href="#"></a></li>
@@ -641,17 +676,15 @@ function findType(){
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
 										<input type="text" value="请输入联系人姓名" name="rname" id="name"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
-											
-											onfocus="onfus1()"><br>
-											<span id="nameText" style="margin-left:44%"></span>
+											onfocus="onfus1()">
+										<br> <span id="nameText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话" id="telephone" 
+										<input type="text" value="请输入联系人电话" id="telephone"
 											name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-											onfocus="onfus2()"
-											><br>
-											<span id="telephoneText" style="margin-left:44%"></span>
+											onfocus="onfus2()">
+										<br> <span id="telephoneText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
@@ -661,8 +694,8 @@ function findType(){
 													value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
 													onfocus="if(value=='请输入预约时间') {value=''}"
-													onblur="if (value=='') {value='请输入预约时间'}"><br>
-													<span id="dateText" style="margin-left:44%"></span>
+													onblur="if (value=='') {value='请输入预约时间'}">
+												<br> <span id="dateText" style="margin-left:44%"></span>
 											</div>
 										</form>
 										<label
@@ -670,10 +703,11 @@ function findType(){
 										<div class="layui-form-item">
 											<div class="layui-inline">
 												<div class="layui-input-inline">
-													<select name="branchId" lay-verify="required" lay-search="" id="branchid"
+													<select name="branchId" lay-verify="required" lay-search=""
+														id="branchid"
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
-														
+
 													</select>
 												</div>
 											</div>
@@ -685,10 +719,9 @@ function findType(){
 										<div class="layui-form-item layui-form-text">
 											<div class="layui-input-block"
 												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea" name="remarks" id="remarks"
-												onfocus="onfus4()"></textarea>
-												<br>
-													<span id="remarksText" style="margin-left:44%"></span>
+												<textarea value="" class="layui-textarea" name="remarks"
+													id="remarks" onfocus="onfus4()"></textarea>
+												<br> <span id="remarksText" style="margin-left:44%"></span>
 											</div>
 										</div>
 									</div>
@@ -715,130 +748,132 @@ function findType(){
 		Collect from <a href="http://www.cssmoban.com/">手机网站模板</a>
 	</div>
 	<c:if test="${user ne null }">
-	<!-- Dth -->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<section>
-					<div class="wizard">
-						<div class="wizard-inner">
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step6"
-									data-toggle="tab" aria-controls="step6" role="tab"
-									title="Step 6"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-folder-open"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step7"
-									data-toggle="tab" aria-controls="step7" role="tab"
-									title="Step 7"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-pencil"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step8"
-									data-toggle="tab" aria-controls="step8" role="tab"
-									title="Step 8"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-picture"></i>
-									</span>
-								</a></li>
-
-							</ul>
-						</div>
-						<!-- 我要去报名 -->
-							<form role="form" method="post" onsubmit="return check1()"
-							action="activityRegistration/insertActivitiesInformation">
-							<div class="tab-content">
-								<div class="tab-pane active" role="tabpanel" id="step12">
-									<div class="mobile-grids">
-										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
-											>我要报名</label> <label
-											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="${user.username }" name="pname" id="name3"
-											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
-											onfocus="onfus3()"><br>
-											<span id="nameText3" style="margin-left:44%"></span>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="${user.telephone }" id="telephone4"
-											name="telephone" 
-											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-											onfocus="onfus4()"
-											onblur="if (value=='') {value='请输入联系人电话'}"><br>
-											<span id="telephoneText4" style="margin-left:44%"></span>
-											<label
-											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
-											<div class="layui-form-item">
-											<div class="layui-inline">
-												<div class="layui-input-inline">
-													<select name="activitiesId" lay-verify="required" lay-search="" 
-													id="findActivitiesNameId" 
-														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
-														<option value="">请选择</option>
-														
-													</select>
-												</div>
-											</div>
-										</div>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
-										<form class="layui-form" action="">
-											<div class="layui-input-inline">
-												<input type="text" name="reservationDate" id="date"
-													lay-verify="date" autocomplete="off" class="layui-input"
-													value="请输入预约时间"
-													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="onfus5()"
-													onblur="if (value=='') {value='请输入预约时间'}"><br>
-											<span id="dateText5" style="margin-left:44%"></span>
-											</div>
-										</form>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
-										<div class="layui-form-item">
-											<div class="layui-inline">
-												<div class="layui-input-inline">
-													<select name="branchId" lay-verify="required" lay-search="" id="branchsecondid"
-														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
-														<option value="">请选择</option>
-														
-													</select>
-												</div>
-											</div>
-										</div>
-										<p
-											style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
-										<label
-											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
-										<div class="layui-form-item layui-form-text">
-											<div class="layui-input-block"
-												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea" name="remarks"></textarea>
-											</div>
-										</div>
-									</div>
-									<input value="提交" type="submit"
-										style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
-									<input value="重置" type="reset"
-										style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
-
-								</div>
-							</div>
-						</form>
+		<!-- Dth -->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
-					</section>
+					<div class="modal-body">
+						<section>
+						<div class="wizard">
+							<div class="wizard-inner">
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active"><a href="#step6"
+										data-toggle="tab" aria-controls="step6" role="tab"
+										title="Step 6"> <span class="round-tab"> <i
+												class="glyphicon glyphicon-folder-open"></i>
+										</span>
+									</a></li>
+									<li role="presentation" class="disabled"><a href="#step7"
+										data-toggle="tab" aria-controls="step7" role="tab"
+										title="Step 7"> <span class="round-tab"> <i
+												class="glyphicon glyphicon-pencil"></i>
+										</span>
+									</a></li>
+									<li role="presentation" class="disabled"><a href="#step8"
+										data-toggle="tab" aria-controls="step8" role="tab"
+										title="Step 8"> <span class="round-tab"> <i
+												class="glyphicon glyphicon-picture"></i>
+										</span>
+									</a></li>
+
+								</ul>
+							</div>
+							<!-- 我要去报名 -->
+							<form role="form" method="post" onsubmit="return check1()"
+								action="activityRegistration/insertActivitiesInformation">
+								<div class="tab-content">
+									<div class="tab-pane active" role="tabpanel" id="step12">
+										<div class="mobile-grids">
+											<label
+												style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">我要报名</label>
+											<label
+												style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
+											<input type="text" value="${user.username }" name="pname"
+												id="name3"
+												style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
+												onfocus="onfus3()">
+											<br> <span id="nameText3" style="margin-left:44%"></span>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
+											<input type="text" value="${user.telephone }" id="telephone4"
+												name="telephone"
+												style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
+												onfocus="onfus4()"
+												onblur="if (value=='') {value='请输入联系人电话'}">
+											<br> <span id="telephoneText4" style="margin-left:44%"></span>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
+											<div class="layui-form-item">
+												<div class="layui-inline">
+													<div class="layui-input-inline">
+														<select name="activitiesId" lay-verify="required"
+															lay-search="" id="findActivitiesNameId"
+															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+															<option value="">请选择</option>
+
+														</select>
+													</div>
+												</div>
+											</div>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
+											<form class="layui-form" action="">
+												<div class="layui-input-inline">
+													<input type="text" name="reservationDate" id="date"
+														lay-verify="date" autocomplete="off" class="layui-input"
+														value="请输入预约时间"
+														style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
+														onfocus="onfus5()"
+														onblur="if (value=='') {value='请输入预约时间'}">
+													<br> <span id="dateText5" style="margin-left:44%"></span>
+												</div>
+											</form>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
+											<div class="layui-form-item">
+												<div class="layui-inline">
+													<div class="layui-input-inline">
+														<select name="branchId" lay-verify="required"
+															lay-search="" id="branchsecondid"
+															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
+															<option value="">请选择</option>
+
+														</select>
+													</div>
+												</div>
+											</div>
+											<p
+												style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+											<label
+												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
+											<div class="layui-form-item layui-form-text">
+												<div class="layui-input-block"
+													style="width: 250px;margin-left: 200px;margin-top: -30px;">
+													<textarea value="" class="layui-textarea" name="remarks"></textarea>
+												</div>
+											</div>
+										</div>
+										<input value="提交" type="submit"
+											style="width: 100px;height:35px;text-align:center; color:#17877B; border: 1px solid #48CFC1;border-radius:5px;background-color: #48CFC1;margin-left: 150px;margin-top: 30px;">
+										<input value="重置" type="reset"
+											style="width: 100px;height:35px;text-align:center; color:#5784D5; border: 1px solid #83A7E9;border-radius:5px;background-color: #83A7E9; margin-left: 50px;margin-top: 30px;">
+
+									</div>
+								</div>
+							</form>
+						</div>
+						</section>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</c:if>
 	<!-- //Dth -->
 	<!-- datacard -->
