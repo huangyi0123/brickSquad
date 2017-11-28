@@ -6,6 +6,7 @@ import java.util.Map;
 import com.brick.squad.expand.OrderExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Select;
 
@@ -87,5 +88,14 @@ public interface PersonalInformationMapper {
 	 * 级联查询后得到数据回显到老人个人信息详情列表
 	 */
 	public PersonalInformation findThereAllById(String id);
+
+	/**
+	 * 根据区域对老人年龄进行统计
+	 * 
+	 * @param type
+	 *            区域
+	 * @return 老人年龄信息
+	 */
+	public Map<String, Object> findPerByAge(Type type);
 
 }

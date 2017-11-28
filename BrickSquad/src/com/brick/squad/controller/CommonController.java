@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -92,9 +94,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal(HttpServletRequest request)  {
+	public String toIndexModal(HttpServletRequest request) {
 		request.setAttribute("url", "common/toIndex");
-		
+
 		return "frontEnd_manage/util/turn";
 	}
 
@@ -460,18 +462,23 @@ public class CommonController {
 				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
 
 		request.setAttribute("listMovie", listMovie);
-		
+
 		return "offical_website/vedio-details";
 	}
+
 	@RequestMapping("/toLife")
-	public String toLife(HttpServletRequest request,String type) {
+	public String toLife(HttpServletRequest request, String type) {
 		request.setAttribute("type", type);
-		
+
 		return "offical_website/life";
 	}
 
 	@RequestMapping("/toHome_Data_Analysis")
-	public String toHome_Data_Analysis() {
+	public String toHome_Data_Analysis(HttpServletRequest request)
+			throws Exception {
+		List<Type> types = typeService
+				.findAllTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("region", types);
 		return "backstage_managed/jsp/home-data/home-data-analysis";
 	}
 }
