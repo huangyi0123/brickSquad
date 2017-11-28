@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brick.squad.mapper.FeedbackMapper">
+	<insert id="insertFeedback" parameterType="Feedback">
+		<selectKey resultType="String" keyProperty="id" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+		INSERT INTO feedback
+		(id,userId,content,posttime) VALUES
+		(#{id},#{userId},#{content},#{posttime})
+	</insert>
+</mapper>

@@ -114,7 +114,7 @@
 			</div>
 
 			<!------------------------ 猜你喜欢 ----------------------->
-			<div class="vedio_info" style="margin-top: 20px;">
+			<%-- 			<div class="vedio_info" style="margin-top: 20px;">
 				<div class="layui-row">
 					<div class="layui-col-xs12 layui-col-md8">
 						<div class="vedio_guess">
@@ -155,16 +155,26 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 			<!---------------------------- 评论 --------------------------->
 			<div class="vedio_comm">
+				<div class="vedio_details">
+					<label style="font-size: 1.2em;color: black;letter-spacing: 5px;">简介</label>
+					<!-- <label
+								style="color: black;display: block;margin-top: 10px;">主讲人：</label> <label
+								style="float: left;margin-left: 70px;margin-top: -18px;"><a href="#"
+									style="color: #48CFC1;">石立勇</a></label> -->
+					<label style="color: black;display: block;margin-top: 10px;">内容：</label>
+					<p style="width: 300px;margin-left:60px;margin-top: -18px;">${activitiesMoviePAth.centent }</p>
+				</div>
+
 				<div>
 					<div class="layui-row">
 						<div class="layui-col-xs12 layui-col-md8">
 							<label>我来评论</label>
 							<div class="layui-input-block">
-								<textarea id="comment_content" placeholder="请输入内容,评论内容不能超过250个汉字！"
-									class="layui-textarea"></textarea>
+								<textarea id="comment_content"
+									placeholder="请输入内容,评论内容不能超过250个汉字！" class="layui-textarea"></textarea>
 							</div>
 							<div class="comm_register">
 								<c:if test="${user.id ne null }">
@@ -193,7 +203,7 @@
 							<div class="vedio_comms" style="font-size: 20px;">
 								<div style="clear: both;"></div>
 								<div class="vedio_comm_cont" id="VideoComment">
-								<!-- <label class="vedio_comm_cont_name">还没有评论</label> -->
+									<!-- <label class="vedio_comm_cont_name">还没有评论</label> -->
 									<!-- <img style="display: block;" alt=""
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 
@@ -213,7 +223,7 @@
 
 								<div style="clear: both;"></div>
 								<div id="pager" style="text-align: center;">
-			<!-- 					<label style="margin-top: 30px;">全部评论<font
+									<!-- 					<label style="margin-top: 30px;">全部评论<font
 									style="color: #909EBF;size: 0.6em;letter-spacing: 0px;font-stretch: normal;">(0)</font></label>
 								<div
 									style="width: 100%;border: 1px solid #E3E7E8;margin-top: 10px;"></div>
@@ -232,6 +242,7 @@
 						</div>
 
 						<div class="layui-col-xs6 layui-col-md4">
+							<div style="clear: both;"></div>
 							<div class="vedio_related">
 								<label>相关推荐</label>
 								<c:if test="${relatedRecommendation[0].id eq null }">
