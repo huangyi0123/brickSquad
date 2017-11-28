@@ -371,4 +371,16 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 		return jsonArray.toString();
 	}
 
+	@Override
+	public String findOfficalActivitiesById(String id) throws Exception {
+		Activities activities = activitiesMapper.findActivitiesById(id);
+		activities = (Activities) Filter.filterObject(activities);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor());
+		JSONArray jsonArray = new JSONArray();
+		String data = jsonArray.fromObject(activities, jsonConfig).toString();
+		return data;
+	}
+
 }

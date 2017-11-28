@@ -62,6 +62,7 @@ public interface ActivitiesService {
 	 * @return 返回活动列表
 	 */
 	public Activities findActivitiesById(String id) throws Exception;
+	public String findOfficalActivitiesById(String id) throws Exception;
 
 	public void insertActivitiesById(Activities activities) throws Exception;
 
