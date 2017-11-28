@@ -3,17 +3,24 @@ package com.brick.squad.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.json.JsonObject;
+
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.brick.squad.expand.NewsExpand;
+import com.brick.squad.expand.NutritionalDiet;
 import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.JsonDateValueProcessor;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.Util;
 
@@ -121,6 +128,110 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public NewsExpand findNewsExpandById(String id) {
 		return newsMapper.findNewsExpandById(id);
+	}
+
+	@Override
+	/**
+	 * 乐堡服务生活助手新闻显示
+	 * */
+	public PageBeanUtil findNewsLeBaoServer(int page3) {
+		PageBeanUtil<News> pageBean = new PageBeanUtil<News>();
+		if (page3 == 0) {
+			page3 = 1;
+			// 设置当前页数:
+			pageBean.setPage3(page3);
+
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage3(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = newsMapper.findCountNewsLeBaoServer();
+			pageBean.setTotalCount3(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage3(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page3 - 1) * limit;
+			pageBean.setBegin3(begin);
+			List<News> list = newsMapper.findNewsLeBaoServer(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage3(page3);
+			// 设置每页显示记录数:
+			int limit = 4;
+			pageBean.setLimitPage3(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = newsMapper.findCountNewsLeBaoServer();
+			pageBean.setTotalCount3(totalCount);
+			// 设置总页数:
+			int totalPage = 0;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage3(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page3 - 1) * limit;
+			pageBean.setBegin3(begin);
+			List<News> list = newsMapper.findNewsLeBaoServer(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+
+	@Override
+	/**
+	 * 乐堡服务生活助手新闻显示总记录数
+	 * */
+	public int findCountNewsLeBaoServer() throws Exception {
+		int count = newsMapper.findCountNewsLeBaoServer();
+		return count;
+	}
+
+	public String NutritionalDietListPagination(Pagination pagination) {
+		GridManagerList<NutritionalDiet> nManagerList = new GridManagerList<NutritionalDiet>();
+		nManagerList.setData(newsMapper.NutritionalDietList(pagination));
+		nManagerList.setTotals(newsMapper.NutritionalDietCount());
+		JSONArray jsonArray = JSONArray.fromObject(nManagerList);
+		return jsonArray.toString();
+
+	}
+
+	@Override
+	public String NutritionalDietInfoById(String id) {
+		NutritionalDiet nutritionalDiet = newsMapper.NutritionalDietById(id);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy年MM月dd日"));
+		JSONObject jsonObject = JSONObject.fromObject(nutritionalDiet,jsonConfig);
+		return jsonObject.toString();
+	}
+
+	@Override
+	/***
+	 *  官网首页 ：动态新闻查询，日常新闻 
+	 * */
+	public String findNewsDaily(String id) throws Exception {
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy-MM-dd"));
+		JSONArray jsonArray=new JSONArray();
+		List<News> list=newsMapper.findNewsDaily(id);
+		String data=jsonArray.fromObject(list,jsonConfig).toString();
+		return data;
 	}
 
 }

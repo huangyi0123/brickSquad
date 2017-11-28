@@ -113,23 +113,23 @@ public class MedicalServiceImpl implements MedicalService {
 
 	@Override
 	/**查看用户检查病历史*/
-	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page, String pId)
+	public PageBeanUtil<MedicalExpand> findMedicalByUser(int page1, String pId)
 			throws Exception {
 		PageBeanUtil<MedicalExpand> pageBean = new PageBeanUtil<MedicalExpand>();
 		pageBean.setpId(pId);
-		if (page == 0) {
-			page = 1;
+		if (page1 == 0) {
+			page1 = 1;
 			// 设置当前页数:
-			pageBean.setPage(page);
+			pageBean.setPage1(page1);
 			
 			// 设置每页显示记录数:
 			int limit = 3;
-			pageBean.setLimitPage(limit);
+			pageBean.setLimitPage1(limit);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = medicalMapper.findCountMedicalByUser(pageBean);
 		
-			pageBean.setTotalCount(totalCount);
+			pageBean.setTotalCount1(totalCount);
 			// 设置总页数:
 			int totalPage = 0;
 			// Math.ceil(totalCount / limit);
@@ -138,23 +138,23 @@ public class MedicalServiceImpl implements MedicalService {
 			} else {
 				totalPage = totalCount / limit + 1;
 			}
-			pageBean.setTotalPage(totalPage);
+			pageBean.setTotalPage1(totalPage);
 			// 每页显示的数据集合:
 			// 从哪开始:
-			int begin = (page - 1) * limit;
-			pageBean.setBegin(begin);
+			int begin = (page1 - 1) * limit;
+			pageBean.setBegin1(begin);
 			List<MedicalExpand> list = medicalMapper.findMedicalByUser(pageBean);
 			pageBean.setList(list);
 		} else {
 			// 设置当前页数:
-			pageBean.setPage(page);
+			pageBean.setPage1(page1);
 			// 设置每页显示记录数:
 			int limit = 3;
-			pageBean.setLimitPage(limit);
+			pageBean.setLimitPage1(limit);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = medicalMapper.findCountMedicalByUser(pageBean);
-			pageBean.setTotalCount(totalCount);
+			pageBean.setTotalCount1(totalCount);
 			// 设置总页数:
 			int totalPage = 0;
 			// Math.ceil(totalCount / limit);
@@ -163,11 +163,11 @@ public class MedicalServiceImpl implements MedicalService {
 			} else {
 				totalPage = totalCount / limit + 1;
 			}
-			pageBean.setTotalPage(totalPage);
+			pageBean.setTotalPage1(totalPage);
 			// 每页显示的数据集合:
 			// 从哪开始:
-			int begin = (page - 1) * limit;
-			pageBean.setBegin(begin);
+			int begin = (page1 - 1) * limit;
+			pageBean.setBegin1(begin);
 			List<MedicalExpand> list = medicalMapper.findMedicalByUser(pageBean);
 			pageBean.setList(list);
 		}

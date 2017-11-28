@@ -4,7 +4,8 @@
 <mapper namespace="com.brick.squad.mapper.NewsMapper">
 
 	<sql id="Base_Column_List">
-		id, user_id userId,type_id typeId,title, content , imgs_path
+		id, user_id userId,type_id typeId,title, content ,
+		imgs_path
 		imagePath,post_time postTime
 	</sql>
 	<!-- Luyujing News表 增删改查 -->
@@ -23,29 +24,38 @@
 	<select id="findNews" resultType="news" parameterType="java.lang.Long">
 		select*from news where content=#{content}
 	</select>
-	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand" parameterType="com.brick.squad.util.Pagination">
+	<select id="newsPagination" resultType="com.brick.squad.expand.NewsExpand"
+		parameterType="com.brick.squad.util.Pagination">
 		SELECT n.id,u.username,n.content,n.imgs_path
-		imagePath,n.post_time postTime,n.title,n.type_id
+		imagePath,n.post_time
+		postTime,n.title,n.type_id
 		FROM news n INNER JOIN `user` u
-		ON n.user_id=u.id 
-		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
-		where n.user_id=#{userId}
+		ON
+		n.user_id=u.id
+		<if
+			test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
+			where n.user_id=#{userId}
 		</if>
 		<if test="keyword!=''">
-		 AND (u.username REGEXP #{keyword} or n.title REGEXP #{keyword}) 
+			AND (u.username REGEXP #{keyword} or n.title REGEXP
+			#{keyword})
 		</if>
 		limit #{skipNum},#{takeNum}
-		
+
 	</select>
-	<select id="findNewsCount" resultType="Integer" parameterType="com.brick.squad.util.Pagination">
+	<select id="findNewsCount" resultType="Integer"
+		parameterType="com.brick.squad.util.Pagination">
 		<if test="keyword==''">
-		SELECT COUNT(*) from news where user_id=#{userId}
+			SELECT COUNT(*) from news where user_id=#{userId}
 		</if>
-		
+
 		<if test="keyword!=''">
-		SELECT COUNT(*) from news n INNER JOIN `user` u
-		ON n.user_id=u.id where user_id=#{userId}
-		AND (u.username REGEXP #{keyword} or n.title REGEXP #{keyword}) limit #{skipNum},#{takeNum}
+			SELECT COUNT(*) from news n INNER JOIN `user` u
+			ON
+			n.user_id=u.id where user_id=#{userId}
+			AND (u.username REGEXP
+			#{keyword} or n.title REGEXP #{keyword}) limit
+			#{skipNum},#{takeNum}
 
 		</if>
 	</select>
@@ -81,5 +91,63 @@
 		SELECT n.title,n.post_time postTime,u.username ,n.content
 		FROM news n JOIN `user` u on n.user_id=u.id
 		WHERE n.id=#{id}
+	</select>
+
+	<select id="findNewsLeBaoServer" parameterType="com.brick.squad.util.PageBeanUtil"
+	resultType="news">
+	SELECT n.id,n.user_id,n.content,n.post_time,n.title 
+	FROM news n JOIN type t ON n.type_id=t.id 
+	WHERE t.id='6cb594f6d24b11e7880a5254002ec43c' ORDER BY n.post_time
+	LIMIT #{begin3},#{limitPage3} 
+	</select>
+	<select id="findCountNewsLeBaoServer" resultType="int">
+	SELECT COUNT(*) FROM news n JOIN type t ON n.type_id=t.id 
+	WHERE t.parent_id='b6492682cd0011e7aca65254002ec43c'  
+	</select>
+
+
+	<!-- 营养膳食列表 -->
+	<select id="NutritionalDietList" resultType="com.brick.squad.expand.NutritionalDiet"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT n.content,n.title,n.post_time
+		postTime,n.id,tu.`name`
+		FROM news n JOIN `user` u on n.user_id=u.id
+		JOIN type tu on tu.id=u.branch_id
+		JOIN type tn on tn.id=n.type_id
+		WHERE
+		tn.id='978293e6d27d11e7880a5254002ec43c'
+		limit #{skipNum},#{takeNum}
+	</select>
+	<!--营养膳食总数 -->
+	<select id="NutritionalDietCount" resultType="int">
+		SELECT count(1)
+		FROM news n JOIN `user` u on n.user_id=u.id
+		JOIN type tu on
+		tu.id=u.branch_id
+		JOIN type tn on tn.id=n.type_id
+		WHERE
+		tn.id='978293e6d27d11e7880a5254002ec43c'
+	</select>
+	<!--通过id获取营养膳食 -->
+	<select id="NutritionalDietById" parameterType="int"
+		resultType="com.brick.squad.expand.NutritionalDiet">
+		SELECT n.content,n.title,n.post_time
+		postTime,n.id,tu.`name`
+		FROM news n JOIN
+		`user` u on n.user_id=u.id
+		JOIN
+		type tu on tu.id=u.branch_id
+		JOIN type
+		tn on tn.id=n.type_id
+		WHERE
+		tn.id='978293e6d27d11e7880a5254002ec43c' and n.id=#{id}
+	</select>
+	<!-- 官网首页 ：动态新闻查询，日常新闻 -->
+	<select id="findNewsDaily" resultType="news" parameterType="String">
+	SELECT n.id,n.title,n.post_time postTime
+	FROM news n JOIN type t ON t.id=n.type_id 
+	AND t.id=#{id}
+	ORDER BY n.post_time DESC
+	LIMIT 12
 	</select>
 </mapper>

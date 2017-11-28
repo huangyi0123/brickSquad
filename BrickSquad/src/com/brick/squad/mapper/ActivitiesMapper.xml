@@ -40,7 +40,8 @@
 		parameterType="com.brick.squad.expand.ActivitiesAndPaginationExtend">
 		select id,name,centent,type_id typeId,start_time
 		startTime,end_time
-		endTime,user_id userId,number,movie from activities
+		endTime,user_id userId,number,movie,click_amount
+		clickAmount from activities
 		where
 		movie is not null and
 		type_id=#{movieTypeId}
@@ -52,7 +53,8 @@
 		parameterType="String">
 		select id,name,centent,type_id typeId,start_time
 		startTime,end_time
-		endTime,user_id userId,number,movie from activities
+		endTime,user_id userId,number,movie ,click_amount
+		clickAmount from activities
 		where
 		id=#{id}
 	</select>

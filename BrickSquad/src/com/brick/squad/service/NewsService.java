@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.brick.squad.expand.NewsExpand;
 import com.brick.squad.pojo.News;
+import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface NewsService {
@@ -56,5 +57,36 @@ public interface NewsService {
 	 * @return 新闻详情
 	 */
 	public NewsExpand findNewsExpandById(String id);
+
+	/**
+	 * 乐堡服务生活助手新闻显示
+	 * */
+	public PageBeanUtil findNewsLeBaoServer(int page3)throws Exception;
+	/**
+	 * 乐堡服务生活助手新闻显示总记录数
+	 * */
+	public int findCountNewsLeBaoServer() throws Exception;
+
+	/**
+	 * 根据分页信息查询营养膳食记录
+	 * 
+	 * @param pagination
+	 *            分页信息
+	 * @return 营养膳食记录
+	 */
+	public String NutritionalDietListPagination(Pagination pagination);
+
+	/**
+	 * 根据id查询营养膳食
+	 * 
+	 * @param id
+	 *            id
+	 * @return 营养膳食
+	 */
+	public String NutritionalDietInfoById(String id);
+	/***
+	 *  官网首页 ：动态新闻查询，日常新闻 
+	 * */
+	public String findNewsDaily(String id)throws Exception;
 
 }

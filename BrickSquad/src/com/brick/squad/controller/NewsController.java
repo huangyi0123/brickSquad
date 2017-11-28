@@ -1,10 +1,13 @@
 package com.brick.squad.controller;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
+import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -56,7 +59,8 @@ public class NewsController {
 		pagination.setPageSize(pSize);
 		User user = (User) request.getSession().getAttribute("user");
 		pagination.setUserId(user.getId());
-		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
+		pagination.setRoleId(request.getSession().getAttribute("roleId")
+				.toString());
 		return newsService.newsPagination(pagination);
 	}
 
@@ -66,7 +70,8 @@ public class NewsController {
 	@RequestMapping("/toAddNews")
 	public String toAddRapport(HttpServletRequest request, String id)
 			throws Exception {
-		String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+		String dataType = typeService
+				.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
 		request.setAttribute("dataType", dataType);
 		if (id != null) {
 			News news = newsService.findNewsById(id);
@@ -92,7 +97,8 @@ public class NewsController {
 			HttpServletRequest request) throws Exception {
 
 		if (result.hasErrors()) {
-			String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+			String dataType = typeService
+					.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
 			request.setAttribute("dataType", dataType);
 			List<ObjectError> errors = result.getAllErrors();
 			request.setAttribute("errors", errors);
@@ -130,7 +136,8 @@ public class NewsController {
 	@RequestMapping("/findNews")
 	public String findNews(HttpServletRequest request, String id)
 			throws Exception {
-		String dataType = typeService.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
+		String dataType = typeService
+				.findTypeByParentId("b6492682cd0011e7aca65254002ec43c");
 		request.setAttribute("dataType", dataType);
 		News news = newsService.findNewsById(id);
 		request.setAttribute("news", news);
@@ -158,4 +165,35 @@ public class NewsController {
 		request.setAttribute("news", newsExpand);
 		return "frontEnd_manage/news/newsDetail";
 	}
+
+	@RequestMapping("/getNutritionalDietList")
+	@ResponseBody
+	public String getNutritionalDietList(Pagination pagination) {
+		return newsService.NutritionalDietListPagination(pagination);
+	}
+
+	@RequestMapping("/getNutritionalDietInfo")
+	@ResponseBody
+	public String getNutritionalDietInfo(String id) {
+		return newsService.NutritionalDietInfoById(id);
+	}
+		// 官网首页 ：动态新闻查询，日常新闻 
+	@RequestMapping("/findNewsDaily")
+	@ResponseBody
+	public String findNewsDaily() throws Exception{
+		//id:日常新闻的ID
+		String data=newsService.findNewsDaily("66419468d34411e7880a5254002ec43c");
+		return data;
+	}
+	@RequestMapping("/findNewsInformation")
+	public String findNewsInformation(HttpServletRequest request,String id){
+		NewsExpand newsExpand=newsService.findNewsExpandById(id);
+		Date date = newsExpand.getPostTime();
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date1=formatter.format(date);
+		newsExpand.setDate(date1);
+		request.setAttribute("news", newsExpand);
+		return "offical_website/news";
+	}
+
 }

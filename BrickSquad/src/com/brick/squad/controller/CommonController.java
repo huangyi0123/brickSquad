@@ -26,6 +26,7 @@ import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
+import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
@@ -36,6 +37,7 @@ import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.BusinessService;
 import com.brick.squad.service.HealthRecordsService;
 import com.brick.squad.service.LimitsService;
+import com.brick.squad.service.NewsService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
@@ -58,6 +60,9 @@ public class CommonController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
+	@Autowired
+	@Qualifier("newsService")
+	private NewsService newsService;
 
 	@RequestMapping("/toWebsiteTemplate")
 	public String toWebsiteTemplate(String type, HttpServletRequest request) {
@@ -87,8 +92,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal(HttpServletRequest request) {
+	public String toIndexModal(HttpServletRequest request)  {
 		request.setAttribute("url", "common/toIndex");
+		
 		return "frontEnd_manage/util/turn";
 	}
 
@@ -381,19 +387,45 @@ public class CommonController {
 	@RequestMapping("/toActivity_carousel")
 	public String toActivity_carousel(String type, HttpServletRequest request)
 			throws Exception {
-		if (type.equals("online_course")) {
-			ActivitiesAndPaginationExtend activitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-			activitiesAndPaginationExtend.setMovieTypeId("tiaowu");
-			activitiesAndPaginationExtend.setCurentPage(1);
-			activitiesAndPaginationExtend.setPageSize(6);
-			List<Activities> tiaowulistMovie = activitiesService
-					.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
+		// 精品课程
+		ActivitiesAndPaginationExtend topQualityCourseactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		topQualityCourseactivitiesAndPaginationExtend
+				.setMovieTypeId("fc4c57d6d25911e7880a5254002ec43c");
+		topQualityCourseactivitiesAndPaginationExtend.setCurentPage(1);
+		topQualityCourseactivitiesAndPaginationExtend.setPageSize(6);
+		List<Activities> topQualityCourselistMovie = activitiesService
+				.findActivitiesMovieByTypeId(topQualityCourseactivitiesAndPaginationExtend);
+		request.setAttribute("topQualityCourselistMovie",
+				topQualityCourselistMovie);
+		// 饮食健康
+		ActivitiesAndPaginationExtend dieteticHealthactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		dieteticHealthactivitiesAndPaginationExtend
+				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
+		dieteticHealthactivitiesAndPaginationExtend.setCurentPage(1);
+		dieteticHealthactivitiesAndPaginationExtend.setPageSize(6);
+		List<Activities> dieteticHealthlistMovie = activitiesService
+				.findActivitiesMovieByTypeId(dieteticHealthactivitiesAndPaginationExtend);
+		request.setAttribute("dieteticHealthlistMovie", dieteticHealthlistMovie);
+		// 运动健康
+		ActivitiesAndPaginationExtend sportsHealthactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		sportsHealthactivitiesAndPaginationExtend
+				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
+		sportsHealthactivitiesAndPaginationExtend.setCurentPage(1);
+		sportsHealthactivitiesAndPaginationExtend.setPageSize(6);
+		List<Activities> sportsHealthlistMovie = activitiesService
+				.findActivitiesMovieByTypeId(sportsHealthactivitiesAndPaginationExtend);
+		request.setAttribute("sportsHealthlistMovie", sportsHealthlistMovie);
+		// 修身养性
+		ActivitiesAndPaginationExtend selfCultivationactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		selfCultivationactivitiesAndPaginationExtend
+				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
+		selfCultivationactivitiesAndPaginationExtend.setCurentPage(1);
+		sportsHealthactivitiesAndPaginationExtend.setPageSize(6);
+		List<Activities> selfCultivationlistMovie = activitiesService
+				.findActivitiesMovieByTypeId(selfCultivationactivitiesAndPaginationExtend);
+		request.setAttribute("selfCultivationlistMovie",
+				selfCultivationlistMovie);
 
-			request.setAttribute("tiaowulistMovie", tiaowulistMovie);
-		}
-		if (type.equals("offline_course")) {
-
-		}
 		request.setAttribute("type", type);
 		return "offical_website/activity";
 	}
@@ -420,14 +452,23 @@ public class CommonController {
 		request.setAttribute("relatedRecommendation", relatedRecommendation);
 		// 相关推荐等查询都为空的时候去根据类型查询几条填充内容
 		ActivitiesAndPaginationExtend activitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		activitiesAndPaginationExtend.setMovieTypeId(activitiesMoviePAth.getTypeId());
+		activitiesAndPaginationExtend.setMovieTypeId(activitiesMoviePAth
+				.getTypeId());
 		activitiesAndPaginationExtend.setCurentPage(1);
 		activitiesAndPaginationExtend.setPageSize(3);
 		List<Activities> listMovie = activitiesService
 				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
 
 		request.setAttribute("listMovie", listMovie);
+		
 		return "offical_website/vedio-details";
 	}
+	@RequestMapping("/toLife")
+	public String toLife(HttpServletRequest request,String type) {
+		request.setAttribute("type", type);
+		
+		return "offical_website/life";
+	}
 
+	
 }

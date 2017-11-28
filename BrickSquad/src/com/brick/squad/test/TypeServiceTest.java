@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.brick.squad.expand.TypeExpand;
+import com.brick.squad.mapper.UserVedioMapper;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.util.JunitClassRunner;
