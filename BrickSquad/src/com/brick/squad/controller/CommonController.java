@@ -470,5 +470,8 @@ public class CommonController {
 		return "offical_website/life";
 	}
 
-	
+	@RequestMapping("/toHome_Data_Analysis")
+	public String toHome_Data_Analysis() {
+		return "backstage_managed/jsp/home-data/home-data-analysis";
+	}
 }

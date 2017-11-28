@@ -208,17 +208,39 @@ function userVedioList(curentPage, pageSize) {
 			});
 }
 function userVedioInfo(id) {
+	$
+			.ajax({
+				url : 'userVedio/findUserVedioById?id=' + id,
+				success : function(data) {
+					data = JSON.parse(data);
+					$('.pager').hide();
+					$('.aboutus-use').hide();
+					$(".yhsp").show();
+					$("#yhsp_title").html(data.title);
+					$("#yhsp_user").html(data.userId);
+					$("#yhsp_vedio")
+							.html(
+									'<embed style="margin-top: 20px;text-align: center;" width="100%" height="350px" src="'
+											+ data.vediopath + '">');
+					$("#yhsp_postTime").html(data.posttime);
+				}
+			});
+}
+function Feedback() {
+	var content = $("#yhfk_content").val();
+	if (content.trim() == "") {
+		alert("内容不能为空");
+		return;
+	}
 	$.ajax({
-		url : 'userVedio/findUserVedioById?id=' + id,
-		success : function(data) {
-			data = JSON.parse(data);
-			$('.pager').hide();
-			$('.aboutus-use').hide();
-			$(".yhsp").show();
-			$("#yhsp_title").html(data.title);
-			$("#yhsp_user").html(data.userId);
-			$("#yhsp_vedio").html('<embed style="margin-top: 20px;text-align: center;" width="100%" height="350px" src="'+data.vediopath+'">');
-			$("#yhsp_postTime").html(data.posttime);
+		url : 'feedback/insertFeedback',
+		data : {
+			"content" : content
+		},
+		type : 'post',
+		success:function(data){
+			alert("反馈成功");
+			var content = $("#yhfk_content").val("");
 		}
 	});
 }

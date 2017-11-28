@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -162,22 +162,26 @@
 				</div>
 				<div class="aboutus-join">
 					<div style="width: 70%; margin: 70px auto;">
-						<h1 style="font-size: 30px;text-align: center;">用户反馈</h1>
-						<form action="" class="layui-form" style="margin-top: 30px;">
-							<div class="layui-form-item layui-form-text">
-								<label class="layui-form-label">文本域</label>
-								<div class="layui-input-block">
-									<textarea placeholder="请输入内容" class="layui-textarea" rows="9"></textarea>
+						<h1 style="font-size: 30px;text-align: center; margin-bottom: 30px">用户反馈</h1>
+						<c:if test="${user ne null }">
+							<form action="" class="layui-form" style="margin-top: 30px;">
+								<div class="layui-form-item layui-form-text">
+									<label class="layui-form-label">文本域</label>
+									<div class="layui-input-block">
+										<textarea id="yhfk_content" placeholder="请输入内容" class="layui-textarea" rows="9"></textarea>
+									</div>
 								</div>
-							</div>
-							<div class="layui-form-item">
-								<div class="layui-input-block">
-									<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
-									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+								<div class="layui-form-item">
+									<div class="layui-input-block">
+										<button class="layui-btn" onclick="Feedback()" type="button" lay-submit="" lay-filter="demo1">立即提交</button>
+										<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+									</div>
 								</div>
-							</div>
-
-						</form>
+							</form>
+						</c:if>
+						<c:if test="${user eq null }">
+							<h1>请先登录</h1>
+						</c:if>
 					</div>
 				</div>
 
@@ -263,9 +267,7 @@
 						视频来源：
 						<span id="yhsp_user"></span>
 					</span>
-					<div id="yhsp_vedio">
-						
-					</div>
+					<div id="yhsp_vedio"></div>
 					<span style="display:block; margin-top:20px; text-align: right" id="yhsp_postTime"></span>
 				</div>
 			</div>

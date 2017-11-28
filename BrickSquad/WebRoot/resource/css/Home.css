@@ -1,0 +1,227 @@
+@CHARSET "UTF-8";
+
+.home_body {
+	width: 100%;
+	height: 1100px;
+	background: #F3F3F4;
+}
+
+/* ---------音视频子系统封堵量模块----------- */
+
+.home1 {
+	width: 100%;
+	height: 500px;
+}
+
+/* .panel_1 {
+	width: 47%;
+	height: 500px;
+	float: left;
+	background: white;
+	margin-left: 25px;
+	overflow: hidden;
+	border: 1px solid red;
+} */
+
+.panel_header_1 {
+	width: 100%;
+	border-bottom: #C2C2C2 1px solid;
+	line-height: 45px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: white;
+}
+
+.home_1 {
+	width: 100%;
+	height: 400px;
+	float: left;
+	margin-top: 2px;
+	background-color: white;
+}
+/*时间范围的下拉框  */
+.item_1 {
+	width: 50%;
+	height: 50px;
+	float: left;
+}
+
+.item_1 label {
+	display: block;
+	width:100px;
+	line-height: 30px;
+	float: left;
+	text-align: center;
+}
+
+.item_1 input {
+	width: 190px;
+	display: block;
+	height: 40px;
+	margin-top: -45px;
+}
+
+.item_1_1 {
+	width: 250px;
+	margin-left: 100px;
+}
+/*配置类型的下拉框  */
+.item_2 {
+	width: 50%;
+	height: 50px;
+	margin-left: 300px;
+	margin-top: -67px;
+	float: left;
+}
+
+.item_2 label {
+	display: block;
+	width:100px;
+	line-height: 30px;
+	float: left;
+	text-align: center;
+}
+
+.item_2 input {
+	width: 190px;
+	display: block;
+	height: 40px;
+	margin-top: -43px;
+}
+
+.item_2_1 {
+	width: 250px;
+	margin-left: 100px;
+}
+
+/* .panel_2 {
+	width: 47%;
+	height: 500px;
+	float: right;
+	background: white;
+	margin-top: -500px;
+	margin-right: 25px;
+	overflow: hidden;
+	border: 1px solid red;
+} */
+
+.panel_header_2 {
+	width: 100%;
+	float: left;
+	border-bottom: #C2C2C2 1px solid;
+	line-height: 45px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: white;
+}
+/* ----------------P2SP子系统封堵量模块---------------- */
+.home_2 {
+	width: 100%;
+	height: 400px;
+	float: right;
+	margin-top: 2px;
+	background-color: white;
+}
+
+/* .panel_3 {
+	width: 96.2%;
+	height: 500px;
+	float: right;
+	background: white;
+	margin-top: -600px;
+	margin-left: 25px;
+	margin-right: 25px;
+	overflow: hidden;
+	border: 1px solid red;
+} */
+
+.panel_header_3 {
+	width: 100%;
+	float: left;
+	border-bottom: #C2C2C2 1px solid;
+	line-height: 45px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: white;
+}
+
+/* ------------------配置日志总数量模块---------------- */
+.home_3 {
+	width: 100%;
+	height: 400px;
+	float: right;
+	background-color: white;
+}
+
+.item_3 label {
+	display: block;
+	width:100px;
+	line-height: 30px;
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.item_3 input {
+	width: 190px;
+	display: block;
+	height: 40px;
+	margin-top: 5px;
+}
+
+.item_3_1 {
+	width: 250px;
+	margin-left: -10px;
+}
+
+.item_4 label {
+	display: block;
+	width:100px;
+	line-height: 30px;
+	float: left;
+	margin-left: 300px;
+	margin-top: -65px;
+	text-align: center;
+}
+
+.item_4 input {
+	width: 190px;
+	display: block;
+	height: 40px;
+	margin-top: -60px;
+}
+
+.item_4_1 {
+	width: 250px;
+	margin-left: 405px;
+}
+
+/* ---------------音视频子系统封堵量----------------- */
+#main_1 {
+	width: 600px;
+	height: 300px;
+	margin-top: 40px;
+}
+
+/* ---------------P2SP子系统封堵量----------------- */
+#main_2 {
+	width: 600px;
+	height: 300px;
+	margin-top: 40px;
+}
+
+/* ------------------配置日志总数量------------------- */
+#main_3 {
+	width: 1250px;
+	height: 300px;
+	margin-top:40px;
+}
+.title-icon ul{
+	float: right;
+	margin: 0;
+}
+.title-icon ul li{
+	float: left;
+	margin-left: 20px;
+}

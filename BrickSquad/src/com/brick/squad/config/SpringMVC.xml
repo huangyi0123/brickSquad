@@ -99,6 +99,7 @@
 			<mvc:exclude-mapping path="/videoComment/updatePraiseAmout" />
 			<mvc:exclude-mapping path="/videoComment/updateBelittleAmout" />
 			<mvc:exclude-mapping path="/userVedio/**"/>
+			<mvc:exclude-mapping path="/common/toHome_Data_Analysis" />
 			<bean class="com.brick.squad.interceptor.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>
