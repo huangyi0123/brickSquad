@@ -86,18 +86,12 @@ public class LeFortServiceController {
 		return "offical_website/server-template";
 	}
 
-	
-	
-	
-	
-	
-	
+
 	@RequestMapping("/findInformation")
 	@ResponseBody
 	public String findInformation(String type,HttpServletRequest request,String id) throws Exception {
 		request.setAttribute("type", type);
 		Activities activities=activitiesService.findActivitiesById(id);
-
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(Date.class,
 				new JsonDateValueProcessor());
