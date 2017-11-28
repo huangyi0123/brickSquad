@@ -52,6 +52,7 @@
 		class="com.brick.squad.service.impl.OnlineParticipationInfoServiceImpl"></bean>
 	<bean name="videoCommentService" class="com.brick.squad.service.impl.VideoCommentServiceImpl"></bean>
 	<bean name="userVedioService" class="com.brick.squad.service.impl.UserVedioServiceImpl" />
+	<bean name="feedbackService" class="com.brick.squad.service.impl.FeedbackServiceImpl" />
 </beans>
 
 
