@@ -388,7 +388,7 @@ public class CommonController {
 	public String toActivity_carousel(String type, HttpServletRequest request)
 			throws Exception {
 		// 精品课程
-		ActivitiesAndPaginationExtend topQualityCourseactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		/*ActivitiesAndPaginationExtend topQualityCourseactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
 		topQualityCourseactivitiesAndPaginationExtend
 				.setMovieTypeId("fc4c57d6d25911e7880a5254002ec43c");
 		topQualityCourseactivitiesAndPaginationExtend.setCurentPage(1);
@@ -425,7 +425,7 @@ public class CommonController {
 				.findActivitiesMovieByTypeId(selfCultivationactivitiesAndPaginationExtend);
 		request.setAttribute("selfCultivationlistMovie",
 				selfCultivationlistMovie);
-
+*/
 		request.setAttribute("type", type);
 		return "offical_website/activity";
 	}

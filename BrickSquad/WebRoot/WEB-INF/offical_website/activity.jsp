@@ -25,6 +25,10 @@
 	$(function() {
 		var type = '${type}';
 		init(type);
+		getTopQualityCourselistMovieByPagination(1, 6);
+		getdieteticHealthlistMovieByPagination(1, 6);
+		getsportsHealthlistMovieByPagination(1, 6);
+		getselfCultivationlistMovieByPagination(1, 6);
 	});
 	function openOnlineParticipation() {
 		$("#centent").children().hide();
@@ -127,22 +131,10 @@
 					<div class="activity_excellent_course">
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">精品课程</label>
-						<a href="#"
-							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<c:forEach var="movie" items="${topQualityCourselistMovie }">
-									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }"
-											class="act_bg"><img alt=""
-											src="resource/image/3736651_1426063184096_800x600.jpg">
-											<img class="act_play" alt="" src="resource/image/play.png">
-										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
-											style="margin-left: 210px;margin-top: -15px;"><font
-											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
-									</div>
-								</c:forEach>
-							</div>
+							<div class="layui-row" id="topQualityCourselistMovie"><label>数据加载中。。。。。</label></div>
+							<div id="topQualityCourselistMoviepager"
+								style="text-align: center;"></div>
 						</div>
 
 					</div>
@@ -153,22 +145,12 @@
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">饮食健康</label>
-						<a href="#"
-							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<c:forEach var="movie" items="${dieteticHealthlistMovie }">
-									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }"
-											class="act_bg"><img alt=""
-											src="resource/image/3736651_1426063184096_800x600.jpg">
-											<img class="act_play" alt="" src="resource/image/play.png">
-										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
-											style="margin-left: 210px;margin-top: -15px;"><font
-											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
-									</div>
-								</c:forEach>
+							<div class="layui-row" id="dieteticHealthlistMovie">
+							<label>数据加载中。。。。。</label>
 							</div>
+							<div id="dieteticHealthlistMoviepager"
+								style="text-align: center;"></div>
 						</div>
 
 
@@ -179,22 +161,9 @@
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">运动健康</label>
-						<a href="#"
-							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<c:forEach var="movie" items="${sportsHealthlistMovie }">
-									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }"
-											class="act_bg"><img alt=""
-											src="resource/image/3736651_1426063184096_800x600.jpg">
-											<img class="act_play" alt="" src="resource/image/play.png">
-										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
-											style="margin-left: 210px;margin-top: -15px;"><font
-											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
-									</div>
-								</c:forEach>
-							</div>
+							<div class="layui-row" id="sportsHealthlistMovie"><label>数据加载中。。。。。</label></div>
+							<div id="sportsHealthlistMoviepager" style="text-align: center;"></div>
 						</div>
 
 
@@ -205,22 +174,10 @@
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 10px;margin-left: 28px;"></div>
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">
-							修身养性</label> <a href="#"
-							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
+							修身养性</label>
 						<div class="act_exce_list">
-							<div class="layui-row">
-								<c:forEach var="movie" items="${selfCultivationlistMovie }">
-									<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
-										<a href="common/toVedio_Details?id=${movie.id }"
-											class="act_bg"><img alt=""
-											src="resource/image/3736651_1426063184096_800x600.jpg">
-											<img class="act_play" alt="" src="resource/image/play.png">
-										</a><label style="font-size: 18px;">【${movie.name }】</label> <label
-											style="margin-left: 210px;margin-top: -15px;"><font
-											style="color: #F7A01F;">${movie.clickAmount }</font>人学习</label>
-									</div>
-								</c:forEach>
-							</div>
+							<div class="layui-row" id="selfCultivationlistMovie"><label>数据加载中。。。。。</label></div>
+							<div id="selfCultivationlistMoviepager" style="text-align: center;"></div>
 						</div>
 					</div>
 

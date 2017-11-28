@@ -90,7 +90,6 @@
 				path="/onlineParticipationInfo/userInsertOnlineParticipationInfo" />
 			<mvc:exclude-mapping path="/type/**" />
 			<mvc:exclude-mapping path="/activities/**" />
-
 			<mvc:exclude-mapping path="/common/toActivity_carousel" />
 			<mvc:exclude-mapping path="/common/toVedio_Details" />
 			<mvc:exclude-mapping path="/LeFortServiceController/**" />
