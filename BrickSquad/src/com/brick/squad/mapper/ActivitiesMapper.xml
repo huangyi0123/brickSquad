@@ -11,10 +11,12 @@
 		endTime,user_id
 		userId,number,movie,click_amount
 		clickAmount from activities where
-		type_id=#{typeId} and id not in (#{id}) 
-		and centent REGEXP #{centent} or name REGEXP #{name}
+		type_id=#{typeId} and id not in (#{id})
+		and centent REGEXP #{centent}
+		or name REGEXP #{name}
 		ORDER BY
-		click_amount DESC
+		click_amount
+		DESC
 		LIMIT 0 ,3
 	</select>
 	<!--根据视频类型id 查询当前类型点击量最多的前三条 -->
@@ -35,7 +37,16 @@
 		update
 		activities set click_amount=click_amount+1 where id=#{id}
 	</update>
-	<!--根据类型ID查询视频路径，用于官网线上视频 -->
+	<!--根据类型ID查询视频路径集合数量，用于官网线上视频 -->
+	<select id="findActivitiesMovieCountTotalByTypeId" resultType="int"
+		parameterType="com.brick.squad.expand.ActivitiesAndPaginationExtend">
+		select count(*) from activities
+		where
+		movie is not null
+		and
+		type_id=#{movieTypeId}
+	</select>
+	<!--根据类型ID查询视频路径集合，用于官网线上视频 -->
 	<select id="findActivitiesMovieByTypeId" resultType="activities"
 		parameterType="com.brick.squad.expand.ActivitiesAndPaginationExtend">
 		select id,name,centent,type_id typeId,start_time
@@ -45,6 +56,8 @@
 		where
 		movie is not null and
 		type_id=#{movieTypeId}
+		ORDER BY
+		click_amount desc
 		limit
 		#{skipNum},#{takeNum}
 	</select>

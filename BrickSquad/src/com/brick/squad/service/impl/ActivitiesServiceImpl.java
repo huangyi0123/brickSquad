@@ -20,6 +20,7 @@ import com.brick.squad.mapper.UserMapper;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.Filter;
+import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -351,15 +352,35 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	}
 
 	@Override
+	public String getActivitieslistMovieByPagination(
+			ActivitiesAndPaginationExtend activitiesAndPaginationExtend)
+			throws Exception {
+		GridManagerList<Activities> list = new GridManagerList<Activities>();
+		List<Activities> listActivities = activitiesMapper
+				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
+		for (Activities activities : listActivities) {
+			activities = (Activities) Filter.filterObject(activities);
+		}
+		list.setData(listActivities);
+		list.setTotals(activitiesMapper
+				.findActivitiesMovieCountTotalByTypeId(activitiesAndPaginationExtend));
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy年MM月dd日hh:mm:ss"));
+		JSONArray jsonArray = JSONArray.fromObject(list, jsonConfig);
+		return jsonArray.toString();
+	}
+
+	@Override
 	public String findOfficalActivitiesById(String id) throws Exception {
 		Activities activities = activitiesMapper.findActivitiesById(id);
 		activities = (Activities) Filter.filterObject(activities);
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(Date.class,
 				new JsonDateValueProcessor());
-		JSONArray jsonArray=new JSONArray();
-		String data=jsonArray.fromObject(activities,jsonConfig).toString();
-		return null;
+		JSONArray jsonArray = new JSONArray();
+		String data = jsonArray.fromObject(activities, jsonConfig).toString();
+		return data;
 	}
 
 }

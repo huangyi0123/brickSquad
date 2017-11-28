@@ -389,45 +389,6 @@ public class CommonController {
 	@RequestMapping("/toActivity_carousel")
 	public String toActivity_carousel(String type, HttpServletRequest request)
 			throws Exception {
-		// 精品课程
-		ActivitiesAndPaginationExtend topQualityCourseactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		topQualityCourseactivitiesAndPaginationExtend
-				.setMovieTypeId("fc4c57d6d25911e7880a5254002ec43c");
-		topQualityCourseactivitiesAndPaginationExtend.setCurentPage(1);
-		topQualityCourseactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> topQualityCourselistMovie = activitiesService
-				.findActivitiesMovieByTypeId(topQualityCourseactivitiesAndPaginationExtend);
-		request.setAttribute("topQualityCourselistMovie",
-				topQualityCourselistMovie);
-		// 饮食健康
-		ActivitiesAndPaginationExtend dieteticHealthactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		dieteticHealthactivitiesAndPaginationExtend
-				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
-		dieteticHealthactivitiesAndPaginationExtend.setCurentPage(1);
-		dieteticHealthactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> dieteticHealthlistMovie = activitiesService
-				.findActivitiesMovieByTypeId(dieteticHealthactivitiesAndPaginationExtend);
-		request.setAttribute("dieteticHealthlistMovie", dieteticHealthlistMovie);
-		// 运动健康
-		ActivitiesAndPaginationExtend sportsHealthactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		sportsHealthactivitiesAndPaginationExtend
-				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
-		sportsHealthactivitiesAndPaginationExtend.setCurentPage(1);
-		sportsHealthactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> sportsHealthlistMovie = activitiesService
-				.findActivitiesMovieByTypeId(sportsHealthactivitiesAndPaginationExtend);
-		request.setAttribute("sportsHealthlistMovie", sportsHealthlistMovie);
-		// 修身养性
-		ActivitiesAndPaginationExtend selfCultivationactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		selfCultivationactivitiesAndPaginationExtend
-				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
-		selfCultivationactivitiesAndPaginationExtend.setCurentPage(1);
-		sportsHealthactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> selfCultivationlistMovie = activitiesService
-				.findActivitiesMovieByTypeId(selfCultivationactivitiesAndPaginationExtend);
-		request.setAttribute("selfCultivationlistMovie",
-				selfCultivationlistMovie);
-
 		request.setAttribute("type", type);
 		return "offical_website/activity";
 	}
