@@ -58,6 +58,16 @@
 		where
 		id=#{id}
 	</select>
+		<select id="findOfficalActivitiesById" resultType="activities"
+		parameterType="String">
+		select id,name,centent,type_id typeId,start_time
+		startTime,end_time
+		endTime,user_id userId,number,movie ,click_amount
+		clickAmount from activities
+		where
+		id=#{id}
+	</select>
+	
 	<!-- 查询活动名称 ,用于首页的报名回显 -->
 	<select id="findActivityName" resultType="activities">
 		SELECT id,name FROM

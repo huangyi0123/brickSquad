@@ -100,4 +100,5 @@ public interface ActivitiesMapper {
 
 	/** 统计总记录数 */
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
+	public Activities findOfficalActivitiesById(String id);
 }
