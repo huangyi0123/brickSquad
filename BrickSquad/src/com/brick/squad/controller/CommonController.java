@@ -402,13 +402,27 @@ public class CommonController {
 	@RequestMapping("/toActivity_carousel")
 	public String toActivity_carousel(String type, HttpServletRequest request,PageBeanUtil pageBean)
 			throws Exception {
-		//线下活动预约
+		//线下跳舞活动预约
 		int page=pageBean.getPage();
 		String typeId=pageBean.getTypeId();
-		typeId="10ed2648d25a11e7880a5254002ec43c";
+		typeId="tiaowu";
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
+		//线下麻将活动预约
+		int page1=pageBean.getPage();
+		String typeId1=pageBean.getTypeId();
+		typeId1="majiang";
+		PageBeanUtil<Activities> pageBeanUtil1=activitiesService.findServerWebsiteTemplate(page1,typeId1);
+		request.setAttribute("pageBean1", pageBeanUtil1);
+		request.setAttribute("serverWebsiteTemplate1", "serverWebsiteTemplate1");
+		//线下棋牌活动预约
+		int page2=pageBean.getPage();
+		String typeId2=pageBean.getTypeId();
+		typeId1="qipai";
+		PageBeanUtil<Activities> pageBeanUtil2=activitiesService.findServerWebsiteTemplate(page2,typeId2);
+		request.setAttribute("pageBean2", pageBeanUtil2);
+		request.setAttribute("serverWebsiteTemplate2", "serverWebsiteTemplate2");
 		request.setAttribute("type", type);
 		return "offical_website/activity";
 		

@@ -564,7 +564,8 @@ function initInfor() {
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<img src="resource/image/web.png" alt=" " />
+						<a href="common/toLife?type=aboutus-intro">
+							<img src="resource/image/web.png" alt=" " /></a>
 						</span>
 					</h4>
 					<p>生活</p>
@@ -572,7 +573,8 @@ function initInfor() {
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<img src="resource/image/credit.png" alt=" " />
+						<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
+							<img src="resource/image/credit.png" alt=" " /></a>
 						</span>
 					</h4>
 					<p>服务</p>
@@ -580,7 +582,8 @@ function initInfor() {
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<img src="resource/image/security.png" alt=" " />
+						<a href="common/toActivity_carousel?type=online_course">
+							<img src="resource/image/security.png" alt=" " /></a>
 						</span>
 					</h4>
 					<p>活动</p>
@@ -666,9 +669,10 @@ function initInfor() {
 		</div>
 	</div>
 	<div class="content-bottom-two">
+		
 		<div class="col-md-6 content-left text-center imagess">
-			<img src="resource/image/bf.png" alt=""
-				style="position:absolute;width:10%;z-index:1;top:45%;left:45%;" />
+			<a href="common/toActivity_carousel?type=online_course"><img src="resource/image/bf.png" alt=""
+				style="position:absolute;width:10%;z-index:1;top:45%;left:45%;" /></a>
 			<img src="resource/image/bbb1_left.png" alt="" style="z-index:0;position:relative" />
 		</div>
 		<div class="col-md-6 content-right text-center imagess">
@@ -705,69 +709,69 @@ function initInfor() {
 						</li>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#">
+					<a href="common/toActivity_carousel?type=online_course">
 						<h3>乐堡活动</h3>
 					</a>
 					<ul>
 						<li>
-							<a href="#">线上直播</a>
+							<a href="common/toActivity_carousel?type=online_course">线上直播</a>
 						</li>
 						<li>
-							<a href="#">线下活动</a>
+							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#">
+					<a href="common/toLife?type=aboutus-intro">
 						<h3>乐堡生活</h3>
 					</a>
 					<ul>
 						<li>
-							<a href="#">营养膳食</a>
+							<a href="common/toLife?type=aboutus-intro">营养膳食</a>
 						</li>
 						<li>
-							<a href="#">用户视频</a>
+							<a href="common/toLife?type=aboutus-use">用户视频</a>
 						</li>
 						<li>
-							<a href="#">用户反馈</a>
+							<a href="common/toLife?type=aboutus-join">用户反馈</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#">
+					<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
 						<h3>乐堡服务</h3>
 					</a>
 					<ul>
 						<li>
-							<a href="#">体检预约</a>
+							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 						</li>
 						<li>
-							<a href="#">生活助手</a>
+							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 						</li>
 						<li>
-							<a href="#">独立生活</a>
+							<a href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 						</li>
 						<li>
-							<a href="#">康复协助</a>
+							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#">
+					<a href="common/toWebsiteTemplate?type=aboutus-intro">
 						<h3>关于乐堡</h3>
 					</a>
 					<ul>
 						<li>
-							<a href="#">乐堡简介</a>
+							<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
 						</li>
 						<li>
-							<a href="#">快速上手</a>
+							<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 						</li>
 						<li>
-							<a href="#">加入我们</a>
+							<a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
 						</li>
 						<li>
-							<a href="#">联系我们</a>
+							<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 						</li>
 					</ul>
 				</div>

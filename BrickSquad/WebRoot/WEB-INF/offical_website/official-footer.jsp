@@ -23,52 +23,100 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="footer-top">
+	<div class="footer-top">
 		<div class="container">
 			<div class="foo-grids">
 				<div class="col-md-3 foo-grid" style="margin-left: 50px;">
-					<a href="#"><h3>首页</h3></a>
+					<a href="#">
+						<h3>首页</h3>
+					</a>
 					<ul>
-						<li><a href="#"><i class="fa fa-qq"></i></a></li>
-						<li><a href="#">Aircel</a></li>
-						<li><a href="#">BSNL</a></li>
-						<li><a href="#">Idea</a></li>
+						<li>
+							<a href="#">
+								<i class="fa fa-qq"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">Aircel</a>
+						</li>
+						<li>
+							<a href="#">BSNL</a>
+						</li>
+						<li>
+							<a href="#">Idea</a>
+						</li>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡活动</h3></a>
+					<a href="common/toActivity_carousel?type=online_course">
+						<h3>乐堡活动</h3>
+					</a>
 					<ul>
-						<li><a href="#">线上直播</a></li>
-						<li><a href="#">线下活动</a></li>
+						<li>
+							<a href="common/toActivity_carousel?type=online_course">线上直播</a>
+						</li>
+						<li>
+							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡生活</h3></a>
+					<a href="common/toLife?type=aboutus-intro">
+						<h3>乐堡生活</h3>
+					</a>
 					<ul>
-						<li>营养膳食</li>
-						<li>用户视频</li>
-						<li>用户反馈</li>
+						<li>
+							<a href="common/toLife?type=aboutus-intro">营养膳食</a>
+						</li>
+						<li>
+							<a href="common/toLife?type=aboutus-use">用户视频</a>
+						</li>
+						<li>
+							<a href="common/toLife?type=aboutus-join">用户反馈</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡服务</h3></a>
+					<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
+						<h3>乐堡服务</h3>
+					</a>
 					<ul>
-						<li><a href="#">体检预约</a></li>
-						<li><a href="#">生活助手</a></li>
-						<li><a href="#">独立生活</a></li>
-						<li><a href="#">康复协助</a></li>
+						<li>
+							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+						</li>
+						<li>
+							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+						</li>
+						<li>
+							<a href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+						</li>
+						<li>
+							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>关于乐堡</h3></a>
+					<a href="common/toWebsiteTemplate?type=aboutus-intro">
+						<h3>关于乐堡</h3>
+					</a>
 					<ul>
-						<li><a href="#">乐堡简介</a></li>
-						<li><a href="#">快速上手</a></li>
-						<li><a href="#">加入我们</a></li>
-						<li><a href="#">联系我们</a></li>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
+						</li>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
+						</li>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
+						</li>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#"><h3>乐堡咨询</h3></a>
+					<a href="#">
+						<h3>乐堡咨询</h3>
+					</a>
 
 				</div>
 				<div class="clearfix"></div>

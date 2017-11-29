@@ -158,18 +158,18 @@ function returnIn() {
 	$("#findInformationArtivites").hide();
 	$(".offline_course").show();
 } 
-layui.use('from',function(){
+/* layui.use('from',function(){
 	var form = layui.form;
 	form.on('select(parent)',function(data){
 		console.log(data.id);
-		/* $(".offline_course").html('');
-		$(".offline_course").show(); */
+		 $(".offline_course").html('');
+		$(".offline_course").show(); 
 		$.ajax({
 			url:'common/toActivity_carousel',
 			data:{"pageBean.typeId":data.id}
 	});
 });	
-});
+}); */
 
 </script>
 </head>
@@ -252,28 +252,21 @@ layui.use('from',function(){
 					</div>
 
 				</div>
-				<!----------------------------------- 线下活动 ---------------------------------->
+				<!----------------------------------- 线下跳舞活动 ---------------------------------->
 				<div class="offline_course">
 					<div class=" Lecture">
 						<label
-							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">活动中心</label>
+							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">跳舞活动中心</label>
 						<!-- <a href="#"
 							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a> -->
 						
-						<div class="layui-form-item" style="float:right;margin-right: 20px;" >
-						<label class="layui-form-label">选择活动类型：</label>
-						<div class="layui-input-inline">
-						<select id="parentid" lay-filter="parent"">
-						<option value="">选择活动类型</option>
-						</select>
-						</div>
-						</div>
+
 						<ul style="margin-left:6%;margin-top:5%">
 							<c:forEach var="activites" items="${pageBean.list }">
 								<li><span style="font-size:1.2em;"><a
 										href="javascript:;"
 										onclick="findInformation('${activites.id}')" id="yuyuea"
-										style="color:#7C9A60">【${activites.name }】夏日星堡消暑音乐大会</a></span>
+										style="color:#7C9A60">【${activites.name }】</a></span>
 									<ul style="margin-top:2%;width:100%">
 										<li><span style="width:100%">${activites.centent }
 												<span style="width:100%;float:right;"><a
@@ -336,7 +329,162 @@ layui.use('from',function(){
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
 					</div>
 				</div>
+				<!----------------------------------- 线下麻将活动 ---------------------------------->
+				<div class="offline_course">
+					<div class=" Lecture">
+						<label
+							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">麻将活动中心</label>
+						<!-- <a href="#"
+							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a> -->
+						
+
+						<ul style="margin-left:6%;margin-top:5%">
+							<c:forEach var="activites" items="${pageBean1.list}">
+								<li><span style="font-size:1.2em;"><a
+										href="javascript:;"
+										onclick="findInformation('${activites.id}')" id="yuyuea"
+										style="color:#7C9A60">【${activites.name }】</a></span>
+									<ul style="margin-top:2%;width:100%">
+										<li><span style="width:100%">${activites.centent }
+												<span style="width:100%;float:right;"><a
+													href="javascript:;" id="xiangqing"
+													onclick="findInformation('${activites.id}')"
+													style="color:#7C9A60;float:right">查看详情>></a></span>
+										</span></li>
+									</ul></li>
+								<hr>
+							</c:forEach>
+							<c:if test="${serverWebsiteTemplate1=='serverWebsiteTemplate1' }">
+								<c:if test="${pageBean.totalCount==0}">
+									<center>
+										<span><a href="javascript:;">< 上一页</a></span> <input
+											type="text" value="1"
+											style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
+											;margin-left:20px;margin-right:20px;margin-top:20px;"
+											readonly="readonly"> <span><a
+											href="javascript:;">下一页 ></a></span>
+									</center>
+								</c:if>
+								<c:if test="${pageBean1.totalCount!=0}">
+									<c:if test="${pageBean1.page==1}">
+										<center>
+											<span><a href="javascript:;">< 上一页</a></span> <input
+												type="text" value="1"
+												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
+												readonly="readonly"> <span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean1.page+1}">下一页
+													></a></span>
+										</center>
+									</c:if>
+									<c:if
+										test="${pageBean1.totalPage!=pageBean1.page && pageBean1.page!=1}">
+										<center>
+											<span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page-1}"><
+													上一页</a></span> <input type="text" value="1"
+												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
+												readonly="readonly"> <span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page+1}">下一页
+													></a></span>
+										</center>
+									</c:if>
+									<c:if
+										test="${pageBean1.totalPage==pageBean1.page&& pageBean1.totalPage!=1}">
+										<center>
+											<span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean1.page-1}"><
+													上一页</a></span> <input type="text" value="1"
+												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
+												readonly="readonly"> <span><a
+												href="javascript:;">下一页 ></a></span>
+										</center>
+									</c:if>
+								</c:if>
+							</c:if>
+						</ul>
+						<div
+							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
+					</div>
+				</div>
+				<!----------------------------------- 线下棋牌活动 ---------------------------------->
+					<div class="offline_course">
+					<div class=" Lecture">
+						<label
+							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">棋牌活动中心</label>
+						<!-- <a href="#"
+							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a> -->
+						
+
+						<ul style="margin-left:6%;margin-top:5%">
+							<c:forEach var="activites" items="${pageBean2.list}">
+								<li><span style="font-size:1.2em;"><a
+										href="javascript:;"
+										onclick="findInformation('${activites.id}')" id="yuyuea"
+										style="color:#7C9A60">【${activites.name }】</a></span>
+									<ul style="margin-top:2%;width:100%">
+										<li><span style="width:100%">${activites.centent }
+												<span style="width:100%;float:right;"><a
+													href="javascript:;" id="xiangqing"
+													onclick="findInformation('${activites.id}')"
+													style="color:#7C9A60;float:right">查看详情>></a></span>
+										</span></li>
+									</ul></li>
+								<hr>
+							</c:forEach>
+							<c:if test="${serverWebsiteTemplate2=='serverWebsiteTemplate2' }">
+								<c:if test="${pageBean2.totalCount==0}">
+									<center>
+										<span><a href="javascript:;">< 上一页</a></span> <input
+											type="text" value="1"
+											style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
+											;margin-left:20px;margin-right:20px;margin-top:20px;"
+											readonly="readonly"> <span><a
+											href="javascript:;">下一页 ></a></span>
+									</center>
+								</c:if>
+								<c:if test="${pageBean2.totalCount!=0}">
+									<c:if test="${pageBean2.page==1}">
+										<center>
+											<span><a href="javascript:;">< 上一页</a></span> <input
+												type="text" value="1"
+												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
+												readonly="readonly"> <span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page+1}">下一页
+													></a></span>
+										</center>
+									</c:if>
+									<c:if
+										test="${pageBean2.totalPage!=pageBean2.page && pageBean2.page!=1}">
+										<center>
+											<span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page-1}"><
+													上一页</a></span> <input type="text" value="1"
+												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
+												readonly="readonly"> <span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page+1}">下一页
+													></a></span>
+										</center>
+									</c:if>
+									<c:if
+										test="${pageBean2.totalPage==pageBean2.page&& pageBean2.totalPage!=1}">
+										<center>
+											<span><a
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page-1}"><
+													上一页</a></span> <input type="text" value="1"
+												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
+												readonly="readonly"> <span><a
+												href="javascript:;">下一页 ></a></span>
+										</center>
+									</c:if>
+								</c:if>
+							</c:if>
+						</ul>
+						<div
+							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
+					</div>
+				</div>
 				<div id="findInformationArtivites"></div>
+				
 				
 				<div class="parti-online">
 					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
