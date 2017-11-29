@@ -419,7 +419,7 @@ public class CommonController {
 		//线下棋牌活动预约
 		int page2=pageBean.getPage();
 		String typeId2=pageBean.getTypeId();
-		typeId1="qipai";
+		typeId2="qipai";
 		PageBeanUtil<Activities> pageBeanUtil2=activitiesService.findServerWebsiteTemplate(page2,typeId2);
 		request.setAttribute("pageBean2", pageBeanUtil2);
 		request.setAttribute("serverWebsiteTemplate2", "serverWebsiteTemplate2");
