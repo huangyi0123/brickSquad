@@ -55,6 +55,8 @@
 						required="">
 					<span id="phone2" style="font-size: 10px; color: red;float: right;"></span>	
 				</div>
+				
+				
 				<div class="form-group text-left">
 					<div class="checkbox i-checks">
 						<label class="no-padding">
