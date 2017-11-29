@@ -98,4 +98,13 @@ public interface PersonalInformationMapper {
 	 */
 	public Map<String, Object> findPerByAge(Type type);
 
+	/**
+	 * 统计老人消费情况
+	 * 
+	 * @param type
+	 *            区域
+	 * @return 老人消费情况
+	 */
+	public Map<String, Object> consumptionSituation(Type type);
+
 }

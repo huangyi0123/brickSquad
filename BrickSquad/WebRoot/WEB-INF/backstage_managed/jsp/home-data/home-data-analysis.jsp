@@ -40,12 +40,16 @@
 			var cal = $(this).attr('val');
 			$(cal).hide();
 		});
-		// 基于准备好的dom，初始化echarts实例
+
 		main_1('');
+		main_2('');
 		layui.use('form', function() {
 			var form = layui.form;
 			form.on('select(region)', function(data) {
 				main_1(data.value);
+			});
+			form.on('select(regioncos)', function(data) {
+				main_2(data.value);
 			});
 		});
 	});
@@ -108,7 +112,7 @@
 				<div class="home_2">
 					<form action="" class="layui-form">
 						<div class="layui-inline">
-							<div class="layui-inline">
+							<!-- <div class="layui-inline">
 								<label class="layui-form-label" style="display: block;width: 100px">时间范围：</label>
 								<div class="layui-inline" style="width: 150px">
 									<select name="city" lay-verify="required">
@@ -121,16 +125,15 @@
 										<option value="4">冬季</option>
 									</select>
 								</div>
-							</div>
+							</div> -->
 							<div class="layui-inline">
 								<label class="layui-form-label" style="display: block;width: 100px">区域范围：</label>
 								<div class="layui-inline" style="width: 150px">
-									<select name="city" lay-verify="required">
-										<option value=""></option>
-										<option value="0">所有区域</option>
-										<option value="1">一公里内</option>
-										<option value="2">五公里内</option>
-										<option value="3">十公里内</option>
+									<select lay-filter="regioncos" name="city" lay-verify="required">
+										<option value="">所有分店</option>
+										<c:forEach items="${region }" var="a">
+											<option value="${a.id }">${a.name }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -138,33 +141,7 @@
 					</form>
 					<div id="main_2" style="width: 600px;height:300px;"></div>
 					<script type="text/javascript">
-						// 基于准备好的dom，初始化echarts实例
-						var myChart = echarts.init(document
-								.getElementById('main_2'));
-
-						// 指定图表的配置项和数据
-						var option = {
-							title : {
-								text : '消费量'
-							},
-							tooltip : {},
-							legend : {
-								data : [ '消费量' ]
-							},
-							xAxis : {
-								data : [ "500元以下", "500-999元", "1000-2999元",
-										"3000-5000元", "5000-9999元", "10000元及以上" ]
-							},
-							yAxis : {},
-							series : [ {
-								name : '消费量',
-								type : 'bar',
-								data : [ 5, 20, 36, 10, 10, 20 ]
-							} ]
-						};
-
-						// 使用刚指定的配置项和数据显示图表。
-						myChart.setOption(option);
+						
 					</script>
 				</div>
 			</div>
@@ -255,32 +232,7 @@
 								type : 'line',
 								stack : '总量',
 								data : [ 120, 132, 101, 134, 90, 230, 210 ]
-							},
-							/* {
-							    name:'联盟广告',
-							    type:'line',
-							    stack: '总量',
-							    data:[220, 182, 191, 234, 290, 330, 310]
-							},
-							{
-							    name:'视频广告',
-							    type:'line',
-							    stack: '总量',
-							    data:[150, 232, 201, 154, 190, 330, 410]
-							},
-							{
-							    name:'直接访问',
-							    type:'line',
-							    stack: '总量',
-							    data:[320, 332, 301, 334, 390, 330, 320]
-							},
-							{
-							    name:'搜索引擎',
-							    type:'line',
-							    stack: '总量',
-							    data:[820, 932, 901, 934, 1290, 1330, 1320]
-							} */
-							]
+							} ]
 						};
 						// 使用刚指定的配置项和数据显示图表。
 						myChart.setOption(option);
