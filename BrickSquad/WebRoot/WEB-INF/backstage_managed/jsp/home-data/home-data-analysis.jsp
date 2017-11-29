@@ -43,6 +43,7 @@
 
 		main_1('');
 		main_2('');
+		main_3('','');
 		layui.use('form', function() {
 			var form = layui.form;
 			form.on('select(region)', function(data) {
@@ -50,6 +51,9 @@
 			});
 			form.on('select(regioncos)', function(data) {
 				main_2(data.value);
+			});
+			form.on('select(regioncosarte)', function(data) {
+				main_3(data.value,'');
 			});
 		});
 	});
@@ -163,7 +167,7 @@
 				<div class="home_3">
 					<form action="" class="layui-form">
 						<div class="layui-inline">
-							<div class="layui-inline">
+							<!-- <div class="layui-inline">
 								<label class="layui-form-label" style="display: block;width: 100px">时间范围：</label>
 								<div class="layui-input-inline " style="width: 150px">
 									<select name="city" lay-verify="required">
@@ -175,73 +179,24 @@
 										<option value="4">冬季</option>
 									</select>
 								</div>
-							</div>
+							</div> -->
 							<div class="layui-inline">
 								<label class="layui-form-label" style="display: block;width: 100px">区域范围：</label>
 								<div class="layui-input-inline" style="width: 150px">
-									<select name="city" lay-verify="required">
-										<option value=""></option>
-										<option value="0">所有区域</option>
-										<option value="1">一公里内</option>
-										<option value="2">五公里内</option>
-										<option value="3">十公里内</option>
+									<select name="city" lay-filter="regioncosarte" lay-verify="required">
+										<option value="">所有分店</option>
+										<c:forEach items="${region }" var="a">
+											<option value="${a.id }">${a.name }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
 						</div>
 					</form>
 					<div id="main_3"></div>
-					<script type="text/javascript">
-						// 基于准备好的dom，初始化echarts实例
-						var myChart = echarts.init(document
-								.getElementById('main_3'));
-
-						// 指定图表的配置项和数据
-						var option = {
-							title : {
-								text : '产品销售总数量'
-							},
-							tooltip : {
-								trigger : 'axis'
-							},
-							legend : {
-								data : [ '销售量' ]
-							},
-							grid : {
-								left : '3%',
-								right : '4%',
-								bottom : '3%',
-								containLabel : true
-							},
-							toolbox : {
-								feature : {
-									saveAsImage : {}
-								}
-							},
-							xAxis : {
-								type : 'category',
-								boundaryGap : false,
-								data : [ '保健品', '药品', '衣服', '运动器械', '配饰', '周六',
-										'周日' ]
-							},
-							yAxis : {
-								type : 'value'
-							},
-							series : [ {
-								name : '产品销售量',
-								type : 'line',
-								stack : '总量',
-								data : [ 120, 132, 101, 134, 90, 230, 210 ]
-							} ]
-						};
-						// 使用刚指定的配置项和数据显示图表。
-						myChart.setOption(option);
-					</script>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	</script>
 </body>
 </html>

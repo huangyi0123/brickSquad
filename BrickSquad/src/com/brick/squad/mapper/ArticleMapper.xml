@@ -265,7 +265,8 @@
 	<select id="findOrderByMedicalInstrumentsDate" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-		FROM article a JOIN type t ON a.type_id=t.id WHERE t.parent_id=#{parentId}
+		FROM article
+		a JOIN type t ON a.type_id=t.id WHERE t.parent_id=#{parentId}
 		ORDER BY
 		a.shelfdate
 		DESC
@@ -275,7 +276,8 @@
 	<select id="findOrderByMedicalInstrumentsPop" parameterType="com.brick.squad.util.PageBeanUtil"
 		resultType="Article">
 		SELECT a.id,a.aname,a.image,a.price,a.describes
-		FROM article a JOIN type t ON a.type_id=t.id
+		FROM article
+		a JOIN type t ON a.type_id=t.id
 		JOIN order_details o ON
 		o.article_id=a.id
 		WHERE t.parent_id=#{parentId}
@@ -298,7 +300,8 @@
 
 	<!-- 查询最新上架商品总数 -->
 	<select id="findFrontTimeNumber" resultType="Integer">
-		select COUNT(*) from article
+		select COUNT(*) from
+		article
 
 	</select>
 
@@ -319,12 +322,15 @@
 	<select id="findSearchAllArticle" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		select
-		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		a.id,a.aname,a.price,a.image,a.describes
+		,COALESCE(nn.total,0)
 		totals
 		from article
-		a left join (select COALESCE(sum(number),0) total
+		a left join (select
+		COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
+		order_details group by
+		(article_id))
 		nn on
 		a.id=nn.article_id
 		LIMIT #{skli},#{take}
@@ -332,16 +338,20 @@
 	<select id="findSearchAllArticleSecond" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		select
-		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		a.id,a.aname,a.price,a.image,a.describes
+		,COALESCE(nn.total,0)
 		totals
 		from article
-		a left join (select COALESCE(sum(number),0) total
+		a left join (select
+		COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
+		order_details group by
+		(article_id))
 		nn on
 		a.id=nn.article_id
 		WHERE aname REGEXP #{s}
-		AND type_id=#{search_category}
+		AND
+		type_id=#{search_category}
 		LIMIT #{skli},#{take}
 	</select>
 
@@ -360,17 +370,21 @@
 		a.id=nn.article_id JOIN type t ON t.id=a.type_id
 		WHERE aname REGEXP #{s}
 		AND t.parent_id=#{search_category}
-		LIMIT #{skli},#{take}
+		LIMIT
+		#{skli},#{take}
 	</select>
 	<select id="findSearchAllArticleSecondYiLiaoSecond" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		select
-		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		a.id,a.aname,a.price,a.image,a.describes
+		,COALESCE(nn.total,0)
 		totals
 		from article
-		a left join (select COALESCE(sum(number),0) total
+		a left join (select
+		COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
+		order_details group by
+		(article_id))
 		nn on
 		a.id=nn.article_id JOIN type t ON t.id=a.type_id
 		WHERE
@@ -382,21 +396,25 @@
 		parameterType="String">
 		SELECT COUNT(*)
 		FROM article
-		WHERE article.type_id=#{search_category}
+		WHERE
+		article.type_id=#{search_category}
 	</select>
 	<select id="findSearchAllArticleCountSecondOther" resultType="int"
-	parameterType="String">
+		parameterType="String">
 		SELECT COUNT(*)
 		FROM article a
-		JOIN type t ON a.type_id=t.id
+		JOIN type t ON
+		a.type_id=t.id
 		WHERE t.parent_id=#{search_category}
 	</select>
 	<select id="findSearchAllArticleCountThreadOther" resultType="int"
-	parameterType="map" >
+		parameterType="map">
 		SELECT COUNT(*)
 		FROM article a
-		JOIN type t ON a.type_id=t.id
-		WHERE a.aname REGEXP #{s} AND t.parent_id=#{search_category}
+		JOIN type t ON
+		a.type_id=t.id
+		WHERE a.aname REGEXP #{s} AND
+		t.parent_id=#{search_category}
 	</select>
 	<!-- 根据关键字查询查询所有商品信息 -->
 	<select id="findSearchAllArticleSecondAll" resultType="com.brick.squad.expand.NewsArticle"
@@ -413,19 +431,23 @@
 		nn on
 		a.id=nn.article_id
 		WHERE aname REGEXP #{s}
-		LIMIT #{skli},#{take}
+		LIMIT
+		#{skli},#{take}
 	</select>
 
 
 	<select id="findSearchAllArticleSecondOther" resultType="com.brick.squad.expand.NewsArticle"
 		parameterType="map">
 		select
-		a.id,a.aname,a.price,a.image,a.describes ,COALESCE(nn.total,0)
+		a.id,a.aname,a.price,a.image,a.describes
+		,COALESCE(nn.total,0)
 		totals
 		from article
-		a left join (select COALESCE(sum(number),0) total
+		a left join (select
+		COALESCE(sum(number),0) total
 		,article_id from
-		order_details group by (article_id))
+		order_details group by
+		(article_id))
 		nn on
 		a.id=nn.article_id
 		WHERE type_id=#{search_category}
@@ -481,11 +503,13 @@
 		a.price,
 		a.image,
 		a.shelfdate,
-		sa.buyersNumber buyersNumber,
+		sa.buyersNumber
+		buyersNumber,
 		sa.active_price active_price
 		FROM
 		article a
-		JOIN shop_activities sa ON a.id = sa.article_id
+		JOIN
+		shop_activities sa ON a.id = sa.article_id
 		WHERE
 		sa.type_id = 'tuangou'
 		AND sa.end_time > NOW()
@@ -498,7 +522,8 @@
 		order_details od
 		GROUP BY
 		(article_id)
-		) oa ON saa.id = oa.id order by 'a.shelfdate'
+		) oa ON saa.id = oa.id order
+		by 'a.shelfdate'
 	</select>
 
 	<!--查询用户最近购买的商品 -->
@@ -525,6 +550,28 @@
 		resultType="String">
 		SELECT a.type_id
 		FROM article a ,type t
-		WHERE a.type_id=t.id AND t.parent_id=#{parentId}
+		WHERE a.type_id=t.id
+		AND t.parent_id=#{parentId}
+	</select>
+	<!-- 统计商品的类别数量 -->
+	<select id="findEchartsAreac" parameterType="map" resultType="map">
+		SELECT t.`name`,COALESCE(a.num,0) n FROM
+		(SELECT id, `name` FROM type
+		WHERE parent_id='splb') t LEFT JOIN
+		(SELECT count(*) num,a.type_id FROM
+		article a
+		JOIN business b ON a.business_id=b.id
+		JOIN `user` u on
+		b.id=u.id
+		WHERE a.type_id in (SELECT id FROM type WHERE
+		parent_id='splb')
+		<if test="bId!=''">
+			AND b.id=''
+		</if>
+		<if test="branchId!=''">
+			AND u.branch_id=''
+		</if>
+		GROUP BY a.type_id) a
+		ON t.id=a.type_id
 	</select>
 </mapper>

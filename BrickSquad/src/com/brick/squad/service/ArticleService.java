@@ -171,5 +171,13 @@ public interface ArticleService {
 
 	public PageBeanUtil findTitlePriceScope(int page, int limitPage,
 			double minPrice, double maxPrice, String typeId);
+	/**
+	 * 根据商家及区域统计商品类别数量
+	 * 
+	 * @param map
+	 *            商家、区域信息
+	 * @return 数据
+	 */
+	public String findEchartsAreac(Map<String, Object> map);
 
 }
