@@ -318,9 +318,17 @@ public class PersonalInformationServiceImpl implements
 
 	@Override
 	public String findPerByAge(String id) {
-		Type type=new Type();
+		Type type = new Type();
 		type.setId(id);
 		Map<String, Object> map = personalInformationMapper.findPerByAge(type);
+		JSONArray jsonArray = JSONArray.fromObject(map);
+		return jsonArray.toString();
+	}
+
+	@Override
+	public String consumptionSituation(Type type) {
+		Map<String, Object> map = personalInformationMapper
+				.consumptionSituation(type);
 		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}

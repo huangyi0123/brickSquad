@@ -86,7 +86,6 @@
 		SELECT id,name FROM
 		activities
 	</select>
-
 	<insert id="insertActivities" parameterType="activities">
 		<selectKey resultType="String" keyProperty="id" order="BEFORE">
 			select replace(uuid(),'-','') from dual
