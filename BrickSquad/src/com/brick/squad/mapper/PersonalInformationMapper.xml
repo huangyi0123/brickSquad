@@ -141,14 +141,19 @@
 		SELECT
 		COALESCE(sum(CASE WHEN s.age BETWEEN 0 AND 50 THEN 1 else 0
 		end),0) a,
-		COALESCE(sum(CASE WHEN s.age BETWEEN 51 AND 60 THEN 1 else 0 end),0) b,
-		COALESCE(sum(CASE WHEN s.age BETWEEN 61 AND 70 THEN 1 else 0 end),0)
-		c,
-		COALESCE(sum(CASE WHEN s.age BETWEEN 71 AND 80 THEN 1 else 0 end),0) d,
-		COALESCE(sum(CASE WHEN s.age BETWEEN 81 AND 90 THEN 1 else 0 end),0)
+		COALESCE(sum(CASE WHEN s.age BETWEEN 51 AND 60 THEN 1 else 0
+		end),0) b,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 61 AND 70 THEN 1 else 0
+		end),0) c,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 71 AND 80 THEN 1 else 0
+		end),0) d,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 81 AND 90 THEN 1 else 0
+		end),0)
 		e,
-		COALESCE(sum(CASE WHEN s.age BETWEEN 91 AND 100 THEN 1 else 0 end),0) f,
-		COALESCE(sum(CASE WHEN s.age BETWEEN 101 AND 1000 THEN 1 else 0
+		COALESCE(sum(CASE WHEN s.age BETWEEN 91 AND 100 THEN 1 else 0
+		end),0) f,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 101 AND 1000 THEN 1
+		else 0
 		end),0) g
 		FROM(
 		SELECT ROUND(DATEDIFF(CURDATE(),
@@ -164,5 +169,32 @@
 
 		) s WHERE s.age is not NULL
 	</select>
-
+	<select id="consumptionSituation" resultType="map"
+		parameterType="type">
+		SELECT
+		COALESCE(sum(CASE WHEN m.money BETWEEN 0 AND 499 THEN 1 else 0
+		end),0) a,
+		COALESCE(sum(CASE WHEN m.money BETWEEN 500 AND 999 THEN 1
+		else 0
+		end),0) b,
+		COALESCE(sum(CASE WHEN m.money BETWEEN 1000 AND 2999
+		THEN 1 else 0 end),0) c,
+		COALESCE(sum(CASE WHEN m.money BETWEEN 3000
+		AND 4999 THEN 1 else 0
+		end),0) d,
+		COALESCE(sum(CASE WHEN m.money BETWEEN
+		5000 AND 9999 THEN 1 else 0 end),0) e,
+		COALESCE(sum(CASE WHEN m.money
+		BETWEEN 10000 AND 1000000000 THEN 1
+		else 0 end),0) f
+		FROM(
+		SELECT
+		SUM(money) money,buy_id FROM orders o
+		JOIN `user` u on o.buy_id=u.id
+		JOIN type t on u.branch_id=t.id
+		<if test="id!=''">
+			WHERE t.id=#{id}
+		</if>
+		GROUP BY buy_id) m
+	</select>
 </mapper>

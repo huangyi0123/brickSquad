@@ -6,6 +6,7 @@ import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.Address;
 import com.brick.squad.pojo.PersonalInformation;
+import com.brick.squad.pojo.Type;
 import com.brick.squad.util.Pagination;
 
 public interface PersonalInformationService {
@@ -109,5 +110,14 @@ public interface PersonalInformationService {
 	 * @return 老人年龄信息
 	 */
 	public String findPerByAge(String id);
+
+	/**
+	 * 统计老人消费情况
+	 * 
+	 * @param type
+	 *            区域
+	 * @return 老人消费情况
+	 */
+	public String consumptionSituation(Type type);
 
 }
