@@ -77,16 +77,21 @@ public class CommonController {
 	@RequestMapping("/toFrame")
 	public String toFrame(HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
-		// begin 通过权限id查询权限
-		String roleId = user.getRoleId();
-		Map<String, Limits> limits = limitsService
-				.findAllLimitsByRoleId(roleId);
-		request.getSession().setAttribute("limiterole", limits);
+		if (user != null) {
+			// begin 通过权限id查询权限
+			String roleId = user.getRoleId();
+			Map<String, Limits> limits = limitsService
+					.findAllLimitsByRoleId(roleId);
+			request.getSession().setAttribute("limiterole", limits);
 
-		// end
-		Business business = businessService.findBusiness(user.getId());
-		request.getSession().setAttribute("business", business);
-		return "backstage_managed/jsp/frame";
+			// end
+			Business business = businessService.findBusiness(user.getId());
+			request.getSession().setAttribute("business", business);
+			return "backstage_managed/jsp/frame";
+		}else {
+			return "redirect:/adminLogin.jsp";
+		}
+		
 	}
 
 	@RequestMapping("/toIndex")
@@ -113,8 +118,7 @@ public class CommonController {
 		String name = file.getOriginalFilename();
 		String pix = name.substring(name.lastIndexOf("."));
 		String fileName = new Date().getTime() + pix;
-	
-		
+
 		upLoadFile.setData(list);
 		File file1 = new File(path, fileName);
 		if (!file1.exists()) {
@@ -122,15 +126,16 @@ public class CommonController {
 		}
 		try {
 			file.transferTo(file1);
-			
-			COS cos=new COS();
+
+			COS cos = new COS();
 			cos.setBucketName("bricksquad");
 			cos.setRegion("sh");
-			String paths=cos.upLoadImageToCOS(file1.getAbsolutePath(), "/news/"+fileName);
+			String paths = cos.upLoadImageToCOS(file1.getAbsolutePath(),
+					"/news/" + fileName);
 			System.out.println(paths);
-			JSONObject jsonObject=JSONObject.fromObject(paths);
-			jsonObject=JSONObject.fromObject(jsonObject.get("data"));
-			paths=jsonObject.get("access_url").toString();
+			JSONObject jsonObject = JSONObject.fromObject(paths);
+			jsonObject = JSONObject.fromObject(jsonObject.get("data"));
+			paths = jsonObject.get("access_url").toString();
 			list.add(paths);
 			file1.delete();
 			upLoadFile.setErrno(0);
@@ -400,32 +405,35 @@ public class CommonController {
 	private ActivitiesService activitiesService;
 
 	@RequestMapping("/toActivity_carousel")
-	public String toActivity_carousel(String type, HttpServletRequest request,PageBeanUtil pageBean)
-			throws Exception {
-		//线下跳舞活动预约
-		int page=pageBean.getPage();
-		String typeId=pageBean.getTypeId();
-		typeId="tiaowu";
-		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
+	public String toActivity_carousel(String type, HttpServletRequest request,
+			PageBeanUtil pageBean) throws Exception {
+		// 线下跳舞活动预约
+		int page = pageBean.getPage();
+		String typeId = pageBean.getTypeId();
+		typeId = "tiaowu";
+		PageBeanUtil<Activities> pageBeanUtil = activitiesService
+				.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
-		//线下麻将活动预约
-		int page1=pageBean.getPage();
-		String typeId1=pageBean.getTypeId();
-		typeId1="majiang";
-		PageBeanUtil<Activities> pageBeanUtil1=activitiesService.findServerWebsiteTemplate(page1,typeId1);
+		// 线下麻将活动预约
+		int page1 = pageBean.getPage();
+		String typeId1 = pageBean.getTypeId();
+		typeId1 = "majiang";
+		PageBeanUtil<Activities> pageBeanUtil1 = activitiesService
+				.findServerWebsiteTemplate(page1, typeId1);
 		request.setAttribute("pageBean1", pageBeanUtil1);
 		request.setAttribute("serverWebsiteTemplate1", "serverWebsiteTemplate1");
-		//线下棋牌活动预约
-		int page2=pageBean.getPage();
-		String typeId2=pageBean.getTypeId();
-		typeId2="qipai";
-		PageBeanUtil<Activities> pageBeanUtil2=activitiesService.findServerWebsiteTemplate(page2,typeId2);
+		// 线下棋牌活动预约
+		int page2 = pageBean.getPage();
+		String typeId2 = pageBean.getTypeId();
+		typeId2 = "qipai";
+		PageBeanUtil<Activities> pageBeanUtil2 = activitiesService
+				.findServerWebsiteTemplate(page2, typeId2);
 		request.setAttribute("pageBean2", pageBeanUtil2);
 		request.setAttribute("serverWebsiteTemplate2", "serverWebsiteTemplate2");
 		request.setAttribute("type", type);
 		return "offical_website/activity";
-		
+
 	}
 
 	@RequestMapping("/toVedio_Details")
