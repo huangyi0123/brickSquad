@@ -24,6 +24,20 @@
 <script src="resource/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="resource/plugins/icheck/icheck.min.js"></script>
 <script type="text/javascript"  src="resource/js/registerCheck.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	 $.ajax({
+		url:'type/findBranchId',
+		success:function(data){
+			data=JSON.parse(data);
+			for(var i=0;i<data.length;i++){
+				$(".branchId").append("<option value='"+data[i].id+"'>"+data[i].name+"</option>");
+			}
+		}
+	}); 
+})
+</script>
 </head>
 <body class="gray-bg">
 
@@ -56,7 +70,10 @@
 					<span id="phone2" style="font-size: 10px; color: red;float: right;"></span>	
 				</div>
 				
-				
+     	 <select name="branchId" lay-filter="aihao" style="width: 300px;height: 32px;border:none" class="branchId">
+       		 <option value="">请选择区域</option>
+    	  </select>
+    
 				<div class="form-group text-left">
 					<div class="checkbox i-checks">
 						<label class="no-padding">

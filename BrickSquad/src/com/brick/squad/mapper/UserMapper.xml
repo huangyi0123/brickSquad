@@ -106,4 +106,5 @@
 		u.role_id='e2ebe746b86b11e78d4f5254002ec43c' AND
 		u.branch_id=#{branchId}
 	</select>
+
 </mapper>

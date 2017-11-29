@@ -107,4 +107,9 @@
 	WHERE parent_id='594cf09abc4c11e7aca65254002ec43c' 
 	AND `name` REGEXP #{search}
 	</select>
+
+	<select id="findBranchId" resultType="type">
+	SELECT  id,name FROM type 
+	WHERE  parent_id='594cf09abc4c11e7aca65254002ec43c'
+	</select>
 </mapper>
