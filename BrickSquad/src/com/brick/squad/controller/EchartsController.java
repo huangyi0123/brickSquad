@@ -1,7 +1,10 @@
 package com.brick.squad.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.PersonalInformationService;
+import com.brick.squad.service.TypeService;
 
 @Controller
 @RequestMapping("/echarts")
@@ -22,6 +26,9 @@ public class EchartsController {
 	@Autowired
 	@Qualifier("articleService")
 	private ArticleService articleService;
+	@Autowired
+	@Qualifier("typeService")
+	private TypeService typeService;
 
 	/**
 	 * 老年人年龄结构数据
@@ -69,5 +76,13 @@ public class EchartsController {
 			map.put("bId", bid);
 		}
 		return articleService.findEchartsAreac(map);
+	}
+
+	@RequestMapping("/toBunessEcharts")
+	public String toBunessEcharts(HttpServletRequest request) throws Exception {
+		List<Type> types = typeService
+				.findAllTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("region", types);
+		return "backstage_managed/jsp/home-data/buss-data-analysis";
 	}
 }
