@@ -1,7 +1,5 @@
 package com.brick.squad.controller;
 
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -19,11 +17,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
-import com.brick.squad.pojo.ShopActivities;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -195,4 +192,19 @@ public class ActivitiesController {
 		return "offical_website/search-template";
 	}
 
+	/**
+	 * 视频分页查询
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/getActivitieslistMovieByPagination")
+	@ResponseBody
+	public String getActivitieslistMovieByPagination(
+			ActivitiesAndPaginationExtend activitiesAndPaginationExtend)
+			throws Exception {
+
+		return activitiesService
+				.getActivitieslistMovieByPagination(activitiesAndPaginationExtend);
+	}
 }

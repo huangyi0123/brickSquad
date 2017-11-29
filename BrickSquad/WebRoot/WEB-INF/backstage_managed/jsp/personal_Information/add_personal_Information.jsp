@@ -127,7 +127,7 @@ $(function() {
 	<br>
 	<div style="padding-left: 120px;font-size:16;font-style: oblique;">添加老人详细信息</div>
 	<br>
-	<form class="layui-form" action="personalInformation/addPersonalInformation" id="form1"
+	<form class="layui-form" action="personalInformation/userUpdatePersonalInformation" id="form1"
 		method="post">
 		<div class="layui-form-item ">
 			<label class="layui-form-label ">老人用户</label>

@@ -78,6 +78,8 @@
 		editor.customConfig.uploadImgParamsWithUrl = true;
 		editor.customConfig.uploadImgServer = 'common/uploadImg?imgPath=news';
 		editor.customConfig.uploadFileName = 'file';
+		editor.customConfig.uploadImgMaxSize = 100 * 1024 * 1024;
+		editor.customConfig.uploadImgTimeout = 39000;
 		editor.customConfig.uploadImgHeaders = {
 
 			'Accept' : 'multipart/form-data'

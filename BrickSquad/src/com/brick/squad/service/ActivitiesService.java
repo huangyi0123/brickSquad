@@ -6,26 +6,38 @@ import java.util.List;
 import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
-import com.brick.squad.pojo.Type;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
 
 public interface ActivitiesService {
 	/**
+	 * 视频分页查询
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public String getActivitieslistMovieByPagination(ActivitiesAndPaginationExtend activitiesAndPaginationExtend) throws Exception;
+
+	/**
 	 * 根据视频类型id name centent 模糊 查询当前类型点击量最多的前三条
+	 * 
 	 * @param activities
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public List<Activities> findActivitiesMovieClickAmountByRegexp(Activities activities) throws Exception;
+	public List<Activities> findActivitiesMovieClickAmountByRegexp(
+			Activities activities) throws Exception;
+
 	/**
 	 * 据视频类型id 查询当前类型点击量最多的前三条
 	 * 
 	 * @param typeId
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public List<Activities> findActivitiesMovieClickAmountByTypeId(Activities activities) throws Exception;
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(
+			Activities activities) throws Exception;
+
 	/**
 	 * 修改视频点击量,每次+1
 	 * 
@@ -50,6 +62,7 @@ public interface ActivitiesService {
 	 * @return 返回活动列表
 	 */
 	public Activities findActivitiesById(String id) throws Exception;
+	public String findOfficalActivitiesById(String id) throws Exception;
 
 	public void insertActivitiesById(Activities activities) throws Exception;
 

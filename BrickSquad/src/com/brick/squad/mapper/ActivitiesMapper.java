@@ -12,18 +12,31 @@ import com.brick.squad.util.Select;
 
 public interface ActivitiesMapper {
 	/**
+	 * 根据类型ID查询视频路径集合数量，用于官网线上视频
+	 * 
+	 * @param activitiesAndPaginationExtend
+	 * @return
+	 */
+	public int findActivitiesMovieCountTotalByTypeId(
+			ActivitiesAndPaginationExtend activitiesAndPaginationExtend);
+
+	/**
 	 * 根据视频类型id name centent 模糊 查询当前类型点击量最多的前三条
+	 * 
 	 * @param activities
 	 * @return
 	 */
-	public List<Activities> findActivitiesMovieClickAmountByRegexp(Activities activities);
+	public List<Activities> findActivitiesMovieClickAmountByRegexp(
+			Activities activities);
+
 	/**
 	 * 据视频类型id 查询当前类型点击量最多的前三条
 	 * 
 	 * @param typeId
 	 * @return
 	 */
-	public List<Activities> findActivitiesMovieClickAmountByTypeId(Activities activities);
+	public List<Activities> findActivitiesMovieClickAmountByTypeId(
+			Activities activities);
 
 	/**
 	 * 修改视频点击量,每次+1
@@ -100,4 +113,5 @@ public interface ActivitiesMapper {
 
 	/** 统计总记录数 */
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
+	public Activities findOfficalActivitiesById(String id);
 }

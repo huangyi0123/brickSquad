@@ -186,7 +186,9 @@ function setContent(str) {
 					 $("#findViewInformationArtivites").append("<h4>个人病历详情单</h4><hr style='width:80%;margin-left:100px;'><div style='margin-left:100px;margin-top:20px;width:80%;'><span><span style='font-size:1.1em;margin-left:8px;'>姓名：</span>"+${user.username}+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查病类：</span>"+data[0].name+"</span><hr>"+
 							 "<span><span style='font-size:1.1em;margin-left:8px;'>病历详情：</span>"+data[0].content+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查时间：</span>"+data[0].inspectionDate+"</span><hr>"+
 							 "<span><span style='font-size:1.1em;margin-left:8px;'>主治医生：</span>"+data[0].attendingSurgeon+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查医院：</span>"+data[0].hospital+"</span><hr>"+
-							 "<a href='javascript:;' onclick='returnViewIn() ' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>返回</span></a></div><hr style='margin-top:-1px;width:1000px'>");
+						/* 	"<span style='margin-right:12px;'><a href='' style='color:#43C1B4;font-size:1.3em;margin-left:1%;'>治疗推荐(文)</a><span>"+
+							"<a href='' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>治疗推荐(视频)</a>"+ */
+							"<a href='javascript:;' onclick='returnViewIn() ' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>返回</span></a></div><hr style='margin-top:-1px;width:1000px'>");
 							 
 			}
 		});

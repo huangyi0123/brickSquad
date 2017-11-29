@@ -1,5 +1,7 @@
 package com.brick.squad.service;
 
+import java.util.Map;
+
 import com.brick.squad.expand.AddressAndPersonaInformationExpand;
 import com.brick.squad.expand.PersonalInfofmationAndHealthRecordsExpand;
 import com.brick.squad.pojo.Address;
@@ -99,5 +101,13 @@ public interface PersonalInformationService {
 	 */
 	public String updaeInforMation(
 			AddressAndPersonaInformationExpand addressAndPersonaInformationExpand);
+	/**
+	 * 根据区域对老人年龄进行统计
+	 * 
+	 * @param id
+	 *            区域id
+	 * @return 老人年龄信息
+	 */
+	public String findPerByAge(String id);
 
 }

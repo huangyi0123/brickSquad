@@ -6,6 +6,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -22,6 +25,7 @@ import com.brick.squad.pojo.User;
 import com.brick.squad.service.RoleService;
 import com.brick.squad.service.TypeService;
 import com.brick.squad.service.UserService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.Pagination;
 import com.brick.squad.util.SecurityUtil;
 import com.brick.squad.util.Select;
@@ -288,9 +292,18 @@ public class UserController {
 						}
 						try {
 							userPic.transferTo(file);
-
+							String p=file.getAbsolutePath();
+							COS cos=new COS();
+							cos.setBucketName("bricksquad");
+							cos.setRegion("sh");
+							String pa=user.getId()+p.substring(p.lastIndexOf("."));
+							String paths=cos.upLoadImageToCOS(file.getAbsolutePath(), "/user_head/"+pa);
+							JSONObject jsonObject=JSONObject.fromObject(paths);
+							jsonObject=JSONObject.fromObject(jsonObject.get("data"));
+							paths=jsonObject.get("access_url").toString();
+							file.delete();
 							// 取得数据库存的路径
-							String databaseuserPicPath = realPath + fileNewName;
+							String databaseuserPicPath = paths;
 							// 上传成功后，将路径保存到数据库中
 							user.setUserPicPath(databaseuserPicPath);
 							if (user.getUserPicPath() != null) {
@@ -303,7 +316,7 @@ public class UserController {
 							e.printStackTrace();
 						}
 					} else {
-						return "getUserError";
+						return user.getUserPicPath();
 					}
 				} else {
 					return "fileSuffixNameError";

@@ -2,6 +2,7 @@ package com.brick.squad.util;
 
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
+import com.qcloud.cos.meta.InsertOnly;
 import com.qcloud.cos.request.UploadFileRequest;
 import com.qcloud.cos.sign.Credentials;
 
@@ -43,6 +44,7 @@ public class COS {
 		COSClient cosClient = new COSClient(clientConfig, cred);
 		UploadFileRequest request = new UploadFileRequest(bucketName, COSPath,
 				localhostPath);
+		request.setInsertOnly(InsertOnly.OVER_WRITE);
 		String data = cosClient.uploadFile(request);
 		cosClient.shutdown();
 		return data;

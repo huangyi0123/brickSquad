@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
 import com.brick.squad.service.ActivitiesService;
@@ -25,22 +26,32 @@ public class ActivitiesServiceTest {
 	private ActivitiesService activitiesService;
 
 	@Test
+	public void getActivitieslistMovieByPaginationTest() throws Exception {
+		ActivitiesAndPaginationExtend activitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
+		activitiesAndPaginationExtend.setCurentPage(1);
+		activitiesAndPaginationExtend.setPageSize(2);
+		activitiesAndPaginationExtend
+				.setMovieTypeId("fc4c57d6d25911e7880a5254002ec43c");
+		String dataString = activitiesService
+				.getActivitieslistMovieByPagination(activitiesAndPaginationExtend);
+		System.out.println(dataString);
+	}
+
+	@Test
 	public void subStringTest() {
-		String moviePath = "<iframe height=498 width=510 src='http://player.youku.com/embed/XODk2MTIyNzAw' frameborder=0 'allowfullscreen'></iframe>";	
+		String moviePath = "<iframe height=498 width=510 src='http://player.youku.com/embed/XODk2MTIyNzAw' frameborder=0 'allowfullscreen'></iframe>";
 		System.out.println(moviePath.indexOf("'", 1));
 		System.out.println(moviePath.indexOf("'", 2));
-	moviePath = moviePath.substring(moviePath.indexOf("'", 1)+1,
-					moviePath.length());
-	moviePath=moviePath.substring(0, moviePath.indexOf("'", 1));
-			System.out.println(moviePath);
-		
-		
+		moviePath = moviePath.substring(moviePath.indexOf("'", 1) + 1,
+				moviePath.length());
+		moviePath = moviePath.substring(0, moviePath.indexOf("'", 1));
+		System.out.println(moviePath);
+
 	}
 
 	@Test
 	public void findActivitiesMovieByTypeIdTest() throws Exception {
 
-		
 	}
 
 	@Test

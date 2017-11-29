@@ -283,7 +283,7 @@ public class PersonalInformationServiceImpl implements
 		if (personalInformation.getAddressId() != null
 				&& !personalInformation.getAddressId().equals("")) {
 			addressMapper.updateAddressById(address2);
-			
+
 		} else {
 			addressMapper.insertAddress(address2);
 			personalInformation.setAddressId(address2.getId());
@@ -307,11 +307,20 @@ public class PersonalInformationServiceImpl implements
 		}
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("addressId", address2.getId());
-		String addresse=addressMapper.findByIdAllAddress(address2.getId());
+		String addresse = addressMapper.findByIdAllAddress(address2.getId());
 		map.put("address", addresse);
-		Type type=typeMapper.findTypeById(relatives2.getRelationshipId());
+		Type type = typeMapper.findTypeById(relatives2.getRelationshipId());
 		map.put("relativesName", type.getName());
 		map.put("relativesId", relatives2.getId());
+		JSONArray jsonArray = JSONArray.fromObject(map);
+		return jsonArray.toString();
+	}
+
+	@Override
+	public String findPerByAge(String id) {
+		Type type=new Type();
+		type.setId(id);
+		Map<String, Object> map = personalInformationMapper.findPerByAge(type);
 		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}

@@ -17,11 +17,15 @@
 		addressId,p.retirement_unit retirementUnit,
 		p.retirement_date
 		retirementDate, p.engaged_industry engagedIndustry,
-		p.weight,p.height,p.income,p.family_history familyHistory,p.is_purchasing
-		isPurchasing,p.is_supremacy isSupremacy,p.is_pureq isPureq,pureq_type_id
-		pureqTypeId,t.`name` nationId,p.culture_id cultureId,p.marriage_id
+		p.weight,p.height,p.income,p.family_history
+		familyHistory,p.is_purchasing
+		isPurchasing,p.is_supremacy
+		isSupremacy,p.is_pureq isPureq,pureq_type_id
+		pureqTypeId,t.`name`
+		nationId,p.culture_id cultureId,p.marriage_id
 		marriageId,p.zip
-		from personal_information p JOIN type t ON p.nation_id=t.id 
+		from
+		personal_information p JOIN type t ON p.nation_id=t.id
 	</sql>
 	<sql id="serach">
 		p.`name` REGEXP #{keyword} or
@@ -102,8 +106,9 @@
 
 
 	<!-- 查询老人姓名和id -->
-	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select"> 
-	SELECT id,name
+	<select id="findAllPersonalInformation" resultType="com.brick.squad.util.Select">
+		SELECT
+		id,name
 		FROM personal_information
 	</select>
 	<!-- 用于guidance表的回显 -->
@@ -114,8 +119,10 @@
 
 
 
-	<select id="findThereAllById" parameterType="String" resultType="PersonalInformation">
-	SELECT p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
+	<select id="findThereAllById" parameterType="String"
+		resultType="PersonalInformation">
+		SELECT
+		p.id,p.`name`,p.birthday,p.gender,p.idcard,p.address_id
 		addressId,p.retirement_unit retirementUnit,
 		p.retirement_date
 		retirementDate, p.engaged_industry engagedIndustry,
@@ -129,6 +136,33 @@
 		type t ON p.nation_id=t.id
 		where p.id=#{id}
 	</select>
+	<!-- 对老人根据年龄段进行统计 -->
+	<select id="findPerByAge" resultType="map" parameterType="type">
+		SELECT
+		COALESCE(sum(CASE WHEN s.age BETWEEN 0 AND 50 THEN 1 else 0
+		end),0) a,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 51 AND 60 THEN 1 else 0 end),0) b,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 61 AND 70 THEN 1 else 0 end),0)
+		c,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 71 AND 80 THEN 1 else 0 end),0) d,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 81 AND 90 THEN 1 else 0 end),0)
+		e,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 91 AND 100 THEN 1 else 0 end),0) f,
+		COALESCE(sum(CASE WHEN s.age BETWEEN 101 AND 1000 THEN 1 else 0
+		end),0) g
+		FROM(
+		SELECT ROUND(DATEDIFF(CURDATE(),
+		p.birthday)/365.2422)
+		age
+		FROM
+		personal_information p JOIN `user` u on
+		u.id=p.id
+		<if test="id!=''">
+			WHERE
+			u.branch_id=#{id}
+		</if>
 
+		) s WHERE s.age is not NULL
+	</select>
 
 </mapper>

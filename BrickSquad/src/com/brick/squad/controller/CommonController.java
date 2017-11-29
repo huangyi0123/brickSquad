@@ -9,6 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,6 @@ import com.brick.squad.pojo.Article;
 import com.brick.squad.pojo.Business;
 import com.brick.squad.pojo.HealthRecords;
 import com.brick.squad.pojo.Limits;
-import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.PersonalInformation;
 import com.brick.squad.pojo.Relatives;
 import com.brick.squad.pojo.Type;
@@ -43,6 +44,7 @@ import com.brick.squad.service.RegionService;
 import com.brick.squad.service.RelativesService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.UpLoadFile;
 
@@ -93,9 +95,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/toIndexModal")
-	public String toIndexModal(HttpServletRequest request)  {
+	public String toIndexModal(HttpServletRequest request) {
 		request.setAttribute("url", "common/toIndex");
-		
+
 		return "frontEnd_manage/util/turn";
 	}
 
@@ -111,7 +113,8 @@ public class CommonController {
 		String name = file.getOriginalFilename();
 		String pix = name.substring(name.lastIndexOf("."));
 		String fileName = new Date().getTime() + pix;
-		list.add(realPath + fileName);
+	
+		
 		upLoadFile.setData(list);
 		File file1 = new File(path, fileName);
 		if (!file1.exists()) {
@@ -119,6 +122,17 @@ public class CommonController {
 		}
 		try {
 			file.transferTo(file1);
+			
+			COS cos=new COS();
+			cos.setBucketName("bricksquad");
+			cos.setRegion("sh");
+			String paths=cos.upLoadImageToCOS(file1.getAbsolutePath(), "/news/"+fileName);
+			System.out.println(paths);
+			JSONObject jsonObject=JSONObject.fromObject(paths);
+			jsonObject=JSONObject.fromObject(jsonObject.get("data"));
+			paths=jsonObject.get("access_url").toString();
+			list.add(paths);
+			file1.delete();
 			upLoadFile.setErrno(0);
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
@@ -388,45 +402,6 @@ public class CommonController {
 	@RequestMapping("/toActivity_carousel")
 	public String toActivity_carousel(String type, HttpServletRequest request,PageBeanUtil pageBean)
 			throws Exception {
-	
-		// 精品课程
-		ActivitiesAndPaginationExtend topQualityCourseactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		topQualityCourseactivitiesAndPaginationExtend
-				.setMovieTypeId("fc4c57d6d25911e7880a5254002ec43c");
-		topQualityCourseactivitiesAndPaginationExtend.setCurentPage(1);
-		topQualityCourseactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> topQualityCourselistMovie = activitiesService
-				.findActivitiesMovieByTypeId(topQualityCourseactivitiesAndPaginationExtend);
-		request.setAttribute("topQualityCourselistMovie",
-				topQualityCourselistMovie);
-		// 饮食健康
-		ActivitiesAndPaginationExtend dieteticHealthactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		dieteticHealthactivitiesAndPaginationExtend
-				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
-		dieteticHealthactivitiesAndPaginationExtend.setCurentPage(1);
-		dieteticHealthactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> dieteticHealthlistMovie = activitiesService
-				.findActivitiesMovieByTypeId(dieteticHealthactivitiesAndPaginationExtend);
-		request.setAttribute("dieteticHealthlistMovie", dieteticHealthlistMovie);
-		// 运动健康
-		ActivitiesAndPaginationExtend sportsHealthactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		sportsHealthactivitiesAndPaginationExtend
-				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
-		sportsHealthactivitiesAndPaginationExtend.setCurentPage(1);
-		sportsHealthactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> sportsHealthlistMovie = activitiesService
-				.findActivitiesMovieByTypeId(sportsHealthactivitiesAndPaginationExtend);
-		request.setAttribute("sportsHealthlistMovie", sportsHealthlistMovie);
-		// 修身养性
-		ActivitiesAndPaginationExtend selfCultivationactivitiesAndPaginationExtend = new ActivitiesAndPaginationExtend();
-		selfCultivationactivitiesAndPaginationExtend
-				.setMovieTypeId("10ed2648d25a11e7880a5254002ec43c");
-		selfCultivationactivitiesAndPaginationExtend.setCurentPage(1);
-		sportsHealthactivitiesAndPaginationExtend.setPageSize(6);
-		List<Activities> selfCultivationlistMovie = activitiesService
-				.findActivitiesMovieByTypeId(selfCultivationactivitiesAndPaginationExtend);
-		request.setAttribute("selfCultivationlistMovie",
-				selfCultivationlistMovie);
 		//线下活动预约
 		int page=pageBean.getPage();
 		String typeId=pageBean.getTypeId();
@@ -434,7 +409,6 @@ public class CommonController {
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
-		
 		request.setAttribute("type", type);
 		return "offical_website/activity";
 		
@@ -470,15 +444,23 @@ public class CommonController {
 				.findActivitiesMovieByTypeId(activitiesAndPaginationExtend);
 
 		request.setAttribute("listMovie", listMovie);
-		
+
 		return "offical_website/vedio-details";
 	}
+
 	@RequestMapping("/toLife")
-	public String toLife(HttpServletRequest request,String type) {
+	public String toLife(HttpServletRequest request, String type) {
 		request.setAttribute("type", type);
-		
+
 		return "offical_website/life";
 	}
 
-	
+	@RequestMapping("/toHome_Data_Analysis")
+	public String toHome_Data_Analysis(HttpServletRequest request)
+			throws Exception {
+		List<Type> types = typeService
+				.findAllTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("region", types);
+		return "backstage_managed/jsp/home-data/home-data-analysis";
+	}
 }

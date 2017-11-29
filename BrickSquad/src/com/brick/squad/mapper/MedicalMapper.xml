@@ -96,7 +96,7 @@
 	<!-- 根据ID查找详细信息 -->
 	<select id="findViewInformation" parameterType="String"
 	resultType="com.brick.squad.expand.MedicalExpand">
-	SELECT m.id,m.per_id ,m.inspection_date inspectionDate,m.hospital,t.`name`, m.content,m.attending_surgeon  attendingSurgeon
+	SELECT m.id,m.per_id perId,m.type_id typeId,m.inspection_date inspectionDate,m.hospital,t.`name`, m.content,m.attending_surgeon  attendingSurgeon
 	FROM personal_information p 
 	JOIN medical m ON p.id=m.per_id 
 	JOIN type t ON t.id=m.type_id AND m.id=#{id}

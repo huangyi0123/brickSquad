@@ -90,4 +90,13 @@ public class PersonalInformationServiceImplTest {
 				.findAddressById("4d8ef7aac04611e7aca65254002ec43c");
 		System.out.println(address.getProvinceId());
 	}
+	@Test
+	public void findPerByAge(){
+		try {
+			System.out.println(personalInformationService.findPerByAge("594cf09abc4c11e7aca65254002ec43c"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
