@@ -429,7 +429,6 @@ public class CommonController {
 				selfCultivationlistMovie);
 		//线下活动预约
 		int page=pageBean.getPage();
-
 		String typeId=pageBean.getTypeId();
 		typeId="10ed2648d25a11e7880a5254002ec43c";
 		PageBeanUtil<Activities> pageBeanUtil=activitiesService.findServerWebsiteTemplate(page, typeId);

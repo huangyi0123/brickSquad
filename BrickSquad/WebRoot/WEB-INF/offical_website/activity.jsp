@@ -21,11 +21,21 @@
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript" src="resource/js/index_activity.js"></script>
+<script type="text/javascript" src="resource/js/common.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var type = '${type}';
 		init(type);
+		$.ajax({
+			url : 'type/findTypeByParentId?parentId=lrhd',
+			success : function(result) {
+				result = JSON.parse(result);
+				console.log(result);
+				findAll(result, "#parentid");
+			}
+		});
 	});
+
 	function openOnlineParticipation() {
 		$("#centent").children().hide();
 		$("#menu").find('li').each(function() {
@@ -35,6 +45,7 @@
 		layui.use('form', function() {
 			var form = layui.form, layer = layui.layer;
 			form.render();
+			
 		});
 	}
 	//线下活动查看详情页面
@@ -45,18 +56,18 @@
 				success:function(data){
 					 $("#findInformationArtivites").html('');
 						data=JSON.parse(data);
-						console.log(data);
 						$(".offline_course").hide();
 						$("#findInformationArtivites").show();
-						 $("#findInformationArtivites").append("<h4>"+data[0].name+"</h4><p>"+data[0].centent+
-								 "</p><hr style='margin-left:12%;'><span style='margin-left:12%;'>开始时间："+data[0].startTime+"</span><br><hr style='margin-left:12%;'> <span style='margin-left:12%;'>结束时间："+
-								 data[0].endTime+"</span> <hr style='margin-left:12%;'><span style='margin-left:12%;'>准预定人数："+data[0].number+
-								 "</span><hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a id='reservation' href='javascript:;' onclick='reservation(\""+data[0].id+"\")' style='color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"+
+						 $("#findInformationArtivites").append("<hr style='margin-left:12%;'><span style='margin-left:12%;color:#43C1B4'>活动名称：</span>"+data[0].name+"<br><hr style='margin-left:12%;'> <span style='margin-left:12%;color:#43C1B4'>活动内容：</span>"+data[0].centent+
+								 "<hr style='margin-left:12%;'><span style='margin-left:12%;color:#43C1B4'>开始时间：</span>"+data[0].startTime+"<br><hr style='margin-left:12%;'> <span style='margin-left:12%;color:#43C1B4'>结束时间：</span>"+
+								 data[0].endTime+"<hr style='margin-left:12%;'><span style='margin-left:12%;color:#43C1B4'>准预定人数：</span>"+data[0].number+
+								 "<hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a id='reservation' href='javascript:;' onclick='reservation(\""+data[0].id+"\")' style='margin-left:12%;color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"+
 								 "");
 				}
 			});
 		} 
-
+	//预约成功信息添加
+	
 	function toSubmitForm() {
 		layui
 				.use(
@@ -117,7 +128,46 @@
 						});
 	}
 </script>
+<script type="text/javascript">
+//判断预约登没登陆
+function reservation(id) {
+	var user='${user}';
+	if(user ==''){
+		alert("你还没有登录，请先去登录！");
+	}else{
+			$.ajax({
+			url:'LeFortServiceController/insertArtivitesInformation',
+			data:{"activitiesId":id},
+			success:function(data){
+				if(data=="success"){
+					alert("报名成功");
+				}else{
+					alert("报名失败，请再次报名");
+				}
+			}
+		});
+		
+	}
+}
+//返回关闭标签
+function returnIn() {
+	$("#findInformationArtivites").hide();
+	$(".offline_course").show();
+} 
+layui.use('from',function(){
+	var form = layui.form;
+	form.on('select(parent)',function(data){
+		console.log(data.id);
+		/* $("#parentId").html('');
+		$(".offline_course").show(); */
+		$.ajax({
+			url:'common/toActivity_carousel',
+			data:{"pageBean.typeId":data.id}
+	});
+});	
+});
 
+</script>
 </head>
 
 <body>
@@ -250,9 +300,17 @@
 					<div class=" Lecture">
 						<label
 							style="font-size: 1.3em;color: #48CFC1;margin-left: 50px;letter-spacing: 5px;">活动中心</label>
-						<a href="#"
-							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a>
-
+						<!-- <a href="#"
+							style="color:#6B8299; font-size:1.1em; float: right;margin-right: 20px;">更多</a> -->
+						
+						<div class="layui-form-item" style="float:right;margin-right: 20px;" >
+						<label class="layui-form-label">选择活动类型：</label>
+						<div class="layui-input-inline">
+						<select id="parentid" lay-filter="parent"">
+						<option value="">选择活动类型</option>
+						</select>
+						</div>
+						</div>
 						<ul style="margin-left:6%;margin-top:5%">
 							<c:forEach var="activites" items="${pageBean.list }">
 								<li><span style="font-size:1.2em;"><a
@@ -269,14 +327,13 @@
 									</ul></li>
 								<hr>
 							</c:forEach>
-
 							<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
 								<c:if test="${pageBean.totalCount==0}">
 									<center>
 										<span><a href="javascript:;">< 上一页</a></span> <input
 											type="text" value="1"
 											style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-					;margin-left:20px;margin-right:20px;margin-top:20px;"
+											;margin-left:20px;margin-right:20px;margin-top:20px;"
 											readonly="readonly"> <span><a
 											href="javascript:;">下一页 ></a></span>
 									</center>
@@ -288,7 +345,7 @@
 												type="text" value="1"
 												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
 												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page+1}">下一页
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page+1}">下一页
 													></a></span>
 										</center>
 									</c:if>
@@ -296,11 +353,11 @@
 										test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
 										<center>
 											<span><a
-												href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page-1}"><
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page-1}"><
 													上一页</a></span> <input type="text" value="1"
 												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
 												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page+1}">下一页
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page+1}">下一页
 													></a></span>
 										</center>
 									</c:if>
@@ -308,7 +365,7 @@
 										test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
 										<center>
 											<span><a
-												href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page-1}"><
+												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page-1}"><
 													上一页</a></span> <input type="text" value="1"
 												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
 												readonly="readonly"> <span><a
@@ -321,9 +378,9 @@
 						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
 					</div>
-
-
 				</div>
+				<div id="findInformationArtivites"></div>
+				
 				<div class="parti-online">
 					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
 					<form class="layui-form" id="onlineParticipationInfo" method="post">
