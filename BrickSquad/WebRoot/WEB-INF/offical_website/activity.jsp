@@ -162,7 +162,7 @@ layui.use('from',function(){
 	var form = layui.form;
 	form.on('select(parent)',function(data){
 		console.log(data.id);
-		/* $("#parentId").html('');
+		/* $(".offline_course").html('');
 		$(".offline_course").show(); */
 		$.ajax({
 			url:'common/toActivity_carousel',
