@@ -184,5 +184,15 @@ public class TypeServiceImpl implements TypeService {
 		int count=typeMapper.findCountSearch(pageBean);
 		return count;
 	}
+	/**
+	 * 查询分店区域
+	 * */
+	@Override
+	public String findBranchId() throws Exception {
+		List<Type> list=typeMapper.findBranchId();
+		JSONArray jsonArray=new JSONArray();
+		String data=jsonArray.fromObject(list).toString();
+		return data;
+	}
 
 }

@@ -109,5 +109,9 @@ public interface TypeMapper {
 	 * 查询总数根据关键字
 	 * */
 	public int findCountSearch(PageBeanUtil pageBean);
+	/**
+	 * 查询分店区域
+	 * */
+	public List<Type> findBranchId();
 
 }

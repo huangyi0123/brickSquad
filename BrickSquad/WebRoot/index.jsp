@@ -178,6 +178,7 @@ function initInfor() {
 	});
 };
 </script> 
+
 <script>
 
 	$(document).ready(function() {
