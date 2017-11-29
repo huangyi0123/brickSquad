@@ -197,4 +197,10 @@ public interface ArticleMapper {
 	 * @return 数据
 	 */
 	public List<Map<String, Object>> findEchartsAreac(Map<String, Object> map);
+	/**
+	 * 商品销售排行榜
+	 * @param map 筛选信息
+	 * @return 排行榜
+	 */
+	public List<Map<String, Object>> findEchartsArticleTop(Map<String, Object> map);
 }

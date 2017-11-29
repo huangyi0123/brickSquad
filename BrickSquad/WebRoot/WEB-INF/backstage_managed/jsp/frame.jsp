@@ -219,6 +219,7 @@
 							<li>
 								<a class="J_menuItem" href="userVedio/toUserVedioList">用户视频</a>
 							</li>
+							
 						</ul>
 					</li>
 				</c:if>
@@ -231,6 +232,12 @@
 					<ul class="nav nav-second-level">
 						<li>
 							<a class="J_menuItem" href="echarts/toBunessEcharts">商家数据统计</a>
+						</li>
+						<li>
+							<a class="J_menuItem" href="echarts/toMedicalEcharts">健康数据统计</a>
+						</li>
+						<li>
+							<a class="J_menuItem" href="echarts/toActivleEcharts">活动数据统计</a>
 						</li>
 					</ul>
 				</li>

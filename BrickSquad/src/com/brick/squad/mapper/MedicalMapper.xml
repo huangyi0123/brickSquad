@@ -25,80 +25,126 @@
 	</delete>
 	<update id="updateMedicalCententById" parameterType="medical">
 		UPDATE
-		medical set content=#{content},per_id= #{perId},inspection_date=#{inspectionDate},
+		medical set content=#{content},per_id=
+		#{perId},inspection_date=#{inspectionDate},
 		hospital=#{hospital},attending_surgeon=#{attendingSurgeon},type_id=#{typeId}
 		where id =#{id}
 	</update>
-	<!-- <select id="medicalPagination" parameterType="com.brick.squad.util.Pagination"
-		resultType="medical">
-		select id id ,per_id perId ,inspection_date inspectionDate ,type_id
-		typeId,hospital hospital,
-		content content,attending_surgeon
-		attendingSurgeon
-		from medical 
-		limit  #{skipNum},#{takeNum}
-		
-		</select> -->
-		<select id="medicalPagination" parameterType="com.brick.squad.util.Pagination" resultType="com.brick.squad.expand.MedicalExpand">
+	<!-- <select id="medicalPagination" parameterType="com.brick.squad.util.Pagination" 
+		resultType="medical"> select id id ,per_id perId ,inspection_date inspectionDate 
+		,type_id typeId,hospital hospital, content content,attending_surgeon attendingSurgeon 
+		from medical limit #{skipNum},#{takeNum} </select> -->
+	<select id="medicalPagination" parameterType="com.brick.squad.util.Pagination"
+		resultType="com.brick.squad.expand.MedicalExpand">
 		<if test="keyword!=''">
-		select medical.id,personal_information.name personalInformationName,medical.inspection_date inspectionDate,type.name typeName,
-				medical.hospital,medical.content,medical.attending_surgeon attendingSurgeon
-				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
-				where   personal_information.name REGEXP #{keyword} or type.name REGEXP #{keyword} 
-				or medical.content REGEXP #{keyword} or medical.hospital REGEXP #{keyword}
-				limit  #{skipNum},#{takeNum}
+			select medical.id,personal_information.name
+			personalInformationName,medical.inspection_date
+			inspectionDate,type.name typeName,
+			medical.hospital,medical.content,medical.attending_surgeon
+			attendingSurgeon
+			from medical JOIN type on medical.type_id=type.id
+			JOIN
+			personal_information on medical.per_id=personal_information.id
+			where personal_information.name REGEXP #{keyword} or type.name REGEXP
+			#{keyword}
+			or medical.content REGEXP #{keyword} or medical.hospital
+			REGEXP
+			#{keyword}
+			limit #{skipNum},#{takeNum}
 		</if>
 		<if test="keyword==''">
-		select medical.id,personal_information.name personalInformationName,medical.inspection_date inspectionDate,type.name typeName,
-				medical.hospital,medical.content,medical.attending_surgeon attendingSurgeon
-				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
-				limit  #{skipNum},#{takeNum}
+			select medical.id,personal_information.name
+			personalInformationName,medical.inspection_date
+			inspectionDate,type.name typeName,
+			medical.hospital,medical.content,medical.attending_surgeon
+			attendingSurgeon
+			from medical JOIN type on medical.type_id=type.id
+			JOIN
+			personal_information on medical.per_id=personal_information.id
+			limit #{skipNum},#{takeNum}
 		</if>
-		</select>
-	
-	<select id="findMedicalAllCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
+	</select>
+
+	<select id="findMedicalAllCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
 		select COUNT(*) from medical
 		<if test="keyword!=''">
-		  JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
-				where   personal_information.name REGEXP #{keyword} or type.name REGEXP #{keyword} 
-				or medical.content REGEXP #{keyword} or medical.hospital REGEXP #{keyword}
-				limit  #{skipNum},#{takeNum}
+			JOIN type on medical.type_id=type.id JOIN
+			personal_information on
+			medical.per_id=personal_information.id
+			where
+			personal_information.name REGEXP #{keyword} or type.name REGEXP
+			#{keyword}
+			or medical.content REGEXP #{keyword} or medical.hospital
+			REGEXP
+			#{keyword}
+			limit #{skipNum},#{takeNum}
 		</if>
-		
+
 	</select>
-	
-	<select id="findPersonalInformationAndType"  parameterType="java.lang.String"  resultType="com.brick.squad.expand.MedicalExpand">
-		select medical.id,personal_information.name personalInformationName,medical.inspection_date inspectionDate,type.name typeName,
-				medical.hospital,medical.content,medical.attending_surgeon attendingSurgeon
-				from medical JOIN type on medical.type_id=type.id JOIN personal_information on medical.per_id=personal_information.id
-		where medical.id=#{id,jdbcType=VARCHAR}
+
+	<select id="findPersonalInformationAndType" parameterType="java.lang.String"
+		resultType="com.brick.squad.expand.MedicalExpand">
+		select medical.id,personal_information.name
+		personalInformationName,medical.inspection_date
+		inspectionDate,type.name typeName,
+		medical.hospital,medical.content,medical.attending_surgeon
+		attendingSurgeon
+		from medical JOIN type on medical.type_id=type.id JOIN
+		personal_information on medical.per_id=personal_information.id
+		where
+		medical.id=#{id,jdbcType=VARCHAR}
 	</select>
-	<delete id="deleteMedicalByPerId" parameterType="String"> 
-	delete from medical where per_id=#{perId}
+	<delete id="deleteMedicalByPerId" parameterType="String">
+		delete from
+		medical where per_id=#{perId}
 	</delete>
 	<!-- 查询用户病史 -->
-	<select id="findMedicalByUser" parameterType="com.brick.squad.util.PageBeanUtil" 
-	resultType="com.brick.squad.expand.MedicalExpand">
-	SELECT m.id,m.per_id perId ,m.inspection_date inspectionDate,m.hospital,t.`name`,
-	 m.content,m.attending_surgeon attendingSurgeon
-	FROM personal_information p 
-	JOIN medical m ON p.id=m.per_id 
-	JOIN type t ON t.id=m.type_id WHERE m.per_id=#{pId} ORDER BY inspection_date 
-	LIMIT #{begin1},#{limitPage1}
+	<select id="findMedicalByUser" parameterType="com.brick.squad.util.PageBeanUtil"
+		resultType="com.brick.squad.expand.MedicalExpand">
+		SELECT m.id,m.per_id perId ,m.inspection_date
+		inspectionDate,m.hospital,t.`name`,
+		m.content,m.attending_surgeon
+		attendingSurgeon
+		FROM personal_information p
+		JOIN medical m ON
+		p.id=m.per_id
+		JOIN type t ON t.id=m.type_id WHERE m.per_id=#{pId} ORDER
+		BY
+		inspection_date
+		LIMIT #{begin1},#{limitPage1}
 	</select>
-	<select id="findCountMedicalByUser" resultType="int" 
-	parameterType="com.brick.squad.util.PageBeanUtil">
-	SELECT COUNT(*)
-	FROM personal_information p 
-	JOIN medical m ON p.id=m.per_id 
-	JOIN type t ON t.id=m.type_id AND m.per_id=#{pId}
+	<select id="findCountMedicalByUser" resultType="int"
+		parameterType="com.brick.squad.util.PageBeanUtil">
+		SELECT COUNT(*)
+		FROM personal_information p
+		JOIN medical m
+		ON p.id=m.per_id
+		JOIN type t ON t.id=m.type_id AND m.per_id=#{pId}
 	</select>
 	<!-- 根据ID查找详细信息 -->
 	<select id="findViewInformation" parameterType="String"
-	resultType="com.brick.squad.expand.MedicalExpand">
-	SELECT m.id,m.per_id perId,m.type_id typeId,m.inspection_date inspectionDate,m.hospital,t.`name`, m.content,m.attending_surgeon  attendingSurgeon
-	FROM personal_information p 
-	JOIN medical m ON p.id=m.per_id 
-	JOIN type t ON t.id=m.type_id AND m.id=#{id}
+		resultType="com.brick.squad.expand.MedicalExpand">
+		SELECT m.id,m.per_id perId,m.type_id
+		typeId,m.inspection_date
+		inspectionDate,m.hospital,t.`name`,
+		m.content,m.attending_surgeon
+		attendingSurgeon
+		FROM personal_information
+		p
+		JOIN medical m ON p.id=m.per_id
+		JOIN type t ON t.id=m.type_id AND
+		m.id=#{id}
+	</select>
+	<!-- 统计老人病历类型 -->
+	<select id="findEchartsByType" resultType="map" parameterType="map">
+		SELECT t.`name`, COUNT(t.`name`) n
+		FROM medical m JOIN type t ON
+		m.type_id=t.id
+		JOIN `user` u on m.per_id=u.id
+		<if test="typeId!=''">
+			WHERE u.branch_id=''
+		</if>
+		GROUP BY t.`name`
 	</select>
 </mapper>

@@ -574,4 +574,18 @@
 		GROUP BY a.type_id) a
 		ON t.id=a.type_id
 	</select>
+	<!--商品热销榜 -->
+	<select id="findEchartsArticleTop" resultType="map"
+		parameterType="map">
+		SELECT a.aname name,n.n FROM article a JOIN (
+		SELECT article_id,sum(number)
+		n FROM order_details od
+		GROUP BY article_id ORDER BY n DESC) n on
+		n.article_id=a.id
+		JOIN `user` u on u.id=a.business_id
+		<if test="typeId!=''">
+			WHERE u.branch_id=#{typeId}
+		</if>
+		LIMIT 0,5
+	</select>
 </mapper>

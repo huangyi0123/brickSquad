@@ -179,5 +179,11 @@ public interface ArticleService {
 	 * @return 数据
 	 */
 	public String findEchartsAreac(Map<String, Object> map);
+	/**
+	 * 商品销售排行榜
+	 * @param map 筛选信息
+	 * @return 排行榜
+	 */
+	public String findEchartsArticleTop(Map<String, Object> map);
 
 }

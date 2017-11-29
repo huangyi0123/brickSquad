@@ -3,7 +3,7 @@ function main_1(id) {
 	var myChart = echarts.init(document.getElementById('main_1'));
 
 	$.ajax({
-		url : 'echarts/findEchartsArticleTop?typeId=' + id,
+		url : 'echarts/activleType?typeId=' + id,
 		success : function(data) {
 			data = JSON.parse(data);
 			var num=[];
@@ -16,7 +16,7 @@ function main_1(id) {
 			// 指定图表的配置项和数据
 			var option = {
 				title : {
-					text : '销售量'
+					text : '参与人数'
 				},
 				tooltip : {},
 				legend : {

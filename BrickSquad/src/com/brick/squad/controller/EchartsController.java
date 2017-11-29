@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Type;
+import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ArticleService;
+import com.brick.squad.service.MedicalService;
 import com.brick.squad.service.PersonalInformationService;
 import com.brick.squad.service.TypeService;
 
@@ -29,6 +31,12 @@ public class EchartsController {
 	@Autowired
 	@Qualifier("typeService")
 	private TypeService typeService;
+	@Autowired
+	@Qualifier("medicalService")
+	private MedicalService medicalService;
+	@Autowired
+	@Qualifier("activitiesService")
+	private ActivitiesService activitiesService;
 
 	/**
 	 * 老年人年龄结构数据
@@ -84,5 +92,55 @@ public class EchartsController {
 				.findAllTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
 		request.setAttribute("region", types);
 		return "backstage_managed/jsp/home-data/buss-data-analysis";
+	}
+
+	@RequestMapping("/findEchartsArticleTop")
+	@ResponseBody
+	public String findEchartsArticleTop(String typeId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (typeId == null || typeId.trim().equals("")) {
+			map.put("typeId", "");
+		} else {
+			map.put("typeId", typeId);
+		}
+		return articleService.findEchartsArticleTop(map);
+	}
+
+	@RequestMapping("toMedicalEcharts")
+	public String toMedicalEcharts(HttpServletRequest request) throws Exception {
+		List<Type> types = typeService
+				.findAllTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("region", types);
+		return "backstage_managed/jsp/home-data/medical-data-analysis";
+	}
+
+	@RequestMapping("/medicalType")
+	@ResponseBody
+	public String medicalType(String typeId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (typeId == null || typeId.trim().equals("")) {
+			map.put("typeId", "");
+		} else {
+			map.put("typeId", typeId);
+		}
+		return medicalService.findEchartsByType(map);
+	}
+	@RequestMapping("toActivleEcharts")
+	public String toActivleEcharts(HttpServletRequest request) throws Exception {
+		List<Type> types = typeService
+				.findAllTypeByParentId("594cf09abc4c11e7aca65254002ec43c");
+		request.setAttribute("region", types);
+		return "backstage_managed/jsp/home-data/activity-data-analysis";
+	}
+	@RequestMapping("/activleType")
+	@ResponseBody
+	public String activleType(String typeId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (typeId == null || typeId.trim().equals("")) {
+			map.put("typeId", "");
+		} else {
+			map.put("typeId", typeId);
+		}
+		return activitiesService.findEchartActiveTypre(map);
 	}
 }

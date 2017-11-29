@@ -87,8 +87,7 @@ function main_3(typeId, bid) {
 				num.push(this.n);
 				name.push(this.name);
 			});
-			console.log(num);
-			console.log(name);
+			
 			// 指定图表的配置项和数据
 			var option = {
 				title : {

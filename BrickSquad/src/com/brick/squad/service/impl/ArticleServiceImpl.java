@@ -1331,4 +1331,12 @@ public class ArticleServiceImpl implements ArticleService {
 		JSONArray jsonArray = JSONArray.fromObject(m);
 		return jsonArray.toString();
 	}
+
+	@Override
+	public String findEchartsArticleTop(Map<String, Object> map) {
+		List<Map<String, Object>> maps = articleMapper
+				.findEchartsArticleTop(map);
+		JSONArray jsonArray = JSONArray.fromObject(maps);
+		return jsonArray.toString();
+	}
 }

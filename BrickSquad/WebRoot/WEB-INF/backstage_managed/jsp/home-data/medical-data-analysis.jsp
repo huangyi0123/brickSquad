@@ -28,7 +28,7 @@
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
 <script src="resource/plugins/ECharts/echarts.min.js"></script>
 <script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="resource/js/buss-data-analysis.js"></script>
+<script type="text/javascript" src="resource/js/medicl-data-analysis.js"></script>
 <script src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -41,8 +41,8 @@
 			$(cal).hide();
 		});
 
-		 main_1('');
-		 /*main_2('');
+		main_1('');
+		/*main_2('');
 		main_3('',''); */
 		layui.use('form', function() {
 			var form = layui.form;
@@ -53,7 +53,7 @@
 				main_2(data.value);
 			});
 			form.on('select(regioncosarte)', function(data) {
-				main_3(data.value,'');
+				main_3(data.value, '');
 			});
 		});
 	});
@@ -66,7 +66,7 @@
 		<div class="home1 row">
 			<div class="col-md-6 perAge">
 				<div class="panel_header_1 title-icon">
-					<b>商品热销榜</b>
+					<b>病历类型统计</b>
 					<ul class="icon_lists clear">
 						<li class="deploy" val=".home_1">
 							<i class="icon iconfont icon-gobottom"></i>
