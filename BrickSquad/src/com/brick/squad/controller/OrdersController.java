@@ -39,6 +39,33 @@ public class OrdersController {
 		return "backstage_managed/jsp/orders/orders_list";
 	}
 
+	/**
+	 * 修改订单状态和当前用户积分
+	 * 
+	 * @param orderId
+	 *            订单ID
+	 * @param monerCont
+	 *            金额
+	 * @param request
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping("/updateOrderStateAndGrade")
+	@ResponseBody
+	public String updateOrderStateAndGrade(String orderId,
+			HttpServletRequest request) throws Exception {
+		
+		if (!orderId.trim().equals("")) {
+			Boolean is = ordersService.updateOrderStateAndGrade(orderId);
+			if (is) {
+				return "success";
+			} else {
+				return "fail";
+			}
+		}
+		return "fail";
+	}
+
 	@RequestMapping("/getOrdersList")
 	@ResponseBody
 	public String getRegionList(int pSize, int cPage, String keyword)
@@ -110,11 +137,12 @@ public class OrdersController {
 		request.setAttribute("ordersExpand", ordersExpand);
 		return "backstage_managed/jsp/orders/search_orders";
 	}
+
 	@RequestMapping("/getOrders")
 	@ResponseBody
-	public String getOrders(HttpServletRequest request,String typeId) {
-		User user=(User) request.getSession().getAttribute("user");
-		Map<String, String> map=new HashMap<String, String>();
+	public String getOrders(HttpServletRequest request, String typeId) {
+		User user = (User) request.getSession().getAttribute("user");
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("buyId", user.getId());
 		map.put("typeId", typeId);
 		return ordersService.findOrderByType(map);
