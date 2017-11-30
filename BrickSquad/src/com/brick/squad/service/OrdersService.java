@@ -1,9 +1,7 @@
 package com.brick.squad.service;
 
-import java.util.List;
 import java.util.Map;
 
-import com.brick.squad.expand.OrderExpand;
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.util.Pagination;
@@ -12,6 +10,8 @@ import com.brick.squad.util.Pagination;
  * 订单业务层接口
  */
 public interface OrdersService {
+	public Boolean updateOrderStateAndGrade(String orderId) throws Exception;
+
 	/**
 	 * 根据ID修改收货地址ID
 	 * 

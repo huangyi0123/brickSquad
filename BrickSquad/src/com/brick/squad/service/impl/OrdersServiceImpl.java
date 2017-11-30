@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.brick.squad.expand.OrderExpand;
 import com.brick.squad.expand.OrdersExpand;
+import com.brick.squad.mapper.BuyersMapper;
 import com.brick.squad.mapper.OrdersMapper;
+import com.brick.squad.pojo.Buyers;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.util.Pagination;
@@ -27,6 +29,9 @@ public class OrdersServiceImpl implements OrdersService {
 	@Autowired
 	@Qualifier("ordersMapper")
 	private OrdersMapper ordersMapper;
+	@Autowired
+	@Qualifier("buyersMapper")
+	private BuyersMapper buyersMapper;
 
 	@Override
 	/**业务层根据订单id查询商品*/
@@ -104,11 +109,27 @@ public class OrdersServiceImpl implements OrdersService {
 		ordersMapper.updateOrdersreceivingAddressById(orders);
 	}
 
-	@Override	
+	@Override
 	public String findOrderByType(Map<String, String> map) {
-		List<OrderExpand> data=ordersMapper.findOrderByType(map);
-		JSONArray jsonArray=JSONArray.fromObject(data);
+		List<OrderExpand> data = ordersMapper.findOrderByType(map);
+		JSONArray jsonArray = JSONArray.fromObject(data);
 		return jsonArray.toString();
 	}
 
+	@Override
+	public Boolean updateOrderStateAndGrade(String orderId) throws Exception {
+		Orders orders = ordersMapper.findOrdersById(orderId);
+		if (orders != null) {
+			// 设置订单状态为待发货
+			orders.setStateId("02cd8aeeccf111e7aca65254002ec43c");
+			ordersMapper.updateOrdersById(orders);
+			Buyers buyers = buyersMapper.findBuyersById(orders.getBuyId());
+			int historicalIntegral = (int) (buyers.getHistoricalIntegral() + orders
+					.getMoney());
+			buyers.setHistoricalIntegral(historicalIntegral);
+			buyersMapper.updateBuyersById(buyers);
+			return true;
+		}
+		return false;
+	}
 }
