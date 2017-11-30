@@ -425,7 +425,6 @@ public class CommonController {
 		request.setAttribute("serverWebsiteTemplate2", "serverWebsiteTemplate2");
 		request.setAttribute("type", type);
 		return "offical_website/activity";
-		
 	}
 
 	@RequestMapping("/toVedio_Details")
