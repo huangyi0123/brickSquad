@@ -260,6 +260,7 @@ public class PersonalInformationController {
 	public String updaeInforMation(AddressAndPersonaInformationExpand addressAndPersonaInformationExpand, HttpServletRequest request) {
 		User user=(User) request.getSession().getAttribute("user");
 		addressAndPersonaInformationExpand.getPersonalInformation().setId(user.getId());
+		System.out.println(addressAndPersonaInformationExpand.getAddress()+"---------------------------------");
 		String data=personalInformationService.updaeInforMation(addressAndPersonaInformationExpand);
 		return data;
 	}
