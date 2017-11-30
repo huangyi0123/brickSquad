@@ -30,21 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="#">
 						<h3>首页</h3>
 					</a>
-					<ul>
-						<li>
-							<a href="#">
-								<i class="fa fa-qq"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#">Aircel</a>
-						</li>
-						<li>
-							<a href="#">BSNL</a>
-						</li>
-						<li>
-							<a href="#">Idea</a>
-						</li>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toActivity_carousel?type=online_course">
@@ -114,8 +99,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="#">
-						<h3>乐堡咨询</h3>
+					<a href="shopIndex/toShop">
+						<h3>乐堡商城</h3>
 					</a>
 
 				</div>

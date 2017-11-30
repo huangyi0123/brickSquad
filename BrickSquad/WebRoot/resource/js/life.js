@@ -69,6 +69,7 @@ function toSubmitForm() {
 					});
 }
 function NutritionalDiet(curentPage, pageSize) {
+	console.log(curentPage);
 	$
 			.ajax({
 				url : 'news/getNutritionalDietList',
@@ -82,7 +83,6 @@ function NutritionalDiet(curentPage, pageSize) {
 					var item = data[0].data;
 					var n = data[0].totals;
 					n = Math.ceil(n / pageSize);
-					console.log(n);
 					$("#NutritionalDiet").html('');
 					$(item)
 							.each(
@@ -103,13 +103,15 @@ function NutritionalDiet(curentPage, pageSize) {
 					} else {
 						por = curentPage - 1;
 					}
+					
 					if (curentPage == n) {
 						next = n;
 					} else {
 						next = curentPage + 1;
 					}
+					console.log(n+"----------------"+next);
 					$("#pager").append(
-							'<li onclick="NutritionalDiet(' + (curentPage - 1)
+							'<li onclick="NutritionalDiet(' + por
 									+ ',' + pageSize + ')">上一页</li>');
 					for (var int = 1; int <= n; int++) {
 						if (curentPage == int) {
@@ -125,7 +127,7 @@ function NutritionalDiet(curentPage, pageSize) {
 
 					}
 					$("#pager").append(
-							'<li onclick="NutritionalDiet(' + (curentPage + 1)
+							'<li onclick="NutritionalDiet(' + next
 									+ ',' + pageSize + ')">下一页</li>');
 				}
 			});
@@ -186,7 +188,7 @@ function userVedioList(curentPage, pageSize) {
 						next = curentPage + 1;
 					}
 					$("#pager").append(
-							'<li onclick="userVedioList(' + (curentPage - 1)
+							'<li onclick="userVedioList(' + por
 									+ ',' + pageSize + ')">上一页</li>');
 					for (var int = 1; int <= n; int++) {
 						if (curentPage == int) {
@@ -202,7 +204,7 @@ function userVedioList(curentPage, pageSize) {
 
 					}
 					$("#pager").append(
-							'<li onclick="userVedioList(' + (curentPage + 1)
+							'<li onclick="userVedioList(' +next
 									+ ',' + pageSize + ')">下一页</li>');
 				}
 			});
