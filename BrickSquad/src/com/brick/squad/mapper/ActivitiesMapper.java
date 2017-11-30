@@ -3,6 +3,7 @@ package com.brick.squad.mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.brick.squad.expand.ActiveExpand;
 import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.expand.NewsArticle;
@@ -116,4 +117,6 @@ public interface ActivitiesMapper {
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
 	public Activities findOfficalActivitiesById(String id);
 	public List<Map<String, Object>> findEchartActiveTypre(Map<String, Object> map);
+	
+	public List<ActiveExpand> findActiveList(String userId);
 }

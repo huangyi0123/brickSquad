@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.pojo.Activities;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.Pagination;
@@ -206,5 +207,11 @@ public class ActivitiesController {
 
 		return activitiesService
 				.getActivitieslistMovieByPagination(activitiesAndPaginationExtend);
+	}
+	@RequestMapping("/findActiveList")
+	@ResponseBody
+	public String findActiveList(HttpServletRequest request) {
+		User user=(User) request.getSession().getAttribute("user");
+		return activitiesService.findActiveList(user.getId());
 	}
 }
