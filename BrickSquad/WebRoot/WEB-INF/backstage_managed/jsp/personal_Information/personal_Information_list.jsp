@@ -40,11 +40,9 @@
 	$(function() {
 		var a='${roleId}';
 		console.log(a);
-		if(a=="ed270512bb8411e78d4f5254002ec43c"){
 		console.log('${limiterole}');
-		init("",!${limiterole.personal_information.ad},!${limiterole.personal_information.dl},false);
-		}
-		init("",false,false,false);
+		init("",${limiterole.personal_information.ad},${limiterole.personal_information.dl},${limiterole.personal_information.query});
+		
 		serach();
 		$(".table-div").css('height','calc(100% - 90px)');
 	});
