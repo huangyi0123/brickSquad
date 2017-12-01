@@ -320,9 +320,7 @@ function orders() {
 												+ this.price + "</td>" + "<td>"
 												+ this.number + "</td>"
 												+ "<td>" + this.typeName
-												+ "</td>"
-												+ "<td>人生就像是一场修行</td>"
-												+ "</tr>";
+												+ "</td>" + "</tr>";
 									});
 							$("#typeStru").html(html);
 						}
@@ -352,8 +350,10 @@ function ordersType(id, type) {
 												+ this.price + "</td>" + "<td>"
 												+ this.number + "</td>"
 												+ "<td>" + this.typeName
-												+ "</td>" + opr
-										"</tr>";
+												+ "</td>";
+										if (opr != "") {
+											html = html + opr + "</tr>"
+										}
 									});
 					$(type).html(html);
 				}
@@ -374,30 +374,22 @@ function onshop() {
 }
 function buyaddress() {
 	console.log("123");
-	$
-			.ajax({
-				url : 'buyers/getBuyAddress',
-				success : function(result) {
-					result = JSON.parse(result);
-					console.log(result);
-					$("#buyaddtable").html('');
-					$(result)
-							.each(
-									function() {
-										var html = '<tr>'
-												+ '<th>'
-												+ this.consigneeName
-												+ '</th>'
-												+ '<th>'
-												+ this.consigneePhone
-												+ '</th>'
-												+ '<th>'
-												+ this.detailed
-												+ '</th>'+ '</tr>';
-										$("#buyaddtable").append(html);
-									});
-				}
-			});
+	$.ajax({
+		url : 'buyers/getBuyAddress',
+		success : function(result) {
+			result = JSON.parse(result);
+			console.log(result);
+			$("#buyaddtable").html('');
+			$(result).each(
+					function() {
+						var html = '<tr>' + '<th>' + this.consigneeName
+								+ '</th>' + '<th>' + this.consigneePhone
+								+ '</th>' + '<th>' + this.detailed + '</th>'
+								+ '</tr>';
+						$("#buyaddtable").append(html);
+					});
+		}
+	});
 }
 function updateAddress(id) {
 	layui.use('form', function() {
@@ -465,4 +457,22 @@ function printSelect(id, init, select) {
 }
 function changePor(o) {
 	console.log($(o).val());
+}
+function activisy() {
+	$.ajax({
+		url : "activities/findActiveList",
+		success : function(data) {
+			data = JSON.parse(data);
+			$("#activels").html("");
+			$(data).each(
+					function() {
+						var html = '<tr>' + '<td>' + this.aname + '</td>'
+								+ '<td>' + this.tname + '</td>' + '<td>'
+								+ this.startTime + '</td>' + '<td>'
+								+ this.endTime + '</td>' + '</tr>';
+						$("#activels").append(html);
+					});
+
+		}
+	});
 }

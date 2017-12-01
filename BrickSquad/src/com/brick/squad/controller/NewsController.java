@@ -169,6 +169,7 @@ public class NewsController {
 	@RequestMapping("/getNutritionalDietList")
 	@ResponseBody
 	public String getNutritionalDietList(Pagination pagination) {
+		System.out.println(pagination.getCurentPage()+"---------------------------");
 		return newsService.NutritionalDietListPagination(pagination);
 	}
 

@@ -299,6 +299,7 @@ public class UserController {
 							cos.setRegion("sh");
 							String pa=user.getId()+p.substring(p.lastIndexOf("."));
 							String paths=cos.upLoadImageToCOS(file.getAbsolutePath(), "/user_head/"+pa);
+							System.out.println(paths);
 							JSONObject jsonObject=JSONObject.fromObject(paths);
 							jsonObject=JSONObject.fromObject(jsonObject.get("data"));
 							paths=jsonObject.get("access_url").toString();

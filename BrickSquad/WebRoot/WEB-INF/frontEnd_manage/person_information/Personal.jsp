@@ -65,7 +65,7 @@
 					<li class="layui-this">个人资料</li>
 					<li>健康管理</li>
 					<li>安全设置</li>
-					<li>活动管理</li>
+					<li onclick="activisy()">活动管理</li>
 					<li>订单管理</li>
 					<li onclick="onshop()">购物中心</li>
 				</ul>
@@ -425,7 +425,26 @@
 					<a style="margin-left: 700px;margin-top: -35px;">设置</a>
 				</div>
 
-				<div class="layui-tab-item layui-tab-item5">5</div>
+				<div class="layui-tab-item layui-tab-item5">
+					<table class="layui-table">
+						<colgroup>
+							<col width="350">
+							<col width="300">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>活动名称</th>
+								<th>活动类型</th>
+								<th>活动开始时间</th>
+								<th>活动结束时间</th>
+							</tr>
+						</thead>
+						<tbody id="activels">
+							
+						</tbody>
+					</table>
+				</div>
 
 				<div class="layui-tab-item layui-tab-item6">
 					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
@@ -433,8 +452,9 @@
 							<li class="layui-this">所有订单</li>
 							<li onclick="ordersType('4933fb74c84311e7aca65254002ec43c','#obligations')">待付款</li>
 							<li onclick="ordersType('02cd8aeeccf111e7aca65254002ec43c','#pendingShipment')">待发货</li>
+							<!-- 
 							<li onclick="ordersType('1e3ea09ecd8f11e7aca65254002ec43c', '#gtbr')">待收货</li>
-							<li onclick="ordersType('9f7aed4ccd9011e7aca65254002ec43c', '#evaluation')">待评价</li>
+							<li onclick="ordersType('9f7aed4ccd9011e7aca65254002ec43c', '#evaluation')">待评价</li> -->
 						</ul>
 						<!-- <i class="glyphicon glyphicon-trash" style="margin-left: 850px;margin-top: -38px;"> </i> -->
 						<!-- <a href="#" style="display:block; margin-left: 870px;margin-top: -40px;">订单回收站</a> -->
@@ -452,7 +472,6 @@
 											<th>单价</th>
 											<th>数量</th>
 											<th>交易状态</th>
-											<th>交易操作</th>
 										</tr>
 									</thead>
 									<tbody id="typeStru">
@@ -473,7 +492,7 @@
 											<th>单价</th>
 											<th>数量</th>
 											<th>交易状态</th>
-											<th>交易操作</th>
+											<th>操作</th>
 										</tr>
 									</thead>
 									<tbody id="obligations">
@@ -494,7 +513,6 @@
 											<th>单价</th>
 											<th>数量</th>
 											<th>交易状态</th>
-											<th>交易操作</th>
 										</tr>
 									</thead>
 									<tbody id="pendingShipment">
@@ -502,7 +520,7 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="layui-tab-item">
+							<%-- <div class="layui-tab-item">
 								<table class="layui-table">
 									<colgroup>
 										<col width="150">
@@ -542,7 +560,7 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="layui-tab-item">6</div>
+							<div class="layui-tab-item">6</div> --%>
 						</div>
 					</div>
 				</div>
@@ -617,7 +635,7 @@
 						</select>
 					</div>
 					<div class="layui-input-inline">
-						<select name="cityId" id="addcity"   lay-ignore style="width: 180px;height: 30px">
+						<select name="cityId" id="addcity" lay-ignore style="width: 180px;height: 30px">
 							<option value="">请选择市</option>
 						</select>
 					</div>

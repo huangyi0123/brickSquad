@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.brick.squad.expand.ActiveExpand;
 import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
 import com.brick.squad.mapper.ActivitiesMapper;
@@ -385,8 +386,21 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 
 	@Override
 	public String findEchartActiveTypre(Map<String, Object> map) {
-		List<Map<String, Object>> maps=activitiesMapper.findEchartActiveTypre(map);
-		JSONArray jsonArray=JSONArray.fromObject(maps);
+		List<Map<String, Object>> maps = activitiesMapper
+				.findEchartActiveTypre(map);
+		JSONArray jsonArray = JSONArray.fromObject(maps);
+		return jsonArray.toString();
+	}
+
+	@Override
+	public String findActiveList(String userId) {
+		List<ActiveExpand> activeExpands = activitiesMapper
+				.findActiveList(userId);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Date.class,
+				new JsonDateValueProcessor("yyyy年MM月dd日"));
+		JSONArray jsonArray = JSONArray.fromObject(activeExpands, jsonConfig);
+
 		return jsonArray.toString();
 	}
 

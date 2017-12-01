@@ -216,5 +216,14 @@
 		GROUP BY type_id
 
 	</select>
-
+	<select id="findActiveList" resultType="com.brick.squad.expand.ActiveExpand"
+		parameterType="String">
+		SELECT DISTINCT(a.id) id, a.`name` aname,a.start_time startTime,a.end_time
+		endTime,t.`name` tname
+		FROM activity_registration ar
+		JOIN activities a on a.id=ar.activities_id
+		JOIN type t on a.type_id=t.id
+		WHERE a.end_time>NOW()
+		and ar.per_id=#{userId}
+	</select>
 </mapper>

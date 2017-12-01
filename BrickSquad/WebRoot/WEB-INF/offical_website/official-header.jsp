@@ -152,7 +152,7 @@
 	<div class="header" style="height: 66px;">
 		<div class="logo">
 			<h1>
-				<a href="index.html">
+				<a href="">
 					<i>
 						<img src="resource/image/cell.png" alt=" " />
 					</i>

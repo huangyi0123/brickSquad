@@ -187,7 +187,7 @@
 																	class="woocommerce-Price-amount amount"><span
 																		class="woocommerce-Price-currencySymbol">￥</span> <input
 																			type="hidden" value="${orders.money }" id="moneyId" />
-																	<span id="moneyIdchange"></span> </span></strong>
+																		<span id="moneyIdchange"></span> </span></strong>
 															</td>
 														</tr>
 													</tbody>
@@ -270,7 +270,7 @@
 			var AllCoupons = '${AllCoupons}';
 			AllCoupons = JSON.parse(AllCoupons);
 			form.on('select(couponIdSelect)', function(data) {
-				if (data.value!="") {
+				if (data.value != "") {
 					$(AllCoupons).each(function() {
 						//取得订单总额
 						var moneyId = $("#moneyId").val();
@@ -282,23 +282,42 @@
 								$("#moneyIdchange").html(moneyId);
 							} else {
 								$("#moneyIdchange").html(moneyId);
-								alert("不满"+this.fullMoney+"不能用");
+								alert("不满" + this.fullMoney + "不能用");
 							}
-						} 
+						}
 					});
-				}else {
+				} else {
 					//取得订单总额
 					var moneyId = $("#moneyId").val();
 					$("#moneyIdchange").html(moneyId);
 				}
-			
+
 			});
 		});
 	</script>
 	<script type="text/javascript">
 		/*继续结账按钮  */
 		function goOnPay() {
-			alert("结账成功！你就等到起收货嘛！");
+			var orderId = $("#orderId").val();
+			//修改订单状态
+			$.ajax({
+				url : 'orders / updateOrderStateAndGrade',
+				data : {
+					'orderId' : orderId
+				},
+				type : "POST",
+				success : function(data) {
+					if (data == "success") {
+						alert("结账成功！你就等到起收货嘛！");
+					} else if (data == "fail") {
+						alert("操作失败，稍后重试！");
+					} else {
+						alert("服务器出错，稍后重试！");
+					}
+
+				}
+			});
+
 		}
 		/* 添加收货地址 */
 		function userAddReceivingAddress() {

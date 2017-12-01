@@ -66,7 +66,6 @@ public class CommonController {
 	@Autowired
 	@Qualifier("newsService")
 	private NewsService newsService;
-
 	@RequestMapping("/toWebsiteTemplate")
 	public String toWebsiteTemplate(String type, HttpServletRequest request) {
 		request.setAttribute("type", type);
