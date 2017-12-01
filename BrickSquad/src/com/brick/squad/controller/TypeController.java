@@ -107,4 +107,10 @@ public class TypeController {
 		request.setAttribute("typeContent", "typeContent");
 		return "offical_website/search-template";
 	}
+	@RequestMapping("/findBranchId")
+	@ResponseBody
+	public String findBranchId() throws Exception{
+		String data=typeService.findBranchId();
+		return data; 
+	}
 }

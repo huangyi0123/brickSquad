@@ -383,4 +383,11 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 		return data;
 	}
 
+	@Override
+	public String findEchartActiveTypre(Map<String, Object> map) {
+		List<Map<String, Object>> maps=activitiesMapper.findEchartActiveTypre(map);
+		JSONArray jsonArray=JSONArray.fromObject(maps);
+		return jsonArray.toString();
+	}
+
 }

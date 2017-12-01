@@ -1,6 +1,7 @@
 package com.brick.squad.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.MedicalExpand;
 import com.brick.squad.pojo.Medical;
@@ -43,5 +44,12 @@ public interface MedicalService {
 	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil)throws Exception;
 	/** 根据ID查找详细信息 */
 	public  MedicalExpand  findViewInformation(String id)throws Exception;
+	/**
+	 * 统计老人病历列表
+	 * 
+	 * @param map 
+	 * @return
+	 */
+	public String findEchartsByType(Map<String, Object> map);
 
 }

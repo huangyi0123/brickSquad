@@ -37,19 +37,11 @@
 		var type = '${type}';
 		$("#centent").children().hide();
 		$("." + type).show();
-		if (type == "parti-online") {
-			layui.use('form', function() {
-				var form = layui.form, layer = layui.layer;
-				form.render();
-			});
-		}
 		$("#menu").find('li').each(function() {
 			var val = $(this).attr('val');
 			if (val == type) {
 				$(this).attr('class', 'layui-nav-item layui-this');
-			} else {
-				$(".parti-online").show();
-			}
+			} 
 		});
 		$("#menu").find('li').click(function() {
 			var cls = "." + $(this).attr('val');

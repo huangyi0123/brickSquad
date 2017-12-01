@@ -219,6 +219,7 @@
 							<li>
 								<a class="J_menuItem" href="userVedio/toUserVedioList">用户视频</a>
 							</li>
+							
 						</ul>
 					</li>
 				</c:if>
@@ -228,7 +229,17 @@
 						数据统计
 						<span class="fa arrow"></span>
 					</a>
-					<ul class="nav nav-second-level"></ul>
+					<ul class="nav nav-second-level">
+						<li>
+							<a class="J_menuItem" href="echarts/toBunessEcharts">商家数据统计</a>
+						</li>
+						<li>
+							<a class="J_menuItem" href="echarts/toMedicalEcharts">健康数据统计</a>
+						</li>
+						<li>
+							<a class="J_menuItem" href="echarts/toActivleEcharts">活动数据统计</a>
+						</li>
+					</ul>
 				</li>
 				<c:if
 					test="${user.roleId eq 'ed270512bb8411e78d4f5254002ec43c' 
@@ -384,8 +395,8 @@
 				</div>
 			</div>
 			<div class="row J_mainContent" id="content-main">
-				<iframe class="J_iframe" name="iframe0" width="100%" height="98%" src="common/toHome_Data_Analysis"
-					frameborder="0" data-id="index_v1.html" seamless></iframe>
+				<iframe class="J_iframe" name="iframe0" width="100%" height="98%"
+					src="common/toHome_Data_Analysis" frameborder="0" data-id="index_v1.html" seamless></iframe>
 			</div>
 			<div class="footer">
 				<div style="text-align: center;">2017.搬砖小分队</div>

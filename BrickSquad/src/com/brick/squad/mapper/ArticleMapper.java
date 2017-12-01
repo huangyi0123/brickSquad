@@ -18,6 +18,7 @@ public interface ArticleMapper {
 	 */
 	/** 查询所有商品总数 */
 	public int findSearchArticleAllCount();
+
 	public Article findArticleById(String id);
 
 	public void insertArticle(Article article);
@@ -38,7 +39,8 @@ public interface ArticleMapper {
 	public List<ArticleExpand> findAllArticle();
 
 	public String findAllTypeAndBusiness();
-	/**根据type的parentId查询商品的typeId*/
+
+	/** 根据type的parentId查询商品的typeId */
 	public List<String> findArticleTypeIdSecond(PageBeanUtil pageBeanUtil);
 
 	public ArticleExpand findArticleAndTypeAndBusiness(String id);
@@ -78,17 +80,22 @@ public interface ArticleMapper {
 	public List<Article> findOrderByMedicalInstrumentsDate(PageBeanUtil pageBean);
 
 	public List<Article> findOrderByMedicalInstrumentsPop(PageBeanUtil pageBean);
-	/**首页分类的跳转显示商品信息*/
+
+	/** 首页分类的跳转显示商品信息 */
 	public List<Article> findArtivleTypePage(PageBeanUtil pageBean);
+
 	/**
 	 * 根据价格范围查询商品
 	 * */
 	public List<Article> findPriceScope(PageBeanUtil pageBean);
+
 	/**
 	 * 搜索框搜索商品信息
 	 * */
 	public List<Article> findArticleTitle(PageBeanUtil pageBean);
+
 	public List<Article> findArticleTitles(PageBeanUtil pageBean);
+
 	/*
 	 * public PageBeanUtil<Article> findArtivleAndMedicalInstrumentsPage(int
 	 * page);
@@ -113,10 +120,10 @@ public interface ArticleMapper {
 
 	public List<NewsArticle> findFrontTime();
 
-	
-	/**获取所有商品数量*/
+	/** 获取所有商品数量 */
 	public Integer findFrontTimeNumber();
-	/**获得团购商品数量*/
+
+	/** 获得团购商品数量 */
 	public Integer findNewsArticleNumber();
 
 	/**
@@ -128,47 +135,72 @@ public interface ArticleMapper {
 	 * @return 最新商品列表
 	 */
 	public List<NewsArticle> findNewsArticleByIndex(Map<String, Object> map);
-//查询最新商品中的各类信息
+
+	// 查询最新商品中的各类信息
 	public List<NewsArticle> findNewsArticle(Map<String, Object> map);
 
-	/**查询所有商品信息：搜索框使用*/
-	public List<NewsArticle> findSearchAllArticle(Map<String,Object> map);
+	/** 查询所有商品信息：搜索框使用 */
+	public List<NewsArticle> findSearchAllArticle(Map<String, Object> map);
 
-
-//团购查询团购人数和优惠价格
+	// 团购查询团购人数和优惠价格
 	public List<NewsArticle> findNewsArticles(Map<String, Object> map);
+
 	/**
 	 * 查询用户购买的商品
-	 * @param map 参数
+	 * 
+	 * @param map
+	 *            参数
 	 * @return 商品列表
 	 */
 	public List<NewsArticle> findUserArticle(Map<String, Object> map);
+
 	public List<NewsArticle> findSearchAllArticleSecond(Map<String, Object> map);
-	public List<NewsArticle> findSearchAllArticleSecondYiLiao(Map<String, Object> map);
+
+	public List<NewsArticle> findSearchAllArticleSecondYiLiao(
+			Map<String, Object> map);
+
 	/**
 	 * 根据关键字查询所有商品信息
 	 * */
-	public List<NewsArticle> findSearchAllArticleSecondAll(Map<String, Object> map);
+	public List<NewsArticle> findSearchAllArticleSecondAll(
+			Map<String, Object> map);
+
 	/**
 	 * 搜索框根据分类查询商品信息
 	 * */
-	public List<NewsArticle> findSearchAllArticleSecondOther(Map<String, Object> map);
+	public List<NewsArticle> findSearchAllArticleSecondOther(
+			Map<String, Object> map);
+
 	/**
 	 * 搜索框根据分类查询商品信息,如果是一级分类
 	 * */
-	public List<NewsArticle> findSearchAllArticleSecondYiLiaoSecond(Map<String, Object> map);
+	public List<NewsArticle> findSearchAllArticleSecondYiLiaoSecond(
+			Map<String, Object> map);
+
 	/**
 	 * 一二级关联查询总数
 	 * */
 	public int findSearchAllArticleCountSecondOther(String typeId);
+
 	/**
 	 * 根据关键字查询商品信息计算总数
 	 * */
 	public int findSearchAllArticleCountThreadOther(Map<String, Object> map);
-	
-	
+
 	public int findSearchAllArticleCountSecond(String typeId);
 
-
+	/**
+	 * 根据商家及区域统计商品类别数量
+	 * 
+	 * @param map
+	 *            商家、区域信息
+	 * @return 数据
+	 */
+	public List<Map<String, Object>> findEchartsAreac(Map<String, Object> map);
+	/**
+	 * 商品销售排行榜
+	 * @param map 筛选信息
+	 * @return 排行榜
+	 */
+	public List<Map<String, Object>> findEchartsArticleTop(Map<String, Object> map);
 }
-

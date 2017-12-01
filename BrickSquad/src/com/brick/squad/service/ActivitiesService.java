@@ -2,6 +2,7 @@ package com.brick.squad.service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.ActivitiesAndPaginationExtend;
 import com.brick.squad.expand.ActivitiesExpand;
@@ -114,5 +115,5 @@ public interface ActivitiesService {
 	/** 统计总记录数 */
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil)
 			throws Exception;
-
+	public String findEchartActiveTypre(Map<String, Object> map);
 }

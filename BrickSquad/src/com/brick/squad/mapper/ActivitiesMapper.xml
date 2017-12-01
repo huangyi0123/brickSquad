@@ -71,7 +71,7 @@
 		where
 		id=#{id}
 	</select>
-		<select id="findOfficalActivitiesById" resultType="activities"
+	<select id="findOfficalActivitiesById" resultType="activities"
 		parameterType="String">
 		select id,name,centent,type_id typeId,start_time
 		startTime,end_time
@@ -80,7 +80,7 @@
 		where
 		id=#{id}
 	</select>
-	
+
 	<!-- 查询活动名称 ,用于首页的报名回显 -->
 	<select id="findActivityName" resultType="activities">
 		SELECT id,name FROM
@@ -202,6 +202,19 @@
 		ON
 		a.type_id=t.id AND t.id=#{typeId}
 	</select>
+	<select id="findEchartActiveTypre" resultType="map"
+		parameterType="map">
+		SELECT t.`name` name,COUNT(t.id) n FROM activities a
+		JOIN
+		activity_registration ar on a.id=ar.activities_id
+		JOIN type t ON
+		a.type_id=t.id
+		JOIN `user` p on p.id=ar.per_id
+		<if test="typeId!=''">
+			WHERE p.branch_id=''
+		</if>
+		GROUP BY type_id
 
+	</select>
 
 </mapper>

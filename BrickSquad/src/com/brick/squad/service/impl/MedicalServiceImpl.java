@@ -121,14 +121,14 @@ public class MedicalServiceImpl implements MedicalService {
 			page1 = 1;
 			// 设置当前页数:
 			pageBean.setPage1(page1);
-			
+
 			// 设置每页显示记录数:
 			int limit = 3;
 			pageBean.setLimitPage1(limit);
 			// 设置总记录数:
 			int totalCount = 0;
 			totalCount = medicalMapper.findCountMedicalByUser(pageBean);
-		
+
 			pageBean.setTotalCount1(totalCount);
 			// 设置总页数:
 			int totalPage = 0;
@@ -143,7 +143,8 @@ public class MedicalServiceImpl implements MedicalService {
 			// 从哪开始:
 			int begin = (page1 - 1) * limit;
 			pageBean.setBegin1(begin);
-			List<MedicalExpand> list = medicalMapper.findMedicalByUser(pageBean);
+			List<MedicalExpand> list = medicalMapper
+					.findMedicalByUser(pageBean);
 			pageBean.setList(list);
 		} else {
 			// 设置当前页数:
@@ -168,7 +169,8 @@ public class MedicalServiceImpl implements MedicalService {
 			// 从哪开始:
 			int begin = (page1 - 1) * limit;
 			pageBean.setBegin1(begin);
-			List<MedicalExpand> list = medicalMapper.findMedicalByUser(pageBean);
+			List<MedicalExpand> list = medicalMapper
+					.findMedicalByUser(pageBean);
 			pageBean.setList(list);
 		}
 		return pageBean;
@@ -178,16 +180,21 @@ public class MedicalServiceImpl implements MedicalService {
 	/**查看用户检查病历史记录数*/
 	public int findCountMedicalByUser(PageBeanUtil pageBeanUtil)
 			throws Exception {
-		int count=medicalMapper.findCountMedicalByUser(pageBeanUtil);
+		int count = medicalMapper.findCountMedicalByUser(pageBeanUtil);
 		return count;
 	}
 
 	@Override
 	/** 根据ID查找详细信息 */
 	public MedicalExpand findViewInformation(String id) throws Exception {
-		MedicalExpand medicalExpand=medicalMapper.findViewInformation(id);
+		MedicalExpand medicalExpand = medicalMapper.findViewInformation(id);
 		return medicalExpand;
 	}
 
-
+	@Override
+	public String findEchartsByType(Map<String, Object> map) {
+		List<Map<String, Object>> maps = medicalMapper.findEchartsByType(map);
+		JSONArray jsonArray = JSONArray.fromObject(maps);
+		return jsonArray.toString();
+	}
 }

@@ -92,4 +92,9 @@ public interface TypeService {
 	 * 查询总数根据关键字
 	 * */
 	public int findCountSearch(PageBeanUtil pageBean)throws Exception;
+	/**
+	 * 查询分店区域
+	 * */
+	public String findBranchId()throws Exception;
+
 }
