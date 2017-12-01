@@ -290,7 +290,6 @@ function savesa(n) {
 			data : $("#perinformation").serialize(),
 			success : function(result) {
 				result = JSON.parse(result);
-				console.log(result);
 				$("#ipname").html(perName);
 				$("#ipgender").html(perGender);
 				$("#ipidcard").html(idcard);
