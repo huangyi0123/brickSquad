@@ -368,7 +368,7 @@
 		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
-					<a href="index.html"> <i> <img
+					<a href=""> <i> <img
 							src="resource/image/cell.png" alt=" " />
 					</i> 养乐堡
 					</a>
