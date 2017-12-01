@@ -368,7 +368,7 @@
 		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
-					<a href="index.html"> <i> <img
+					<a href=""> <i> <img
 							src="resource/image/cell.png" alt=" " />
 					</i> 养乐堡
 					</a>
@@ -781,13 +781,13 @@
 											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											onclick="findTelephoneView()">预约参观</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" value="请输入联系人姓名" name="rname" id="name"
+										<input type="text"  placeholder="请输入联系人姓名"  name="rname" id="name"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 											onfocus="onfus1()">
 										<br> <span id="nameText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" value="请输入联系人电话" id="telephone"
+										<input type="text" placeholder="请输入联系人电话" id="telephone"
 											name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="onfus2()">
