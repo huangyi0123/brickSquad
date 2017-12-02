@@ -3,7 +3,8 @@ function checkUsername() {
     //获得用户名文本框的值：
     var username = document.getElementById("username").value;
     var username2 = document.getElementById("username2");
-  if (username == null || username == '') {
+  if (username == null || username.trim() == '') {
+	  
        username2.innerHTML= "用户名不能为空 ！";
    	
         return false;
@@ -58,8 +59,9 @@ function checkPassword() {
     //获得密码文本框的值：
     var password = document.getElementById("password").value;
     var password2 = document.getElementById("password2");
-    if (password == null || password == '') {
-        password2.innerHTML= "密码不能为空";
+    if (password == null || password.trim() == '') {
+    	
+    	password2.innerHTML= "密码不能为空";
 
         return false;
     }else if (password.length<5||password.length>20){
@@ -79,8 +81,8 @@ function checkRepassword() {
     var repassword = document.getElementById("repassword").value;
     var upassword = document.getElementById("password").value;
     var repassword2 = document.getElementById("repassword2");
-    if (repassword == null || repassword == '') {
-
+    if (repassword == null || repassword.trim() == '') {
+    	
         repassword2.innerHTML= "密码不能为空";
 
         return false;
