@@ -10,7 +10,7 @@
 		startTime,end_time
 		endTime,user_id
 		userId,number,movie,click_amount
-		clickAmount from activities where
+		clickAmount,imgpath from activities where
 		type_id=#{typeId} and id not in (#{id})
 		and centent REGEXP #{centent}
 		or name REGEXP #{name}
@@ -27,7 +27,7 @@
 		startTime,end_time
 		endTime,user_id
 		userId,number,movie,click_amount
-		clickAmount from activities where
+		clickAmount,imgpath from activities where
 		type_id=#{typeId} and id not in (#{id}) ORDER BY
 		click_amount DESC
 		LIMIT 0 ,3
@@ -52,7 +52,7 @@
 		select id,name,centent,type_id typeId,start_time
 		startTime,end_time
 		endTime,user_id userId,number,movie,click_amount
-		clickAmount from activities
+		clickAmount,imgpath from activities
 		where
 		movie is not null and
 		type_id=#{movieTypeId}

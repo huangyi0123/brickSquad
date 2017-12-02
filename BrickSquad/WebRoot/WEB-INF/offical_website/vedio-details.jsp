@@ -84,14 +84,14 @@
 							href="common/toVedio_Details?id=${listacActivitiesClickAmount[0].id }"
 							style="display: block;" class="vedio_bg"> <img alt=""
 							class="vedio_bg" style="margin-top: 10px;"
-							src="resource/image/3736651_1426063184096_800x600.jpg"> <img
+							src="${listacActivitiesClickAmount[0].imgpath}"> <img
 							class="vedio_plays" alt="" src="resource/image/play.png">
 							<p src="${listacActivitiesClickAmount[0].movie }"
 								style="display: none;color:#000; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 140px">${listacActivitiesClickAmount[0].centent }</p>
 						</a> <a
 							href="common/toVedio_Details?id=${listacActivitiesClickAmount[1].id }"
 							class="vedio_bg"> <img alt="" class="vedio_bg"
-							src="resource/image/3736651_1426063184096_800x600.jpg"> <img
+							src="${listacActivitiesClickAmount[1].imgpath}"> <img
 							class="vedio_plays" alt="" src="resource/image/play.png"
 							style="top: 190px">
 							<p src="${listacActivitiesClickAmount[1].movie }"
@@ -101,7 +101,7 @@
 						<a
 							href="common/toVedio_Details?id=${listacActivitiesClickAmount[2].id }">
 							<img class="vedio_bg" alt="" class="vedio_bg"
-							src="resource/image/3736651_1426063184096_800x600.jpg"> <img
+							src="${listacActivitiesClickAmount[2].imgpath}"> <img
 							class="vedio_plays" alt="" src="resource/image/play.png"
 							style="top: 340px">
 							<p src="${listacActivitiesClickAmount[2].movie }"
@@ -250,7 +250,7 @@
 										<a href="common/toVedio_Details?id=${listMovie[0].id }"
 											class="vedio_rel_bg"> <img class="mybg" alt=""
 											style="margin-top: 10px;"
-											src="resource/image/3736651_1426063184096_800x600.jpg">
+											src="${listMovie[0].imgpath}">
 											<img class="vedio_rel_plays" alt=""
 											src="resource/image/play.png" style="top: 60px">
 											<p src="${listMovie[0].movie }"
@@ -261,7 +261,7 @@
 										<a href="common/toVedio_Details?id=${listMovie[1].id }"
 											class="vedio_rel_bg"> <img class="mybg" alt=""
 											style="margin-top: 10px;"
-											src="resource/image/3736651_1426063184096_800x600.jpg">
+											src="${listMovie[1].imgpath}">
 											<img class="vedio_rel_plays" alt=""
 											src="resource/image/play.png" style="top: 60px">
 											<p src="${listMovie[1].movie }"
@@ -272,7 +272,7 @@
 										<a href="common/toVedio_Details?id=${listMovie[2].id }"
 											class="vedio_rel_bg"> <img class="mybg" alt=""
 											style="margin-top: 10px;"
-											src="resource/image/3736651_1426063184096_800x600.jpg">
+											src="${listMovie[2].imgpath}">
 											<img class="vedio_rel_plays" alt=""
 											src="resource/image/play.png" style="top: 60px">
 											<p src="${listMovie[2].movie }"
@@ -285,7 +285,7 @@
 										href="common/toVedio_Details?id=${relatedRecommendation[0].id }"
 										class="vedio_rel_bg"> <img class="mybg" alt=""
 										style="margin-top: 10px;"
-										src="resource/image/3736651_1426063184096_800x600.jpg">
+										src="${relatedRecommendation[0].imgpath }">
 										<img class="vedio_rel_plays" alt=""
 										src="resource/image/play.png" style="top: 60px">
 										<p src="${relatedRecommendation[0].movie }"
@@ -299,7 +299,7 @@
 										src="resource/image/3736651_1426063184096_800x600.jpg">
 										<img class="vedio_rel_plays" alt=""
 										src="resource/image/play.png" style="top: 240px">
-										<p src="${relatedRecommendation[1].movie }"
+										<p src="${relatedRecommendation[1].image}"
 											style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 350px;left: 70px">${relatedRecommendation[1].centent }</p>
 									</a>
 								</c:if>
@@ -308,7 +308,7 @@
 									<a
 										href="common/toVedio_Details?id=${relatedRecommendation[2].id } ">
 										<img class="mybg" alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
+										src="${relatedRecommendation[2].movie }">
 										<img class="vedio_rel_plays" alt=""
 										src="resource/image/play.png" style="top:420px">
 										<p src="${relatedRecommendation[2].movie }"
