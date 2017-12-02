@@ -260,14 +260,14 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 			pageBean.setPage(page);
 
 			// 设置每页显示记录数:
-			int limit = 4;
+			int limit = 3;
 			pageBean.setLimitPage(limit);
 			// 设置总记录数:
 			int totalCount = 0;
-			totalCount = activitiesMapper.findCountActivitesName(pageBean);
+			totalCount = activitiesMapper.findCountServerWebsiteTemplate(pageBean);
 			pageBean.setTotalCount(totalCount);
 			// 设置总页数:
-			int totalPage = 0;
+			int totalPage ;
 			// Math.ceil(totalCount / limit);
 			if (totalCount % limit == 0) {
 				totalPage = totalCount / limit;
@@ -286,14 +286,14 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 			// 设置当前页数:
 			pageBean.setPage(page);
 			// 设置每页显示记录数:
-			int limit = 4;
+			int limit = 3;
 			pageBean.setLimitPage(limit);
 			// 设置总记录数:
 			int totalCount = 0;
-			totalCount = activitiesMapper.findCountActivitesName(pageBean);
+			totalCount = activitiesMapper.findCountServerWebsiteTemplate(pageBean);
 			pageBean.setTotalCount(totalCount);
 			// 设置总页数:
-			int totalPage = 0;
+			int totalPage ;
 			// Math.ceil(totalCount / limit);
 			if (totalCount % limit == 0) {
 				totalPage = totalCount / limit;

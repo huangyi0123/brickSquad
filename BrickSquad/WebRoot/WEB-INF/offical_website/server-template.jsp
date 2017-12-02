@@ -310,39 +310,25 @@ function reservation(id) {
 				<hr>
 				</c:forEach>
 					
-				<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
-					<c:if test="${pageBean.totalCount==0}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-					;margin-left:20px;margin-right:20px;margin-top:20px;" readonly="readonly">
-					<span><a href="javascript:;" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalCount!=0}">
-					<c:if test="${pageBean.page==1}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page+1}" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page+1}" >下一页  ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
-					</center>
-					</c:if>
-					</c:if> 
-					</c:if>
+					<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage} 页</span>
+				<c:if test="${ pageBean.page !=1}">
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=1" style="font-size:1.1em">首页</a>
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
+				</c:if>
+			<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
+				<c:if test="${pageBean.page!=i }">
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${i}" style="font-size:1.1em;">${i }</a>
+				</c:if>
+				<c:if test="${pageBean.page==i }">
+				<span style="font-size:1.1em">${i }</span>
+				</c:if>
+			</c:forEach>
+			<c:if test="${pageBean.page!=pageBean.totalPage }">
+			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
+			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
+			</c:if>
+			</center>
 				</ul>
 				
 			
@@ -372,40 +358,28 @@ function reservation(id) {
 				<hr style="margin-top:2%;">
 				</c:forEach>
 				
-					<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
-					
-					<c:if test="${pageBean3.totalCount3==0}">
-					<center style="margin-top:-20px;margin-bottom:20px;">
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-					;margin-left:20px;margin-right:20px;margin-top:20px;" readonly="readonly">
-					<span><a href="javascript:;" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean3.totalCount3!=0}">
-					<c:if test="${pageBean3.page3==1}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3+1}" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean3.totalPage3!=pageBean3.page3 && pageBean3.page3!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3+1}" >下一页  ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean3.totalPage3==pageBean3.page3&& pageBean3.totalPage3!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
-					</center>
-					</c:if>
-					</c:if> 
-					</c:if>
+				
+					<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean3.page3}/${ pageBean3.totalPage3} 页</span>
+				<c:if test="${ pageBean3.page3 !=1}">
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=1" style="font-size:1.1em">首页</a>
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${ pageBean3.page3-1}" style="font-size:1.1em">&nbsp;上一页</a>
+				</c:if>
+			<c:forEach var="i" begin="1" end="${pageBean3.totalPage3 }">
+				<c:if test="${pageBean3.page3!=i }">
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${i}" style="font-size:1.1em;">${i }</a>
+				</c:if>
+				<c:if test="${pageBean3.page3==i }">
+				<span style="font-size:1.1em">${i }</span>
+				</c:if>
+			</c:forEach>
+			<c:if test="${pageBean3.page3!=pageBean3.totalPage3 }">
+			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3+1}" style="font-size:1.1em">下一页</a>
+			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.totalPage3}" style="font-size:1.1em">尾页</a>
+			</c:if>
+			</center>
+				
+				
 				</ul>
 				</div>
 
@@ -448,42 +422,26 @@ function reservation(id) {
 				</li>
 				<hr>
 				</c:forEach>
+				<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean1.page1}/${ pageBean1.totalPage1} 页</span>
+				<c:if test="${ pageBean1.page1 !=1}">
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=1" style="font-size:1.1em">首页</a>
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${ pageBean1.page1-1}" style="font-size:1.1em">&nbsp;上一页</a>
+				</c:if>
+			<c:forEach var="i" begin="1" end="${pageBean1.totalPage1 }">
+				<c:if test="${pageBean1.page1!=i }">
+				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${i}" style="font-size:1.1em;">${i }</a>
+				</c:if>
+				<c:if test="${pageBean1.page1==i }">
+				<span style="font-size:1.1em">${i }</span>
+				</c:if>
+			</c:forEach>
+			<c:if test="${pageBean1.page1!=pageBean1.totalPage1 }">
+			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1+1}" style="font-size:1.1em">下一页</a>
+			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.totalPage1}" style="font-size:1.1em">尾页</a>
+			</c:if>
+			</center>
 					
-					
-				<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
-					<c:if test="${pageBean1.totalCount1==0}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-					;margin-left:20px;margin-right:20px;margin-top:20px;" readonly="readonly">
-					<span><a href="javascript:;" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean1.totalCount1!=0}">
-					<c:if test="${pageBean1.page1==1}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1+1}" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean1.totalPage1!=pageBean1.page1 && pageBean1.page1!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1+1}" >下一页  ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean1.totalPage1==pageBean1.page1&& pageBean1.totalPage1!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
-					</center>
-					</c:if>
-					</c:if> 
-					</c:if>
-				
 				
 					</c:if>
 					<c:if test="${user eq null }">

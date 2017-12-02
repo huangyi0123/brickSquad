@@ -123,7 +123,7 @@ public class MedicalServiceImpl implements MedicalService {
 			pageBean.setPage1(page1);
 
 			// 设置每页显示记录数:
-			int limit = 3;
+			int limit = 1;
 			pageBean.setLimitPage1(limit);
 			// 设置总记录数:
 			int totalCount = 0;
@@ -150,7 +150,7 @@ public class MedicalServiceImpl implements MedicalService {
 			// 设置当前页数:
 			pageBean.setPage1(page1);
 			// 设置每页显示记录数:
-			int limit = 3;
+			int limit = 1;
 			pageBean.setLimitPage1(limit);
 			// 设置总记录数:
 			int totalCount = 0;

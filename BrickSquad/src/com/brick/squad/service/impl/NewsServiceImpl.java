@@ -142,7 +142,7 @@ public class NewsServiceImpl implements NewsService {
 			pageBean.setPage3(page3);
 
 			// 设置每页显示记录数:
-			int limit = 4;
+			int limit = 1;
 			pageBean.setLimitPage3(limit);
 			// 设置总记录数:
 			int totalCount = 0;
@@ -167,7 +167,7 @@ public class NewsServiceImpl implements NewsService {
 			// 设置当前页数:
 			pageBean.setPage3(page3);
 			// 设置每页显示记录数:
-			int limit = 4;
+			int limit = 1;
 			pageBean.setLimitPage3(limit);
 			// 设置总记录数:
 			int totalCount = 0;
