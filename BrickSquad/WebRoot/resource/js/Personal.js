@@ -162,14 +162,24 @@ function updatePinfo(n) {
 			'true');
 	layui.use('form', function() {
 		var form = layui.form;
+		// 获取省份下拉框数据
 		$.ajax({
 			url : 'region/findRegionByLevel?level=1',
 			success : function(data) {
 				data = JSON.parse(data);
 				findAll(data, "#prIdas");
-				form.render('select', 'prIds');
 			}
 
+		});
+		// 获取亲属关系下拉框
+		
+		$.ajax({
+			url:'type/findTypeByParentId?parentId=qinshuguanxi',
+			success : function(data) {
+				data = JSON.parse(data);
+				console.log(data);
+				findAll(data, "#relationshipId");
+			}
 		});
 		var porId = $("#prIdas").attr('val');
 		var cityId = $('#cityId').attr('val');
@@ -280,7 +290,6 @@ function savesa(n) {
 			data : $("#perinformation").serialize(),
 			success : function(result) {
 				result = JSON.parse(result);
-				console.log(result);
 				$("#ipname").html(perName);
 				$("#ipgender").html(perGender);
 				$("#ipidcard").html(idcard);
@@ -473,6 +482,16 @@ function activisy() {
 						$("#activels").append(html);
 					});
 
+		}
+	});
+}
+function selectCity(obj, iid) {
+	var id = $(obj).val();
+	$.ajax({
+		url : 'address/findRegionsByParentId?pid=' + id,
+		success : function(data) {
+			data = JSON.parse(data);
+			findAll(data, iid);
 		}
 	});
 }

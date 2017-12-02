@@ -124,6 +124,12 @@ public class OrdersServiceImpl implements OrdersService {
 			orders.setStateId("02cd8aeeccf111e7aca65254002ec43c");
 			ordersMapper.updateOrdersById(orders);
 			Buyers buyers = buyersMapper.findBuyersById(orders.getBuyId());
+			if (buyers==null) {
+				buyers=new Buyers();
+				buyers.setId(orders.getBuyId());
+				buyers.setGrade("0");
+				buyersMapper.insertBuyers(buyers);
+			}
 			int historicalIntegral = (int) (buyers.getHistoricalIntegral() + orders
 					.getMoney());
 			buyers.setHistoricalIntegral(historicalIntegral);

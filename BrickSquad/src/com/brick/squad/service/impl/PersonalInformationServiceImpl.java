@@ -264,6 +264,7 @@ public class PersonalInformationServiceImpl implements
 		PersonalInformation personalInformation = personalInformationMapper
 				.findPersonalInformationById(pInformation.getId());
 		personalInformation.setName(pInformation.getName());
+		personalInformation.setIdCard(pInformation.getIdCard());
 		personalInformation.setGender(pInformation.getGender());
 		personalInformation.setBirthday(pInformation.getBirthday());
 		Address address2;
