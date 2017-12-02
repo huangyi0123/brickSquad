@@ -1,8 +1,17 @@
 package com.brick.squad.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.meta.InsertOnly;
+import com.qcloud.cos.request.CreateFolderRequest;
+import com.qcloud.cos.request.ListFolderRequest;
+import com.qcloud.cos.request.StatFolderRequest;
 import com.qcloud.cos.request.UploadFileRequest;
 import com.qcloud.cos.sign.Credentials;
 
@@ -48,5 +57,51 @@ public class COS {
 		String data = cosClient.uploadFile(request);
 		cosClient.shutdown();
 		return data;
+	}
+
+	/**
+	 * 在cos中创建目录
+	 * 
+	 * @param folderName
+	 *            目录名称
+	 * @return 创建结果
+	 */
+	public String createFolder(String folderName) {
+		Credentials cred = new Credentials(appId, secretId, secretKey);
+		ClientConfig clientConfig = new ClientConfig();
+		clientConfig.setRegion(region);
+		COSClient cosClient = new COSClient(clientConfig, cred);
+		CreateFolderRequest request = new CreateFolderRequest(bucketName,
+				"/articleList/" + folderName + "/");
+		String data = cosClient.createFolder(request);
+		cosClient.shutdown();
+		return data;
+	}
+
+	/**
+	 * 获取目录的CDN访问路径
+	 * 
+	 * @param folderName
+	 *            目录名称
+	 * @return CDN路径集合
+	 */
+	public List<String> listFolder(String folderName) {
+		Credentials cred = new Credentials(appId, secretId, secretKey);
+		ClientConfig clientConfig = new ClientConfig();
+		clientConfig.setRegion(region);
+		COSClient cosClient = new COSClient(clientConfig, cred);
+		ListFolderRequest request = new ListFolderRequest(bucketName,
+				folderName);
+		String data = cosClient.listFolder(request);
+		cosClient.shutdown();
+		JSONObject jsonArray = JSONObject.fromObject(data);
+		jsonArray = JSONObject.fromObject(jsonArray.get("data"));
+		JSONArray jsonArray2 = JSONArray.fromObject(jsonArray.get("infos"));
+		List<String> list = new ArrayList<String>();
+		for (Object object : jsonArray2) {
+			JSONObject jsonObject = JSONObject.fromObject(object);
+			list.add(jsonObject.get("access_url").toString());
+		}
+		return list;
 	}
 }
