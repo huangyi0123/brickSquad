@@ -1373,7 +1373,7 @@
 
 																				<h4>
 																					<a href="variableProduct/toVariable_product?productId=${a.id }"
-																						title="Cleaner with bag">${a.aname }</a>
+																						title="${a.aname }">${a.aname }</a>
 																				</h4>
 
 																				<!-- Price -->
@@ -1954,7 +1954,7 @@
 
 																						<h4>
 																							<a href="variableProduct/toVariable_product?productId=${a[0].id }"
-																								title="voluptate ipsum">${a[0].aname }</a>
+																								title="${a[0].aname }">${a[0].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2010,7 +2010,7 @@
 
 																						<h4>
 																							<a href="variableProduct/toVariable_product?productId=${a[1].id }"
-																								title="veniam dolore">${a[1].aname }</a>
+																								title="${a[1].aname }">${a[1].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2046,7 +2046,7 @@
 																			<div class="item-inner">
 																				<div class="item-img">
 																					<a href="variableProduct/toVariable_product?productId=${a.id }"
-																						title="corned beef enim">
+																						title="${a.aname }">
 																						<img alt="" src="${a.image }" style="width: 70px">
 																					</a>
 																				</div>
@@ -2060,7 +2060,7 @@
 
 																						<h4>
 																							<a href="variableProduct/toVariable_product?productId=${a.id }"
-																								title="corned beef enim">${a.aname }</a>
+																								title="${a.aname }">${a.aname }</a>
 																						</h4>
 
 																						<div class="item-price">
@@ -2268,7 +2268,7 @@
 
 																							<h4>
 																								<a href="variableProduct/toVariable_product?productId=${a[0].id }"
-																									title="Cleaner with bag">${a[0].aname }</a>
+																									title="${a[0].aname }">${a[0].aname }</a>
 																							</h4>
 
 																							<!-- Price -->
@@ -2327,7 +2327,7 @@
 
 																							<h4>
 																								<a href="variableProduct/toVariable_product?productId=${a[1].id }"
-																									title="sint turkey">${a[1].aname }</a>
+																									title="${a[1].aname }">${a[1].aname }</a>
 																							</h4>
 
 																							<!-- Price -->
@@ -2381,7 +2381,7 @@
 
 																					<h4>
 																						<a href="variableProduct/toVariable_product?productId=${a.id }"
-																							title="Vacuum cleaner">${a.aname }</a>
+																							title="${a.aname }">${a.aname }</a>
 																					</h4>
 																					<div class="item-price">
 																						<ins>
@@ -2568,7 +2568,7 @@
 
 																						<h4>
 																							<a href="variableProduct/toVariable_product?productId=${a[0].id }"
-																								title="voluptate ipsum">${a[0].aname }</a>
+																								title="${a[0].aname }">${a[0].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
@@ -2624,7 +2624,7 @@
 
 																						<h4>
 																							<a href="variableProduct/toVariable_product?productId=${a[1].id }"
-																								title="veniam dolore">${a[1].aname }</a>
+																								title="${a[1].aname }">${a[1].aname }</a>
 																						</h4>
 
 																						<!-- Price -->
