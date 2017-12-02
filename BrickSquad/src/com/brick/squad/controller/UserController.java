@@ -185,8 +185,6 @@ public class UserController {
 	 */
 	@RequestMapping("/toUpdatePassword")
 	public String toUpdatePassword(HttpServletRequest request, String username) {
-		System.out.println(username);
-
 		User user = userService.findUserByusername(username);
 		if (user != null) {
 			request.setAttribute("user", user);
@@ -335,5 +333,8 @@ public class UserController {
 		return "suc";
 		/* return "redirect:/common/toPersonal"; */
 	}
-
+	@RequestMapping("userProtocol")
+	public String Protocol(){
+		return "backstage_managed/jsp/user/UserProtocol";
+	}
 }

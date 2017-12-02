@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>官网模板</title>
+<title></title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -107,9 +107,10 @@
 					<c:if test="${typeContent=='typeContent' }">
 					<c:if test="${pageBean.totalCount==0}">
 					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
+					<h6>没有查询到内容！</h6>
+					<!-- <span><a href="javascript:;" >< 上一页</a></span>
 					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页 ></a></span>
+					<span><a href="javascript:;" >下一页 ></a></span> -->
 					</center>
 					</c:if>
 					<c:if test="${pageBean.totalCount!=0}">
@@ -136,7 +137,6 @@
 					</c:if>
 					</c:if>
 					</c:if>
-					
 					<c:if test="${findActivitesName=='findActivitesName' }">
 					<c:if test="${pageBean.totalCount==0}">
 					<center>

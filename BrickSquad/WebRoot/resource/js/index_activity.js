@@ -70,7 +70,7 @@ function getTopQualityCourselistMovieByPagination(curentPage, pageSize) {
 																			+ '<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">'
 																			+ '<a href="common/toVedio_Details?id='
 																			+ this.id
-																			+ '"class="act_bg"><img alt=""src="resource/image/3736651_1426063184096_800x600.jpg">'
+																			+ '"class="act_bg"><img alt=""src="'+this.imgpath+'">'
 																			+ '<img class="act_play" alt="" src="resource/image/play.png">'
 																			+ '</a><label style="font-size: 18px;">【'
 																			+ this.name
@@ -169,7 +169,7 @@ function getdieteticHealthlistMovieByPagination(curentPage, pageSize) {
 																			+ '<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">'
 																			+ '<a href="common/toVedio_Details?id='
 																			+ this.id
-																			+ '"class="act_bg"><img alt=""src="resource/image/3736651_1426063184096_800x600.jpg">'
+																			+ '"class="act_bg"><img alt=""src="'+this.imgpath+'">'
 																			+ '<img class="act_play" alt="" src="resource/image/play.png">'
 																			+ '</a><label style="font-size: 18px;">【'
 																			+ this.name
@@ -244,6 +244,7 @@ function getsportsHealthlistMovieByPagination(curentPage, pageSize) {
 											'movieTypeId' : "283b93f2d25a11e7880a5254002ec43c"
 										},
 										success : function(data) {
+											console.log(data);
 											// 关闭
 											layer.close(index);
 											data = JSON.parse(data);
@@ -268,7 +269,7 @@ function getsportsHealthlistMovieByPagination(curentPage, pageSize) {
 																			+ '<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">'
 																			+ '<a href="common/toVedio_Details?id='
 																			+ this.id
-																			+ '"class="act_bg"><img alt=""src="resource/image/3736651_1426063184096_800x600.jpg">'
+																			+ '"class="act_bg"><img alt=""src="'+this.imgpath+'">'
 																			+ '<img class="act_play" alt="" src="resource/image/play.png">'
 																			+ '</a><label style="font-size: 18px;">【'
 																			+ this.name
@@ -366,7 +367,7 @@ function getselfCultivationlistMovieByPagination(curentPage, pageSize) {
 																			+ '<div class="layui-col-xs4 layui-col-sm12 layui-col-md4">'
 																			+ '<a href="common/toVedio_Details?id='
 																			+ this.id
-																			+ '"class="act_bg"><img alt=""src="resource/image/3736651_1426063184096_800x600.jpg">'
+																			+ '"class="act_bg"><img alt=""src="'+this.imgpath+'">'
 																			+ '<img class="act_play" alt="" src="resource/image/play.png">'
 																			+ '</a><label style="font-size: 18px;">【'
 																			+ this.name

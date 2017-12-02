@@ -47,8 +47,26 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
+
+
 
 
 
@@ -290,18 +308,26 @@
 		var name = document.getElementById("name").value;
 		var telephone = document.getElementById("telephone").value;
 		var nameText = document.getElementById("nameText");
-		if (name == "") {
+		if (name.trim() == "") {
 			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
 			return false;
 		}
 		var phoneText = document.getElementById("telephoneText");
-		if (telephone == "") {
+		if (telephone.trim() == "") {
 			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号不能为空</span>";
 			return false;
 		} else if (telephone.match('\\d{11}') != telephone) {
 			phoneText.innerHTML = "<span style='color:#C5C5C5'>手机号格式不正确</span>";
 			return false;
 		}
+		var reservationDate = $("#reservationDate").val();
+		if (reservationDate.trim() == "") {
+			var reservationDatedateText = document
+					.getElementById("reservationDatedateText");
+			reservationDatedateText.innerHTML = "<span style='color:#C5C5C5'>请选择日期！</span>";
+			return false;
+		}
+
 	}
 	function onfus1() {
 		var nameText = document.getElementById('nameText');
@@ -311,11 +337,18 @@
 		var phoneText = document.getElementById('telephoneText');
 		phoneText.innerHTML = "<span style='color:#C5C5C5'></span>";
 	}
+	function onfusreservationDate() {
+		var reservationDatedateText = document
+				.getElementById("reservationDatedateText");
+		reservationDatedateText.innerHTML = "<span style='color:#C5C5C5'></span>";
+	}
 	function check1() {
+		var branchsecondid = document.getElementById("branchsecondid").value;
 		var name = document.getElementById("name3").value;
 		var telephone = document.getElementById("telephone4").value;
 		var date = document.getElementById("date").value;
 		var nameText = document.getElementById("nameText3");
+
 		if (name == "") {
 			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
 			return false;
@@ -329,8 +362,14 @@
 			return false;
 		}
 		var dateText = document.getElementById("dateText5");
-		if (date == "") {
+		if (date == "请输入预约时间") {
 			dateText.innerHTML = "<span style='color:#C5C5C5'>时间不能为空</span>";
+			return false;
+		}
+		if (branchsecondid.trim() == "") {
+			var branchsecondidMessage = document
+					.getElementById("branchsecondidMessage");
+			branchsecondidMessage.innerHTML = "<span style='color:#C5C5C5'>请选择社区</span>";
 			return false;
 		}
 	}
@@ -368,8 +407,7 @@
 		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
-					<a href=""> <i> <img
-							src="resource/image/cell.png" alt=" " />
+					<a href=""> <i> <img src="resource/image/cell.png" alt=" " />
 					</i> 养乐堡
 					</a>
 				</h1>
@@ -388,7 +426,7 @@
 						href="common/toActivity_carousel?type=online_course">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="common/toActivity_carousel?type=online_course">线上直播</a>
+								<a href="common/toActivity_carousel?type=online_course">线上课程</a>
 							</dd>
 							<dd>
 								<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
@@ -656,7 +694,7 @@
 						<h3>乐堡活动</h3>
 					</a>
 					<ul>
-						<li><a href="common/toActivity_carousel?type=online_course">线上直播</a>
+						<li><a href="common/toActivity_carousel?type=online_course">线上课程</a>
 						</li>
 						<li><a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</li>
@@ -781,7 +819,8 @@
 											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											onclick="findTelephoneView()">预约参观</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text"  placeholder="请输入联系人姓名"  name="rname" id="name"
+										<input type="text" placeholder="请输入联系人姓名" name="rname"
+											id="name"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 											onfocus="onfus1()">
 										<br> <span id="nameText" style="margin-left:44%"></span>
@@ -796,13 +835,13 @@
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
 											<div class="layui-input-inline">
-												<input type="text" name="reservationDate" id="date"
+												<input type="date" name="reservationDate"
+													onfocus="onfusreservationDate()" id="reservationDate"
 													lay-verify="date" autocomplete="off" class="layui-input"
-													value="请输入预约时间"
-													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="if(value=='请输入预约时间') {value=''}"
-													onblur="if (value=='') {value='请输入预约时间'}">
-												<br> <span id="dateText" style="margin-left:44%"></span>
+													placeholder="请输入预约时间"
+													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;">
+												<br> <span id="reservationDatedateText"
+													style="margin-left:44%"></span>
 											</div>
 										</form>
 										<label
@@ -931,17 +970,15 @@
 											</div>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
-											<form class="layui-form" action="">
-												<div class="layui-input-inline">
-													<input type="text" name="reservationDate" id="date"
-														lay-verify="date" autocomplete="off" class="layui-input"
-														value="请输入预约时间"
-														style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-														onfocus="onfus5()"
-														onblur="if (value=='') {value='请输入预约时间'}">
-													<br> <span id="dateText5" style="margin-left:44%"></span>
-												</div>
-											</form>
+											<div class="layui-input-inline">
+												<input type="text" name="reservationDate" id="date"
+													lay-verify="date" autocomplete="off" class="layui-input"
+													value="请输入预约时间"
+													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
+													onfocus="onfus5()"
+													onblur="if (value=='') {value='请输入预约时间'}">
+												<br> <span id="dateText5" style="margin-left:44%"></span>
+											</div>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
 											<div class="layui-form-item">
@@ -952,8 +989,10 @@
 															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 															<option value="">请选择</option>
 
-														</select>
+														</select> 
 													</div>
+													 <span id="branchsecondidMessage"
+															style="margin-left:44%;;margin-left:70px;"></span>
 												</div>
 											</div>
 											<p

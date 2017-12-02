@@ -130,7 +130,7 @@ public class CommonController {
 			cos.setBucketName("bricksquad");
 			cos.setRegion("sh");
 			String paths = cos.upLoadImageToCOS(file1.getAbsolutePath(),
-					"/news/" + fileName);
+					"/"+imgPath+"/" + fileName);
 			System.out.println(paths);
 			JSONObject jsonObject = JSONObject.fromObject(paths);
 			jsonObject = JSONObject.fromObject(jsonObject.get("data"));

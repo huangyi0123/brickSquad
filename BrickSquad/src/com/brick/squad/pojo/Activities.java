@@ -35,7 +35,17 @@ public class Activities {
 	 * 视频点击量
 	 */
 	private int clickAmount;
+	private String imgpath;
 	
+	
+
+	public String getImgpath() {
+		return imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
+	}
 
 	public int getClickAmount() {
 		return clickAmount;

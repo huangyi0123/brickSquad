@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.brick.squad.expand.ArticleExpand;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticleService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.Pagination;
 
 @RequestMapping("/article")
@@ -68,9 +69,12 @@ public class ArticleController {
 			List<String> imgpathlList = new ArrayList<String>();
 			File file = new File(imgpath);
 			File[] files = file.listFiles();
-			for (File file2 : files) {
-				imgpathlList.add(file2.getName());
+			if (files!=null) {
+				for (File file2 : files) {
+					imgpathlList.add(file2.getName());
+				}
 			}
+			
 			request.setAttribute("images", imgpathlList);
 			request.setAttribute("article", article);
 		} else {
@@ -98,6 +102,12 @@ public class ArticleController {
 			articleService.insertArticleById(article);
 			// 把当前商品的所有图片存到一个文件夹下，文件夹命名为商品id
 			String newPath = article.getId();
+			//在cos上创建文件夹
+			COS cos=new COS();
+			cos.setBucketName("bricksquad");
+			cos.setRegion("sh");
+			String string=cos.createFolder(newPath);
+			
 			// 获取图片要保存的到的服务器路径
 			String realPath = "resource/image/articleImg/" + newPath + "/";
 			String path = request.getSession().getServletContext()
@@ -127,6 +137,11 @@ public class ArticleController {
 						file.mkdirs();
 					}
 					multipartFile.transferTo(file);
+					String COSPath="/articleList/"+newPath+"/"+fileNewName;
+					//将文件存储到COS
+					cos.upLoadImageToCOS(file.getAbsolutePath(), COSPath);
+					//删除本地文件
+					file.delete();
 
 				} else {
 					List<ObjectError> errors = new ArrayList<>();

@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</a>
 					<ul>
 						<li>
-							<a href="common/toActivity_carousel?type=online_course">线上直播</a>
+							<a href="common/toActivity_carousel?type=online_course">线上课程</a>
 						</li>
 						<li>
 							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
