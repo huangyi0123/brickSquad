@@ -45,7 +45,12 @@ public class ReservationController {
 	@RequestMapping("/findInsertReservation")
 	public String findInsertReservation(HttpServletRequest request,
 			Reservation reservation) throws Exception {
-		reservationService.insertReservation(reservation);
+		if (!reservation.getRname().equals("")
+				|| !reservation.getTelephone().equals("")
+				|| reservation.getReservationDate().equals("")) {
+			reservationService.insertReservation(reservation);
+		}
+
 		return "redirect:/";
 	}
 

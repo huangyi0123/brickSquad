@@ -68,9 +68,12 @@ public class ArticleController {
 			List<String> imgpathlList = new ArrayList<String>();
 			File file = new File(imgpath);
 			File[] files = file.listFiles();
-			for (File file2 : files) {
-				imgpathlList.add(file2.getName());
+			if (files!=null) {
+				for (File file2 : files) {
+					imgpathlList.add(file2.getName());
+				}
 			}
+			
 			request.setAttribute("images", imgpathlList);
 			request.setAttribute("article", article);
 		} else {
