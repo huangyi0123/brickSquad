@@ -74,6 +74,7 @@
 			<mvc:exclude-mapping path="/common/toCart" />
 			<mvc:exclude-mapping path="/variableProduct/toVariable_product" />
 			<mvc:exclude-mapping path="/MedicalInstruments/**" />
+			<mvc:exclude-mapping path="/user/userProtocol" />
 			<mvc:exclude-mapping path="/deals/todeals" />
 			<mvc:exclude-mapping path="/new_deals/tonew_deals" />
 			<mvc:exclude-mapping path="/group_buy/togroup_buy" />

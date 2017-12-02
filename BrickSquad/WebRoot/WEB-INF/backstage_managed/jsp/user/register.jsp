@@ -78,7 +78,7 @@ $(function() {
 					<div class="checkbox i-checks">
 						<label class="no-padding">
 						 <input type="checkbox"  name="xieyi" onclick="return checkedXieyi();"><i></i>
-							我同意注册协议
+							<a href="user/userProtocol">我同意注册协议</a>
 						</label>
 						<span id="xieyi" style="font-size: 10px; color: red;float: right;"></span>	
 					</div>
