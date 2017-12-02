@@ -39,12 +39,14 @@ public class TypeController {
 
 	@RequestMapping("/getTypeList")
 	@ResponseBody
-	public String getTypeList(int pSize, int cPage, String keyword,HttpServletRequest request) {
+	public String getTypeList(int pSize, int cPage, String keyword,
+			HttpServletRequest request) {
 		Pagination pagination = new Pagination();
 		pagination.setCurentPage(cPage);
 		pagination.setPageSize(pSize);
 		pagination.setKeyword(keyword);
-		pagination.setRoleId(request.getSession().getAttribute("roleId").toString());
+		pagination.setRoleId(request.getSession().getAttribute("roleId")
+				.toString());
 		String data = typeService.typePagination(pagination);
 		return data;
 	}
@@ -98,19 +100,23 @@ public class TypeController {
 		typeService.deleteTypeById(id);
 		return "success";
 	}
+
 	@RequestMapping("/searchContent")
-	public String searchContent(HttpServletRequest request,String type,PageBeanUtil  pageBean) throws Exception{
+	public String searchContent(HttpServletRequest request, String type,
+			PageBeanUtil pageBean) throws Exception {
 		request.setAttribute("type", type);
-		System.out.println("==========="+pageBean.getSearch());
-		PageBeanUtil<Type> pageBean1=typeService.searchName(pageBean.getPage(), pageBean.getSearch());
+		PageBeanUtil<Type> pageBean1 = typeService.searchName(
+				pageBean.getPage(), pageBean.getSearch());
 		request.setAttribute("pageBean", pageBean1);
 		request.setAttribute("typeContent", "typeContent");
+
 		return "offical_website/search-template";
 	}
+
 	@RequestMapping("/findBranchId")
 	@ResponseBody
-	public String findBranchId() throws Exception{
-		String data=typeService.findBranchId();
-		return data; 
+	public String findBranchId() throws Exception {
+		String data = typeService.findBranchId();
+		return data;
 	}
 }
