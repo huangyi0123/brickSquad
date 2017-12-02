@@ -55,8 +55,10 @@
 	
 	
 	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -341,10 +343,12 @@
 		reservationDatedateText.innerHTML = "<span style='color:#C5C5C5'></span>";
 	}
 	function check1() {
+		var branchsecondid = document.getElementById("branchsecondid").value;
 		var name = document.getElementById("name3").value;
 		var telephone = document.getElementById("telephone4").value;
 		var date = document.getElementById("date").value;
 		var nameText = document.getElementById("nameText3");
+
 		if (name == "") {
 			nameText.innerHTML = "<span style='color:#C5C5C5'>姓名不能为空</span>";
 			return false;
@@ -358,8 +362,14 @@
 			return false;
 		}
 		var dateText = document.getElementById("dateText5");
-		if (date == "") {
+		if (date == "请输入预约时间") {
 			dateText.innerHTML = "<span style='color:#C5C5C5'>时间不能为空</span>";
+			return false;
+		}
+		if (branchsecondid.trim() == "") {
+			var branchsecondidMessage = document
+					.getElementById("branchsecondidMessage");
+			branchsecondidMessage.innerHTML = "<span style='color:#C5C5C5'>请选择社区</span>";
 			return false;
 		}
 	}
@@ -960,17 +970,15 @@
 											</div>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
-											<form class="layui-form" action="">
-												<div class="layui-input-inline">
-													<input type="text" name="reservationDate" id="date"
-														lay-verify="date" autocomplete="off" class="layui-input"
-														value="请输入预约时间"
-														style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-														onfocus="onfus5()"
-														onblur="if (value=='') {value='请输入预约时间'}">
-													<br> <span id="dateText5" style="margin-left:44%"></span>
-												</div>
-											</form>
+											<div class="layui-input-inline">
+												<input type="text" name="reservationDate" id="date"
+													lay-verify="date" autocomplete="off" class="layui-input"
+													value="请输入预约时间"
+													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
+													onfocus="onfus5()"
+													onblur="if (value=='') {value='请输入预约时间'}">
+												<br> <span id="dateText5" style="margin-left:44%"></span>
+											</div>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
 											<div class="layui-form-item">
@@ -981,8 +989,10 @@
 															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 															<option value="">请选择</option>
 
-														</select>
+														</select> 
 													</div>
+													 <span id="branchsecondidMessage"
+															style="margin-left:44%;;margin-left:70px;"></span>
 												</div>
 											</div>
 											<p
