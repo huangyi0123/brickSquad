@@ -388,7 +388,7 @@
 						href="common/toActivity_carousel?type=online_course">乐堡活动</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="common/toActivity_carousel?type=online_course">线上直播</a>
+								<a href="common/toActivity_carousel?type=online_course">线上课程</a>
 							</dd>
 							<dd>
 								<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
@@ -656,7 +656,7 @@
 						<h3>乐堡活动</h3>
 					</a>
 					<ul>
-						<li><a href="common/toActivity_carousel?type=online_course">线上直播</a>
+						<li><a href="common/toActivity_carousel?type=online_course">线上课程</a>
 						</li>
 						<li><a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</li>
