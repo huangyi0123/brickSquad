@@ -176,6 +176,7 @@
 		FROM activities
 		WHERE `name` REGEXP
 		#{search}
+		LIMIT #{begin},#{limitPage}
 	</select>
 	<select id="findCountActivitesName" resultType="int"
 		parameterType="com.brick.squad.util.PageBeanUtil">

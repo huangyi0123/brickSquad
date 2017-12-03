@@ -105,69 +105,51 @@
 					</c:if>
 					
 					<c:if test="${typeContent=='typeContent' }">
-					<c:if test="${pageBean.totalCount==0}">
-					<center>
-					<h6>没有查询到内容！</h6>
-					<!-- <span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页 ></a></span> -->
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalCount!=0}">
-					<c:if test="${pageBean.page==1}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
-					</center>
-					</c:if>
-					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
-					</center>
-					</c:if>
-					</c:if>
+					
+					<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage} 页</span>
+				<c:if test="${ pageBean.page !=1}">
+				<a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=1" style="font-size:1.1em">首页</a>
+				<a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
+				</c:if>
+				<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
+				<c:if test="${pageBean.page!=i }">
+				<a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${i}" style="font-size:1.1em;">${i }</a>
+				</c:if>
+				<c:if test="${pageBean.page==i }">
+				<span style="font-size:1.1em">${i }</span>
+				</c:if>
+				</c:forEach>
+				<c:if test="${pageBean.page!=pageBean.totalPage }">
+				<a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
+				<a href="${pageContext.request.contextPath }/type/searchContent?type=aboutus-intro&search=${pageBean.search }&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
+				</c:if>
+				</center>
+					
+					
+				
 					</c:if>
 					<c:if test="${findActivitesName=='findActivitesName' }">
-					<c:if test="${pageBean.totalCount==0}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页 ></a></span>
-					</center>
+					<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage} 页</span>
+					<c:if test="${ pageBean.page !=1}">
+					<a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
 					</c:if>
-					<c:if test="${pageBean.totalCount!=0}">
-					<c:if test="${pageBean.page==1}">
-					<center>
-					<span><a href="javascript:;" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页 ></a></span>
-					</center>
+					<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
+					<c:if test="${pageBean.page!=i }">
+					<a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${i}" style="font-size:1.1em;">${i }</a>
 					</c:if>
-					<c:if test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" >下一页  ></a></span>
-					</center>
+					<c:if test="${pageBean.page==i }">
+					<span style="font-size:1.1em">${i }</span>
 					</c:if>
-					<c:if test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
-					<center>
-					<span><a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page-1}" >< 上一页</a></span>
-					<input type="text" value="1" style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC" readonly="readonly">
-					<span><a href="javascript:;" >下一页  ></a></span>
-					</center>
-					</c:if>
-					</c:if>
+					</c:forEach>
+					<c:if test="${pageBean.page!=pageBean.totalPage }">
+					<a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/activities/findActivitesName?search=${pageBean.search }&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
+				</c:if>
+				</center>
+					
 					</c:if>
 					
 					</ul>
