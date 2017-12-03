@@ -174,7 +174,7 @@
 						<div class="container">
 						<h1 style="font-size:2em;">商品</h1>
 							<ul class="breadcrumb" style="padding-left:92%;width:100%;">
-								<li><a href="common/toShop">首页</a> <span
+								<li><a href="shopIndex/toShop">首页</a> <span
 									class="go-page"></span></li>
 
 								<li class="active"><span>商品</span></li>
