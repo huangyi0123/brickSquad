@@ -570,6 +570,9 @@ function returnIn() {
 				</div>
 			</div>
 		</div>
+			<div class="clearfix"></div>
+
+			<jsp:include page="official-footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

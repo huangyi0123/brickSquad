@@ -23,6 +23,7 @@ import com.brick.squad.mapper.ShopActivitiesMapper;
 import com.brick.squad.mapper.TypeMapper;
 import com.brick.squad.pojo.Article;
 import com.brick.squad.service.ArticleService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.PageBeanUtil;
 import com.brick.squad.util.PageUtil;
 import com.brick.squad.util.Pagination;
@@ -654,6 +655,15 @@ public class ArticleServiceImpl implements ArticleService {
 			if (files != null && files.length != 0) {
 				item.setImage("resource/image/articleImg/" + item.getImage()
 						+ "/" + files[0].getName());
+			}else {
+				COS cos=new COS();
+				cos.setBucketName("bricksquad");
+				cos.setRegion("sh");
+				String folderName="/articleList/"+item.getId()+"/";
+				List<String> l=cos.listFolder(folderName);
+				if (l.size()>0) {
+					item.setImage(l.get(0));
+				}
 			}
 		}
 		map.put("data", list);

@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>关于我们</title>
+<title>乐堡服务</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

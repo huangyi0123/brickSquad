@@ -250,7 +250,6 @@ public class ArticleController {
 					
 			}
 		}
-		article.setImage(article.getId());
 		articleService.updateArticleById(article);
 		return "backstage_managed/jsp/article/article_list";
 	}

@@ -150,7 +150,7 @@
 														<!-- end rating  -->
 
 														<h4>
-															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
+															<a href="variableProduct/toVariable_product?productId=${a.id}" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
 														</h4>
 
 														<!-- price -->

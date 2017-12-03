@@ -177,11 +177,11 @@ $(function() {
 							<div class="Pro_info">
 								<div class="comm_img">
 									<div class="page">
-										<img class="prodeImg"  alt="" src="resource/image/articleImg/${ article.image}/${images[0]}" style="height:400px;width: 500px">
+										<img class="prodeImg"  alt="" src="${images[0] }" style="height:400px;width: 500px">
 										<ul class="imgList">
 											<c:forEach var="a" items="${images }">
 												<li>
-													<img alt="" src="resource/image/articleImg/${ article.image}/${a}">
+													<img alt="" src="${a}">
 												</li>
 											</c:forEach>
 										</ul>

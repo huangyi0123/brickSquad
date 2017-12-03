@@ -32,6 +32,7 @@ import com.brick.squad.service.OrdersService;
 import com.brick.squad.service.RatedService;
 import com.brick.squad.service.ShoppingCarService;
 import com.brick.squad.service.VariableProductService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.Select;
 
 /**
@@ -240,8 +241,12 @@ public class VariableProductController {
 				imgpathlList.add(file2.getName());
 			}
 		}
-
-		request.setAttribute("images", imgpathlList);
+		COS cos=new COS();
+		cos.setBucketName("bricksquad");
+		cos.setRegion("sh");
+		String folderName="/articleList/"+article.getId()+"/";
+		List<String> imageList=cos.listFolder(folderName);
+		request.setAttribute("images", imageList);
 		// 根据商品ID查询销售总量
 		int SalesNumberTotal = articleService
 				.selectArticleSalesNumberTotalById(productId) + 500;

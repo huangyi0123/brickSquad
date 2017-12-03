@@ -37,8 +37,14 @@
 	});
 </script>
 <body class="layui-layout-body gray-bg">
+	
 	<!--验证用户  -->
 	<div class="middle-box text-center loginscreen  animated fadeInDown">
+	<div>
+	<h3>忘记密码-》验证账户</h3>
+				<img class="logo-name" alt=""
+					src="resource/image/logo.png">
+			</div>
 		<form class="layui-form" action="user/toUpdatePassword" method="post" role="form">
 			<div class="layui-form-item">
 				<label class="layui-form-label">账户：</label>
