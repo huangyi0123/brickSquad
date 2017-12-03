@@ -626,8 +626,6 @@
 												</h4>
 
 												<span class="item-price"><del>
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>${article4.price }</span>
@@ -686,8 +684,6 @@
 												</h4>
 
 												<span class="item-price"><del>
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>${article4.price }</span>
@@ -747,8 +743,6 @@
 												</h4>
 
 												<span class="item-price"><del>
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>${article4.price }</span>
@@ -811,8 +805,6 @@
 												</h4>
 
 												<span class="item-price"><del>
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>${article3.price }</span>
@@ -869,8 +861,6 @@
 													<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}" title="${article3.aname }">${article3.aname }</a>
 												</h4>
 												<span class="item-price"><del>
-														<span class="woocommerce-Price-amount amount"><span
-															class="woocommerce-Price-currencySymbol">￥</span>390.00</span>
 													</del> <ins>
 														<span class="woocommerce-Price-amount amount"><span
 															class="woocommerce-Price-currencySymbol">￥</span>${article3.price }</span>
