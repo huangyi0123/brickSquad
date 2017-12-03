@@ -10,8 +10,9 @@ import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.meta.InsertOnly;
 import com.qcloud.cos.request.CreateFolderRequest;
+import com.qcloud.cos.request.DelFileRequest;
+import com.qcloud.cos.request.DelFolderRequest;
 import com.qcloud.cos.request.ListFolderRequest;
-import com.qcloud.cos.request.StatFolderRequest;
 import com.qcloud.cos.request.UploadFileRequest;
 import com.qcloud.cos.sign.Credentials;
 
@@ -94,6 +95,7 @@ public class COS {
 				folderName);
 		String data = cosClient.listFolder(request);
 		cosClient.shutdown();
+		System.out.println(data);
 		JSONObject jsonArray = JSONObject.fromObject(data);
 		jsonArray = JSONObject.fromObject(jsonArray.get("data"));
 		JSONArray jsonArray2 = JSONArray.fromObject(jsonArray.get("infos"));
@@ -103,5 +105,53 @@ public class COS {
 			list.add(jsonObject.get("access_url").toString());
 		}
 		return list;
+	}
+
+	/**
+	 * 删除指定目录
+	 * 
+	 * @param cosPath
+	 *            路径
+	 * @return 删除信息
+	 */
+	public String delete(String cosPath) {
+		Credentials cred = new Credentials(appId, secretId, secretKey);
+		ClientConfig clientConfig = new ClientConfig();
+		clientConfig.setRegion(region);
+		COSClient cosClient = new COSClient(clientConfig, cred);
+		DelFolderRequest request = new DelFolderRequest(bucketName, cosPath);
+		String data = cosClient.delFolder(request);
+		cosClient.shutdown();
+		return data;
+	}
+
+	/**
+	 * 删除指定目录及目录下的文件
+	 * 
+	 * @param cospath 目录
+	 */
+	public void deleteAll(String cospath) {
+		List<String> list=listFolder(cospath);
+		if (list.size()>0) {
+			for (String string : list) {
+				String s=string.substring(string.lastIndexOf("/")+1);
+				s=cospath+s;
+				deleteFile(s);
+			}
+		}
+		delete(cospath);
+	}
+	/**
+	 * 删除指定文件
+	 * @param cospath  文件路径
+	 */
+	public void deleteFile(String cospath) {
+		Credentials cred = new Credentials(appId, secretId, secretKey);
+		ClientConfig clientConfig = new ClientConfig();
+		clientConfig.setRegion(region);
+		COSClient cosClient = new COSClient(clientConfig, cred);
+		DelFileRequest request=new DelFileRequest(bucketName, cospath);
+		String data = cosClient.delFile(request);
+		cosClient.shutdown();
 	}
 }

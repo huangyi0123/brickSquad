@@ -22,6 +22,7 @@ import com.brick.squad.pojo.User;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.service.TypeService;
+import com.brick.squad.util.COS;
 
 @Controller
 @RequestMapping("/shopIndex")
@@ -38,8 +39,8 @@ public class ShopIndexController {
 
 	@RequestMapping("/toShop")
 	public String toShop(HttpServletRequest request) throws Exception {
-		User user=(User) request.getSession().getAttribute("user");
-		String userId=user==null?null:user.getId();
+		User user = (User) request.getSession().getAttribute("user");
+		String userId = user == null ? null : user.getId();
 		Map<String, Object> map = articalService.shopIndex(userId);
 
 		request.setAttribute("url", "toShop");
@@ -52,23 +53,35 @@ public class ShopIndexController {
 		List<NewsArticle> rArticlesTop = (List<NewsArticle>) map
 				.get("rArticlesTop");
 		List<SecKill> secKills = (List<SecKill>) map.get("secKills");
-		List<NewsArticle> myArticles=(List<NewsArticle>)map.get("myArticle");
-		List<NewsArticle> myArticlesTop=(List<NewsArticle>)map.get("myArticleTop");
+		List<NewsArticle> myArticles = (List<NewsArticle>) map.get("myArticle");
+		List<NewsArticle> myArticlesTop = (List<NewsArticle>) map
+				.get("myArticleTop");
 		for (SecKill item : secKills) {
 			String path = request
-					.getSession()																							.getServletContext()
+					.getSession()
+					.getServletContext()
 					.getRealPath("resource/image/articleImg/" + item.getImage());
 			File file = new File(path);
 			File[] files = file.listFiles();
 			if (files != null && files.length > 0) {
 				item.setImage("resource/image/articleImg/" + item.getImage()
 						+ "/" + files[0].getName());
+			} else {
+				COS cos = new COS();
+				cos.setBucketName("bricksquad");
+				cos.setRegion("sh");
+				String cospath = "/articleList/" + item.getId() + "/";
+				List<String> list = cos.listFolder(cospath);
+				if (list.size() > 0) {
+					item.setImage(list.get(0));
+				}
 			}
 		}
 		List<List<NewsArticle>> nList = avgList(getImagePath(request,
 				newsArticles));
 		List<List<NewsArticle>> rList = avgList(getImagePath(request, rArticles));
-		List<List<NewsArticle>> mList=avgList(getImagePath(request, myArticles));
+		List<List<NewsArticle>> mList = avgList(getImagePath(request,
+				myArticles));
 		request.setAttribute("aNewsArticles", nList);
 		request.setAttribute("aNewsArticlesTop",
 				getImagePath(request, newsArticlesTop));
@@ -77,12 +90,12 @@ public class ShopIndexController {
 				getImagePath(request, rArticlesTop));
 		request.setAttribute("secKills", secKills);
 
-		
-		//加载商品所有类型,搜索框
-		List<Type> listType=typeService.findAllTypeByParentId("splb");
+		// 加载商品所有类型,搜索框
+		List<Type> listType = typeService.findAllTypeByParentId("splb");
 		request.setAttribute("listType", listType);
 
-		request.setAttribute("myArticleTop", getImagePath(request, myArticlesTop));
+		request.setAttribute("myArticleTop",
+				getImagePath(request, myArticlesTop));
 		request.setAttribute("myArticle", mList);
 
 		return "frontEnd_manage/front_bootstrap/index";
@@ -100,6 +113,15 @@ public class ShopIndexController {
 			if (files != null && files.length > 0) {
 				item.setImage("resource/image/articleImg/" + item.getImage()
 						+ "/" + files[0].getName());
+			} else {
+				COS cos = new COS();
+				cos.setBucketName("bricksquad");
+				cos.setRegion("sh");
+				String cospath = "/articleList/" + item.getId() + "/";
+				List<String> list = cos.listFolder(cospath);
+				if (list.size() > 0) {
+					item.setImage(list.get(0));
+				}
 			}
 		}
 		return rArticlesTop;
@@ -127,5 +149,5 @@ public class ShopIndexController {
 		String data = typeService.getArticleType(id);
 		return data;
 	}
-	
+
 }

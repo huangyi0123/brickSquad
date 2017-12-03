@@ -9,7 +9,7 @@ public class Test {
 		COS cos=new COS();
 		cos.setBucketName("bricksquad");
 		cos.setRegion("sh");
-		List<String> list=cos.listFolder("/user_vedio/");
-		System.out.println(list.toString());
+		String co="/articleList/123/";
+		cos.deleteAll(co);
 	}
 }

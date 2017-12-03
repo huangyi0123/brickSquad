@@ -217,8 +217,11 @@ public class ArticleController {
 						file.delete();
 					}
 				}
-
 			}
+			COS cos=new COS();
+			cos.setBucketName("bricksquad");
+			cos.setRegion("sh");
+			cos.deleteAll("/articleList/"+article.getId()+"/");
 			// 初始化文件名的序号
 			int i = 1;
 			for (MultipartFile multipartFile : files) {
@@ -239,7 +242,12 @@ public class ArticleController {
 					file.mkdirs();
 				}
 				multipartFile.transferTo(file);
-
+				String COSPath="/articleList/"+newPath+"/"+fileNewName;
+				//将文件存储到COS
+				cos.upLoadImageToCOS(file.getAbsolutePath(), COSPath);
+				//删除本地文件
+				file.delete();
+					
 			}
 		}
 		article.setImage(article.getId());
