@@ -76,6 +76,7 @@ public class MedicalInstrumentsController {
 		List<Article> listArt = pageBean.getList();
 		List<Article> listArticle4 = yiLiaoUtile.findArticleImgAndName(request,
 				listArt);
+		
 		pageBean.setList(listArticle4);
 		request.getSession().setAttribute("url", "toShop_left_sidebar");
 		request.getSession().setAttribute("url1", "toShop_left_sidebar");

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.brick.squad.pojo.Collection;
+import com.brick.squad.pojo.User;
 import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.CollectionService;
 import com.brick.squad.util.Pagination;
@@ -91,5 +92,18 @@ public class CollectionController {
 		collectionService.deleteCollectionById(id);
 		return "success";
 
+	}
+	@RequestMapping("/collectionVedio")
+	@ResponseBody
+	public String collectionVedio(HttpServletRequest request, String vedioId) {
+		User user=(User)request.getSession().getAttribute("user");
+		
+		Collection collection=new Collection();
+		collection.setArticleId(vedioId);
+		collection.setPerId(user.getId());
+		collection.setColDate(new Date());
+		collection.setTypeId("vedio");
+		collectionService.insertCollection(collection);
+		return "success";
 	}
 }

@@ -11,6 +11,16 @@ public class Collection {
 	private String perId;
 	private String articleId;
 	private Date colDate;
+	private String typeId;
+	
+
+	public String getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
+	}
 
 	public String getId() {
 		return id;
