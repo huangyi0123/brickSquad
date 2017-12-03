@@ -1864,7 +1864,7 @@
 															</div>
 
 															<div class="view-all">
-																<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
+																<a href="new_deals/findHotArticle" style="margin-right: 70px"> 查看更多</a>
 															</div>
 
 															<div class="view-all">
@@ -2487,9 +2487,9 @@
 																</ul>
 															</div>
 
-															<div class="view-all">
-																<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
-															</div>
+															<!-- <div class="view-all">
+																<a href="shopIndex/toShop" style="margin-right: 70px"> 查看更多</a>
+															</div> -->
 
 
 														</div>

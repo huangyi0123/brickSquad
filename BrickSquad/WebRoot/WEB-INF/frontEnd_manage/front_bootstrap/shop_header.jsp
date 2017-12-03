@@ -108,7 +108,7 @@
 
 				<div class="wrap-myacc pull-right" ng-app="">
 					<div class="sidebar-account pull-left" ng-if="${user!=null }">
-						<div class="account-title">我的淘宝</div>
+						<!-- <div class="account-title">我的淘宝</div> -->
 						<div id="my-account" class="my-account">
 							<div
 								class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
