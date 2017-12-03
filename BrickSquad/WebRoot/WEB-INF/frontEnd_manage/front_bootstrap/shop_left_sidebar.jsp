@@ -308,8 +308,8 @@
 									class="product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12">
 									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article.id}"
 									title="${article.aname }">
-									 <img src="resource/image/articleImg/${article.image }"
-										alt="${article.aname }" style="width:300px;height:300px;">
+									 <img src="${article.image }"
+										alt="" style="width:300px;height:300px;">
 										<h3>
 											${article.aname }
 											<mark class="count">(1)</mark>
@@ -607,7 +607,7 @@
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
-															src="resource/image/articleImg/${article4.image }"
+															src="${article4.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
@@ -667,7 +667,7 @@
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
-															src="resource/image/articleImg/${article4.image }"
+															src="${article4.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
@@ -728,7 +728,7 @@
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article4.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
-															src="resource/image/articleImg/${article4.image }"
+															src="${article4.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
@@ -792,7 +792,7 @@
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300" height="300"
-															src="resource/image/articleImg/${article3.image }"
+															src="${article3.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
@@ -837,7 +837,7 @@
 													href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article3.id}">
 													<div class="product-thumb-hover" style="width:200px;height:200px;">
 														<img width="300px" height="300px"
-															src="resource/image/articleImg/${article3.image }"
+															src="${article3.image }"
 															class="attachment-shop_catalog size-shop_catalog wp-post-image"
 															alt=""
 															sizes="(max-width: 300px) 100vw, 300px" style="width:100%;height:100%;">
@@ -1336,7 +1336,7 @@
 							<li class="clearfix">
 								<div class="item-img">
 									<a href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=${article2.id}" title="${article2.aname }"> <img
-										width="180" height="180" src="resource/image/articleImg/${article2.image }"
+										width="180" height="180" src="${article2.image }"
 										class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
 										alt=""
 										sizes="(max-width: 180px) 100vw, 180px">

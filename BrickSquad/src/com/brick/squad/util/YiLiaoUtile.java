@@ -11,6 +11,7 @@ import com.brick.squad.pojo.Article;
 public class YiLiaoUtile<T> {
 	public List<T> findArticleImgAndName(HttpServletRequest request,
 			List<T> listArticle) {
+		
 		List<String> imgPath = new ArrayList<String>();
 		for (T article : listArticle) {
 			String path = request
@@ -21,12 +22,22 @@ public class YiLiaoUtile<T> {
 									+ ((Article) article).getImage());
 			String imgp = ((Article) article).getImage();
 			imgPath.add(path);
+			COS cos=new COS();
+			cos.setBucketName("bricksquad");
+			cos.setRegion("sh");
+			String cospath="/articleList/"+((Article)article).getId()+"/";
+			List<String> imgs=cos.listFolder(cospath);
+			if (imgs.size()>0) {
+				((Article)article).setImage(imgs.get(0));
+			}
 			String p = null;
 			for (String realPath : imgPath) {
 				File file = new File(realPath);
 				if (file.exists()) {
 					File[] files = file.listFiles();
+					
 					if (files.length == 0) {
+						
 					} else {
 						for (File file2 : files) {
 

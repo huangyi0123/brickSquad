@@ -33,62 +33,8 @@
 	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
-<!-- //for-mobile-apps -->
-<!--fonts-->
-
-<!--//fonts-->
-<!-- js -->
-
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
@@ -418,7 +364,7 @@
 				</span>
 				<ul class="layui-nav"
 					style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
-					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
+					<li class="layui-nav-item"><a href="">首页</a></li>
 					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 

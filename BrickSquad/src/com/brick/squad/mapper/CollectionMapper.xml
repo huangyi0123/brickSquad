@@ -4,7 +4,7 @@
 <mapper namespace="com.brick.squad.mapper.CollectionMapper">
 	<sql id="prop">
 		id,per_id perId,article_id articleId,col_date
-		colDate
+		colDate,type_id typeId
 	</sql>
 	<select id="findCollectionById" resultType="Collection"
 		parameterType="String">
@@ -27,8 +27,8 @@
 			select replace(uuid(),'-','') from dual
 		</selectKey>
 		INSERT INTO
-		collection(id,per_id,article_id,col_date)
-		VALUES(#{id},#{perId},#{articleId},#{colDate})
+		collection(id,per_id,article_id,col_date,type_id)
+		VALUES(#{id},#{perId},#{articleId},#{colDate},#{typeId})
 	</insert>
 
 	<update id="updateCollectionById" parameterType="Collection">
@@ -36,7 +36,8 @@
 		collection
 		SET per_id=#{perId},
 		article_id=#{articleId},
-		col_date=#{colDate}
+		col_date=#{colDate},
+		type_id=#{typeId}
 		WHERE id=#{id}
 	</update>
 
