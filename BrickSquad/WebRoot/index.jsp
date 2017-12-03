@@ -364,7 +364,7 @@
 				</span>
 				<ul class="layui-nav"
 					style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
-					<li class="layui-nav-item"><a href="">首页</a></li>
+					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
 					<li class="layui-nav-item"><a href="shopIndex/toShop"
 						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
 
@@ -704,7 +704,7 @@
 	<div class="footer">
 		<div class="container">
 			<h2>
-				<a href="index.html">养乐堡</a>
+				<a href="#">养乐堡</a>
 			</h2>
 			<p>
 				版权 &copy; 2017.团 队 名 7brickSquad.更多 咨询 <a

@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="footer">
 		<div class="container">
 			<h2>
-				<a href="index.html">养乐堡</a>
+				<a href="#">养乐堡</a>
 			</h2>
 			<p>
 				版权 &copy; 2017.团 队 名  7brickSquad.更多
