@@ -79,7 +79,6 @@ function NutritionalDiet(curentPage, pageSize) {
 				},
 				success : function(data) {
 					data = JSON.parse(data);
-					console.log(data);
 					var item = data[0].data;
 					var n = data[0].totals;
 					n = Math.ceil(n / pageSize);
@@ -109,7 +108,6 @@ function NutritionalDiet(curentPage, pageSize) {
 					} else {
 						next = curentPage + 1;
 					}
-					console.log(n+"----------------"+next);
 					$("#pager").append(
 							'<li onclick="NutritionalDiet(' + por
 									+ ',' + pageSize + ')">上一页</li>');
