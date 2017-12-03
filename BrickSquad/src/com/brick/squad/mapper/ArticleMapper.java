@@ -188,6 +188,8 @@ public interface ArticleMapper {
 	public int findSearchAllArticleCountThreadOther(Map<String, Object> map);
 
 	public int findSearchAllArticleCountSecond(String typeId);
+	public int findSearchAllArticleCountSecondS(String s);
+	
 
 	/**
 	 * 根据商家及区域统计商品类别数量

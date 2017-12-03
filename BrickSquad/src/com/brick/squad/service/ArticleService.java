@@ -185,5 +185,6 @@ public interface ArticleService {
 	 * @return 排行榜
 	 */
 	public String findEchartsArticleTop(Map<String, Object> map);
+	public int findSearchAllArticleCountSecondS(String s);
 
 }

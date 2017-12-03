@@ -399,6 +399,9 @@
 		WHERE
 		article.type_id=#{search_category}
 	</select>
+	<select id="findSearchAllArticleCountSecondS" resultType="int" parameterType="String">
+	SELECT COUNT(*) FROM article WHERE aname REGEXP #{s}
+	</select>
 	<select id="findSearchAllArticleCountSecondOther" resultType="int"
 		parameterType="String">
 		SELECT COUNT(*)

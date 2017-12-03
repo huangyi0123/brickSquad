@@ -225,7 +225,7 @@
 						<div class="widget-inner">
 							<div class="top-form top-search">
 								<div class="topsearch-entry">
-									<form method="post"
+									<form method="get"
 										action="${pageContext.request.contextPath }/new_deals/findAllArticle">
 										<div>
 											<input type="text" value="" name="s"

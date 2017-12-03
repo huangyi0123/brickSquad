@@ -695,7 +695,7 @@ public class ArticleServiceImpl implements ArticleService {
 			m.put("search_category", page.getSearch_category());
 			list = articleMapper.findSearchAllArticleSecondAll(m);
 			count = articleMapper
-					.findSearchAllArticleCountSecond(search_category);
+					.findSearchAllArticleCountSecondS(s);
 		} else {
 			if (search_category.equals("yiliaoqixie")) {
 				m.put("s", page.getS());
@@ -1338,5 +1338,11 @@ public class ArticleServiceImpl implements ArticleService {
 				.findEchartsArticleTop(map);
 		JSONArray jsonArray = JSONArray.fromObject(maps);
 		return jsonArray.toString();
+	}
+
+	@Override
+	public int findSearchAllArticleCountSecondS(String s) {
+		int count=articleMapper.findSearchAllArticleCountSecondS(s);
+		return count;
 	}
 }
