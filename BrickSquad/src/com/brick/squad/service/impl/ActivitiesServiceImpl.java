@@ -313,6 +313,138 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 	}
 
 	@Override
+	public PageBeanUtil<Activities> findServerWebsiteTemplate1(int page,
+			String typeId) throws Exception {
+		PageBeanUtil<Activities> pageBean = new PageBeanUtil<Activities>();
+		pageBean.setTypeId(typeId);
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage1(page);
+
+			// 设置每页显示记录数:
+			int limit = 3;
+			pageBean.setLimitPage1(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountServerWebsiteTemplate(pageBean);
+			pageBean.setTotalCount(totalCount);
+			// 设置总页数:
+			int totalPage ;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage1(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin1(begin);
+			List<Activities> list = activitiesMapper
+					.findServerWebsiteTemplate1(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage1(page);
+			// 设置每页显示记录数:
+			int limit = 3;
+			pageBean.setLimitPage1(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountServerWebsiteTemplate(pageBean);
+			pageBean.setTotalCount1(totalCount);
+			// 设置总页数:
+			int totalPage ;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage1(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin1(begin);
+			List<Activities> list = activitiesMapper
+					.findServerWebsiteTemplate1(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+	
+	@Override
+	public PageBeanUtil<Activities> findServerWebsiteTemplate3(int page,
+			String typeId) throws Exception {
+		PageBeanUtil<Activities> pageBean = new PageBeanUtil<Activities>();
+		pageBean.setTypeId(typeId);
+		if (page == 0) {
+			page = 1;
+			// 设置当前页数:
+			pageBean.setPage3(page);
+
+			// 设置每页显示记录数:
+			int limit = 3;
+			pageBean.setLimitPage3(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountServerWebsiteTemplate(pageBean);
+			pageBean.setTotalCount3(totalCount);
+			// 设置总页数:
+			int totalPage ;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage3(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin3(begin);
+			List<Activities> list = activitiesMapper
+					.findServerWebsiteTemplate3(pageBean);
+			pageBean.setList(list);
+		} else {
+			// 设置当前页数:
+			pageBean.setPage3(page);
+			// 设置每页显示记录数:
+			int limit = 3;
+			pageBean.setLimitPage3(limit);
+			// 设置总记录数:
+			int totalCount = 0;
+			totalCount = activitiesMapper.findCountServerWebsiteTemplate(pageBean);
+			pageBean.setTotalCount3(totalCount);
+			// 设置总页数:
+			int totalPage ;
+			// Math.ceil(totalCount / limit);
+			if (totalCount % limit == 0) {
+				totalPage = totalCount / limit;
+			} else {
+				totalPage = totalCount / limit + 1;
+			}
+			pageBean.setTotalPage3(totalPage);
+			// 每页显示的数据集合:
+			// 从哪开始:
+			int begin = (page - 1) * limit;
+			pageBean.setBegin3(begin);
+			List<Activities> list = activitiesMapper
+					.findServerWebsiteTemplate3(pageBean);
+			pageBean.setList(list);
+		}
+		return pageBean;
+	}
+	
+	
+	
+	
+	
+	
+	
+	@Override
 	/**统计总记录数*/
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil)
 			throws Exception {

@@ -277,53 +277,25 @@ function returnIn() {
 									</ul></li>
 								<hr>
 							</c:forEach>
-							<c:if test="${serverWebsiteTemplate=='serverWebsiteTemplate' }">
-								<c:if test="${pageBean.totalCount==0}">
-									<center>
-										<span><a href="javascript:;">< 上一页</a></span> <input
-											type="text" value="1"
-											style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-											;margin-left:20px;margin-right:20px;margin-top:20px;"
-											readonly="readonly"> <span><a
-											href="javascript:;">下一页 ></a></span>
-									</center>
-								</c:if>
-								<c:if test="${pageBean.totalCount!=0}">
-									<c:if test="${pageBean.page==1}">
-										<center>
-											<span><a href="javascript:;">< 上一页</a></span> <input
-												type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page+1}">下一页
-													></a></span>
-										</center>
-									</c:if>
-									<c:if
-										test="${pageBean.totalPage!=pageBean.page && pageBean.page!=1}">
-										<center>
-											<span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page-1}"><
-													上一页</a></span> <input type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page+1}">下一页
-													></a></span>
-										</center>
-									</c:if>
-									<c:if
-										test="${pageBean.totalPage==pageBean.page&& pageBean.totalPage!=1}">
-										<center>
-											<span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page-1}"><
-													上一页</a></span> <input type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="javascript:;">下一页 ></a></span>
-										</center>
-									</c:if>
-								</c:if>
-							</c:if>
+					<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage} 页</span>
+					<c:if test="${ pageBean.page !=1}">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
+					</c:if>
+					<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
+					<c:if test="${pageBean.page!=i }">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${i}" style="font-size:1.1em;">${i }</a>
+					</c:if>
+					<c:if test="${pageBean.page==i }">
+					<span style="font-size:1.1em">${i }</span>
+					</c:if>
+					</c:forEach>
+					<c:if test="${pageBean.page!=pageBean.totalPage }">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
+				</c:if>
+				</center>
 						</ul>
 						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
@@ -354,53 +326,25 @@ function returnIn() {
 									</ul></li>
 								<hr>
 							</c:forEach>
-							<c:if test="${serverWebsiteTemplate1=='serverWebsiteTemplate1' }">
-								<c:if test="${pageBean.totalCount==0}">
-									<center>
-										<span><a href="javascript:;">< 上一页</a></span> <input
-											type="text" value="1"
-											style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-											;margin-left:20px;margin-right:20px;margin-top:20px;"
-											readonly="readonly"> <span><a
-											href="javascript:;">下一页 ></a></span>
-									</center>
-								</c:if>
-								<c:if test="${pageBean1.totalCount!=0}">
-									<c:if test="${pageBean1.page==1}">
-										<center>
-											<span><a href="javascript:;">< 上一页</a></span> <input
-												type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean1.page+1}">下一页
-													></a></span>
-										</center>
-									</c:if>
-									<c:if
-										test="${pageBean1.totalPage!=pageBean1.page && pageBean1.page!=1}">
-										<center>
-											<span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page-1}"><
-													上一页</a></span> <input type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean.page+1}">下一页
-													></a></span>
-										</center>
-									</c:if>
-									<c:if
-										test="${pageBean1.totalPage==pageBean1.page&& pageBean1.totalPage!=1}">
-										<center>
-											<span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean1.page-1}"><
-													上一页</a></span> <input type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="javascript:;">下一页 ></a></span>
-										</center>
-									</c:if>
-								</c:if>
-							</c:if>
+							<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean1.page1}/${ pageBean1.totalPage1} 页</span>
+					<c:if test="${ pageBean1.page1 !=1}">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${ pageBean1.page1-1}" style="font-size:1.1em">&nbsp;上一页</a>
+					</c:if>
+					<c:forEach var="i" begin="1" end="${pageBean1.totalPage1 }">
+					<c:if test="${pageBean1.page1!=i }">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${i}" style="font-size:1.1em;">${i }</a>
+					</c:if>
+					<c:if test="${pageBean1.page1==i }">
+					<span style="font-size:1.1em">${i }</span>
+					</c:if>
+					</c:forEach>
+					<c:if test="${pageBean1.page1!=pageBean1.totalPage1 }">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${pageBean1.page1+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${pageBean1.totalPage1}" style="font-size:1.1em">尾页</a>
+				</c:if>
+				</center>
 						</ul>
 						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>
@@ -416,7 +360,7 @@ function returnIn() {
 						
 
 						<ul style="margin-left:6%;margin-top:5%">
-							<c:forEach var="activites" items="${pageBean2.list}">
+							<c:forEach var="activites" items="${pageBean3.list}">
 								<li><span style="font-size:1.2em;"><a
 										href="javascript:;"
 										onclick="findInformation('${activites.id}')" id="yuyuea"
@@ -431,53 +375,25 @@ function returnIn() {
 									</ul></li>
 								<hr>
 							</c:forEach>
-							<c:if test="${serverWebsiteTemplate2=='serverWebsiteTemplate2' }">
-								<c:if test="${pageBean2.totalCount==0}">
-									<center>
-										<span><a href="javascript:;">< 上一页</a></span> <input
-											type="text" value="1"
-											style="padding-left:16px;border:none;width:40px;height:18px;background: #EBEBEC
-											;margin-left:20px;margin-right:20px;margin-top:20px;"
-											readonly="readonly"> <span><a
-											href="javascript:;">下一页 ></a></span>
-									</center>
-								</c:if>
-								<c:if test="${pageBean2.totalCount!=0}">
-									<c:if test="${pageBean2.page==1}">
-										<center>
-											<span><a href="javascript:;">< 上一页</a></span> <input
-												type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page+1}">下一页
-													></a></span>
-										</center>
-									</c:if>
-									<c:if
-										test="${pageBean2.totalPage!=pageBean2.page && pageBean2.page!=1}">
-										<center>
-											<span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page-1}"><
-													上一页</a></span> <input type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page+1}">下一页
-													></a></span>
-										</center>
-									</c:if>
-									<c:if
-										test="${pageBean2.totalPage==pageBean2.page&& pageBean2.totalPage!=1}">
-										<center>
-											<span><a
-												href="${pageContext.request.contextPath }/common/toActivity_carousel?page=${pageBean2.page-1}"><
-													上一页</a></span> <input type="text" value="1"
-												style="padding-left:6px;border:none;width:20px;height:18px;background: #EBEBEC"
-												readonly="readonly"> <span><a
-												href="javascript:;">下一页 ></a></span>
-										</center>
-									</c:if>
-								</c:if>
-							</c:if>
+					<center style="padding-top:12px;">
+					<span style="font-size:1.1em">第${ pageBean3.page3}/${ pageBean3.totalPage3} 页</span>
+					<c:if test="${ pageBean3.page3 !=1}">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${ pageBean3.page3-1}" style="font-size:1.1em">&nbsp;上一页</a>
+					</c:if>
+					<c:forEach var="i" begin="1" end="${pageBean3.totalPage3 }">
+					<c:if test="${pageBean3.page3!=i }">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${i}" style="font-size:1.1em;">${i }</a>
+					</c:if>
+					<c:if test="${pageBean3.page3==i }">
+					<span style="font-size:1.1em">${i }</span>
+					</c:if>
+					</c:forEach>
+					<c:if test="${pageBean3.page3!=pageBean3.totalPage3 }">
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${pageBean3.page3+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${pageBean3.totalPage3}" style="font-size:1.1em">尾页</a>
+				</c:if>
+				</center>
 						</ul>
 						<div
 							style="width: 96%;height: 1px;border: 1px solid #EAEAEA;margin-top: 30px;margin-left: 28px;"></div>

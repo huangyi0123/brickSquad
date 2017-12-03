@@ -115,6 +115,11 @@ public interface ActivitiesService {
 	 * */
 	public PageBeanUtil<Activities> findServerWebsiteTemplate(int page,
 			String typeId) throws Exception;
+	public PageBeanUtil<Activities> findServerWebsiteTemplate1(int page,
+			String typeId) throws Exception;
+	public PageBeanUtil<Activities> findServerWebsiteTemplate3(int page,
+			String typeId) throws Exception;
+
 
 	/** 统计总记录数 */
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil)

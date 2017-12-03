@@ -415,20 +415,20 @@ public class CommonController {
 		request.setAttribute("pageBean", pageBeanUtil);
 		request.setAttribute("serverWebsiteTemplate", "serverWebsiteTemplate");
 		// 线下麻将活动预约
-		int page1 = pageBean.getPage();
+		int page1 = pageBean.getPage1();
 		String typeId1 = pageBean.getTypeId();
 		typeId1 = "majiang";
 		PageBeanUtil<Activities> pageBeanUtil1 = activitiesService
-				.findServerWebsiteTemplate(page1, typeId1);
+				.findServerWebsiteTemplate1(page1, typeId1);
 		request.setAttribute("pageBean1", pageBeanUtil1);
 		request.setAttribute("serverWebsiteTemplate1", "serverWebsiteTemplate1");
 		// 线下棋牌活动预约
-		int page2 = pageBean.getPage();
+		int page3 = pageBean.getPage3();
 		String typeId2 = pageBean.getTypeId();
 		typeId2 = "qipai";
 		PageBeanUtil<Activities> pageBeanUtil2 = activitiesService
-				.findServerWebsiteTemplate(page2, typeId2);
-		request.setAttribute("pageBean2", pageBeanUtil2);
+				.findServerWebsiteTemplate3(page3, typeId2);
+		request.setAttribute("pageBean3", pageBeanUtil2);
 		request.setAttribute("serverWebsiteTemplate2", "serverWebsiteTemplate2");
 		request.setAttribute("type", type);
 		return "offical_website/activity";

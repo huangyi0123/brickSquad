@@ -196,6 +196,26 @@
 		ON a.type_id=t.id AND t.id=#{typeId}
 		LIMIT #{begin},#{limitPage}
 	</select>
+		<select id="findServerWebsiteTemplate1" resultType="activities"
+		parameterType="com.brick.squad.util.PageBeanUtil">
+		SELECT a.id ,a.`name`
+		,a.centent,a.start_time,a.end_time,a.number
+		FROM activities a
+		JOIN type
+		t
+		ON a.type_id=t.id AND t.id=#{typeId}
+		LIMIT #{begin1},#{limitPage1}
+	</select>
+		<select id="findServerWebsiteTemplate3" resultType="activities"
+		parameterType="com.brick.squad.util.PageBeanUtil">
+		SELECT a.id ,a.`name`
+		,a.centent,a.start_time,a.end_time,a.number
+		FROM activities a
+		JOIN type
+		t
+		ON a.type_id=t.id AND t.id=#{typeId}
+		LIMIT #{begin3},#{limitPage3}
+	</select>
 	<select id="findCountServerWebsiteTemplate" resultType="int"
 		parameterType="com.brick.squad.util.PageBeanUtil">
 		SELECT count(*)

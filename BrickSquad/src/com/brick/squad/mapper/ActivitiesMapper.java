@@ -112,6 +112,8 @@ public interface ActivitiesMapper {
 	 * 官网，乐堡服务中的体检预约 信息显示
 	 * */
 	public List<Activities> findServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
+	public List<Activities> findServerWebsiteTemplate1(PageBeanUtil pageBeanUtil);
+	public List<Activities> findServerWebsiteTemplate3(PageBeanUtil pageBeanUtil);
 
 	/** 统计总记录数 */
 	public int findCountServerWebsiteTemplate(PageBeanUtil pageBeanUtil);
