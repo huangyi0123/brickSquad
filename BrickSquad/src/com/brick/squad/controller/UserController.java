@@ -2,9 +2,13 @@ package com.brick.squad.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -75,9 +79,11 @@ public class UserController {
 	public String toUserAccountAuthentication() {
 		return "backstage_managed/jsp/user/userAccountAuthentication";
 	}
+
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, User user1, String type) {
 		User user = userService.checkLogin(user1);
+
 		if (user != null) {
 			request.getSession().setAttribute("user", user);
 			request.getSession().setAttribute("userId", user.getId());
@@ -109,12 +115,11 @@ public class UserController {
 		String passwordMD5 = SecurityUtil.strToMD5(user.getPassword());
 		user.setPassword(passwordMD5);
 		user.setRoleId("e2ebe746b86b11e78d4f5254002ec43c");
-		/*user.setBranchId("594cf09abc4c11e7aca65254002ec43c");*/
+		/* user.setBranchId("594cf09abc4c11e7aca65254002ec43c"); */
 		userService.addUser(user);
 		request.getSession().setAttribute("user", user);
 		return "redirect:/common/toIndexModal";
 	}
-
 
 	// 校验用户名是否存在
 	@SuppressWarnings("unused")
@@ -243,7 +248,7 @@ public class UserController {
 			List<ObjectError> errors = bindingResult.getAllErrors();
 			request.setAttribute("errors", errors);
 			return "backstage_managed/jsp/user/AddJumpUser";
-		} 
+		}
 		user.setPassword(SecurityUtil.strToMD5(user.getPassword()));
 		userService.addUser(user);
 		return "backstage_managed/jsp/user/user_list";
@@ -291,16 +296,20 @@ public class UserController {
 						}
 						try {
 							userPic.transferTo(file);
-							String p=file.getAbsolutePath();
-							COS cos=new COS();
+							String p = file.getAbsolutePath();
+							COS cos = new COS();
 							cos.setBucketName("bricksquad");
 							cos.setRegion("sh");
-							String pa=user.getId()+p.substring(p.lastIndexOf("."));
-							String paths=cos.upLoadImageToCOS(file.getAbsolutePath(), "/user_head/"+pa);
+							String pa = user.getId()
+									+ p.substring(p.lastIndexOf("."));
+							String paths = cos.upLoadImageToCOS(
+									file.getAbsolutePath(), "/user_head/" + pa);
 							System.out.println(paths);
-							JSONObject jsonObject=JSONObject.fromObject(paths);
-							jsonObject=JSONObject.fromObject(jsonObject.get("data"));
-							paths=jsonObject.get("access_url").toString();
+							JSONObject jsonObject = JSONObject
+									.fromObject(paths);
+							jsonObject = JSONObject.fromObject(jsonObject
+									.get("data"));
+							paths = jsonObject.get("access_url").toString();
 							file.delete();
 							// 取得数据库存的路径
 							String databaseuserPicPath = paths;
@@ -333,8 +342,9 @@ public class UserController {
 		return "suc";
 		/* return "redirect:/common/toPersonal"; */
 	}
+
 	@RequestMapping("userProtocol")
-	public String Protocol(){
+	public String Protocol() {
 		return "backstage_managed/jsp/user/UserProtocol";
 	}
 }
