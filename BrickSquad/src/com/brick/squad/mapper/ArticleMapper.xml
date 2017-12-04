@@ -399,8 +399,9 @@
 		WHERE
 		article.type_id=#{search_category}
 	</select>
-	<select id="findSearchAllArticleCountSecondS" resultType="int" parameterType="String">
-	SELECT COUNT(*) FROM article WHERE aname REGEXP #{s}
+	<select id="findSearchAllArticleCountSecondS" resultType="int"
+		parameterType="String">
+		SELECT COUNT(*) FROM article WHERE aname REGEXP #{s}
 	</select>
 	<select id="findSearchAllArticleCountSecondOther" resultType="int"
 		parameterType="String">
@@ -558,32 +559,27 @@
 	</select>
 	<!-- 统计商品的类别数量 -->
 	<select id="findEchartsAreac" parameterType="map" resultType="map">
-		SELECT t.`name`,COALESCE(a.num,0) n FROM
-		(SELECT id, `name` FROM type
-		WHERE parent_id='splb') t LEFT JOIN
-		(SELECT count(*) num,a.type_id FROM
-		article a
-		JOIN business b ON a.business_id=b.id
-		JOIN `user` u on
-		b.id=u.id
-		WHERE a.type_id in (SELECT id FROM type WHERE
-		parent_id='splb')
-		<if test="bId!=''">
-			AND b.id=''
-		</if>
+		SELECT SUM(od.number) n,t.`name` FROM order_details od
+		JOIN article a
+		on od.article_id=a.id
+		JOIN type t on t.id=a.type_id
+		JOIN orders o ON
+		od.orders_id=o.id
+		JOIN `user` u on o.buy_id=u.id
 		<if test="branchId!=''">
-			AND u.branch_id=''
+			WHERE u.branch_id=#{branchId}
 		</if>
-		GROUP BY a.type_id) a
-		ON t.id=a.type_id
+		GROUP BY a.id
 	</select>
 	<!--商品热销榜 -->
 	<select id="findEchartsArticleTop" resultType="map"
 		parameterType="map">
 		SELECT a.aname name,n.n FROM article a JOIN (
-		SELECT article_id,sum(number)
+		SELECT
+		article_id,sum(number)
 		n FROM order_details od
-		GROUP BY article_id ORDER BY n DESC) n on
+		GROUP BY article_id ORDER
+		BY n DESC) n on
 		n.article_id=a.id
 		JOIN `user` u on u.id=a.business_id
 		<if test="typeId!=''">
