@@ -229,7 +229,7 @@
 										action="${pageContext.request.contextPath }/new_deals/findAllArticle">
 										<div>
 											<input type="text" value="" name="s"
-												placeholder="Enter your keyword...">
+												placeholder="请输入关键字...">
 											<div class="cat-wrapper"">
 												<label class="label-search"> <select
 													name="search_category" class="s1_option"
