@@ -280,20 +280,20 @@ function returnIn() {
 					<center style="padding-top:12px;">
 					<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage} 页</span>
 					<c:if test="${ pageBean.page !=1}">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=1" style="font-size:1.1em">首页</a>
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
 					<c:if test="${pageBean.page!=i }">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${i}" style="font-size:1.1em;">${i }</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page=${i}" style="font-size:1.1em;">${i }</a>
 					</c:if>
 					<c:if test="${pageBean.page==i }">
 					<span style="font-size:1.1em">${i }</span>
 					</c:if>
 					</c:forEach>
 					<c:if test="${pageBean.page!=pageBean.totalPage }">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
 				</c:if>
 				</center>
 						</ul>
@@ -329,20 +329,20 @@ function returnIn() {
 							<center style="padding-top:12px;">
 					<span style="font-size:1.1em">第${ pageBean1.page1}/${ pageBean1.totalPage1} 页</span>
 					<c:if test="${ pageBean1.page1 !=1}">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=1" style="font-size:1.1em">首页</a>
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${ pageBean1.page1-1}" style="font-size:1.1em">&nbsp;上一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page1=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page1=${ pageBean1.page1-1}" style="font-size:1.1em">&nbsp;上一页</a>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${pageBean1.totalPage1 }">
 					<c:if test="${pageBean1.page1!=i }">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${i}" style="font-size:1.1em;">${i }</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page1=${i}" style="font-size:1.1em;">${i }</a>
 					</c:if>
 					<c:if test="${pageBean1.page1==i }">
 					<span style="font-size:1.1em">${i }</span>
 					</c:if>
 					</c:forEach>
 					<c:if test="${pageBean1.page1!=pageBean1.totalPage1 }">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${pageBean1.page1+1}" style="font-size:1.1em">下一页</a>
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page1=${pageBean1.totalPage1}" style="font-size:1.1em">尾页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page1=${pageBean1.page1+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page1=${pageBean1.totalPage1}" style="font-size:1.1em">尾页</a>
 				</c:if>
 				</center>
 						</ul>
@@ -378,20 +378,20 @@ function returnIn() {
 					<center style="padding-top:12px;">
 					<span style="font-size:1.1em">第${ pageBean3.page3}/${ pageBean3.totalPage3} 页</span>
 					<c:if test="${ pageBean3.page3 !=1}">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=1" style="font-size:1.1em">首页</a>
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${ pageBean3.page3-1}" style="font-size:1.1em">&nbsp;上一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page3=1" style="font-size:1.1em">首页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page3=${ pageBean3.page3-1}" style="font-size:1.1em">&nbsp;上一页</a>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${pageBean3.totalPage3 }">
 					<c:if test="${pageBean3.page3!=i }">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${i}" style="font-size:1.1em;">${i }</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page3=${i}" style="font-size:1.1em;">${i }</a>
 					</c:if>
 					<c:if test="${pageBean3.page3==i }">
 					<span style="font-size:1.1em">${i }</span>
 					</c:if>
 					</c:forEach>
 					<c:if test="${pageBean3.page3!=pageBean3.totalPage3 }">
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${pageBean3.page3+1}" style="font-size:1.1em">下一页</a>
-					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=aboutus-intro&page3=${pageBean3.totalPage3}" style="font-size:1.1em">尾页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page3=${pageBean3.page3+1}" style="font-size:1.1em">下一页</a>
+					<a href="${pageContext.request.contextPath }/common/toActivity_carousel?type=offline_course&page3=${pageBean3.totalPage3}" style="font-size:1.1em">尾页</a>
 				</c:if>
 				</center>
 						</ul>
