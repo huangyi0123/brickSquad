@@ -63,9 +63,12 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public void deleteArticleById(String id, HttpServletRequest request) {
-
+		COS cos=new COS();
+		cos.setBucketName("bricksquad");
+		cos.setRegion("sh");
+		cos.deleteAll("/articleList/"+id+"/");
 		// 获取图片要保存的到的服务器路径
-		String realPath = "resource/image/articleImg/" + id + "/";
+/*		String realPath = "resource/image/articleImg/" + id + "/";
 		String path = request.getSession().getServletContext()
 				.getRealPath(realPath);
 		File f = new File(path);
@@ -80,7 +83,7 @@ public class ArticleServiceImpl implements ArticleService {
 				}
 			}
 
-		}
+		}*/
 		// TODO Auto-generated method stub
 		articleMapper.deleteArticleById(id);
 	}
