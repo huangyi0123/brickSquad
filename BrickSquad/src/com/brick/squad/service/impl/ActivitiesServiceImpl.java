@@ -536,4 +536,11 @@ public class ActivitiesServiceImpl implements ActivitiesService {
 		return jsonArray.toString();
 	}
 
+	@Override
+	public String findActiveEchartsN() {
+		List<Map<String, Object>> list=activitiesMapper.findActiveEchartsN();
+		JSONArray jsonArray=JSONArray.fromObject(list);
+		return jsonArray.toString();
+	}
+
 }

@@ -128,4 +128,5 @@ public interface ActivitiesService {
 	public String findEchartActiveTypre(Map<String, Object> map);
 
 	public String findActiveList(String userId);
+	public String findActiveEchartsN();
 }

@@ -125,6 +125,7 @@ public class EchartsController {
 		}
 		return medicalService.findEchartsByType(map);
 	}
+
 	@RequestMapping("toActivleEcharts")
 	public String toActivleEcharts(HttpServletRequest request) throws Exception {
 		List<Type> types = typeService
@@ -132,6 +133,7 @@ public class EchartsController {
 		request.setAttribute("region", types);
 		return "backstage_managed/jsp/home-data/activity-data-analysis";
 	}
+
 	@RequestMapping("/activleType")
 	@ResponseBody
 	public String activleType(String typeId) {
@@ -142,5 +144,11 @@ public class EchartsController {
 			map.put("typeId", typeId);
 		}
 		return activitiesService.findEchartActiveTypre(map);
+	}
+
+	@RequestMapping("/findActiveEchartsN")
+	@ResponseBody
+	public String findActiveEchartsN() {
+		return activitiesService.findActiveEchartsN();
 	}
 }
