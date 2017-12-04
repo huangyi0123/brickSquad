@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -33,30 +33,27 @@
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-	<script type="text/javascript"
-	src="resource/js/common.js"></script>
+<script type="text/javascript" src="resource/js/common.js"></script>
 
 <script type="text/javascript">
-function setContent(str) {
-	str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
-	str.value = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
-	//str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
-	return str;
+	function setContent(str) {
+		str = str.replace(/<\/?[^>]*>/g, ''); //去除HTML tag
+		str.value = str.replace(/[ | ]*\n/g, '\n'); //去除行尾空白
+		//str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+		return str;
 	}
 </script>
 <script type="text/javascript">
 	$(function() {
-		var da=$(".inspectionDate").html();
-		da=Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
+		var da = $(".inspectionDate").html();
+		da = Format(new Date(da), "yyyy-MM-dd hh:mm:ss");
 		$(".inspectionDate").html(da);
-		
-		
-		var str=$(".newsContent").text();
-		
-		var newsc=setContent(str);
+
+		var str = $(".newsContent").text();
+
+		var newsc = setContent(str);
 		$(".newsContent").html(newsc);
-		
-	
+
 		var type = '${type}';
 		$("#centent").children().hide();
 		$("." + type).show();
@@ -70,9 +67,7 @@ function setContent(str) {
 			var val = $(this).attr('val');
 			if (val == type) {
 				$(this).attr('class', 'layui-nav-item layui-this');
-			} else {
-				$(".parti-online").show();
-			}
+			} 
 		});
 		$("#menu").find('li').click(function() {
 			var cls = "." + $(this).attr('val');
@@ -140,7 +135,7 @@ function setContent(str) {
 													layer.msg("提交成功！");
 													$("#centent").children()
 															.hide();
-													$(".aboutus-intro").show();
+													$(".medical-reservation").show();
 												} else {
 													layer.msg("接口异常，稍后重试！");
 												}
@@ -154,117 +149,153 @@ function setContent(str) {
 	}
 </script>
 <script type="text/javascript">
- function findInformation(id) {
-	$.ajax({
-		url:'LeFortServiceController/findInformation?type=aboutus-intro&id='+id,
-		type: 'post',
-		success:function(data){
-			 $("#findInformationArtivites").html('');
-				data=JSON.parse(data);
-				console.log(data);
-				$(".aboutus-intro").hide();
-				$("#findInformationArtivites").show();
-				 $("#findInformationArtivites").append("<h4>"+data[0].name+"</h4><p>"+data[0].centent+
-						 "</p><hr style='margin-left:12%;'><span style='margin-left:12%;'>开始时间："+data[0].startTime+"</span><br><hr style='margin-left:12%;'> <span style='margin-left:12%;'>结束时间："+
-						 data[0].endTime+"</span> <hr style='margin-left:12%;'><span style='margin-left:12%;'>准预定人数："+data[0].number+
-						 "</span><hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a id='reservation' href='javascript:;' onclick='reservation(\""+data[0].id+"\")' style='color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"+
-						 "");
-		}
-	});
-}
+	function findInformation(id) {
+		$
+				.ajax({
+					url : 'LeFortServiceController/findInformation?type=medical-reservation&id='
+							+ id,
+					type : 'post',
+					success : function(data) {
+						$("#findInformationArtivites").html('');
+						data = JSON.parse(data);
+						console.log(data);
+						$(".medical-reservation").hide();
+						$("#findInformationArtivites").show();
+						$("#findInformationArtivites")
+								.append(
+										"<h4>"
+												+ data[0].name
+												+ "</h4><p>"
+												+ data[0].centent
+												+ "</p><hr style='margin-left:12%;'><span style='margin-left:12%;'>开始时间："
+												+ data[0].startTime
+												+ "</span><br><hr style='margin-left:12%;'> <span style='margin-left:12%;'>结束时间："
+												+ data[0].endTime
+												+ "</span> <hr style='margin-left:12%;'><span style='margin-left:12%;'>准预定人数："
+												+ data[0].number
+												+ "</span><hr style='margin-left:12%;'><h4 style='margin-top:-3px;'><span ><a id='reservation' href='javascript:;' onclick='reservation(\""
+												+ data[0].id
+												+ "\")' style='color:#43C1B4'>立即预约</a></span> <span style='margin-left:22px;'><a href='javascript:;' onclick='returnIn() ' style='color:#43C1B4'>返回</span></a></h4><hr style='margin-left:12%;'>"
+												+ "");
+					}
+				});
+	}
 
- function findViewInformation(id) {
-		$.ajax({
-			url:'LeFortServiceController/findViewInformation?type=aboutus-intro&id='+id,
-			type: 'post',
-			success:function(data){
-				 $("#findViewInformationArtivites").html('');
-					data=JSON.parse(data);
-					console.log(data);
-					$(".aboutus-cont").hide();
-					$("#findViewInformationArtivites").show();
-					 $("#findViewInformationArtivites").append("<h4>个人病历详情单</h4><hr style='width:80%;margin-left:100px;'><div style='margin-left:100px;margin-top:20px;width:80%;'><span><span style='font-size:1.1em;margin-left:8px;'>姓名：</span>"+${user.username}+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查病类：</span>"+data[0].name+"</span><hr>"+
-							 "<span><span style='font-size:1.1em;margin-left:8px;'>病历详情：</span>"+data[0].content+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查时间：</span>"+data[0].inspectionDate+"</span><hr>"+
-							 "<span><span style='font-size:1.1em;margin-left:8px;'>主治医生：</span>"+data[0].attendingSurgeon+"</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查医院：</span>"+data[0].hospital+"</span><hr>"+
-						/* 	"<span style='margin-right:12px;'><a href='' style='color:#43C1B4;font-size:1.3em;margin-left:1%;'>治疗推荐(文)</a><span>"+
-							"<a href='' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>治疗推荐(视频)</a>"+ */
-							"<a href='javascript:;' onclick='returnViewIn() ' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>返回</span></a></div><hr style='margin-top:-1px;width:1000px'>");
-							 
+	function findViewInformation(id) {
+		$
+				.ajax({
+					url : 'LeFortServiceController/findViewInformation?type=medical-reservation&id='
+							+ id,
+					type : 'post',
+					success : function(data) {
+						$("#findViewInformationArtivites").html('');
+						data = JSON.parse(data);
+						console.log(data);
+						$(".rehabilitation-assistance").hide();
+						$("#findViewInformationArtivites").show();
+						$("#findViewInformationArtivites")
+								.append(
+										"<h4>个人病历详情单</h4><hr style='width:80%;margin-left:100px;'><div style='margin-left:100px;margin-top:20px;width:80%;'><span><span style='font-size:1.1em;margin-left:8px;'>姓名：</span>"
+												+ ${user.username}
+												+ "</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查病类：</span>"
+												+ data[0].name
+												+ "</span><hr>"
+												+ "<span><span style='font-size:1.1em;margin-left:8px;'>病历详情：</span>"
+												+ data[0].content
+												+ "</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查时间：</span>"
+												+ data[0].inspectionDate
+												+ "</span><hr>"
+												+ "<span><span style='font-size:1.1em;margin-left:8px;'>主治医生：</span>"
+												+ data[0].attendingSurgeon
+												+ "</span><hr><span><span style='font-size:1.1em;margin-left:8px;'>检查医院：</span>"
+												+ data[0].hospital
+												+ "</span><hr>"
+												+
+												/* 	"<span style='margin-right:12px;'><a href='' style='color:#43C1B4;font-size:1.3em;margin-left:1%;'>治疗推荐(文)</a><span>"+
+													"<a href='' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>治疗推荐(视频)</a>"+ */
+												"<a href='javascript:;' onclick='returnViewIn() ' style='color:#43C1B4;font-size:1.3em;margin-left:2%;'>返回</span></a></div><hr style='margin-top:-1px;width:1000px'>");
+
+					}
+				});
+	}
+</script>
+<script type="text/javascript">
+	function findNewsInformation(id) {
+		$
+				.ajax({
+					url : 'LeFortServiceController/findViewInformationNews?type=medical-reservation&id='
+							+ id,
+					type : 'post',
+					success : function(data) {
+						$("#findViewInformationNews").html('');
+						data = JSON.parse(data);
+						console.log(data);
+						$(".life-assistant").hide();
+						$("#findViewInformationNews").show();
+						$("#findViewInformationNews")
+								.append(
+										"<center style='margin-top:40px;'><span style='font-size:1.4em;'>"
+												+ data[0].title
+												+ "</span></center><br><span>"
+												+ data[0].content
+												+ "</span><br><span style='float:right;'><span>编辑者："
+												+ data[0].username
+												+ "</span><span>&nbsp;  时间："
+												+ data[0].postTime
+												+ "</span></span><hr>");
+					}
+				});
+	}
+</script>
+<script type="text/javascript">
+	function returnIn() {
+		$("#findInformationArtivites").hide();
+		$(".medical-reservation").show();
+		$("#menu").find('li').each(function() {
+			var val = $(this).attr('val');
+			if (val == "medical-reservation") {
+				$(this).attr('class', 'layui-nav-item layui-this');
+			} else {
+				$(this).attr('class', 'layui-nav-item');
 			}
 		});
 	}
- 
- 
 
- 
-</script>
-<script type="text/javascript">
-function findNewsInformation(id) {
-		$.ajax({
-			url:'LeFortServiceController/findViewInformationNews?type=aboutus-intro&id='+id,
-			type: 'post',
-			success:function(data){
-				 $("#findViewInformationNews").html('');
-				 data=JSON.parse(data);
-				 console.log(data);
-				 $(".aboutus-use").hide();
-				 $("#findViewInformationNews").show();
-				 $("#findViewInformationNews").append("<center style='margin-top:40px;'><span style='font-size:1.4em;'>"+data[0].title+"</span></center><br><span>"+data[0].content+
-						 "</span><br><span style='float:right;'><span>编辑者："+data[0].username+"</span><span>&nbsp;  时间："+data[0].postTime+"</span></span><hr>");
+	function returnViewIn() {
+		$("#findViewInformationArtivites").hide();
+		$(".rehabilitation-assistance").show();
+		$("#menu").find('li').each(function() {
+			var val = $(this).attr('val');
+			if (val == "rehabilitation-assistance") {
+				$(this).attr('class', 'layui-nav-item layui-this');
+			} else {
+				$(this).attr('class', 'layui-nav-item');
 			}
 		});
 	}
 </script>
 <script type="text/javascript">
-function returnIn() {
-	$("#findInformationArtivites").hide();
-	$(".aboutus-intro").show();
-	$("#menu").find('li').each(function() {
-		var val = $(this).attr('val');
-		if (val == "aboutus-intro") {
-			$(this).attr('class', 'layui-nav-item layui-this');
+	function reservation(id) {
+		var user = '${user}';
+		if (user == '') {
+			alert("你还没有登录，请先去登录！");
 		} else {
-			$(this).attr('class', 'layui-nav-item');
-		}
-	});
-} 
-
-function returnViewIn() {
-	$("#findViewInformationArtivites").hide();
-	$(".aboutus-cont").show();
-	$("#menu").find('li').each(function() {
-		var val = $(this).attr('val');
-		if (val == "aboutus-cont") {
-			$(this).attr('class', 'layui-nav-item layui-this');
-		} else {
-			$(this).attr('class', 'layui-nav-item');
-		}
-	});
-} 
-
-</script>
-<script type="text/javascript">
-function reservation(id) {
-	var user='${user}';
-	if(user ==''){
-		alert("你还没有登录，请先去登录！");
-	}else{
 			$.ajax({
-			url:'LeFortServiceController/insertArtivitesInformation',
-			data:{"activitiesId":id},
-			success:function(data){
-				if(data=="success"){
-					alert("报名成功");
-				}else{
-					alert("报名失败，请再次报名");
+				url : 'LeFortServiceController/insertArtivitesInformation',
+				data : {
+					"activitiesId" : id
+				},
+				success : function(data) {
+					if (data == "success") {
+						alert("报名成功");
+					} else {
+						alert("报名失败，请再次报名");
+					}
 				}
-			}
-		});
-		
-	}
-}
+			});
 
- 
+		}
+	}
 </script>
 </head>
 
@@ -275,187 +306,258 @@ function reservation(id) {
 			<div class="tem_main_left">
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
 					style="margin-right: 10px;" id="menu">
-					<li class="layui-nav-item" val="aboutus-intro"><a
+					<li class="layui-nav-item" val="medical-reservation"><a
 						href="javascript:;">体检预约</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-use"><a
+					<li class="layui-nav-item" val="life-assistant"><a
 						href="javascript:;">生活助手</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-join"><a
+					<li class="layui-nav-item" val="independent-life"><a
 						href="javascript:;">独立生活</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-cont"><a
+					<li class="layui-nav-item" val="rehabilitation-assistance"><a
 						href="javascript:;">康复协助</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
 
-				 <label
+				<label
 					style="width: 90%;height: 50px;letter-spacing:8px; font-size:1.4em;text-align:center;line-height:50px;border-radius:5px; margin: 80px 15px;background-color: #43C1B4;"><a
-					href="common/toWebsiteTemplate?type=aboutus-intro" onclick="openOnlineParticipation()"
-					style="color:white;font-stretch: normal;">乐堡简介</a></label>
+					href="javascript:;" onclick="openOnlineParticipation()"
+					style="color:white;font-stretch: normal;">在线参与</a></label>
 			</div>
 			<!-- <div class="clearfix"></div> -->
 			<div class="tem_main_right" id="centent">
 
-				<div class="aboutus-intro" >
-				<center><h4>体检预约信息平台</h4></center>
-				<ul style="margin-left:6%;margin-top:5%">
-				<c:forEach var="activites" items="${pageBean.list }">
-					<li ><span style="font-size:1.2em;"><a href="javascript:;" onclick="findInformation('${activites.id}')" id="yuyuea" style="color:#7C9A60">【${activites.name }】</a></span>
-					<ul style="margin-top:2%;width:100%">
-						<li ><span style="width:100%">${activites.centent }
-						<span style="width:100%;float:right;"><a href="javascript:;" id="xiangqing" onclick="findInformation('${activites.id}')" style="color:#7C9A60;float:right">查看详情>></a></span></span></li>
+				<div class="medical-reservation">
+					<center>
+						<h4>体检预约信息平台</h4>
+					</center>
+					<ul style="margin-left:6%;margin-top:5%">
+						<c:forEach var="activites" items="${pageBean.list }">
+							<li><span style="font-size:1.2em;"><a
+									href="javascript:;"
+									onclick="findInformation('${activites.id}')" id="yuyuea"
+									style="color:#7C9A60">【${activites.name }】</a></span>
+								<ul style="margin-top:2%;width:100%">
+									<li><span style="width:100%">${activites.centent }
+											<span style="width:100%;float:right;"><a
+												href="javascript:;" id="xiangqing"
+												onclick="findInformation('${activites.id}')"
+												style="color:#7C9A60;float:right">查看详情>></a></span>
+									</span></li>
+								</ul></li>
+							<hr>
+						</c:forEach>
+
+						<center style="padding-top:12px;">
+							<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage}
+								页</span>
+							<c:if test="${ pageBean.page !=1}">
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=1"
+									style="font-size:1.1em">首页</a>
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${ pageBean.page-1}"
+									style="font-size:1.1em">&nbsp;上一页</a>
+							</c:if>
+							<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
+								<c:if test="${pageBean.page!=i }">
+									<a
+										href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${i}"
+										style="font-size:1.1em;">${i }</a>
+								</c:if>
+								<c:if test="${pageBean.page==i }">
+									<span style="font-size:1.1em">${i }</span>
+								</c:if>
+							</c:forEach>
+							<c:if test="${pageBean.page!=pageBean.totalPage }">
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${pageBean.page+1}"
+									style="font-size:1.1em">下一页</a>
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${pageBean.totalPage}"
+									style="font-size:1.1em">尾页</a>
+							</c:if>
+						</center>
 					</ul>
-				</li>
-				<hr>
-				</c:forEach>
-					
-					<center style="padding-top:12px;">
-					<span style="font-size:1.1em">第${ pageBean.page}/${ pageBean.totalPage} 页</span>
-				<c:if test="${ pageBean.page !=1}">
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=1" style="font-size:1.1em">首页</a>
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${ pageBean.page-1}" style="font-size:1.1em">&nbsp;上一页</a>
-				</c:if>
-			<c:forEach var="i" begin="1" end="${pageBean.totalPage }">
-				<c:if test="${pageBean.page!=i }">
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${i}" style="font-size:1.1em;">${i }</a>
-				</c:if>
-				<c:if test="${pageBean.page==i }">
-				<span style="font-size:1.1em">${i }</span>
-				</c:if>
-			</c:forEach>
-			<c:if test="${pageBean.page!=pageBean.totalPage }">
-			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${pageBean.page+1}" style="font-size:1.1em">下一页</a>
-			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page=${pageBean.totalPage}" style="font-size:1.1em">尾页</a>
-			</c:if>
-			</center>
-				</ul>
-				
-			
+
+
 				</div>
 				<div id="findInformationArtivites"></div>
-				
-				<div class="aboutus-use">
-				
-				<center><h4>生活助手信息品台</h4></center>
-				<ul style="margin-left:6%;margin-top:5%">
-				<c:forEach var="news" items="${pageBean3.list }">
-				<li style="widht:40px;">
-				<ul>
-				<li style="float:left;width:80px;margin-right:20px;"><image src="${news.imagePath }" style="width:80px;height:70px;"></image></li>
-				<li style=""><span style="margin-left:40px;margin-left:20px;"><a href="javascript:;"  onclick="findNewsInformation('${news.id}')"><h3><span style="font-size:1.2em;margin-left:20px;color:#7C9A60">
-				【${news.title }】</span></h3><br>
-						<span style="margin-left:28px;">
-						<div  class="newsContent" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width:85%;margin-top:10px;margin-left:125px;">
-						${news.content }
-						</div></span>
-						</a>
-						<span style="float:right;margin-right:12px;color:#7C9A60;margin-top:15px;"><a href="javascript:;"  onclick="findNewsInformation('${news.id}')">查看更多>></a></span>
-						</span>
-				</li>
-				</ul>
-				</li>
-				<hr style="margin-top:2%;">
-				</c:forEach>
-				
-				
-					<center style="padding-top:12px;">
-					<span style="font-size:1.1em">第${ pageBean3.page3}/${ pageBean3.totalPage3} 页</span>
-				<c:if test="${ pageBean3.page3 !=1}">
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=1" style="font-size:1.1em">首页</a>
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${ pageBean3.page3-1}" style="font-size:1.1em">&nbsp;上一页</a>
-				</c:if>
-			<c:forEach var="i" begin="1" end="${pageBean3.totalPage3 }">
-				<c:if test="${pageBean3.page3!=i }">
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${i}" style="font-size:1.1em;">${i }</a>
-				</c:if>
-				<c:if test="${pageBean3.page3==i }">
-				<span style="font-size:1.1em">${i }</span>
-				</c:if>
-			</c:forEach>
-			<c:if test="${pageBean3.page3!=pageBean3.totalPage3 }">
-			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3+1}" style="font-size:1.1em">下一页</a>
-			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.totalPage3}" style="font-size:1.1em">尾页</a>
-			</c:if>
-			</center>
-				
-				
-				</ul>
+
+				<div class="life-assistant">
+
+					<center>
+						<h4>生活助手信息品台</h4>
+					</center>
+					<ul style="margin-left:6%;margin-top:5%">
+						<c:forEach var="news" items="${pageBean3.list }">
+							<li style="widht:40px;">
+								<ul>
+									<li style="float:left;width:80px;margin-right:20px;"><image
+											src="${news.imagePath }" style="width:80px;height:70px;"></image></li>
+									<li style=""><span
+										style="margin-left:40px;margin-left:20px;"><a
+											href="javascript:;"
+											onclick="findNewsInformation('${news.id}')"><h3>
+													<span
+														style="font-size:1.2em;margin-left:20px;color:#7C9A60">
+														【${news.title }】</span>
+												</h3>
+												<br> <span style="margin-left:28px;">
+													<div class="newsContent"
+														style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;width:85%;margin-top:10px;margin-left:125px;">
+														${news.content }</div>
+											</span> </a> <span
+											style="float:right;margin-right:12px;color:#7C9A60;margin-top:15px;"><a
+												href="javascript:;"
+												onclick="findNewsInformation('${news.id}')">查看更多>></a></span> </span></li>
+								</ul>
+							</li>
+							<hr style="margin-top:2%;">
+						</c:forEach>
+
+
+						<center style="padding-top:12px;">
+							<span style="font-size:1.1em">第${ pageBean3.page3}/${ pageBean3.totalPage3}
+								页</span>
+							<c:if test="${ pageBean3.page3 !=1}">
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=1"
+									style="font-size:1.1em">首页</a>
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${ pageBean3.page3-1}"
+									style="font-size:1.1em">&nbsp;上一页</a>
+							</c:if>
+							<c:forEach var="i" begin="1" end="${pageBean3.totalPage3 }">
+								<c:if test="${pageBean3.page3!=i }">
+									<a
+										href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${i}"
+										style="font-size:1.1em;">${i }</a>
+								</c:if>
+								<c:if test="${pageBean3.page3==i }">
+									<span style="font-size:1.1em">${i }</span>
+								</c:if>
+							</c:forEach>
+							<c:if test="${pageBean3.page3!=pageBean3.totalPage3 }">
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.page3+1}"
+									style="font-size:1.1em">下一页</a>
+								<a
+									href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page3=${pageBean3.totalPage3}"
+									style="font-size:1.1em">尾页</a>
+							</c:if>
+						</center>
+
+
+					</ul>
 				</div>
 
-				
+
 				<div id="findViewInformationNews"></div>
-				
-				<div class="aboutus-join">
-				
-				<center><h4>安心托付与自在生活</h4></center>
+
+				<div class="independent-life">
+
+					<center>
+						<h4>安心托付与自在生活</h4>
+					</center>
 					<p style="font-size:1.1em">星堡致力于将寻求精彩、与时代接轨的活力长者们从家务、琐事和照顾另一半的压力中释放出来。优雅充
-					实的老年生活离不开一个健康的体魄，良好的机体与认知功能以及积极地从事参与社会群体和有创造性、
-					有意义的各项活动。星堡，致力于改善中国老年的生活方式，在充分尊重各位长者的个人爱好、意愿、权
-					利的前提下，为长者举办丰富多彩的日常活动，营造一个充满活力的社区环境。</p>
+						实的老年生活离不开一个健康的体魄，良好的机体与认知功能以及积极地从事参与社会群体和有创造性、
+						有意义的各项活动。星堡，致力于改善中国老年的生活方式，在充分尊重各位长者的个人爱好、意愿、权
+						利的前提下，为长者举办丰富多彩的日常活动，营造一个充满活力的社区环境。</p>
 					<p style="font-size:1.1em">星堡悉心为每位长者营造独立而舒适的生活空间，为社区里的每一位住户提供完善的设施和细致的服务</p>
- 					<p style="font-size:1.1em;"><img alt="" src="resource/image/lamian.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">均衡膳食，吃出健康；人性化的就餐服务，灵活的就餐时间</p>
-  					<p style="font-size:1.1em"><img alt="" src="resource/image/secai.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">社区活动丰富多彩，充实乐活每一天；定期外出活动，与时代接轨</p>
-  					<p style="font-size:1.1em"><img alt="" src="resource/image/fucai.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">家庭医生制度，为您提供24小时健康陪伴；三甲医院医师坐诊，建立专属健康档案；代配药系统，人性化专业服务</p>
-				       <p style="font-size:1.1em"> <img alt="" src="resource/image/jiaoji.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;"> 老年大学充实精神、趣味交流小组形式丰富，结识好友享受生活</p>
-				       <p style="font-size:1.1em"><img alt="" src="resource/image/paizhao.jpg" style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;"> 定期房间深度清洁，免去家务劳顿之忧</p>
+					<p style="font-size:1.1em;">
+						<img alt="" src="resource/image/lamian.jpg"
+							style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">均衡膳食，吃出健康；人性化的就餐服务，灵活的就餐时间
+					</p>
+					<p style="font-size:1.1em">
+						<img alt="" src="resource/image/secai.jpg"
+							style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">社区活动丰富多彩，充实乐活每一天；定期外出活动，与时代接轨
+					</p>
+					<p style="font-size:1.1em">
+						<img alt="" src="resource/image/fucai.jpg"
+							style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">家庭医生制度，为您提供24小时健康陪伴；三甲医院医师坐诊，建立专属健康档案；代配药系统，人性化专业服务
+					</p>
+					<p style="font-size:1.1em">
+						<img alt="" src="resource/image/jiaoji.jpg"
+							style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">
+						老年大学充实精神、趣味交流小组形式丰富，结识好友享受生活
+					</p>
+					<p style="font-size:1.1em">
+						<img alt="" src="resource/image/paizhao.jpg"
+							style="width:20px;height:20px;margin-top:-8px;margin-left:-8px;margin-right:2px;">
+						定期房间深度清洁，免去家务劳顿之忧
+					</p>
 
 					<p style="font-size:1.1em">为了更好地为自理型长者提供服务，我们还额外提供上门补充护理服务；在长者身体需要额外照料的时候，适当提供付费护理服务，使长者生活更加安心。</p>
 				</div>
-				
-				
-				<div class="aboutus-cont">
-						<!-- <div class="aboutus-intro"> -->
-				<center><h4>健康检查病历史</h4></center>
-				
-				<c:if test="${user ne  null}">
-				<ul style="margin-left:6%;margin-top:5%">
-					<c:forEach var="medical" items="${pageBean1.list }">
-					<li ><span style="font-size:1.1em;"><a href="" id="yuyuea">姓名：${user.username }</a></span>
-					<ul style="margin-top:2%;width:100%;margin-top:-1px;">
-						<li ><span style=""><span style="font-size:1.1em">检查病类：</span>${medical.name }</span><br>
-						<span style="width:100%"><span style="font-size:1.1em">检查内容：</span>${medical.content } 
-						<br><span style=""><span style="font-size:1.1em">检查时间：</span><span class="inspectionDate"> ${medical.inspectionDate }</span></span>
-						<span style="float:right;"><a href="javascript:;" id="tijian" onclick="findViewInformation('${medical.id }')" style="color:#7C9A60">查看详情>></a></span>
-						</span></li>
-					</ul>
-				</li>
-				<hr>
-				</c:forEach>
-				<center style="padding-top:12px;">
-					<span style="font-size:1.1em">第${ pageBean1.page1}/${ pageBean1.totalPage1} 页</span>
-				<c:if test="${ pageBean1.page1 !=1}">
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=1" style="font-size:1.1em">首页</a>
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${ pageBean1.page1-1}" style="font-size:1.1em">&nbsp;上一页</a>
-				</c:if>
-			<c:forEach var="i" begin="1" end="${pageBean1.totalPage1 }">
-				<c:if test="${pageBean1.page1!=i }">
-				<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${i}" style="font-size:1.1em;">${i }</a>
-				</c:if>
-				<c:if test="${pageBean1.page1==i }">
-				<span style="font-size:1.1em">${i }</span>
-				</c:if>
-			</c:forEach>
-			<c:if test="${pageBean1.page1!=pageBean1.totalPage1 }">
-			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1+1}" style="font-size:1.1em">下一页</a>
-			<a href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.totalPage1}" style="font-size:1.1em">尾页</a>
-			</c:if>
-			</center>
-					
-				
+
+
+				<div class="rehabilitation-assistance">
+					<center>
+						<h4>健康检查病历史</h4>
+					</center>
+
+					<c:if test="${user ne  null}">
+						<ul style="margin-left:6%;margin-top:5%">
+							<c:forEach var="medical" items="${pageBean1.list }">
+								<li><span style="font-size:1.1em;"><a href=""
+										id="yuyuea">姓名：${user.username }</a></span>
+									<ul style="margin-top:2%;width:100%;margin-top:-1px;">
+										<li><span style=""><span style="font-size:1.1em">检查病类：</span>${medical.name }</span><br>
+											<span style="width:100%"><span style="font-size:1.1em">检查内容：</span>${medical.content }
+												<br>
+											<span style=""><span style="font-size:1.1em">检查时间：</span><span
+													class="inspectionDate"> ${medical.inspectionDate }</span></span> <span
+												style="float:right;"><a href="javascript:;"
+													id="tijian" onclick="findViewInformation('${medical.id }')"
+													style="color:#7C9A60">查看详情>></a></span> </span></li>
+									</ul></li>
+								<hr>
+							</c:forEach>
+							<center style="padding-top:12px;">
+								<span style="font-size:1.1em">第${ pageBean1.page1}/${ pageBean1.totalPage1}
+									页</span>
+								<c:if test="${ pageBean1.page1 !=1}">
+									<a
+										href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=1"
+										style="font-size:1.1em">首页</a>
+									<a
+										href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${ pageBean1.page1-1}"
+										style="font-size:1.1em">&nbsp;上一页</a>
+								</c:if>
+								<c:forEach var="i" begin="1" end="${pageBean1.totalPage1 }">
+									<c:if test="${pageBean1.page1!=i }">
+										<a
+											href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${i}"
+											style="font-size:1.1em;">${i }</a>
+									</c:if>
+									<c:if test="${pageBean1.page1==i }">
+										<span style="font-size:1.1em">${i }</span>
+									</c:if>
+								</c:forEach>
+								<c:if test="${pageBean1.page1!=pageBean1.totalPage1 }">
+									<a
+										href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.page1+1}"
+										style="font-size:1.1em">下一页</a>
+									<a
+										href="${pageContext.request.contextPath }/LeFortServiceController/serverWebsiteTemplate?typeId=${typeId }&page1=${pageBean1.totalPage1}"
+										style="font-size:1.1em">尾页</a>
+								</c:if>
+							</center>
 					</c:if>
 					<c:if test="${user eq null }">
-					<h5 style="color:gray;margin-top:62px;">你还没有登录，请先去登录......</h5>
+						<h5 style="color:gray;margin-top:62px;">你还没有登录，请先去登录......</h5>
 					</c:if>
-				</ul>
-			
-			<!-- </div> -->
-				
-			
+					</ul>
+
+					<!-- </div> -->
+
+
 				</div>
 				<div id="findViewInformationArtivites"></div>
 
-				<!-- <div class="parti-online">
+				<div class="parti-online">
 					<h4>欢迎来到乐堡大家庭！我们将给您发送社区相关信息和活动更新，包括宣传册、优惠券和健康小贴士等。</h4>
 					<form class="layui-form" id="onlineParticipationInfo" method="post">
 						<label>* 姓名：</label>
@@ -540,31 +642,31 @@ function reservation(id) {
 							</div>
 						</div>
 					</form>
-				</div> -->
-</div>
+				</div>
 			</div>
-			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
 
-			<jsp:include page="official-footer.jsp"></jsp:include>
+		<jsp:include page="official-footer.jsp"></jsp:include>
 
-	
-	<script>
-		$("span.menu").click(function() {
-			$("ul.nav1").slideToggle(300, function() {
-				// Animation complete.
+
+		<script>
+			$("span.menu").click(function() {
+				$("ul.nav1").slideToggle(300, function() {
+					// Animation complete.
+				});
 			});
-		});
-	</script>
-	<script src="resource/plugins/bootstrap/bootstrap.js"></script>
-	<script>
-		layui.use('element', function() {
-			var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+		</script>
+		<script src="resource/plugins/bootstrap/bootstrap.js"></script>
+		<script>
+			layui.use('element', function() {
+				var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
 
-			//监听导航点击
-			element.on('nav(demo)', function(elem) {
-				//console.log(elem)
+				//监听导航点击
+				element.on('nav(demo)', function(elem) {
+					//console.log(elem)
+				});
 			});
-		});
-	</script>
+		</script>
 </body>
 </html>

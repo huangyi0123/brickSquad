@@ -33,7 +33,9 @@
 	content="Easy Recharge Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <script type="text/javascript"
 	src="resource/plugins/jquery/jquery.min.js"></script>
@@ -382,34 +384,34 @@
 						href="common/toLife?type=aboutus-intro">乐堡生活</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="common/toLife?type=aboutus-intro">营养膳食</a>
+								<a href="common/toLife?type=nutritive-diet">营养膳食</a>
 							</dd>
 							<dd>
-								<a href="common/toLife?type=aboutus-use">用户视频</a>
+								<a href="common/toLife?type=user-video">用户视频</a>
 							</dd>
 							<dd>
-								<a href="common/toLife?type=aboutus-join">用户反馈</a>
+								<a href="common/toLife?type=user-feedback">用户反馈</a>
 							</dd>
 						</dl></li>
 
 					<li class="layui-nav-item"><a
-						href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
+						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a
-									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+									href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 							</dd>
 							<dd>
 								<a
-									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+									href="LeFortServiceController/serverWebsiteTemplate?type=life-assistant&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 							</dd>
 							<dd>
 								<a
-									href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+									href="common/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 							</dd>
 							<dd>
 								<a
-									href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+									href="LeFortServiceController/serverWebsiteTemplate?type=rehabilitation-assistance&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a
@@ -935,10 +937,10 @@
 															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 															<option value="">请选择</option>
 
-														</select> 
+														</select>
 													</div>
-													 <span id="branchsecondidMessage"
-															style="margin-left:44%;;margin-left:70px;"></span>
+													<span id="branchsecondidMessage"
+														style="margin-left:44%;;margin-left:70px;"></span>
 												</div>
 											</div>
 											<p

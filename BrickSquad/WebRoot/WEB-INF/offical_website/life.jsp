@@ -38,12 +38,12 @@
 		var type = '${type}';
 		$("#centent").children().hide();
 		$("." + type).show();
-		if (type == 'aboutus-intro' || type == 'aboutus-use') {
+		if (type == 'nutritive-diet' || type == 'user-video') {
 			$(".pager").show();
-			if (type == "aboutus-intro") {
+			if (type == "nutritive-diet") {
 				NutritionalDiet(1, 6);
 			}
-			if (type == "aboutus-use") {
+			if (type == "user-video") {
 				userVedioList(1, 4);
 			}
 		}
@@ -53,12 +53,12 @@
 			var cls = "." + $(this).attr('val');
 			$("#centent").children().hide();
 			$(cls).show();
-			if (cls == ".aboutus-intro" || cls == ".aboutus-use") {
+			if (cls == ".nutritive-diet" || cls == ".user-video") {
 				$(".pager").show();
-				if (cls == ".aboutus-intro") {
+				if (cls == ".nutritive-diet") {
 					NutritionalDiet(1, 6);
 				}
-				if (cls == ".aboutus-use") {
+				if (cls == ".user-video") {
 					userVedioList(1, 4);
 				}
 			}
@@ -95,20 +95,20 @@
 	width: 100%;
 }
 
-.aboutus-use>ul>li {
+.user-video>ul>li {
 	border-bottom: 1px solid #E6E6E6;
 	display: block;
 	height: 100px;
 	margin: 10px
 }
 
-.aboutus-use>ul>li>a>img {
+.user-video>ul>li>a>img {
 	height: 70px;
 	display: block;
 	float: left;
 }
 
-.aboutus-use>ul>li>a>h1 {
+.user-video>ul>li>a>h1 {
 	float: left;
 	margin-left: 40px;
 	line-height: 70px;
@@ -124,13 +124,13 @@
 			<div class="tem_main_left">
 				<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo"
 					style="margin-right: 10px;" id="menu">
-					<li class="layui-nav-item" val="aboutus-intro"><a
+					<li class="layui-nav-item" val="nutritive-diet"><a
 						href="javascript:;">营养膳食</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-use"><a
+					<li class="layui-nav-item" val="user-video"><a
 						href="javascript:;">用户视频</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
-					<li class="layui-nav-item" val="aboutus-join"><a
+					<li class="layui-nav-item" val="user-feedback"><a
 						href="javascript:;">用户反馈</a></li>
 					<div style="width: 100%;height: 1px;background-color: #CCCCCC;"></div>
 				</ul>
@@ -143,13 +143,13 @@
 			<!-- <div class="clearfix"></div> -->
 			<div class="tem_main_right" id="centent">
 
-				<div class="aboutus-intro">
+				<div class="nutritive-diet">
 					<ul id="NutritionalDiet" style="width:70%; margin: 80px auto; ">
 						数据加载中。。。。。
 					</ul>
 
 				</div>
-				<div class="aboutus-use">
+				<div class="user-video">
 					<ul style="width: 70%;margin: 80px auto;" id="userVedio">
 						数据加载中。。。。
 					</ul>
@@ -158,7 +158,7 @@
 					<ul id="pager" style="margin-top:-20px">
 					</ul>
 				</div>
-				<div class="aboutus-join">
+				<div class="user-feedback">
 					<div style="width: 70%; margin: 70px auto;">
 						<h1
 							style="font-size: 30px;text-align: center; margin-bottom: 30px">用户反馈</h1>

@@ -471,7 +471,6 @@ public class CommonController {
 	@RequestMapping("/toLife")
 	public String toLife(HttpServletRequest request, String type) {
 		request.setAttribute("type", type);
-
 		return "offical_website/life";
 	}
 
