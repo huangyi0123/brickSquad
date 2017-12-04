@@ -25,6 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
+
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.User;
@@ -179,7 +181,7 @@ public class OrdersController {
 		String p5_Pid = ""; 
 		String p6_Pcat = ""; 
 		String p7_Pdesc = ""; 
-		String p8_Url = "http://localhost:8080/shopIndex/toShop"; 
+		String p8_Url = "http://localhost:8080/orders/callBack"; 
 		String p9_SAF = ""; 
 		String pa_MP = ""; 
 		String pd_FrpId = pd_FrpId1;
@@ -207,8 +209,13 @@ public class OrdersController {
 		response.sendRedirect(sb.toString());
 	}
 	@RequestMapping("/callBack")
+	//支付成功后，返回这个方法改变定但状态
 	public String callBack(){
-		
-		return "redirect:/";
+		/*Order currOrder=orderService.findByOid(Integer.parseInt(r6_Order));
+		currOrder.setState(2);
+		orderService.update(currOrder);
+		this.addActionMessage("��������ɹ���������ţ�"+r6_Order+"�����"+r3_Amt);
+		return "msg";*/
+		return "backstage_managed/jsp/orders/orders_list";
 	}
 }
