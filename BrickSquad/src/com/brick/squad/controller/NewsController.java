@@ -122,7 +122,7 @@ public class NewsController {
 
 	@RequestMapping("/deleteNews")
 	@ResponseBody
-	public String deleteNews(String id) {
+	public String deleteNews(String id) throws Exception {
 		newsService.deleteNews(id);
 		return "success";
 	}

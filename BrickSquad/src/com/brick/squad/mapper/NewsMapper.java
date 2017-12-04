@@ -28,7 +28,11 @@ public interface NewsMapper {
 
 	// 查询新闻
 	public List<News> findNews(String content);
-
+	
+	/**
+	 * 查询新闻信息总数分页
+	 * */
+	public Integer findNewsCountByPagination(Pagination pagination);
 	/**
 	 * 查询新闻信息总数
 	 * */

@@ -32,7 +32,14 @@
 	src="resource/plugins/wang_edit/wangEditor.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		var newsImgPath = $("#imagePathId").val();
+		if (newsImgPath == "") {
+			var o = new Date();
+			newsImgPath = o.getFullYear() + "" + o.getMonth() + ""
+					+ o.getDate() + "" + o.getHours() + o.getMinutes()
+					+ o.getSeconds();
+			$("#imagePathId").val(newsImgPath);
+		}
 		$.ajax({
 			url : 'news/findUser',
 			success : function(data) {
@@ -76,7 +83,8 @@
 		];
 
 		editor.customConfig.uploadImgParamsWithUrl = true;
-		editor.customConfig.uploadImgServer = 'common/uploadImg?imgPath=news';
+		editor.customConfig.uploadImgServer = 'common/uploadImg?imgPath=news/'
+				+ newsImgPath;
 		editor.customConfig.uploadFileName = 'file';
 		editor.customConfig.uploadImgMaxSize = 100 * 1024 * 1024;
 		editor.customConfig.uploadImgTimeout = 39000;
@@ -139,7 +147,7 @@
 		<div style="padding-left: 120px;font-size:16;font-style: oblique;">${msg}新闻编辑</div>
 		<br>
 		<form class="layui-form" action="news/${url}" id="form1" method="post"
-			onsubmit="subm()">
+			onsubmit="submit()">
 			<input type="hidden" name="id" value="${news.id }">
 			<div class="layui-form-item">
 				<label class="layui-form-label">标题</label>
@@ -160,6 +168,8 @@
 			</div>
 			<div id="con" style="display: none">${news.content}</div>
 			<input type="hidden" name="content" id="con1">
+			<input type="hidden" name="imagePath" id="imagePathId"
+				value="${news.imagePath}">
 			<div class="layui-form-item layui-form-text">
 				<label class="layui-form-label">编辑内容</label>
 				<div style="z-index: 0" class="layui-input-block" id="editor"></div>

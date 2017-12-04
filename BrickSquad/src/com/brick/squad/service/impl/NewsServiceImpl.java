@@ -18,6 +18,7 @@ import com.brick.squad.mapper.NewsMapper;
 import com.brick.squad.pojo.News;
 import com.brick.squad.pojo.Type;
 import com.brick.squad.service.NewsService;
+import com.brick.squad.util.COS;
 import com.brick.squad.util.GridManagerList;
 import com.brick.squad.util.JsonDateValueProcessor;
 import com.brick.squad.util.PageBeanUtil;
@@ -56,9 +57,15 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	// 根据新闻ID删除新闻
-	public void deleteNews(String id) {
-
-		newsMapper.deleteNews(id);
+	public void deleteNews(String id) throws Exception {
+		News news = newsMapper.findNewsById(id);
+		if (news != null) {
+			COS cos = new COS();
+			cos.setBucketName("bricksquad");
+			cos.setRegion("sh");
+			cos.deleteAll("/news/" + news.getImagePath() + "/");
+			newsMapper.deleteNews(id);
+		}
 
 	}
 
@@ -78,7 +85,8 @@ public class NewsServiceImpl implements NewsService {
 	// 新闻分页查询
 	public String newsPagination(Pagination pagination) {
 		List<NewsExpand> news = newsMapper.newsPagination(pagination);
-		int row = newsMapper.findNewsCount(pagination);
+		int row = newsMapper.findNewsCountByPagination(pagination);
+		System.out.println(row+"*****");
 		Util<NewsExpand> util = new Util<NewsExpand>();
 		String data = util.SplitPage(news, row);
 		return data;
@@ -216,7 +224,8 @@ public class NewsServiceImpl implements NewsService {
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(Date.class,
 				new JsonDateValueProcessor("yyyy年MM月dd日"));
-		JSONObject jsonObject = JSONObject.fromObject(nutritionalDiet,jsonConfig);
+		JSONObject jsonObject = JSONObject.fromObject(nutritionalDiet,
+				jsonConfig);
 		return jsonObject.toString();
 	}
 
@@ -228,9 +237,9 @@ public class NewsServiceImpl implements NewsService {
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(Date.class,
 				new JsonDateValueProcessor("yyyy-MM-dd"));
-		JSONArray jsonArray=new JSONArray();
-		List<News> list=newsMapper.findNewsDaily(id);
-		String data=jsonArray.fromObject(list,jsonConfig).toString();
+		JSONArray jsonArray = new JSONArray();
+		List<News> list = newsMapper.findNewsDaily(id);
+		String data = jsonArray.fromObject(list, jsonConfig).toString();
 		return data;
 	}
 

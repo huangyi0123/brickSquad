@@ -35,7 +35,7 @@ function init(keyword, up, del, query) {
 						s = s + '&nbsp;|&nbsp; ';
 					}
 					s = s
-							+ '<a href="javascript:;" onclick=deleteById("'
+							+ '<a href="javascript:;" onclick=deleteNews("'
 							+ rowData.id
 							+ '")><i title="删除" class="fa fa-trash-o"></i></a>';
 				}
