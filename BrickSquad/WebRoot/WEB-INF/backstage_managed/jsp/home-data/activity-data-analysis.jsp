@@ -42,8 +42,8 @@
 		});
 
 		main_1('');
-		/*main_2('');
-		main_3('',''); */
+		main_2();
+		/*main_3('',''); */
 		layui.use('form', function() {
 			var form = layui.form;
 			form.on('select(region)', function(data) {
@@ -103,7 +103,7 @@
 			<!-- P2SP子系统封堵量模块 -->
 			<div class="col-md-6 perxiaofei">
 				<div class="panel_header_2 title-icon">
-					<b>老年人消费结构分析图</b>
+					<b>活动类型统计图</b>
 					<ul class="icon_lists clear">
 						<li class="deploy" val=".home_2" title="展开/收缩">
 							<i class="icon iconfont icon-gobottom"></i>
@@ -130,7 +130,7 @@
 									</select>
 								</div>
 							</div> -->
-							<div class="layui-inline">
+							<%-- <div class="layui-inline">
 								<label class="layui-form-label" style="display: block;width: 100px">区域范围：</label>
 								<div class="layui-inline" style="width: 150px">
 									<select lay-filter="regioncos" name="city" lay-verify="required">
@@ -140,7 +140,7 @@
 										</c:forEach>
 									</select>
 								</div>
-							</div>
+							</div> --%>
 						</div>
 					</form>
 					<div id="main_2" style="width: 600px;height:300px;"></div>

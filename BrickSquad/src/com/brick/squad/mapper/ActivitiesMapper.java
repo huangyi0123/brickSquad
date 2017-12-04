@@ -121,4 +121,5 @@ public interface ActivitiesMapper {
 	public List<Map<String, Object>> findEchartActiveTypre(Map<String, Object> map);
 	
 	public List<ActiveExpand> findActiveList(String userId);
+	public List<Map<String, Object>> findActiveEchartsN();
 }

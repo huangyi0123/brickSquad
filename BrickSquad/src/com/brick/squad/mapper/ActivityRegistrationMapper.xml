@@ -7,8 +7,8 @@
 		activitiesId,registration_date
 		registrationDate,appointment
 	</sql>
-	<select id="findActivityRegistrationById" parameterType="String" resultType="ActivityRegistration"
-		>
+	<select id="findActivityRegistrationById" parameterType="String"
+		resultType="ActivityRegistration">
 		select
 		<include refid="prop" />
 		from activity_registration where
@@ -39,31 +39,42 @@
 	</delete>
 	<select id="activityRegistrationPagination" parameterType="com.brick.squad.util.Pagination"
 		resultType="com.brick.squad.expand.ActivityRegistrationExpand">
-		SELECT  personal_information.name personalInformationName,activities.name activitiesName,activity_registration.registration_date registrationDate,activity_registration.id,activity_registration.appointment 
-				FROM activity_registration JOIN personal_information ON activity_registration.per_id=personal_information.id
-				JOIN activities ON activity_registration.activities_id=activities.id 
-				<if test="keyword!=''and keyword!=null">
-				 WHERE personal_information.name REGEXP #{keyword} or 
-				 activities.name REGEXP #{keyword}
-				</if>
-				LIMIT #{skipNum},#{takeNum}
+		SELECT personal_information.name
+		personalInformationName,activities.name
+		activitiesName,activity_registration.registration_date
+		registrationDate,activity_registration.id,activity_registration.appointment
+		FROM activity_registration JOIN personal_information ON
+		activity_registration.per_id=personal_information.id
+		JOIN activities ON activity_registration.activities_id=activities.id
+		<if test="keyword!=''and keyword!=null">
+			WHERE personal_information.name REGEXP #{keyword} or
+			activities.name REGEXP #{keyword}
+		</if>
+		LIMIT #{skipNum},#{takeNum}
 	</select>
-	<select id="activityRegistrationCount" resultType="int" parameterType="com.brick.squad.util.Pagination">
-		SELECT  count(1)
-				FROM activity_registration JOIN personal_information ON activity_registration.per_id=personal_information.id
-				JOIN activities ON activity_registration.activities_id=activities.id 
-				<if test="keyword!=''and keyword!=null">
-				 WHERE personal_information.name REGEXP #{keyword} or 
-				 activities.name REGEXP #{keyword}
-				</if>
+	<select id="activityRegistrationCount" resultType="int"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT count(1)
+		FROM activity_registration JOIN personal_information ON
+		activity_registration.per_id=personal_information.id
+		JOIN activities ON activity_registration.activities_id=activities.id
+		<if test="keyword!=''and keyword!=null">
+			WHERE personal_information.name REGEXP #{keyword} or
+			activities.name REGEXP #{keyword}
+		</if>
 	</select>
-	
-	<select id="findActivityRegistrationAndPersonalInformationAndActivities" resultType="com.brick.squad.expand.ActivityRegistrationExpand" parameterType="String">
-	SELECT  personal_information.name personalInformationName,activities.name activitiesName,activity_registration.registration_date registrationDate,activity_registration.id,activity_registration.appointment 
-				FROM activity_registration JOIN personal_information ON activity_registration.per_id=personal_information.id
-				JOIN activities ON activity_registration.activities_id=activities.id 
-	where activity_registration.id=#{id}		
-	
+
+	<select id="findActivityRegistrationAndPersonalInformationAndActivities"
+		resultType="com.brick.squad.expand.ActivityRegistrationExpand"
+		parameterType="String">
+		SELECT personal_information.name personalInformationName,activities.name
+		activitiesName,activity_registration.registration_date
+		registrationDate,activity_registration.id,activity_registration.appointment
+		FROM activity_registration JOIN personal_information ON
+		activity_registration.per_id=personal_information.id
+		JOIN activities ON activity_registration.activities_id=activities.id
+		where activity_registration.id=#{id}
+
 	</select>
 	<delete id="deleteByPerIdActivityRegistration" parameterType="String">
 		DELETE FROM activity_registration WHERE per_id=#{perId}

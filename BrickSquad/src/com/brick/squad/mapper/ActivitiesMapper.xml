@@ -10,9 +10,11 @@
 		startTime,end_time
 		endTime,user_id
 		userId,number,movie,click_amount
-		clickAmount,imgpath from activities where
+		clickAmount,imgpath from activities
+		where
 		type_id=#{typeId} and id not in (#{id})
-		and centent REGEXP #{centent}
+		and centent REGEXP
+		#{centent}
 		or name REGEXP #{name}
 		ORDER BY
 		click_amount
@@ -27,7 +29,8 @@
 		startTime,end_time
 		endTime,user_id
 		userId,number,movie,click_amount
-		clickAmount,imgpath from activities where
+		clickAmount,imgpath from activities
+		where
 		type_id=#{typeId} and id not in (#{id}) ORDER BY
 		click_amount DESC
 		LIMIT 0 ,3
@@ -196,7 +199,7 @@
 		ON a.type_id=t.id AND t.id=#{typeId}
 		LIMIT #{begin},#{limitPage}
 	</select>
-		<select id="findServerWebsiteTemplate1" resultType="activities"
+	<select id="findServerWebsiteTemplate1" resultType="activities"
 		parameterType="com.brick.squad.util.PageBeanUtil">
 		SELECT a.id ,a.`name`
 		,a.centent,a.start_time,a.end_time,a.number
@@ -206,7 +209,7 @@
 		ON a.type_id=t.id AND t.id=#{typeId}
 		LIMIT #{begin1},#{limitPage1}
 	</select>
-		<select id="findServerWebsiteTemplate3" resultType="activities"
+	<select id="findServerWebsiteTemplate3" resultType="activities"
 		parameterType="com.brick.squad.util.PageBeanUtil">
 		SELECT a.id ,a.`name`
 		,a.centent,a.start_time,a.end_time,a.number
@@ -240,12 +243,22 @@
 	</select>
 	<select id="findActiveList" resultType="com.brick.squad.expand.ActiveExpand"
 		parameterType="String">
-		SELECT DISTINCT(a.id) id, a.`name` aname,a.start_time startTime,a.end_time
+		SELECT DISTINCT(a.id) id, a.`name` aname,a.start_time
+		startTime,a.end_time
 		endTime,t.`name` tname
-		FROM activity_registration ar
+		FROM activity_registration
+		ar
 		JOIN activities a on a.id=ar.activities_id
-		JOIN type t on a.type_id=t.id
+		JOIN type t on
+		a.type_id=t.id
 		WHERE a.end_time>NOW()
 		and ar.per_id=#{userId}
+	</select>
+	<select id="findActiveEchartsN" resultType="map">
+		SELECT
+		t.`name`,COUNT(t.id) n FROM activities a
+		JOIN type t on t.id=a.type_id
+		WHERE t.parent_id='lrhd'
+		GROUP BY type_id
 	</select>
 </mapper>
