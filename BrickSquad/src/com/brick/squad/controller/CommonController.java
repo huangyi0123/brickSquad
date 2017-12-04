@@ -131,7 +131,6 @@ public class CommonController {
 			cos.setRegion("sh");
 			String paths = cos.upLoadImageToCOS(file1.getAbsolutePath(),
 					"/"+imgPath+"/" + fileName);
-			System.out.println(paths);
 			JSONObject jsonObject = JSONObject.fromObject(paths);
 			jsonObject = JSONObject.fromObject(jsonObject.get("data"));
 			paths = jsonObject.get("access_url").toString();

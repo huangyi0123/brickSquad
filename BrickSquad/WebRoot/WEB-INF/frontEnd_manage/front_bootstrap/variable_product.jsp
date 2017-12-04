@@ -369,7 +369,7 @@ $(function() {
 										style="margin-left: 460px;margin-top: -23px;">${article.price }</label>
 									<div
 										style="margin-top:10px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
-									<!-- <form class="layui-form" action="">
+									<form class="layui-form" action="">
 										<div class="layui-form-item">
 											<label class="layui-form-label"
 												style="font-weight: bold;margin-top: 15px;margin-left: -5px;">尺码</label>
@@ -400,7 +400,8 @@ $(function() {
 												</a>
 											</div>
 										</div>
-									</form> -->
+										
+									</form>
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
 										<input id="articleNumberId" type="number" class="layui-input" value="1" min="1"

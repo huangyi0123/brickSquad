@@ -43,6 +43,23 @@
 		limit #{skipNum},#{takeNum}
 
 	</select>
+		<select id="findNewsCountByPagination" resultType="Integer"
+		parameterType="com.brick.squad.util.Pagination">
+		SELECT count(*)
+		FROM news n INNER JOIN `user` u
+		ON
+		n.user_id=u.id
+		<if
+			test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
+			where n.user_id=#{userId}
+		</if>
+		<if test="keyword!=''">
+			AND (u.username REGEXP #{keyword} or n.title REGEXP
+			#{keyword})
+		</if>
+		
+
+	</select>
 	<select id="findNewsCount" resultType="Integer"
 		parameterType="com.brick.squad.util.Pagination">
 		<if test="keyword==''">
@@ -54,8 +71,7 @@
 			ON
 			n.user_id=u.id where user_id=#{userId}
 			AND (u.username REGEXP
-			#{keyword} or n.title REGEXP #{keyword}) limit
-			#{skipNum},#{takeNum}
+			#{keyword} or n.title REGEXP #{keyword}) 
 
 		</if>
 	</select>

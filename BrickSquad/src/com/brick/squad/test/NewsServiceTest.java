@@ -40,7 +40,7 @@ public class NewsServiceTest {
 
 	// 删除新闻
 	@Test
-	public void deleteNews() {
+	public void deleteNews() throws Exception {
 		newsService.deleteNews("5ad8f86abdfe11e7aca65254002ec43c");
 	}
 

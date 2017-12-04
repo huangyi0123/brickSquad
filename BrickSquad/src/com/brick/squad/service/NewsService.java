@@ -13,7 +13,7 @@ public interface NewsService {
 	public void addNews(String id, String userId, String content,
 			String imagePath, Date postTime);
 
-	public void deleteNews(String id);
+	public void deleteNews(String id) throws Exception;
 
 	public void updateNews(String userId, String content);
 
