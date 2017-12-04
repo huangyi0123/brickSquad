@@ -57,6 +57,7 @@
 
 <script type="text/javascript">
 	function findSecondMedical(typeId,aid){
+		$("#listing-top").css('display','none');
 		$.ajax({
 			  url:"${pageContext.request.contextPath}/MedicalInstruments/findSecondMedicalInstruments",
 			  data:{typeId:typeId},
@@ -75,7 +76,7 @@
 			var html = "<li  class='product-category product first product-col-5 col-md-3 col-sm-6 col-xs-6 col-mb-12'>"+
 			
 			"<a href='${pageContext.request.contextPath }/variableProduct/toVariable_product?productId="+aid+"'>"+
-					"<image src='resource/image/articleImg/"+json[i].image+"' alt='Accessories' width='300' height='300'>"+
+					"<image src='"+json[i].image+"' style=\"width:300px;height:300px;\">"+
 					"<h3>"+
 					json[i].aname+
 					"<mark class='count'>"+(1)+"</mark>"+
@@ -190,7 +191,7 @@
 		<div class="row">
 			<div id="contents" class="content col-lg-9 col-md-8 col-sm-8"
 				role="main">
-				<div class="listing-top">
+				<div class="listing-top" id="listing-top">
 					<div
 						class="widget-1 widget-first widget rev-slider-widget-2 widget_revslider">
 						<div class="widget-inner">
