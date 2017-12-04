@@ -104,6 +104,8 @@
 						<div class="entry-content">
 							<div class="entry-summary">
 								<div class="woocommerce">
+								<form id="orderForm" action="${pageContext.request.contextPath}/orders/payOrder" method="post">
+									<input type="hidden" value="${orders.id }" name="id">
 									<label
 										style="display:block; font-size: 20px; display: inline-block;">收货地址：
 										<input type="button" class="button"
@@ -120,7 +122,7 @@
 												title="${listAddresses.detailed }"
 												value="${listAddresses.id }">${listAddresses.detailed }</label>
 									</c:forEach>
-									<form action="" method="post">
+									
 										<div>
 											订单号:
 											<input id="orderId" style="width: 350px;border: none;"
@@ -149,10 +151,10 @@
 												</c:forEach>
 											</tbody>
 										</table>
-									</form>
+									
 									<div>
 
-										<form class="layui-form" action="">
+									<!-- 	<form class="layui-form" action=""> -->
 											<div class="layui-form-item">
 												<label class="layui-form-label"
 													style="width: 100px;margin-left:0px">选择优惠券</label>
@@ -162,13 +164,13 @@
 													</select>
 												</div>
 											</div>
-										</form>
+									<!-- 	</form> -->
 									</div>
 									<div class="cart-collaterals">
 										<div class="products-wrapper">
 											<div class="cart_totals ">
-												<h2>订单总计</h2>
-
+											<h2>订单总计</h2>
+												
 												<table cellspacing="0"
 													class="shop_table shop_table_responsive">
 													<tbody>
@@ -192,12 +194,47 @@
 														</tr>
 													</tbody>
 												</table>
-
-												<div class="wc-proceed-to-checkout">
-													<a href="JavaScript:;" onclick="goOnPay()"
-														class="checkout-button button alt wc-forward">继续结账</a>
-												</div>
+											<p >
+						选择银行：<br /> 
+						<div style="float:left"><input type="radio" name="pd_FrpId"
+							value="ICBC-NET-B2C" checked="checked" />工商银行 <img
+							src="resource/image/icbc.bmp" align="middle" />
+							
+						<input type="radio" name="pd_FrpId" value="BOC-NET-B2C" />中国银行 <img
+							src="resource/image/bc.bmp" align="middle" />
+							
+						<input type="radio" name="pd_FrpId" value="ABC-NET-B2C" />农业银行 <img
+							src="resource/image/abc.bmp" align="middle" /> <br /> 
+							</div>
+							<div style="float:left">
+							<input
+							type="radio" name="pd_FrpId" value="BOCO-NET-B2C" />交通银行 <img
+							src="resource/image/bcc.bmp" align="middle" />
+						<input type="radio" name="pd_FrpId" value="PINGANBANK-NET" />平安银行
+						<img src="resource/image/pingan.bmp" align="middle" />
+						<input type="radio" name="pd_FrpId" value="CCB-NET-B2C" />建设银行 <img
+							src="resource/image/ccb.bmp" align="middle" /> <br /> 
+							</div>
+							<div style="float:left">
+							<input
+							type="radio" name="pd_FrpId" value="CEB-NET-B2C" />光大银行 <img
+							src="resource/image/guangda.bmp" align="middle" />
+						<input type="radio" name="pd_FrpId" value="CMBCHINA-NET-B2C" />招商银行
+						<img src="resource/image/cmb.bmp" align="middle" />
+						</div>
+					</p>
+					<hr />
+					<!-- onclick="goOnPay()" -->
+					<div class="wc-proceed-to-checkout">
+						<a href="javascript:document.getElementById('orderForm').submit();" 
+								class="checkout-button button alt wc-forward">继续结账</a>
+						</div>
+							</div>
+											
+							</form>
+					
 											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -209,7 +246,8 @@
 				</div>
 			</div>
 		</div>
-
+		
+		
 
 		<jsp:include page="shop_footer.jsp"></jsp:include>
 
