@@ -1867,9 +1867,9 @@
 																<a href="new_deals/findHotArticle" style="margin-right: 70px"> 查看更多</a>
 															</div>
 
-															<div class="view-all">
+															<!-- <div class="view-all">
 																<i class="fa  fa-caret-right"></i>
-															</div>
+															</div> -->
 														</div>
 													</div>
 
@@ -1917,7 +1917,7 @@
 															<!-- slider content -->
 															<div class="resp-slider-container">
 																<div class="slider responsive">
-																	<c:forEach var="a" items="${rArticles }">
+																	<c:forEach var="a" items="${rArticles }" varStatus="p">
 																		<div class="item product">
 
 																			<div class="item-wrap">
@@ -2023,9 +2023,6 @@
 																							</span>
 																						</div>
 																					</div>
-
-
-
 																				</div>
 																			</div>
 																		</div>
@@ -2175,9 +2172,9 @@
 																	<a href="new_deals/tonew_deals" style="margin-right: 70px"> 查看更多</a>
 																</div>
 
-																<div class="view-all">
+																<!-- <div class="view-all" style="margin-right: 70px">
 																	<i class="fa  fa-caret-right"></i>
-																</div>
+																</div> -->
 															</div>
 														</div>
 

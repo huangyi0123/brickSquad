@@ -44,7 +44,6 @@ public class ShopIndexController {
 		Map<String, Object> map = articalService.shopIndex(userId);
 
 		request.setAttribute("url", "toShop");
-		System.err.println(map);
 		List<NewsArticle> newsArticles = (List<NewsArticle>) map
 				.get("aNewsArticles");
 		List<NewsArticle> newsArticlesTop = (List<NewsArticle>) map
@@ -97,7 +96,6 @@ public class ShopIndexController {
 		request.setAttribute("myArticleTop",
 				getImagePath(request, myArticlesTop));
 		request.setAttribute("myArticle", mList);
-
 		return "frontEnd_manage/front_bootstrap/index";
 	}
 
@@ -128,18 +126,22 @@ public class ShopIndexController {
 	}
 
 	private List<List<NewsArticle>> avgList(List<NewsArticle> newsArticles) {
-		List<List<NewsArticle>> list = new ArrayList<>();
-		List<NewsArticle> nList1 = new ArrayList<>();
-		List<NewsArticle> nList2 = new ArrayList<>();
+		List<List<NewsArticle>> list = new ArrayList<List<NewsArticle>>();
+		List<NewsArticle> nList1 = new ArrayList<NewsArticle>();
+		List<NewsArticle> nList2 = new ArrayList<NewsArticle>();
+		List<NewsArticle> nList3 = new ArrayList<NewsArticle>();
 		for (int i = 0; i < newsArticles.size(); i++) {
-			if (i % 2 == 0) {
+			if (i % 3 == 0) {
 				nList1.add(newsArticles.get(i));
-				list.add(nList1);
-			} else {
+			} else if (i % 3 == 1) {
 				nList2.add(newsArticles.get(i));
-				list.add(nList2);
+			} else {
+				nList3.add(newsArticles.get(i));
 			}
 		}
+		list.add(nList1);
+		list.add(nList2);
+		list.add(nList3);
 		return list;
 	}
 
