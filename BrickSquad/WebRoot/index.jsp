@@ -407,7 +407,7 @@
 							</dd>
 							<dd>
 								<a
-									href="common/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+									href="LeFortServiceController/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 							</dd>
 							<dd>
 								<a
@@ -649,32 +649,32 @@
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="common/toLife?type=aboutus-intro">
+					<a href="common/toLife?type=nutritive-diet">
 						<h3>乐堡生活</h3>
 					</a>
 					<ul>
-						<li><a href="common/toLife?type=aboutus-intro">营养膳食</a></li>
-						<li><a href="common/toLife?type=aboutus-use">用户视频</a></li>
-						<li><a href="common/toLife?type=aboutus-join">用户反馈</a></li>
+						<li><a href="common/toLife?type=nutritive-diet">营养膳食</a></li>
+						<li><a href="common/toLife?type=user-video">用户视频</a></li>
+						<li><a href="common/toLife?type=user-feedback">用户反馈</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a
-						href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
+						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">
 						<h3>乐堡服务</h3>
 					</a>
 					<ul>
 						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+							href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 						</li>
 						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+							href="LeFortServiceController/serverWebsiteTemplate?type=life-assistant&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 						</li>
 						<li><a
-							href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+							href="LeFortServiceController/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 						</li>
 						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+							href="LeFortServiceController/serverWebsiteTemplate?type=rehabilitation-assistance&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 						</li>
 					</ul>
 				</div>

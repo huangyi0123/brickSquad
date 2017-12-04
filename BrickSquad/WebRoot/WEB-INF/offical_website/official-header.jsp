@@ -234,7 +234,7 @@
 						</dd>
 						<dd>
 							<a
-								href="common/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+								href="LeFortServiceController/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 						</dd>
 						<dd>
 							<a

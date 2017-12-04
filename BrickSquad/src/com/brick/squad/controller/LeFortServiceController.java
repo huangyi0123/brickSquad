@@ -46,7 +46,7 @@ public class LeFortServiceController {
 	 * @throws Exception */
 	@RequestMapping("/serverWebsiteTemplate")
 	public String serverWebsiteTemplate(String type,HttpServletRequest request,PageBeanUtil pageBean) throws Exception {
-	/*	type = "aboutus-intro";*/
+		/*type = "aboutus-intro";*/
 		request.setAttribute("type", type);
 	
 		//体检预约

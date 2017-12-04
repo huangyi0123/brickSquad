@@ -36,46 +36,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h3>乐堡活动</h3>
 					</a>
 					<ul>
-						<li>
-							<a href="common/toActivity_carousel?type=online_course">线上课程</a>
+						<li><a href="common/toActivity_carousel?type=online_course">线上课程</a>
 						</li>
-						<li>
-							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
+						<li><a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="common/toLife?type=aboutus-intro">
+					<a href="common/toLife?type=nutritive-diet">
 						<h3>乐堡生活</h3>
 					</a>
 					<ul>
-						<li>
-							<a href="common/toLife?type=aboutus-intro">营养膳食</a>
-						</li>
-						<li>
-							<a href="common/toLife?type=aboutus-use">用户视频</a>
-						</li>
-						<li>
-							<a href="common/toLife?type=aboutus-join">用户反馈</a>
-						</li>
+						<li><a href="common/toLife?type=nutritive-diet">营养膳食</a></li>
+						<li><a href="common/toLife?type=user-video">用户视频</a></li>
+						<li><a href="common/toLife?type=user-feedback">用户反馈</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
-					<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
+					<a
+						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">
 						<h3>乐堡服务</h3>
 					</a>
 					<ul>
-						<li>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+						<li><a
+							href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 						</li>
-						<li>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-use&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+						<li><a
+							href="LeFortServiceController/serverWebsiteTemplate?type=life-assistant&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 						</li>
-						<li>
-							<a href="common/serverWebsiteTemplate?type=aboutus-join&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+						<li><a
+							href="LeFortServiceController/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 						</li>
-						<li>
-							<a href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-cont&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+						<li><a
+							href="LeFortServiceController/serverWebsiteTemplate?type=rehabilitation-assistance&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 						</li>
 					</ul>
 				</div>
@@ -84,17 +77,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h3>关于乐堡</h3>
 					</a>
 					<ul>
-						<li>
-							<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
+						<li><a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
 						</li>
-						<li>
-							<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
+						<li><a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 						</li>
-						<li>
-							<a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
+						<li><a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
 						</li>
-						<li>
-							<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
+						<li><a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 						</li>
 					</ul>
 				</div>
