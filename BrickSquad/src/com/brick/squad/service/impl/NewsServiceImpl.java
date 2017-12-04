@@ -86,7 +86,6 @@ public class NewsServiceImpl implements NewsService {
 	public String newsPagination(Pagination pagination) {
 		List<NewsExpand> news = newsMapper.newsPagination(pagination);
 		int row = newsMapper.findNewsCountByPagination(pagination);
-		System.out.println(row+"*****");
 		Util<NewsExpand> util = new Util<NewsExpand>();
 		String data = util.SplitPage(news, row);
 		return data;
