@@ -742,6 +742,7 @@ public class ArticleServiceImpl implements ArticleService {
 					item.setImage(s1.get(0));
 				}
 			}
+			
 		}
 		map.put("data", list);
 		map.put("page", page);

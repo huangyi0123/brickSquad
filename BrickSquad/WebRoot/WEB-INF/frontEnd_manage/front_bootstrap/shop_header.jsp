@@ -228,7 +228,7 @@
 									<form method="post"
 										action="${pageContext.request.contextPath }/new_deals/findAllArticle">
 										<div>
-											<input type="text" value="" name="s"
+											<input type="text" value="${s }" name="s"
 												placeholder="请输入关键字...">
 											<div class="cat-wrapper"">
 												<label class="label-search"> <select
@@ -236,7 +236,13 @@
 													style="width: 150px; onclick="selectType()">
 														<option value="">所有类别</option>
 														<c:forEach var="type" items="${listType}">
+														<c:if test="${search_category eq type.id }">
+															<option value="${type.id }" selected="selected">${type.name }</option>
+														</c:if>
+														<c:if test="${search_category ne type.id }">
 															<option value="${type.id }">${type.name }</option>
+														</c:if>
+															
 														</c:forEach>
 												</select>
 												</label>
