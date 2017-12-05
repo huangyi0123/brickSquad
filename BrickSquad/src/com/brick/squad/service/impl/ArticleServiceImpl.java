@@ -691,18 +691,18 @@ public class ArticleServiceImpl implements ArticleService {
 			list = articleMapper.findSearchAllArticle(m);
 			count = articleMapper.findSearchArticleAllCount();
 		} else if (s != "" && search_category != "") {
-			if (search_category.equals("yiliaoqixie")) {
+			/*if (search_category.equals("yiliaoqixie")) {*/
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list = articleMapper.findSearchAllArticleSecondYiLiao(m);
 				count = articleMapper.findSearchAllArticleCountThreadOther(m);
-			} else {
+				/*} else {
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list = articleMapper.findSearchAllArticleSecond(m);
 				count = articleMapper
 						.findSearchAllArticleCountSecond(search_category);
-			}
+			}*/
 		} else if (s != "" && search_category == "") {
 			m.put("s", page.getS());
 			m.put("search_category", page.getSearch_category());
@@ -710,19 +710,19 @@ public class ArticleServiceImpl implements ArticleService {
 			count = articleMapper
 					.findSearchAllArticleCountSecondS(s);
 		} else {
-			if (search_category.equals("yiliaoqixie")) {
+			/*if (search_category.equals("yiliaoqixie")) {*/
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list = articleMapper.findSearchAllArticleSecondYiLiaoSecond(m);
 				count = articleMapper
 						.findSearchAllArticleCountSecondOther(search_category);
-			} else {
+			/*} else {
 				m.put("s", page.getS());
 				m.put("search_category", page.getSearch_category());
 				list = articleMapper.findSearchAllArticleSecondOther(m);
 				count = articleMapper
 						.findSearchAllArticleCountSecond(search_category);
-			}
+			}*/
 		}
 		page.setCount(count);
 		for (NewsArticle item : list) {
@@ -732,6 +732,15 @@ public class ArticleServiceImpl implements ArticleService {
 			if (files != null && files.length != 0) {
 				item.setImage("resource/image/articleImg/" + item.getImage()
 						+ "/" + files[0].getName());
+			}else{
+				COS cos=new COS();
+				cos.setBucketName("bricksquad");
+				cos.setRegion("sh");
+				String cospath="/articleList/"+item.getId()+"/";
+				List<String> s1=cos.listFolder(cospath);
+				if (s1.size()>0) {
+					item.setImage(s1.get(0));
+				}
 			}
 		}
 		map.put("data", list);
