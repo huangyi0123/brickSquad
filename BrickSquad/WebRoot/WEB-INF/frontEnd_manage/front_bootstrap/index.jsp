@@ -679,7 +679,7 @@
 																			</li>
 																			<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=yundongyongpin"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c"
 																					class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#efc73a"></span>
@@ -941,7 +941,7 @@
 
 																			<li class="menu-television etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=37e17244c35611e7aca65254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#3f5eca"></span>
@@ -952,7 +952,7 @@
 
 																			<li class="menu-accessories-for-tablet etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=05c27738c67911e7aca65254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#13528c"></span>
@@ -962,7 +962,7 @@
 																			</li>
 																			<li class="dropdown menu-electronic-component etrostore-mega-menu level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=2bd80726c67911e7aca65254002ec43c"
 																					class="item-link dropdown-toggle">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f03442"></span>
@@ -1207,7 +1207,7 @@
 																			</li>
 																			<li class="menu-laptops-accessories etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=497b8a32c67911e7aca65254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#2f2e2e"></span>
@@ -1218,7 +1218,7 @@
 
 																			<li class="menu-blender etrostore-menu-custom level1" style="display: none;">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=72713fa4c67911e7aca65254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#e93434"></span>
@@ -1230,11 +1230,11 @@
 																			<li class="menu-vacuum-cleaner etrostore-menu-custom level1"
 																				style="display: none;">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId="
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=92d83f5ec67911e7aca65254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
-																						<span class="menu-title">护理护具</span>
+																						<span class="menu-title">护理用具</span>
 																					</span>
 																				</a>
 																			</li>
