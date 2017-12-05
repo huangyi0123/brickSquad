@@ -49,7 +49,7 @@ public class OrdersController {
 
 	@RequestMapping("/toOrdersList")
 	public String toRegionList() {
-		return "backstage_managed/jsp/orders/orders_list";
+		return "redibackstage_managed/jsp/orders/orders_list";
 	}
 	
 
@@ -65,21 +65,26 @@ public class OrdersController {
 	 * @throws Exception 
 	 */
 	@RequestMapping("/updateOrderStateAndGrade")
-	@ResponseBody
+//	@ResponseBody
 	public String updateOrderStateAndGrade(OrdersPayUtil ordersPayUtil,
 			HttpServletRequest request) throws Exception {
 		String orderId=ordersPayUtil.getR6_Order();
-		System.out.println("++++++++++++++++====================++++++++++++++++++++++++"+orderId);
 		if (!orderId.trim().equals("")) {
 			Boolean is = ordersService.updateOrderStateAndGrade(orderId);
 			if (is) {
-				return "支付成功";
+				return "frontEnd_manage/front_bootstrap/paySuccess";
 			} else {
-				return "fail";
+				request.setAttribute("ordersId", orderId);
+				return "frontEnd_manage/front_bootstrap/payFail";
 			}
 		}
-		return "fail";
+		return "frontEnd_manage/front_bootstrap/payFail";
 	}
+	/*@RequestMapping("/toPersonal")
+	public String toPersonal(){
+		
+		return "redirect:/common/toPersonal";
+	}*/
 
 	@RequestMapping("/getOrdersList")
 	@ResponseBody
