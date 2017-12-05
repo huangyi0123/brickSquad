@@ -44,8 +44,10 @@
 	
 	
 	
+	
 
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -62,6 +64,17 @@
 	src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <!-- js -->
+<script type="text/javascript">
+	layui.use('util', function() {
+		var util = layui.util;
+
+		//执行
+		util.fixbar({
+			bar1 : false,
+			bgcolor : '#48CFC1',
+		});
+	});
+</script>
 <script>
 	$(document).ready(function() {
 		//Initialize tooltips
