@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.User;
@@ -34,6 +35,7 @@ import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.util.OrdersPayUtil;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaymentUtil;
 
 @Controller
 @RequestMapping("/orders")
@@ -64,13 +66,14 @@ public class OrdersController {
 	 */
 	@RequestMapping("/updateOrderStateAndGrade")
 	@ResponseBody
-	public String updateOrderStateAndGrade(String orderId,
+	public String updateOrderStateAndGrade(OrdersPayUtil ordersPayUtil,
 			HttpServletRequest request) throws Exception {
-		
+		String orderId=ordersPayUtil.getR6_Order();
+		System.out.println("++++++++++++++++====================++++++++++++++++++++++++"+orderId);
 		if (!orderId.trim().equals("")) {
 			Boolean is = ordersService.updateOrderStateAndGrade(orderId);
 			if (is) {
-				return "success";
+				return "支付成功";
 			} else {
 				return "fail";
 			}
@@ -181,7 +184,7 @@ public class OrdersController {
 		String p5_Pid = ""; 
 		String p6_Pcat = ""; 
 		String p7_Pdesc = ""; 
-		String p8_Url = "http://localhost:8080/orders/callBack"; 
+		String p8_Url = "http://localhost:8080/BrickSquad/orders/updateOrderStateAndGrade"; 
 		String p9_SAF = ""; 
 		String pa_MP = ""; 
 		String pd_FrpId = pd_FrpId1;
