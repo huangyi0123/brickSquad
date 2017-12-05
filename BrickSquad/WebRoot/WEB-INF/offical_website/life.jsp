@@ -181,7 +181,10 @@
 							</form>
 						</c:if>
 						<c:if test="${user eq null }">
-							<h1>请先登录</h1>
+							<div style="padding: 0;margin: 0;width: 100%;height: 370px;">
+								<h1
+									style="font-size:30px;text-align: center;line-height:370px;color: red; ">请先登录</h1>
+							</div>
 						</c:if>
 					</div>
 				</div>
