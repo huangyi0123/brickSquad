@@ -518,7 +518,7 @@
 															
 															<li>
 																<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
-																	href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+																	href="new_deals/${map.url }?curentPage=<%=i%>&s=${s}&search_category=${search_category}"><%=i%></a>
 															</li>
 															<%
 															

@@ -742,16 +742,7 @@ public class ArticleServiceImpl implements ArticleService {
 					item.setImage(s1.get(0));
 				}
 			}
-			else {
-				COS cos=new COS();
-				cos.setBucketName("bricksquad");
-				cos.setRegion("sh");
-				String cospath="/articleList/"+item.getId()+"/";
-				List<String> sList=cos.listFolder(cospath);
-				if (sList.size()>0) {
-					item.setImage(sList.get(0));
-				}
-			}
+			
 		}
 		map.put("data", list);
 		map.put("page", page);
