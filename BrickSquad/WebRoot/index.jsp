@@ -362,6 +362,18 @@
 		}
 
 	}
+	function findTypess() {
+		
+		var typeValue = $("#region123").val().trim();
+		if (typeValue == "") {
+			alert("搜索内容不能为空！");
+		} else {
+			var ahref = document.getElementById("qwe");
+			ahref.href = "type/searchContent?type=aboutus-intro&search="
+					+ typeValue;
+		}
+
+	}
 	$(function() {
 		$(".myicon").find('img').hover(
 				function() {
@@ -792,11 +804,11 @@
 					</a>
 					<ul>
 						<li>
-							<input type="text" name="title" lay-verify="title"
+							<input id="region123" type="text" name="title" lay-verify="title"
 								style="width: 240px;height: 30px;float: left; border:1px solid #A9B0C4 !important; border-radius:5px; color: #A9B0C4;letter-spacing: 3px;"
 								autocomplete="off" value="社区搜索" class="layui-input" onfocus="if(value=='社区搜索') {value=''}"
 								onblur="if (value=='') {value='社区搜索'}">
-							<a href="#" style="display:block;float:left; margin-left: 210px;margin-top: -30px;">
+							<a href="" id="qwe" onclick="findTypess()" style="display:block;float:left; margin-left: 210px;margin-top: -30px;">
 								<i class="layui-icon" style="font-size: 20px;">&#xe615;</i>
 							</a>
 						</li>

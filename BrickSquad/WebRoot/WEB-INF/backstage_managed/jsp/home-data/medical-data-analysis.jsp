@@ -42,16 +42,8 @@
 		});
 
 		main_1('');
-		/*main_2('');
-		main_3('',''); */
 		layui.use('form', function() {
 			var form = layui.form;
-			form.on('select(region)', function(data) {
-				main_1(data.value);
-			});
-			form.on('select(regioncos)', function(data) {
-				main_2(data.value);
-			});
 			form.on('select(regioncosarte)', function(data) {
 				main_3(data.value, '');
 			});
@@ -63,98 +55,10 @@
 <body style="width: 96%;margin: auto;margin-top: 20px;">
 
 	<div class="home_body">
-		<div class="home1 row">
-			<div class="col-md-6 perAge">
-				<div class="panel_header_1 title-icon">
-					<b>病历类型统计</b>
-					<ul class="icon_lists clear">
-						<li class="deploy" val=".home_1">
-							<i class="icon iconfont icon-gobottom"></i>
-						</li>
-						<li class="myclose" val=".perAge">
-							<i class="icon iconfont icon-guanbi"></i>
-						</li>
-					</ul>
-				</div>
-				<div class="home_1">
-					<form action="" class="layui-form">
-						<div class="layui-inline">
-
-							<div class="layui-inline">
-								<label class="layui-form-label" style="display: block;width: 100px">区域范围：</label>
-								<div class="layui-input-inline " style="width: 150px">
-									<select lay-filter="region" name="city" lay-verify="required">
-										<option value="">所有分店</option>
-										<c:forEach items="${region }" var="a">
-											<option value="${a.id }">${a.name }</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-						</div>
-					</form>
-					<div id="main_1"></div>
-					<script type="text/javascript">
-						
-					</script>
-				</div>
-			</div>
-
-			<!-- P2SP子系统封堵量模块 -->
-			<div class="col-md-6 perxiaofei">
-				<div class="panel_header_2 title-icon">
-					<b>老年人消费结构分析图</b>
-					<ul class="icon_lists clear">
-						<li class="deploy" val=".home_2" title="展开/收缩">
-							<i class="icon iconfont icon-gobottom"></i>
-						</li>
-						<li class="myclose" val=".perxiaofei" title="关闭">
-							<i class="icon iconfont icon-guanbi"></i>
-						</li>
-					</ul>
-				</div>
-				<div class="home_2">
-					<form action="" class="layui-form">
-						<div class="layui-inline">
-							<!-- <div class="layui-inline">
-								<label class="layui-form-label" style="display: block;width: 100px">时间范围：</label>
-								<div class="layui-inline" style="width: 150px">
-									<select name="city" lay-verify="required">
-										<option value=""></option>
-										<option value=""></option>
-										<option value="0">不限时间</option>
-										<option value="1">春季</option>
-										<option value="2">夏季</option>
-										<option value="3">秋季</option>
-										<option value="4">冬季</option>
-									</select>
-								</div>
-							</div> -->
-							<div class="layui-inline">
-								<label class="layui-form-label" style="display: block;width: 100px">区域范围：</label>
-								<div class="layui-inline" style="width: 150px">
-									<select lay-filter="regioncos" name="city" lay-verify="required">
-										<option value="">所有分店</option>
-										<c:forEach items="${region }" var="a">
-											<option value="${a.id }">${a.name }</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-						</div>
-					</form>
-					<div id="main_2" style="width: 600px;height:300px;"></div>
-					<script type="text/javascript">
-						
-					</script>
-				</div>
-			</div>
-		</div>
-		<!-- 配置日志总数量模块 -->
 		<div class="row">
 			<div class="col-md-12 cpxs">
 				<div class="panel_header_3 title-icon">
-					<b>产品销售总数量</b>
+					<b>病历分布图</b>
 					<ul class="icon_lists clear">
 						<li class="deploy" val=".home_3" title="展开/收缩">
 							<i class="icon iconfont icon-gobottom"></i>
@@ -193,7 +97,7 @@
 							</div>
 						</div>
 					</form>
-					<div id="main_3"></div>
+					<div id="main_1" style="width: 100%;height: 100%"></div>
 				</div>
 			</div>
 		</div>

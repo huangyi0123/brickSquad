@@ -7,12 +7,13 @@
 	<select id="findShopActivitiesById" resultType="com.brick.squad.pojo.ShopActivities"
 		parameterType="String">
 
-		select s.id,s.type_id typeId,s.start_time startTime,s.end_time
+		select s.id,s.type_id typeId,s.start_time
+		startTime,s.end_time
 		endTime,s.business_id
-		businessId,s.article_id articleId,a.aname,s.active_price activePrice,a.price price 
+		businessId,s.article_id articleId,a.aname,s.active_price activePrice,a.price price
 		from shop_activities s
 		JOIN article a ON s.article_id=a.id
-		 where s.id=#{id}
+		where s.id=#{id}
 
 	</select>
 
@@ -60,8 +61,9 @@
 		JOIN
 		business b on sa.business_id=b.id
 		JOIN article a on sa.article_id=a.id
-		<if test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
-		WHERE  b.id=#{userId}
+		<if
+			test="roleId!='ed270512bb8411e78d4f5254002ec43c' and roleId!='b0578c1cc05511e7aca65254002ec43c'">
+			WHERE b.id=#{userId}
 		</if>
 		<if test="keyword!='' and keyword!=null">
 			and (t.`name` REGEXP #{keyword} or b.shopname REGEXP
@@ -116,5 +118,14 @@
 		JOIN article a on a.id=sa.article_id WHERE
 		t.`name`='秒杀' and
 		sa.end_time>NOW() LIMIT 0,4
+	</select>
+	<select id="shopActiveType" parameterType="map" resultType="map">
+		SELECT t.`name`,COUNT(t.id) n FROM shop_activities sa
+		JOIN type t on sa.type_id=t.id
+		JOIN `user` u on sa.business_id=u.id
+		<if test="typeId!=''">
+		WHERE u.branch_id=#{typeId}
+		</if>
+		GROUP BY t.id
 	</select>
 </mapper>

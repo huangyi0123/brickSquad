@@ -350,7 +350,7 @@
 									href="business/toAddBusiness?id=${user.id }">修改信息</a>
 							</li>
 						</c:if>
-						<li class="dropdown">
+						<!-- <li class="dropdown">
 							<a style="text-align: center;" class="dropdown-toggle count-info" data-toggle="dropdown"
 								href="#">
 								信息
@@ -386,7 +386,7 @@
 									</div>
 								</li>
 							</ul>
-						</li>
+						</li> -->
 						<li class="divider"></li>
 						<li>
 							<a style="text-align: center;" href="javascript:;" onclick="logout()"> 安全退出</a>

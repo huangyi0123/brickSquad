@@ -72,7 +72,8 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService {
 
 	@Override
 	public String shopActivitiesPagination(Pagination pagination) {
-		List<ShopActivitiesExpand> shopActivities = shopActivitiesMapper.shopActivitiesPagination(pagination);
+		List<ShopActivitiesExpand> shopActivities = shopActivitiesMapper
+				.shopActivitiesPagination(pagination);
 		int row = shopActivitiesMapper.findShopActivitiesAllCount(pagination);
 		Util<ShopActivitiesExpand> util = new Util<ShopActivitiesExpand>();
 		String data = util.SplitPage(shopActivities, row);
@@ -129,5 +130,13 @@ public class ShopActivitiesServiceImpl implements ShopActivitiesService {
 	@Override
 	public List<SecKill> secKillIndex() {
 		return shopActivitiesMapper.secKillIndex();
+	}
+
+	@Override
+	public String shopActiveType(Map<String, Object> map) {
+		List<Map<String, Object>> maps = shopActivitiesMapper
+				.shopActiveType(map);
+		JSONArray jsonArray = JSONArray.fromObject(maps);
+		return jsonArray.toString();
 	}
 }

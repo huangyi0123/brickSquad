@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	$(function() {
 		var a='${roleId}';
 		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.activity_registration.ad},!${limiterole.activity_registration.dl},false);
+		init("",${limiterole.activity_registration.ad},${limiterole.activity_registration.dl},false);
 		}
 		init("",false,false,false);
 		serach();

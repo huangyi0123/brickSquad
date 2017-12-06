@@ -93,6 +93,9 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public String getAllRegion(Address address) {
+		if (address==null||address.getProvinceId()==null) {
+			return null;
+		}
 		List<Select> city = regionMapper.findRegionsByParentId(address
 				.getProvinceId());
 		List<Select> county = regionMapper.findRegionsByParentId(address

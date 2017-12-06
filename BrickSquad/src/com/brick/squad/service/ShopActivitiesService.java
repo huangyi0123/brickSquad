@@ -1,6 +1,7 @@
 package com.brick.squad.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.SecKill;
 import com.brick.squad.expand.ShopActivitiesExpand;
@@ -53,5 +54,6 @@ public interface ShopActivitiesService {
 	 * @return 商品列表
 	 */
 	public List<SecKill> secKillIndex();
+	public String shopActiveType(Map<String, Object> map);
 
 }

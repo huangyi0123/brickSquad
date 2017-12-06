@@ -17,6 +17,7 @@ import com.brick.squad.service.ActivitiesService;
 import com.brick.squad.service.ArticleService;
 import com.brick.squad.service.MedicalService;
 import com.brick.squad.service.PersonalInformationService;
+import com.brick.squad.service.ShopActivitiesService;
 import com.brick.squad.service.TypeService;
 
 @Controller
@@ -37,6 +38,9 @@ public class EchartsController {
 	@Autowired
 	@Qualifier("activitiesService")
 	private ActivitiesService activitiesService;
+	@Autowired
+	@Qualifier("shopActivitiesService")
+	private ShopActivitiesService shopActivitiesService;
 
 	/**
 	 * 老年人年龄结构数据
@@ -150,5 +154,17 @@ public class EchartsController {
 	@ResponseBody
 	public String findActiveEchartsN() {
 		return activitiesService.findActiveEchartsN();
+	}
+
+	@RequestMapping("/shopActiveType")
+	@ResponseBody
+	public String shopActiveType(String typeId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (typeId == null || typeId.trim().equals("")) {
+			map.put("typeId", "");
+		} else {
+			map.put("typeId", typeId);
+		}
+		return shopActivitiesService.shopActiveType(map);
 	}
 }

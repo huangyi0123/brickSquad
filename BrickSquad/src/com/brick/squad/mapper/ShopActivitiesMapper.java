@@ -1,6 +1,7 @@
 package com.brick.squad.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.brick.squad.expand.SecKill;
 import com.brick.squad.expand.ShopActivitiesExpand;
@@ -40,4 +41,5 @@ public interface ShopActivitiesMapper {
 	 * @return 商品列表
 	 */
 	public List<SecKill> secKillIndex();
+	public List<Map<String, Object>> shopActiveType(Map<String, Object> map);
 }

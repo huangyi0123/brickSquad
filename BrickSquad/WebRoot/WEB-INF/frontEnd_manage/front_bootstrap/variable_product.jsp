@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <head>
-<title>Variable Product - Premium Multipurpose HTML5/CSS3 Theme</title>
+<title>商品详情</title>
 <meta charset="utf-8" />
 
 <meta name="viewport"
@@ -371,7 +371,7 @@ $(function() {
 										</label>
 									<div
 										style="margin-top:10px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
-									<form class="layui-form" action="">
+									<!-- <form class="layui-form" action="">
 										<div class="layui-form-item">
 											<label class="layui-form-label"
 												style="font-weight: bold;margin-top: 15px;margin-left: -5px;">尺码</label>
@@ -382,8 +382,8 @@ $(function() {
 												<a href="#" name="size" title="XL">XL</a>
 											</div>
 										</div>
-									</form>
-									<form class="layui-form" action="">
+									</form> -->
+									<!-- <form class="layui-form" action="">
 										<div class="layui-form-item" style="margin-top: -20px;">
 											<label class="layui-form-label"
 												style="width:100px; font-weight: bold;margin-top: 10px;margin-left: 2px;">颜色分类</label>
@@ -403,7 +403,7 @@ $(function() {
 											</div>
 										</div>
 										
-									</form>
+									</form> -->
 									<div style="margin-top: 20px;">
 										<label style="margin-left: 30px;">数量</label>
 										<input id="articleNumberId" type="number" class="layui-input" value="1" min="1"
@@ -411,14 +411,14 @@ $(function() {
 										<label style="display:block; margin-top: -30px;margin-left: 185px;">件</label> <label
 											style="display:block; margin-top: -25px;margin-left: 210px;">库存${ article.stock}件</label>
 									</div>
-									<input type="submit" value="立即购买" onclick="userBuyImmediately()"
-										style="width: 150px;font-weight:bold; height: 40px;background-color: white; margin-top: 40px;margin-left: 100px;">
+									<input type="submit"  value="立即购买" onclick="userBuyImmediately()"
+										style="width: 150px;font-weight:bold; height: 40px;background-color: #FFEDED; margin-top: 40px;margin-left: 100px;">
 									<!-- 先给死perid -->
 									<input type="hidden" id="userId" value="${user.id }">
 									<!--隐藏域存当前商品ID  -->
 									<input type="hidden" id="articleId" value="${ article.id}">
 									<input type="button" value="加入购物车" onclick="userAddArticleToShoppingCar()"
-										style="width: 150px;font-weight:bold; height: 40px;background-color: white;margin-top: 40px;margin-left: 40px;">
+										style="width: 150px;font-weight:bold; height: 40px;background-color: #FFC5AF;margin-top: 40px;margin-left: 40px;">
 
 
 								</div>

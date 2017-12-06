@@ -128,9 +128,7 @@ public class RelativesController {
 		if (id != null) {
 			// 先将relatives中的所有信息查询出来
 			Relatives relatives = relativesService.findRelativesById(id);
-			// 优先获取relatives中的AddressId,再执行Address中的查询，这样就能实现通过AddressId查询地址信息用于回显
-			Address address = addressService.findAddressById(relatives
-					.getAddressId());
+
 			// 同理type表
 			Type type = typeService.findTypeById(relatives.getRelationshipId());
 			// 同理person表
@@ -138,15 +136,23 @@ public class RelativesController {
 					.findPersonalInformationById(relatives.getPerId());
 			RelativesAndAddressAndTypeAndPersonExpand relaAddressTypePerson = new RelativesAndAddressAndTypeAndPersonExpand();
 			// 将上述查询出来的信息设置到拓展对象中
-			relaAddressTypePerson.setAddress(address);
+			// 优先获取relatives中的AddressId,再执行Address中的查询，这样就能实现通过AddressId查询地址信息用于回显
+			if (relatives.getAddressId() != null) {
+				Address address = addressService.findAddressById(relatives
+						.getAddressId());
+				relaAddressTypePerson.setAddress(address);
+				String allRegionResultById = addressService
+						.getAllRegion(address);
+				request.setAttribute("allRegionResultById", allRegionResultById);
+			}
 			relaAddressTypePerson.setPersonalInformation(personalInformation);
 			relaAddressTypePerson.setRelatives(relatives);
 			relaAddressTypePerson.setType(type);
 			// 将对象放入request中传入jsp
 			request.setAttribute("relaAddressTypePerson", relaAddressTypePerson);
 			// 查询出所有省信息用于回显
-			String allRegionResultById = addressService.getAllRegion(address);
-			request.setAttribute("allRegionResultById", allRegionResultById);
+				
+			
 			request.setAttribute("msg", "修改");
 			request.setAttribute("url", "userUpdateRelativesByIdExend");
 		} else {
@@ -314,8 +320,8 @@ public class RelativesController {
 
 	@RequestMapping("/deleteRelativesById")
 	public String deleteRelativesById(String id) throws Exception {
-		Relatives relatives =relativesService.findRelativesById(id);
-		if (relatives.getAddressId()!=null) {
+		Relatives relatives = relativesService.findRelativesById(id);
+		if (relatives.getAddressId() != null) {
 			relativesService.userDeleteRelativesById(id);
 			addressService.deleteAddressById(relatives.getAddressId());
 			return "backstage_managed/jsp/relatives/relatives_list";

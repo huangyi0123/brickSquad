@@ -43,7 +43,7 @@
 	$(function() {
 		var a='${roleId}';
 		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.membership_application.ad},!${limiterole.membership_application.dl},false);
+		init("",${limiterole.membership_application.ad},${limiterole.membership_application.dl},false);
 		}
 		init("",false,false,false);
 		serach();

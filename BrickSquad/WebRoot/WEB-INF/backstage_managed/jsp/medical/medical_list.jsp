@@ -38,7 +38,7 @@
 		var a='${roleId}';
 		console.log(a);
 		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.medical.ad},!${limiterole.medical.dl},false);
+		init("",${limiterole.medical.ad},${limiterole.medical.dl},${limiterole.medical.query});
 		}
 		init("",false,false,false);
 		serach();
