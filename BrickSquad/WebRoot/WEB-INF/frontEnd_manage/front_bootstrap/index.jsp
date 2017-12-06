@@ -389,7 +389,7 @@
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=4c0c40d0da2811e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>

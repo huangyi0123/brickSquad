@@ -67,7 +67,7 @@
 			}
 		}
 
-		var interval = window.setInterval(autoScroll, 40);
+		var interval = window.setInterval(autoScroll, 80);
 
 		//鼠标进入，停止滚动
 		$('#roll_box').mousemove(function() {
@@ -76,7 +76,7 @@
 
 		//鼠标移出，继续滚动
 		$('#roll_box').mouseout(function() {
-			interval = window.setInterval(autoScroll, 40);
+			interval = window.setInterval(autoScroll, 80);
 		});
 		initInfor();
 		//头像图片信息
