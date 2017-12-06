@@ -201,6 +201,7 @@
 				</a>
 			</h1>
 		</div>
+		
 		<div class="top-nav">
 			<span class="menu"> <img src="resource/image/menu.png" alt=" " />
 			</span>
@@ -208,10 +209,10 @@
 				style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
 				<li id="indexPage" class="layui-nav-item"><a href="">首页</a></li>
 				<li class="layui-nav-item"><a href="shopIndex/toShop"
-					style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
+					style="font-size:1.5em;color: #FF9F59;">养乐商城</a></li>
 
 				<li class="layui-nav-item" id="activityPage"><a
-					href="common/toActivity_carousel?type=online_course">乐堡活动</a>
+					href="common/toActivity_carousel?type=online_course">养乐活动</a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a href="common/toActivity_carousel?type=online_course">线上课程</a>
@@ -221,7 +222,7 @@
 						</dd>
 					</dl></li>
 				<li class="layui-nav-item" id="lifePage"><a
-					href="common/toLife?type=nutritive-diet">乐堡生活</a>
+					href="common/toLife?type=nutritive-diet">养乐生活</a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a href="common/toLife?type=nutritive-diet">营养膳食</a>
@@ -235,7 +236,7 @@
 					</dl></li>
 
 				<li class="layui-nav-item" id="servicePage"><a
-					href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
+					href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">养乐服务</a>
 					<dl class="layui-nav-child">
 						<dd>
 							<a
@@ -255,10 +256,10 @@
 						</dd>
 					</dl></li>
 				<li class="layui-nav-item" id="aboutPage"><a
-					href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
+					href="common/toWebsiteTemplate?type=aboutus-intro">关于养乐</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
+							<a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
 						</dd>
 						<dd>
 							<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>

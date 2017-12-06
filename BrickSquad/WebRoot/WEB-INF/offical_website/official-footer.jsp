@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toActivity_carousel?type=online_course">
-						<h3>乐堡活动</h3>
+						<h3>养乐活动</h3>
 					</a>
 					<ul>
 						<li><a href="common/toActivity_carousel?type=online_course">线上课程</a>
@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toLife?type=nutritive-diet">
-						<h3>乐堡生活</h3>
+						<h3>养乐生活</h3>
 					</a>
 					<ul>
 						<li><a href="common/toLife?type=nutritive-diet">营养膳食</a></li>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-md-3 foo-grid">
 					<a
 						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">
-						<h3>乐堡服务</h3>
+						<h3>养乐服务</h3>
 					</a>
 					<ul>
 						<li><a
@@ -74,10 +74,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toWebsiteTemplate?type=aboutus-intro">
-						<h3>关于乐堡</h3>
+						<h3>关于养乐</h3>
 					</a>
 					<ul>
-						<li><a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
+						<li><a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
 						</li>
 						<li><a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 						</li>
@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="shopIndex/toShop">
-						<h3>乐堡商城</h3>
+						<h3>养乐商城</h3>
 					</a>
 
 				</div>

@@ -37,7 +37,17 @@
 	
 	
 	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
 
 
 
@@ -374,10 +384,10 @@
 					style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
 					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
 					<li class="layui-nav-item"><a href="shopIndex/toShop"
-						style="font-size:1.5em;color: #FF9F59;">乐堡商城</a></li>
+						style="font-size:1.5em;color: #FF9F59;">养乐商城</a></li>
 
 					<li class="layui-nav-item"><a
-						href="common/toActivity_carousel?type=online_course">乐堡活动</a>
+						href="common/toActivity_carousel?type=online_course">养乐活动</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toActivity_carousel?type=online_course">线上课程</a>
@@ -387,7 +397,7 @@
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a
-						href="common/toLife?type=aboutus-intro">乐堡生活</a>
+						href="common/toLife?type=aboutus-intro">养乐生活</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toLife?type=nutritive-diet">营养膳食</a>
@@ -401,7 +411,7 @@
 						</dl></li>
 
 					<li class="layui-nav-item"><a
-						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">乐堡服务</a>
+						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">养乐服务</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a
@@ -421,10 +431,10 @@
 							</dd>
 						</dl></li>
 					<li class="layui-nav-item"><a
-						href="common/toWebsiteTemplate?type=aboutus-intro">关于乐堡</a>
+						href="common/toWebsiteTemplate?type=aboutus-intro">关于养乐</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
+								<a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
 							</dd>
 							<dd>
 								<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
@@ -592,8 +602,8 @@
 					<div style="width: 300px;">
 						<div
 							style="height: 30px;line-height:30px;border:1px solid #dedede;">
-							<span style="text-indent: 20px;"><h4
-									style="font-size:1.4em;color:#48CFC1">乐堡新闻</h4></span>
+							<span style="text-align: center;"><h4
+									style="font-size:1.4em;color:#48CFC1;text-align: center;line-height: 30px;">乐堡新闻</h4></span>
 						</div>
 
 						<div id="roll_box"
@@ -645,7 +655,7 @@
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toActivity_carousel?type=online_course">
-						<h3>乐堡活动</h3>
+						<h3>养乐活动</h3>
 					</a>
 					<ul>
 						<li><a href="common/toActivity_carousel?type=online_course">线上课程</a>
@@ -656,7 +666,7 @@
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toLife?type=nutritive-diet">
-						<h3>乐堡生活</h3>
+						<h3>养乐生活</h3>
 					</a>
 					<ul>
 						<li><a href="common/toLife?type=nutritive-diet">营养膳食</a></li>
@@ -667,7 +677,7 @@
 				<div class="col-md-3 foo-grid">
 					<a
 						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">
-						<h3>乐堡服务</h3>
+						<h3>养乐服务</h3>
 					</a>
 					<ul>
 						<li><a
@@ -686,10 +696,10 @@
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toWebsiteTemplate?type=aboutus-intro">
-						<h3>关于乐堡</h3>
+						<h3>关于养乐</h3>
 					</a>
 					<ul>
-						<li><a href="common/toWebsiteTemplate?type=aboutus-intro">乐堡简介</a>
+						<li><a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
 						</li>
 						<li><a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 						</li>
@@ -701,9 +711,18 @@
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="shopIndex/toShop">
-						<h3>乐堡商城</h3>
+						<h3>养乐商城</h3>
 					</a>
+					<ul>
+						<li><input type="text" name="title" lay-verify="title"
+								style="width: 240px;height: 30px;float: left; border:1px solid #A9B0C4 !important; border-radius:5px; color: #A9B0C4;letter-spacing: 3px;"
+								autocomplete="off" value="社区搜索" class="layui-input"
+								onfocus="if(value=='社区搜索') {value=''}"
+								onblur="if (value=='') {value='社区搜索'}"> <a href="#"
+							style="display:block;float:left; margin-left: 210px;margin-top: -30px;"><i
+								class="layui-icon" style="font-size: 20px;">&#xe615;</i></a></li>
 
+					</ul>
 				</div>
 				<div class="clearfix"></div>
 			</div>
