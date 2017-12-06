@@ -368,7 +368,7 @@
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=d81c3ee4d9d411e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
@@ -378,7 +378,7 @@
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=207c1edad9d911e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
@@ -389,7 +389,7 @@
 
 																			<li class="menu-home-furniture etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=4c0c40d0da2811e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#7745bc"></span>
@@ -700,7 +700,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-laptop-desktop-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=f2718720d96811e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=4052cd2eda3f11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">户外服装防寒登山服</span>
 																									</span>
@@ -709,7 +709,7 @@
 
 																							<li class="menu-storage-external-drives">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=fea73cecd96811e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=49f54410da3f11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">FMIX 防风防水保暖登山服</span>
 																									</span>
@@ -718,7 +718,7 @@
 
 																							<li class="menu-networking-wireless">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=0b418cf0d96911e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=54f7df1cda3f11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">FMIX 三合一冲锋衣两件套女</span>
 																									</span>
@@ -727,7 +727,7 @@
 
 																							<li class="menu-motherboards-cpus-psus">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=1895829ed96911e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=5df104e0da3f11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">宝参人（Baoshenren） 2017秋冬服装</span>
 																									</span>
@@ -736,7 +736,7 @@
 
 																							<li class="menu-webcams">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=23884ad8d96911e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=667e591eda3f11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">盾郎透气保暖防寒加大码外套连帽加</span>
 																									</span>
@@ -756,7 +756,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-mobile-phones">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=d859a834d96511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=3f23168cda3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">10倍20倍放大镜</span>
 																									</span>
@@ -765,7 +765,7 @@
 
 																							<li class="menu-smart-watches-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=e572da18d96511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=4d6dafd6da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">LEATHERMAN 美国莱泽曼 Tread 穿戴手链</span>
 																									</span>
@@ -774,7 +774,7 @@
 
 																							<li class="menu-mobile-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=f21cc896d96511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=578d4cd8da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">菲莱仕（FEIRSH） 瑞士科技 </span>
 																									</span>
@@ -783,7 +783,7 @@
 
 																							<li class="menu-cases-covers">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=fdf842a8d96511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=613e9386da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">菲莱仕（FEIRSH） 硬合金钢</span>
 																									</span>
@@ -792,7 +792,7 @@
 
 																							<li class="menu-power-banks">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=097b42f6d96611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=6ad20d2eda3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">高分贝防狼报警器</span>
 																									</span>
@@ -812,7 +812,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-tablet-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=c0db3c44d96611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=d48f1c70da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">YUYI 直柄翠绿</span>
 																									</span>
@@ -821,7 +821,7 @@
 
 																							<li class="menu-cases-covers">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=ce4488aed96611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=e0492d58da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">防褥疮气垫瘫痪</span>
 																									</span>
@@ -830,7 +830,7 @@
 
 																							<li class="menu-power-banks">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=d9cda322d96611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=eafc5356da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">护理用品护理坐垫</span>
 																									</span>
@@ -839,7 +839,7 @@
 
 																							<li class="menu-memory-cards">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=e66145d0d96611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=f5097612da3c11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">脚底按摩毯</span>
 																									</span>
@@ -859,7 +859,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-macbooks-imacs">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=738ceb12d96711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=905c4bb6da3e11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">放大镜方形6LED</span>
 																									</span>
@@ -868,7 +868,7 @@
 
 																							<li class="menu-computers-desktops">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=926dd8acd96711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=9a6e3600da3e11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">场景装饰圣诞用品 </span>
 																									</span>
@@ -877,7 +877,7 @@
 
 																							<li class="menu-printers-scanners-faxs">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=9fe7846ad96711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=a44ba7fcda3e11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">户外雪人娃娃老人圣诞节礼物</span>
 																									</span>
@@ -886,7 +886,7 @@
 
 																							<li class="menu-laptop-desktop-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=ad83dbbed96711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=b3079c1ada3e11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">便捷式烧水机 老年机-金3</span>
 																									</span>
@@ -942,7 +942,7 @@
 
 																			<li class="menu-television etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=37e17244c35611e7aca65254002ec43c"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=aa903f38da2f11e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#3f5eca"></span>
@@ -986,7 +986,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-leds">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=4672c3bed97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=4880c46ada3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">药油 居家常备</span>
 																									</span>
@@ -995,7 +995,7 @@
 
 																							<li class="menu-laptop-desktop-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=5285d326d97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=528f2366da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">防蚊晕车醒脑提神</span>
 																									</span>
@@ -1004,7 +1004,7 @@
 
 																							<li class="menu-storage-external-drives">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=5d9bb640d97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=5b52f2f2da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">999 抗病毒口服液</span>
 																									</span>
@@ -1013,7 +1013,7 @@
 
 																							<li class="menu-networking-wireless">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=69c4ecb6d97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=63fe2e6cda3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title"> 桑姜感冒胶囊 </span>
 																									</span>
@@ -1022,7 +1022,7 @@
 
 																							<li class="menu-motherboards-cpus-psus">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=750b3d1ed97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=6d7e3cb6da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">正露丸</span>
 																									</span>
@@ -1031,7 +1031,7 @@
 
 																							<li class="menu-webcams">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=7efd70e4d97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=76a444f2da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">四季感冒片</span>
 																									</span>
@@ -1040,7 +1040,7 @@
 
 																							<li class="menu-gaming-mice">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=8a8c6596d97511e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=8156db8ada3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">正露丸</span>
 																									</span>
@@ -1065,7 +1065,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-smartphones">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=19b82e30d97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=b5821ae6da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">克痤隐酮凝胶</span>
 																									</span>
@@ -1074,7 +1074,7 @@
 
 																							<li class="menu-mobile-phones">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=34045c1ed97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=c2cb67cada3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title"> 达克宁软膏  </span>
 																									</span>
@@ -1083,7 +1083,7 @@
 
 																							<li class="menu-smart-watches-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=3f6662fad97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=cde3777eda3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">汉苑良方百女用</span>
 																									</span>
@@ -1092,7 +1092,7 @@
 
 																							<li class="menu-mobile-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=504dec3cd97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=d8413b2ada3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">九芝堂</span>
 																									</span>
@@ -1101,7 +1101,7 @@
 
 																							<li class="menu-cases-covers">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=5c3978d6d97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=e1e251a0da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">亮甲复方聚维酮碘</span>
 																									</span>
@@ -1110,7 +1110,7 @@
 
 																							<li class="menu-power-banks">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=6df6e4aad97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=ec5b1f86da3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">润葆 尿素维E乳膏</span>
 																									</span>
@@ -1119,7 +1119,7 @@
 
 																							<li class="menu-memory-cards">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=79b8562ad97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=f69d39cada3a11e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">善存银片</span>
 																									</span>
@@ -1143,7 +1143,7 @@
 																						<ul class="dropdown-sub nav-level2">
 																							<li class="menu-tablets">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=ce0a283ed97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=65acbc34da3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">AliKing东革阿里XP</span>
 																									</span>
@@ -1152,7 +1152,7 @@
 
 																							<li class="menu-tablet-accessories">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=db5bc86cd97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=71cf0ff8da3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">昂立多邦</span>
 																									</span>
@@ -1161,7 +1161,7 @@
 
 																							<li class="menu-cases-covers">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=f9da9becd97611e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=7ba82a6eda3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">收纳胶囊药品 </span>
 																									</span>
@@ -1170,7 +1170,7 @@
 
 																							<li class="menu-power-banks">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=0890a74ed97711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=86b097a2da3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">番茄红素软胶囊</span>
 																									</span>
@@ -1179,7 +1179,7 @@
 
 																							<li class="menu-memory-cards">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=1354a554d97711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=90644e2eda3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">美国进口vigrx</span>
 																									</span>
@@ -1188,7 +1188,7 @@
 
 																							<li class="menu-headphonesheadsets">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=34704b58d97711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=9ad40f84da3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">牡蛎片男性保健品</span>
 																									</span>
@@ -1196,7 +1196,7 @@
 																							</li>
 																							<li class="menu-headphonesheadsets">
 																								<a
-																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=463eaf50d97711e79dea5254002ec43c">
+																									href="${pageContext.request.contextPath }/variableProduct/toVariable_product?productId=aad04c36da3911e7b4095254002ec43c">
 																									<span class="have-title">
 																										<span class="menu-title">脑白金老年装</span>
 																									</span>
@@ -1841,15 +1841,15 @@
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=d81c3ee4d9d411e7b4095254002ec43c">裤子</a>
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=207c1edad9d911e7b4095254002ec43c">鞋类</a>
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=4c0c40d0da2811e7b4095254002ec43c">帽子</a>
 																	</li>
 																	<li>
 																		<a
@@ -2144,15 +2144,15 @@
 																		</li>
 																		<li>
 																			<a
-																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi">裤子</a>
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=d81c3ee4d9d411e7b4095254002ec43c">裤子</a>
 																		</li>
 																		<li>
 																			<a
-																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei">鞋类</a>
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=207c1edad9d911e7b4095254002ec43c">鞋类</a>
 																		</li>
 																		<li>
 																			<a
-																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=maozi">帽子</a>
+																				href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=4c0c40d0da2811e7b4095254002ec43c">帽子</a>
 																		</li>
 																		<li>
 																			<a
@@ -2462,24 +2462,24 @@
 																<ul>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">电视机</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=shangyi">上衣</a>
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">空气清新剂</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=d81c3ee4d9d411e7b4095254002ec43c">裤子</a>
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">老人电脑
-																			& 老人手机</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=207c1edad9d911e7b4095254002ec43c">鞋类
+																			</a>
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">古董手表配件</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=4c0c40d0da2811e7b4095254002ec43c">帽子</a>
 																	</li>
 																	<li>
 																		<a
-																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=">锻炼设施</a>
+																			href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=e17e4e4cc67811e7aca65254002ec43c">运动用品</a>
 																	</li>
 																	<li></li>
 																</ul>

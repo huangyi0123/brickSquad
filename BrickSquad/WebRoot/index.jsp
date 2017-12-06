@@ -77,7 +77,7 @@
 			}
 		}
 
-		var interval = window.setInterval(autoScroll, 40);
+		var interval = window.setInterval(autoScroll, 80);
 
 		//鼠标进入，停止滚动
 		$('#roll_box').mousemove(function() {
@@ -86,7 +86,7 @@
 
 		//鼠标移出，继续滚动
 		$('#roll_box').mouseout(function() {
-			interval = window.setInterval(autoScroll, 40);
+			interval = window.setInterval(autoScroll, 80);
 		});
 		initInfor();
 		//头像图片信息
@@ -232,6 +232,7 @@
 	function findActivitiesName() {
 		var user = '${user}';
 		if (user != "") {
+			
 			$.ajax({
 				url : 'activityRegistration/findActivityName',
 				success : function(data) {
@@ -363,7 +364,35 @@
 		}
 
 	}
+	$(function() {
+		$(".myicon").find('img').hover(function() {
+			var src=$(this).attr('src');
+			src=src.substring(src.lastIndexOf("/")+1,src.lastIndexOf("."));
+			var n=src.indexOf("1");
+			if (n==-1) {
+				$(this).attr('src',"resource/image/"+src+"1.png");
+			}
+			
+		});
+		$(".myicon").find('img').mouseout(function () {
+			var src=$(this).attr('src');
+			var n=src.indexOf("1");
+			src=src.substring(src.lastIndexOf("/")+1,src.lastIndexOf("1"));
+			console.log(src);
+			if (n!=-1) {
+				src="resource/image/"+src+".png";
+				console.log(src);
+				$(this).attr('src',src);
+			}
+		});
+	});
 </script>
+<style type="text/css">
+.myicon img{
+	width: 26px;
+	margin: 5px;
+}
+</style>
 </head>
 
 <body>
@@ -652,6 +681,14 @@
 					<a href="#">
 						<h3>首页</h3>
 					</a>
+					<ul class="myicon">
+						<li><a href="javascript:;"><img alt="" src="resource/image/email.png"></a>
+						</li>
+						<li><a href="javascript:;"><img alt="" src="resource/image/minChart.png"></a>
+						</li>
+						<li><a href="javascript:;"><img alt="" src="resource/image/minblog.png"></a>
+						</li>
+					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
 					<a href="common/toActivity_carousel?type=online_course">
