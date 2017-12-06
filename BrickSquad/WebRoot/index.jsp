@@ -13,16 +13,14 @@
 <base href="<%=basePath%>">
 
 <title>官网</title>
-<link href='https://fonts.googleapis.com/css?family=Varela+Round'
-	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
 	rel='stylesheet' type='text/css'>
 <link href="resource/plugins/bootstrap/bootstrap.css" rel="stylesheet">
 
 
-<link href="resource/css/style.css" rel="stylesheet" type="text/css"
-	media="all" />
+<link href="resource/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="resource/plugins/laysui/css/layui.css" rel="stylesheet">
 <link href="resource/css/index.css" rel="stylesheet">
 
@@ -42,6 +40,7 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
 
@@ -52,12 +51,11 @@
 
 
 
+
 </script>
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
-<script type="text/javascript"
-	src="resource/plugins/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="resource/plugins/angularjs/angular.min.js"></script>
 
 <script>
 	$(function() {
@@ -232,7 +230,7 @@
 	function findActivitiesName() {
 		var user = '${user}';
 		if (user != "") {
-			
+
 			$.ajax({
 				url : 'activityRegistration/findActivityName',
 				success : function(data) {
@@ -365,30 +363,34 @@
 
 	}
 	$(function() {
-		$(".myicon").find('img').hover(function() {
-			var src=$(this).attr('src');
-			src=src.substring(src.lastIndexOf("/")+1,src.lastIndexOf("."));
-			var n=src.indexOf("1");
-			if (n==-1) {
-				$(this).attr('src',"resource/image/"+src+"1.png");
-			}
-			
-		});
-		$(".myicon").find('img').mouseout(function () {
-			var src=$(this).attr('src');
-			var n=src.indexOf("1");
-			src=src.substring(src.lastIndexOf("/")+1,src.lastIndexOf("1"));
-			console.log(src);
-			if (n!=-1) {
-				src="resource/image/"+src+".png";
-				console.log(src);
-				$(this).attr('src',src);
-			}
-		});
+		$(".myicon").find('img').hover(
+				function() {
+					var src = $(this).attr('src');
+					src = src.substring(src.lastIndexOf("/") + 1, src
+							.lastIndexOf("."));
+					var n = src.indexOf("1");
+					if (n == -1) {
+						$(this).attr('src', "resource/image/" + src + "1.png");
+					}
+
+				});
+		$(".myicon").find('img').mouseout(
+				function() {
+					var src = $(this).attr('src');
+					var n = src.indexOf("1");
+					src = src.substring(src.lastIndexOf("/") + 1, src
+							.lastIndexOf("1"));
+					console.log(src);
+					if (n != -1) {
+						src = "resource/image/" + src + ".png";
+						console.log(src);
+						$(this).attr('src', src);
+					}
+				});
 	});
 </script>
 <style type="text/css">
-.myicon img{
+.myicon img {
 	width: 26px;
 	margin: 5px;
 }
@@ -400,23 +402,28 @@
 		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
-					<a href=""> <i> <img style="width: 350px;position: absolute;top: -20px;z-index: 100" src="resource/image/daohang.png" alt=" " />
-					</i> 
+					<a href="">
+						<i>
+							<img src="resource/image/cell.png" alt=" " />
+						</i>
+						养乐堡
 					</a>
 				</h1>
 			</div>
 			<div class="top-nav">
-				<span class="menu"> <img src="resource/image/menu.png"
-					alt=" " />
+				<span class="menu">
+					<img src="resource/image/menu.png" alt=" " />
 				</span>
-				<ul class="layui-nav"
-					style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
-					<li class="layui-nav-item layui-this"><a href="">首页</a></li>
-					<li class="layui-nav-item"><a href="shopIndex/toShop"
-						style="font-size:1.5em;color: #FF9F59;">养乐商城</a></li>
+				<ul class="layui-nav" style="margin-left:-240px; margin-top: -25px;background-color: #48CFC1;">
+					<li class="layui-nav-item layui-this">
+						<a href="">首页</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="shopIndex/toShop" style="font-size:1.5em;color: #FF9F59;">养乐商城</a>
+					</li>
 
-					<li class="layui-nav-item"><a
-						href="common/toActivity_carousel?type=online_course">养乐活动</a>
+					<li class="layui-nav-item">
+						<a href="common/toActivity_carousel?type=online_course">养乐活动</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toActivity_carousel?type=online_course">线上课程</a>
@@ -424,9 +431,10 @@
 							<dd>
 								<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item"><a
-						href="common/toLife?type=aboutus-intro">养乐生活</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="common/toLife?type=aboutus-intro">养乐生活</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toLife?type=nutritive-diet">营养膳食</a>
@@ -437,10 +445,12 @@
 							<dd>
 								<a href="common/toLife?type=user-feedback">用户反馈</a>
 							</dd>
-						</dl></li>
+						</dl>
+					</li>
 
-					<li class="layui-nav-item"><a
-						href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">养乐服务</a>
+					<li class="layui-nav-item">
+						<a
+							href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">养乐服务</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a
@@ -458,9 +468,10 @@
 								<a
 									href="LeFortServiceController/serverWebsiteTemplate?type=rehabilitation-assistance&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item"><a
-						href="common/toWebsiteTemplate?type=aboutus-intro">关于养乐</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="common/toWebsiteTemplate?type=aboutus-intro">关于养乐</a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
@@ -474,12 +485,13 @@
 							<dd>
 								<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 							</dd>
-						</dl></li>
-					<li class="layui-nav-item" ng-app=""><a href="javascript:;"
-						ng-if="${user==null }" id="login">登录</a> <a href="javascript:;"
-						ng-if="${user!=null }"> <input type="hidden" id="imagepath"
-								value="${user.userPicPath }"> <img src=""
-							id="indexUserPic" class="layui-nav-img">${user.username }</a>
+						</dl>
+					</li>
+					<li class="layui-nav-item" ng-app="">
+						<a href="javascript:;" ng-if="${user==null }" id="login">登录</a>
+						<a href="javascript:;" ng-if="${user!=null }">
+							<input type="hidden" id="imagepath" value="${user.userPicPath }">
+							<img src="" id="indexUserPic" class="layui-nav-img">${user.username }</a>
 						<dl class="layui-nav-child" ng-if="${user!=null }">
 							<dd ng-if="${user!=null }">
 								<a href="common/toPersonal">个人中心</a>
@@ -492,7 +504,8 @@
 							<dd>
 								<a href="javascript:;" id="register"> 注册</a>
 							</dd>
-						</dl></li>
+						</dl>
+					</li>
 				</ul>
 
 			</div>
@@ -500,8 +513,8 @@
 			<div class="search-box">
 				<div id="sb-search" class="sb-search">
 					<form method="post" action="activities/findActivitesName">
-						<input class="sb-search-input" placeholder="请输入您的关键字..."
-							type="search" name="search" id="search">
+						<input class="sb-search-input" placeholder="请输入您的关键字..." type="search" name="search"
+							id="search">
 						<input class="sb-search-submit" type="submit" value="">
 						<span class="sb-icon-search"> </span>
 					</form>
@@ -537,12 +550,14 @@
 			<div class="container">
 				<div class="buttons" style="z-index: 10;">
 					<ul>
-						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal" onclick="findBranch()">预约参观</a>
+						<li>
+							<a class="hvr-shutter-in-vertical" href="#" data-toggle="modal" data-target="#myModal"
+								onclick="findBranch()">预约参观</a>
 						</li>
-						<li><a class="hvr-shutter-in-vertical" href="#"
-							data-toggle="modal" data-target="#myModal1"
-							onclick="findActivitiesName()">我要报名</a></li>
+						<li>
+							<a class="hvr-shutter-in-vertical" href="#" data-toggle="modal" data-target="#myModal1"
+								onclick="findActivitiesName()">我要报名</a>
+						</li>
 					</ul>
 
 				</div>
@@ -566,23 +581,19 @@
 				<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
 					<div class=" btm-grid btm-wid">
 						<input value="社区搜索" class="title" readonly="readonly">
-						<input class="city_search" type="text" value="请输入城市"
-							id="searchType" style="color:#C5C5C5; "
-							onfocus="if(value=='请输入城市') {value=''}"
-							onblur="if (value=='') {value='请输入城市'}">
+						<input class="city_search" type="text" value="请输入城市" id="searchType" style="color:#C5C5C5; "
+							onfocus="if(value=='请输入城市') {value=''}" onblur="if (value=='') {value='请输入城市'}">
 						<label class="search_icon"
 							style="display:block; width:40px;height:40px;margin-top:-40px;margin-left:295px;background-color: #17877B;border:1px #17877B; border-radius:0 5px 5px 0;">
-							<a href="" id="searchQue"> <i class="layui-icon"
-								onclick="findType()"
-								style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i>
-						</a>
+							<a href="" id="searchQue">
+								<i class="layui-icon" onclick="findType()"
+									style="display:block; font-size: 25px;line-height: 40px;margin-left: 8px;">&#xe615;</i>
+							</a>
 						</label>
-						<div
-							style="width:100%;height:100px;margin-top:50px; background-color: white;">
+						<div style="width:100%;height:100px;margin-top:50px; background-color: white;">
 							<label
 								style="margin-left: 140px;margin-top:20px; font-size: 2em;color: #C5C5C5;letter-spacing: 10px;">咨询热线</label>
-							<label
-								style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
+							<label style="margin-left: 120px;margin-top:20px; font-size: 2em;color: #C5C5C5;">880-820-8829</label>
 						</div>
 					</div>
 				</div>
@@ -601,27 +612,31 @@
 
 				<div class="col-md-3 coupons-gd">
 					<h4>
-						<span> <a href="common/toLife?type=aboutus-intro"> <img
-								src="resource/image/web.png" alt=" " /></a>
+						<span>
+							<a href="common/toLife?type=aboutus-intro">
+								<img src="resource/image/web.png" alt=" " />
+							</a>
 						</span>
 					</h4>
 					<p>生活</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
-						<span> <a
-							href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
+						<span>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=aboutus-intro&typeId=6f04943acfeb11e7bba55254002ec43c">
 								<img src="resource/image/credit.png" alt=" " />
-						</a>
+							</a>
 						</span>
 					</h4>
 					<p>服务</p>
 				</div>
 				<div class="col-md-3 coupons-gd">
 					<h4>
-						<span> <a
-							href="common/toActivity_carousel?type=online_course"> <img
-								src="resource/image/security.png" alt=" " /></a>
+						<span>
+							<a href="common/toActivity_carousel?type=online_course">
+								<img src="resource/image/security.png" alt=" " />
+							</a>
 						</span>
 					</h4>
 					<p>活动</p>
@@ -629,10 +644,10 @@
 				<div class="col-md-3 coupons-gd" style="margin-top:-95px;">
 
 					<div style="width: 300px;">
-						<div
-							style="height: 30px;line-height:30px;border:1px solid #dedede;">
-							<span style="text-align: center;"><h4
-									style="font-size:1.4em;color:#48CFC1;text-align: center;line-height: 30px;">乐堡新闻</h4></span>
+						<div style="height: 30px;line-height:30px;border:1px solid #dedede;">
+							<span style="text-align: center;">
+								<h4 style="font-size:1.4em;color:#48CFC1;text-align: center;line-height: 30px;">乐堡新闻</h4>
+							</span>
 						</div>
 
 						<div id="roll_box"
@@ -658,11 +673,11 @@
 	<div class="content-bottom-two">
 
 		<div class="col-md-6 content-left text-center imagess">
-			<a href="common/toActivity_carousel?type=online_course"><img
-				src="resource/image/bf.png" alt=""
-				style="position:absolute;width:10%;z-index:1;top:45%;left:45%;" /></a>
-			<img src="resource/image/bbb1_left.png" alt=""
-				style="z-index:0;position:relative" />
+			<a href="common/toActivity_carousel?type=online_course">
+				<img src="resource/image/bf.png" alt=""
+					style="position:absolute;width:10%;z-index:1;top:45%;left:45%;" />
+			</a>
+			<img src="resource/image/bbb1_left.png" alt="" style="z-index:0;position:relative" />
 		</div>
 		<div class="col-md-6 content-right text-center imagess">
 			<img src="resource/image/bbb1_right.png" alt="" />
@@ -682,11 +697,20 @@
 						<h3>首页</h3>
 					</a>
 					<ul class="myicon">
-						<li><a href="javascript:;"><img alt="" src="resource/image/email.png"></a>
+						<li>
+							<a href="javascript:;">
+								<img alt="" src="resource/image/email.png">
+							</a>
 						</li>
-						<li><a href="javascript:;"><img alt="" src="resource/image/minChart.png"></a>
+						<li>
+							<a href="javascript:;">
+								<img alt="" src="resource/image/minChart.png">
+							</a>
 						</li>
-						<li><a href="javascript:;"><img alt="" src="resource/image/minblog.png"></a>
+						<li>
+							<a href="javascript:;">
+								<img alt="" src="resource/image/minblog.png">
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -695,9 +719,11 @@
 						<h3>养乐活动</h3>
 					</a>
 					<ul>
-						<li><a href="common/toActivity_carousel?type=online_course">线上课程</a>
+						<li>
+							<a href="common/toActivity_carousel?type=online_course">线上课程</a>
 						</li>
-						<li><a href="common/toActivity_carousel?type=offline_course">线下活动</a>
+						<li>
+							<a href="common/toActivity_carousel?type=offline_course">线下活动</a>
 						</li>
 					</ul>
 				</div>
@@ -706,9 +732,15 @@
 						<h3>养乐生活</h3>
 					</a>
 					<ul>
-						<li><a href="common/toLife?type=nutritive-diet">营养膳食</a></li>
-						<li><a href="common/toLife?type=user-video">用户视频</a></li>
-						<li><a href="common/toLife?type=user-feedback">用户反馈</a></li>
+						<li>
+							<a href="common/toLife?type=nutritive-diet">营养膳食</a>
+						</li>
+						<li>
+							<a href="common/toLife?type=user-video">用户视频</a>
+						</li>
+						<li>
+							<a href="common/toLife?type=user-feedback">用户反馈</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-3 foo-grid">
@@ -717,17 +749,21 @@
 						<h3>养乐服务</h3>
 					</a>
 					<ul>
-						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
+						<li>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=medical-reservation&typeId=6f04943acfeb11e7bba55254002ec43c">体检预约</a>
 						</li>
-						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=life-assistant&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
+						<li>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=life-assistant&typeId=6f04943acfeb11e7bba55254002ec43c">生活助手</a>
 						</li>
-						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
+						<li>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=independent-life&typeId=6f04943acfeb11e7bba55254002ec43c">独立生活</a>
 						</li>
-						<li><a
-							href="LeFortServiceController/serverWebsiteTemplate?type=rehabilitation-assistance&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
+						<li>
+							<a
+								href="LeFortServiceController/serverWebsiteTemplate?type=rehabilitation-assistance&typeId=6f04943acfeb11e7bba55254002ec43c">康复协助</a>
 						</li>
 					</ul>
 				</div>
@@ -736,13 +772,17 @@
 						<h3>关于养乐</h3>
 					</a>
 					<ul>
-						<li><a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-intro">养乐简介</a>
 						</li>
-						<li><a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-use">快速上手</a>
 						</li>
-						<li><a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-join">加入我们</a>
 						</li>
-						<li><a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
+						<li>
+							<a href="common/toWebsiteTemplate?type=aboutus-cont">联系我们</a>
 						</li>
 					</ul>
 				</div>
@@ -751,13 +791,15 @@
 						<h3>养乐商城</h3>
 					</a>
 					<ul>
-						<li><input type="text" name="title" lay-verify="title"
+						<li>
+							<input type="text" name="title" lay-verify="title"
 								style="width: 240px;height: 30px;float: left; border:1px solid #A9B0C4 !important; border-radius:5px; color: #A9B0C4;letter-spacing: 3px;"
-								autocomplete="off" value="社区搜索" class="layui-input"
-								onfocus="if(value=='社区搜索') {value=''}"
-								onblur="if (value=='') {value='社区搜索'}"> <a href="#"
-							style="display:block;float:left; margin-left: 210px;margin-top: -30px;"><i
-								class="layui-icon" style="font-size: 20px;">&#xe615;</i></a></li>
+								autocomplete="off" value="社区搜索" class="layui-input" onfocus="if(value=='社区搜索') {value=''}"
+								onblur="if (value=='') {value='社区搜索'}">
+							<a href="#" style="display:block;float:left; margin-left: 210px;margin-top: -30px;">
+								<i class="layui-icon" style="font-size: 20px;">&#xe615;</i>
+							</a>
+						</li>
 
 					</ul>
 				</div>
@@ -771,24 +813,21 @@
 				<a href="#">养乐堡</a>
 			</h2>
 			<p>
-				版权 &copy; 2017.团 队 名 7brickSquad.更多 咨询 <a
-					href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank"
-					title="老人之家">老人之家</a> - 来源 <a
-					href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队"
-					target="_blank">搬砖小分队</a>
+				版权 &copy; 2017.团 队 名 7brickSquad.更多 咨询
+				<a href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank" title="老人之家">老人之家</a>
+				- 来源
+				<a href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队" target="_blank">搬砖小分队</a>
 			</p>
 		</div>
 	</div>
 
 	<!-- mobile -->
 
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -797,25 +836,26 @@
 					<div class="wizard">
 						<div class="wizard-inner">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step1"
-									data-toggle="tab" aria-controls="step1" role="tab"
-									title="Step 1"> </a></li>
+								<li role="presentation" class="active">
+									<a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1"> </a>
+								</li>
 
-								<li role="presentation" class="disabled"><a href="#step2"
-									data-toggle="tab" aria-controls="step2" role="tab"
-									title="Step 2"> </a></li>
-								<li role="presentation" class="disabled"><a href="#step3"
-									data-toggle="tab" aria-controls="step3" role="tab"
-									title="Step 3"> </a></li>
-								<li role="presentation" class="disabled"><a href="#step4"
-									data-toggle="tab" aria-controls="step4" role="tab"
-									title="Step 4"> </a></li>
-								<li role="presentation" class="disabled"><a href="#step5"
-									data-toggle="tab" aria-controls="step5" role="tab"
-									title="Step 5"> </a></li>
-								<li role="presentation" class="disabled"><a
-									href="#complete" data-toggle="tab" aria-controls="complete"
-									role="tab" title="Complete"> </a></li>
+								<li role="presentation" class="disabled">
+									<a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5"> </a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+									</a>
+								</li>
 							</ul>
 						</div>
 
@@ -825,33 +865,31 @@
 							<div class="tab-content">
 								<div class="tab-pane active" role="tabpanel" id="step12">
 									<div class="mobile-grids">
-										<label
-											style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
+										<label style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;"
 											onclick="findTelephoneView()">预约参观</label> <label
 											style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-										<input type="text" placeholder="请输入联系人姓名" name="rname"
-											id="name"
+										<input type="text" placeholder="请输入联系人姓名" name="rname" id="name"
 											style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 											onfocus="onfus1()">
-										<br> <span id="nameText" style="margin-left:44%"></span>
+										<br>
+										<span id="nameText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-										<input type="text" placeholder="请输入联系人电话" id="telephone"
-											name="telephone"
+										<input type="text" placeholder="请输入联系人电话" id="telephone" name="telephone"
 											style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
 											onfocus="onfus2()">
-										<br> <span id="telephoneText" style="margin-left:44%"></span>
+										<br>
+										<span id="telephoneText" style="margin-left:44%"></span>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 										<form class="layui-form" action="">
 											<div class="layui-input-inline">
-												<input type="date" name="reservationDate"
-													onfocus="onfusreservationDate()" id="reservationDate"
-													lay-verify="date" autocomplete="off" class="layui-input"
+												<input type="date" name="reservationDate" onfocus="onfusreservationDate()"
+													id="reservationDate" lay-verify="date" autocomplete="off" class="layui-input"
 													placeholder="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;">
-												<br> <span id="reservationDatedateText"
-													style="margin-left:44%"></span>
+												<br>
+												<span id="reservationDatedateText" style="margin-left:44%"></span>
 											</div>
 										</form>
 										<label
@@ -859,8 +897,7 @@
 										<div class="layui-form-item">
 											<div class="layui-inline">
 												<div class="layui-input-inline">
-													<select name="branchId" lay-verify="required" lay-search=""
-														id="branchid"
+													<select name="branchId" lay-verify="required" lay-search="" id="branchid"
 														style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 														<option value="">请选择</option>
 
@@ -868,16 +905,14 @@
 												</div>
 											</div>
 										</div>
-										<p
-											style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+										<p style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
 										<label
 											style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
 										<div class="layui-form-item layui-form-text">
-											<div class="layui-input-block"
-												style="width: 250px;margin-left: 200px;margin-top: -30px;">
-												<textarea value="" class="layui-textarea" name="remarks"
-													id="remarks" onfocus="onfus4()"></textarea>
-												<br> <span id="remarksText" style="margin-left:44%"></span>
+											<div class="layui-input-block" style="width: 250px;margin-left: 200px;margin-top: -30px;">
+												<textarea value="" class="layui-textarea" name="remarks" id="remarks" onfocus="onfus4()"></textarea>
+												<br>
+												<span id="remarksText" style="margin-left:44%"></span>
 											</div>
 										</div>
 									</div>
@@ -901,17 +936,16 @@
 	</div>
 	<!-- //mobile -->
 	<div class="copyrights">
-		Collect from <a href="http://www.cssmoban.com/">手机网站模板</a>
+		Collect from
+		<a href="http://www.cssmoban.com/">手机网站模板</a>
 	</div>
 	<c:if test="${user ne null }">
 		<!-- Dth -->
-		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel">
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
@@ -920,24 +954,27 @@
 						<div class="wizard">
 							<div class="wizard-inner">
 								<ul class="nav nav-tabs" role="tablist">
-									<li role="presentation" class="active"><a href="#step6"
-										data-toggle="tab" aria-controls="step6" role="tab"
-										title="Step 6"> <span class="round-tab"> <i
-												class="glyphicon glyphicon-folder-open"></i>
-										</span>
-									</a></li>
-									<li role="presentation" class="disabled"><a href="#step7"
-										data-toggle="tab" aria-controls="step7" role="tab"
-										title="Step 7"> <span class="round-tab"> <i
-												class="glyphicon glyphicon-pencil"></i>
-										</span>
-									</a></li>
-									<li role="presentation" class="disabled"><a href="#step8"
-										data-toggle="tab" aria-controls="step8" role="tab"
-										title="Step 8"> <span class="round-tab"> <i
-												class="glyphicon glyphicon-picture"></i>
-										</span>
-									</a></li>
+									<li role="presentation" class="active">
+										<a href="#step6" data-toggle="tab" aria-controls="step6" role="tab" title="Step 6">
+											<span class="round-tab">
+												<i class="glyphicon glyphicon-folder-open"></i>
+											</span>
+										</a>
+									</li>
+									<li role="presentation" class="disabled">
+										<a href="#step7" data-toggle="tab" aria-controls="step7" role="tab" title="Step 7">
+											<span class="round-tab">
+												<i class="glyphicon glyphicon-pencil"></i>
+											</span>
+										</a>
+									</li>
+									<li role="presentation" class="disabled">
+										<a href="#step8" data-toggle="tab" aria-controls="step8" role="tab" title="Step 8">
+											<span class="round-tab">
+												<i class="glyphicon glyphicon-picture"></i>
+											</span>
+										</a>
+									</li>
 
 								</ul>
 							</div>
@@ -947,30 +984,28 @@
 								<div class="tab-content">
 									<div class="tab-pane active" role="tabpanel" id="step12">
 										<div class="mobile-grids">
-											<label
-												style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">我要报名</label>
+											<label style="color: #48CFC1;font-size: 1.5em;margin-left:210px;letter-spacing: 10px;">我要报名</label>
 											<label
 												style="display: block;color: #48CFC1; margin-left: 122px;margin-top:40px;font-stretch: normal;">联系人</label>
-											<input type="text" value="${user.username }" name="pname"
-												id="name3"
+											<input type="text" value="${user.username }" name="pname" id="name3"
 												style="width:250px;height:35px;padding-left:10px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1;  "
 												onfocus="onfus3()">
-											<br> <span id="nameText3" style="margin-left:44%"></span>
+											<br>
+											<span id="nameText3" style="margin-left:44%"></span>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">联系人电话</label>
-											<input type="text" value="${user.telephone }" id="telephone4"
-												name="telephone"
+											<input type="text" value="${user.telephone }" id="telephone4" name="telephone"
 												style="width:250px;height:35px;padding-left:10px;margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; "
-												onfocus="onfus4()"
-												onblur="if (value=='') {value='请输入联系人电话'}">
-											<br> <span id="telephoneText4" style="margin-left:44%"></span>
+												onfocus="onfus4()" onblur="if (value=='') {value='请输入联系人电话'}">
+											<br>
+											<span id="telephoneText4" style="margin-left:44%"></span>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 90px;margin-top:40px;font-stretch: normal;">活动名称</label>
 											<div class="layui-form-item">
 												<div class="layui-inline">
 													<div class="layui-input-inline">
-														<select name="activitiesId" lay-verify="required"
-															lay-search="" id="findActivitiesNameId"
+														<select name="activitiesId" lay-verify="required" lay-search=""
+															id="findActivitiesNameId"
 															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 															<option value="">请选择</option>
 
@@ -981,32 +1016,28 @@
 											<label
 												style="display: block;color: #48CFC1;margin-left: 106px;margin-top:40px;font-stretch: normal;">预约时间</label>
 											<div class="layui-input-inline">
-												<input type="text" name="reservationDate" id="date"
-													lay-verify="date" autocomplete="off" class="layui-input"
-													value="请输入预约时间"
+												<input type="text" name="reservationDate" id="date" lay-verify="date" autocomplete="off"
+													class="layui-input" value="请输入预约时间"
 													style="width:250px;height:35px;margin-left:200px;margin-top:-30px; color:#C5C5C5;"
-													onfocus="onfus5()"
-													onblur="if (value=='') {value='请输入预约时间'}">
-												<br> <span id="dateText5" style="margin-left:44%"></span>
+													onfocus="onfus5()" onblur="if (value=='') {value='请输入预约时间'}">
+												<br>
+												<span id="dateText5" style="margin-left:44%"></span>
 											</div>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">社区</label>
 											<div class="layui-form-item">
 												<div class="layui-inline">
 													<div class="layui-input-inline">
-														<select name="branchId" lay-verify="required"
-															lay-search="" id="branchsecondid"
+														<select name="branchId" lay-verify="required" lay-search="" id="branchsecondid"
 															style="padding-left:10px;width:250px;height:35px;font-size:16px; margin-left:200px;margin-top:-30px; color:#C5C5C5;border:1px solid #48CFC1; ">
 															<option value="">请选择</option>
 
 														</select>
 													</div>
-													<span id="branchsecondidMessage"
-														style="margin-left:44%;;margin-left:70px;"></span>
+													<span id="branchsecondidMessage" style="margin-left:44%;;margin-left:70px;"></span>
 												</div>
 											</div>
-											<p
-												style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
+											<p style="width: 260px;margin-left: 200px;font-size: 10px;color: #A2A2A2;">您提交成功后，我们的客服人员会在24小时内与您取得联系，确认参观事宜，感谢您的支持！</p>
 											<label
 												style="display: block;color: #48CFC1;margin-left: 138px;margin-top:40px;font-stretch: normal;">备注</label>
 											<div class="layui-form-item layui-form-text">
@@ -1033,13 +1064,11 @@
 	</c:if>
 	<!-- //Dth -->
 	<!-- datacard -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -1048,24 +1077,27 @@
 					<div class="wizard">
 						<div class="wizard-inner">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step9"
-									data-toggle="tab" aria-controls="step9" role="tab"
-									title="Step 9"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-folder-open"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step10"
-									data-toggle="tab" aria-controls="step10" role="tab"
-									title="Step 10"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-pencil"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step11"
-									data-toggle="tab" aria-controls="step11" role="tab"
-									title="Step 11"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-picture"></i>
-									</span>
-								</a></li>
+								<li role="presentation" class="active">
+									<a href="#step9" data-toggle="tab" aria-controls="step9" role="tab" title="Step 9">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-folder-open"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step10" data-toggle="tab" aria-controls="step10" role="tab" title="Step 10">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-pencil"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step11" data-toggle="tab" aria-controls="step11" role="tab" title="Step 11">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-picture"></i>
+										</span>
+									</a>
+								</li>
 
 							</ul>
 						</div>
@@ -1079,16 +1111,14 @@
 										<div class="mobile-right ">
 											<h4>Enter your data card number</h4>
 											<label>+91</label>
-											<input type="text" class="mobile-text" value=""
-												onfocus="this.value = '';"
+											<input type="text" class="mobile-text" value="" onfocus="this.value = '';"
 												onblur="if (this.value == '') {this.value = '';}" required>
 
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
 										</li>
 									</ul>
 								</div>
@@ -1100,17 +1130,30 @@
 										<div class="mobile-right ">
 											<h4>Which operator?</h4>
 											<ul class="rchge-icons">
-												<li><a href="#">Airtel</a></li>
-												<li><a href="#">Aircel</a></li>
-												<li><a href="#">Bsnl</a></li>
-												<li><a href="#">Idea</a></li>
-												<li><a href="#">Vodafone</a></li>
-												<li><a href="#">Reliance</a></li>
-												<li><a href="#">Uninor</a></li>
+												<li>
+													<a href="#">Airtel</a>
+												</li>
+												<li>
+													<a href="#">Aircel</a>
+												</li>
+												<li>
+													<a href="#">Bsnl</a>
+												</li>
+												<li>
+													<a href="#">Idea</a>
+												</li>
+												<li>
+													<a href="#">Vodafone</a>
+												</li>
+												<li>
+													<a href="#">Reliance</a>
+												</li>
+												<li>
+													<a href="#">Uninor</a>
+												</li>
 											</ul>
 											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
+												<select id="country" onchange="change_country(this.value)" class="frm-field required">
 													<option value="null">Airtel</option>
 													<option value="null">Aircel</option>
 													<option value="AX">Bsnl</option>
@@ -1128,12 +1171,10 @@
 									</div>
 									<ul class="list-inline pull-right">
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
 										</li>
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
 										</li>
 									</ul>
 								</div>
@@ -1146,20 +1187,16 @@
 											<h4>How much to recharge?</h4>
 											<div class="dth-rchge">
 												<input type="text" value="100" onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = '100';}"
-													required>
+													onblur="if (this.value == '') {this.value = '100';}" required>
 											</div>
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
 										</li>
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-primary btn-info-full"
-												data-dismiss="modal">Finish</button>
+											<button type="button" class="mob-btn btn btn-primary btn-info-full" data-dismiss="modal">Finish</button>
 										</li>
 									</ul>
 								</div>
@@ -1174,13 +1211,11 @@
 	</div>
 	<!-- //datacard -->
 	<!-- landline -->
-	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -1189,24 +1224,27 @@
 					<div class="wizard">
 						<div class="wizard-inner">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active"><a href="#step12"
-									data-toggle="tab" aria-controls="step12" role="tab"
-									title="Step 12"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-folder-open"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step13"
-									data-toggle="tab" aria-controls="step13" role="tab"
-									title="Step 13"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-pencil"></i>
-									</span>
-								</a></li>
-								<li role="presentation" class="disabled"><a href="#step14"
-									data-toggle="tab" aria-controls="step14" role="tab"
-									title="Step 14"> <span class="round-tab"> <i
-											class="glyphicon glyphicon-picture"></i>
-									</span>
-								</a></li>
+								<li role="presentation" class="active">
+									<a href="#step12" data-toggle="tab" aria-controls="step12" role="tab" title="Step 12">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-folder-open"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step13" data-toggle="tab" aria-controls="step13" role="tab" title="Step 13">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-pencil"></i>
+										</span>
+									</a>
+								</li>
+								<li role="presentation" class="disabled">
+									<a href="#step14" data-toggle="tab" aria-controls="step14" role="tab" title="Step 14">
+										<span class="round-tab">
+											<i class="glyphicon glyphicon-picture"></i>
+										</span>
+									</a>
+								</li>
 
 							</ul>
 						</div>
@@ -1220,8 +1258,7 @@
 										<div class="mobile-right">
 											<h4>Pay your landline bill.Which Provider?</h4>
 											<div class="section_room">
-												<select id="country" onchange="change_country(this.value)"
-													class="frm-field required">
+												<select id="country" onchange="change_country(this.value)" class="frm-field required">
 													<option value="null">Enter Landline Provider Name</option>
 													<option value="null">Airtel Landline</option>
 													<option value="AX">Bsnl Landline</option>
@@ -1232,8 +1269,7 @@
 									</div>
 									<ul class="list-inline pull-right">
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
 										</li>
 									</ul>
 								</div>
@@ -1253,12 +1289,10 @@
 									</div>
 									<ul class="list-inline pull-right">
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
 										</li>
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-primary next-step">Next</button>
+											<button type="button" class="mob-btn btn btn-primary next-step">Next</button>
 										</li>
 									</ul>
 								</div>
@@ -1271,21 +1305,17 @@
 											<h4>How much did you wish to pay?</h4>
 											<div class="dth-rchge">
 												<input type="text" value="100" onfocus="this.value = '';"
-													onblur="if (this.value == '') {this.value = '100';}"
-													required>
+													onblur="if (this.value == '') {this.value = '100';}" required>
 												<p>Please enter an amount between Rs.10 and Rs.1000.</p>
 											</div>
 										</div>
 									</div>
 									<ul class="list-inline pull-right">
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-default prev-step">Previous</button>
+											<button type="button" class="mob-btn btn btn-default prev-step">Previous</button>
 										</li>
 										<li>
-											<button type="button"
-												class="mob-btn btn btn-primary btn-info-full"
-												data-dismiss="modal">Finish</button>
+											<button type="button" class="mob-btn btn btn-primary btn-info-full" data-dismiss="modal">Finish</button>
 										</li>
 									</ul>
 								</div>
@@ -1300,13 +1330,11 @@
 	</div>
 	<!-- //landline -->
 	<!-- login -->
-	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-info">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -1315,31 +1343,38 @@
 						<div class="login">
 							<div class="login-left">
 								<ul>
-									<li><a class="fb" href="#"> <i></i> Sign in with
-											Facebook
-									</a></li>
-									<li><a class="goog" href="#"> <i></i> Sign in with
-											Google
-									</a></li>
-									<li><a class="linkin" href="#"> <i></i> Sign in with
-											Linkedin
-									</a></li>
+									<li>
+										<a class="fb" href="#">
+											<i></i>
+											Sign in with Facebook
+										</a>
+									</li>
+									<li>
+										<a class="goog" href="#">
+											<i></i>
+											Sign in with Google
+										</a>
+									</li>
+									<li>
+										<a class="linkin" href="#">
+											<i></i>
+											Sign in with Linkedin
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="login-right">
 								<form>
 									<h3>Signin with your account</h3>
-									<input type="text" value="Enter your mobile number or Email"
-										onfocus="this.value = '';"
+									<input type="text" value="Enter your mobile number or Email" onfocus="this.value = '';"
 										onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}"
 										required>
-									<input type="password" value="Password"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Password';}"
-										required>
+									<input type="password" value="Password" onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Password';}" required>
 									<h4>
-										<a href="#">Forgot password</a> / <a href="#">Create new
-											password</a>
+										<a href="#">Forgot password</a>
+										/
+										<a href="#">Create new password</a>
 									</h4>
 									<div class="single-bottom">
 										<input type="checkbox" id="brand" value="">
@@ -1351,8 +1386,10 @@
 							<div class="clearfix"></div>
 						</div>
 						<p>
-							By logging in you agree to our <span>Terms and Conditions</span>
-							and <span>Privacy Policy</span>
+							By logging in you agree to our
+							<span>Terms and Conditions</span>
+							and
+							<span>Privacy Policy</span>
 						</p>
 					</div>
 				</div>
@@ -1361,13 +1398,11 @@
 	</div>
 	<!-- //login -->
 	<!-- signup -->
-	<div class="modal fade" id="myModal5" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+	<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-info">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
@@ -1376,15 +1411,24 @@
 						<div class="login">
 							<div class="login-left">
 								<ul>
-									<li><a class="fb" href="#"> <i></i> Sign in with
-											Facebook
-									</a></li>
-									<li><a class="goog" href="#"> <i></i> Sign in with
-											Google
-									</a></li>
-									<li><a class="linkin" href="#"> <i></i> Sign in with
-											Linkedin
-									</a></li>
+									<li>
+										<a class="fb" href="#">
+											<i></i>
+											Sign in with Facebook
+										</a>
+									</li>
+									<li>
+										<a class="goog" href="#">
+											<i></i>
+											Sign in with Google
+										</a>
+									</li>
+									<li>
+										<a class="linkin" href="#">
+											<i></i>
+											Sign in with Linkedin
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="login-right">
@@ -1392,25 +1436,22 @@
 									<h3>Create your account</h3>
 									<input type="text" value="Name" onfocus="this.value = '';"
 										onblur="if (this.value == '') {this.value = 'Name';}" required>
-									<input type="text" value="Mobile number"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Mobile number';}"
-										required>
+									<input type="text" value="Mobile number" onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Mobile number';}" required>
 									<input type="text" value="Email id" onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Email id';}"
-										required>
-									<input type="password" value="Password"
-										onfocus="this.value = '';"
-										onblur="if (this.value == '') {this.value = 'Password';}"
-										required>
+										onblur="if (this.value == '') {this.value = 'Email id';}" required>
+									<input type="password" value="Password" onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Password';}" required>
 									<input type="submit" value="CREATE ACCOUNT">
 								</form>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<p>
-							By logging in you agree to our <span>Terms and Conditions</span>
-							and <span>Privacy Policy</span>
+							By logging in you agree to our
+							<span>Terms and Conditions</span>
+							and
+							<span>Privacy Policy</span>
 						</p>
 					</div>
 				</div>

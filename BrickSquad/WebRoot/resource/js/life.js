@@ -138,6 +138,7 @@ function NutritionalDietInfo(o) {
 			console.log(data);
 			$('.pager').hide();
 			$('.aboutus-intro').hide();
+			$('.nutritive-diet').hide();
 			$('.yyss').show();
 			$('#yyss_title').html(data.title);
 			$("#yyss_name").html(data.name);
@@ -214,7 +215,7 @@ function userVedioInfo(id) {
 				success : function(data) {
 					data = JSON.parse(data);
 					$('.pager').hide();
-					$('.aboutus-use').hide();
+					$('.user-video').hide();
 					$(".yhsp").show();
 					$("#yhsp_title").html(data.title);
 					$("#yhsp_user").html(data.userId);

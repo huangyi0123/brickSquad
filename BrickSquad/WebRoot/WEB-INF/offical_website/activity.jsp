@@ -172,6 +172,14 @@ function returnIn() {
 }); */
 
 </script>
+<style type="text/css">
+#dieteticHealthlistMovie div{
+	margin-top: 20px;
+}
+#topQualityCourselistMovie div{
+margin-top: 20px;
+}
+</style>
 </head>
 
 <body>
@@ -263,7 +271,7 @@ function returnIn() {
 
 						<ul style="margin-left:6%;margin-top:5%">
 							<c:forEach var="activites" items="${pageBean.list }">
-								<li><span style="font-size:1.2em;"><a
+								<li ><span style="font-size:1.2em;"><a
 										href="javascript:;"
 										onclick="findInformation('${activites.id}')" id="yuyuea"
 										style="color:#7C9A60">【${activites.name }】</a></span>
