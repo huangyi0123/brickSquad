@@ -71,5 +71,6 @@ public interface OrdersMapper {
 	 *            参数
 	 * @return 订单信息
 	 */
-	public List<OrderExpand> findOrderByType(Map<String, String> map);
+	public List<OrderExpand> findOrderByType(Map<String, Object> map);
+	public int findOrderByTypeCount(Map<String, Object> map);
 }

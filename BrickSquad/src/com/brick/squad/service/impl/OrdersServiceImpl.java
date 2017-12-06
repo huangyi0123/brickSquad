@@ -110,9 +110,16 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 
 	@Override
-	public String findOrderByType(Map<String, String> map) {
+	public String findOrderByType(Map<String, Object> map,Pagination pagination) {
+		map.put("skipNum", pagination.getSkipNum());
+		map.put("takeNum", pagination.getTakeNum());
 		List<OrderExpand> data = ordersMapper.findOrderByType(map);
-		JSONArray jsonArray = JSONArray.fromObject(data);
+		int n=ordersMapper.findOrderByTypeCount(map);
+		pagination.setCount(n);
+		map.clear();
+		map.put("data", data);
+		map.put("pagination", pagination);
+		JSONArray jsonArray = JSONArray.fromObject(map);
 		return jsonArray.toString();
 	}
 

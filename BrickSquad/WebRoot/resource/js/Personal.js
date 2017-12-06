@@ -172,9 +172,9 @@ function updatePinfo(n) {
 
 		});
 		// 获取亲属关系下拉框
-		
+
 		$.ajax({
-			url:'type/findTypeByParentId?parentId=qinshuguanxi',
+			url : 'type/findTypeByParentId?parentId=qinshuguanxi',
 			success : function(data) {
 				data = JSON.parse(data);
 				console.log(data);
@@ -311,18 +311,25 @@ function savesa(n) {
 		});
 	}
 }
-function orders() {
+function orders(pageSize, curentPage) {
 	$("#person").find('li').click(
 			function() {
 				var html = $(this).html();
 				if (html == "订单管理") {
+					var data = {
+						'pageSize' : pageSize,
+						'curentPage' : curentPage
+					};
 					$.ajax({
 						url : 'orders/getOrders',
+						data : data,
+						type : "POST",
 						success : function(data) {
 							$("#typeStru").html("");
 							data = JSON.parse(data);
+							console.log(data);
 							var html = "";
-							$(data).each(
+							$(data[0].data).each(
 									function() {
 										html = html + "<tr>" + "<td>"
 												+ this.aname + "</td>" + "<td>"
@@ -337,15 +344,23 @@ function orders() {
 				}
 			});
 }
-function ordersType(id, type) {
+function ordersType(id, type, pageSize, curentPage) {
+	var data = {
+		'pageSize' : pageSize,
+		'curentPage' : curentPage,
+		'typeId' : id
+	};
 	$
 			.ajax({
-				url : 'orders/getOrders?typeId=' + id,
+				url : 'orders/getOrders',
+				data : data,
+				type : "POST",
 				success : function(data) {
 					$(type).html("");
 					data = JSON.parse(data);
+					console.log(data);
 					var html = "";
-					$(data)
+					$(data[0].data)
 							.each(
 									function() {
 										var opr = "";

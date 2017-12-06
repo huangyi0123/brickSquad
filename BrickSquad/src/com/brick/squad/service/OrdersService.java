@@ -72,5 +72,5 @@ public interface OrdersService {
 	 *            参数
 	 * @return 订单信息
 	 */
-	public String findOrderByType(Map<String, String> map);
+	public String findOrderByType(Map<String, Object> map,Pagination pagination);
 }

@@ -1,6 +1,5 @@
 package com.brick.squad.controller;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,14 +17,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-
-
-
-
-
-
-
 
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
@@ -152,12 +143,12 @@ public class OrdersController {
 
 	@RequestMapping("/getOrders")
 	@ResponseBody
-	public String getOrders(HttpServletRequest request, String typeId) {
+	public String getOrders(HttpServletRequest request, String typeId,Pagination pagination) {
 		User user = (User) request.getSession().getAttribute("user");
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("buyId", user.getId());
 		map.put("typeId", typeId);
-		return ordersService.findOrderByType(map);
+		return ordersService.findOrderByType(map,pagination);
 	}
 	/**易宝支付
 	 * @throws Exception */
