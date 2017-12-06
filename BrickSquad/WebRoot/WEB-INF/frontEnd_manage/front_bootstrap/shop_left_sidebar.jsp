@@ -1200,15 +1200,15 @@
 					</div>
 
 					<ul>
-						<li class="wc-layered-nav-term "><a href="shop.html">黑色</a>
+						<li class="wc-layered-nav-term "><a >黑色</a>
 							<span class="count">(3)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">绿色</a>
+						<li class="wc-layered-nav-term "><a >绿色</a>
 							<span class="count">(2)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">橙色</a>
+						<li class="wc-layered-nav-term "><a >橙色</a>
 							<span class="count">(1)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">白色</a>
+						<li class="wc-layered-nav-term "><a >白色</a>
 							<span class="count">(3)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">黄色</a>
+						<li class="wc-layered-nav-term "><a >黄色</a>
 							<span class="count">(1)</span></li>
 					</ul>
 				</div>
@@ -1224,15 +1224,15 @@
 					</div>
 
 					<ul>
-						<li class="wc-layered-nav-term "><a href="shop.html">L</a> <span
+						<li class="wc-layered-nav-term "><a >L</a> <span
 							class="count">(3)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">M</a> <span
+						<li class="wc-layered-nav-term "><a >M</a> <span
 							class="count">(1)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">S</a> <span
+						<li class="wc-layered-nav-term "><a >S</a> <span
 							class="count">(2)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">XL</a> <span
+						<li class="wc-layered-nav-term "><a >XL</a> <span
 							class="count">(3)</span></li>
-						<li class="wc-layered-nav-term "><a href="shop.html">XS</a> <span
+						<li class="wc-layered-nav-term "><a >XS</a> <span
 							class="count">(1)</span></li>
 					</ul>
 				</div>
