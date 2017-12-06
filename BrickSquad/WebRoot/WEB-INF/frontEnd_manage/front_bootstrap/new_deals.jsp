@@ -132,13 +132,10 @@
 																<div class="yith-wcwl-wishlistaddresponse"></div>
 															</div>
 
-															<!-- <div class="clear"></div>
-															<a href="ajax/fancybox/example.html"
-																data-fancybox-type="ajax"
-																class="sm_quickview_handler-list fancybox fancybox.ajax">快速浏览 </a> -->
+															
 														</div>
 
-														<!-- 	<div class="sale-off">-13%</div> -->
+														
 													</div>
 
 													<div class="item-content">
@@ -150,7 +147,7 @@
 														<!-- end rating  -->
 
 														<h4>
-															<a href="variableProduct/toVariable_product?productId=${a.id}" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
+															<a href="variableProduct/toVariable_product?productId=${a.id}" title="${a.aname }">&nbsp;&nbsp;${a.aname }</a>
 														</h4>
 
 														<!-- price -->

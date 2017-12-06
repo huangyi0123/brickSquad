@@ -400,8 +400,8 @@
 		<div class="header" style="height: 66px;">
 			<div class="logo">
 				<h1>
-					<a href=""> <i> <img src="resource/image/cell.png" alt=" " />
-					</i> 养乐堡
+					<a href=""> <i> <img style="width: 350px;position: absolute;top: -20px;z-index: 100" src="resource/image/daohang.png" alt=" " />
+					</i> 
 					</a>
 				</h1>
 			</div>
