@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.brick.squad.expand.OrdersExpand;
 import com.brick.squad.pojo.Orders;
 import com.brick.squad.pojo.User;
@@ -25,6 +26,7 @@ import com.brick.squad.service.BuyersService;
 import com.brick.squad.service.OrdersService;
 import com.brick.squad.util.OrdersPayUtil;
 import com.brick.squad.util.Pagination;
+import com.brick.squad.util.PaymentUtil;
 
 @Controller
 @RequestMapping("/orders")
@@ -38,7 +40,7 @@ public class OrdersController {
 
 	@RequestMapping("/toOrdersList")
 	public String toRegionList() {
-		return "backstage_managed/jsp/orders/orders_list";
+		return "redibackstage_managed/jsp/orders/orders_list";
 	}
 	
 
@@ -54,20 +56,26 @@ public class OrdersController {
 	 * @throws Exception 
 	 */
 	@RequestMapping("/updateOrderStateAndGrade")
-	@ResponseBody
-	public String updateOrderStateAndGrade(String orderId,
+//	@ResponseBody
+	public String updateOrderStateAndGrade(OrdersPayUtil ordersPayUtil,
 			HttpServletRequest request) throws Exception {
-		
+		String orderId=ordersPayUtil.getR6_Order();
 		if (!orderId.trim().equals("")) {
 			Boolean is = ordersService.updateOrderStateAndGrade(orderId);
 			if (is) {
-				return "success";
+				return "frontEnd_manage/front_bootstrap/paySuccess";
 			} else {
-				return "fail";
+				request.setAttribute("ordersId", orderId);
+				return "frontEnd_manage/front_bootstrap/payFail";
 			}
 		}
-		return "fail";
+		return "frontEnd_manage/front_bootstrap/payFail";
 	}
+	/*@RequestMapping("/toPersonal")
+	public String toPersonal(){
+		
+		return "redirect:/common/toPersonal";
+	}*/
 
 	@RequestMapping("/getOrdersList")
 	@ResponseBody
@@ -172,7 +180,7 @@ public class OrdersController {
 		String p5_Pid = ""; 
 		String p6_Pcat = ""; 
 		String p7_Pdesc = ""; 
-		String p8_Url = "http://localhost:8080/orders/callBack"; 
+		String p8_Url = "http://localhost:8080/BrickSquad/orders/updateOrderStateAndGrade"; 
 		String p9_SAF = ""; 
 		String pa_MP = ""; 
 		String pd_FrpId = pd_FrpId1;
