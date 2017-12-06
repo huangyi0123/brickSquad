@@ -368,7 +368,7 @@
 																			</li>
 																			<li class="menu-cameras-camcorders etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=kuzi"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=d81c3ee4d9d411e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#fe9901"></span>
@@ -378,7 +378,7 @@
 																			</li>
 																			<li class="menu-home-appliances etrostore-menu-custom level1">
 																				<a
-																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=xielei"
+																					href="${pageContext.request.contextPath }/MedicalInstruments/findColthType?typeId=207c1edad9d911e7b4095254002ec43c"
 																					class="item-link">
 																					<span class="have-title">
 																						<span class="menu-color" data-color="#f034ca"></span>
