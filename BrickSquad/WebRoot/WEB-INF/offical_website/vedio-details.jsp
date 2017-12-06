@@ -22,14 +22,10 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/laysui/css/layui.css" media="all">
-<link rel="stylesheet" type="text/css"
-	href="resource/css/vedio-details.css">
-<link rel="stylesheet" type="text/css"
-	href="resource/plugins/fonts/font-awesome.min.css">
-<script type="text/javascript"
-	src="resource/plugins/jquery/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/plugins/laysui/css/layui.css" media="all">
+<link rel="stylesheet" type="text/css" href="resource/css/vedio-details.css">
+<link rel="stylesheet" type="text/css" href="resource/plugins/fonts/font-awesome.min.css">
+<script type="text/javascript" src="resource/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="resource/plugins/laysui/layui.js"></script>
 <script type="text/javascript" src="resource/js/vedio-details.js"></script>
 <script type="text/javascript">
@@ -71,39 +67,32 @@
 				<div class="layui-col-xs12 layui-col-md9">
 					<div class="vedio_play_main">
 						<div class="vedio_play">
-							<input type="hidden" id="beCommentedId"
-								value="${activitiesMoviePAth.id }">
-							<embed src="${activitiesMoviePAth.movie }"
-								style="width:100%;height: 100%">
+							<input type="hidden" id="beCommentedId" value="${activitiesMoviePAth.id }">
+							<embed src="${activitiesMoviePAth.movie }" style="width:100%;height: 100%">
 						</div>
 					</div>
 				</div>
 				<div class="layui-col-xs6 layui-col-md3">
 					<div class="vedio_recom" id="playitem">
-						<label>热播推荐</label> <a
-							href="common/toVedio_Details?id=${listacActivitiesClickAmount[0].id }"
-							style="display: block;" class="vedio_bg"> <img alt=""
-							class="vedio_bg" style="margin-top: 10px;"
-							src="${listacActivitiesClickAmount[0].imgpath}"> <img
-							class="vedio_plays" alt="" src="resource/image/play.png">
+						<label>热播推荐</label>
+						<a href="common/toVedio_Details?id=${listacActivitiesClickAmount[0].id }"
+							style="display: block;" class="vedio_bg">
+							<img alt="" class="vedio_bg" style="margin-top: 10px;"
+								src="${listacActivitiesClickAmount[0].imgpath}">
+							<img class="vedio_plays" alt="" src="resource/image/play.png">
 							<p src="${listacActivitiesClickAmount[0].movie }"
 								style="display: none;color:#000; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 140px">${listacActivitiesClickAmount[0].centent }</p>
-						</a> <a
-							href="common/toVedio_Details?id=${listacActivitiesClickAmount[1].id }"
-							class="vedio_bg"> <img alt="" class="vedio_bg"
-							src="${listacActivitiesClickAmount[1].imgpath}"> <img
-							class="vedio_plays" alt="" src="resource/image/play.png"
-							style="top: 190px">
+						</a>
+						<a href="common/toVedio_Details?id=${listacActivitiesClickAmount[1].id }" class="vedio_bg">
+							<img alt="" class="vedio_bg" src="${listacActivitiesClickAmount[1].imgpath}">
+							<img class="vedio_plays" alt="" src="resource/image/play.png" style="top: 190px">
 							<p src="${listacActivitiesClickAmount[1].movie }"
 								style="display: none; height:30px;width:220px;color:#000; background-color:#999;opacity:0.4; position:absolute; top: 290px">${listacActivitiesClickAmount[1].centent }</p>
 						</a>
 						<div style="clear: both;"></div>
-						<a
-							href="common/toVedio_Details?id=${listacActivitiesClickAmount[2].id }">
-							<img class="vedio_bg" alt="" class="vedio_bg"
-							src="${listacActivitiesClickAmount[2].imgpath}"> <img
-							class="vedio_plays" alt="" src="resource/image/play.png"
-							style="top: 340px">
+						<a href="common/toVedio_Details?id=${listacActivitiesClickAmount[2].id }">
+							<img class="vedio_bg" alt="" class="vedio_bg" src="${listacActivitiesClickAmount[2].imgpath}">
+							<img class="vedio_plays" alt="" src="resource/image/play.png" style="top: 340px">
 							<p src="${listacActivitiesClickAmount[2].movie }"
 								style="display: none;color:#000; height:30px;width:220px; background-color:#999;opacity:0.4; position:absolute; top: 440px">${listacActivitiesClickAmount[2].centent }</p>
 						</a>
@@ -173,8 +162,7 @@
 						<div class="layui-col-xs12 layui-col-md8">
 							<label>我来评论</label>
 							<div class="layui-input-block">
-								<textarea id="comment_content"
-									placeholder="请输入内容,评论内容不能超过250个汉字！" class="layui-textarea"></textarea>
+								<textarea id="comment_content" placeholder="请输入内容,评论内容不能超过250个汉字！" class="layui-textarea"></textarea>
 							</div>
 							<div class="comm_register">
 								<c:if test="${user.id ne null }">
@@ -182,8 +170,7 @@
 									<label class="vedio_reg_name">${user.username }</label>
 								</c:if>
 								<c:if test="${user.id eq null }">
-									<label class="vedio_reg_name" style="font-size: 20px;">您还没有登录！
-									</label>
+									<label class="vedio_reg_name" style="font-size: 20px;">您还没有登录！ </label>
 								</c:if>
 								<!-- <a href="#"> <i
 									class="layui-icon"
@@ -235,8 +222,7 @@
 									<label
 									style="color: #909EBF;margin-top: 20px;font-size: 0.8em;letter-spacing: 0px;margin-left: 80px;">下一页</label>   -->
 								</div>
-								<div
-									style="display:block; width: 100%;border: 1px solid #E5E5E5;margin-top: 10px;"></div>
+								<div style="display:block; width: 100%;border: 1px solid #E5E5E5;margin-top: 10px;"></div>
 							</div>
 
 						</div>
@@ -247,70 +233,52 @@
 								<label>相关推荐</label>
 								<c:if test="${relatedRecommendation[0].id eq null }">
 									<c:if test="${relatedRecommendation[0].id ne null }">
-										<a href="common/toVedio_Details?id=${listMovie[0].id }"
-											class="vedio_rel_bg"> <img class="mybg" alt=""
-											style="margin-top: 10px;"
-											src="${listMovie[0].imgpath}">
-											<img class="vedio_rel_plays" alt=""
-											src="resource/image/play.png" style="top: 60px">
+										<a href="common/toVedio_Details?id=${listMovie[0].id }" class="vedio_rel_bg">
+											<img class="mybg" alt="" style="margin-top: 10px;" src="${listMovie[0].imgpath}">
+											<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 60px">
 											<p src="${listMovie[0].movie }"
 												style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 170px;left: 70px">${listMovie[0].centent }</p>
 										</a>
 									</c:if>
 									<c:if test="${relatedRecommendation[1].id ne null }">
-										<a href="common/toVedio_Details?id=${listMovie[1].id }"
-											class="vedio_rel_bg"> <img class="mybg" alt=""
-											style="margin-top: 10px;"
-											src="${listMovie[1].imgpath}">
-											<img class="vedio_rel_plays" alt=""
-											src="resource/image/play.png" style="top: 60px">
+										<a href="common/toVedio_Details?id=${listMovie[1].id }" class="vedio_rel_bg">
+											<img class="mybg" alt="" style="margin-top: 10px;" src="${listMovie[1].imgpath}">
+											<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 60px">
 											<p src="${listMovie[1].movie }"
 												style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 170px;left: 70px">${listMovie[1].centent }</p>
 										</a>
 									</c:if>
 									<c:if test="${relatedRecommendation[2].id ne null }">
-										<a href="common/toVedio_Details?id=${listMovie[2].id }"
-											class="vedio_rel_bg"> <img class="mybg" alt=""
-											style="margin-top: 10px;"
-											src="${listMovie[2].imgpath}">
-											<img class="vedio_rel_plays" alt=""
-											src="resource/image/play.png" style="top: 60px">
+										<a href="common/toVedio_Details?id=${listMovie[2].id }" class="vedio_rel_bg">
+											<img class="mybg" alt="" style="margin-top: 10px;" src="${listMovie[2].imgpath}">
+											<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 60px">
 											<p src="${listMovie[2].movie }"
 												style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 170px;left: 70px">${listMovie[2].centent }</p>
 										</a>
 									</c:if>
 								</c:if>
 								<c:if test="${relatedRecommendation[0].id ne null }">
-									<a
-										href="common/toVedio_Details?id=${relatedRecommendation[0].id }"
-										class="vedio_rel_bg"> <img class="mybg" alt=""
-										style="margin-top: 10px;"
-										src="${relatedRecommendation[0].imgpath }">
-										<img class="vedio_rel_plays" alt=""
-										src="resource/image/play.png" style="top: 60px">
+									<a href="common/toVedio_Details?id=${relatedRecommendation[0].id }" class="vedio_rel_bg">
+										<img class="mybg" alt="" style="margin-top: 10px;"
+											src="${relatedRecommendation[0].imgpath }">
+										<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 60px">
 										<p src="${relatedRecommendation[0].movie }"
 											style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 170px;left: 70px">${relatedRecommendation[0].centent }</p>
 									</a>
 								</c:if>
 								<c:if test="${relatedRecommendation[1].id ne null }">
-									<a
-										href="common/toVedio_Details?id=${relatedRecommendation[1].id }"
-										class="vedio_rel_bg"> <img class="mybg" alt=""
-										src="resource/image/3736651_1426063184096_800x600.jpg">
-										<img class="vedio_rel_plays" alt=""
-										src="resource/image/play.png" style="top: 240px">
+									<a href="common/toVedio_Details?id=${relatedRecommendation[1].id }" class="vedio_rel_bg">
+										<img class="mybg" alt="" src="resource/image/3736651_1426063184096_800x600.jpg">
+										<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top: 240px">
 										<p src="${relatedRecommendation[1].image}"
 											style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 350px;left: 70px">${relatedRecommendation[1].centent }</p>
 									</a>
 								</c:if>
 								<!-- 	<div style="clear: both;"></div> -->
 								<c:if test="${relatedRecommendation[2].id ne null}">
-									<a
-										href="common/toVedio_Details?id=${relatedRecommendation[2].id } ">
-										<img class="mybg" alt=""
-										src="${relatedRecommendation[2].movie }">
-										<img class="vedio_rel_plays" alt=""
-										src="resource/image/play.png" style="top:420px">
+									<a href="common/toVedio_Details?id=${relatedRecommendation[2].id } ">
+										<img class="mybg" alt="" src="${relatedRecommendation[2].movie }">
+										<img class="vedio_rel_plays" alt="" src="resource/image/play.png" style="top:420px">
 										<p src="${relatedRecommendation[2].movie }"
 											style="display: none; height:30px;width:260px; background-color:#999;opacity:0.4; position:absolute; top: 530px;left: 70px">${relatedRecommendation[2].centent }</p>
 									</a>
@@ -322,6 +290,7 @@
 
 			</div>
 		</div>
+		<jsp:include page="official-footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

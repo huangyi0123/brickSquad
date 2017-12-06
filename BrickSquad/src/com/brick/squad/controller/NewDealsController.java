@@ -67,8 +67,8 @@ public class NewDealsController {
 	/**搜索框搜索所有的商品信息*/
 	@RequestMapping("/findAllArticle")
 	public String findArticleAllType(HttpServletRequest request,PageUtil pageUtil) throws Exception{
-		String key=new String(pageUtil.getS().getBytes("ISO-8859-1"),"UTF-8");
-		pageUtil.setS(key);
+		/*String key=new String(pageUtil.getS().getBytes("ISO-8859-1"),"UTF-8");*/
+		/*pageUtil.setS(key);*/
 		String path=request.getSession().getServletContext().getRealPath("");
 		Map<String,Object> map=articleService.findSearchAllArticle(pageUtil, path);
 		map.put("url", "findAllArticle");
