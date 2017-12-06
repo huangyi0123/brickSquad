@@ -39,9 +39,25 @@
 		} else {
 			savesa("1");
 		}//js
-		orders();
+		orders(8, 1);
 	})
 </script>
+<style type="text/css">
+.mypager {
+	display: block;
+	width: 100%;
+	height:30px;
+	margin: auto;
+}
+
+.mypager li {
+	margin:5px;
+	float: left;
+	display: block;
+	background-color:red;
+	padding: 5px;
+}
+</style>
 </head>
 
 <body>
@@ -145,86 +161,86 @@
 								<span id="birthday" class="info"
 									style="font-size: 17px;display: block;float: left;margin-top: 25px">${addressAndPersonaInformationExpand.personalInformation.birthday }</span>
 							</div>
-						
-						<div class="layui-inline">
-							<label style="width: 100px ;float: left;">* 现居住地：</label>
-							<span class="info" id="addressqw"
-								style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
-							<div class="uinfo">
-								<input type="hidden" id="addressId"
-									value="${addressAndPersonaInformationExpand.address.id }">
-								<div class="layui-input-inline">
-									<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
-										val="${addressAndPersonaInformationExpand.address.provinceId}" name="address.provinceId"
-										id="prIdas" onchange="selectCity(this,'#cityId')">
-										<option value="">选择省份</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
-										val="${addressAndPersonaInformationExpand.address.cityId}" name="address.cityId"
-										id="cityId" onchange="selectCity(this,'#countyId')" >
-										<option value="" selected="selected">选择城市</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
-										val="${addressAndPersonaInformationExpand.address.countyId}" name="address.countyId"
-										id="countyId" onchange="selectCity(this,'#countryId')" >
-										<option value="">选择县市</option>
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
-										val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
-										id="countryId" >
-										<option value="">选择乡镇</option>
 
-									</select>
-								</div>
-								<div class="layui-input-inline">
-									<input required lay-verify="required" type="text"
-										value="${addressAndPersonaInformationExpand.address.detailed}" name="address.detailed"
-										lay-verify="title" style="width: 350px;margin-left: 30px;margin-top:10px;"
-										autocomplete="off" id="detailed" placeholder="请输入详细地址" class="layui-input">
+							<div class="layui-inline">
+								<label style="width: 100px ;float: left;">* 现居住地：</label>
+								<span class="info" id="addressqw"
+									style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
+								<div class="uinfo">
+									<input type="hidden" id="addressId"
+										value="${addressAndPersonaInformationExpand.address.id }">
+									<div class="layui-input-inline">
+										<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
+											val="${addressAndPersonaInformationExpand.address.provinceId}" name="address.provinceId"
+											id="prIdas" onchange="selectCity(this,'#cityId')">
+											<option value="">选择省份</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
+											val="${addressAndPersonaInformationExpand.address.cityId}" name="address.cityId"
+											id="cityId" onchange="selectCity(this,'#countyId')">
+											<option value="" selected="selected">选择城市</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
+											val="${addressAndPersonaInformationExpand.address.countyId}" name="address.countyId"
+											id="countyId" onchange="selectCity(this,'#countryId')">
+											<option value="">选择县市</option>
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<select lay-ignore style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
+											val="${addressAndPersonaInformationExpand.address.countryId}" name="address.countryId"
+											id="countryId">
+											<option value="">选择乡镇</option>
+
+										</select>
+									</div>
+									<div class="layui-input-inline">
+										<input required lay-verify="required" type="text"
+											value="${addressAndPersonaInformationExpand.address.detailed}" name="address.detailed"
+											lay-verify="title" style="width: 350px;margin-left: 30px;margin-top:10px;"
+											autocomplete="off" id="detailed" placeholder="请输入详细地址" class="layui-input">
+									</div>
 								</div>
 							</div>
-						</div>
-						<!--分割线  -->
-						<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
-						<!--分割线  -->
-						<div style="clear:both;"></div>
-						<!--亲属信息  -->
-						<div>
-							<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
-							<input type="hidden" name="relatives.id"
-								value="${addressAndPersonaInformationExpand.relatives.id}" id="relativesId">
-							<input type="text" name="relatives.name" lay-verify="title" id="gName"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人姓名" class="layui-input uinfo"
-								value="${addressAndPersonaInformationExpand.relatives.name }">
-							<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
-							<div style="clear: both;"></div>
-							<label style="display:inline-block; ">* 联系人电话：</label>
-							<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
-								style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
-								placeholder="请输入联系人电话" class="layui-input uinfo"
-								value="${addressAndPersonaInformationExpand.relatives.telephone }">
-							<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
-							<div style="clear: both;"></div>
-							<label style="display:inline-block; ">* 亲属关系：</label>
-							<div class="layui-inline uinfo" style="margin-left:0px;margin-top: -15px;">
-								<div class="layui-input-inline">
-									<select lay-ignore id="relationshipId" name="relatives.relationshipId" style="color: #000;border: 1px solid #E6E4E4; padding: 5px"
-										 val="${relationship.id }">
-										<option value="">直接选择或搜索选择</option>
-									</select>
+							<!--分割线  -->
+							<div style="width: 100%;height: 2px;background-color: #E2E2E2;margin-top: 10px;"></div>
+							<!--分割线  -->
+							<div style="clear:both;"></div>
+							<!--亲属信息  -->
+							<div>
+								<label>* 亲属联系人：</label> <label style="display:inline-block; ">* 联系人姓名：</label>
+								<input type="hidden" name="relatives.id"
+									value="${addressAndPersonaInformationExpand.relatives.id}" id="relativesId">
+								<input type="text" name="relatives.name" lay-verify="title" id="gName"
+									style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+									placeholder="请输入联系人姓名" class="layui-input uinfo"
+									value="${addressAndPersonaInformationExpand.relatives.name }">
+								<span class="info" id="gxName">${addressAndPersonaInformationExpand.relatives.name }</span>
+								<div style="clear: both;"></div>
+								<label style="display:inline-block; ">* 联系人电话：</label>
+								<input type="text" name="relatives.telephone" lay-verify="title" id="gphone"
+									style="width: 350px;margin-left: 150px;margin-top: -35px;" autocomplete="off"
+									placeholder="请输入联系人电话" class="layui-input uinfo"
+									value="${addressAndPersonaInformationExpand.relatives.telephone }">
+								<span class="info" id="gxphone">${addressAndPersonaInformationExpand.relatives.telephone }</span>
+								<div style="clear: both;"></div>
+								<label style="display:inline-block; ">* 亲属关系：</label>
+								<div class="layui-inline uinfo" style="margin-left:0px;margin-top: -15px;">
+									<div class="layui-input-inline">
+										<select lay-ignore id="relationshipId" name="relatives.relationshipId"
+											style="color: #000;border: 1px solid #E6E4E4; padding: 5px" val="${relationship.id }">
+											<option value="">直接选择或搜索选择</option>
+										</select>
+									</div>
 								</div>
-							</div>
 
-							<span class="info" id="gxtype">${relationship.name }</span>
-							<div style="clear: both;"></div>
-							<%-- <div class="layui-inline" style="display: none;">
+								<span class="info" id="gxtype">${relationship.name }</span>
+								<div style="clear: both;"></div>
+								<%-- <div class="layui-inline" style="display: none;">
 									<label style="width: 100px ;float: left;">* 现居住地：</label>
 									<span class="uinfo" id="addressqw"
 										style="font-size: 17px;display:block;float: left;margin-top: 25px">${address }</span>
@@ -450,8 +466,8 @@
 					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
 						<ul class="layui-tab-title">
 							<li class="layui-this">所有订单</li>
-							<li onclick="ordersType('4933fb74c84311e7aca65254002ec43c','#obligations')">待付款</li>
-							<li onclick="ordersType('02cd8aeeccf111e7aca65254002ec43c','#pendingShipment')">待发货</li>
+							<li onclick="ordersType('4933fb74c84311e7aca65254002ec43c','#obligations',8,1)">待付款</li>
+							<li onclick="ordersType('02cd8aeeccf111e7aca65254002ec43c','#pendingShipment',8,1)">待发货</li>
 							<!-- 
 							<li onclick="ordersType('1e3ea09ecd8f11e7aca65254002ec43c', '#gtbr')">待收货</li>
 							<li onclick="ordersType('9f7aed4ccd9011e7aca65254002ec43c', '#evaluation')">待评价</li> -->
@@ -477,6 +493,17 @@
 									<tbody id="typeStru">
 
 									</tbody>
+									<tfoot style="display: none;">
+										<tr>
+											<th colspan="6">
+												<ul id="pagerOrderAll" class="mypager">
+													<li>1oo</li>
+													<li>1</li>
+													<li>1</li>
+												</ul>
+											</th>
+										</tr>
+									</tfoot>
 								</table>
 							</div>
 							<div class="layui-tab-item">

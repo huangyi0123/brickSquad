@@ -133,6 +133,22 @@
 		<if test="typeId!=null"> AND
 			t.id=#{typeId}
 		</if>
-
+		limit #{skipNum},#{takeNum}
+	</select>
+	<select id="findOrderByTypeCount" parameterType="map"
+		resultType="int">
+		SELECT count(1) FROM
+		order_details
+		od
+		JOIN orders o on o.id=od.orders_id
+		JOIN
+		article a on
+		od.article_id=a.id
+		JOIN type t ON t.id=o.state_id
+		WHERE
+		o.buy_id=#{buyId}
+		<if test="typeId!=null"> AND
+			t.id=#{typeId}
+		</if>
 	</select>
 </mapper>
