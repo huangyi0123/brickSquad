@@ -92,478 +92,479 @@
 							<div class="entry-summary">
 								<div id="sw_deal_01" class="sw-hotdeal ">
 									<div class="sw-hotdeal-content">
-								
-									
-									
-										
-											<c:if test="${url2=='findHotArticletotonew_deals' }">
-										<c:forEach items="${map.data }" var="a">
-											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
-												<div class="item-detail">
-													<div class="item-img products-thumb">
-														<span class="onsale">Sale!</span>
-														<a href="variableProduct/toVariable_product?productId=${a.id}">
-															<div class="product-thumb-hover">
-																<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+
+
+
+
+										<c:if test="${url2=='findHotArticletotonew_deals' }">
+											<c:forEach items="${map.data }" var="a">
+												<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+													<div class="item-detail">
+														<div class="item-img products-thumb">
+															<span class="onsale">Sale!</span>
+															<a href="variableProduct/toVariable_product?productId=${a.id}">
+																<div class="product-thumb-hover">
+																	<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+																</div>
+															</a>
+
+															<!-- add to cart, wishlist, compare -->
+															<div class="item-bottom clearfix">
+																<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
+																	class="button product_type_simple" title="加入购物车">加入购物车</a>
+
+																<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																	<div class="yith-wcwl-add-button show" style="display:block">
+																		<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
+																	</div>
+
+																	<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																		<span class="feedback">Product added!</span>
+																		<a href="#" rel="nofollow">Browse Wishlist</a>
+																	</div>
+
+																	<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																		<span class="feedback">The product is already in the wishlist!</span>
+																		<a href="#" rel="nofollow">浏览</a>
+																	</div>
+
+																	<div style="clear:both"></div>
+																	<div class="yith-wcwl-wishlistaddresponse"></div>
+																</div>
+
+
 															</div>
-														</a>
 
-														<!-- add to cart, wishlist, compare -->
-														<div class="item-bottom clearfix">
-															<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
-																class="button product_type_simple" title="加入购物车">加入购物车</a>
 
-															<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																<div class="yith-wcwl-add-button show" style="display:block">
-																	<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																	<span class="feedback">Product added!</span>
-																	<a href="#" rel="nofollow">Browse Wishlist</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																	<span class="feedback">The product is already in the wishlist!</span>
-																	<a href="#" rel="nofollow">浏览</a>
-																</div>
-
-																<div style="clear:both"></div>
-																<div class="yith-wcwl-wishlistaddresponse"></div>
-															</div>
-
-															
 														</div>
 
-														
-													</div>
+														<div class="item-content">
+															<!-- rating  -->
+															<div class="reviews-content">
+																<div class="star"></div>
+																<div class="item-number-rating">${a.totals}人已购买</div>
+															</div>
+															<!-- end rating  -->
 
-													<div class="item-content">
-														<!-- rating  -->
-														<div class="reviews-content">
-															<div class="star"></div>
-															<div class="item-number-rating">${a.totals}人已购买</div>
-														</div>
-														<!-- end rating  -->
+															<h4>
+																<a href="variableProduct/toVariable_product?productId=${a.id}" title="${a.aname }">
+																	<p style="height: 60px">${a.aname }</p>
+																</a>
+															</h4>
 
-														<h4>
-															<a href="variableProduct/toVariable_product?productId=${a.id}" title="${a.aname }">&nbsp;&nbsp;${a.aname }</a>
-														</h4>
-
-														<!-- price -->
-														<div class="item-price">
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">
-																	<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+															<!-- price -->
+															<div class="item-price">
+																</del>
+																<ins>
+																	<span class="woocommerce-Price-amount amount">
+																		<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+																	</span>
+																</ins>
 																</span>
-															</ins>
-															</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-										</c:forEach>
-									
-										<div style="clear: both;"></div>
-										<div>
-											<%
-												Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
-																																																																																	PageUtil pageUtil=(PageUtil)map.get("page");
-											%>
-											<nav aria-label="Page navigation">
-											<ul class="pagination">
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+1%>"
-														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
-														<span aria-hidden="true">&laquo;</span>
-													</a>
-												</li>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
-														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
-														<span aria-hidden="true">&lt;</span>
-													</a>
-												</li>
+											</c:forEach>
+
+											<div style="clear: both;"></div>
+											<div>
 												<%
-												boolean p=true;
-												boolean n=true;
-													for(int i=1;i<=pageUtil.getPageCount();i++ ){
-														int curentPage=pageUtil.getCurentPage();
-														if((curentPage-i>2)&&p){
-															p=false;
-															%>
-															
-															<li>
-																<a  href="javascript:;">...</a>
-															</li>
-															<%
-														}
-														if(((curentPage-i)<=2)&&((i-curentPage)<=2)){
-															%>
-															
-															<li>
-																<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
-																	href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
-															</li>
-															<%
-															
-														}
-														if((i-curentPage)>2&&n){
-															n=false;
-														%>
-															
-															<li>
-																<a  href="javascript:;">...</a>
-															</li>
-															<%
-														}
-												
-													}
+													Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
+																																																																																											PageUtil pageUtil=(PageUtil)map.get("page");
 												%>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()+1)%>"
-														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
-														aria-label="Next">
-														<span aria-hidden="true">&gt;</span>
-													</a>
-												</li>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
-														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
-														<span aria-hidden="true">&raquo;</span>
-													</a>
-												</li>
-												<li>
-													<span style="padding:0px;border: none;">
-														第
-														<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
-															type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
-															value="${map.page.curentPage }">
-														页
-													</span>
-												</li>
-												<li>
-													<span style="border: none;">共${map.page.count }条记录</span>
-												</li>
-											</ul>
-											</nav>
-										</div>
-											</c:if>
-											<c:if test="${url2=='findHotArticle' }">
-										<c:forEach items="${map.data }" var="a">
-											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
-												<div class="item-detail">
-													<div class="item-img products-thumb">
-														<span class="onsale">Sale!</span>
-														<a href="variableProduct/toVariable_product?productId=${a.id}">
-															<div class="product-thumb-hover">
-																<img style="width: 300px;height: 300px" alt="" src="${a.image }">
-															</div>
+												<nav aria-label="Page navigation">
+												<ul class="pagination">
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+1%>"
+															style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
+															<span aria-hidden="true">&laquo;</span>
 														</a>
+													</li>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
+															style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
+															<span aria-hidden="true">&lt;</span>
+														</a>
+													</li>
+													<%
+														boolean p=true;
+																							boolean n=true;
+																								for(int i=1;i<=pageUtil.getPageCount();i++ ){
+																									int curentPage=pageUtil.getCurentPage();
+																									if((curentPage-i>2)&&p){
+																										p=false;
+													%>
 
-														<!-- add to cart, wishlist, compare -->
-														<div class="item-bottom clearfix">
-															<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
-																class="button product_type_simple" title="加入购物车">加入购物车</a>
+													<li>
+														<a href="javascript:;">...</a>
+													</li>
+													<%
+														}
+																									if(((curentPage-i)<=2)&&((i-curentPage)<=2)){
+													%>
 
-															<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																<div class="yith-wcwl-add-button show" style="display:block">
-																	<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
+													<li>
+														<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
+															href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+													</li>
+													<%
+														}
+																									if((i-curentPage)>2&&n){
+																										n=false;
+													%>
+
+													<li>
+														<a href="javascript:;">...</a>
+													</li>
+													<%
+														}
+																							
+																								}
+													%>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()+1)%>"
+															style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
+															aria-label="Next">
+															<span aria-hidden="true">&gt;</span>
+														</a>
+													</li>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
+															style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
+															<span aria-hidden="true">&raquo;</span>
+														</a>
+													</li>
+													<li>
+														<span style="padding:0px;border: none;">
+															第
+															<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
+																type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
+																value="${map.page.curentPage }">
+															页
+														</span>
+													</li>
+													<li>
+														<span style="border: none;">共${map.page.count }条记录</span>
+													</li>
+												</ul>
+												</nav>
+											</div>
+										</c:if>
+										<c:if test="${url2=='findHotArticle' }">
+											<c:forEach items="${map.data }" var="a">
+												<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+													<div class="item-detail">
+														<div class="item-img products-thumb">
+															<span class="onsale">Sale!</span>
+															<a href="variableProduct/toVariable_product?productId=${a.id}">
+																<div class="product-thumb-hover">
+																	<img style="width: 300px;height: 300px" alt="" src="${a.image }">
 																</div>
+															</a>
 
-																<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																	<span class="feedback">Product added!</span>
-																	<a href="#" rel="nofollow">Browse Wishlist</a>
+															<!-- add to cart, wishlist, compare -->
+															<div class="item-bottom clearfix">
+																<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
+																	class="button product_type_simple" title="加入购物车">加入购物车</a>
+
+																<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																	<div class="yith-wcwl-add-button show" style="display:block">
+																		<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
+																	</div>
+
+																	<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																		<span class="feedback">Product added!</span>
+																		<a href="#" rel="nofollow">Browse Wishlist</a>
+																	</div>
+
+																	<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																		<span class="feedback">The product is already in the wishlist!</span>
+																		<a href="#" rel="nofollow">浏览</a>
+																	</div>
+
+																	<div style="clear:both"></div>
+																	<div class="yith-wcwl-wishlistaddresponse"></div>
 																</div>
-
-																<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																	<span class="feedback">The product is already in the wishlist!</span>
-																	<a href="#" rel="nofollow">浏览</a>
-																</div>
-
-																<div style="clear:both"></div>
-																<div class="yith-wcwl-wishlistaddresponse"></div>
 															</div>
 														</div>
-													</div>
 
-													<div class="item-content">
-														<!-- rating  -->
-														<div class="reviews-content">
-															<div class="star"></div>
-															<div class="item-number-rating">${a.totals}人已购买</div>
-														</div>
-														<!-- end rating  -->
+														<div class="item-content">
+															<!-- rating  -->
+															<div class="reviews-content">
+																<div class="star"></div>
+																<div class="item-number-rating">${a.totals}人已购买</div>
+															</div>
+															<!-- end rating  -->
 
-														<h4>
-															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
-														</h4>
+															<h4>
+																<a href="simple_product.html" title="${a.aname }">
+																	<p style="height: 60px">${a.aname }</p>
+																</a>
+															</h4>
 
-														<!-- price -->
-														<div class="item-price">
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">
-																	<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+															<!-- price -->
+															<div class="item-price">
+																</del>
+																<ins>
+																	<span class="woocommerce-Price-amount amount">
+																		<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+																	</span>
+																</ins>
 																</span>
-															</ins>
-															</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-										</c:forEach>
-									
-										<div style="clear: both;"></div>
-										<div>
-											<%
-												Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
-																																																																																	PageUtil pageUtil=(PageUtil)map.get("page");
-											%>
-											<nav aria-label="Page navigation">
-											<ul class="pagination">
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
-														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
-														<span aria-hidden="true">&laquo;</span>
-													</a>
-												</li>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
-														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
-														<span aria-hidden="true">&lt;</span>
-													</a>
-												</li>
+											</c:forEach>
+
+											<div style="clear: both;"></div>
+											<div>
 												<%
-												boolean p=true;
-												boolean n=true;
-													for(int i=1;i<=pageUtil.getPageCount();i++ ){
-														int curentPage=pageUtil.getCurentPage();
-														if((curentPage-i>2)&&p){
-															p=false;
-															%>
-															
-															<li>
-																<a  href="javascript:;">...</a>
-															</li>
-															<%
-														}
-														if(((curentPage-i)<=2)&&((i-curentPage)<=2)){
-															%>
-															
-															<li>
-																<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
-																	href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
-															</li>
-															<%
-															
-														}
-														if((i-curentPage)>2&&n){
-															n=false;
-														%>
-															
-															<li>
-																<a  href="javascript:;">...</a>
-															</li>
-															<%
-														}
-												
-													}
+													Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
+																																																																																											PageUtil pageUtil=(PageUtil)map.get("page");
 												%>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
-														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
-														aria-label="Next">
-														<span aria-hidden="true">&gt;</span>
-													</a>
-												</li>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
-														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
-														<span aria-hidden="true">&raquo;</span>
-													</a>
-												</li>
-												<li>
-													<span style="padding:0px;border: none;">
-														第
-														<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
-															type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
-															value="${map.page.curentPage }">
-														页
-													</span>
-												</li>
-												<li>
-													<span style="border: none;">共${map.page.count }条记录</span>
-												</li>
-											</ul>
-											</nav>
-										</div>
-											</c:if>
+												<nav aria-label="Page navigation">
+												<ul class="pagination">
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
+															style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
+															<span aria-hidden="true">&laquo;</span>
+														</a>
+													</li>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+(pageUtil.getCurentPage()-1)%>"
+															style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
+															<span aria-hidden="true">&lt;</span>
+														</a>
+													</li>
+													<%
+														boolean p=true;
+																							boolean n=true;
+																								for(int i=1;i<=pageUtil.getPageCount();i++ ){
+																									int curentPage=pageUtil.getCurentPage();
+																									if((curentPage-i>2)&&p){
+																										p=false;
+													%>
+
+													<li>
+														<a href="javascript:;">...</a>
+													</li>
+													<%
+														}
+																									if(((curentPage-i)<=2)&&((i-curentPage)<=2)){
+													%>
+
+													<li>
+														<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
+															href="new_deals/${map.url }?curentPage=<%=i%>"><%=i%></a>
+													</li>
+													<%
+														}
+																									if((i-curentPage)>2&&n){
+																										n=false;
+													%>
+
+													<li>
+														<a href="javascript:;">...</a>
+													</li>
+													<%
+														}
+																							
+																								}
+													%>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
+															style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
+															aria-label="Next">
+															<span aria-hidden="true">&gt;</span>
+														</a>
+													</li>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?curentPage="+pageUtil.getPageCount()%>"
+															style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
+															<span aria-hidden="true">&raquo;</span>
+														</a>
+													</li>
+													<li>
+														<span style="padding:0px;border: none;">
+															第
+															<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
+																type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
+																value="${map.page.curentPage }">
+															页
+														</span>
+													</li>
+													<li>
+														<span style="border: none;">共${map.page.count }条记录</span>
+													</li>
+												</ul>
+												</nav>
+											</div>
+										</c:if>
 										<c:if test="${url eq 'findAllArticle' }">
-										<c:forEach items="${map.data }" var="a">
-											<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
-												<div class="item-detail">
-													<div class="item-img products-thumb">
-														<span class="onsale">Sale!</span>
-														<a href="variableProduct/toVariable_product?productId=${a.id}">
-															<div class="product-thumb-hover">
-																<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+											<c:forEach items="${map.data }" var="a">
+												<div class="item-product col-lg-3 col-md-3 col-sm-4 col-xs-6">
+													<div class="item-detail">
+														<div class="item-img products-thumb">
+															<span class="onsale">Sale!</span>
+															<a href="variableProduct/toVariable_product?productId=${a.id}">
+																<div class="product-thumb-hover">
+																	<img style="width: 300px;height: 300px" alt="" src="${a.image }">
+																</div>
+															</a>
+
+															<!-- add to cart, wishlist, compare -->
+															<div class="item-bottom clearfix">
+																<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
+																	class="button product_type_simple" title="加入购物车">加入购物车</a>
+
+																<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
+																	<div class="yith-wcwl-add-button show" style="display:block">
+																		<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
+																	</div>
+
+																	<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
+																		<span class="feedback">Product added!</span>
+																		<a href="#" rel="nofollow">Browse Wishlist</a>
+																	</div>
+
+																	<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
+																		<span class="feedback">The product is already in the wishlist!</span>
+																		<a href="#" rel="nofollow">浏览</a>
+																	</div>
+
+																	<div style="clear:both"></div>
+																	<div class="yith-wcwl-wishlistaddresponse"></div>
+																</div>
 															</div>
-														</a>
 
-														<!-- add to cart, wishlist, compare -->
-														<div class="item-bottom clearfix">
-															<a rel="nofollow" href="javascript:;" onclick="addCar('${a.id}')"
-																class="button product_type_simple" title="加入购物车">加入购物车</a>
-
-															<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																<div class="yith-wcwl-add-button show" style="display:block">
-																	<a href="javascript:;" onclick="addWish('${a.id}')" rel="nofollow" class="">加入收藏</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																	<span class="feedback">Product added!</span>
-																	<a href="#" rel="nofollow">Browse Wishlist</a>
-																</div>
-
-																<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																	<span class="feedback">The product is already in the wishlist!</span>
-																	<a href="#" rel="nofollow">浏览</a>
-																</div>
-
-																<div style="clear:both"></div>
-																<div class="yith-wcwl-wishlistaddresponse"></div>
-															</div>
 														</div>
 
-													</div>
+														<div class="item-content">
+															<!-- rating  -->
+															<div class="reviews-content">
+																<div class="star"></div>
+																<div class="item-number-rating">${a.totals}人已购买</div>
+															</div>
+															<!-- end rating  -->
 
-													<div class="item-content">
-														<!-- rating  -->
-														<div class="reviews-content">
-															<div class="star"></div>
-															<div class="item-number-rating">${a.totals}人已购买</div>
-														</div>
-														<!-- end rating  -->
+															<h4>
+																<a href="simple_product.html" title="${a.aname }"><p style="height: 60px">${a.aname }</p></a>
+															</h4>
 
-														<h4>
-															<a href="simple_product.html" title="高音炮">&nbsp;&nbsp;${a.aname }</a>
-														</h4>
-
-														<!-- price -->
-														<div class="item-price">
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">
-																	<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+															<!-- price -->
+															<div class="item-price">
+																</del>
+																<ins>
+																	<span class="woocommerce-Price-amount amount">
+																		<span class="woocommerce-Price-currencySymbol">￥</span>${a.price }
+																	</span>
+																</ins>
 																</span>
-															</ins>
-															</span>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-										</c:forEach>
-									
-										<div style="clear: both;"></div>
-										<div>
-											<%
-												Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
-																																																																																	PageUtil pageUtil=(PageUtil)map.get("page");
-											%>
-											<nav aria-label="Page navigation">
-											<ul class="pagination">
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
-														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
-														<span aria-hidden="true">&laquo;</span>
-													</a>
-												</li>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()-1)%>"
-														style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
-														<span aria-hidden="true">&lt;</span>
-													</a>
-												</li>
+											</c:forEach>
+
+											<div style="clear: both;"></div>
+											<div>
 												<%
-												boolean p=true;
-												boolean n=true;
-													for(int i=1;i<=pageUtil.getPageCount();i++ ){
-														int curentPage=pageUtil.getCurentPage();
-														if((curentPage-i>2)&&p){
-															p=false;
-															%>
-															
-															<li>
-																<a  href="javascript:;">...</a>
-															</li>
-															<%
-														}
-														if(((curentPage-i)<=2)&&((i-curentPage)<=2)){
-															%>
-															
-															<li>
-																<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
-																	href="new_deals/${map.url }?curentPage=<%=i%>&s=${s}&search_category=${search_category}"><%=i%></a>
-															</li>
-															<%
-															
-														}
-														if((i-curentPage)>2&&n){
-															n=false;
-														%>
-															
-															<li>
-																<a  href="javascript:;">...</a>
-															</li>
-															<%
-														}
-												
-													}
+													Map<String,Object> map=(Map<String,Object>)request.getAttribute("map");
+																																																																																											PageUtil pageUtil=(PageUtil)map.get("page");
 												%>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
-														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
-														aria-label="Next">
-														<span aria-hidden="true">&gt;</span>
-													</a>
-												</li>
-												<li>
-													<a
-														href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+pageUtil.getPageCount()%>"
-														style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
-														<span aria-hidden="true">&raquo;</span>
-													</a>
-												</li>
-												<li>
-													<span style="padding:0px;border: none;">
-														第
-														<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
-															type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
-															value="${map.page.curentPage }">
-														页
-													</span>
-												</li>
-												<li>
-													<span style="border: none;">共${map.page.count }条记录</span>
-												</li>
-											</ul>
-											</nav>
-										</div>
-											</c:if>
-											
+												<nav aria-label="Page navigation">
+												<ul class="pagination">
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+1%>"
+															style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>">
+															<span aria-hidden="true">&laquo;</span>
+														</a>
+													</li>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==1?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()-1)%>"
+															style="<%=pageUtil.getCurentPage()==1?"color:#ccc":""%>" aria-label="Previous">
+															<span aria-hidden="true">&lt;</span>
+														</a>
+													</li>
+													<%
+														boolean p=true;
+																							boolean n=true;
+																								for(int i=1;i<=pageUtil.getPageCount();i++ ){
+																									int curentPage=pageUtil.getCurentPage();
+																									if((curentPage-i>2)&&p){
+																										p=false;
+													%>
+
+													<li>
+														<a href="javascript:;">...</a>
+													</li>
+													<%
+														}
+																									if(((curentPage-i)<=2)&&((i-curentPage)<=2)){
+													%>
+
+													<li>
+														<a style="<%=pageUtil.getCurentPage()==i?"color:red":""%>"
+															href="new_deals/${map.url }?curentPage=<%=i%>&s=${s}&search_category=${search_category}"><%=i%></a>
+													</li>
+													<%
+														}
+																									if((i-curentPage)>2&&n){
+																										n=false;
+													%>
+
+													<li>
+														<a href="javascript:;">...</a>
+													</li>
+													<%
+														}
+																							
+																								}
+													%>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+(pageUtil.getCurentPage()+1)%>"
+															style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>"
+															aria-label="Next">
+															<span aria-hidden="true">&gt;</span>
+														</a>
+													</li>
+													<li>
+														<a
+															href="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"javascript:;":"new_deals/"+map.get("url")+"?s="+map.get("s")+"&search_category="+map.get("search_category")+"&curentPage="+pageUtil.getPageCount()%>"
+															style="<%=pageUtil.getCurentPage()==pageUtil.getPageCount()?"color:#ccc":""%>">
+															<span aria-hidden="true">&raquo;</span>
+														</a>
+													</li>
+													<li>
+														<span style="padding:0px;border: none;">
+															第
+															<input style="width: 40px;margin: 0;padding: 0;height: 35px;text-align: right;"
+																type="text" onchange="myChang(this,'${map.page.pageCount}','${map.url }')"
+																value="${map.page.curentPage }">
+															页
+														</span>
+													</li>
+													<li>
+														<span style="border: none;">共${map.page.count }条记录</span>
+													</li>
+												</ul>
+												</nav>
+											</div>
+										</c:if>
+
 									</div>
 								</div>
 							</div>
@@ -720,7 +721,7 @@
 	<script type="text/javascript">
 		function myChang(o, a, url) {
 			var n = $(o).val();
-			consolo.log(n+"################################");
+			consolo.log(n + "################################");
 			n = parseInt(n);
 			a = parseInt(a);
 			if (n >= 1 && n <= a) {

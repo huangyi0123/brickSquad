@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -60,6 +60,7 @@
 <link rel="stylesheet" type="text/css" href="resource/css/ProductDetails.css">
 <link rel="stylesheet" type="text/css" href="resource/plugins/pictureMagnification/css/default.css">
 <link rel="stylesheet" href="resource/plugins/pictureMagnification/css/smoothproducts.css">
+
 <style type="text/css">
 .page {
 	padding: 5px 30px 30px 30px;
@@ -191,11 +192,11 @@ $(function() {
 									<div class="comm_imgs">
 										<div>
 											<div>
-												<a href="#" style="color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
+												<a href="javascript:;" style="color: #BAAA99;border: none;margin-left: 30px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-share"></i>
 													<label style="cursor: pointer;">分享</label>
 												</a>
-												<a href="#"
+												<a href="javascript:;"
 													style="display:block; color: #BAAA99;border: none;margin-left: 40px;margin-top: 40px;">
 													<i class="glyphicon glyphicon-star"></i>
 													<label style="cursor: pointer;">收藏商品</label>
@@ -209,11 +210,11 @@ $(function() {
 								<div class="comm_info">
 									<p
 										style="width: 400px;margin-left: 30px;margin-top: 20px;font-size:1.2em; font-weight: bold;">${ article.aname}</p>
-									<label style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label>
+									<!-- <label style="margin-left: 30px;margin-top: -5px;color: red;font-size: 0.8em">全国线下3000家实体店</label> -->
 									<div class="comm_backimg">
 										<dl>
 											<dd>
-												<label>价格</label> <label style="margin-left: 50px;">${ article.price}</label>
+												<label>价格</label> <label style="margin-left: 50px;">${ article.price*1.2}</label>
 											</dd>
 											<dd>
 												<label>促销价</label> <label style="margin-left: 36px;">${ article.price}</label>
@@ -366,7 +367,8 @@ $(function() {
 										style="margin-left: 290px;margin-top: -21px;">${ratedTotal }</label>
 									<p style="display:block;margin-top: -20px;margin-left: 350px;">|</p>
 									<label style="display:block; margin-left: 390px;margin-top: -25px;">积分</label> <label
-										style="margin-left: 460px;margin-top: -23px;">${article.price }</label>
+										style="margin-left: 460px;margin-top: -23px;" id="grade">${article.price } 
+										</label>
 									<div
 										style="margin-top:10px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
 									<form class="layui-form" action="">
@@ -924,6 +926,10 @@ $(function() {
 		b[c] = b[c].replace(rcs, ' ');
 		// The customizer requires postMessage and CORS (if the site is cross domain)
 		b[c] += (window.postMessage && request ? ' ' : ' no-') + cs;
+		$(function() {
+			var grd=$("#grade").html();
+			$("#grade").html(grd.substring(0,grd.indexOf('.')));
+		});
 	</script>
 </body>
 </html>
