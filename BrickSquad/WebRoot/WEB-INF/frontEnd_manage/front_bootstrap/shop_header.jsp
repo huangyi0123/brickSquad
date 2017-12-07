@@ -80,6 +80,17 @@
 		alert("nihao");
 	}
 </script>
+<script type="text/javascript">
+function MyPsersonalWishlist(id){
+	var a=$("#MyPsersonalWishlist1");
+	if(id==""){
+		alert("你还没有登录，请先去登录！");
+	}else{
+		$("#MyPsersonalWishlist1").attr("href","collectionFront/collectionMessage?userId="+id); 
+	}
+	
+}
+</script>
 </head>
 
 <body>
@@ -277,8 +288,8 @@
 						<div class="widget-inner">
 							<ul id="menu-wishlist" class="menu">
 								<li class="menu-wishlist"><a class="item-link"
-									href="collectionFront/collectionMessage?userId=${user.id}">
-										<span class="menu-title">我的收藏</span>
+									href="javascript:;" onclick="MyPsersonalWishlist('${user.id}')" id="MyPsersonalWishlist1">
+										<!-- <span class="menu-title">我的收藏</span> -->
 								</a></li>
 
 								
