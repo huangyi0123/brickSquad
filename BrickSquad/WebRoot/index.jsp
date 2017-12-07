@@ -625,7 +625,7 @@
 				<div class="col-md-3 coupons-gd">
 					<h4>
 						<span>
-							<a href="common/toLife?type=aboutus-intro">
+							<a href="common/toLife?type=nutritive-diet">
 								<img src="resource/image/web.png" alt=" " />
 							</a>
 						</span>
