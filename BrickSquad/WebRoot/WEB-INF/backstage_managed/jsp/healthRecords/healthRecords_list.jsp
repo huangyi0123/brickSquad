@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var a='${roleId}';
 		console.log(a);
 		if(a=="ed270512bb8411e78d4f5254002ec43c"){
-		init("",!${limiterole.address.ad},!${limiterole.address.dl},false);
+		init("",${limiterole.address.ad},${limiterole.address.dl},false);
 		}
 		init("",false,false,false);
 		serach();

@@ -29,7 +29,7 @@ function main_1(id) {
 				series : [ {
 					name : '访问来源',
 					type : 'pie',
-					radius : [ '50%', '70%' ],
+					radius : [ '30%', '70%' ],
 					avoidLabelOverlap : false,
 					label : {
 						normal : {

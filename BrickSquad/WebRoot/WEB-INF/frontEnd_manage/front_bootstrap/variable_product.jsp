@@ -371,18 +371,18 @@ $(function() {
 										</label>
 									<div
 										style="margin-top:10px;margin-left:20px; width: 100%;height: 2px;border-top: 1px #C9C9C9 dashed;"></div>
-									<!-- <form class="layui-form" action="">
+									<form class="layui-form" action="">
 										<div class="layui-form-item">
 											<label class="layui-form-label"
 												style="font-weight: bold;margin-top: 15px;margin-left: -5px;">尺码</label>
 											<div class="layui-input-block myInput">
 												<a href="javascript:;" style="margin-left: -1px;" name="size" title="S">S</a>
-												<a href="#" name="size" title="M">M</a>
-												<a href="#" name="size" title="L">L</a>
-												<a href="#" name="size" title="XL">XL</a>
+												<a href="javascript:;" name="size" title="M">M</a>
+												<a href="javascript:;" name="size" title="L">L</a>
+												<a href="javascript:;" name="size" title="XL">XL</a>
 											</div>
 										</div>
-									</form> -->
+									</form>
 									<!-- <form class="layui-form" action="">
 										<div class="layui-form-item" style="margin-top: -20px;">
 											<label class="layui-form-label"
