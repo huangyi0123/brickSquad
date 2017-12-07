@@ -76,12 +76,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														</div>
 
 														<div class="store">
-															<a href="#"> <img
+															<a > <img
 																src="resource/front_bootstrap/images/1903/app-store.png"
-																alt="store" title="store" />
-															</a> <a href="#"> <img
+																alt="store" title="" />
+															</a> <a > <img
 																src="resource/front_bootstrap/images/1903/google-store.png"
-																alt="store" title="store" />
+																alt="store" title="" />
 															</a>
 														</div>
 													</div>
@@ -207,20 +207,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</a></li>
 
 										<li class="menu-customer-service"><a class="item-link"
-											href="#"> <span class="menu-title">客户服务</span>
+											href="javascript:;"> <span class="menu-title">客户服务</span>
 										</a></li>
 
 										<li class="menu-privacy-policy"><a class="item-link"
-											href="#"> <span class="menu-title">隐私政策</span>
+											href="javascript:;"> <span class="menu-title">隐私政策</span>
 										</a></li>
 
-										<li class="menu-site-map"><a class="item-link" href="#">
+										<li class="menu-site-map"><a class="item-link"  href="http://map.qq.com/?type=marker&isopeninfowin=1&markertype=1&name=%E4%B8%AD%E5%9B%BD%2C%E6%B1%9F%E8%8B%8F%E7%9C%81%2C%E5%8D%97%E9%80%9A%E5%B8%82%2C%E9%80%9A%E5%B7%9E%E5%8C%BA&addr=%E5%A4%8F%E8%8D%B7%E8%B7%AF&pointy=32.182630&pointx=121.383040&coord=32.182630%2C121.383040&ref=pcqq" target="_blank">
 												<span class="menu-title">网站地图</span>
 										</a></li>
 
-										<li class="menu-orders-and-returns"><a class="item-link"
+										<!-- <li class="menu-orders-and-returns"><a class="item-link"
 											href="#"> <span class="menu-title">订单和退货</span>
-										</a></li>
+										</a></li> -->
 
 										<li class="menu-contact-us"><a class="item-link"
 											href="common/toContactUs"> <span class="menu-title">联系我们</span>
