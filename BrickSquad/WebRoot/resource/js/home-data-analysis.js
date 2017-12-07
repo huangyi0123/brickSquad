@@ -44,26 +44,53 @@ function main_2(id) {
 		success : function(data) {
 			data = JSON.parse(data);
 			// 指定图表的配置项和数据
-			var option = {
-				title : {
-					text : '消费量'
-				},
-				tooltip : {},
-				legend : {
-					data : [ '消费量' ]
-				},
-				xAxis : {
-					data : [ "500元以下", "500-999元", "1000-2999元", "3000-5000元",
-							"5000-9999元", "10000元及以上" ]
-				},
-				yAxis : {},
-				series : [ {
-					name : '消费量',
-					type : 'bar',
-					data : [ data[0].a, data[0].b, data[0].c, data[0].d,
-							data[0].e, data[0].f ]
-				} ]
-			};
+			option = {
+				    title: {
+				        text: '人数'
+				    },
+				    tooltip : {
+				        trigger: 'axis',
+				        axisPointer: {
+				            type: 'cross',
+				            label: {
+				                backgroundColor: '#6a7985'
+				            }
+				        }
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    xAxis : [
+				        {
+				            type : 'category',
+				            boundaryGap : false,
+				            data : [ "500元以下", "500-999元", "1000-2999元", "3000-5000元",
+										"5000-9999元", "10000元及以上" ]
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value'
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'人数',
+				            type:'line',
+				            areaStyle: {normal: {}},
+				            data:[ data[0].a, data[0].b, data[0].c, data[0].d,
+									data[0].e, data[0].f ]
+				        }
+				    ]
+				};
 
 			// 使用刚指定的配置项和数据显示图表。
 			myChart.setOption(option);
