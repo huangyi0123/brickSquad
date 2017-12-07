@@ -180,7 +180,7 @@ public class OrdersController {
 		String p5_Pid = ""; 
 		String p6_Pcat = ""; 
 		String p7_Pdesc = ""; 
-		String p8_Url = "http://www.liangchengyue.com/BrickSquad/orders/updateOrderStateAndGrade"; 
+		String p8_Url = "http://www.liangchengyue.com/orders/updateOrderStateAndGrade"; 
 		String p9_SAF = ""; 
 		String pa_MP = ""; 
 		String pd_FrpId = pd_FrpId1;

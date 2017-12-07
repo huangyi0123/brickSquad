@@ -103,9 +103,9 @@
 								<table class="shop_table cart wishlist_table">
 									<thead>
 										<tr>
-											<th class="product-remove">
+											<!-- <th class="product-remove">
 												<span class="nobr">删除</span>
-											</th>
+											</th> -->
 
 											<th class="product-name">
 												<span class="nobr">宝贝信息</span>
@@ -129,11 +129,15 @@
 											varStatus="i">
 
 											<tr>
-												<td class="product-remove">
+												<!-- <td class="product-remove"> -->
 													<%-- <div>
 														<a href="collectionFront/deleteCollectionMessage?collectionId=${ArticleExpand.collectionId}" class="remove remove_from_wishlist"></a>
 													</div> --%>
-												</td>
+												<!-- </td> -->
+												<%-- <td class="product-remove"><a
+															href="shoppingCar/IndexDeleteShoppingCar?id=${ArticleExpand.id}"
+															class="remove" title="删除"><i
+																class="fa fa-times" aria-hidden="true"></i></a></td> --%>
 
 												<td class="product-name">
 													<a href="variableProduct/toVariable_product?productId=${ArticleExpand.id }"> ${ArticleExpand.aname}</a>
