@@ -92,18 +92,11 @@
 														<h3>欢迎来到电子商城</h3>
 
 														<p>
-															Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-															Aenean commodo ligula eget dolor. Aenean massa. Cum
-															sociis natoque penatibus et magnis dis parturient montes,
-															nascetur ridiculus mus. Donec quam felis, ultricies nec,
-															pellentesque eu, pretium quis, sem. Nulla consequat massa
-															quis enim. Donec pede justo, fringilla vel, aliquet nec,
-															vulputate eget, arcu.Lorem ipsum dolor sit amet,
-															consectetuer adipiscing elit. Aenean commodo ligula eget
-															dolor. Aenean massa. Cum sociis natoque penatibus et
-															magnis dis parturient montes,<br> nascetur ridiculus
-															mus. Donec quam felis, ultricies nec, pellentesque eu,
-															pretium quis, sem. Nulla consequat massa quis enim.
+															为长者及其家人提供多样的服务选择，包括服务种类、服务时间、服务方式等。
+															通过指导与帮助，提高长者的整体独立生活能力。
+															全面提升长者的健康状况——通过我们的预防性和支持性的服务，全方位提高长者的生理、心理、认知、社会以及职业健康。
+															通过严格选拔和持续的员工培养，提供优质的客户服务。
+															通过员工培训、规章制度和评估考核，发掘最优秀的员工，确保我们卓越的服务品质。
 														</p>
 													</div>
 												</div>
@@ -267,7 +260,7 @@
 													data-interval="5000" data-rtl="false" data-autoplay="false">
 													<div class="box-title">
 														<h2>认识我们的团队</h2>
-														<div class="slider-description">我们正在努力工作，激情一天天为您提供最好的厨房用品。除了工作，我们喜欢背包，烘烤，玩耍，天空等等。</div>
+														<div class="slider-description">我们正在努力工作，激情一天天为您提供最好的老人用品。除了工作，我们喜欢王者，吃鸡，撸啊撸等等。</div>
 													</div>
 
 													<div class="resp-slider-container">
@@ -287,7 +280,7 @@
 
 																	<div class="item-content">
 																		<h3>雪彪</h3>
-																		<div class="team-info">护理人员</div>
+																		<div class="team-info">程序员</div>
 																		<div class="item-desc"></div>
 																	</div>
 
@@ -326,7 +319,7 @@
 
 																	<div class="item-content">
 																		<h3>超哥</h3>
-																		<div class="team-info">项目管理人员</div>
+																		<div class="team-info">项目管理</div>
 																		<div class="item-desc"></div>
 																	</div>
 
@@ -365,7 +358,7 @@
 
 																	<div class="item-content">
 																		<h3>老二</h3>
-																		<div class="team-info">经理</div>
+																		<div class="team-info">项目经理</div>
 																		<div class="item-desc"></div>
 																	</div>
 

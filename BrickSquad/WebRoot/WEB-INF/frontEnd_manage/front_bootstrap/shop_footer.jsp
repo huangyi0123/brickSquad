@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="wpb_text_column wpb_content_element ">
 												<div class="wpb_wrapper">
 													<div class="ya-logo">
-														<a href="home_page_1.html"> <img
+														<a href="shopIndex/toShop"> <img
 															src="resource/front_bootstrap/images/icons/20171116102946.png"
 															alt="logo" />
 														</a>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="wpb_raw_code wpb_content_element wpb_raw_html">
 												<div class="wpb_wrapper">
 													<div class="infomation">
-														<p>这是我们小组历经2个月，呕心沥血制作的作品，满足老年人的购物需求，让你的晚年生活有保障，让老年人购物变得轻松起来</p>
+														<p>搬砖小分队历经2个月，呕心沥血制作的作品，满足老年人的购物需求，让您的晚年生活有保障，让老年人购物变得更轻松</p>
 
 														<div class="info-support">
 															<ul>
