@@ -82,7 +82,7 @@
 						<div class="breadcrumbs theme-clearfix">
 							<div class="container">
 								<ul class="breadcrumb">
-									<li><a href="home_page_1.html">首页</a> <span
+									<li><a href="shopIndex/toShop">首页</a> <span
 										class="go-page"></span></li>
 
 									<li class="active"><span>团购</span></li>
