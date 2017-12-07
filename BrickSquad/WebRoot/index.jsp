@@ -829,6 +829,7 @@
 				<a href="common/toWebsiteTemplate?type=aboutus-intro" target="_blank" title="老人之家">老人之家</a>
 				- 来源
 				<a href="common/toWebsiteTemplate?type=aboutus-join" title="搬砖小分队" target="_blank">搬砖小分队</a>
+				<a href="http://www.miitbeian.gov.cn ">黔ICP备17009073号</a>
 			</p>
 		</div>
 	</div>
